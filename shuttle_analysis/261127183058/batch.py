@@ -2,6 +2,9 @@
 import argparse
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
+from tempfile import TemporaryDirectory
+import json
+import shutil
 import subprocess
 import sys
 
@@ -11,7 +14,23 @@ def replay(job):
     day, service, mode = job
     folder = HERE / "runs" / mode / f"{service}-{day}"
     folder.mkdir(parents=True, exist_ok=True)
-    if (folder / "summary.json").exists():
+    summary=folder/"summary.json"
+    if summary.exists():
+        key=f"{service}-{day}"
+        required=(f"audit-{key}.json.gz",f"{key}.json.gz")
+        if all((folder/name).exists() for name in required):return
+        # Earlier research runs keep their summary after the detailed output is pruned.
+        with TemporaryDirectory(prefix="snu-r-replay-") as tmp:
+            subprocess.run([sys.executable,str(HERE/"v13.py"),*job,"--output",tmp],check=True)
+            rebuilt=Path(tmp)/"runs"/mode/key
+            if json.loads((rebuilt/"summary.json").read_bytes())!=json.loads(summary.read_bytes()):
+                raise ValueError(f"Regenerated run disagrees with the archived summary: {job}")
+            for name in required:
+                if not (folder/name).exists():
+                    with TemporaryDirectory(dir=folder) as staged:
+                        local=Path(staged)/name
+                        shutil.copyfile(rebuilt/name,local)
+                        local.replace(folder/name)
         return
     with (folder / "run.log").open("w", encoding="utf8") as log:
         entry = "capture_inputs.py" if mode=="V13" else "v13.py"
