@@ -31,12 +31,17 @@ def main():
         needed=set(json.loads(log.read_bytes()))
     meta={p["name"]:p for p in json.loads((INDEX/"parts.json").read_bytes())}
     files=defaultdict(list)
+    derived=[]
     with gzip.open(INDEX/"files.csv.gz","rt",encoding="utf8",newline="") as f:
         for row in csv.DictReader(f):
             if needed is not None and row["path"] not in needed:continue
             if row["storage"]=="git" or (args.prefix and not any(row["path"].startswith(p) for p in args.prefix)):continue
             dest=(ROOT/PurePosixPath(row["path"])).resolve()
-            if not dest.is_relative_to(ROOT) or not row["storage"] in meta:raise ValueError("Unexpected archive path")
+            if not dest.is_relative_to(ROOT):raise ValueError("Unexpected project path")
+            if row["storage"]=="gzip-sibling":
+                derived.append((dest,row))
+                continue
+            if row["storage"] not in meta:raise ValueError("Unexpected archive part")
             files[row["storage"]].append((dest,row))
     if args.list:
         for n in sorted(files):print(n,meta[n]["bytes"],len(files[n]))
@@ -59,5 +64,17 @@ def main():
                 finally:
                     pending.unlink(missing_ok=True)
         print(f"Ready: {n}",flush=True)
+    for dest,row in derived:
+        if dest.exists():
+            if digest(dest)==row["sha256"]:continue
+            raise FileExistsError(dest)
+        with gzip.open(str(dest)+".gz","rb") as src:
+            fd,name=tempfile.mkstemp(dir=dest.parent);os.close(fd);pending=Path(name)
+            try:
+                with pending.open("wb") as out:shutil.copyfileobj(src,out,1024*1024)
+                if pending.stat().st_size!=int(row["bytes"]) or digest(pending)!=row["sha256"]:raise ValueError(row["path"])
+                pending.replace(dest)
+            finally:
+                pending.unlink(missing_ok=True)
 
 if __name__=="__main__":main()
