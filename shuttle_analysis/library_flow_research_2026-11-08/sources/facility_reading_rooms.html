@@ -1,0 +1,259 @@
+
+<script>
+
+	jQuery(function($) {
+		$(window).ready(function() {
+			$("#result-views").removeClass("ajax-load");
+		});
+	});
+
+</script>
+
+	<div id="result-views" class="ajax-load">
+		
+		<!-- 게시판 정보 시작 -->
+		<div class="kboard-list-header">
+			<div class="kboard-total-count">
+				전체				<span>7</span>
+			</div>
+		</div>
+		<!-- 게시판 정보 끝 -->
+	
+		<!-- 리스트 시작 -->
+		<div class="kboard-list-container">
+			<div class="kboard-list kboard-list-places">
+			<!-- <div class="kboard-list kboard-list-places" style="height: 720px; overflow-y: auto;"> -->
+				<div class="loading-animation"><div class="spinner"></div><div class="spinner-text">Please Wait...</div></div>
+				<table>
+					<tbody>
+
+										
+						<tr>
+							<td class="kboard-list-places-image">
+								<img src="https://lib.snu.ac.kr/wp-content/uploads/2024/01/열람실.jpg" alt="열람실(3A,3B)(본관)" />
+							</td>
+							<td class="kboard-list-places-info">
+								<div>
+									<h3>열람실(3A,3B)(본관)</h3>
+																	<div class="location"><span class="material-icons">place</span>  중앙도서관 본관</div>
+																									<div class="floor"><span class="material-icons">stairs</span> 3층</div>
+																									<div class="hours"><span class="material-icons">schedule</span> 월~일, 공휴일 07:00~23:00</div>
+																									<div class="contact"><span class="material-icons">phone</span> 행정지원팀 880-5295</div>
+																</div>
+							</td>
+							<td class="kboard-list-places-desc">
+								<div>
+									<p>• 개인 학습 공간<br />
+• 이용대상: 서울대 구성원<br />
+※3B(7시~23시)는 외부인도 이용가능 (단, 3A 안내실에서 신분증 교환 후 현장 배정)<br />
+※3A(24시간 열람실) 외부인은 사용 불가, 서울대 구성원 및 회원제 이용자 사용 가능<br />
+• 이용방법: 현장좌석배정 및 예약(최대6시간, 연장가능 - 이용시간 마감 30분 전부터 예약 불가)<br />
+ ※ 3A 열람실은 현장배정만 가능<br />
+ ※ 3A/B 일부 좌석은 노트북존으로 운영, 현장 키오스크에서 확인<br />
+• 이용제재: 예약부도 또는 좌석 미반납 5회 누적 시 10일간 도서관 좌석배정 불가<br />
+▶ 열람실 예약 후 30분이내 키오스크에서 좌석을 배정하지 않는 경우<br />
+▶ 열람실 이용 후 예약시간 마감 전까지 좌석반납 처리를 하지 않은 경우<br />
+• 시설 및 이용제재, 예약 부도, 블랙리스트 관련 문의: 행정지원팀 880-5295<br />
+• 회원제 관련 문의: 정보서비스센터 880-5636</p>								</div>
+							</td>
+							<td class="kboard-list-places-book">
+								<div>
+																	<span>현장 좌석 배정 또는</span>
+								
+																																																									<a style="width: 155px;" class="btn btn-darkgrey" target="_blank" href="https://k-rsv.snu.ac.kr/NEW_SNU_BOOKING/LibLogin2.jsp">
+																						예약										</a><!-- link: 6 -->
+																									</div>
+
+							</td>
+						</tr><!-- row 1 -->
+					
+					
+						<tr>
+							<td class="kboard-list-places-image">
+								<img src="https://lib.snu.ac.kr/sites/default/files/styles/220x220/public/%EB%B6%99%EC%9E%84%201.jpg" alt="장애학생지원실 (본관)" />
+							</td>
+							<td class="kboard-list-places-info">
+								<div>
+									<h3>장애학생지원실 (본관)</h3>
+																	<div class="location"><span class="material-icons">place</span>  중앙도서관 본관</div>
+																									<div class="floor"><span class="material-icons">stairs</span> 4층</div>
+																									<div class="hours"><span class="material-icons">schedule</span> 월~금 09:00~21:00 토·공휴일 10:00~17:00 일 13:00~17:00</div>
+																									<div class="contact"><span class="material-icons">phone</span> 정보서비스센터 880-5636</div>
+																</div>
+							</td>
+							<td class="kboard-list-places-desc">
+								<div>
+									<ul>
+<li>이용대상: 장애학생</li>
+<li>수용인원: 4석</li>
+</ul>								</div>
+							</td>
+							<td class="kboard-list-places-book">
+								<div>
+																	<span>이용가능</span>
+								
+																</div>
+
+							</td>
+						</tr><!-- row 2 -->
+					
+					
+						<tr>
+							<td class="kboard-list-places-image">
+								<img src="https://lib.snu.ac.kr/sites/default/files/styles/220x220/public/readingk.png" alt="열람실(7A,7B,8A,8B)(관정관)" />
+							</td>
+							<td class="kboard-list-places-info">
+								<div>
+									<h3>열람실(7A,7B,8A,8B)(관정관)</h3>
+																	<div class="location"><span class="material-icons">place</span>  중앙도서관 관정관</div>
+																									<div class="floor"><span class="material-icons">stairs</span> 7층, 8층</div>
+																									<div class="hours"><span class="material-icons">schedule</span> 월~일, 공휴일 07:00~23:00</div>
+																									<div class="contact"><span class="material-icons">phone</span> 행정지원팀  880-5295</div>
+																</div>
+							</td>
+							<td class="kboard-list-places-desc">
+								<div>
+									<p>• 개인 학습 공간<br />
+• 이용대상: 서울대 구성원 (8B는 대학원생만 이용가능)<br />
+• 이용방법: 현장좌석배정 및 예약(최대 6시간, 연장가능)<br />
+※ 7A · 8A 열람실 소장자료는 열람실 내에서만 이용 및 제한적 대출 가능<br />
+※ 7B는 노트북 사용 가능<br />
+• 이용제재: 예약부도 또는 좌석반납 5회 누적 시 10일간 도서관 좌석배정 불가<br />
+▶ 열람실 예약 후 30분이내 키오스크에서 좌석을 배정하지 않는 경우<br />
+▶ 열람실 이용 후 좌석반납 처리를 하지 않은 경우<br />
+• 시설 및 이용제재, 예약 부도, 블랙리스트 관련 문의: 행정지원팀 880-5295<br />
+• 회원제 관련: 정보서비스센터 880-5636</p>								</div>
+							</td>
+							<td class="kboard-list-places-book">
+								<div>
+																	<span>현장 좌석 배정 또는</span>
+								
+																																																									<a style="width: 155px;" class="btn btn-darkgrey" target="_blank" href="https://k-rsv.snu.ac.kr/NEW_SNU_BOOKING/LibLogin1.jsp">
+																						예약										</a><!-- link: 5 -->
+																									</div>
+
+							</td>
+						</tr><!-- row 3 -->
+					
+					
+						<tr>
+							<td class="kboard-list-places-image">
+								<img src="https://lib.snu.ac.kr/wp-content/uploads/2023/12/reading-room.jpg" alt="열람실(경영학)" />
+							</td>
+							<td class="kboard-list-places-info">
+								<div>
+									<h3>열람실(경영학)</h3>
+																	<div class="location"><span class="material-icons">place</span>  경영학도서관</div>
+																									<div class="floor"><span class="material-icons">stairs</span> 1층</div>
+																									<div class="hours"><span class="material-icons">schedule</span> 월~일 07:00~23:00</div>
+																								</div>
+							</td>
+							<td class="kboard-list-places-desc">
+								<div>
+									<p>• 이용대상 : 경영대학 소속 구성원<br>
+• 수용인원 : 133석<br>
+• 이용문의 : 880-6915</p>								</div>
+							</td>
+							<td class="kboard-list-places-book">
+								<div>
+								
+																																																									<a style="width: 155px;" class="btn btn-darkgrey" target="_blank" href="http://cba.snu.ac.kr/intranet">
+																						예약(경영대인트라넷)										</a><!-- link: 7 -->
+																									</div>
+
+							</td>
+						</tr><!-- row 4 -->
+					
+					
+						<tr>
+							<td class="kboard-list-places-image">
+								<img src="https://lib.snu.ac.kr/wp-content/uploads/2023/12/농학-열람실.png" alt="상록열람실(농학)" />
+							</td>
+							<td class="kboard-list-places-info">
+								<div>
+									<h3>상록열람실(농학)</h3>
+																	<div class="location"><span class="material-icons">place</span>  농학도서관</div>
+																									<div class="floor"><span class="material-icons">stairs</span> 지하 1 층</div>
+																									<div class="hours"><span class="material-icons">schedule</span> 월~일, 공휴일 06:30~22:30</div>
+																									<div class="contact"><span class="material-icons">phone</span> 880-9040</div>
+																</div>
+							</td>
+							<td class="kboard-list-places-desc">
+								<div>
+									<p><span style="background-color: transparent;">•&nbsp;</span><span style="line-height: 1.5; background-color: transparent;"><span style="line-height: 1.5;">이용대상: 서울대 구성원</span><br>•&nbsp;수용인원 : 83</span></p>								</div>
+							</td>
+							<td class="kboard-list-places-book">
+								<div>
+																	<span>이용 문의   880-9040</span>
+								
+																</div>
+
+							</td>
+						</tr><!-- row 5 -->
+					
+					
+						<tr>
+							<td class="kboard-list-places-image">
+								<img src="https://lib.snu.ac.kr/sites/default/files/styles/220x220/public/%EC%B9%98%EC%9D%98%ED%95%99%20%EC%9D%BC%EB%B0%98%EC%97%B4%EB%9E%8C%EC%8B%A4.jpg" alt="도서관열람실(치의학)" />
+							</td>
+							<td class="kboard-list-places-info">
+								<div>
+									<h3>도서관열람실(치의학)</h3>
+																	<div class="location"><span class="material-icons">place</span>  치의학도서관</div>
+																									<div class="floor"><span class="material-icons">stairs</span> 2층</div>
+																									<div class="hours"><span class="material-icons">schedule</span> 24시간</div>
+																									<div class="contact"><span class="material-icons">phone</span> Tel : 740-8621,8794</div>
+																</div>
+							</td>
+							<td class="kboard-list-places-desc">
+								<div>
+									<ul>
+ 	<li>이용대상 : 치의학대학원 구성원</li>
+ 	<li>수용인원 : 56석</li>
+ 	<li>독서대 대여 가능</li>
+</ul>								</div>
+							</td>
+							<td class="kboard-list-places-book">
+								<div>
+																	<span>이용 가능</span>
+								
+																</div>
+
+							</td>
+						</tr><!-- row 6 -->
+					
+					
+						<tr>
+							<td class="kboard-list-places-image">
+								<img src="https://lib.snu.ac.kr/wp-content/uploads/2022/04/일반열람실-1.jpg" alt="일반열람실(수의학)" />
+							</td>
+							<td class="kboard-list-places-info">
+								<div>
+									<h3>일반열람실(수의학)</h3>
+																	<div class="location"><span class="material-icons">place</span>  수의학도서관</div>
+																									<div class="floor"><span class="material-icons">stairs</span> 1층</div>
+																									<div class="hours"><span class="material-icons">schedule</span> 월~금 09:00~23:00</div>
+																									<div class="contact"><span class="material-icons">phone</span> 880-1218/1224</div>
+																</div>
+							</td>
+							<td class="kboard-list-places-desc">
+								<div>
+									<p><span style="background-color: transparent;">• <span style="line-height: 1.5;">이용대상: 서울대 구성원<br />
+</span></span>• 수용인원 : 총 86석</p>								</div>
+							</td>
+							<td class="kboard-list-places-book">
+								<div>
+																	<span>이용문의<br/>880-1218/1224</span>
+								
+																</div>
+
+							</td>
+						</tr><!-- row 7 -->
+					
+					
+					</tbody>
+				</table>
+			</div><!-- .kboard-list-container -->
+			<!-- 리스트 끝 -->
+		</div><!-- .kboard-list.kboard-list-places -->
+	</div><!-- #result-views -->

@@ -1,0 +1,30 @@
+{
+  "status": "complete",
+  "started_at_utc": "2026-11-07T06:22:11.764172+00:00",
+  "runner_sha256": "b0cc486b85eec519b1c35780e42e3a111d656e6ad9dc0daffe31afe732bd46d0",
+  "authenticated_api_calls": 0,
+  "credentials_read": false,
+  "writes_restricted_to": "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\tdata_calibration_2026-11-07\\review\\segment_model\\outputs",
+  "time_conventions_provider_confirmed": false,
+  "finished_at_utc": "2026-11-07T06:30:57.761195+00:00",
+  "elapsed_seconds": 526.0,
+  "seed": 20261106,
+  "replications": 10,
+  "weighted_particles_per_cohort_destination": 12,
+  "source_ending_events": 6201,
+  "source_enrollment_event_sum": 156338,
+  "conditional_feature_rows": 27784,
+  "baseline_feature_rows": 15031,
+  "baseline_weights": {
+    "dorm": 0.0974571978522946,
+    "snu": 0.13418093404923512,
+    "nak": 0.13418093404923512,
+    "daehak": 0.13418093404923512
+  },
+  "origin_weekday_definition": "Weekday of the original class-ending event; bind calendar date before applying day_offset.",
+  "day_offset_definition": "Floor of simulated timestamp seconds divided by 86400 relative to origin date; hour modulo 24.",
+  "segment_entry_definition": "Wait-after-20s boarding allowance + Planner.ride_seconds(route,board,link_start) partial cumulative.",
+  "boarding_hour_definition": "Hour of the same leg actual simulated departure after waiting, applied to every ridden segment.",
+  "original_files_verified_unchanged": 122,
+  "schema_status": "Conditional reference features; time attribution not provider-confirmed."
+}

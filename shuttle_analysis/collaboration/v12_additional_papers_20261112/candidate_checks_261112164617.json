@@ -1,0 +1,102 @@
+{
+  "status": "PASS_SCOPED_AST_FIXTURES",
+  "scope": "pure_function_and_mocked_prepare_checks_not_a_simulation_run_or_field_validation",
+  "projection_probes": [
+    {
+      "ahead": 0,
+      "vehicle": 0,
+      "known_entry_load": 1.0
+    },
+    {
+      "ahead": 40,
+      "vehicle": 0,
+      "known_entry_load": 41.0
+    },
+    {
+      "ahead": 43,
+      "vehicle": 0,
+      "known_entry_load": 44
+    },
+    {
+      "ahead": 44,
+      "vehicle": 1,
+      "known_entry_load": 1.0
+    },
+    {
+      "ahead": 66,
+      "vehicle": 1,
+      "known_entry_load": 23.0
+    }
+  ],
+  "retained5_reserved36_case": {
+    "capacity": 44,
+    "known_retained_onboard": 5.0,
+    "known_ahead_boarded_here": 1.0,
+    "unidentified_reserved_capacity": 36.0,
+    "free_before_known_ahead": 3.0,
+    "free_after_known_ahead": 2.0,
+    "requested_marginal_mass": 1.0,
+    "projected_after_self": 7.0,
+    "quota_implied_load_upper_proxy": 43.0,
+    "basis": "known_retained_plus_this_vehicle_FIFO_boardings_plus_marginal_person; reservation excluded from crowd cost",
+    "is_observed_occupancy": false
+  },
+  "mixed_service_list_indexed_cases": 150,
+  "prepare_cases": [
+    {
+      "origin_choice": false,
+      "synthetic_pieces": 5,
+      "mass": 4.0,
+      "factor_once": true,
+      "writes_intercepted": 1
+    },
+    {
+      "origin_choice": true,
+      "synthetic_pieces": 5,
+      "mass": 4.0,
+      "factor_once": true,
+      "writes_intercepted": 1
+    }
+  ],
+  "source_hashes_before": {
+    "261112164250/prepare.py": "163763b233634db975896dc82b78846f368b8187061e09a77557bab5c4ace389",
+    "261112164250/policy.py": "45f03a563633c523e3fbc6fc566c21f48a10bd3bffe78d3c632c4dd1b85d6524",
+    "261112164250/physics.py": "b02afdd219ae47df56f4cd8288fe758ad43d5db26ada9adfcfe106841e4e4b15",
+    "261112164250/engine.py": "ccaa364360fe9824d2e4c763de4eb83f97dc9931f930f33c7f53dc36e35dd419",
+    "261112164250/config.json": "a4805daeed1fb006e115f17f9736d811aa027199c4c2cfdf20b1f678ed8b8e80",
+    "261112164250/run_case.py": "027c98db38c89c869384276b9dee514aa0bcca4f093aae714f4b03ead82eab7e",
+    "261112164250/experiment_lock.json": "6850d41bc29170bed66c45e56a9118eefe5b84503c5c4050c42b7121c011aafc",
+    "261112164250/analyze_followup.py": "11004700d17a56e7fade4dc691476ea62218ca881b5e0ea05fa675548856256b",
+    "261112164617/prepare.py": "d5a494e04ea0b141554f3ef576ea776b0a9083777ec7d2bbfc455f61a018e254",
+    "261112164617/policy.py": "e1c675ca04aebbfdfafb5cfa81445b144fcfee11e4d37a59b1479897458b7317",
+    "261112164617/physics.py": "b02afdd219ae47df56f4cd8288fe758ad43d5db26ada9adfcfe106841e4e4b15",
+    "261112164617/engine.py": "ccaa364360fe9824d2e4c763de4eb83f97dc9931f930f33c7f53dc36e35dd419",
+    "261112164617/config.json": "3dbd759a9024acf1c8711f7f12140d5db2f22230c48442b48766ab9653d915ca",
+    "261112164617/run_case.py": "027c98db38c89c869384276b9dee514aa0bcca4f093aae714f4b03ead82eab7e",
+    "261112164617/experiment_lock.json": "62eaa7bf10bf7eb3cd12221bb541ead4587393af7afd863e26b6a814a781ca2b",
+    "261112164617/analyze_followup.py": "4c29a6155812d35ea4672e63f6d67476438dba44af29c85468dcead21b5ce99a"
+  },
+  "source_hashes_after": {
+    "261112164250/prepare.py": "163763b233634db975896dc82b78846f368b8187061e09a77557bab5c4ace389",
+    "261112164250/policy.py": "45f03a563633c523e3fbc6fc566c21f48a10bd3bffe78d3c632c4dd1b85d6524",
+    "261112164250/physics.py": "b02afdd219ae47df56f4cd8288fe758ad43d5db26ada9adfcfe106841e4e4b15",
+    "261112164250/engine.py": "ccaa364360fe9824d2e4c763de4eb83f97dc9931f930f33c7f53dc36e35dd419",
+    "261112164250/config.json": "a4805daeed1fb006e115f17f9736d811aa027199c4c2cfdf20b1f678ed8b8e80",
+    "261112164250/run_case.py": "027c98db38c89c869384276b9dee514aa0bcca4f093aae714f4b03ead82eab7e",
+    "261112164250/experiment_lock.json": "6850d41bc29170bed66c45e56a9118eefe5b84503c5c4050c42b7121c011aafc",
+    "261112164250/analyze_followup.py": "11004700d17a56e7fade4dc691476ea62218ca881b5e0ea05fa675548856256b",
+    "261112164617/prepare.py": "d5a494e04ea0b141554f3ef576ea776b0a9083777ec7d2bbfc455f61a018e254",
+    "261112164617/policy.py": "e1c675ca04aebbfdfafb5cfa81445b144fcfee11e4d37a59b1479897458b7317",
+    "261112164617/physics.py": "b02afdd219ae47df56f4cd8288fe758ad43d5db26ada9adfcfe106841e4e4b15",
+    "261112164617/engine.py": "ccaa364360fe9824d2e4c763de4eb83f97dc9931f930f33c7f53dc36e35dd419",
+    "261112164617/config.json": "3dbd759a9024acf1c8711f7f12140d5db2f22230c48442b48766ab9653d915ca",
+    "261112164617/run_case.py": "027c98db38c89c869384276b9dee514aa0bcca4f093aae714f4b03ead82eab7e",
+    "261112164617/experiment_lock.json": "62eaa7bf10bf7eb3cd12221bb541ead4587393af7afd863e26b6a814a781ca2b",
+    "261112164617/analyze_followup.py": "4c29a6155812d35ea4672e63f6d67476438dba44af29c85468dcead21b5ce99a"
+  },
+  "candidate_files_unchanged": true,
+  "candidate_modules_imported": false,
+  "model_runs_started": false,
+  "new_date_outcomes_read": false,
+  "production_writes": false
+}

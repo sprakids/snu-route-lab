@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "C:\Users\김예준\Documents\ChatGPT\공대 문제해결\shuttle_analysis\simulation_viewer_2026-11-07\build_supply_deployment.py", line 76, in <module>
+    if a.kind=='data':data_stage()
+                      ^^^^^^^^^^^^
+  File "C:\Users\김예준\Documents\ChatGPT\공대 문제해결\shuttle_analysis\simulation_viewer_2026-11-07\build_supply_deployment.py", line 40, in data_stage
+    m,pending=manifest();stage=ROOT/'deployment'/f"supply_data_{m['model_id']}_{datetime.now():%H%M%S}"
+              ^^^^^^^^^^
+  File "C:\Users\김예준\Documents\ChatGPT\공대 문제해결\shuttle_analysis\simulation_viewer_2026-11-07\build_supply_deployment.py", line 19, in manifest
+    assert hashlib.sha256((pending/'payload.json').read_bytes()).hexdigest()==m['sha256']
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\김예준\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py", line 1019, in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\김예준\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\simulation_viewer_2026-11-07\\peak_pair_correction_2026-11-10\\peak_pair_correction_2026-11-10\\pending_releases\\261110162302\\payload.json'

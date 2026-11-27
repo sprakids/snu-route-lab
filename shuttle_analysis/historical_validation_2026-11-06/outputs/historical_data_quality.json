@@ -1,0 +1,61 @@
+{
+  "source_sha256": "e5348cbcdfbe3fd33607bcc9b1fb9c92cbc2fa01b4f4ac171f3d46838ced8048",
+  "source_rows": 42782,
+  "source_months": [
+    "202610"
+  ],
+  "source_registered_dates": [
+    "20261103"
+  ],
+  "source_encoding": "cp949",
+  "source_field_count": 57,
+  "selected_hourly_value_missing_count": 0,
+  "selected_route_row_counts": {
+    "5511": 73,
+    "5513": 44,
+    "5516": 75,
+    "관악02-1": 39,
+    "관악02-2": 34
+  },
+  "historical_rows_matched_to_current_route_occurrence": 265,
+  "historical_join_missing": 0,
+  "station_name_alias_rows": [
+    {
+      "노선번호": "5516",
+      "표준버스정류장ID": "120000128",
+      "stop_sequence": 26,
+      "역명": "롯데관악점(00026)"
+    },
+    {
+      "노선번호": "5516",
+      "표준버스정류장ID": "120000128",
+      "stop_sequence": 26,
+      "역명": "롯데관악점.월드비전교회(00026)"
+    }
+  ],
+  "region": {
+    "lat_min": 37.444,
+    "lat_max": 37.468,
+    "lon_min": 126.944,
+    "lon_max": 126.962,
+    "meaning": "Provisional rectangular campus-and-nearby region; not an official campus boundary"
+  },
+  "regional_route_stop_rows": 127,
+  "regional_physical_stops": 45,
+  "comparison_hour_window": "12:00 inclusive to 23:00 exclusive, KST",
+  "hour_11_and_23_excluded_reason": "Simulation only covers 11:20 through 23:10; those two hourly bins are incomplete.",
+  "301_observed_max_hour": 17,
+  "301_observed_month_boardings_at_max_hour": 2604,
+  "301_model_max_hour": 12,
+  "accuracy_metrics_computed": false,
+  "actual_onboard_load_records_obtained": false,
+  "historical_api_status": "Official T-data 1025 schema verified; private-key live query not performed.",
+  "caveats": [
+    "Monthly aggregate mixes weekdays, weekends and holidays.",
+    "Observed card boardings include non-students and non-class trips.",
+    "The simulation currently emits stop arrival events, not validated vehicle boardings or onboard load.",
+    "Do not compare monthly counts with per-weekday model weights as an absolute error.",
+    "Station-name aliases outside study region are retained; do not deduplicate by name or drop rows.",
+    "T-data API sample fields include nulls; null means unknown, never an empty vehicle."
+  ]
+}

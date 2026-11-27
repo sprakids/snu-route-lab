@@ -1,0 +1,44 @@
+{
+  "ok": true,
+  "app": "snu-route-lab",
+  "version": "0.21.2",
+  "historical_prediction": {
+    "model_id": "weekday-history-eight-20261107",
+    "model": "weekday_history",
+    "label": "요일별 과거 평균",
+    "timezone": "Asia/Seoul",
+    "hours_inclusive": [
+      12,
+      22
+    ],
+    "weekdays": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "source": "서울특별시 서울교통 빅데이터 플랫폼 · 교통정책지원시스템(TAIMS)",
+    "source_url": "https://t-data.seoul.go.kr/dataprovide/trafficdataviewopenapi.do?data_id=1025",
+    "unit": "hourly_segment_sum_load",
+    "unit_label": "시간당 구간 재차합",
+    "interpretation": "한 시간에 해당 구간을 지난 차량들의 재차인원 합계 예측. 차량 한 대의 탑승 인원이나 정류장 대기 인원이 아닙니다.",
+    "configured": true,
+    "history_days": 20,
+    "history_start": "20260907",
+    "history_end": "20261030",
+    "shrinkage_k": 10,
+    "segments": 482,
+    "live_observation": false,
+    "scope_label": "평일 12~22시 · 요일별 과거 이용량 예측"
+  },
+  "storage": {
+    "mode": "cloudflare_sqlite",
+    "persistent": true,
+    "observations_available": false,
+    "available": false,
+    "blob_access_enabled": false,
+    "counter_scope": "global",
+    "message": ""
+  }
+}

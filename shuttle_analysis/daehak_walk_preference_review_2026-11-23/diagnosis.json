@@ -1,0 +1,336 @@
+{
+  "schema": "daehak_read_only_mode_choice_diagnosis_v1",
+  "computed_at_utc": "2026-11-23T08:25:14.524883+00:00",
+  "context": "User-reported usual walking preference plus heavy-rain preference shift and one post-full-departure residual queue observation.",
+  "provenance": {
+    "prepared": {
+      "path": "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\261116161819\\frozen\\prepared_capacity44_pair.json.gz",
+      "sha256": "08d92c334000990d00c843a51efe9cdb49ca145291421f4cd39b56dbb8492852"
+    },
+    "audit_R_mon_regular": {
+      "path": "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\261116161819\\runs\\anchor-combined-regular-mon\\attempt_01\\audit-regular-mon.json.gz",
+      "sha256": "bceec33e856a4e2697cdd32a59e14111661d16a6f8a0477c19c83f3d8b46a420"
+    },
+    "curve_R_mon_regular": {
+      "path": "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\261116161819\\runs\\anchor-combined-regular-mon\\attempt_01\\regular-mon.json.gz",
+      "sha256": "70fce1a2164f897643db04fad400485b46f71fc66c5f69621137408d6652bf9e"
+    },
+    "curve_V11_mon_regular": {
+      "path": "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\simulation_viewer_2026-11-07\\public\\data\\capacity_v11\\regular-mon.json",
+      "sha256": "cf35e2d291882e59a6782fbec8f92099b447a029b1df2e4e4bbadfb3d4fe92c9"
+    },
+    "physical_paths": {
+      "path": "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\261116161819\\physical_paths_e3e9b7863828.json.gz",
+      "sha256": "6f60fabf93b7f2dddc5ee09d53fdfdee0852d341e5a16e222952d87a1b04cee0"
+    },
+    "config": {
+      "path": "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\261116161819\\config.json",
+      "sha256": "abaddf3de9e6da2c9699a158544788d3d3e5aed228e45dc19c4826ddd2add432"
+    },
+    "behavior_source": {
+      "path": "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\261116161819\\behavioral_policy.py",
+      "sha256": "d1de72f1f19e5dcdd1c41e6adc5fa745a48c5098605ad7709e85445357e93190"
+    },
+    "preference_source": {
+      "path": "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\261116161819\\preferences.py",
+      "sha256": "3ad5b60778cdf06f57cbc0e2af9b64d26f9852b0a30e2734aecebaaebf357f8e"
+    },
+    "engine_source": {
+      "path": "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\261116161819\\engine.py",
+      "sha256": "9bd405eb1ca29c6bb8196bec657fe794b93b35934671f20729ed77cdae0ccf03"
+    },
+    "freeze_manifest": {
+      "path": "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\261116161819\\future_evaluation_plan.json",
+      "sha256": "1508e6df657052e568621756d570cad17ff988e45c93ebeadd5ec6ee8812837d"
+    },
+    "observation": {
+      "path": "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\field_observations_2026-11-23\\full_departure_admin_daehak_1659.json",
+      "sha256": "cf08ff4fdb40135bcaf908b0cd35165e04b522164dd2b10dc0b03683c2f20844"
+    },
+    "qualitative_context": {
+      "path": "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\field_observations_2026-11-23\\qualitative_daehak_walk_rain_context.json",
+      "sha256": "ab221895e566244023a34a8102bef59d803c87d9d5211c4ba89fffa955101433"
+    },
+    "previous_comparison": {
+      "path": "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\field_observations_2026-11-23\\queue_1659_daehak_comparison.json",
+      "sha256": "673f877b6b65d180fcda9ac4f1fca689b823eef2d6f5d7d5e14f448404e4acb4"
+    },
+    "published_latest_local": {
+      "path": "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\simulation_viewer_2026-11-07\\public\\routing-model\\latest.json",
+      "sha256": "ca0b1b487879586a6ca5ed79511e9bd3128f423a95eb18f471d06b4885d55dbc"
+    }
+  },
+  "weekday_scope": "Existing Monday regular template, not a reconstruction of actual2026-11-23 weather/traffic.",
+  "source_composition": {
+    "weekday": "월",
+    "total_weight": 2587.342853440007,
+    "first_mode_weight": {
+      "city_first": 880.8629100684229,
+      "shuttle_first": 1606.66289427914,
+      "terminal_walk": 99.8170490924516
+    },
+    "first_mode_fraction": {
+      "city_first": 0.3404507867588054,
+      "shuttle_first": 0.6209702328947236,
+      "terminal_walk": 0.03857898034647385
+    },
+    "first_route_weight": {
+      "100100250": 148.62385280630625,
+      "shuttle-daehak": 1538.3276606816473,
+      "100100253": 707.219148410905,
+      "terminal_walk": 99.8170490924516,
+      "shuttle-41914": 56.438931967120595,
+      "100100251": 10.571953272287583,
+      "shuttle-41946": 11.896301630371129,
+      "120900012": 6.319196691372762,
+      "120900011": 8.128758887547258
+    },
+    "first_route_fraction": {
+      "100100250": 0.05744265882996647,
+      "shuttle-daehak": 0.5945588767396485,
+      "100100253": 0.27333801064308905,
+      "terminal_walk": 0.03857898034647385,
+      "shuttle-41914": 0.021813472417110125,
+      "100100251": 0.004086027198997467,
+      "shuttle-41946": 0.004597883737964753,
+      "120900012": 0.002442349951020624,
+      "120900011": 0.003141740135730234
+    },
+    "interpretation": "Inherited synthetic source plans. Not observed modal shares; internal access shuttles included in shuttle_first."
+  },
+  "audit_trip_export_records": 71092,
+  "unique_personal_trait_ids": 70680,
+  "queue_stock": [
+    {
+      "second": 61140.0,
+      "weighted_queue": 125.36213056841666,
+      "audit_fragment_count": 898,
+      "by_destination": {
+        "daehak": 125.36213056841646
+      },
+      "by_source_first_mode": {
+        "shuttle_first": 122.56501550177447,
+        "city_first": 2.7971150666419633
+      },
+      "by_source_first_route": {
+        "shuttle-daehak": 117.50737478943817,
+        "100100253": 0.5080474304717035,
+        "100100250": 2.28906763617026,
+        "shuttle-41914": 5.057640712336283
+      },
+      "prior_changes_at_visit_close": {
+        "0": 125.36213056841646
+      },
+      "known_flexibility_release_weight_at_snapshot": 0.0,
+      "mean_elapsed_stop_wait_seconds": 230.91000660197165,
+      "max_elapsed_stop_wait_seconds": 534.030103639685,
+      "mean_personal_patience_seconds": 1218.926240538226,
+      "min_personal_patience_seconds": 902.6969083105943,
+      "max_personal_patience_seconds": 1671.6823041579328
+    },
+    {
+      "second": 61199.999999,
+      "weighted_queue": 129.934557442662,
+      "audit_fragment_count": 948,
+      "by_destination": {
+        "daehak": 129.93455744266177
+      },
+      "by_source_first_mode": {
+        "shuttle_first": 127.13744237601979,
+        "city_first": 2.7971150666419633
+      },
+      "by_source_first_route": {
+        "shuttle-daehak": 122.0798016636835,
+        "100100253": 0.5080474304717035,
+        "100100250": 2.28906763617026,
+        "shuttle-41914": 5.057640712336283
+      },
+      "prior_changes_at_visit_close": {
+        "0": 129.93455744266177
+      },
+      "known_flexibility_release_weight_at_snapshot": 0.0,
+      "mean_elapsed_stop_wait_seconds": 281.6475612048624,
+      "max_elapsed_stop_wait_seconds": 594.0301026396846,
+      "mean_personal_patience_seconds": 1222.5151340357652,
+      "min_personal_patience_seconds": 902.6969083105943,
+      "max_personal_patience_seconds": 1671.6823041579328
+    },
+    {
+      "second": 61200.000001,
+      "weighted_queue": 69.93455744266188,
+      "audit_fragment_count": 509,
+      "by_destination": {
+        "daehak": 69.93455744266177
+      },
+      "by_source_first_mode": {
+        "shuttle_first": 67.43998747506475,
+        "city_first": 2.494569967597016
+      },
+      "by_source_first_route": {
+        "shuttle-daehak": 62.38234676272848,
+        "100100253": 0.37675427428238695,
+        "shuttle-41914": 5.057640712336283,
+        "100100250": 2.1178156933146295
+      },
+      "prior_changes_at_visit_close": {
+        "0": 69.93455744266177
+      },
+      "known_flexibility_release_weight_at_snapshot": 0.0,
+      "mean_elapsed_stop_wait_seconds": 195.03082317103292,
+      "max_elapsed_stop_wait_seconds": 284.54268154789315,
+      "mean_personal_patience_seconds": 1232.3492766591326,
+      "min_personal_patience_seconds": 918.3795917968519,
+      "max_personal_patience_seconds": 1671.6823041579328
+    }
+  ],
+  "pre17_queue_balance": {
+    "R261116161819": {
+      "interval": "after16:50 service to before17:00 service",
+      "start_queue": 8.881784197001252e-13,
+      "end_queue": 129.93455744266268,
+      "positive_curve_variation": 129.93455744266177,
+      "negative_curve_variation": 0.0,
+      "mass_balance_error": -2.842170943040401e-14,
+      "switch_actions": [
+        {
+          "key": [
+            "student_anticipated_wait_review",
+            "walk_transfer",
+            "도보→자연대.행정관입구 · 5516"
+          ],
+          "weight": 33.57108919779874
+        },
+        {
+          "key": [
+            "student_anticipated_wait_review",
+            "walk",
+            "목적지까지 도보"
+          ],
+          "weight": 0.057083980951876806
+        }
+      ],
+      "note": "Positive/negative curve variations are net changes, not automatically gross arrival/departure counts. Arrival-time alternative choices can avoid queue entry."
+    },
+    "V11": {
+      "interval": "after16:50 service to before17:00 service",
+      "start_queue": 0.0,
+      "end_queue": 74.871349,
+      "positive_curve_variation": 108.92194799999993,
+      "negative_curve_variation": 34.050598999999934,
+      "mass_balance_error": 0.0,
+      "switch_actions": [
+        {
+          "key": [
+            "arrival",
+            "transit",
+            "도보→자연대.행정관입구 · 5516"
+          ],
+          "weight": 42.60748338248084
+        },
+        {
+          "key": [
+            "queue_recheck",
+            "transit",
+            "도보→자연대.행정관입구 · 5516"
+          ],
+          "weight": 32.65774550256871
+        },
+        {
+          "key": [
+            "arrival",
+            "transit",
+            "도보→법과대 · 교내 순환 셔틀"
+          ],
+          "weight": 10.098156230387008
+        },
+        {
+          "key": [
+            "queue_recheck",
+            "transit",
+            "도보→법과대 · 교내 순환 셔틀"
+          ],
+          "weight": 1.392849135225794
+        }
+      ],
+      "note": "Positive/negative curve variations are net changes, not automatically gross arrival/departure counts. Arrival-time alternative choices can avoid queue entry."
+    }
+  },
+  "R_stop_outcomes_strictly_between1650and1700": {
+    "switched": 33.628173178750615
+  },
+  "terminal_walk_option": {
+    "option": {
+      "name": "목적지까지 도보",
+      "kind": "walk",
+      "walk": [
+        1877,
+        1512.0
+      ],
+      "stages": [],
+      "walk_meters": 1813.7015067027808
+    },
+    "physical_profile": {
+      "seconds": 1360.2761300270859,
+      "meters": 1813.7015067027803,
+      "stairs_meters": 0.0,
+      "unknown_slope_meters": 1813.7015067027803,
+      "known_climb_meters": 0.0
+    },
+    "destination_representative_point": [
+      37.470538,
+      126.938381
+    ],
+    "base_relative_consideration_weight": 0.0013219471499749612,
+    "reciprocal_relative_to_le500m": 756.459893286158,
+    "zero_full_bus_age300_seconds_conditional_prior": 0.15463727921311088,
+    "zero_full_bus_age1200_seconds_conditional_prior": 0.4872615912646614,
+    "interpretation": "Base weight is neither an actual walking probability nor an initial mode share. Age/experienced-full-bus relief changes it at eligible later choice opportunities. Shuttle initial choice returns before such comparisons."
+  },
+  "relevant_config": {
+    "initial_assignment_policy": "preserve_source_mode_optimize_city_stop",
+    "shuttle_patience_median_seconds": 1200.0,
+    "city_patience_median_seconds": 1200.0,
+    "patience_log_sigma": 0.1,
+    "patience_uses_elapsed_plus_forecast": true,
+    "initial_trunk_preservation": true,
+    "review_requires_current_queue_pressure": true,
+    "walking_kmh": 4.8,
+    "walk_coefficient_median": 2.0
+  },
+  "invariants": {
+    "selected_model_sources_match_frozen_manifest": {
+      "behavioral_policy.py": {
+        "actual": "d1de72f1f19e5dcdd1c41e6adc5fa745a48c5098605ad7709e85445357e93190",
+        "expected": "d1de72f1f19e5dcdd1c41e6adc5fa745a48c5098605ad7709e85445357e93190"
+      },
+      "preferences.py": {
+        "actual": "3ad5b60778cdf06f57cbc0e2af9b64d26f9852b0a30e2734aecebaaebf357f8e",
+        "expected": "3ad5b60778cdf06f57cbc0e2af9b64d26f9852b0a30e2734aecebaaebf357f8e"
+      },
+      "engine.py": {
+        "actual": "9bd405eb1ca29c6bb8196bec657fe794b93b35934671f20729ed77cdae0ccf03",
+        "expected": "9bd405eb1ca29c6bb8196bec657fe794b93b35934671f20729ed77cdae0ccf03"
+      },
+      "prepare.py": {
+        "actual": "03428516bd9cbaf4aa56b60d1b5d022a13cd8eda49c09b55cd74c84bd4e0e843",
+        "expected": "03428516bd9cbaf4aa56b60d1b5d022a13cd8eda49c09b55cd74c84bd4e0e843"
+      },
+      "config.json": {
+        "actual": "abaddf3de9e6da2c9699a158544788d3d3e5aed228e45dc19c4826ddd2add432",
+        "expected": "abaddf3de9e6da2c9699a158544788d3d3e5aed228e45dc19c4826ddd2add432"
+      }
+    },
+    "all_read_inputs_unchanged": true,
+    "model_conditions_rerun": 0,
+    "model_files_changed": false,
+    "parameters_fitted": false,
+    "production_writes": false
+  },
+  "limitations": [
+    "Post-full-departure queue1 does not identify pre-boarding demand, actual capacity, gross demand, or walking mode share.",
+    "Rain is user-reported context; no rain coefficient or measured population preference shift was estimated.",
+    "Model17:00 service and actual16:59 service are different clock/phase observations; their post-service counts are only a nearby-phase diagnostic.",
+    "R versus V11 differs in several mechanisms; the ledger contrast is not a controlled one-factor causal effect.",
+    "Weighted queue amounts are person-equivalent mass, not integer headcounts or unique trip totals."
+  ]
+}

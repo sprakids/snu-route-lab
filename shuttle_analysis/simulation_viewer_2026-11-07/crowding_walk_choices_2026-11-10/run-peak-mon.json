@@ -1,0 +1,98 @@
+{
+  "status": "PASS",
+  "model_sha256": "9baaeda1ea8523e39455c24c57159bbf917ce44e1dd617f0648bb5254c15d14f",
+  "elapsed_seconds": 140.8657599000726,
+  "scenario": "peak",
+  "weekday": "월",
+  "report": {
+    "scenario": "peak",
+    "weekday": "월",
+    "input_weight": 18885.5,
+    "final_weight": 18885.5,
+    "finished_weight": 18885.5,
+    "unserved_trip_weight": 0,
+    "full_particles": 67920,
+    "render_dots": 8869,
+    "capacity_checks": 44042,
+    "capacity_violations": 0,
+    "queue_min": 0.0,
+    "max_queue": 185.2493399082396,
+    "vehicles": 1427,
+    "boarding_events": 72406,
+    "switch_event_weight": 20489.8544101796,
+    "switched_trip_weight": 9099.649067870421,
+    "gate_boarding_weight": 1899.082319998552,
+    "forecast_calls": 3434036,
+    "mean_finished_trip_minutes": 27.560231321457728,
+    "city_vehicle_runs": 1019,
+    "city_speed_revision": "campus_stop_corridors_20261108",
+    "city_boarding_weight": 13618.373156663905,
+    "city_denied_weight": 10984.083282337648,
+    "city_unserved_weight": 0,
+    "city_route_count": 8,
+    "city_capacity_applied": true,
+    "external_background_passengers_included": false,
+    "actual_route_vehicle_capacities_verified": false,
+    "walk_choice_behavior": true,
+    "forced_reconsideration_weight": 1917.5972262152052,
+    "prior_change_budget_mean": 1.0009806648478576,
+    "realized_mean_route_changes": 1.0849516512763548,
+    "late_arrival_weight": 0
+  },
+  "observation_fit": [
+    {
+      "id": "admin_snu_1653",
+      "stop": "admin_snu",
+      "minute": 1013,
+      "people_interval": [
+        53,
+        53
+      ],
+      "node": 1,
+      "uniform_minute_mean": 54.01685838731642,
+      "temporal_min_max": [
+        34.45166,
+        76.160239
+      ],
+      "expected_absolute_distance_to_report_interval": 10.47742374954983,
+      "fraction_of_minute_in_report_interval_with_half_person_rounding": 0.0,
+      "not_independent_validation": true
+    },
+    {
+      "id": "culture_1655",
+      "stop": "city_120000195",
+      "minute": 1015,
+      "people_interval": [
+        5,
+        5
+      ],
+      "node": 59,
+      "uniform_minute_mean": 4.570150396350041,
+      "temporal_min_max": [
+        3.198281,
+        5.498799
+      ],
+      "expected_absolute_distance_to_report_interval": 0.5315994406500364,
+      "fraction_of_minute_in_report_interval_with_half_person_rounding": 0.6652333333332838,
+      "not_independent_validation": true
+    },
+    {
+      "id": "snu_gate_1703",
+      "stop": "city_gate",
+      "minute": 1023,
+      "people_interval": [
+        33,
+        39
+      ],
+      "node": 62,
+      "uniform_minute_mean": 35.63753508346655,
+      "temporal_min_max": [
+        30.823201,
+        41.428028
+      ],
+      "expected_absolute_distance_to_report_interval": 0.5453084861000305,
+      "fraction_of_minute_in_report_interval_with_half_person_rounding": 0.6160166666667162,
+      "not_independent_validation": true
+    }
+  ]
+}

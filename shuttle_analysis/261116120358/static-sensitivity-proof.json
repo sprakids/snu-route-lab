@@ -1,0 +1,81 @@
+{
+  "status": "PASS_STATIC_SENSITIVITY_SCOPE",
+  "changed_runtime_modules": [
+    "policy.py"
+  ],
+  "runtime_modules": 17,
+  "unchanged_frozen_payloads": 77,
+  "existing_numeric_parameters_unchanged": {
+    "walking_kmh": 4.8,
+    "stairs_time_factor": 3.0,
+    "preparation_seconds": 20,
+    "walk_coefficient_median": 2.0,
+    "wait_coefficient_median": 1.0,
+    "trait_log_sigma": 0.25,
+    "transfer_penalty_minutes": 3.0,
+    "change_penalty_minutes": 1.5,
+    "crowd_penalty_coefficient": 0.5,
+    "fatigue_coefficient": 0.25,
+    "value_of_time_won_hour": 10000,
+    "choice_temperature_minutes": 2.0,
+    "review_base_rate_per_second": 0.0033333333333333335,
+    "review_age_scale_seconds": 600,
+    "review_full_bus_multiplier": 0.8,
+    "repeat_multiplier": 0.3,
+    "arrival_review_probability": 0.25,
+    "same_line_downstream_prior": 0.08,
+    "revisit_prior": 0.05,
+    "max_synthetic_packet_weight": 1.0,
+    "seed": 0,
+    "seat_history_count": 3,
+    "seat_history_seconds": 1800,
+    "review_full_stress_rate_per_second": 0.006666666666666667,
+    "review_age_stress_rate_per_second": 0.0033333333333333335,
+    "review_full_saturation": 0.4,
+    "review_age_stress_power": 3,
+    "seat_forecast_horizon_seconds": 1800,
+    "waiting_discomfort_age_scale_seconds": 600,
+    "waiting_discomfort_full_sensitivity": 0.5,
+    "predicted_queue_curvature_scale_seconds": 600,
+    "predicted_queue_curvature_coefficient": 1.0,
+    "cohort_release_lag_scale": 1.125,
+    "repeat_walk_growth_factor": 2.0,
+    "repeat_walk_numeric_epsilon": 1e-12,
+    "shuttle_patience_median_seconds": 1200.0,
+    "city_patience_median_seconds": 1200.0,
+    "patience_log_sigma": 0.1,
+    "dorm_walk_patience_factor": 1.0,
+    "city_denial_trigger": 2,
+    "city_additional_pass_trigger": 2,
+    "far_terminal_walk_max_meters": 1000.0,
+    "gate_fallback_node": 62,
+    "enroute_boarding_window_seconds": 30.0,
+    "enroute_max_extra_meters": 80.0,
+    "enroute_max_lateral_meters": 30.0
+  },
+  "configuration_differences": {
+    "student_wait_discomfort_model": [
+      null,
+      "linear_future_with_failure"
+    ],
+    "wait_discomfort_interpretation": [
+      "Prospective increment G(A+W)-G(A) of cumulative journey waiting. Completed wait A affects marginal discomfort, never physical ETA. Same polynomial scales as V12; uncalibrated alternative hypothesis. No reset by walking to another queue.",
+      "Bounded sensitivity removes only the unmeasured quadratic/cubic future-wait increment from student decision utility. Existing linear waiting tastes, current-queue full-bus penalty, patience, age/full review hazard, unlimited reroutes and repeated-walk rule remain. No claim that nonlinear preferences are a coding error or that linearity is identified for SNU."
+    ],
+    "release_id": [
+      "261116112731",
+      "261116120358"
+    ],
+    "version_family": [
+      "V12-consistent-transfer-perception",
+      "V12-linear-future-wait-sensitivity"
+    ],
+    "sensitivity_interpretation": [
+      null,
+      "Literal user clarification retained: future transfer waiting is not anticipated in initial or later choice. Perceived costs remain separate from operational forecasts and realized physical FIFO/capacity/time."
+    ]
+  },
+  "operational_engine_sha256": "9bd405eb1ca29c6bb8196bec657fe794b93b35934671f20729ed77cdae0ccf03",
+  "physics_sha256": "b02afdd219ae47df56f4cd8288fe758ad43d5db26ada9adfcfe106841e4e4b15",
+  "production_writes": false
+}

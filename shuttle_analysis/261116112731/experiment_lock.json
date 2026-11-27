@@ -1,0 +1,123 @@
+{
+  "status": "REGISTERED_BEFORE_EXECUTION",
+  "release_id": "261116112731",
+  "implementation_parent": "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\261116105704",
+  "comparison_parent": "261116105704",
+  "pilot_cases": [
+    {
+      "case": "perceptionfix-combined-regular-mon",
+      "mode": "combined",
+      "day": "월",
+      "scenario": "regular",
+      "seed": 0,
+      "operations": "v12_empirical"
+    },
+    {
+      "case": "perceptionfix-combined-regular-tue",
+      "mode": "combined",
+      "day": "화",
+      "scenario": "regular",
+      "seed": 0,
+      "operations": "v12_empirical"
+    },
+    {
+      "case": "perceptionfix-combined-regular-wed",
+      "mode": "combined",
+      "day": "수",
+      "scenario": "regular",
+      "seed": 0,
+      "operations": "v12_empirical"
+    },
+    {
+      "case": "perceptionfix-combined-regular-thu",
+      "mode": "combined",
+      "day": "목",
+      "scenario": "regular",
+      "seed": 0,
+      "operations": "v12_empirical"
+    },
+    {
+      "case": "perceptionfix-combined-regular-fri",
+      "mode": "combined",
+      "day": "금",
+      "scenario": "regular",
+      "seed": 0,
+      "operations": "v12_empirical"
+    },
+    {
+      "case": "perceptionfix-combined-peak-mon",
+      "mode": "combined",
+      "day": "월",
+      "scenario": "peak",
+      "seed": 0,
+      "operations": "v12_empirical"
+    },
+    {
+      "case": "perceptionfix-combined-peak-tue",
+      "mode": "combined",
+      "day": "화",
+      "scenario": "peak",
+      "seed": 0,
+      "operations": "v12_empirical"
+    },
+    {
+      "case": "perceptionfix-combined-peak-wed",
+      "mode": "combined",
+      "day": "수",
+      "scenario": "peak",
+      "seed": 0,
+      "operations": "v12_empirical"
+    },
+    {
+      "case": "perceptionfix-combined-peak-thu",
+      "mode": "combined",
+      "day": "목",
+      "scenario": "peak",
+      "seed": 0,
+      "operations": "v12_empirical"
+    },
+    {
+      "case": "perceptionfix-combined-peak-fri",
+      "mode": "combined",
+      "day": "금",
+      "scenario": "peak",
+      "seed": 0,
+      "operations": "v12_empirical"
+    },
+    {
+      "case": "ablation-full-transfer-mon",
+      "mode": "combined",
+      "day": "월",
+      "scenario": "regular",
+      "seed": 0,
+      "operations": "v12_empirical",
+      "config_overrides": {
+        "myopic_transfer_review": false
+      }
+    },
+    {
+      "case": "ablation-full-transfer-tue",
+      "mode": "combined",
+      "day": "화",
+      "scenario": "regular",
+      "seed": 0,
+      "operations": "v12_empirical",
+      "config_overrides": {
+        "myopic_transfer_review": false
+      }
+    }
+  ],
+  "selection_rule": "Main Mon/Tue regular plus matched Monday/Tuesday review-perception-disabled diagnostics once each. Extend8remaining main cases only if physics/user-rule PASS, unserved0, aggregate reused-field error and over20 weight do not worsen against261116105704, at least one improves, and maximum continuous wait across mainMon/Tue does not worsen. Retain all failed trials and every journey/law tradeoff. No numerical parameter fitting, new demand, changed capacity/clocks or forced20min/40-person caps; no new-date raw outcomes.",
+  "new_day_outcomes_opened": false,
+  "production_replacement_allowed": false,
+  "retained_user_behavior": [
+    "initial shuttle loyalty until heterogeneous expected-wait threshold",
+    "city two actual full buses plus further queue delay reconsideration",
+    "no visited boarding-stop returns",
+    "unlimited rerouting with repeat aversion",
+    "nearby walking and legal enroute boarding",
+    "SNU gate final fallback",
+    "correct terminal5516 direction"
+  ],
+  "mechanism_parent": "261116105704"
+}

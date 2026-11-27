@@ -1,0 +1,85 @@
+{
+  "status": "PASS_V11_UNCHANGED_AND_MOBILE_ASSETS_MATCH",
+  "checked_at": "2026-11-10T11:14:42.942048+00:00",
+  "expected_model_id": "261110162302",
+  "expected_payload_sha256": "f39be2fbe61185f198ac27da9b8b57565cccfb80824e0a4f8f65f68915cbd130",
+  "production_writes": false,
+  "responses": [
+    {
+      "name": "lab_latest",
+      "url": "https://snu-shuttle-simulation.vercel.app/routing-model/latest.json",
+      "status": 200,
+      "bytes": 515,
+      "sha256": "ca0b1b487879586a6ca5ed79511e9bd3128f423a95eb18f471d06b4885d55dbc",
+      "model_id": "261110162302",
+      "check": "PASS"
+    },
+    {
+      "name": "lab_payload",
+      "url": "https://snu-shuttle-simulation.vercel.app/routing-model/releases/261110162302.json",
+      "status": 200,
+      "bytes": 2891149,
+      "sha256": "f39be2fbe61185f198ac27da9b8b57565cccfb80824e0a4f8f65f68915cbd130",
+      "expected_payload_match": true,
+      "check": "PASS"
+    },
+    {
+      "name": "data_payload",
+      "url": "https://snu-shuttle-v9-data.vercel.app/routing-model/releases/261110162302.json",
+      "status": 200,
+      "bytes": 2891149,
+      "sha256": "f39be2fbe61185f198ac27da9b8b57565cccfb80824e0a4f8f65f68915cbd130",
+      "expected_payload_match": true,
+      "check": "PASS"
+    },
+    {
+      "name": "route_api",
+      "url": "https://snu-route-lab.vercel.app/api/queue-model",
+      "status": 200,
+      "bytes": 11539,
+      "sha256": "d6af636b7ac29295b4c428d000aaa2620762de59cbea146e75d282dae43d065e",
+      "model_id": "261110162302",
+      "sync_status": "active",
+      "payload_sha256": "f39be2fbe61185f198ac27da9b8b57565cccfb80824e0a4f8f65f68915cbd130",
+      "check": "PASS"
+    },
+    {
+      "name": "index.html",
+      "url": "https://snu-shuttle-simulation.vercel.app/index.html",
+      "status": 200,
+      "bytes": 15642,
+      "sha256": "e38c97d99244b472f48ad6cf396b2c6a92545e3ea7b9e5a95f2c89e62dcb635c",
+      "local_public_asset_match": true,
+      "check": "PASS"
+    },
+    {
+      "name": "viewer-v5.js",
+      "url": "https://snu-shuttle-simulation.vercel.app/viewer-v5.js",
+      "status": 200,
+      "bytes": 44014,
+      "sha256": "e6aba4ec548226c4320705a6620d1f8f2fa51b3568ca7b6ebbf07e5d71d9d672",
+      "local_public_asset_match": true,
+      "check": "PASS"
+    },
+    {
+      "name": "mobile-lab.js",
+      "url": "https://snu-shuttle-simulation.vercel.app/mobile-lab.js",
+      "status": 200,
+      "bytes": 9827,
+      "sha256": "b27df1d598e6e47da7aa3f56bee278e6523b418ecfb96f73a7ea4bbaaed19056",
+      "local_public_asset_match": true,
+      "check": "PASS"
+    },
+    {
+      "name": "mobile-lab.css",
+      "url": "https://snu-shuttle-simulation.vercel.app/mobile-lab.css",
+      "status": 200,
+      "bytes": 13011,
+      "sha256": "d32de037da953b0c61a488f014a6e8b9110c7d46dcf6426063e9d6cd7cce4c1a",
+      "local_public_asset_match": true,
+      "check": "PASS"
+    }
+  ],
+  "prior_attempt_preserved": "production_unchanged_verification.json",
+  "prior_failure_explanation": "The verifier assumed latest.json was published on the data-only host. Its release.json payload is the published artifact; no production change was made."
+}

@@ -1,0 +1,71 @@
+{
+  "status": "PASS_LOCAL_READY_FOR_STAGE",
+  "checked_at": "2026-11-10T16:21:00.470780+09:00",
+  "python_tests": {
+    "total": 120,
+    "failures": 0,
+    "groups": [
+      {
+        "suite": "adaptive,shuttle_supply,automatic_queue,all_shuttles,continuity",
+        "count": 67,
+        "seconds": 17.792
+      },
+      {
+        "suite": "new supply consumer cases",
+        "count": 9,
+        "seconds": 7.187
+      },
+      {
+        "suite": "queue_model_sync,queue_readiness,city_operations,shuttle_timetable",
+        "count": 44,
+        "seconds": 17.981
+      }
+    ]
+  },
+  "javascript_syntax": "PASS",
+  "javascript_settings_regression_checks": 17,
+  "rendered_ui_scenarios": 8,
+  "ui_qa_path": "C:\\Users\\김예준\\.codex\\visualizations\\2026\\11\\03\\01a1a1e8-54cf-7243-9ad9-0a31e6f31a06\\supply-followup-20261110\\qa.json",
+  "ui_environment": {
+    "browser_plugin": "absent",
+    "fallback": "Playwright installed Chrome headless",
+    "url": "http://127.0.0.1:8792/",
+    "viewports": [
+      {
+        "width": 1280,
+        "height": 960
+      },
+      {
+        "width": 390,
+        "height": 844
+      }
+    ],
+    "console_errors": 0,
+    "map_and_api_fixtures_mocked": true,
+    "scope": "selected-opportunity manual queue form; full live navigation not tested"
+  },
+  "snapshot": "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\supply_display_followup_2026-11-10\\reader_stage_v2",
+  "files": 111,
+  "files_manifest_sha256": "720934e938dca1481b58b92ef56846c2b8a18acb3207554bded4c96cb932c06d",
+  "source_file_hashes": {
+    "adaptive.py": "b128016a077ea9ead8d8a24cacf95eb57f2e4d285bc9ff671621f0a6e740c10c",
+    "automatic_queue.py": "cd5842ae0a83200d50aa385422eb86e29c11f1149172af0040d4c2233d7e899c",
+    "continuity.py": "a5ca9c41907e8434ab6fb9a00de0ff84bea5e837b8cbbe1d11ca350f602efb0c",
+    "routing.py": "b5c3a9c9e2a7bc436c68cd31677be57fcee68fa868e4f01558678664c7422a49",
+    "shuttle_live.py": "be263bcd7b911a80118350ecbec43b67f659c041aeac74293d23ddaabbd67092",
+    "static/app.js": "22df3c57bc792617e626c940b63d0587f997194e7888cd3e3f6b2f6740ddc049",
+    "test_supply_consumers.py": "ba089539890e7b5f478e686226e48a5faad059291143eaed181a495fabe91707"
+  },
+  "compatibilities_computed_from_function": {
+    "scalar_legacy": "7ce2316538b6ff26743a5e60a36041c613465091e64563170497ad51b8ca89d2",
+    "44_single": "7697fd385ae668473eb5f67b869bb2fe6c2e4b31acc987d837ec0731ab41cb1b",
+    "44_pair": "d55ae84edbee58b42c8d2d641fa50075e157a197fa159e93e10caab9aa1d0c2d"
+  },
+  "original_reader_snapshot_preserved": true,
+  "seed_data_preserved": true,
+  "personal_route_switch_policy_preserved": true,
+  "credentials_or_environment_in_snapshot": false,
+  "production_deployed_by_this_agent": false,
+  "latest_pointer_changed_by_this_agent": false,
+  "empirical_accuracy_validated": false
+}

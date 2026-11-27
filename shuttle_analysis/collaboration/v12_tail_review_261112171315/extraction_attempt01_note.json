@@ -1,0 +1,8 @@
+{
+  "scope": "reviewer extractor only",
+  "status": "CORRECTED_UNUSED_SWITCH_ARRAY_FILTER",
+  "cause": "The optional switches list stores uid at index3, not index1. Behavior decisions and leg extraction were already correct.",
+  "previous_artifact": "case_evidence_attempt01_bad_switch_filter.json",
+  "correction": "Use index3 and extract again; do not use the prior switches array as evidence.",
+  "candidate_code_modified": false
+}

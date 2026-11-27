@@ -1,0 +1,58 @@
+{
+  "inputs": {
+    "prepared.json.gz": "94447789b4175742994fbc69953b344f662d3871ad6abe8e9235f053eb3f5dec",
+    "verification_engine.py": "5b225720289ce16aa6300999cdd5eb21405e288c758a8adaac9d2a04d4af499c",
+    "audit-peak-tue.json.gz": "f793a279790bf25a320f939084dbd496e2eaeec3aa8d67b5ce633e3753d9c28b",
+    "peak-tue.json": "58aa9de5700d671071e47f932bd261b543a199999362189f22da9f50677dce90"
+  },
+  "check": {
+    "scenario": "peak",
+    "weekday": "화",
+    "status": "PASS",
+    "particle_mass_max_error": 4.440892098500626e-16,
+    "checks": {
+      "legs": 284016,
+      "vehicle_segments": 28505,
+      "audited_city_departures": 710,
+      "capacity_events": 22250,
+      "fifo_events": 368,
+      "hourly_cells": 897,
+      "queue_samples": 40296
+    },
+    "summaries": [
+      {
+        "scenario": "peak",
+        "weekday": "화",
+        "scope": "all",
+        "weight": 15733.499999999998,
+        "completed_weight": 15733.499999999998,
+        "unserved_weight": 0.0,
+        "mean_cumulative_wait_min": 11.139652406680094,
+        "mean_class_end_total_min_completed": 31.678570381414133,
+        "switched_trip_weight": 5108.2892723414325
+      },
+      {
+        "scenario": "peak",
+        "weekday": "화",
+        "scope": "snu",
+        "weight": 7062.478073910198,
+        "completed_weight": 7062.478073910198,
+        "unserved_weight": 0.0,
+        "mean_cumulative_wait_min": 14.061982986208218,
+        "mean_class_end_total_min_completed": 32.181606589700145,
+        "switched_trip_weight": 2183.977161882275
+      },
+      {
+        "scenario": "peak",
+        "weekday": "화",
+        "scope": "engineering_snu",
+        "weight": 928.0626318244086,
+        "completed_weight": 928.0626318244086,
+        "unserved_weight": 0.0,
+        "mean_cumulative_wait_min": 8.550169944889351,
+        "mean_class_end_total_min_completed": 29.369411854701426,
+        "switched_trip_weight": 391.25639248558656
+      }
+    ]
+  }
+}

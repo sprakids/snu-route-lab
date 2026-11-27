@@ -1,0 +1,791 @@
+{
+  "scores": {
+    "regular": {
+      "release": 9.310135055811967,
+      "combined": 15.478995225285693,
+      "candidate": 3.810752878135851
+    },
+    "peak": {
+      "release": 15.114254513735691,
+      "combined": 15.470709297535683,
+      "candidate": 3.8037782458405216
+    }
+  },
+  "card": {
+    "train_hours": {
+      "old": 0.09992810464761773,
+      "candidate": 0.061130433221423294
+    },
+    "validation_hours": {
+      "old": 0.11977377260303465,
+      "candidate": 0.09919335581027246
+    }
+  },
+  "berths": [
+    {
+      "day": "mon",
+      "service": "regular",
+      "minute": "16:53",
+      "area_max": 3,
+      "boarding_max": 1
+    },
+    {
+      "day": "mon",
+      "service": "peak",
+      "minute": "16:53",
+      "area_max": 5,
+      "boarding_max": 2
+    },
+    {
+      "day": "tue",
+      "service": "regular",
+      "minute": "15:18",
+      "area_max": 3,
+      "boarding_max": 2
+    },
+    {
+      "day": "tue",
+      "service": "regular",
+      "minute": "15:23",
+      "area_max": 4,
+      "boarding_max": 2
+    },
+    {
+      "day": "tue",
+      "service": "peak",
+      "minute": "15:18",
+      "area_max": 1,
+      "boarding_max": 0
+    },
+    {
+      "day": "tue",
+      "service": "peak",
+      "minute": "15:23",
+      "area_max": 4,
+      "boarding_max": 2
+    },
+    {
+      "day": "wed",
+      "service": "regular",
+      "minute": "16:00",
+      "area_max": 2,
+      "boarding_max": 1
+    },
+    {
+      "day": "wed",
+      "service": "peak",
+      "minute": "16:00",
+      "area_max": 2,
+      "boarding_max": 0
+    }
+  ],
+  "prior_bus": {
+    "assumed_all_stay": true,
+    "prior_vehicle_weight": 3.3932935486954117,
+    "observed_prior_exit": [
+      54240.824,
+      54360.885
+    ],
+    "uncertain_scheduled_departure": 54600.0,
+    "measured_vehicle_id_unknown": true,
+    "observed_next_departure": [
+      55320.347,
+      55440.352
+    ],
+    "next_vehicle_arrival_area": [
+      54840.804,
+      54960.984
+    ],
+    "open": 54900.894,
+    "modeled_departure": 55380.3495,
+    "minute": {
+      "as_scheduled": {
+        "mean": 6.007816011912696,
+        "minimum": 5.231562482049572,
+        "maximum": 6.981295746769172
+      },
+      "retain_previous_riders": {
+        "mean": 9.40110956060811,
+        "minimum": 8.624856030744985,
+        "maximum": 10.374589295464586
+      }
+    }
+  },
+  "scenarios": {
+    "berth_only": {
+      "episodes": {
+        "15:23": {
+          "boarded_cohort": 34.21952719594887,
+          "next_departure_group": 0,
+          "boarded_mass": 34.21952719594887,
+          "outside_s": {
+            "minimum": 120.0683150466939,
+            "p10": 122.43868815852329,
+            "median": 137.5985904614936,
+            "p90": 146.76564805760427,
+            "maximum": 149.56510394159704,
+            "mean": 134.28928410783126
+          },
+          "onboard_s": {
+            "minimum": 48.0,
+            "p10": 54.0,
+            "median": 82.0,
+            "p90": 127.89299999999639,
+            "maximum": 133.8929999999964,
+            "mean": 89.5440804632487
+          },
+          "combined_s": {
+            "minimum": 197.56510394159704,
+            "p10": 201.95555143459933,
+            "median": 221.0729223182134,
+            "p90": 251.18518959161156,
+            "maximum": 255.65981094160088,
+            "mean": 223.83336457107998
+          },
+          "same_minute_boards_mass": 0.0,
+          "doors_opened_within_minute": 0
+        }
+      },
+      "observations": {
+        "20261110-1523-admin-snu-queue-wait-01": {
+          "kind": "outside",
+          "stop": "admin_snu",
+          "minute": "15:23",
+          "observed": [
+            67,
+            67
+          ],
+          "matched": true,
+          "mean": 71.58586708211662,
+          "minimum": 65.749058,
+          "maximum": 78.338999,
+          "expected_abs_error": 4.698936484816685
+        },
+        "20261124-1352-admin-snu-queue": {
+          "kind": "outside",
+          "stop": "admin_snu",
+          "minute": "13:52",
+          "observed": [
+            26,
+            26
+          ],
+          "matched": true,
+          "mean": 20.209656797700006,
+          "minimum": 15.855495,
+          "maximum": 25.379569,
+          "expected_abs_error": 5.790343202299992
+        },
+        "20261124-1518-admin-snu-queue": {
+          "kind": "outside",
+          "stop": "admin_snu",
+          "minute": "15:18",
+          "observed": [
+            6,
+            6
+          ],
+          "matched": true,
+          "mean": 8.177832195683088,
+          "minimum": 5.652295,
+          "maximum": 14.137949,
+          "expected_abs_error": 2.380381948349783
+        },
+        "20261124-1518-admin-daehak-onboard": {
+          "kind": "onboard",
+          "stop": "admin_daehak",
+          "minute": "15:18",
+          "observed": [
+            17,
+            17
+          ],
+          "matched": true,
+          "mean": 4.093966353951948,
+          "minimum": 3.53412495,
+          "maximum": 4.91546743,
+          "expected_abs_error": 12.906033646048053
+        }
+      },
+      "town_vehicle_ranges": [
+        {
+          "vehicle": 455,
+          "op": 54900.8465,
+          "departure": 55500.976,
+          "mean": 4.0939663550291,
+          "minimum": 3.534124948172809,
+          "maximum": 4.915467431444694
+        }
+      ],
+      "daily": 17683.5,
+      "over20_weight": 0.0,
+      "unserved": 0,
+      "capacity_violations": 0
+    },
+    "parallel": {
+      "episodes": {
+        "15:23": {
+          "boarded_cohort": 42.17199432862556,
+          "next_departure_group": 8.501551676093477,
+          "boarded_mass": 42.17199432862556,
+          "outside_s": {
+            "minimum": 48.0683150466939,
+            "p10": 50.45632619776734,
+            "median": 56.42818209045072,
+            "p90": 66.64036532193859,
+            "maximum": 70.44000073523057,
+            "mean": 57.371138485881325
+          },
+          "onboard_s": {
+            "minimum": 2.0,
+            "p10": 6.0,
+            "median": 151.8929999999964,
+            "p90": 185.8929999999964,
+            "maximum": 193.8929999999964,
+            "mean": 129.7835097925633
+          },
+          "combined_s": {
+            "minimum": 50.43868815852329,
+            "p10": 55.29218959161517,
+            "median": 211.4271135758172,
+            "p90": 241.0560979176298,
+            "maximum": 246.33168815851968,
+            "mean": 187.15464827844463
+          },
+          "same_minute_boards_mass": 8.501551676093477,
+          "doors_opened_within_minute": 0
+        }
+      },
+      "observations": {
+        "20261110-1523-admin-snu-queue-wait-01": {
+          "kind": "outside",
+          "stop": "admin_snu",
+          "minute": "15:23",
+          "observed": [
+            67,
+            67
+          ],
+          "matched": true,
+          "mean": 42.11316883813337,
+          "minimum": 32.667,
+          "maximum": 52.303191,
+          "expected_abs_error": 24.886831161866624
+        },
+        "20261124-1352-admin-snu-queue": {
+          "kind": "outside",
+          "stop": "admin_snu",
+          "minute": "13:52",
+          "observed": [
+            26,
+            26
+          ],
+          "matched": true,
+          "mean": 20.687997957633335,
+          "minimum": 16.229396,
+          "maximum": 26.329048,
+          "expected_abs_error": 5.354748698099994
+        },
+        "20261124-1518-admin-snu-queue": {
+          "kind": "outside",
+          "stop": "admin_snu",
+          "minute": "15:18",
+          "observed": [
+            6,
+            6
+          ],
+          "matched": true,
+          "mean": 8.193588409416517,
+          "minimum": 6.127548,
+          "maximum": 13.436628,
+          "expected_abs_error": 2.1935884094165172
+        },
+        "20261124-1518-admin-daehak-onboard": {
+          "kind": "onboard",
+          "stop": "admin_daehak",
+          "minute": "15:18",
+          "observed": [
+            17,
+            17
+          ],
+          "matched": true,
+          "mean": 6.00781601140146,
+          "minimum": 5.23156248,
+          "maximum": 6.98129575,
+          "expected_abs_error": 10.992183988598537
+        }
+      },
+      "town_vehicle_ranges": [
+        {
+          "vehicle": 455,
+          "op": 54900.8465,
+          "departure": 55500.976,
+          "mean": 6.0078160119126975,
+          "minimum": 5.231562482049574,
+          "maximum": 6.981295746769174
+        }
+      ],
+      "daily": 17683.5,
+      "over20_weight": 0.0,
+      "unserved": 0,
+      "capacity_violations": 0
+    },
+    "nov10": {
+      "episodes": {
+        "15:23": {
+          "boarded_cohort": 32.79011176232755,
+          "next_departure_group": 0,
+          "boarded_mass": 32.79011176232755,
+          "outside_s": {
+            "minimum": 164.83282499747293,
+            "p10": 166.80955572187668,
+            "median": 169.88845397769182,
+            "p90": 179.1403653219386,
+            "maximum": 182.17210394160065,
+            "mean": 171.20431228884837
+          },
+          "onboard_s": {
+            "minimum": 8.5,
+            "p10": 16.5,
+            "median": 42.5,
+            "p90": 68.5,
+            "maximum": 74.5,
+            "mean": 41.92969928059876
+          },
+          "combined_s": {
+            "minimum": 190.67210394160065,
+            "p10": 195.06255143460294,
+            "median": 207.9316229307442,
+            "p90": 234.16309791763342,
+            "maximum": 247.20178222960385,
+            "mean": 213.13401156944713
+          },
+          "same_minute_boards_mass": 0.0,
+          "doors_opened_within_minute": 0
+        }
+      },
+      "observations": {
+        "20261110-1523-admin-snu-queue-wait-01": {
+          "kind": "outside",
+          "stop": "admin_snu",
+          "minute": "15:23",
+          "observed": [
+            67,
+            67
+          ],
+          "matched": true,
+          "mean": 71.61316883813338,
+          "minimum": 64.498448,
+          "maximum": 78.230305,
+          "expected_abs_error": 4.8338615696666904
+        },
+        "20261124-1352-admin-snu-queue": {
+          "kind": "outside",
+          "stop": "admin_snu",
+          "minute": "13:52",
+          "observed": [
+            26,
+            26
+          ],
+          "matched": true,
+          "mean": 20.687997957633335,
+          "minimum": 16.229396,
+          "maximum": 26.329048,
+          "expected_abs_error": 5.354748698099994
+        },
+        "20261124-1518-admin-snu-queue": {
+          "kind": "outside",
+          "stop": "admin_snu",
+          "minute": "15:18",
+          "observed": [
+            6,
+            6
+          ],
+          "matched": true,
+          "mean": 8.193588409416517,
+          "minimum": 6.127548,
+          "maximum": 13.436628,
+          "expected_abs_error": 2.1935884094165172
+        },
+        "20261124-1518-admin-daehak-onboard": {
+          "kind": "onboard",
+          "stop": "admin_daehak",
+          "minute": "15:18",
+          "observed": [
+            17,
+            17
+          ],
+          "matched": true,
+          "mean": 6.00781601140146,
+          "minimum": 5.23156248,
+          "maximum": 6.98129575,
+          "expected_abs_error": 10.992183988598537
+        }
+      },
+      "town_vehicle_ranges": [
+        {
+          "vehicle": 455,
+          "op": 54900.8465,
+          "departure": 55500.976,
+          "mean": 6.0078160119126975,
+          "minimum": 5.231562482049574,
+          "maximum": 6.981295746769174
+        }
+      ],
+      "daily": 17683.5,
+      "over20_weight": 0.0,
+      "unserved": 0,
+      "capacity_violations": 0,
+      "observed_pair_joiners": {
+        "cohort_boarded_here": 32.79011176232755,
+        "first_vehicle": 19.6085390241187,
+        "second_vehicle": 13.18157273820885,
+        "second_vehicle_outside_s": [
+          169.88845397769182,
+          182.17210394160065
+        ],
+        "second_vehicle_aboard_s": [
+          8.5,
+          34.5
+        ]
+      }
+    },
+    "nov10_early": {
+      "episodes": {
+        "15:23": {
+          "boarded_cohort": 42.056168617930524,
+          "next_departure_group": 0,
+          "boarded_mass": 42.056168617930524,
+          "outside_s": {
+            "minimum": 143.0168109416045,
+            "p10": 148.54218959161517,
+            "median": 156.53098343058082,
+            "p90": 165.8903653219386,
+            "maximum": 170.92210394160065,
+            "mean": 156.93972445680592
+          },
+          "onboard_s": {
+            "minimum": 19.75,
+            "p10": 29.75,
+            "median": 63.75,
+            "p90": 95.75,
+            "maximum": 105.75,
+            "mean": 62.78611706058595
+          },
+          "combined_s": {
+            "minimum": 190.67210394160065,
+            "p10": 195.6403653219386,
+            "median": 219.48438793646346,
+            "p90": 244.29218959161517,
+            "maximum": 248.7668109416045,
+            "mean": 219.72584151739187
+          },
+          "same_minute_boards_mass": 0.0,
+          "doors_opened_within_minute": 0
+        }
+      },
+      "observations": {
+        "20261110-1523-admin-snu-queue-wait-01": {
+          "kind": "outside",
+          "stop": "admin_snu",
+          "minute": "15:23",
+          "observed": [
+            67,
+            67
+          ],
+          "matched": true,
+          "mean": 71.61316883813338,
+          "minimum": 64.498448,
+          "maximum": 78.230305,
+          "expected_abs_error": 4.8338615696666904
+        },
+        "20261124-1352-admin-snu-queue": {
+          "kind": "outside",
+          "stop": "admin_snu",
+          "minute": "13:52",
+          "observed": [
+            26,
+            26
+          ],
+          "matched": true,
+          "mean": 20.687997957633335,
+          "minimum": 16.229396,
+          "maximum": 26.329048,
+          "expected_abs_error": 5.354748698099994
+        },
+        "20261124-1518-admin-snu-queue": {
+          "kind": "outside",
+          "stop": "admin_snu",
+          "minute": "15:18",
+          "observed": [
+            6,
+            6
+          ],
+          "matched": true,
+          "mean": 8.193588409416517,
+          "minimum": 6.127548,
+          "maximum": 13.436628,
+          "expected_abs_error": 2.1935884094165172
+        },
+        "20261124-1518-admin-daehak-onboard": {
+          "kind": "onboard",
+          "stop": "admin_daehak",
+          "minute": "15:18",
+          "observed": [
+            17,
+            17
+          ],
+          "matched": true,
+          "mean": 6.00781601140146,
+          "minimum": 5.23156248,
+          "maximum": 6.98129575,
+          "expected_abs_error": 10.992183988598537
+        }
+      },
+      "town_vehicle_ranges": [
+        {
+          "vehicle": 455,
+          "op": 54900.8465,
+          "departure": 55500.976,
+          "mean": 6.0078160119126975,
+          "minimum": 5.231562482049574,
+          "maximum": 6.981295746769174
+        }
+      ],
+      "daily": 17683.5,
+      "over20_weight": 0.0,
+      "unserved": 0,
+      "capacity_violations": 0,
+      "observed_pair_joiners": {
+        "cohort_boarded_here": 42.056168617930524,
+        "first_vehicle": 11.0457464623372,
+        "second_vehicle": 31.01042215559332,
+        "second_vehicle_outside_s": [
+          153.55955572187668,
+          170.92210394160065
+        ],
+        "second_vehicle_aboard_s": [
+          19.75,
+          81.75
+        ]
+      }
+    },
+    "nov10_late": {
+      "episodes": {
+        "15:23": {
+          "boarded_cohort": 22.38896294191321,
+          "next_departure_group": 0,
+          "boarded_mass": 22.38896294191321,
+          "outside_s": {
+            "minimum": 202.08282499747293,
+            "p10": 203.97358859033557,
+            "median": 205.91630799500854,
+            "p90": 284.33558922582597,
+            "maximum": 289.9977300088576,
+            "mean": 220.64422186381185
+          },
+          "onboard_s": {
+            "minimum": 1.25,
+            "p10": 5.25,
+            "median": 23.25,
+            "p90": 84.0,
+            "maximum": 88.0,
+            "mean": 30.976260484361607
+          },
+          "combined_s": {
+            "minimum": 206.99773000885762,
+            "p10": 207.9316229307442,
+            "median": 226.8359133349586,
+            "p90": 370.33558922582597,
+            "maximum": 377.9977300088576,
+            "mean": 251.62048234817345
+          },
+          "same_minute_boards_mass": 0.0,
+          "doors_opened_within_minute": 0
+        }
+      },
+      "observations": {
+        "20261110-1523-admin-snu-queue-wait-01": {
+          "kind": "outside",
+          "stop": "admin_snu",
+          "minute": "15:23",
+          "observed": [
+            67,
+            67
+          ],
+          "matched": true,
+          "mean": 71.61316883813338,
+          "minimum": 64.498448,
+          "maximum": 78.230305,
+          "expected_abs_error": 4.8338615696666904
+        },
+        "20261124-1352-admin-snu-queue": {
+          "kind": "outside",
+          "stop": "admin_snu",
+          "minute": "13:52",
+          "observed": [
+            26,
+            26
+          ],
+          "matched": true,
+          "mean": 20.687997957633335,
+          "minimum": 16.229396,
+          "maximum": 26.329048,
+          "expected_abs_error": 5.354748698099994
+        },
+        "20261124-1518-admin-snu-queue": {
+          "kind": "outside",
+          "stop": "admin_snu",
+          "minute": "15:18",
+          "observed": [
+            6,
+            6
+          ],
+          "matched": true,
+          "mean": 8.193588409416517,
+          "minimum": 6.127548,
+          "maximum": 13.436628,
+          "expected_abs_error": 2.1935884094165172
+        },
+        "20261124-1518-admin-daehak-onboard": {
+          "kind": "onboard",
+          "stop": "admin_daehak",
+          "minute": "15:18",
+          "observed": [
+            17,
+            17
+          ],
+          "matched": true,
+          "mean": 6.00781601140146,
+          "minimum": 5.23156248,
+          "maximum": 6.98129575,
+          "expected_abs_error": 10.992183988598537
+        }
+      },
+      "town_vehicle_ranges": [
+        {
+          "vehicle": 455,
+          "op": 54900.8465,
+          "departure": 55500.976,
+          "mean": 6.0078160119126975,
+          "minimum": 5.231562482049574,
+          "maximum": 6.981295746769174
+        }
+      ],
+      "daily": 17683.5,
+      "over20_weight": 0.0,
+      "unserved": 0,
+      "capacity_violations": 0,
+      "observed_pair_joiners": {
+        "cohort_boarded_here": 22.38896294191321,
+        "first_vehicle": 18.142472217301382,
+        "second_vehicle": 0,
+        "second_vehicle_outside_s": [],
+        "second_vehicle_aboard_s": []
+      }
+    },
+    "nov24": {
+      "episodes": {
+        "15:23": {
+          "boarded_cohort": 42.056168617930524,
+          "next_departure_group": 0,
+          "boarded_mass": 42.056168617930524,
+          "outside_s": {
+            "minimum": 131.1557452773268,
+            "p10": 135.29218959161517,
+            "median": 161.728913334955,
+            "p90": 171.95555143459933,
+            "maximum": 175.56510394159704,
+            "mean": 158.3909406639341
+          },
+          "onboard_s": {
+            "minimum": 22.0,
+            "p10": 30.0,
+            "median": 64.0,
+            "p90": 115.89299999999639,
+            "maximum": 123.89299999999639,
+            "mean": 68.22790085345419
+          },
+          "combined_s": {
+            "minimum": 197.56510394159704,
+            "p10": 202.53336532193498,
+            "median": 226.37738793645985,
+            "p90": 251.18518959161156,
+            "maximum": 255.65981094160088,
+            "mean": 226.61884151738826
+          },
+          "same_minute_boards_mass": 0.0,
+          "doors_opened_within_minute": 0
+        }
+      },
+      "observations": {
+        "20261110-1523-admin-snu-queue-wait-01": {
+          "kind": "outside",
+          "stop": "admin_snu",
+          "minute": "15:23",
+          "observed": [
+            67,
+            67
+          ],
+          "matched": true,
+          "mean": 71.61316883813338,
+          "minimum": 64.498448,
+          "maximum": 78.230305,
+          "expected_abs_error": 4.8338615696666904
+        },
+        "20261124-1352-admin-snu-queue": {
+          "kind": "outside",
+          "stop": "admin_snu",
+          "minute": "13:52",
+          "observed": [
+            26,
+            26
+          ],
+          "matched": true,
+          "mean": 20.687997957633335,
+          "minimum": 16.229396,
+          "maximum": 26.329048,
+          "expected_abs_error": 5.354748698099994
+        },
+        "20261124-1518-admin-snu-queue": {
+          "kind": "outside",
+          "stop": "admin_snu",
+          "minute": "15:18",
+          "observed": [
+            6,
+            6
+          ],
+          "matched": true,
+          "mean": 8.193588409416517,
+          "minimum": 6.127548,
+          "maximum": 13.436628,
+          "expected_abs_error": 2.1935884094165172
+        },
+        "20261124-1518-admin-daehak-onboard": {
+          "kind": "onboard",
+          "stop": "admin_daehak",
+          "minute": "15:18",
+          "observed": [
+            17,
+            17
+          ],
+          "matched": true,
+          "mean": 6.00781601140146,
+          "minimum": 5.23156248,
+          "maximum": 6.98129575,
+          "expected_abs_error": 10.992183988598537
+        }
+      },
+      "town_vehicle_ranges": [
+        {
+          "vehicle": 455,
+          "op": 54900.894,
+          "departure": 55380.3495,
+          "mean": 6.0078160119126975,
+          "minimum": 5.231562482049574,
+          "maximum": 6.981295746769174
+        }
+      ],
+      "daily": 17683.5,
+      "over20_weight": 0.0,
+      "unserved": 0,
+      "capacity_violations": 0
+    }
+  }
+}

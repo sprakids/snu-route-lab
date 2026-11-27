@@ -1,0 +1,112 @@
+{
+  "status": "REGISTERED_BEFORE_EXECUTION",
+  "release_id": "261116103210",
+  "implementation_parent": "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\261116102200",
+  "comparison_parent": "261116010854",
+  "pilot_cases": [
+    {
+      "case": "trunkfix-combined-regular-mon",
+      "mode": "combined",
+      "day": "월",
+      "scenario": "regular",
+      "seed": 0,
+      "operations": "v12_empirical"
+    },
+    {
+      "case": "trunkfix-combined-regular-tue",
+      "mode": "combined",
+      "day": "화",
+      "scenario": "regular",
+      "seed": 0,
+      "operations": "v12_empirical"
+    },
+    {
+      "case": "trunkfix-combined-regular-wed",
+      "mode": "combined",
+      "day": "수",
+      "scenario": "regular",
+      "seed": 0,
+      "operations": "v12_empirical"
+    },
+    {
+      "case": "trunkfix-combined-regular-thu",
+      "mode": "combined",
+      "day": "목",
+      "scenario": "regular",
+      "seed": 0,
+      "operations": "v12_empirical"
+    },
+    {
+      "case": "trunkfix-combined-regular-fri",
+      "mode": "combined",
+      "day": "금",
+      "scenario": "regular",
+      "seed": 0,
+      "operations": "v12_empirical"
+    },
+    {
+      "case": "trunkfix-combined-peak-mon",
+      "mode": "combined",
+      "day": "월",
+      "scenario": "peak",
+      "seed": 0,
+      "operations": "v12_empirical"
+    },
+    {
+      "case": "trunkfix-combined-peak-tue",
+      "mode": "combined",
+      "day": "화",
+      "scenario": "peak",
+      "seed": 0,
+      "operations": "v12_empirical"
+    },
+    {
+      "case": "trunkfix-combined-peak-wed",
+      "mode": "combined",
+      "day": "수",
+      "scenario": "peak",
+      "seed": 0,
+      "operations": "v12_empirical"
+    },
+    {
+      "case": "trunkfix-combined-peak-thu",
+      "mode": "combined",
+      "day": "목",
+      "scenario": "peak",
+      "seed": 0,
+      "operations": "v12_empirical"
+    },
+    {
+      "case": "trunkfix-combined-peak-fri",
+      "mode": "combined",
+      "day": "금",
+      "scenario": "peak",
+      "seed": 0,
+      "operations": "v12_empirical"
+    },
+    {
+      "case": "ablation-no-trunk-mon",
+      "mode": "combined",
+      "day": "월",
+      "scenario": "regular",
+      "seed": 0,
+      "operations": "v12_empirical",
+      "config_overrides": {
+        "initial_trunk_preservation": false
+      }
+    }
+  ],
+  "selection_rule": "Main Mon/Tue regular plus one Monday trunk-disabled diagnostic, once each. Keep same-stop prototype separately. Extend remaining8main conditions only with physical/user-rule PASS, unserved0 and no increase of main Mon/Tue combined reused-field error or over20 weight against261116010854, with at least one improving. All worsening indicators remain visible. No numerical patience, demand, destination, capacity, clock, walking or utility fit; no new-date outcome reads. No forced20min exit or40-person cap.",
+  "new_day_outcomes_opened": false,
+  "production_replacement_allowed": false,
+  "retained_user_behavior": [
+    "initial shuttle loyalty until heterogeneous expected-wait threshold",
+    "city two actual full buses plus further queue delay reconsideration",
+    "no visited boarding-stop returns",
+    "unlimited rerouting with repeat aversion",
+    "nearby walking and legal enroute boarding",
+    "SNU gate final fallback",
+    "correct terminal5516 direction"
+  ],
+  "mechanism_parent": "261116102200"
+}

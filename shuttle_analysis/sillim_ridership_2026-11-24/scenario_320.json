@@ -1,0 +1,95 @@
+{
+  "date": "20261105",
+  "time_zone": "Asia/Seoul",
+  "station": "4411",
+  "window": "[15:00,19:00) rail boarding",
+  "student_share_assumption": 0.8,
+  "hours": [
+    15,
+    16,
+    17,
+    18
+  ],
+  "all_station_boardings": {
+    "15": 304,
+    "16": 357,
+    "17": 304,
+    "18": 330
+  },
+  "core_bus_connections": {
+    "15": 8,
+    "16": 13,
+    "17": 25,
+    "18": 41
+  },
+  "morning_inbound_then_first_rail": {
+    "15": 19,
+    "16": 22,
+    "17": 25,
+    "18": 59
+  },
+  "evidence_only_student_bounds": [
+    0,
+    1295
+  ],
+  "scenarios": [
+    {
+      "scenario": "low",
+      "morning_capture_assumption": 0.5862068965517241,
+      "raw_student_trip_estimate": 240.18823529411767,
+      "round_target": 240,
+      "experimental_weight": 0.25,
+      "hourly_boarding_probabilities": [
+        0.13460031347962384,
+        0.16829937304075235,
+        0.22531347962382445,
+        0.47178683385579934
+      ],
+      "hourly_reference_counts": [
+        32,
+        41,
+        54,
+        113
+      ]
+    },
+    {
+      "scenario": "base",
+      "morning_capture_assumption": 0.4,
+      "raw_student_trip_estimate": 319.6,
+      "round_target": 320,
+      "experimental_weight": 0.5,
+      "hourly_boarding_probabilities": [
+        0.13892365456821026,
+        0.1702127659574468,
+        0.2190237797246558,
+        0.4718397997496871
+      ],
+      "hourly_reference_counts": [
+        44,
+        55,
+        70,
+        151
+      ]
+    },
+    {
+      "scenario": "high",
+      "morning_capture_assumption": 0.3,
+      "raw_student_trip_estimate": 402.9333333333334,
+      "round_target": 400,
+      "experimental_weight": 0.25,
+      "hourly_boarding_probabilities": [
+        0.14162806088682992,
+        0.171409662475182,
+        0.21508934480476508,
+        0.471872931833223
+      ],
+      "hourly_reference_counts": [
+        57,
+        68,
+        86,
+        189
+      ]
+    }
+  ],
+  "note": "Single Thursday. Trial weights are a design choice. Hourly event timing and access mix are modeled. No individual route choice probabilities are measured."
+}

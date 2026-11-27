@@ -1,0 +1,59 @@
+{
+  "status": "PASS",
+  "rules": {
+    "max_minimum_stop_distance_m": 40,
+    "within_best_distance_m": 10,
+    "max_track_gap_seconds": 300,
+    "same_vehicle_target_visit_merge_seconds": 300,
+    "minimum_detection_coverage_fraction": 0.85,
+    "maximum_clock_inversion_error_seconds": 30,
+    "insufficient_route_coverage_policy": "preserve_v8_clock",
+    "gate_error_at_most_v7": true,
+    "other_old_case_error_tolerance_people": 0.5,
+    "source_window_seconds": [
+      54000,
+      68400
+    ],
+    "one_candidate_only": true,
+    "demand_capacity_speed_profiles_shuttles_unchanged": true,
+    "not_independent_predictive_validation": true
+  },
+  "quality": {
+    "100100250": {
+      "visits_without_docking": 9,
+      "peak_visits": 33,
+      "docking_visits": 22,
+      "distant_docking": 2
+    },
+    "100100251": {
+      "peak_visits": 20,
+      "docking_visits": 19,
+      "distant_docking": 1
+    },
+    "100100252": {
+      "peak_visits": 29,
+      "docking_visits": 29
+    },
+    "100100263": {
+      "distant_docking": 2,
+      "peak_visits": 20,
+      "docking_visits": 18
+    },
+    "100100521": {
+      "peak_visits": 25,
+      "docking_visits": 25
+    }
+  },
+  "eligible_routes": [
+    "100100251",
+    "100100252",
+    "100100263",
+    "100100521"
+  ],
+  "alignments": 91,
+  "maximum_alignment_error_seconds": 0.0,
+  "demand_unchanged": true,
+  "capacity_unchanged": true,
+  "shuttle_unchanged": true,
+  "segment_profiles_unchanged": true
+}

@@ -1,0 +1,70 @@
+{
+  "cases": [
+    {
+      "case": {
+        "case": "ablation-gate-only-mon",
+        "mode": "combined",
+        "day": "월",
+        "scenario": "regular",
+        "seed": 0,
+        "operations": "v12_empirical",
+        "config_overrides": {
+          "learn_past_residual_seats": true
+        }
+      },
+      "counts": {
+        "over20_episode_weight": 486.50449037072735,
+        "over20_boarded": 451.8160770942153,
+        "over20_enroute_episode_weight": 0.0,
+        "within_personal_patience_episode_weight": 485.5970077881042,
+        "over20_switched": 34.688413276512215,
+        "past_personal_patience_episode_weight": 0.9074825826230954
+      },
+      "maximum_raw_wait_visit": {
+        "uid": 4625936,
+        "node": 59,
+        "seconds": 2327.186929448122,
+        "personal_patience_seconds": 2604.7466632052506,
+        "outcome": "boarded",
+        "weight": 0.09498845162658942
+      },
+      "opportunities": {
+        "enabled": true,
+        "window_seconds": 30.0,
+        "flow": {
+          "walking_calls": 188512,
+          "walking_opportunity_weight": 53079.21998591302,
+          "no_existing_path_join_weight": 50506.77619243353,
+          "walking_calls_with_geometry": 10806,
+          "walking_weight_with_geometry": 2572.4437934794605,
+          "no_allowed_timetable_window_weight": 2446.7277448911145,
+          "intercept_attempt_weight": 125.71604858835082,
+          "resumed_walking_weight": 52.384920143271316,
+          "opportunistic_boarded_weight": 73.33112844507966
+        },
+        "catalogue": {
+          "counts": {
+            "queries": 188512,
+            "distinct_queries": 2810,
+            "distinct_queries_with_geometry": 338,
+            "geometric_opportunities": 847,
+            "cache_hits": 185702
+          },
+          "known_walking_path_count": 3140,
+          "indexed_walking_path_count": 3082,
+          "platform_destination_count": 387,
+          "max_extra_meters": 80.0,
+          "max_lateral_meters": 30.0,
+          "coverage_scope": "Existing exact directed walking prefix/suffix and platform anchors only; missing joins leave the original walk unchanged.",
+          "coordinates_created": false,
+          "new_paths_created": false,
+          "thresholds_are_observed": false
+        },
+        "selection_scope": "Timetabled compatible arrivals inside a bounded platform window; actual seats and partial boarding use the existing physical FIFO.",
+        "coverage_scope": "Walking opportunity exposure is per leg/attempt, not unique students or observed demand."
+      }
+    }
+  ],
+  "scope": "Weighted queue visits, not unique students; departure threshold is elapsed plus forecast, not forced exit. The integrated same-stop audit remains controlling for continuous20min totals.",
+  "new_outcomes_opened": false
+}

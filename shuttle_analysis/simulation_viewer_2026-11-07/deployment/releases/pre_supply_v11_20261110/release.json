@@ -1,0 +1,52 @@
+{
+  "status": "DEPLOYED_AND_VERIFIED",
+  "release_model_id": "261110150729",
+  "source_simulation": "capacity_v9",
+  "site": "https://snu-shuttle-simulation.vercel.app/",
+  "methodology": "https://snu-shuttle-simulation.vercel.app/walk-choice-methodology.html",
+  "deployment_id": "dpl_EfA36tWX1ZqVdSyjk9zcfUagyTXW",
+  "data_deployment_id": "dpl_7ujM57SbxchJpYhpV448TCm52GbQ",
+  "payload_sha256": "185564956f609a46ef5016ab0c4ee24799bfeecf01da6a4f0f7bc45994ab133c",
+  "compatibility_sha256": "7ce2316538b6ff26743a5e60a36041c613465091e64563170497ad51b8ca89d2",
+  "content_sha256": "147d26af9f1845f8cbe2fada82030ca7b30fb0b555cb08f2193bbacb704a94da",
+  "selection": {
+    "status": "VERIFIED",
+    "directory": "crowding_walk_choices_2026-11-10/initial_refit_H",
+    "model_sha256": "bd645a47900570cd60031196dd298530c1e8f7270cacae0bc0911e249621d141",
+    "prepared_sha256": "2b7284d40bab677b2f232e8444c522d3fa88995ac8d42342c9638adb7988ebf2",
+    "empirical_validation": false,
+    "selection_reason": "All ten cases pass conservation, FIFO, capacity, continuous-wait and named-stop reference review; reused three minute-uncertain observations are in-sample calibration only."
+  },
+  "data_stage": {
+    "directory": "deployment\\walk_choices_data_261110150729",
+    "public_bytes": 31779554,
+    "routing_model_id": "261110150729",
+    "data_only": true
+  },
+  "ui_stage": {
+    "directory": "deployment\\walk_choices_ui_261110150729_150929",
+    "public_bytes": 99881965,
+    "routing_model_id": "261110150729",
+    "retained_immutable_files": 84,
+    "external_data_host": "https://snu-shuttle-v9-data.vercel.app",
+    "existing_archive_unchanged": true
+  },
+  "all_stop_quality": "PASS",
+  "scenario_runs": 10,
+  "stop_scenario_day_rows": 990,
+  "max_continuous_wait_min": 18.15677309037795,
+  "over_20_minute_weight": 0.0,
+  "no_count_limit": true,
+  "no_forced_wait_or_queue_clipping": true,
+  "source_prepared_and_engine_unchanged": true,
+  "legacy_protected_files_unchanged_except_mutable_latest": true,
+  "legacy_protected_files": 106,
+  "browser_qa": "C:\\Users\\김예준\\AppData\\Local\\Temp\\snu-walk-choice-20261110\\public\\checks.json",
+  "adapter_tests": 32,
+  "public_file_parity_checks": 26,
+  "route_application_active_model": "261110150729",
+  "independent_empirical_validation": false,
+  "weighted_trip_events_not_unique_students": true,
+  "routing_scope": "new aggregate conditional queue inputs; personal recommendation policy is separately owned by implementation agent",
+  "implementation_agent_notified": true
+}

@@ -1,0 +1,4 @@
+2026-11-16T07:55:06Z, report helper parse before any statement execution.
+handoff.py line63: SyntaxError: unterminated string literal.
+Cause: multiline report links were surrounded with single quotes.
+Corrected to a triple-quoted report string. No model conditions or outputs were rerun.

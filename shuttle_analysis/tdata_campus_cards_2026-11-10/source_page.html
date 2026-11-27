@@ -1,0 +1,2012 @@
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    
+
+
+
+    <title>T Data 서울교통빅데이터플랫폼</title>
+    
+    <meta name="apple-mobile-web-app-title" content="서울시 교통빅데이터플랫폼">
+    <meta name="descripption" content="서울시 교통빅데이터 제공 창구입니다." />
+    <meta property="og:title" content="서울시 교통빅데이터플랫폼">
+    <meta name="keywords" content="서울시 교통빅데이터플랫폼" />
+    <meta property="og:description" content="서울시 교통빅데이터 제공 창구입니다.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" />
+    <link rel="apple-touch-icon" href="/assets/images/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/index.css" />
+    <script rel="dns-prefetch" type="text/javascript" src="//www.seoul.go.kr/seoulgnb/gnb.js"></script>
+    <style>
+        .mstatus_mark {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            font-weight: 400;
+            color: #fff;
+            height: 24px;
+            padding: 0 6px;
+            border-radius: 4px;
+            background: #39C613;
+        }
+        .mstatus_mark.slow {
+            background: #BF5300;
+        }
+        .mstatus_mark.heavy {
+            background: #D62E22;
+        }
+
+        .slide_bg.hover {
+            height: 400px;
+        }
+
+        h2{
+            text-align: center;
+        }
+        .modal {
+            display: none;
+            position: absolute;
+            top:0;
+            left: 0;
+            width: 100%;
+            height: 4000px;
+            overflow: hidden;
+            background: rgba(0,0,0,0.5);
+            z-index: 997;
+        }
+        .modal .modal_popup {
+            position: absolute;
+            /*top: 5%;*/
+            top: 10%;
+            /*left: 25%;*/
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 20px;
+            z-index: 998;
+        }
+        .modal .modal_popup .close_btn {
+            padding: 10px 20px;
+            background-color: rgb(116, 0, 0);
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+            transition: box-shadow 0.2s;
+            z-index: 998;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="wrap">
+        
+
+
+<div id="menu_skip">
+    <a href="#naviGation"><span>메인메뉴 바로가기</span></a>
+    <a href="#mainContents"><span>본문 바로가기</span></a>
+</div>
+<header class="header">
+    <!-- seoulgnb 는 live server 로 열면 확인가능 -->
+    <div id="seoul-common-gnb"></div>
+    <!-- seoulgnb End -->
+    <div class="header_line">
+        <div class="slide_bg"></div>
+        <div class="header_inner">
+            <div class="hedaer_left">
+                <h1>
+                    <a href="/" class="hedaer_logo" title="메인화면 바로가기">
+                        <img src="/assets/images/header_logo.svg" alt="T Data 서울시 교통빅데이터플랫폼" />
+                    </a>
+                </h1>
+            </div>
+            <nav id="naviGation" class="header_center" title="전체메뉴">
+                <ul class="header_menu_list">
+                    <li class="slidedown_menu" title="데이터제공 메뉴">
+                        <a href="javascript:moveMenu('/dataprovide/vizsearch.do', 'MENU_DATAPROVIDE_01')" class="header_nav_text" title="데이터제공">데이터제공</a>
+                        <ul title="데이터제공" class="sub_slidedown_menu">
+                            <li class="slidedown_list">
+                                <a href="javascript:moveMenu('/dataprovide/vizsearch.do', 'MENU_DATAPROVIDE_01')" class="slidedown_anchor" title="시각화 검색">시각화 검색</a>
+                            </li>
+                            <li class="slidedown_list">
+                                <a href="javascript:moveMenu('/dataprovide/trafficdatalist.do', 'MENU_DATAPROVIDE_02')" class="slidedown_anchor" title="교통빅데이터 검색">교통빅데이터 검색</a>
+                            </li>
+                            <li class="slidedown_list">
+                                <a href="javascript:moveMenu('/dataprovide/datastatus.do', 'MENU_DATAPROVIDE_03')" class="slidedown_anchor" title="데이터 현황">데이터 현황</a>
+                            </li>
+                            <li class="slidedown_list">
+                                <a href="javascript:moveMenu('/dataprovide/populardata.do', 'MENU_DATAPROVIDE_04')" class="slidedown_anchor" title="인기 데이터">인기 데이터</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="slidedown_menu" title="데이터활용 메뉴">
+                        <a href="javascript:moveMenu('/datause/analysistype.do', 'MENU_DATAUSE_01')" class="header_nav_text" title="데이터활용">데이터활용</a>
+                        <ul title="데이터활용" class="sub_slidedown_menu">
+                            <li class="slidedown_list">
+                                <a href="javascript:moveMenu('/datause/analysistype.do', 'MENU_DATAUSE_01')" class="slidedown_anchor" title="유형별 분석">유형별 분석</a>
+                            </li>
+                            
+							
+                            
+                        </ul>
+                    </li>
+                    <li class="slidedown_menu" title="소통 메뉴">
+                        <a href="javascript:moveMenu('/board/notice/list.do', 'MENU_BOARD_01')" class="header_nav_text" title="소통">소통</a>
+                        <ul title="소통" class="sub_slidedown_menu">
+                            <li class="slidedown_list">
+                                <a href="javascript:moveMenu('/board/notice/list.do', 'MENU_BOARD_01')" class="slidedown_anchor" title="공지사항">공지사항</a>
+                            </li>
+                            <li class="slidedown_list">
+                                <a href="javascript:moveMenu('/board/faq/list.do', 'MENU_BOARD_02')" class="slidedown_anchor" title="자주묻는질문">자주묻는질문</a>
+                            </li>
+                            <!---->
+                        </ul>
+                    </li>
+                    <li class="slidedown_menu" title="이용안내 메뉴">
+                        <a href="javascript:moveMenu('/userguide/tdataintroduce.do', 'MENU_USERGUIDE_01')" class="header_nav_text" title="이용안내">이용안내</a>
+                        <ul title="이용안내" class="sub_slidedown_menu">
+                            <li class="slidedown_list">
+                                <a href="javascript:moveMenu('/userguide/tdataintroduce.do', 'MENU_USERGUIDE_01')" class="slidedown_anchor" title="T-DATA 소개">T-DATA 소개</a>
+                            </li>
+                            <li class="slidedown_list">
+                                <a href="javascript:moveMenu('/userguide/trafficpolicy.do', 'MENU_USERGUIDE_02')" class="slidedown_anchor" title="데이터 이용정책">데이터 이용정책</a>
+                            </li>
+                            <li class="slidedown_list">
+                                <a href="javascript:moveMenu('/userguide/guideopenapi.do', 'MENU_USERGUIDE_03')" class="slidedown_anchor" title="Open API 이용안내">Open API 이용안내</a>
+                            </li>
+							<!--<li class="slidedown_list">
+							    <a href="javascript:moveMenu('/userguide/personalInfo.do', 'MENU_USERGUIDE_04')" class="slidedown_anchor" title="개인정보 처리방침">개인정보 처리방침</a>
+							</li>-->
+                        </ul>
+                    </li>
+                    
+                </ul>
+            </nav>
+
+            <div class="header_right" title="고객정보 팝업">
+                
+                    
+                    
+                        <ul class="memeber_head_login">
+
+
+
+                            <li>
+                                <a href="/sso/login.do" class="login_anchor" title="서울시 통합 로그인 바로가기">로그인</a>
+                            </li>
+                            <li>
+                                <a href="https://www.seoul.go.kr/member/join/regist01.do" target="_blank" rel="dns-prefetch" class="login_anchor" title="서울시 통합 회원가입 새창열기">서울시 통합 회원가입</a>
+                                
+                            </li>
+                        </ul>
+                    
+                
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+
+        function moveMenu(hrefUrl, accessMenuType) {
+            // 메뉴 접근 이력 저장 후, 페이지 이동.
+            $.ajax({
+                  url: "/system/datausage/save.do"
+                , data: JSON.stringify({ accessMenuType })
+                , method: 'POST'
+                , dataType : "json"
+                , contentType: "application/json"
+                , cache: false
+                , complete: function () {
+                    location.href = hrefUrl;
+                }
+            })
+        }
+
+        // 로그아웃
+        function onClickLogout() {
+            //새 창 띄우고 바로 닫기
+            const logout_window = window.open("https://www.seoul.go.kr/member/userlogin/logOut.do");
+            logout_window.close();
+
+            location.href='/sso/logout.do'
+        }
+
+        // 신청데이터 건수
+        function getReportAllNotAppCnt() {
+            //페이지 끝인지 체크
+            $.ajax({
+                url: "/main/getReportAllNotAppCnt.do"
+                , type: 'POST'
+                , data: ''
+                , dataType: 'text'
+                , cache: false
+                , success : function (result) {
+                    $('.alram_number').text(result);
+                }
+                , error: function (request, status, error) {
+                    console.log(error);
+                }
+            });
+        }
+    </script>
+</header>
+
+
+
+        <main id="mainContents" class="sub_contents">
+
+            <!--
+                2023-11-01 손주현
+                개발 미 반영 분
+                1. 미리보기 동작에 대해서 파일 읽어오기 맥북이라 설정-경로가 틀려서 못함
+                2. 파일 다운로드 아직 url 안 정해져서 준비 중 처리
+            -->
+
+            <div class="row_box">
+                <!-- 경로 및 타이틀 -->
+                
+
+
+
+
+    <div class="detailList_summary">
+        <div title="리스트 상세 제목" class="summary_column_full">
+            <div class="document_information_column m-b-20">
+                <span id="supportType" class="hidden_tag">제공유형</span>
+                <p class="data_slider_label datas">파일데이터</p>
+                <p class="data_slider_label">CSV</p>
+            </div>
+            <h2 class="summary_title">교통카드 대중교통 이용정보</h2>
+            <p class="summary_description lh_24">
+                서울시 대중교통을 이용한 교통카드 이용 태그, 환승, 기반 정보로 구성된 데이터 셋
+            </p>
+        </div>
+    </div>
+
+
+
+                <!-- 상세내용 -->
+                
+
+
+
+
+    <section class="sub_cont_group m-t-80">
+        <div class="subtitle_withbtn">
+            <h3 id="detailInformation" class="sub_contents_title">
+                상세 정보
+            </h3>
+        </div>
+        <div class="detail_info_table">
+            <span id="detailTable" class="hidden_tag">상세 정보</span>
+            <div>
+                <div class="table_grid_fourparts">
+                    <div class="table_th">파일데이터명</div>
+                    <div class="table_td">교통카드 대중교통 이용정보</div>
+                    <div class="table_th">다운로드수</div>
+                    <div class="table_td">11071</div>
+                </div>
+                <div class="table_grid_fourparts">
+                    <div class="table_th">공개일자</div>
+                    <div class="table_td">2026-03-18</div>
+                    <div class="table_th">수정일자</div>
+                    <div class="table_td">2026-11-10</div>
+                </div>
+                <div class="table_grid_fourparts">
+                    <div class="table_th">업데이트 주기</div>
+                    <div class="table_td">일별</div>
+                    <div class="table_th">유형분류</div>
+                    <div class="table_td">대중교통</div>
+                </div>
+                <div class="table_grid_fourparts">
+                    <div class="table_th">제공기관</div>
+                    <div class="table_td">티머니</div>
+                    <div class="table_th">제공부서</div>
+                    <div class="table_td">미래첨단교통과</div>
+                </div>
+                <div class="table_grid_fourparts">
+                    <div class="table_th">서비스유형</div>
+                    <div class="table_td"></div>
+                    <div class="table_th">담당자 전화번호</div>
+                    <div class="table_td">02-2133-4959</div>
+                </div>
+                <div class="table_grid_twoparts">
+                    <div class="table_th">저작권정책</div>
+                    <div class="table_td cc_td">
+                        <img src="/assets/images/cc_by.png" alt="저작자 표시(BY)" />
+                        
+                        <!--
+                        저작권자표시(BY) : 이용이나 변경 및 2차적 저작물의 작성을 포함한 자유이용을 허락합니다.
+                        -->
+                    </div>
+                </div>
+                <div class="table_grid_twoparts">
+                    <div class="table_th">키워드</div>
+                    <div class="table_td fc_black60">#대중교통 #교통카드 #환승 #태그 #기반정보</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+                <!-- 파일데이터 -->
+                
+
+
+
+
+    <section class="sub_cont_group m-t-80">
+        <div class="subtitle_withbtn">
+            <h3 id="fileDatas" class="sub_contents_title">
+                파일 데이터
+            </h3>
+        </div>
+			
+		<!--컬럼 설명 추가 202603 -->
+		<div class="roundary_table_box">
+			
+				<div class="dflx_ac_jbet">
+				    <p class="fs_18_bold">데이터 정보</p>
+				</div>
+			
+		
+			<div style="display: flex; justify-content: space-between;">
+				<div role="tablist" title="테이블 컬럼 설명 탭" class="main_tab_list tab_btn_list m-b-32">
+	            <button type="button" id="KSCC_DC_CARD" tabindex="0"
+	            class="search_tab_category trans tab_btn tabid_sample_tabPanel tabEventTrue on" title="DC 선택됨">
+	                KSCC_DC_CARD
+	            </button>
+	            <button type="button" id="KSCC_DD_CARD" tabindex="0"
+	            class="search_tab_category trans tab_btn tabid_message_tabPanel tabEventFalse" title="DD 선택안됨">
+	                KSCC_DD_CARD
+	            </button>
+				<button type="button" id="KSCC_DH_CARD" tabindex="0"
+	            class="search_tab_category trans tab_btn tabid_message_tabPanel tabEventFalse" title="DH 선택안됨">
+	                KSCC_DH_CARD
+	            </button>
+				<button type="button" id="KSCC_DO_CARD" tabindex="0"
+				class="search_tab_category trans tab_btn tabid_message_tabPanel tabEventFalse" title="DO 선택안됨">
+				    KSCC_DO_CARD
+				</button>
+				<button type="button" id="KSCC_DX_CARD" tabindex="0"
+				class="search_tab_category trans tab_btn tabid_message_tabPanel tabEventFalse" title="DX 선택안됨">
+				    KSCC_DX_CARD
+				</button>
+				<button type="button" id="KSCC_DV_CARD" tabindex="0"
+				class="search_tab_category trans tab_btn tabid_message_tabPanel tabEventFalse" title="DV 선택안됨">
+				    KSCC_DV_CARD
+				</button>
+				</div>
+				<div>
+				<button type="button" class="btn_line_gray large" onclick="location.href='/dataprovide/download.do?id=10002'" title="사용자구분코드 및 교통수단코드" />
+				    코드표 다운로드
+				</button>
+				</div>
+	        </div>
+		
+		
+		    <div class="scroll_table scroll detailList_mt m-b-32" tabindex="-1" >
+		        <table class="data_table">
+		            <caption class="hidden_tag">테이블 정보</caption>
+		            <colgroup>
+		                <col style="width:220px">
+		                <col style="width:220px">
+		                <col style="width:auto">
+		            </colgroup>
+		            <thead id="dataThead">
+						
+			                <tr data-gubun="KSCC_DV_CARD" >
+								<th scope="col">테이블 영문명</th>
+								<th scope="col">테이블 한글명</th>
+								<th scope="col">테이블 설명</th>
+			                </tr>
+		                
+			                <tr data-gubun="KSCC_DC_CARD" >
+								<th scope="col">테이블 영문명</th>
+								<th scope="col">테이블 한글명</th>
+								<th scope="col">테이블 설명</th>
+			                </tr>
+		                
+			                <tr data-gubun="KSCC_DD_CARD" >
+								<th scope="col">테이블 영문명</th>
+								<th scope="col">테이블 한글명</th>
+								<th scope="col">테이블 설명</th>
+			                </tr>
+		                
+			                <tr data-gubun="KSCC_DX_CARD" >
+								<th scope="col">테이블 영문명</th>
+								<th scope="col">테이블 한글명</th>
+								<th scope="col">테이블 설명</th>
+			                </tr>
+		                
+			                <tr data-gubun="KSCC_DO_CARD" >
+								<th scope="col">테이블 영문명</th>
+								<th scope="col">테이블 한글명</th>
+								<th scope="col">테이블 설명</th>
+			                </tr>
+		                
+			                <tr data-gubun="KSCC_DH_CARD" >
+								<th scope="col">테이블 영문명</th>
+								<th scope="col">테이블 한글명</th>
+								<th scope="col">테이블 설명</th>
+			                </tr>
+		                
+		            </thead>
+		            <tbody id="dataTbody">
+						
+			                
+				                <tr data-gubun="KSCC_DV_CARD" >
+				                    <td>KSCC_DV_CARD</td>
+				                    <td>지하철_역사</td>
+									<td>서울시 지하철(철도)_역사 정보</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DC_CARD" >
+				                    <td>KSCC_DC_CARD</td>
+				                    <td>교통카드_정기권</td>
+									<td>지하철 정기권 이용 데이터</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DD_CARD" >
+				                    <td>KSCC_DD_CARD</td>
+				                    <td>교통카드_일회권</td>
+									<td>지하철 일회권 이용 데이터</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DX_CARD" >
+				                    <td>KSCC_DX_CARD</td>
+				                    <td>교통카드_선후불카드</td>
+									<td>교통카드 이용 데이터</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DO_CARD" >
+				                    <td>KSCC_DO_CARD</td>
+				                    <td>버스노선</td>
+									<td>서울시 버스 노선 정보 데이터</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DH_CARD" >
+				                    <td>KSCC_DH_CARD</td>
+				                    <td>서울버스_정류장</td>
+									<td>버스 정류장 정보</td>
+				                </tr>
+			                
+						
+						
+		            </tbody>
+		        </table>
+		    </div>
+		
+		
+		
+		    <div class="scroll_table scroll detailList_mt m-b-32" tabindex="-1">
+		        <table class="data_table">
+		            <caption class="hidden_tag">컬럼 정보</caption>
+		            <colgroup>
+		                <col style="width:220px">
+		                <col style="width:220px">
+						<col style="width:auto">
+		                <col style="width:auto">
+		            </colgroup>
+		            <thead>
+		                <tr>
+		                    <th scope="col">컬럼 영문명</th>
+		                    <th scope="col">컬럼 한글명</th>
+							<th scope="col">샘플 데이터</th>
+		                    <th scope="col">값 설명</th>
+		                </tr>
+		            </thead>
+		            <tbody id="dataTbody">
+						
+			                
+				                <tr data-gubun="KSCC_DC_CARD" >
+				                    <td>TRCR_ID</td>
+				                    <td>교통카드_ID</td>
+									<td>/TbDcbj3MhBf3Noz9Si8nejfgLpRYb</td>
+									<td>교통카드 고유 ID</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DC_CARD" >
+				                    <td>RIDE_DTM</td>
+				                    <td>승차_일시</td>
+									<td>20251206125000</td>
+									<td>승차 일시(YYYYMMDDHHMMSS)</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DC_CARD" >
+				                    <td>SERIAL_NUM</td>
+				                    <td>일련_번호</td>
+									<td>228</td>
+									<td>데이터 처리 일련 번호</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DC_CARD" >
+				                    <td>TRNC_ID</td>
+				                    <td>환승_이용단위</td>
+									<td>65</td>
+									<td>환승 처리 ID(목적통행 시 환승처리 ID(처리ID 동일))</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DC_CARD" >
+				                    <td>TRNS_MNS_CD</td>
+				                    <td>교통_수단_코드</td>
+									<td>200</td>
+									<td>교통 수단 코드(코드표 참조)</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DC_CARD" >
+				                    <td>TRTR_FCNT</td>
+				                    <td>환승_이용횟수</td>
+									<td>0</td>
+									<td>환승_이용횟수</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DC_CARD" >
+				                    <td>ROUTE_ID</td>
+				                    <td>노선_ID</td>
+									<td>104900001</td>
+									<td>노선_ID (KSCC_DO_CARD 참조 : 버스만 해당(지하철은 빈값))</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DC_CARD" >
+				                    <td>TRCM_ID</td>
+				                    <td>운수사_ID</td>
+									<td>212600000</td>
+									<td>운수사 ID(상세정보 제공 안함(운수 사업자 개인정보 포함 등의 이유))</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DC_CARD" >
+				                    <td>VHCL_ID</td>
+				                    <td>차량_ID</td>
+									<td>104011225</td>
+									<td>차량 ID(상세정보 제공 안함(차량 운전자 개인정보 포함 등의 이유))</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DC_CARD" >
+				                    <td>USER_DVS_CD</td>
+				                    <td>사용자_구분_코드</td>
+									<td>01</td>
+									<td>사용자 구분 코드 (코드표 참조)</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DC_CARD" >
+				                    <td>TRIP_DEPR_DTM</td>
+				                    <td>운행_출발_일시</td>
+									<td>20251206132751</td>
+									<td>운행 출발 일시(YYYYMMDDHHMMSS, 버스만 해당(지하철은 빈값))</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DC_CARD" >
+				                    <td>RIDE_BSST_ID</td>
+				                    <td>승차_버스정류장_ID</td>
+									<td>4318</td>
+									<td>승차_버스정류장_ID (KSCC_DH_CARD, KSCC_DV_CARD 참조)</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DC_CARD" >
+				                    <td>ALGH_DTM</td>
+				                    <td>하차_일시</td>
+									<td>20251206140000</td>
+									<td>하차_일시 (YYYYMMDDHHMMSS)</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DC_CARD" >
+				                    <td>ALGH_BSST_ID</td>
+				                    <td>하차_버스정류장_ID</td>
+									<td>4115</td>
+									<td>하차_버스정류장_ID (KSCC_DH_CARD, KSCC_DV_CARD 참조)</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DC_CARD" >
+				                    <td>PSNG_NUM</td>
+				                    <td>승객_수</td>
+									<td>1</td>
+									<td>승차 인원(동일 교통카드 총 승차 인원) </td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DC_CARD" >
+				                    <td>RIDE_AMT</td>
+				                    <td>승차_요금</td>
+									<td>1500</td>
+									<td>승차 태그 시 요금(단위: 원, 정기권의 경우 기본 요금 외 표시)</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DC_CARD" >
+				                    <td>ALGH_AMT</td>
+				                    <td>하차_요금</td>
+									<td>100</td>
+									<td>하차 태그 시 추가 요금(단위: 원, 정기권의 경우 기본 요금 외 하차 시 추가 요금 표시)</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DC_CARD" >
+				                    <td>TRIP_DEPR_DTM_H</td>
+				                    <td>운행_출발_일시_시간대</td>
+									<td>13</td>
+									<td>운행 출발 시간대(버스만 해당(지하철은 빈값)) </td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DC_CARD" >
+				                    <td>RIDE_DTM_H</td>
+				                    <td>승차_일시_시간대</td>
+									<td>12</td>
+									<td>승차 일시 시간대</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DC_CARD" >
+				                    <td>ALGH_DTM_H</td>
+				                    <td>하차_일시_시간대</td>
+									<td>14</td>
+									<td>하차 일시 시간대</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DC_CARD" >
+				                    <td>STDR_DE</td>
+				                    <td>기준_날짜</td>
+									<td>20251206</td>
+									<td>데이터 제공 기준일(YYYYMMDD)</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DD_CARD" >
+				                    <td>TRCR_ID</td>
+				                    <td>교통카드_ID</td>
+									<td>/TbDcbj3MhBf3Noz9Si8nejfgLpRYb</td>
+									<td>교통카드 고유 ID</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DD_CARD" >
+				                    <td>RIDE_DTM</td>
+				                    <td>승차_일시</td>
+									<td>20251206125000</td>
+									<td>승차 일시(YYYYMMDDHHMMSS)</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DD_CARD" >
+				                    <td>SERIAL_NUM</td>
+				                    <td>일련_번호</td>
+									<td>251</td>
+									<td>데이터 처리 일련 번호</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DD_CARD" >
+				                    <td>TRNC_ID</td>
+				                    <td>환승_이용단위</td>
+									<td>125</td>
+									<td>환승 처리 ID(목적통행 시 환승처리 ID(처리ID 동일))</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DD_CARD" >
+				                    <td>TRNS_MNS_CD</td>
+				                    <td>교통_수단_코드</td>
+									<td>203</td>
+									<td>교통 수단 코드 (코드표 참조)</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DD_CARD" >
+				                    <td>TRTR_FCNT</td>
+				                    <td>환승_이용횟수</td>
+									<td>0</td>
+									<td>환승 이용 횟수</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DD_CARD" >
+				                    <td>ROUTE_ID</td>
+				                    <td>노선_ID</td>
+									<td>104900001</td>
+									<td>노선_ID (KSCC_DO_CARD 참조 )(버스만 해당(지하철은 빈값))</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DD_CARD" >
+				                    <td>TRCM_ID</td>
+				                    <td>운수사_ID</td>
+									<td>211000000</td>
+									<td>운수사 ID(상세정보 제공 안함(운수 사업자 개인정보 포함 등의 이유))</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DD_CARD" >
+				                    <td>VHCL_ID</td>
+				                    <td>차량_ID</td>
+									<td>104011225</td>
+									<td>차량 ID(상세정보 제공 안함(차량 운전자 개인정보 포함 등의 이유))</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DD_CARD" >
+				                    <td>USER_DVS_CD</td>
+				                    <td>사용자_구분_코드</td>
+									<td>01</td>
+									<td>사용자 구분 코드 (코드표 참조)</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DD_CARD" >
+				                    <td>TRIP_DEPR_DTM</td>
+				                    <td>운행_출발_일시</td>
+									<td>20251206132751</td>
+									<td>운행 출발 일시(YYYYMMDDHHMMSS, 버스만 해당(지하철은 빈값))</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DD_CARD" >
+				                    <td>RIDE_BSST_ID</td>
+				                    <td>승차_버스정류장_ID</td>
+									<td>2515</td>
+									<td>승차 정류장/역 ID (KSCC_DH_CARD/KSCC_DV_CARD 참조)</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DD_CARD" >
+				                    <td>ALGH_DTM</td>
+				                    <td>하차_일시</td>
+									<td>20251206134000</td>
+									<td>하차 일시 (YYYYMMDDHHMMSS)</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DD_CARD" >
+				                    <td>ALGH_BSST_ID</td>
+				                    <td>하차_버스정류장_ID</td>
+									<td>421</td>
+									<td>하차 정류장/역 ID (KSCC_DH_CARD/KSCC_DV_CARD 참조)</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DD_CARD" >
+				                    <td>PSNG_NUM</td>
+				                    <td>승객_수</td>
+									<td>1</td>
+									<td>승차 인원(동일 교통카드 총 승차 인원) </td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DD_CARD" >
+				                    <td>RIDE_AMT</td>
+				                    <td>승차_요금</td>
+									<td>550</td>
+									<td>승차 태그 시 요금(단위: 원, 정기권의 경우 기본 요금 외 표시)</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DD_CARD" >
+				                    <td>ALGH_AMT</td>
+				                    <td>하차_요금</td>
+									<td>150</td>
+									<td>하차 태그 시 추가 요금(단위: 원, 정기권의 경우 기본 요금 외 하차 시 추가 요금 표시)</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DD_CARD" >
+				                    <td>TRIP_DEPR_DTM_H</td>
+				                    <td>운행_출발_일시_시간대</td>
+									<td>13</td>
+									<td>운행 출발 시간대(버스만 해당(지하철은 빈값)) </td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DD_CARD" >
+				                    <td>RIDE_DTM_H</td>
+				                    <td>승차_일시_시간대</td>
+									<td>12</td>
+									<td>승차 일시 시간대</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DD_CARD" >
+				                    <td>ALGH_DTM_H</td>
+				                    <td>하차_일시_시간대</td>
+									<td>13</td>
+									<td>하차 일시 시간대</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DD_CARD" >
+				                    <td>STDR_DE</td>
+				                    <td>기준_날짜</td>
+									<td>20251206</td>
+									<td>데이터 제공 기준일(YYYYMMDD)</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DH_CARD" >
+				                    <td>SERIAL_NUM</td>
+				                    <td>일련_번호</td>
+									<td>161</td>
+									<td>데이터 처리 일련 번호</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DH_CARD" >
+				                    <td>COMBINE_TYPE</td>
+				                    <td>조합_유형</td>
+									<td>시내</td>
+									<td>버스 구분(시내, 마을)</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DH_CARD" >
+				                    <td>TRCM_ID</td>
+				                    <td>운수사_ID</td>
+									<td>111009091</td>
+									<td>운수사 ID(상세정보 제공 안함(운수 사업자 개인정보 포함 등의 이유))</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DH_CARD" >
+				                    <td>TRCM_NM</td>
+				                    <td>운수사_명칭</td>
+									<td>(주)양천운수</td>
+									<td>운수사 명</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DH_CARD" >
+				                    <td>ROUTE_ID</td>
+				                    <td>노선_ID</td>
+									<td>100100304</td>
+									<td>노선 ID (KSCC_DO_CARD 참조)</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DH_CARD" >
+				                    <td>ROUTE_NM</td>
+				                    <td>노선_명칭</td>
+									<td>6627번(양천공영차고지~월촌중학교)</td>
+									<td>노선 번호 및 운행지</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DH_CARD" >
+				                    <td>BSST_ID</td>
+				                    <td>버스정류장_ID</td>
+									<td>114000235</td>
+									<td>버스정류장 ID</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DH_CARD" >
+				                    <td>BSST_NM</td>
+				                    <td>버스정류장_명칭</td>
+									<td>서서울호수공원</td>
+									<td>버스정류장 명칭</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DH_CARD" >
+				                    <td>BSST_ORDER</td>
+				                    <td>버스정류장_순서</td>
+									<td>6</td>
+									<td>버스정류장의 노선상 운행 순서</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DH_CARD" >
+				                    <td>BSST_SUM_DISTANCE</td>
+				                    <td>버스정류장_합계_거리</td>
+									<td>3062</td>
+									<td>버스정류장 합계(누적) 거리 (단위: m)</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DH_CARD" >
+				                    <td>AREA_CN_ID</td>
+				                    <td>지역_ID</td>
+									<td>1147056000</td>
+									<td>지역 구분 ID(교통카드 지역구분. 실사용 안함)</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DH_CARD" >
+				                    <td>SIDO_NM</td>
+				                    <td>시도_명칭</td>
+									<td>서울특별시</td>
+									<td>시도 명칭</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DH_CARD" >
+				                    <td>SIGUN_NM</td>
+				                    <td>시군_명칭</td>
+									<td>양천구</td>
+									<td>시군 명칭</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DH_CARD" >
+				                    <td>DONG_NM</td>
+				                    <td>동_명칭</td>
+									<td>신월1동</td>
+									<td>행정동 명칭</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DH_CARD" >
+				                    <td>BSST_LAT</td>
+				                    <td>버스정류장_위도</td>
+									<td>12649.9719</td>
+									<td>버스정류장 위도</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DH_CARD" >
+				                    <td>BSST_LON</td>
+				                    <td>버스정류장_경도</td>
+									<td>3731.7602</td>
+									<td>버스정류장 경도</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DH_CARD" >
+				                    <td>STDR_DE</td>
+				                    <td>기준_날짜</td>
+									<td>20251206</td>
+									<td>데이터 제공 기준일(YYYYMMDD)</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DO_CARD" >
+				                    <td>SERIAL_NUM</td>
+				                    <td>일련_번호</td>
+									<td>279</td>
+									<td>데이터 처리 일련 번호</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DO_CARD" >
+				                    <td>ROUTE_ID</td>
+				                    <td>노선_ID</td>
+									<td>113900010</td>
+									<td>노선 ID</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DO_CARD" >
+				                    <td>ROUTE_NM</td>
+				                    <td>노선_명칭</td>
+									<td>마포07(양화진성지~현대백화점)</td>
+									<td>노선 명칭</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DO_CARD" >
+				                    <td>ROUTE_NUM</td>
+				                    <td>노선_번호</td>
+									<td>마포07</td>
+									<td>노선 번호</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DO_CARD" >
+				                    <td>START_DE</td>
+				                    <td>시작_날짜</td>
+									<td>20090513</td>
+									<td>노선 운행 시작일 (YYYYMMDD)</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DO_CARD" >
+				                    <td>END_DE</td>
+				                    <td>종료_날짜</td>
+									<td>99991231</td>
+									<td>노선 운행 종료일 또는 종료 예정일 (YYYYMMDD)</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DO_CARD" >
+				                    <td>BSST_ON_ROUTE_CNT</td>
+				                    <td>버스정류장_ON_노선_수량</td>
+									<td>33</td>
+									<td>해당 노선 정류장 수</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DO_CARD" >
+				                    <td>ROUTE_DISTANCE</td>
+				                    <td>노선_거리</td>
+									<td>6783</td>
+									<td>노선 거리(단위: m)</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DO_CARD" >
+				                    <td>ROUTE_TYPE_CD</td>
+				                    <td>노선_유형_코드</td>
+									<td></td>
+									<td>미사용 빈값(원천 데이터에서 제공하는 데이터 없음)</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DO_CARD" >
+				                    <td>DEPR_BSST_ID</td>
+				                    <td>출발_버스정류장_ID</td>
+									<td>113900285</td>
+									<td>출발 버스정류장 ID (KSCC_DH_CARD 참조)</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DO_CARD" >
+				                    <td>ARRV_BSST_ID</td>
+				                    <td>도착_버스정류장_ID</td>
+									<td>113900285</td>
+									<td>도착 버스정류장 ID (KSCC_DH_CARD 참조)</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DO_CARD" >
+				                    <td>STDR_DE</td>
+				                    <td>기준_날짜</td>
+									<td>20251206</td>
+									<td>데이터 제공 기준일(YYYYMMDD)</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DX_CARD" >
+				                    <td>TRCR_ID</td>
+				                    <td>교통카드_ID</td>
+									<td>HgVbOsLk1db+2TKux1sfkWhh6/YlQq</td>
+									<td>교통카드 고유 ID</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DX_CARD" >
+				                    <td>RIDE_DTM</td>
+				                    <td>승차_일시</td>
+									<td>20251206140000</td>
+									<td>승차 일시(YYYYMMDDHHMMSS)</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DX_CARD" >
+				                    <td>SERIAL_NUM</td>
+				                    <td>일련_수</td>
+									<td>2364</td>
+									<td>데이터 처리 일련 번호</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DX_CARD" >
+				                    <td>TRNC_ID</td>
+				                    <td>환승_이용단위</td>
+									<td>2</td>
+									<td>환승 처리 ID(목적통행 시 환승처리 ID(처리ID 동일))</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DX_CARD" >
+				                    <td>TRNS_MNS_CD</td>
+				                    <td>교통_수단_코드</td>
+									<td>105</td>
+									<td>교통 수단 코드 (코드표 참조)</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DX_CARD" >
+				                    <td>TRTR_FCNT</td>
+				                    <td>환승_이용횟수</td>
+									<td>2</td>
+									<td>환승 이용 횟수</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DX_CARD" >
+				                    <td>ROUTE_ID</td>
+				                    <td>노선_ID</td>
+									<td>104900001</td>
+									<td>노선_ID (KSCC_DO_CARD 참조 )(버스만 해당(지하철은 빈값))</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DX_CARD" >
+				                    <td>TRCM_ID</td>
+				                    <td>운수사_ID</td>
+									<td>111512871</td>
+									<td>운수사 ID(상세정보 제공 안함(운수 사업자 개인정보 포함 등의 이유))</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DX_CARD" >
+				                    <td>VHCL_ID</td>
+				                    <td>차량_ID</td>
+									<td>104011225</td>
+									<td>차량 ID(상세정보 제공 안함(차량 운전자 개인정보 포함 등의 이유))</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DX_CARD" >
+				                    <td>USER_DVS_CD</td>
+				                    <td>사용자_구분_코드</td>
+									<td>01</td>
+									<td>사용자 구분 코드 (코드표 참조)</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DX_CARD" >
+				                    <td>TRIP_DEPR_DTM</td>
+				                    <td>운행_출발_일시</td>
+									<td>20251206132751</td>
+									<td>운행 출발 일시(YYYYMMDDHHMMSS, 버스만 해당(지하철은 빈값))</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DX_CARD" >
+				                    <td>RIDE_BSST_ID</td>
+				                    <td>승차_버스정류장_ID</td>
+									<td>104000056</td>
+									<td>승차 정류장/역 ID (KSCC_DH_CARD,KSCC_DV_CARD 참조)</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DX_CARD" >
+				                    <td>ALGH_DTM</td>
+				                    <td>하차_일시</td>
+									<td>20251206140000</td>
+									<td>하차 일시 (YYYYMMDDHHMMSS)</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DX_CARD" >
+				                    <td>ALGH_BSST_ID</td>
+				                    <td>하차_버스정류장_ID</td>
+									<td>104000061</td>
+									<td>하차 정류장/역 ID (KSCC_DH_CARD,KSCC_DV_CARD 참조)</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DX_CARD" >
+				                    <td>PSNG_NUM</td>
+				                    <td>승객_수</td>
+									<td>1</td>
+									<td>승차 인원(동일 교통카드 총 승차 인원) </td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DX_CARD" >
+				                    <td>RIDE_AMT</td>
+				                    <td>승차_요금</td>
+									<td>1500</td>
+									<td>승차 태그 시 요금(단위: 원, 정기권의 경우 기본 요금 외 표시)</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DX_CARD" >
+				                    <td>ALGH_AMT</td>
+				                    <td>하차_요금</td>
+									<td>100</td>
+									<td>하차 태그 시 추가 요금(단위: 원, 정기권의 경우 기본 요금 외 하차 시 추가 요금 표시)</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DX_CARD" >
+				                    <td>TRIP_DEPR_DTM_H</td>
+				                    <td>운행_출발_일시_시간대</td>
+									<td>13</td>
+									<td>운행 출발 시간대(버스만 해당(지하철은 빈값)) </td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DX_CARD" >
+				                    <td>RIDE_DTM_H</td>
+				                    <td>승차_일시_시간대</td>
+									<td>14</td>
+									<td>승차 일시 시간대</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DX_CARD" >
+				                    <td>ALGH_DTM_H</td>
+				                    <td>하차_일시_시간대</td>
+									<td>14</td>
+									<td>하차 일시 시간대</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DX_CARD" >
+				                    <td>STDR_DE</td>
+				                    <td>기준_날짜</td>
+									<td>20251206</td>
+									<td>데이터 제공 기준일(YYYYMMDD)</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DV_CARD" >
+				                    <td>SERIAL_NUM</td>
+				                    <td>일련_번호</td>
+									<td>327</td>
+									<td>데이터 처리 일련 번호</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DV_CARD" >
+				                    <td>STN_KR_NM</td>
+				                    <td>역_한글_명칭</td>
+									<td>마곡</td>
+									<td>역사명(한글)</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DV_CARD" >
+				                    <td>STN_ENG_NM</td>
+				                    <td>역_영문_명칭</td>
+									<td>Magok</td>
+									<td>역사명(영문)</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DV_CARD" >
+				                    <td>START_DE</td>
+				                    <td>시작_날짜</td>
+									<td>20040430</td>
+									<td>운행 시작 일자(YYYYMMDD)</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DV_CARD" >
+				                    <td>OPENING_DE</td>
+				                    <td>개통_날짜</td>
+									<td>20040430</td>
+									<td>개통 일자(YYYYMMDD)</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DV_CARD" >
+				                    <td>CLOSURE_DE</td>
+				                    <td>폐쇄일자_날짜</td>
+									<td>99991231</td>
+									<td>폐쇄 일자(YYYYMMDD. 운영중인 경우 99991231)</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DV_CARD" >
+				                    <td>USE_YN</td>
+				                    <td>이용_유무</td>
+									<td>Y</td>
+									<td>사용 여부(Y/N)</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DV_CARD" >
+				                    <td>STDR_DE</td>
+				                    <td>기준_날짜</td>
+									<td>20251206</td>
+									<td>데이터 제공 기준일(YYYYMMDD)</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DX_CARD" >
+				                    <td>TRCR_DVS_CD</td>
+				                    <td>교통카드_구분_코드</td>
+									<td></td>
+									<td>D: 기후동행카드</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DD_CARD" >
+				                    <td>TRCR_DVS_CD</td>
+				                    <td>교통카드_구분_코드</td>
+									<td></td>
+									<td>D: 기후동행카드</td>
+				                </tr>
+			                
+				                <tr data-gubun="KSCC_DC_CARD" >
+				                    <td>TRCR_DVS_CD</td>
+				                    <td>교통카드_구분_코드</td>
+									<td></td>
+									<td>D: 기후동행카드</td>
+				                </tr>
+			                
+						
+						
+		            </tbody>
+		        </table>
+		    </div>
+		
+		<!--컬럼 설명 추가 202603-->
+		
+        <!--<div class="roundary_table_box">-->
+		
+		<div>
+			<div class="dflx_ac_jbet">
+			    <p class="fs_18_bold">다운로드</p>
+			</div>
+            <!--<div class="subtitle_withbtn col_gap16">-->
+			<div class="subtitle_withbtn col_gap16 scroll_table scroll detailList_mt">
+                <span id="selectFile" class="hidden_tag">파일 선택</span>
+
+                <select class="selector selector_files" title="파일 선택" id="filedata_selectbox" onchange="fileDisplayView()">
+                    
+                        
+                            
+                                <option value="16141">TAIMS_20261110.zip</option>
+                            
+                                <option value="16130">TAIMS_20261109.zip</option>
+                            
+                                <option value="16117">TAIMS_20261108.zip</option>
+                            
+                                <option value="16106">TAIMS_20261107.zip</option>
+                            
+                                <option value="16095">TAIMS_20261106.zip</option>
+                            
+                                <option value="16084">TAIMS_20261105.zip</option>
+                            
+                                <option value="16072">TAIMS_20261104.zip</option>
+                            
+                                <option value="16060">TAIMS_20261103.zip</option>
+                            
+                                <option value="16042">TAIMS_20261102.zip</option>
+                            
+                                <option value="16031">TAIMS_20261101.zip</option>
+                            
+                                <option value="16013">TAIMS_20261031.zip</option>
+                            
+                                <option value="16002">TAIMS_20261030.zip</option>
+                            
+                                <option value="15991">TAIMS_20261029.zip</option>
+                            
+                                <option value="15980">TAIMS_20261028.zip</option>
+                            
+                                <option value="15969">TAIMS_20261027.zip</option>
+                            
+                                <option value="15956">TAIMS_20261026.zip</option>
+                            
+                                <option value="15945">TAIMS_20261025.zip</option>
+                            
+                                <option value="15934">TAIMS_20261024.zip</option>
+                            
+                                <option value="15923">TAIMS_20261023.zip</option>
+                            
+                                <option value="15912">TAIMS_20261022.zip</option>
+                            
+                                <option value="15901">TAIMS_20261021.zip</option>
+                            
+                                <option value="15890">TAIMS_20261020.zip</option>
+                            
+                                <option value="15879">TAIMS_20261019.zip</option>
+                            
+                                <option value="15868">TAIMS_20261018.zip</option>
+                            
+                                <option value="15857">TAIMS_20261017.zip</option>
+                            
+                                <option value="15846">TAIMS_20261016.zip</option>
+                            
+                                <option value="15829">TAIMS_20261015.zip</option>
+                            
+                                <option value="15818">TAIMS_20261014.zip</option>
+                            
+                                <option value="15810">TAIMS_20261013.zip</option>
+                            
+                                <option value="15801">TAIMS_20261012.zip</option>
+                            
+                                <option value="15793">TAIMS_20261011.zip</option>
+                            
+                                <option value="15785">TAIMS_20261010.zip</option>
+                            
+                                <option value="15777">TAIMS_20261009.zip</option>
+                            
+                                <option value="15769">TAIMS_20261008.zip</option>
+                            
+                                <option value="15761">TAIMS_20261007.zip</option>
+                            
+                                <option value="15753">TAIMS_20261006.zip</option>
+                            
+                                <option value="15745">TAIMS_20261005.zip</option>
+                            
+                                <option value="15737">TAIMS_20261004.zip</option>
+                            
+                                <option value="15729">TAIMS_20261003.zip</option>
+                            
+                                <option value="15721">TAIMS_20261002.zip</option>
+                            
+                                <option value="15713">TAIMS_20261001.zip</option>
+                            
+                                <option value="15705">TAIMS_20260930.zip</option>
+                            
+                                <option value="15697">TAIMS_20260929.zip</option>
+                            
+                                <option value="15689">TAIMS_20260928.zip</option>
+                            
+                                <option value="15681">TAIMS_20260927.zip</option>
+                            
+                                <option value="15673">TAIMS_20260926.zip</option>
+                            
+                                <option value="15665">TAIMS_20260925.zip</option>
+                            
+                                <option value="15657">TAIMS_20260924.zip</option>
+                            
+                                <option value="15649">TAIMS_20260923.zip</option>
+                            
+                                <option value="15641">TAIMS_20260922.zip</option>
+                            
+                                <option value="15633">TAIMS_20260921.zip</option>
+                            
+                                <option value="15625">TAIMS_20260920.zip</option>
+                            
+                                <option value="15616">TAIMS_20260919.zip</option>
+                            
+                                <option value="15608">TAIMS_20260918.zip</option>
+                            
+                                <option value="15600">TAIMS_20260917.zip</option>
+                            
+                                <option value="15592">TAIMS_20260916.zip</option>
+                            
+                                <option value="15584">TAIMS_20260915.zip</option>
+                            
+                                <option value="15576">TAIMS_20260914.zip</option>
+                            
+                                <option value="15568">TAIMS_20260913.zip</option>
+                            
+                                <option value="15560">TAIMS_20260912.zip</option>
+                            
+                                <option value="15552">TAIMS_20260911.zip</option>
+                            
+                                <option value="15544">TAIMS_20260910.zip</option>
+                            
+                                <option value="15536">TAIMS_20260909.zip</option>
+                            
+                                <option value="15528">TAIMS_20260908.zip</option>
+                            
+                                <option value="15520">TAIMS_20260907.zip</option>
+                            
+                                <option value="15512">TAIMS_20260906.zip</option>
+                            
+                                <option value="15504">TAIMS_20260905.zip</option>
+                            
+                                <option value="15496">TAIMS_20260904.zip</option>
+                            
+                                <option value="15488">TAIMS_20260903.zip</option>
+                            
+                                <option value="15480">TAIMS_20260902.zip</option>
+                            
+                                <option value="15472">TAIMS_20260901.zip</option>
+                            
+                                <option value="15464">TAIMS_20260831.zip</option>
+                            
+                                <option value="15456">TAIMS_20260830.zip</option>
+                            
+                                <option value="15448">TAIMS_20260829.zip</option>
+                            
+                                <option value="15440">TAIMS_20260828.zip</option>
+                            
+                                <option value="15432">TAIMS_20260827.zip</option>
+                            
+                                <option value="15424">TAIMS_20260826.zip</option>
+                            
+                                <option value="15416">TAIMS_20260825.zip</option>
+                            
+                                <option value="15407">TAIMS_20260824.zip</option>
+                            
+                                <option value="15399">TAIMS_20260823.zip</option>
+                            
+                                <option value="15391">TAIMS_20260822.zip</option>
+                            
+                                <option value="15383">TAIMS_20260821.zip</option>
+                            
+                                <option value="15375">TAIMS_20260820.zip</option>
+                            
+                                <option value="15367">TAIMS_20260819.zip</option>
+                            
+                                <option value="15359">TAIMS_20260818.zip</option>
+                            
+                                <option value="15351">TAIMS_20260817.zip</option>
+                            
+                                <option value="15343">TAIMS_20260816.zip</option>
+                            
+                                <option value="15335">TAIMS_20260815.zip</option>
+                            
+                                <option value="15327">TAIMS_20260814.zip</option>
+                            
+                                <option value="15319">TAIMS_20260813.zip</option>
+                            
+                                <option value="15311">TAIMS_20260812.zip</option>
+                            
+                                <option value="15303">TAIMS_20260811.zip</option>
+                            
+                                <option value="15295">TAIMS_20260810.zip</option>
+                            
+                                <option value="15287">TAIMS_20260809.zip</option>
+                            
+                                <option value="15279">TAIMS_20260808.zip</option>
+                            
+                                <option value="15271">TAIMS_20260807.zip</option>
+                            
+                                <option value="15263">TAIMS_20260806.zip</option>
+                            
+                                <option value="15255">TAIMS_20260805.zip</option>
+                            
+                                <option value="15244">TAIMS_20260804.zip</option>
+                            
+                                <option value="15236">TAIMS_20260803.zip</option>
+                            
+                                <option value="15228">TAIMS_20260802.zip</option>
+                            
+                                <option value="15220">TAIMS_20260801.zip</option>
+                            
+                                <option value="15212">TAIMS_20260731.zip</option>
+                            
+                                <option value="15204">TAIMS_20260730.zip</option>
+                            
+                                <option value="15195">TAIMS_20260729.zip</option>
+                            
+                                <option value="15187">TAIMS_20260728.zip</option>
+                            
+                                <option value="15179">TAIMS_20260727.zip</option>
+                            
+                                <option value="15171">TAIMS_20260726.zip</option>
+                            
+                                <option value="15163">TAIMS_20260725.zip</option>
+                            
+                                <option value="15155">TAIMS_20260724.zip</option>
+                            
+                                <option value="15147">TAIMS_20260723.zip</option>
+                            
+                                <option value="15139">TAIMS_20260722.zip</option>
+                            
+                                <option value="15131">TAIMS_20260721.zip</option>
+                            
+                                <option value="15123">TAIMS_20260720.zip</option>
+                            
+                                <option value="15115">TAIMS_20260719.zip</option>
+                            
+                                <option value="15107">TAIMS_20260718.zip</option>
+                            
+                                <option value="15099">TAIMS_20260717.zip</option>
+                            
+                                <option value="15091">TAIMS_20260716.zip</option>
+                            
+                                <option value="15083">TAIMS_20260715.zip</option>
+                            
+                                <option value="15075">TAIMS_20260714.zip</option>
+                            
+                                <option value="15067">TAIMS_20260713.zip</option>
+                            
+                                <option value="15059">TAIMS_20260712.zip</option>
+                            
+                                <option value="15051">TAIMS_20260711.zip</option>
+                            
+                                <option value="15043">TAIMS_20260710.zip</option>
+                            
+                                <option value="15035">TAIMS_20260709.zip</option>
+                            
+                                <option value="15027">TAIMS_20260708.zip</option>
+                            
+                                <option value="15019">TAIMS_20260707.zip</option>
+                            
+                                <option value="15248">TAIMS_20260706.zip</option>
+                            
+                                <option value="15247">TAIMS_20260705.zip</option>
+                            
+                                <option value="15246">TAIMS_20260704.zip</option>
+                            
+                                <option value="15197">TAIMS_20260703.zip</option>
+                            
+                                <option value="14977">TAIMS_20260702.zip</option>
+                            
+                                <option value="14969">TAIMS_20260701.zip</option>
+                            
+                                <option value="14961">TAIMS_20260630.zip</option>
+                            
+                                <option value="14951">TAIMS_20260629.zip</option>
+                            
+                                <option value="14943">TAIMS_20260628.zip</option>
+                            
+                                <option value="14935">TAIMS_20260627.zip</option>
+                            
+                                <option value="14927">TAIMS_20260626.zip</option>
+                            
+                                <option value="14919">TAIMS_20260625.zip</option>
+                            
+                                <option value="14911">TAIMS_20260624.zip</option>
+                            
+                                <option value="14903">TAIMS_20260623.zip</option>
+                            
+                                <option value="14895">TAIMS_20260622.zip</option>
+                            
+                                <option value="14887">TAIMS_20260621.zip</option>
+                            
+                                <option value="14879">TAIMS_20260620.zip</option>
+                            
+                                <option value="14871">TAIMS_20260619.zip</option>
+                            
+                                <option value="14863">TAIMS_20260618.zip</option>
+                            
+                                <option value="14855">TAIMS_20260617.zip</option>
+                            
+                                <option value="14847">TAIMS_20260616.zip</option>
+                            
+                                <option value="14839">TAIMS_20260615.zip</option>
+                            
+                                <option value="14831">TAIMS_20260614.zip</option>
+                            
+                                <option value="14823">TAIMS_20260613.zip</option>
+                            
+                                <option value="14815">TAIMS_20260612.zip</option>
+                            
+                                <option value="14807">TAIMS_20260611.zip</option>
+                            
+                                <option value="14799">TAIMS_20260610.zip</option>
+                            
+                                <option value="14791">TAIMS_20260609.zip</option>
+                            
+                                <option value="14783">TAIMS_20260608.zip</option>
+                            
+                                <option value="14775">TAIMS_20260607.zip</option>
+                            
+                                <option value="14767">TAIMS_20260606.zip</option>
+                            
+                                <option value="14759">TAIMS_20260605.zip</option>
+                            
+                                <option value="14751">TAIMS_20260604.zip</option>
+                            
+                                <option value="14743">TAIMS_20260603.zip</option>
+                            
+                                <option value="14735">TAIMS_20260602.zip</option>
+                            
+                                <option value="14727">TAIMS_20260601.zip</option>
+                            
+                                <option value="14719">TAIMS_20260531.zip</option>
+                            
+                                <option value="14711">TAIMS_20260530.zip</option>
+                            
+                                <option value="14703">TAIMS_20260529.zip</option>
+                            
+                                <option value="14695">TAIMS_20260528.zip</option>
+                            
+                                <option value="14687">TAIMS_20260527.zip</option>
+                            
+                                <option value="14678">TAIMS_20260526.zip</option>
+                            
+                                <option value="14670">TAIMS_20260525.zip</option>
+                            
+                                <option value="14662">TAIMS_20260524.zip</option>
+                            
+                                <option value="14654">TAIMS_20260523.zip</option>
+                            
+                                <option value="14646">TAIMS_20260522.zip</option>
+                            
+                                <option value="14638">TAIMS_20260521.zip</option>
+                            
+                                <option value="16062">TAIMS_20260520.zip</option>
+                            
+                                <option value="14623">TAIMS_20260519.zip</option>
+                            
+                                <option value="14615">TAIMS_20260518.zip</option>
+                            
+                                <option value="14607">TAIMS_20260517.zip</option>
+                            
+                                <option value="14599">TAIMS_20260516.zip</option>
+                            
+                                <option value="14591">TAIMS_20260515.zip</option>
+                            
+                                <option value="14583">TAIMS_20260514.zip</option>
+                            
+                                <option value="14575">TAIMS_20260513.zip</option>
+                            
+                                <option value="14567">TAIMS_20260512.zip</option>
+                            
+                                <option value="14559">TAIMS_20260511.zip</option>
+                            
+                                <option value="14551">TAIMS_20260510.zip</option>
+                            
+                                <option value="14543">TAIMS_20260509.zip</option>
+                            
+                                <option value="14535">TAIMS_20260508.zip</option>
+                            
+                                <option value="14527">TAIMS_20260507.zip</option>
+                            
+                                <option value="14519">TAIMS_20260506.zip</option>
+                            
+                                <option value="14511">TAIMS_20260505.zip</option>
+                            
+                                <option value="14503">TAIMS_20260504.zip</option>
+                            
+                                <option value="14494">TAIMS_20260503.zip</option>
+                            
+                                <option value="14486">TAIMS_20260502.zip</option>
+                            
+                                <option value="14478">TAIMS_20260501.zip</option>
+                            
+                                <option value="14470">TAIMS_20260430.zip</option>
+                            
+                                <option value="14462">TAIMS_20260429.zip</option>
+                            
+                                <option value="14454">TAIMS_20260428.zip</option>
+                            
+                                <option value="14446">TAIMS_20260427.zip</option>
+                            
+                                <option value="14438">TAIMS_20260426.zip</option>
+                            
+                                <option value="14430">TAIMS_20260425.zip</option>
+                            
+                                <option value="14422">TAIMS_20260424.zip</option>
+                            
+                                <option value="14414">TAIMS_20260423.zip</option>
+                            
+                                <option value="14406">TAIMS_20260422.zip</option>
+                            
+                                <option value="14398">TAIMS_20260421.zip</option>
+                            
+                                <option value="14388">TAIMS_20260420.zip</option>
+                            
+                                <option value="14380">TAIMS_20260419.zip</option>
+                            
+                                <option value="14371">TAIMS_20260418.zip</option>
+                            
+                                <option value="14363">TAIMS_20260417.zip</option>
+                            
+                                <option value="14355">TAIMS_20260416.zip</option>
+                            
+                                <option value="14347">TAIMS_20260415.zip</option>
+                            
+                                <option value="14339">TAIMS_20260414.zip</option>
+                            
+                                <option value="14331">TAIMS_20260413.zip</option>
+                            
+                                <option value="14323">TAIMS_20260412.zip</option>
+                            
+                                <option value="14315">TAIMS_20260411.zip</option>
+                            
+                                <option value="14307">TAIMS_20260410.zip</option>
+                            
+                                <option value="14299">TAIMS_20260409.zip</option>
+                            
+                                <option value="14290">TAIMS_20260408.zip</option>
+                            
+                                <option value="14282">TAIMS_20260407.zip</option>
+                            
+                                <option value="14274">TAIMS_20260406.zip</option>
+                            
+                                <option value="14266">TAIMS_20260405.zip</option>
+                            
+                                <option value="14258">TAIMS_20260404.zip</option>
+                            
+                                <option value="14250">TAIMS_20260403.zip</option>
+                            
+                                <option value="14242">TAIMS_20260402.zip</option>
+                            
+                                <option value="14234">TAIMS_20260401.zip</option>
+                            
+                                <option value="15803">TAIMS_20260331.zip</option>
+                            
+                                <option value="14220">TAIMS_20260330.zip</option>
+                            
+                                <option value="14215">TAIMS_20260329.zip</option>
+                            
+                                <option value="14207">TAIMS_20260328.zip</option>
+                            
+                                <option value="14199">TAIMS_20260327.zip</option>
+                            
+                                <option value="14191">TAIMS_20260326.zip</option>
+                            
+                                <option value="14183">TAIMS_20260325.zip</option>
+                            
+                                <option value="14175">TAIMS_20260324.zip</option>
+                            
+                                <option value="14167">TAIMS_20260323.zip</option>
+                            
+                                <option value="14159">TAIMS_20260322.zip</option>
+                            
+                                <option value="14151">TAIMS_20260321.zip</option>
+                            
+                                <option value="14143">TAIMS_20260320.zip</option>
+                            
+                                <option value="14135">TAIMS_20260319.zip</option>
+                            
+                                <option value="14127">TAIMS_20260318.zip</option>
+                            
+                        
+                        
+                    
+                </select>
+                <input id="file_id" style="display:none" value=""  title="파일 ID"/>
+                <button type="button" class="btn_primary xlarge btn_download" onclick="fileDownload()" title="파일 다운로드">다운로드</button>
+            </div>
+
+            <div class="dflx_ac_jbet">
+                <p class="fs_18_bold">미리보기</p>
+                <span class="fs_14 fc_black60" id="preview_text">
+                    * 파일데이터의 일부 내용물 제공하고 있으며, 전체 내용이 필요한 경우 해당 파일을 다운로드 받으시기 바랍니다.
+                </span>
+            </div>
+
+            <div class="scroll_table scroll detailList_mt">
+                <!-- 선택한 파일 ID(다운로드시 전송) -->
+                <input type="hidden" value="" name="fileId" title="File ID"/>
+                <table class="data_table" tabindex="0">
+                    <caption class="hidden_tag">파일데이터 CSV 파일 내용 미리보기</caption>
+                    <thead>
+                        <tr id="CSVth">
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="CSVtbody">
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    <button type="button" class="btn_historyback btn_line_gray large" onclick="goBack();" title="목록으로 이동">
+        목록으로
+    </button>
+
+
+            </div>
+        </main>
+
+        
+
+
+
+	<footer class="footer">
+		<div class="row_box footer_box">
+			<a href="/" title="메인화면 바로가기" class="footer_logo">
+				<img src="/assets/images/footer_logo.svg" alt="T Data 서울교통빅데이터플랫폼" />
+			</a>
+			<article class="footer_text">
+				<ul class="footer_pagelist">
+					<li>
+						<a href="/userguide/tdataintroduce.do" class="footer_sitemap" title="T-DATA 소개 바로가기">T-DATA 소개</a>
+					</li>
+					<li>
+						<!--<a href="https://www.seoul.go.kr/helper/privacy.do?type=www" target="_blank" rel="dns-prefetch" class="footer_sitemap" title="서울시 개인정보처리방침 새창열기">개인정보처리방침</a>-->
+						<a href="/userguide/personalInfo.do" class="footer_sitemap" title="개인정보처리방침">개인정보처리방침</a>
+					</li>
+					
+					<li>
+						<a href="https://www.seoul.go.kr/helper/email.do" target="_blank" rel="dns-prefetch" class="footer_sitemap" title="서울시 이메일무단수집거부 새창열기">이메일무단수집거부</a>
+					</li>
+					<!--<li>
+						<a href="https://www.seoul.go.kr/homepageCorrect/user/hpCorrect.do" target="_blank" rel="dns-prefetch" class="footer_sitemap" title="서울시 누리집바로잡기 새창열기">홈페이지바로잡기</a>
+					</li>-->
+				</ul>
+				<address title="주소" class="footer_address fc_black60">서울특별시청 04524 서울특별시 중구 세종대로 110</address>
+				<p title="Copyright" class="fc_black60 lh_1">COPYRIGHT ©서울시청 ALL RIGHTS RESERVED</p>
+			</article>
+			<div class="m-l-a" style="display: flex;float: left;">
+				<div>
+					<!-- 기존소스
+					<iframe id='fe709c65' name='fe709c65' width='376' height='129' style='border:none' title="서울시에서 제공하는 유용한 생활정보 홍보물 이미지, 클릭 시 해당 내용으로 이동함">
+						<a href='https://delivery.dighty.com/www/delivery/ck.php?n=fe709c65&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank' rel='noopener noreferrer'><img src='https://delivery.dighty.com/www/delivery/avw.php?zoneid=1131&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=fe709c65' alt='' /></a>
+					</iframe>
+					-->
+					<!--변경_20260312 **20261027 php문제로 주석처리 요청 -->
+					<iframe id='fe709c65' name='fe709c65' width='376' height='129' style='border:none; overflow:hidden;' scrolling='no' title="서울시에서 제공하는 유용한 생활정보 홍보물 이미지, 클릭 시 해당 내용으로 이동함" src="/assets/images/test_footer_image.png">
+					</iframe>
+					
+					<!--기존_20260312-->
+					<!--<div id="delivery_container" style="width:376px; height:129px; border:none;" title="서울시에서 제공하는 유용한 생활정보 홍보물 이미지, 클릭 시 해당 내용으로 이동함">
+						<img src="/assets/images/test_footer_image.png" alt="서울시홍보물이미지" />
+					</div>-->
+				</div>
+				<div style="padding-left: 20px;">
+					<!-- 접근성 인증마크 들어갈자리 -->
+					<a title="새창" href="https://www.wa.or.kr/board/list.asp?search=total&SearchString=%BC%AD%BF%EF%B1%B3%C5%EB%BA%F2%B5%A5%C0%CC%C5%CD%C7%C3%B7%A7%C6%FB&BoardID=0006" target="_blank">
+						<img class="wa" alt="(사)한국장애인단체총연합회 한국웹접근성인증평가원 웹 접근성 우수사이트 인증마크(WA인증마크)" src="/assets/images/wa_mark.png" width="80" height="48" />
+					</a>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!--  **20261027 php문제로 주석처리 요청 -->
+	<script type='text/javascript'>
+		//var iframeUrl = 'https://www.seoul.go.kr/main/index.jsp';
+		//var iframeUrl = 'https://delivery.dighty.com/www/delivery/afr.php?zoneid=1131&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=fe709c65';
+		var iframeUrl = 'https://delivery.acecounter.com/delivery/www/delivery/afr.php?zoneid=1131&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=fe709c65';
+				
+		window.addEventListener('DOMContentLoaded', function() {
+			var m3_b = ''; 
+			if(document.cookie.indexOf('ACEUACS=')>-1){
+				var m3_b=document.cookie.substr(document.cookie.indexOf('ACEUACS=') + 8, 19);
+				iframeUrl = 'https://delivery.acecounter.com/delivery/www/delivery/afr.php?zoneid=1131&bd='+m3_b+'&cb=INSERT_RANDOM_NUMBER_HERE';
+			}
+			
+			//변경_20260312
+			document.getElementById('fe709c65').src=iframeUrl;
+			//document.getElementById('fe709c65').src=iframeUrl;
+			
+			//기존_20260312
+			/*fetch('https://delivery.dighty.com/www/delivery/afr.php?zoneid=1131&bd='+m3_b+'&cb=INSERT_RANDOM_NUMBER_HERE')
+				.then(response => response.text())
+				.then(html => {
+				document.getElementById('delivery_container').innerHTML = html;
+				console.log("html: ", html);
+			});
+			*/
+		});
+		
+	</script>
+	
+        
+
+
+
+	<div class="fab_box">
+		<button class="btn_teritary btn_gotop" type="button" title="위로 가기">
+			<img src="/assets/images/go_to_top.svg" alt="위로 가기" />
+		</button>
+	</div>
+
+<script type="text/javascript" src="//weblog.eseoul.go.kr/wlo/js/install.js" rel="preconnect"></script>
+<script>
+	document.addEventListener("DOMContentLoaded", function(){
+     //go top
+     const goTop = document.querySelector('.btn_gotop');
+     goTop.addEventListener('click', function(){
+         window.scrollTo({
+             top:0, behavior:'smooth'
+         });
+		 //#menu_skip a.first().focus();
+		 const first = document.querySelector('#menu_skip a');
+		 console.log("first: ", first);
+		 if (first) first.focus();
+     });
+ })
+
+</script>
+
+    </div>
+
+    <script type="text/javascript" src="/assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/js/common.js"></script>
+
+    <script type="text/javascript" src="/assets/js/axios/axios.min.js"></script>
+    <script type="text/javascript" src="/assets/js/axios/axios.config.js"></script>
+    <script>
+        $(function() {
+            //타이틀 동적으로 등록
+            chageLoadPageTitle("파일데이터 상세정보")
+
+            // 파일 미리보기 이벤트 실행 260320
+			tabsEvent();		
+			console.log("1");
+			
+			$(".tab_btn_list .tab_btn").on("click", function(){
+				filterTableByTab(this.id);
+			});
+			
+			const activeTabId = $(".tab_btn_list .tab_btn.on").attr("id");
+			console.log("activeTabId: ", activeTabId);
+			if(activeTabId){
+				filterTableByTab(activeTabId);
+			}
+
+			fileDisplayView();
+			
+        });
+		
+		function filterTableByTab(tabId){
+		console.log("2");
+			$("#dataThead tr").each(function(){
+				const gubun = $(this).data("gubun");
+				console.log("1gubun: ", gubun);
+				console.log("1tabId: ", tabId);
+				
+				if(gubun == tabId){
+					console.log("show: ");
+					$(this).show();
+				}else{
+					console.log("hide: ");
+					$(this).hide();
+				}
+			})
+			$("#dataTbody tr").each(function(){
+				const gubun = $(this).data("gubun");
+				
+				if(gubun == tabId){
+					$(this).show();
+				}else{
+					$(this).hide();
+				}
+			})
+		}
+		
+
+        function fileDownload(){
+            const fileId = $("#filedata_selectbox option:selected").val();
+
+            // URL 생성
+            let url = '/dataprovide/download.do';
+            url += '?id=' + fileId;
+            location.href = url;
+        }
+
+        // 첨부파일 미리보기 기능
+        function fileDisplayView() {
+            const data_id = "20006"
+            const id = $("#filedata_selectbox option:selected").val();
+
+            // ID가 없는 경우 미리보기 중지.
+            if(id === null || id === '') return false;
+			
+			console.log("data_id", data_id);
+			console.log("id", id);
+
+            // 파일 정보 조회
+            axios.post("/dataprovide/csvFileView.do", { data_id, id })
+                .then(res => {
+					console.log("res", res);
+                    if(res?.data) {
+						console.log("if", res.data.length); //2
+
+                        // CSV Data.
+                        const csvData = JSON.parse(res.data);
+
+                        // 미리보기 표출 ( CSVth )
+                        if(csvData.length > 0) {
+                            const headerData = csvData[0];
+                            const tableThObj = $("#CSVth");
+                            tableThObj.empty()
+                            headerData.forEach(header => {
+                                tableThObj.append("<th scope='col'>" + header + "</th>");
+                            });
+                        }
+						console.log("csvData", csvData.length); //0
+
+                        // 내용 표출
+                        if(csvData.length > 1) {
+                            const tableTBodyObj = $("#CSVtbody");
+                            tableTBodyObj.empty()
+                            csvData.slice(1, csvData.length).forEach(data => {
+                                const trObj = $("<tr>");
+                                data.forEach(input => {
+                                    trObj.append("<td scope='col' tabindex='-1'>" + input + "</td>");
+                                });
+                                tableTBodyObj.append(trObj);
+                            })
+							$("#preview_text").text("*파일데이터의 일부 내용물 제공하고 있으며, 전체 내용이 필요한 경우 해당 파일을 다운로드 받으시기 바랍니다.");
+                        }else{
+							$("#preview_text").text("*csv가 아닌 파일데이터의 미리보기는 제공되지 않습니다. 내용 확인이 필요한 경우 해당 파일을 다운로드 받으시기 바랍니다.");
+						}
+                    } else {
+						console.log("else", res);
+                        $("#CSVth").empty();
+                        $("#CSVth").append("<th scope='col'></th>");
+                        $("#CSVtbody").empty();
+                    }
+                })
+                .catch(e => {
+                    console.error(e.message);
+                })
+        }
+
+    </script>
+</body>
+</html>

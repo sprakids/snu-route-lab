@@ -1,0 +1,76 @@
+{
+  "model": "261116122336",
+  "scope": "Parent Monday/Tuesday regular only; fixed15-20 window, not field evidence.",
+  "cases": [
+    {
+      "case": {
+        "case": "pressure-combined-regular-mon",
+        "mode": "combined",
+        "day": "월",
+        "scenario": "regular",
+        "seed": 0,
+        "operations": "v12_empirical"
+      },
+      "audit_sha256": "4ce4dbef445974e1ec8ed05d849b475fe02101822331103931420760b2540140",
+      "window_seconds": [
+        54000.0,
+        72000.0
+      ],
+      "law_profiles": [
+        {
+          "node": 47,
+          "maximum_queue": 21.98418274418673,
+          "peak_seconds": 63230.509259997285,
+          "minutes_above40": 0.0,
+          "longest_spell_above40_minutes": 0.0
+        },
+        {
+          "node": 60,
+          "maximum_queue": 41.90519202339809,
+          "peak_seconds": 54022.735467395534,
+          "minutes_above40": 0.6034737537680485,
+          "longest_spell_above40_minutes": 0.6034737537680485
+        }
+      ],
+      "snu_law_arrival_weight": 257.3556456428571,
+      "snu_law_arrival_after_prior_bus_weight": 144.882758974657,
+      "source_queue_arrival_reconstruction_error": 1.7053025658242404e-13,
+      "catalog_repair_report": null
+    },
+    {
+      "case": {
+        "case": "pressure-combined-regular-tue",
+        "mode": "combined",
+        "day": "화",
+        "scenario": "regular",
+        "seed": 0,
+        "operations": "v12_empirical"
+      },
+      "audit_sha256": "2e566751cfbeb2d574f7c5247cd1d23d2499dcbb54197b23af92b984603dc080",
+      "window_seconds": [
+        54000.0,
+        72000.0
+      ],
+      "law_profiles": [
+        {
+          "node": 47,
+          "maximum_queue": 30.741441402145774,
+          "peak_seconds": 63230.56397974536,
+          "minutes_above40": 0.0,
+          "longest_spell_above40_minutes": 0.0
+        },
+        {
+          "node": 60,
+          "maximum_queue": 66.79560606092869,
+          "peak_seconds": 61260.29786368151,
+          "minutes_above40": 7.055511594520067,
+          "longest_spell_above40_minutes": 7.055511594520067
+        }
+      ],
+      "snu_law_arrival_weight": 248.40730044069954,
+      "snu_law_arrival_after_prior_bus_weight": 105.28577815481367,
+      "source_queue_arrival_reconstruction_error": 4.831690603168681e-13,
+      "catalog_repair_report": null
+    }
+  ]
+}

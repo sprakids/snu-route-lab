@@ -1,0 +1,52 @@
+{
+  "cases": [
+    {
+      "case": "repair-combined-regular-tue",
+      "mode": "combined",
+      "day": "화",
+      "scenario": "regular",
+      "seed": 0,
+      "operations": "v12_empirical"
+    },
+    {
+      "case": "ablation-persistent_only-regular-tue",
+      "mode": "combined",
+      "day": "화",
+      "scenario": "regular",
+      "seed": 0,
+      "operations": "v12_empirical",
+      "config_overrides": {
+        "waiting_burden_scope": "per_stop"
+      }
+    },
+    {
+      "case": "ablation-burden_only-regular-tue",
+      "mode": "combined",
+      "day": "화",
+      "scenario": "regular",
+      "seed": 0,
+      "operations": "v12_empirical",
+      "config_overrides": {
+        "persistent_strategy_utility": false
+      }
+    }
+  ],
+  "runtime_sha256": {
+    "artifacts.py": "6e62dfbe617557377b2feea01918670e050f960548bda5aab27491b24853e1f7",
+    "preferences.py": "ed370cac9616442f80792a6ae1ec966de313137d9026e2e4a1f0950b17b25bdd",
+    "hazard.py": "6a37635687d25e0210749e30598d0494f0c16e586d0fa095b0def9fe6b49cc18",
+    "capacity.py": "2fba2637b1a7b0149b4cd5d2b540cbca750b430975e89d2a1851eca8bb55deb2",
+    "physics.py": "b02afdd219ae47df56f4cd8288fe758ad43d5db26ada9adfcfe106841e4e4b15",
+    "fares.py": "6b4bd8c2a5e9a72d5cf75ff134c53af5057be60df769ae9ecf7d3502fa705de3",
+    "prepare.py": "163763b233634db975896dc82b78846f368b8187061e09a77557bab5c4ace389",
+    "policy.py": "8581f2b516e3b378d644c21b7809a26f769f74c8dd2ab50b342b70c630b8a32a",
+    "metrics.py": "2161f7f48b9545d10e8d349f6d4c98efa2e0426dc133daaa5749fe3976de9814",
+    "engine.py": "508efd9ec06e1c99505519f41f944d37f7d6c5628619978e8677c7c3963663b7",
+    "operations.py": "6a8cbf12833b8bebdac838b8acc737e8b12a8e82b07c427ac6ba62e7d6cbf645",
+    "empirical_v12.py": "c0943dcc106736bd8bb6de4e1a3f0a479f830ad97a7f53adec076eb36952d8de",
+    "time_profiles.py": "c4d8f8cf9df7c367e6fd1b1e20a04d98d896cb12265e2ebfbf8a1ce40840ed52",
+    "run_case.py": "ab62f875607b76fa03f8d12367b4a474e27b74ad1834176d1663e6d8da539c25"
+  },
+  "config_sha256": "e50eea7e3a86da165dfde3e0c13db50ff8b786573ebe878d6c4defb4fb3e38b1",
+  "production_writes": false
+}

@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+  <meta name="theme-color" content="#19398a">
+  <script src="/campus-theme.js?v=66b8da0a3d6fbb40"></script>
+  <script src="/settings.js?v=6f97bd32c320e24a"></script>
+  <title>하교길 · 서울대 경로 비교</title>
+  <link rel="icon" href="/favicon-v2.ico" sizes="any">
+  <link rel="icon" href="/icons/hagyogil-v2-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="/icons/hagyogil-v2-64.png" type="image/png" sizes="64x64">
+  <link rel="apple-touch-icon" href="/icons/hagyogil-v2-180.png" sizes="180x180">
+  <link rel="manifest" href="/site-v2.webmanifest">
+  <link rel="stylesheet" href="/vendor/leaflet.css">
+  <link rel="stylesheet" href="/style.css?v=bbec8d814b78018b">
+  <link rel="stylesheet" href="/campus-theme.css?v=3577501c5656f24b">
+  <link rel="stylesheet" href="/mobile.css?v=e296fe49f3349128">
+  <link rel="stylesheet" href="/wide.css?v=b4de06b337d374f2">
+  <link rel="stylesheet" href="/settings.css?v=cf739ce4668f982b">
+  <link rel="stylesheet" href="/motion.css?v=70df555e0872cb3b">
+  <link rel="stylesheet" href="/brand.css?v=43ab5a2e0d48a7cb">
+  <script src="/motion.js?v=d198b6da1ce592ec" defer></script>
+  <script src="/vendor/leaflet.js" defer></script>
+  <script src="/app.js?v=ffc523a0ed458d05" type="module"></script>
+</head>
+<body class="campus-route" data-mobile-view="home">
+  <a class="skip-link" href="#main-content">본문으로 바로가기</a>
+  <header class="header">
+    <a class="brand" href="/" aria-label="하교길 홈"><img class="brand-icon brand-icon-image" src="/icons/hagyogil-v2-96.png" width="48" height="48" alt="" decoding="async"><span>하교길<span class="brand-sub">SNU ROUTE LAB</span></span></a>
+    <div class="header-center"><span class="status-dot"></span> 관악캠퍼스 <span class="separator">/</span> 개인별 경로 비교</div>
+    <div class="header-actions"><span class="prototype">개발 시제품</span><a class="simulation-link" href="https://snu-shuttle-simulation.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="시뮬레이션: 대기줄·경로 변경 모형 보기 (새 탭)" title="대기줄·경로 변경 모형 보기 (새 탭)">시뮬레이션 <span aria-hidden="true">↗</span></a><button type="button" class="text-button" id="settings-button" data-open-settings aria-haspopup="dialog" aria-controls="settings-dialog">설정</button><button type="button" class="theme-toggle" role="switch" aria-checked="false" aria-label="다크 모드" data-theme-toggle title="다크 모드로 전환"><span class="theme-label" aria-hidden="true">화면 모드</span><span class="theme-track" aria-hidden="true"><span class="theme-knob"></span></span></button></div>
+  </header>
+  <main class="workspace" id="main-content" tabindex="-1">
+    <aside class="sidebar" aria-label="경로 검색과 비교">
+      <div class="mobile-only mobile-results-head">
+        <div class="mobile-route-heading"><button type="button" id="mobile-back-home" class="icon-button" aria-label="지도 홈으로"><span class="ms" aria-hidden="true">arrow_back</span></button><button type="button" id="mobile-edit-route" class="route-summary"><span id="mobile-origin-label">현재 위치</span><span class="ms" aria-hidden="true">arrow_forward</span><strong id="mobile-destination-label">목적지</strong></button></div>
+        <div class="mobile-tabs" role="group" aria-label="이동 수단"><button type="button" data-filter="all" aria-pressed="true">전체 <span></span></button><button type="button" data-filter="transit" aria-pressed="false">버스·셔틀 <span></span></button><button type="button" data-filter="walk" aria-pressed="false">도보 <span></span></button></div>
+        <div class="mobile-sort-row"><button type="button" id="mobile-edit-time"><span class="ms" aria-hidden="true">schedule</span><span id="mobile-departure-label">지금 출발</span><span class="ms" aria-hidden="true">expand_more</span></button><select id="mobile-sort" aria-label="경로 정렬"><option value="recommended">추천순</option><option value="time">빠른 도착순</option><option value="walk">적은 도보순</option><option value="crowd">혼잡위험순</option></select></div>
+      </div>
+      <div class="sidebar-intro"><h1>최적의 하교길 찾기</h1></div>
+      <p id="service-notice" class="comparison-note" role="status" hidden></p>
+      <form id="route-form" class="route-form">
+        <div class="origin-search" id="origin-search-widget">
+          <label for="origin-search">출발 건물 검색</label>
+          <div class="origin-search-input"><span class="ms" aria-hidden="true">search</span><input id="origin-search" type="search" role="combobox" aria-label="출발 건물 검색" aria-autocomplete="list" aria-controls="origin-search-results" aria-expanded="false" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="80" placeholder="38동, 220동, 중앙도서관"><button type="button" id="origin-search-clear" aria-label="건물 검색어 지우기" hidden><span class="ms" aria-hidden="true">close</span></button></div>
+          <div class="origin-search-popup" id="origin-search-popup" hidden><p id="origin-search-count" class="origin-search-count"></p><ul id="origin-search-results" role="listbox" aria-label="교내 건물 검색 결과"></ul></div>
+          <p id="origin-search-status" class="origin-search-status" role="status" hidden></p>
+        </div>
+        <div class="location-fields">
+          <div class="field-row"><span class="point origin-dot"></span><label for="origin">출발지</label><select id="origin" name="origin" aria-label="출발지" required><option>출발지 불러오는 중</option></select></div>
+          <div class="field-row destination-field"><span class="point destination-dot"></span><label for="destination">목적지</label><select id="destination" name="destination" aria-label="목적지" required><option>목적지 불러오는 중</option></select></div>
+        </div>
+        <div class="origin-actions"><button type="button" id="pick-origin" class="small-link">⌖ 지도에서 출발지 선택</button><button type="button" id="my-location" class="small-link">현재 위치</button></div>
+        <p id="location-status" class="location-status" role="status" hidden></p>
+        <div class="departure-row"><label for="departure-mode">출발 시각</label><select id="departure-mode" aria-label="출발 시각"><option value="now">지금 출발</option><option value="specified">시간 지정</option></select><span class="clock-label" id="clock"></span></div>
+        <input type="datetime-local" id="departure-time" aria-label="지정 출발 시각" hidden>
+        <p id="forecast-support" class="forecast-support" hidden></p>
+        <label class="shuttle-option"><input type="checkbox" id="include-shuttle" checked> 셔틀도 함께 비교</label>
+        <fieldset class="preference-fieldset"><legend>무엇이 더 중요한가요?</legend><div class="preferences">
+          <button type="button" data-preset="fast" class="preference active" aria-pressed="true"><span>↗</span> 빠르게</button>
+          <button type="button" data-preset="comfort" class="preference" aria-pressed="false"><span>◒</span> 편안하게</button>
+          <button type="button" data-preset="walk" class="preference" aria-pressed="false"><span>⌁</span> 적게 걷기</button>
+          <button type="button" data-preset="transfer" class="preference" aria-pressed="false"><span>⇄</span> 최소 환승</button>
+        </div></fieldset>
+        <details class="weights"><summary>선호도 조정</summary><div id="weight-controls"></div></details>
+        <button type="submit" class="primary-button" id="search-button"><span>경로 비교하기</span><span>→</span></button>
+      </form>
+      <section class="results-section" aria-labelledby="results-title">
+        <div class="results-heading"><h2 id="results-title">나에게 맞는 경로</h2><span id="result-count"></span></div>
+        <p class="results-caption" id="results-caption">실제 보행망과 노선 연결을 확인하고 있습니다.</p>
+        <details class="wide-only wide-strategy"><summary>셔틀 대기와 정문 버스 비교<span class="ms" aria-hidden="true">expand_more</span></summary><section id="strategy-comparison" class="strategy-comparison" aria-label="셔틀 대기와 정문 버스 비교" hidden></section></details>
+        <section id="adaptive-monitor" class="adaptive-monitor" aria-label="대기 중 남은시간 비교" hidden></section>
+        <div id="comparison-note" class="comparison-note" hidden></div>
+        <div id="results" aria-live="polite"><div class="skeleton"></div><div class="skeleton short"></div></div>
+      </section>
+      <button type="button" id="wide-details" class="wide-only wide-details" hidden><span class="ms" aria-hidden="true">route</span><span>선택 경로 자세히 보기</span><span class="ms" aria-hidden="true">arrow_forward</span></button>
+      <div class="sidebar-footer"><span>시내버스 8개 + 정규 학생 셔틀 10개 노선 · 최대 1회 환승</span><p>셔틀은 시간표·시뮬레이션 대기 모형으로 비교합니다.</p></div>
+    </aside>
+    <section class="map-area" aria-label="교통 지도">
+      <div id="map" role="region" aria-label="관악캠퍼스와 목적지 지도"></div>
+      <div class="mobile-only mobile-home-search"><button type="button" id="mobile-search"><span class="ms" aria-hidden="true">search</span><span>최적의 하교길 찾기</span><span class="ms search-arrow" aria-hidden="true">arrow_forward</span></button><div class="destination-chips" aria-label="빠른 목적지 선택"><button type="button" data-destination="snu-station">설입</button><button type="button" data-destination="nakseongdae">낙성대</button><button type="button" data-destination="daehak-town">대학동</button><button type="button" data-destination="dormitory">기숙사</button></div></div>
+      <button type="button" id="mobile-locate" class="mobile-only icon-button mobile-locate" aria-label="현재 위치 확인"><span class="ms" aria-hidden="true">my_location</span></button>
+      <button type="button" id="mobile-detail-back" class="mobile-only detail-back"><span class="ms" aria-hidden="true">arrow_back</span> 경로 목록</button>
+      <div class="mobile-only mobile-home-bottom"><div class="home-map-note"><span class="status-dot"></span><span id="mobile-location-note">현재 위치를 확인하고 있습니다</span></div><nav class="mobile-nav" aria-label="지도 메뉴"><button type="button" id="mobile-home" aria-current="page"><span class="ms" aria-hidden="true">home</span>지도</button><button type="button" id="mobile-directions"><span class="ms" aria-hidden="true">route</span>길찾기</button><button type="button" id="mobile-shuttle"><span class="ms" aria-hidden="true">directions_bus</span>셔틀</button><button type="button" id="mobile-settings" data-open-settings aria-haspopup="dialog" aria-controls="settings-dialog"><svg class="settings-gear" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10 2h4v3l2 1 2.6-1.5 2 3.5L18 9.5v5l2.6 1.5-2 3.5L16 18l-2 1v3h-4v-3l-2-1-2.6 1.5-2-3.5L6 14.5v-5L3.4 8l2-3.5L8 6l2-1V2Z"/><circle cx="12" cy="12" r="3.2"/></svg>설정</button></nav></div>
+      <div class="map-top"><div class="map-chip"><span class="status-dot" id="live-dot"></span><span id="live-label">차량 정보 연결 중</span></div><div class="map-top-actions"><button id="shuttle-button" class="map-button" title="셔틀 실시간 노선도 보기">⇄ <span id="shuttle-label">셔틀 연결 중</span></button><button id="refresh-button" class="map-button" title="차량 위치 새로고침">↻ <span>새로고침</span></button></div></div>
+      <div class="map-tools"><button id="fit-button" title="선택 경로 전체 보기" aria-label="선택 경로 전체 보기"><span class="ms" aria-hidden="true">route</span></button><button id="stops-button" aria-pressed="true" title="정류소 표시 전환" aria-label="정류소 표시 전환"><span class="ms" aria-hidden="true">layers</span></button></div>
+      <div class="map-select-hint" id="map-hint" hidden>지도를 눌러 출발지를 정해 주세요 <button id="cancel-pick">취소</button></div>
+      <div class="map-legend"><span><i class="legend-line bus-line"></i>버스</span><span><i class="legend-line walk-line"></i>도보</span><span><i class="legend-line shuttle-line"></i>셔틀 구간</span><span><i class="legend-stop"></i>정류소</span><span class="muted" id="map-provider">보행망 © OpenStreetMap</span></div>
+      <div class="selected-panel" id="selected-panel" hidden></div>
+      <div class="map-footnote">시내버스는 서울시 공식 노선 경로, 도보·셔틀은 지도 도로망 기준입니다. 출입구·통행 가능성은 현장 확인 전입니다.</div>
+    </section>
+  </main>
+  <div class="toast" id="toast" role="status" hidden></div>
+  <dialog id="settings-dialog" class="settings-dialog" aria-labelledby="settings-title">
+    <header class="settings-heading"><div><svg class="settings-gear" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10 2h4v3l2 1 2.6-1.5 2 3.5L18 9.5v5l2.6 1.5-2 3.5L16 18l-2 1v3h-4v-3l-2-1-2.6 1.5-2-3.5L6 14.5v-5L3.4 8l2-3.5L8 6l2-1V2Z"/><circle cx="12" cy="12" r="3.2"/></svg><h2 id="settings-title">설정</h2></div><button type="button" class="icon-button" id="settings-close" aria-label="설정 닫기"><span class="ms" aria-hidden="true">close</span></button></header>
+    <div class="settings-body">
+      <section class="settings-card" aria-labelledby="settings-route-title">
+        <h3 id="settings-route-title">기본 경로 선호도</h3>
+        <form id="settings-preferences-form">
+          <div class="settings-presets" role="group" aria-label="기본 경로 선호도 선택"><button type="button" data-default-preset="fast" aria-pressed="true">빠르게</button><button type="button" data-default-preset="comfort" aria-pressed="false">편안하게</button><button type="button" data-default-preset="walk" aria-pressed="false">적게 걷기</button><button type="button" data-default-preset="transfer" aria-pressed="false">최소 환승</button></div>
+          <details class="settings-weights"><summary>세부 선호도 조정</summary><div id="settings-weight-controls"></div></details>
+          <label class="settings-toggle"><span>셔틀도 함께 비교</span><input id="settings-include-shuttle" type="checkbox" checked></label>
+          <button type="submit" class="settings-save">기본 선호도 저장</button>
+        </form>
+      </section>
+      <section class="settings-card" aria-labelledby="settings-theme-title">
+        <h3 id="settings-theme-title">화면 모드</h3>
+        <fieldset class="settings-themes"><legend class="sr-only">화면 모드 선택</legend><label><input type="radio" name="theme-mode" value="light" data-theme-choice>라이트</label><label><input type="radio" name="theme-mode" value="dark" data-theme-choice>다크</label><label><input type="radio" name="theme-mode" value="system" data-theme-choice>기기 설정</label></fieldset>
+      </section>
+      <section class="settings-card" aria-labelledby="settings-access-title">
+        <h3 id="settings-access-title">접근성</h3>
+        <label class="settings-toggle"><span>큰 글씨</span><input id="settings-large-text" type="checkbox"></label>
+        <label class="settings-toggle"><span>동작 효과 줄이기</span><input id="settings-reduce-motion" type="checkbox"></label>
+      </section>
+      <section class="settings-card settings-links" aria-labelledby="settings-help-title">
+        <h3 id="settings-help-title">안내 및 지원</h3>
+        <button type="button" id="sources-button" class="settings-source" aria-haspopup="dialog" aria-controls="sources-dialog">데이터 안내 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m9 5 7 7-7 7"/></svg></button>
+        <a href="/privacy.html">개인정보 처리방침 <span class="ms" aria-hidden="true">chevron_right</span></a>
+        <a href="/accessibility.html">접근성 안내 <span class="ms" aria-hidden="true">chevron_right</span></a>
+        <a href="mailto:sprakids@snu.ac.kr">문의 및 오류 제보 <span class="ms" aria-hidden="true">mail</span></a>
+        <details class="settings-about"><summary>서비스 정보</summary><p>2026학년도 2학기 서울대학교 산업공학과 산업공학의 이해 7조<br>대표 김예준<br><a href="mailto:sprakids@snu.ac.kr">sprakids@snu.ac.kr</a></p><p id="settings-version">서울대 하교길</p></details>
+      </section>
+      <details class="settings-reset"><summary>이 기기의 설정 초기화</summary><p>저장한 선호도, 화면 모드와 접근성 설정만 초기화합니다.</p><button type="button" id="settings-reset">설정 초기화</button></details>
+      <p id="settings-status" class="settings-status" role="status" aria-live="polite"></p>
+    </div>
+  </dialog>
+  <dialog id="mobile-editor" class="mobile-editor"><div class="editor-heading"><div><h2>최적의 하교길 찾기</h2></div><button type="button" id="mobile-editor-close" class="icon-button" aria-label="경로 검색 닫기"><span class="ms" aria-hidden="true">close</span></button></div><div id="mobile-form-slot"></div></dialog>
+  <dialog id="sources-dialog" class="info-dialog"><div class="dialog-heading"><div><p class="eyebrow">DATA & METHOD</p><h2>정보의 기준을 확인하세요</h2></div><button class="close-button" data-close="sources-dialog" aria-label="데이터 안내 닫기">×</button></div><div class="simulation-methodology"><a href="https://snu-shuttle-simulation.vercel.app/methodology.html" target="_blank" rel="noopener noreferrer" aria-label="시뮬레이션 가정·자료·출처 설명서 (새 탭)">가정·자료·출처 설명서 <span aria-hidden="true">↗</span></a><p>시뮬레이션의 고정 정책·입력 자료·가중 결과를 설명합니다. 경로 앱이 사용하는 실시간·과거 관측과 구분해 확인하세요.</p></div><div id="source-content"></div></dialog>
+  <dialog id="shuttle-dialog" class="info-dialog"><div class="dialog-heading"><div><p class="eyebrow">LIVE SHUTTLE</p><h2>셔틀 실시간 위치</h2></div><button class="close-button" data-close="shuttle-dialog" aria-label="셔틀 위치 닫기">×</button></div><div id="shuttle-content"></div></dialog>
+  <dialog id="observation-dialog" class="info-dialog"><div class="dialog-heading"><div><p class="eyebrow">MEASURE & IMPROVE</p><h2>실제 이동과 비교하기</h2></div><button class="close-button" data-close="observation-dialog" aria-label="이동 기록 닫기">×</button></div><p class="dialog-caption">제출한 이동시간·만족도·착석 여부 등은 검증 자료로 저장되고 공개 조회됩니다. 보관 기간은 최대 1년입니다. <a href="/privacy.html" target="_blank" rel="noopener">개인정보 처리방침</a></p><form id="observation-form"><label>실제 총 이동시간 (분)<input type="number" name="actual" min="1" max="240" required></label><label>만족도<select name="satisfaction"><option value="5">5 · 매우 만족</option><option value="4">4 · 만족</option><option value="3" selected>3 · 보통</option><option value="2">2 · 불만족</option><option value="1">1 · 매우 불만족</option></select></label><label>앉아서 이동했나요?<select name="seated"><option value="unknown">기록하지 않음</option><option value="yes">예</option><option value="no">아니요</option></select></label><button class="primary-button" type="submit">이동 결과 기록하기 <span>→</span></button></form></dialog>
+</body>
+</html>

@@ -1,0 +1,694 @@
+<!doctype html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="allisxen@gmail.com">
+<title>[2019년도 기획과제] 서울대학교 학부생 설문조사 개발: 서울대 학부생의 삶의 질 조사 > 연구&middot;실태조사 | 서울대학교 다양성위원회</title>
+<link href="//fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://diversity.snu.ac.kr/theme/basic/skin/board/article/style.css?ver=161020">
+<link href="//fonts.googleapis.com/earlyaccess/nanumgothic.css" rel="stylesheet" type="text/css">
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,800italic' rel='stylesheet' type='text/css'>
+<link href="/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://diversity.snu.ac.kr/theme/basic/css/default.css?ver=161020">        
+<link rel="stylesheet" href="/css/bootstrap.css">
+<link rel="stylesheet" href="https://diversity.snu.ac.kr/theme/basic/css/mystyle.css">
+<script src="/js/jquery.min.js"></script>	
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/myfunction.js"></script>     
+
+<!--[if lte IE 8]>
+<script src="https://diversity.snu.ac.kr/js/html5.js"></script>
+<![endif]-->
+<script>
+// 자바스크립트에서 사용하는 전역변수 선언
+var g5_url       = "https://diversity.snu.ac.kr";
+var g5_bbs_url   = "https://diversity.snu.ac.kr/bbs";
+var g5_is_member = "";
+var g5_is_admin  = "";
+var g5_is_mobile = "";
+var g5_bo_table  = "research";
+var g5_sca       = "";
+var g5_editor    = "cheditor5";
+var g5_cookie_domain = "";
+</script>
+
+<script src="https://diversity.snu.ac.kr/js/jquery.menu.js?ver=161020"></script>
+<script src="https://diversity.snu.ac.kr/js/common.js?ver=161020"></script>
+<script src="https://diversity.snu.ac.kr/js/wrest.js?ver=161020"></script>
+</head>
+<body id="research" class="subpage boardpage study">
+<!-- se-langtype:-->
+<section class="top-nav">
+  <div class="container">
+    <div class="row">
+            <div class="col-md-9">
+        <div class="top-nav-sub">
+          <ul>
+                        <!-- 로그인 이전 -->
+						                        <li><a href="/index.php?lang=en" class="lang-link-en">English</a></li>
+
+
+
+            
+            
+            <li><a href="/page/sitemap.php">Sitemap</a></li>
+          </ul>
+        </div>
+        <!-- / .top-nav-sub -->
+      </div>
+      <!-- / .col-md-10 -->
+      <div class="col-md-2">
+        <fieldset id="hd_sch">
+          <legend>사이트 내 전체검색</legend>
+          <form name="fsearchbox" method="get" action="https://diversity.snu.ac.kr/bbs/search.php" onsubmit="return fsearchbox_submit(this);">
+            <input type="hidden" name="sfl" value="wr_subject||wr_content">
+            <input type="hidden" name="sop" value="and">
+            <label for="sch_stx" class="sound_only">검색어<strong class="sound_only"> 필수</strong></label>
+            <input type="text" name="stx" id="sch_stx" maxlength="20">
+			  <input type="hidden" name="CSRFToken" value="7aba06ab6a825ec68908cfb13df6974a">
+			  
+                        <button type="submit"><i class="fa fa-search"></i></button>
+          </form>
+          <script>
+            function fsearchbox_submit(f)
+            {
+                if (f.stx.value.length < 2) {
+                    alert("검색어는 두글자 이상 입력하십시오.");
+                    f.stx.select();
+                    f.stx.focus();
+                    return false;
+                }
+
+                // 검색에 많은 부하가 걸리는 경우 이 주석을 제거하세요.
+                var cnt = 0;
+                for (var i=0; i<f.stx.value.length; i++) {
+                    if (f.stx.value.charAt(i) == ' ')
+                        cnt++;
+                }
+
+                if (cnt > 1) {
+                    alert("빠른 검색을 위하여 검색어에 공백은 한개만 입력할 수 있습니다.");
+                    f.stx.select();
+                    f.stx.focus();
+                    return false;
+                }
+
+                return true;
+            }
+            </script>
+        </fieldset>
+        </div><!-- / .col-md-2 -->
+        <div class="col-md-1">
+        <div id="google_translate_element">
+    </div>
+    <script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'ko', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false, multilanguagePage: true}, 'google_translate_element');
+}
+</script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+      </div>
+      <!-- / .col-md-2 -->
+    </div>
+    <!-- / .row -->
+
+
+
+  </div>
+  <!-- / .container -->
+</section>
+<!-- / .top-nav -->
+<nav id="gnb" class="navbar navbar-default">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+   
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-top" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+       <a class="navbar-brand" href="/">
+        <img src="https://diversity.snu.ac.kr/theme/basic/img/logo.png" alt=""  class="img-responsive center-block"  />
+      </a>
+    </div>
+    <div class="collapse navbar-collapse" id="nav-top">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    소개
+                    <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="/page/greeting.php">
+                            위원장 인사말
+                            </a></li>
+            <li><a href="/page/vision.php">
+                            위원회 소개
+                            </a></li>
+                        <li><a href="/page/organization.php">
+                            위원회 사람들
+                            </a></li>
+                      </ul>
+        </li>
+        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    알림마당
+                    <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="/bbs/board.php?bo_table=notice">
+                            공지
+                            </a></li>
+            <li><a href="/bbs/board.php?bo_table=news">
+                            소식
+                            </a></li>
+            <li><a href="/bbs/board.php?bo_table=promotion">
+                            홍보자료
+                            </a></li>
+          </ul>
+        </li>
+<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    연구
+                    <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="/bbs/board.php?bo_table=report">
+                            다양성보고서
+                            </a></li>
+          <li><a href="/bbs/board.php?bo_table=research">
+                            연구&middot;실태조사
+                            </a></li>
+                        <li><a href="/page/dashboard.php">
+                            숫자로 보는 서울대
+                            </a></li>
+          </ul>
+        </li>
+        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    소통
+                    <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="/bbs/board.php?bo_table=forum">
+                            포럼∙다양성대화
+                            </a></li>
+            <li><a href="/bbs/board.php?bo_table=awards">
+                            다양성인턴십
+                            </a></li>
+            <li><a href="/bbs/board.php?bo_table=workshop">
+                            워크숍&middot;간담회
+                            </a></li>
+            <li><a href="/bbs/board.php?bo_table=event">
+                            교내행사
+                            </a></li>
+              <li><a href="/bbs/board.php?bo_table=event_ext">
+                            대외활동
+                            </a></li>
+          </ul>
+        </li>
+        
+        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    정책추진
+                    <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="/bbs/board.php?bo_table=policy">
+                            정책제안
+                            </a></li>
+            <li><a href="/bbs/write.php?bo_table=suggestion">
+                            제안하기
+                          </a></li>
+          </ul>
+        </li>
+        
+       <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    다양성 정보
+                    <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="/bbs/board.php?bo_table=people_d">
+                            다양성 사람들
+                            </a></li>
+            <li><a href="/bbs/board.php?bo_table=database">
+                            다양성 DB
+                            </a></li>
+            <li><a href="/page/rel_organ.php">
+                            관련기관
+                          </a></li>  
+            <li><a href="/bbs/board.php?bo_table=newsinfo">
+                            국내외 소식
+                          </a></li>
+          </ul>
+        </li>
+        
+        
+        
+      </ul>
+ 
+      <!-- / navbar-nav -->
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container-fluid -->
+</nav>
+<!-- / # gnb -->
+<section class="header-page">
+  <div class="container">
+    <h1 id="content-title" data-subheading="연구"> <span>연구&middot;실태조사</span></h1>
+    <div class="lnb">
+    <ul class="breadcrumb container">
+      <li><a href="/">HOME</a></li>
+      <li>연구</li>
+      <li>연구&middot;실태조사</li>
+    </ul>
+  </div><!-- / .lnb --></div><!-- / .container -->
+</section>
+<div id="content" class="container ">
+
+<script src="https://diversity.snu.ac.kr/js/viewimageresize.js"></script>
+
+<!-- 게시물 읽기 시작 { -->
+<div id="bo_v_table">연구&middot;실태조사</div>
+
+<article id="bo_v" style="width:100%">
+    <header>
+        <h1 id="bo_v_title">
+            [2019년도 기획과제] 서울대학교 학부생 설문조사 개발: 서울대 학부생의 삶의 질 조사        </h1><span class="date">20-02-19 15:15</span>
+    </header>
+
+    <section id="bo_v_info">
+        <h2>페이지 정보</h2>
+        작성자 <strong><span class="sv_member">관리자</span></strong>
+        <span class="sound_only">작성일</span><strong>20-02-19 15:15</strong>
+        조회<strong>4,795회</strong>
+        댓글<strong>0건</strong>
+    </section>
+
+    
+        <!-- 첨부파일 시작 { -->
+    <section id="bo_v_file">
+        <h2>첨부파일</h2>
+        <ul>
+                    <li>
+                <a href="https://diversity.snu.ac.kr/bbs/download.php?bo_table=research&amp;wr_id=13&amp;no=0" class="view_file_download">
+                    <img src="https://diversity.snu.ac.kr/theme/basic/skin/board/article/img/icon_file.gif" alt="첨부">
+                    <strong>1-8_서울대학교 학부생 설문조사 개발.pdf</strong>
+                     (6.2M)
+                </a>
+                <span class="bo_v_file_cnt">819회 다운로드</span>
+                <span>DATE : 2020-02-21 15:28:36</span>
+            </li>
+                </ul>
+    </section>
+    <!-- } 첨부파일 끝 -->
+    
+         <!-- 관련링크 시작 { -->
+    <section id="bo_v_link">
+        <h2>관련링크</h2>
+        <ul>
+                </ul>
+    </section>
+    <!-- } 관련링크 끝 -->
+    
+    <!-- 게시물 상단 버튼 시작 { -->
+    <div id="bo_v_top">
+                        <ul class="bo_v_nb">
+            <li><a href="./board.php?bo_table=research&amp;wr_id=15" class="btn_b01">이전글</a></li>            <li><a href="./board.php?bo_table=research&amp;wr_id=12" class="btn_b01">다음글</a></li>        </ul>
+        
+        <ul class="bo_v_com">
+                                                                        <li><a href="./board.php?bo_table=research&amp;page=" class="btn_b01">목록</a></li>
+                                </ul>
+            </div>
+    <!-- } 게시물 상단 버튼 끝 -->
+
+    <section id="bo_v_atc">
+        <h2 id="bo_v_atc_title">본문</h2>
+
+        <div id="bo_v_img">
+</div>
+
+        <!-- 본문 내용 시작 { -->
+        <div id="bo_v_con">
+		<p>학교가 구성원들을 위한 정책을 만들기 전에 우선 구성원들에 대해 정확히 이해하고 구성원들의 <span style="font-size:12pt;">의견을 수렴해야 하는 과정이 필요하다. 서울대는 고교 조기졸업자인 10대 후반의 학생부터 60대 </span><span style="font-size:12pt;">중반의 교원까지 다양한 연령과 직위의 구성원들이 함께 생활하는 공간이다. 사회의 어떤 조직보다 </span><span style="font-size:12pt;">구성원의 연령이 다양하며, 학생, 교원, 연구원, 직원 등 주어진 역할 또한 그러하다.</span></p><p><span style="font-size:12pt;">설문지 </span><span style="font-size:12pt;">개발의 초기단계부터 국제협력본부, 관악학생생활관, 대학생활문화원, 인권센터와 다양성위원회 등 </span><span style="font-size:12pt;">5개 기관이 공동으로 참여하여 새로운 내용의 설문지를 개발하기로 결정하였다. </span><span style="font-size:12pt;">본 조사는 개인의 성장과 안녕에 초</span><span style="font-size:12pt;">점을 두고, 학생들이 성숙한 개인으로 성장하면서 타인과 긍정적인 관계를 맺으며 살아가도록 건강</span><span style="font-size:12pt;">한 대학환경을 조성하기 위하여 학생들의 의견을 수렴하는 것을 목표로 잡았다.</span></p><p><span style="font-size:12pt;"></span></p><table border="0" cellpadding="1" cellspacing="0" class="__se_tbl" width="100%"><tbody>
+<tr><td style="width:250px;vertical-align:top;background-color:rgb(225,225,225);"><p style="text-align:center;" align="center"><br /></p><p style="text-align:center;" align="center">2019년도 기획과제</p><p style="text-align:center;" align="center"><img src="http://diversity.snu.ac.kr/data/editor/2002/8ebcc1175da73b4b74430664c94ad394_1582091506_0939.jpg" title="8ebcc1175da73b4b74430664c94ad394_1582091506_0939.jpg" alt="8ebcc1175da73b4b74430664c94ad394_1582091506_0939.jpg" /> </p></td>
+<td style="width:719px;height:24px;background-color:rgb(225,225,225);"><p><b>서울대학교 학부생 설문조사 개발:<span style="font-size:12pt;"> 서울대 학부생의 삶의 질 조사<br /></span></b><b style="font-size:12pt;"><span style="font-size:12pt;">A Research to Design Seoul National University </span><span style="font-size:12pt;">Undergraduate Experience Survey</span></b></p><ul><li>연구책임자: 홍기선 (인문대학 영어영문학과/다양성위원회 위원장)</li><li>참여연구원: 구민교 (행정대학원/국제협력본부장), 김동일 (사범대학 교육학과/대학생활문화원장), 남성현 (자연과학대학 지구환경과학부/관악생활관 부관장), 이상원 (법학전문대학원/인권센터장), 박성춘 (사범대학 윤리교육과 교수), 유명순 (보건대학원 교수), 남지은 (대학생활문화원 조교), 배유경 (다양성위원회 책임전문위원), 윤숙경 (대학생활문화원 전문위원), 이정희 (국제협력본부 담당관), 이주영 (인권센터 전문위원), 장지선 (관악학생생활관 대표조교)</li><li>연구보조원: 전은선 (다양성위원회 전문위원), 김한울 (다양성위원회 직원), 송민해 (심리학과 석사과정, 통계분석)</li><li>본 조사는 학생의 삶을 통합적으로 접근하면서 개인의 성장과 안녕에 보다 초점을 맞추었다는 점에서 차별성을 갖는다. 즉 학생이 느끼는 학업문제의 이면에 있을 수 있는 건강상의 문제, 재정 상태나 인간관계로부터 오는 어려움, 고립감 또는 소속감 결여 등을 함께 들여다보고자 한다.</li><li>주요 정책제언<br /><ul><li>단기과제<br />1. 학생제안 우선과제: 교통문제(통학, 학내이동), 성적평가방법, 장학금/생활비 지원, 기숙사/주거문제<br />2. 대학생활 지원: 건강관리와 고민상담, 환경과 시설 개선, 외국인 학생 지원<br />3. 기타 제안: 학사 운영 전반, 안전 문제</li><li>중장기과제<br />1. 학부교육의 방향 전환: 균형 있는 성장, 진로/적성탐색 기회확대와 교육, 해외 경험/비교과프로그램<br />2. 서울대 문화와 환경 개선: 문화 개선 및 소통기회 확대, 의견수렴 노력<br />3. 다양성/인권 증진: 다양한 학우들과의 교류기회, 차별경험 예방 및 지원<br /></li></ul></li></ul></td>
+</tr>
+</tbody>
+</table><p><span style="font-size:12pt;"><br /></span></p><table width="72" style="width:54pt;color:rgb(51,51,51);font-family:'Noto Sans KR', sans-serif;border-collapse:collapse;border-spacing:0px;background-color:rgb(255,255,255);" border="0" cellspacing="0" cellpadding="0"><tbody><tr style="height:13.5pt;"><td width="72" height="18" style="background:rgb(93,139,202);padding:0px;width:54pt;height:13.5pt;text-align:center;color:rgb(255,255,255);font-family:'돋움', monospace;font-size:9pt;font-weight:700;"><span style="font-family:'돋움_12';">목  차</span></td></tr></tbody></table><table border="0" cellpadding="0" cellspacing="0" width="715" style="border-collapse:collapse;width:536pt;">
+ <colgroup><col width="135" style="width:101pt;" />
+ <col width="192" style="width:144pt;" />
+ <col width="388" style="width:291pt;" />
+ </colgroup><tbody><tr style="height:14.25pt;">
+  <td rowspan="3" height="57" width="135" style="border-bottom:.5pt solid #000000;height:42.75pt;width:101pt;font-size:11pt;font-weight:700;text-align:left;vertical-align:top;border-top:.5pt solid;border-right:none;border-left:none;white-space:normal;">I. 조사 개요</td>
+  <td width="192" style="width:144pt;font-size:11pt;font-weight:700;border-top:.5pt solid;border-right:none;border-bottom:.5pt solid;border-left:none;">1. 기획 의도</td>
+  <td width="388" style="width:291pt;font-size:11pt;border-top:.5pt solid;border-right:none;border-bottom:.5pt solid;border-left:none;">　</td>
+ </tr>
+ <tr style="height:14.25pt;">
+  <td height="19" style="height:14.25pt;border-top:none;font-size:11pt;font-weight:700;border-right:none;border-bottom:.5pt solid;border-left:none;">2. 주요 특징</td>
+  <td style="border-top:none;font-size:11pt;border-right:none;border-bottom:.5pt solid;border-left:none;">　</td>
+ </tr>
+ <tr style="height:14.25pt;">
+  <td height="19" style="height:14.25pt;font-size:11pt;font-weight:700;border-top:none;border-right:none;border-bottom:.5pt solid;border-left:none;">3. 조사 시행과 주요내용</td>
+  <td style="font-size:11pt;border-top:none;border-right:none;border-bottom:.5pt solid;border-left:none;">　</td>
+ </tr>
+ <tr style="height:14.25pt;">
+  <td rowspan="30" height="570" width="135" style="border-bottom:.5pt solid #000000;height:427.5pt;border-top:none;width:101pt;font-size:11pt;font-weight:700;text-align:left;vertical-align:top;border-right:none;border-left:none;white-space:normal;">II. 학부생의 삶의 질 조사 분석</td>
+  <td style="font-size:11pt;font-weight:700;">1. 응답자 특성</td>
+  <td style="font-size:11pt;">1) 재적상태와 소속대학</td>
+ </tr>
+ <tr style="height:14.25pt;">
+  <td height="19" style="height:14.25pt;font-size:11pt;font-weight:700;"></td>
+  <td style="font-size:11pt;">2) 학번과 이수학기</td>
+ </tr>
+ <tr style="height:14.25pt;">
+  <td height="19" style="height:14.25pt;font-size:11pt;font-weight:700;"></td>
+  <td style="font-size:11pt;">3) 전공과정</td>
+ </tr>
+ <tr style="height:14.25pt;">
+  <td height="19" style="height:14.25pt;font-size:11pt;font-weight:700;"></td>
+  <td style="font-size:11pt;">4) 성별</td>
+ </tr>
+ <tr style="height:14.25pt;">
+  <td height="19" style="height:14.25pt;font-size:11pt;font-weight:700;"></td>
+  <td style="font-size:11pt;">5) 국적</td>
+ </tr>
+ <tr style="height:14.25pt;">
+  <td height="19" style="height:14.25pt;font-size:11pt;font-weight:700;"></td>
+  <td style="font-size:11pt;">6) 해외 경험</td>
+ </tr>
+ <tr style="height:14.25pt;">
+  <td height="19" style="height:14.25pt;font-size:11pt;font-weight:700;border-top:none;border-right:none;border-bottom:.5pt solid;border-left:none;">　</td>
+  <td style="font-size:11pt;border-top:none;border-right:none;border-bottom:.5pt solid;border-left:none;">7) 주거형태</td>
+ </tr>
+ <tr style="height:14.25pt;">
+  <td height="19" style="height:14.25pt;font-size:11pt;font-weight:700;">2. 대학생활 전반</td>
+  <td style="font-size:11pt;">1) 삶의 만족도</td>
+ </tr>
+ <tr style="height:14.25pt;">
+  <td height="19" style="height:14.25pt;font-size:11pt;font-weight:700;"></td>
+  <td style="font-size:11pt;">2) 대학생활 만족도</td>
+ </tr>
+ <tr style="height:14.25pt;">
+  <td height="19" style="height:14.25pt;font-size:11pt;font-weight:700;"></td>
+  <td style="font-size:11pt;">3) 내가 좋아하는 나의 모습</td>
+ </tr>
+ <tr style="height:14.25pt;">
+  <td height="19" style="height:14.25pt;font-size:11pt;font-weight:700;"></td>
+  <td style="font-size:11pt;">4) 가장 중요하게 생각하는 것</td>
+ </tr>
+ <tr style="height:14.25pt;">
+  <td height="19" style="height:14.25pt;font-size:11pt;font-weight:700;border-top:none;border-right:none;border-bottom:.5pt solid;border-left:none;">　</td>
+  <td style="font-size:11pt;border-top:none;border-right:none;border-bottom:.5pt solid;border-left:none;">5) 요즘 생각 해시태그로 표현하기</td>
+ </tr>
+ <tr style="height:14.25pt;">
+  <td rowspan="5" height="95" style="border-bottom:.5pt solid #000000;height:71.25pt;border-top:none;font-size:11pt;font-weight:700;text-align:left;vertical-align:top;border-right:none;border-left:none;">3. 성장: 학업과 다양한 경험</td>
+  <td style="font-size:11pt;">1) 지식과 기술</td>
+ </tr>
+ <tr style="height:14.25pt;">
+  <td height="19" style="height:14.25pt;font-size:11pt;">2) 능력과 자세</td>
+ </tr>
+ <tr style="height:14.25pt;">
+  <td height="19" style="height:14.25pt;font-size:11pt;">3) 이번 학기 경험</td>
+ </tr>
+ <tr style="height:14.25pt;">
+  <td height="19" style="height:14.25pt;font-size:11pt;">4) 진로선택</td>
+ </tr>
+ <tr style="height:14.25pt;">
+  <td height="19" style="height:14.25pt;font-size:11pt;border-top:none;border-right:none;border-bottom:.5pt solid;border-left:none;">5) 가장 성장시켜준 경험</td>
+ </tr>
+ <tr style="height:14.25pt;">
+  <td height="19" style="height:14.25pt;font-size:11pt;font-weight:700;">4. 생활: 몸과 마음의 건강</td>
+  <td style="font-size:11pt;">1) 생활시간</td>
+ </tr>
+ <tr style="height:14.25pt;">
+  <td height="19" style="height:14.25pt;font-size:11pt;font-weight:700;"></td>
+  <td style="font-size:11pt;">2) 건강관리</td>
+ </tr>
+ <tr style="height:14.25pt;">
+  <td height="19" style="height:14.25pt;font-size:11pt;font-weight:700;"></td>
+  <td style="font-size:11pt;">3) 가장 힘이 되는 것</td>
+ </tr>
+ <tr style="height:14.25pt;">
+  <td height="19" style="height:14.25pt;font-size:11pt;font-weight:700;"></td>
+  <td style="font-size:11pt;">4) 등록금 재원</td>
+ </tr>
+ <tr style="height:14.25pt;">
+  <td height="19" style="height:14.25pt;font-size:11pt;font-weight:700;"></td>
+  <td style="font-size:11pt;">5) 생활비 재원</td>
+ </tr>
+ <tr style="height:14.25pt;">
+  <td height="19" style="height:14.25pt;font-size:11pt;font-weight:700;"></td>
+  <td style="font-size:11pt;">6) 고민 상담</td>
+ </tr>
+ <tr style="height:14.25pt;">
+  <td height="19" style="height:14.25pt;font-size:11pt;font-weight:700;border-top:none;border-right:none;border-bottom:.5pt solid;border-left:none;">　</td>
+  <td style="font-size:11pt;border-top:none;border-right:none;border-bottom:.5pt solid;border-left:none;">7) 자유로운 한 학기가 주어진다면 하고 싶은 것</td>
+ </tr>
+ <tr style="height:14.25pt;">
+  <td rowspan="6" height="114" width="192" style="text-align:left;border-bottom:.5pt solid #000000;height:85.5pt;border-top:none;width:144pt;font-size:11pt;font-weight:700;vertical-align:top;border-right:none;border-left:none;white-space:normal;">5. 환경: 서울대의 문화와 인식</td>
+  <td style="font-size:11pt;">1) 서울대의 전반적인 분위기</td>
+ </tr>
+ <tr style="height:14.25pt;">
+  <td height="19" style="height:14.25pt;font-size:11pt;">2) 학우들과의 교류기회</td>
+ </tr>
+ <tr style="height:14.25pt;">
+  <td height="19" style="height:14.25pt;font-size:11pt;">3) 배려 또는 차별 경험</td>
+ </tr>
+ <tr style="height:14.25pt;">
+  <td height="19" style="height:14.25pt;font-size:11pt;">4) 서울대 문화와 사회공헌</td>
+ </tr>
+ <tr style="height:14.25pt;">
+  <td height="19" style="height:14.25pt;font-size:11pt;">5) 학교생활 전반에 대한 의견</td>
+ </tr>
+ <tr style="height:14.25pt;">
+  <td height="19" style="height:14.25pt;font-size:11pt;border-top:none;border-right:none;border-bottom:.5pt solid;border-left:none;">6) 삶의 질 향상을 위한 제안</td>
+ </tr>
+ <tr style="height:14.25pt;">
+  <td rowspan="6" height="114" width="135" style="border-bottom:.5pt solid #000000;height:85.5pt;border-top:none;width:101pt;font-size:11pt;font-weight:700;text-align:left;vertical-align:top;border-right:none;border-left:none;white-space:normal;">III. 정책 제언</td>
+  <td style="font-size:11pt;font-weight:700;">1. 단기과제</td>
+  <td style="font-size:11pt;">1) 학생제안 우선과제</td>
+ </tr>
+ <tr style="height:14.25pt;">
+  <td height="19" style="height:14.25pt;font-size:11pt;font-weight:700;"></td>
+  <td style="font-size:11pt;">2) 대학생활 지원</td>
+ </tr>
+ <tr style="height:14.25pt;">
+  <td height="19" style="height:14.25pt;font-size:11pt;font-weight:700;border-top:none;border-right:none;border-bottom:.5pt solid;border-left:none;">　</td>
+  <td style="font-size:11pt;border-top:none;border-right:none;border-bottom:.5pt solid;border-left:none;">3) 기타 제안</td>
+ </tr>
+ <tr style="height:14.25pt;">
+  <td height="19" style="height:14.25pt;font-size:11pt;font-weight:700;">2. 중장기과제</td>
+  <td style="font-size:11pt;">1) 학부교육의 방향 전환</td>
+ </tr>
+ <tr style="height:14.25pt;">
+  <td height="19" style="height:14.25pt;font-size:11pt;font-weight:700;"></td>
+  <td style="font-size:11pt;">2) 서울대 문화와 환경 개선</td>
+ </tr>
+ <tr style="height:14.25pt;">
+  <td height="19" style="height:14.25pt;font-size:11pt;border-top:none;border-right:none;border-bottom:.5pt solid;border-left:none;">　</td>
+  <td style="font-size:11pt;border-top:none;border-right:none;border-bottom:.5pt solid;border-left:none;">3) 다양성/인권 증진</td>
+ </tr>
+ <tr style="height:14.25pt;">
+  <td height="19" style="height:14.25pt;font-size:11pt;">◆ 부록</td>
+  <td colspan="2" style="font-size:11pt;">부록1. 설문지 개발에 참고한 선행연구 목록</td>
+ </tr>
+ <tr style="height:14.25pt;">
+  <td height="19" style="height:14.25pt;font-size:11pt;"></td>
+  <td colspan="2" style="font-size:11pt;">부록2. 서울대 학부생의 삶의 질 조사(국문
+  설문지)</td>
+ </tr>
+ <tr style="height:14.25pt;">
+  <td height="19" style="height:14.25pt;font-size:11pt;border-top:none;border-right:none;border-bottom:.5pt solid;border-left:none;">　</td>
+  <td colspan="2" style="font-size:11pt;border-top:none;border-right:none;border-bottom:.5pt solid;border-left:none;">부록3. SNU Undergraduate
+  Quality of Life Survey (영문 설문지)</td>
+ </tr></tbody></table>        </div>
+                <!-- } 본문 내용 끝 -->
+
+        
+        <!-- 스크랩 추천 비추천 시작 { -->
+                <!-- } 스크랩 추천 비추천 끝 -->
+    </section>
+
+    
+    
+<script>
+// 글자수 제한
+var char_min = parseInt(0); // 최소
+var char_max = parseInt(0); // 최대
+</script>
+
+<!-- 댓글 시작 { -->
+<section id="bo_vc">
+    <h2>댓글목록</h2>
+        <p id="bo_vc_empty">등록된 댓글이 없습니다.    </p>
+</section>
+<!-- } 댓글 끝 -->
+
+<!-- } 댓글 쓰기 끝 --><script src="https://diversity.snu.ac.kr/js/md5.js"></script>
+
+    <!-- 링크 버튼 시작 { -->
+    <div id="bo_v_bot">
+                        <ul class="bo_v_nb">
+            <li><a href="./board.php?bo_table=research&amp;wr_id=15" class="btn_b01">이전글</a></li>            <li><a href="./board.php?bo_table=research&amp;wr_id=12" class="btn_b01">다음글</a></li>        </ul>
+        
+        <ul class="bo_v_com">
+                                                                        <li><a href="./board.php?bo_table=research&amp;page=" class="btn_b01">목록</a></li>
+                                </ul>
+            </div>
+    <!-- } 링크 버튼 끝 -->
+
+</article>
+<!-- } 게시판 읽기 끝 -->
+
+<script>
+
+function board_move(href)
+{
+    window.open(href, "boardmove", "left=50, top=50, width=500, height=550, scrollbars=1");
+}
+</script>
+
+<script>
+$(function() {
+    $("a.view_image").click(function() {
+        window.open(this.href, "large_image", "location=yes,links=no,toolbar=no,top=10,left=10,width=10,height=10,resizable=yes,scrollbars=no,status=no");
+        return false;
+    });
+
+    // 추천, 비추천
+    $("#good_button, #nogood_button").click(function() {
+        var $tx;
+        if(this.id == "good_button")
+            $tx = $("#bo_v_act_good");
+        else
+            $tx = $("#bo_v_act_nogood");
+
+        excute_good(this.href, $(this), $tx);
+        return false;
+    });
+
+    // 이미지 리사이즈
+    $("#bo_v_atc").viewimageresize();
+});
+
+function excute_good(href, $el, $tx)
+{
+    $.post(
+        href,
+        { js: "on" },
+        function(data) {
+            if(data.error) {
+                alert(data.error);
+                return false;
+            }
+
+            if(data.count) {
+                $el.find("strong").text(number_format(String(data.count)));
+                if($tx.attr("id").search("nogood") > -1) {
+                    $tx.text("이 글을 비추천하셨습니다.");
+                    $tx.fadeIn(200).delay(2500).fadeOut(200);
+                } else {
+                    $tx.text("이 글을 추천하셨습니다.");
+                    $tx.fadeIn(200).delay(2500).fadeOut(200);
+                }
+            }
+        }, "json"
+    );
+}
+</script>
+<!-- } 게시글 읽기 끝 --></div>
+<!-- / #content.container of head -->
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-1">
+        <img src="https://diversity.snu.ac.kr/theme/basic/img/logo-alt.png" alt="" class="logo-alt img-responsive center-block" />
+      </div>
+      <div class="col-md-7 footer-info">
+               
+        <span class="title">서울대학교 다양성위원회</span>
+        <address>
+        08826 서울특별시 관악구 관악로1 서울대학교 롯데국제교육관(152-1동) 513호
+        </address>
+        전화: 02-880-2015(2016)       팩스: 02-877-2017        이메일: diversity@snu.ac.kr <span class="copyright">Copyright &copy; 서울대학교 다양성위원회</span> <div class="footermenu">
+          <a href="http://www.snu.ac.kr/personal_information" target="_blank" class="privacy">개인정보처리방침</a> <a href="/page/location.php">오시는 길</a><a href="mailto:diversity@snu.ac.kr">이메일 문의</a>
+		  
+		  		  <a href="https://diversity.snu.ac.kr/bbs/login.php?url=/" class="btn_login">로그인</a>
+		  		  		  
+        </div>
+              </div>
+      <!-- / .col- -->
+      <div class="col-md-4 col-xs-12 relate-site" style="z-index:9000;">
+        <div class="rel-site">
+          <h4>
+                        학내기관
+                      </h4>
+            					<ul>
+            <li><a href="http://snu.ac.kr" target="_blank">서울대학교</a></li>
+            <li><a href="http://my.snu.ac.kr" target="_blank">서울대 포털</a></li>
+            <li><a href="http://www.snu.ac.kr/organization/office/academic" target="_blank">교무처</a></li>
+            <li><a href="http://student.snu.ac.kr" target="_blank">학생처</a></li>
+            <li><a href="http://research.snu.ac.kr" target="_blank">연구처</a></li>
+            <li><a href="http://www.snu.ac.kr/organization/office/planning" target="_blank">기획처</a></li>
+            <li><a href="http://www.snu.ac.kr/organization/bureau/general" target="_blank">사무국</a></li>
+            <li><a href="http://admission.snu.ac.kr" target="_blank">입학관리본부</a></li>
+            <li><a href="http://oia.snu.ac.kr" target="_blank">국제협력본부</a></li>
+            <li><a href="http://health4u.snu.ac.kr" target="_blank">보건진료소</a></li>
+            <li><a href="http://dorm.snu.ac.kr" target="_blank">관악학생생활관</a></li>
+            <li><a href="http://kidshome.snu.ac.kr/" target="_blank">어린이보육지원센터</a></li>
+            <li><a href="http://ctl.snu.ac.kr" target="_blank">교수학습개발센터</a></li>
+            <li><a href="http://snucounsel.snu.ac.kr/" target="_blank">대학생활문화원</a></li>
+            <li><a href="http://liberaledu.snu.ac.kr" target="_blank">기초교육원</a></li>
+            <li><a href="http://snudanbi.snu.ac.kr" target="_blank">장애학생지원센터</a></li>
+            <li><a href="http://career.snu.ac.kr/" target="_blank">경력개발센터</a></li>
+            <li><a href="http://wellbeing4u.snu.ac.kr" target="_blank">정신건강센터</a></li>
+						<li><a href="http://hrc.snu.ac.kr" target="_blank">인권센터</a></li>
+						<li><a href="http://library.snu.ac.kr" target="_blank">중앙도서관</a></li>
+            <li><a href="http://igsr.snu.ac.kr/" target="_blank">글로벌사회공헌단</a></li>
+          </ul>
+										</div>
+        <div class="rel-site">
+          <h4>
+                        자치기구
+                      </h4>
+            					<ul>
+            <li><a href="http://snufaculty.com" target="_blank">교수협의회</a></li>
+            <li><a href="http://wfc.snu.ac.kr" target="_blank">여교수회</a></li>
+            <li><a href="http://ifa.snu.ac.kr" target="_blank">국제교수회</a></li>
+			<li><a href="http://we.snu.ac.kr" target="_blank">총학생회</a></li>
+            <li><a href="http://sisa.snu.ac.kr" target="_blank">외국인학생회</a></li>
+            <li><a href="http://cafe.naver.com/mominsnu" target="_blank">맘인스누</a></li>
+            <li><a href="http://snuorg.snu.ac.kr" target="_blank">서울대학교노동조합</a></li>
+            <li><a href="http://facebook.com/snugsc" target="_blank">대학원 총학생회</a></li>
+            <li><a href="http://igender.snu.ac.kr/" target="_blank">여성연구소</a></li>
+            <li><a href="http://smpa.go.kr/home/homeIndex.do?menuCode=ga" target="_blank">관악 폴리스데스크</a></li>
+					</ul>
+										</div>
+        <!-- / .rel-site -->
+             </div>
+      <!-- / .col-md-3 col-xs-12 -->
+    
+
+	  </div>
+  </div>
+  <!-- // container -->
+</footer>
+<!-- } 하단 끝 -->
+<script>
+$(function() {
+    // 폰트 리사이즈 쿠키있으면 실행
+  //  font_resize("container", get_cookie("ck_font_resize_rmv_class"), get_cookie("ck_font_resize_add_class"));
+});
+</script>
+
+
+<!-- ie6,7에서 사이드뷰가 게시판 목록에서 아래 사이드뷰에 가려지는 현상 수정 -->
+<!--[if lte IE 7]>
+<script>
+$(function() {
+    var $sv_use = $(".sv_use");
+    var count = $sv_use.length;
+
+    $sv_use.each(function() {
+        $(this).css("z-index", count);
+        $(this).css("position", "relative");
+        count = count - 1;
+    });
+});
+</script>
+<![endif]-->
+</body>
+</html>
+
+<!-- 사용스킨 : theme/article -->

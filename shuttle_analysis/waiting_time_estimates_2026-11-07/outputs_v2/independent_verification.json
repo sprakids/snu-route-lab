@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "fixtures": [
+    {
+      "test": "90 arrivals share two60-place buses",
+      "served": 90,
+      "expected_mean_min": 3.8333333333333335,
+      "status": "PASS"
+    },
+    {
+      "test": "302 boards50, so301 gets only10 places on same60-place bus",
+      "expected_301_mean_min": 8.666666666666666,
+      "status": "PASS"
+    },
+    {
+      "test": "After last bus30 unserved is preserved, not assigned zero wait",
+      "unserved": 30,
+      "status": "PASS"
+    }
+  ],
+  "independent_terminal_hour_cells": 115,
+  "max_weighted_wait_sum_error": 0.0,
+  "review_scope": "All weekdays, two terminal queues, phase3; shared302-to301 fixture; not field validation"
+}

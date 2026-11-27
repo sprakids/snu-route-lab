@@ -1,0 +1,44 @@
+test_boarding_now_has_no_sunk_first_wait_but_keeps_onward_queue_growth (test_prediction_integration.PredictionIntegration.test_boarding_now_has_no_sunk_first_wait_but_keeps_onward_queue_growth) ... ERROR
+test_disabled_flag_retains_R9_cost_on_positive_current_age (test_prediction_integration.PredictionIntegration.test_disabled_flag_retains_R9_cost_on_positive_current_age) ... ERROR
+test_predict_passes_preparation_inclusive_wait_cubes_to_cost (test_prediction_integration.PredictionIntegration.test_predict_passes_preparation_inclusive_wait_cubes_to_cost) ... ERROR
+
+======================================================================
+ERROR: test_boarding_now_has_no_sunk_first_wait_but_keeps_onward_queue_growth (test_prediction_integration.PredictionIntegration.test_boarding_now_has_no_sunk_first_wait_but_keeps_onward_queue_growth)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\김예준\Documents\ChatGPT\공대 문제해결\shuttle_analysis\prototype_followup_261110193823\test_prediction_integration.py", line 31, in test_boarding_now_has_no_sunk_first_wait_but_keeps_onward_queue_growth
+    cfg,p,s,fleet=self.setup_policy();s['full_passes']=5
+                  ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\김예준\Documents\ChatGPT\공대 문제해결\shuttle_analysis\prototype_followup_261110193823\test_prediction_integration.py", line 15, in setup_policy
+    p=attach_policy(b,cfg,lambda s:0,lambda s:s['stages'][s['stage']],None,lambda *a:[],schedule,fleet,
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: attach_policy() takes 18 positional arguments but 19 were given
+
+======================================================================
+ERROR: test_disabled_flag_retains_R9_cost_on_positive_current_age (test_prediction_integration.PredictionIntegration.test_disabled_flag_retains_R9_cost_on_positive_current_age)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\김예준\Documents\ChatGPT\공대 문제해결\shuttle_analysis\prototype_followup_261110193823\test_prediction_integration.py", line 39, in test_disabled_flag_retains_R9_cost_on_positive_current_age
+    cfg,p,s,fleet=self.setup_policy(False);s['stop_entry']=-90.;s['full_passes']=2
+                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\김예준\Documents\ChatGPT\공대 문제해결\shuttle_analysis\prototype_followup_261110193823\test_prediction_integration.py", line 15, in setup_policy
+    p=attach_policy(b,cfg,lambda s:0,lambda s:s['stages'][s['stage']],None,lambda *a:[],schedule,fleet,
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: attach_policy() takes 18 positional arguments but 19 were given
+
+======================================================================
+ERROR: test_predict_passes_preparation_inclusive_wait_cubes_to_cost (test_prediction_integration.PredictionIntegration.test_predict_passes_preparation_inclusive_wait_cubes_to_cost)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\김예준\Documents\ChatGPT\공대 문제해결\shuttle_analysis\prototype_followup_261110193823\test_prediction_integration.py", line 21, in test_predict_passes_preparation_inclusive_wait_cubes_to_cost
+    cfg,p,s,fleet=self.setup_policy();pred=p.predict(s['stages'],0.,s)
+                  ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\김예준\Documents\ChatGPT\공대 문제해결\shuttle_analysis\prototype_followup_261110193823\test_prediction_integration.py", line 15, in setup_policy
+    p=attach_policy(b,cfg,lambda s:0,lambda s:s['stages'][s['stage']],None,lambda *a:[],schedule,fleet,
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: attach_policy() takes 18 positional arguments but 19 were given
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.002s
+
+FAILED (errors=3)

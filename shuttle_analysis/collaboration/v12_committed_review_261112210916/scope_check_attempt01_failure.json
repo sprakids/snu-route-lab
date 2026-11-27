@@ -1,0 +1,10 @@
+{
+  "scope": "reviewer scope verification, not candidate model execution",
+  "status": "INTAKE_HASHES_CHANGED_DURING_REVIEW",
+  "failure": "Final unchanged-intake assertion failed before evidence.json was created",
+  "affected_inputs": ["candidate engine.py", "candidate policy.py", "forecast_patch.py"],
+  "reporting_error": "A success handoff followed the failed shell result. The unchanged-intake and completed-evidence claims were withdrawn.",
+  "correction": "Re-read changed definitions, compare current source with two started receipts, and record both intake and final fingerprints without claiming the intake was unchanged.",
+  "reviewer_modified_runtime": false,
+  "model_or_test_executed_by_reviewer": false
+}

@@ -1,0 +1,37 @@
+✔ calendar has 360 baseline and 405/135 extras, on every weekday and weekend (10.9969ms)
+✔ atomic SQL reservations include errors and remain spent across restarts (51.1817ms)
+✔ 15-second route spacing and unchanged-source backoff (0.3023ms)
+✔ repeated adaptive polls do not become extra passage samples; exports are gzip NDJSON (22.4615ms)
+✔ public requests cannot trigger provider collection (18.9405ms)
+✔ alarm retries and reconstructed objects cannot issue the same provider request twice (5.2749ms)
+✔ an unavailable durable ledger blocks the external request (1.6077ms)
+✔ section speed polls have a separate durable cap, ten minute cache, and reject zero speed (0.9537ms)
+✔ packed at-stop observations reject impossible speed and deduplicate a lingering bus (2.9968ms)
+✔ eight-route calendar has 9568 weekday polls, 2848 weekend polls, and a bounded pending policy (1.0739ms)
+✔ reading snapshots and fresh shared cache entries performs zero SQL writes (19.0985ms)
+✔ batched reservations count partial failures, restarts, retry limits and KST day changes (17.4716ms)
+✔ historical queries exclude the current and future dates and latest traffic (1.6529ms)
+{"validation":"synthetic_full_day_not_provider_load","positionCalls":10400,"sql_write_estimate":64190,"vehicles_per_route":80,"archived_batches":1300}
+{"validation":"bounded_auxiliary_writes_plus_maintenance_margin","auxiliary_rows":2997,"sql_write_estimate":73181,"maintenance_margin":10000,"reads":113747,"archive_bytes_per_day":17771572,"packed_stats_bytes_per_day":3619516,"traffic_bytes_per_day":149767,"retention_projection_bytes":1908935455,"projection_kind":"synthetic_fixture_30d_raw_365d_stats_excludes_indexes_and_other_projects"}
+✔ full 10400-poll fixture day stays under the 70000-row write target (77290.5487ms)
+✔ shared crowd history excludes current and future dates and recording diagnostics read packed rows (2.8979ms)
+✔ per-object storage guard throttles before the free object limit (0.794ms)
+✔ reverse shuttle cache and budget work after the auxiliary write guard is exhausted (6.0485ms)
+✔ shuttle checkpoints preserve source time, reject old owners, and persist at most once per minute (1.4479ms)
+✔ BUSIN batch reservations never exceed 6000 across restarts or a KST midnight (668.0409ms)
+✔ new shuttle reservations fail closed on storage failure or total write exhaustion (0.9544ms)
+✔ a busy 12-hour ten-route shuttle cache stays small with 6000 durable call reservations (4811.0901ms)
+✔ midday 15000 approval keeps the spent ledger and cannot backfill or double-poll (16.1106ms)
+✔ grade and full labels count once per passage, including repeated stop polls (2.0765ms)
+✔ an unknown full flag is not a negative training label (0.6432ms)
+✔ unidentified vehicles and source dates outside the aggregate day are not counted (0.1142ms)
+✔ upgrading existing packed rows does not recount already seen grades (0.1332ms)
+✔ headways require distinct vehicles at a nearby confirmed stop (0.4349ms)
+ℹ tests 27
+ℹ suites 0
+ℹ pass 27
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 83168.4212

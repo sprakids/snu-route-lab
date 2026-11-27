@@ -1,0 +1,101 @@
+{
+  "status": "COMPLETE_UNTOUCHED_TARGET_EVALUATION",
+  "created_utc": "2026-11-07T08:38:03.721388+00:00",
+  "test_dates": [
+    "20261102",
+    "20261012",
+    "20261013",
+    "20261014",
+    "20261015",
+    "20261016"
+  ],
+  "primary_forward_dates": [
+    "20261102"
+  ],
+  "secondary_retrospective_dates": [
+    "20261012",
+    "20261013",
+    "20261014",
+    "20261015",
+    "20261016"
+  ],
+  "fit_dates_disjoint": true,
+  "frozen_hashes_unchanged": true,
+  "backend_inference_cells_verified": 17094,
+  "backend_max_difference": 5.684341886080802e-14,
+  "test_collection_epoch_seconds": {
+    "20261102": 1794040591.057339,
+    "20261012": 1794040594.9322946,
+    "20261013": 1794040618.3192987,
+    "20261014": 1794040624.233985,
+    "20261015": 1794040647.0103192,
+    "20261016": 1794040651.7166035
+  },
+  "same_observed_mask_for_all_models": true,
+  "observed_null_imputed": false,
+  "retrospective_day_cluster_bootstrap_WAPE_improvement_95pct_interval": [
+    -0.0011069107532329775,
+    0.002806664648096125
+  ],
+  "bootstrap_days": 5,
+  "bootstrap_note": "Five day clusters only; descriptive approximate interval; no interval for the single forward Monday",
+  "daily_error_blocks": [
+    {
+      "date": "20261012",
+      "observed_sum": 94382.0,
+      "history_absolute_error": 16723.1,
+      "hybrid_absolute_error": 16750.93430930314
+    },
+    {
+      "date": "20261013",
+      "observed_sum": 96332.0,
+      "history_absolute_error": 21716.95,
+      "hybrid_absolute_error": 21859.60321767456
+    },
+    {
+      "date": "20261014",
+      "observed_sum": 98597.0,
+      "history_absolute_error": 18282.6,
+      "hybrid_absolute_error": 18189.330925843307
+    },
+    {
+      "date": "20261015",
+      "observed_sum": 107218.0,
+      "history_absolute_error": 22790.9,
+      "hybrid_absolute_error": 22911.87753685026
+    },
+    {
+      "date": "20261016",
+      "observed_sum": 90637.0,
+      "history_absolute_error": 19070.8,
+      "hybrid_absolute_error": 18617.58417738831
+    },
+    {
+      "date": "20261102",
+      "observed_sum": 97623.0,
+      "history_absolute_error": 17038.0,
+      "hybrid_absolute_error": 16844.989697989815
+    }
+  ],
+  "post_test_refit_or_selection": false,
+  "strict_point_in_time_forecast": false,
+  "limits": [
+    "Nov6 course export used for earlier dates",
+    "Hourly provider semantics not confirmed",
+    "Background is a historical outside-link proxy",
+    "No per-bus crowding or shuttle queue validation"
+  ],
+  "source_hashes": {
+    "20261102": "0dd60dde4d60b8c081cd27cfd060126f42894a5b664788e4f3442474f85d3d1f",
+    "20261012": "22c62e2cb330a01d2af4d02cc58b849d75fa6f8cf8c285f54bf9ea88faf63c0b",
+    "20261013": "76bce576953c4b912ed499f0ee25ed84da987ec4f69c44cbf1c4f9220b8bd0e5",
+    "20261014": "b96c59e6c154361053fefbc8d7bf74b451ef5b690bd2b87eab731d12364acb94",
+    "20261015": "e5a77a0a3569948692d1c4737c8424e017aa5018cda5752134b55ae360fa4ddf",
+    "20261016": "92c4cfd77db94271d8a0e9e0f4ac89a6f38b9c531a0dcd83b90fb001c977232e"
+  },
+  "freeze_sha256": "cd9a0a2f5ccc3e28ad7e588f02561d343b29340dbd2aa58fcddf80c42ccd5066",
+  "outputs_sha256": {
+    "cell_predictions_and_observations.csv": "27a45a351b742446e1899511315f6a5383687fae22f2b0a85c0b0d4da57bece1",
+    "metrics.csv": "95765ac7c2befd713f96588b2f43fb61bd1af23d64fc60148e7d146c02392338"
+  }
+}

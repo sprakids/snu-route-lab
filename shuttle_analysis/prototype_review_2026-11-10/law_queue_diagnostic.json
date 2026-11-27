@@ -1,0 +1,82 @@
+{
+  "status": "POSTHOC_SCENARIO_MECHANISM_NOT_OBSERVED_CAUSE",
+  "rows": [
+    {
+      "behavior": "previous_behavior",
+      "node": 47,
+      "stop": "법대.사회대입구",
+      "ars": "21270",
+      "queue_peak_second": 61650.38549277913,
+      "queue_peak_hms": "17:07:30",
+      "maximum_queue_weight": 28.657159261378737,
+      "queue_at_15min_start_weight": 0.21927869516766285,
+      "inflow_visit_weight_prior15min": 62.65785296997926,
+      "boarding_weight_prior15min": 22.642838791582463,
+      "walk_away_visit_weight_prior15min": 11.577133612185753,
+      "denial_event_weight_prior15min": 0.0,
+      "destination_mix_json": "{\"snu\": 27.21293454329622, \"daehak\": 1.4442247180824832}"
+    },
+    {
+      "behavior": "previous_behavior",
+      "node": 60,
+      "stop": "법대.사회대입구",
+      "ars": "21298",
+      "queue_peak_second": 51441.31108403103,
+      "queue_peak_hms": "14:17:21",
+      "maximum_queue_weight": 36.24718622482276,
+      "queue_at_15min_start_weight": 19.21447559402174,
+      "inflow_visit_weight_prior15min": 98.55174418923025,
+      "boarding_weight_prior15min": 9.102072896521275,
+      "walk_away_visit_weight_prior15min": 72.41696066190798,
+      "denial_event_weight_prior15min": 31.458203771596533,
+      "destination_mix_json": "{\"snu\": 36.24718622482274}"
+    },
+    {
+      "behavior": "candidate_behavior",
+      "node": 47,
+      "stop": "법대.사회대입구",
+      "ars": "21270",
+      "queue_peak_second": 39910.02856649174,
+      "queue_peak_hms": "11:05:10",
+      "maximum_queue_weight": 61.36427761593018,
+      "queue_at_15min_start_weight": 0.0,
+      "inflow_visit_weight_prior15min": 99.74035833650487,
+      "boarding_weight_prior15min": 35.48172498808199,
+      "walk_away_visit_weight_prior15min": 2.8943557324926994,
+      "denial_event_weight_prior15min": 0.0,
+      "destination_mix_json": "{\"nak\": 60.69019866411849, \"dorm\": 0.6740789518117044}"
+    },
+    {
+      "behavior": "candidate_behavior",
+      "node": 60,
+      "stop": "법대.사회대입구",
+      "ars": "21298",
+      "queue_peak_second": 75637.06664934041,
+      "queue_peak_hms": "21:00:37",
+      "maximum_queue_weight": 50.3655408143428,
+      "queue_at_15min_start_weight": 0.0,
+      "inflow_visit_weight_prior15min": 56.21193573524897,
+      "boarding_weight_prior15min": 0.0,
+      "walk_away_visit_weight_prior15min": 5.846394920906116,
+      "denial_event_weight_prior15min": 0.0,
+      "destination_mix_json": "{\"dorm\": 6.627089453956034, \"snu\": 27.325665157103195, \"nak\": 16.41278620328362}"
+    }
+  ],
+  "proof": [
+    {
+      "behavior": "previous_behavior",
+      "folder": "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\prototype_followup_261110165541\\runs\\distribution_v8-physics-regular-mon\\attempt_01",
+      "audit_sha256": "c102ceee7f69dfcbb8da13cef62e66bf234de90cc46a60374ff4a41c6d89d29a"
+    },
+    {
+      "behavior": "candidate_behavior",
+      "folder": "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\prototype_followup_261110181553\\runs\\distribution_v8-combined-regular-mon\\attempt_01",
+      "audit_sha256": "96c6392e1b92aae784e183f83cc5d47628de14ce92c1f6b23267d9f914942b08"
+    }
+  ],
+  "same_original_demand_and_V8_clocks_and4p8_physics": true,
+  "different_peak_times_not_same_instant_causal_effect": true,
+  "denial_event_weight_may_count_a_waiter_repeatedly": true,
+  "destination_mix_is_scenario_not_observed_OD": true,
+  "model_not_modified_by_this_diagnostic": true
+}

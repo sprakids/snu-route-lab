@@ -1,0 +1,57 @@
+{
+  "schema": "user_reported_full_departure_and_residual_queue_v1",
+  "observation_id": "20261123-1659-admin-daehak-full-departure-queue-01",
+  "source": "user_report_in_project_chat",
+  "original_text": "월요일 16:59 대학동 행정관 셔틀 만차 후 출발. 줄 잔여대기인원 1명",
+  "followup_request": "원래 예상은 몇명인지도 알려줘",
+  "observation_date": "2026-11-23",
+  "date_inferred_from_context": true,
+  "date_basis": "Same Monday as the immediately preceding user-confirmed11/23 observations; date not separately confirmed in this message",
+  "weekday_reported": "Monday",
+  "timezone": "Asia/Seoul",
+  "location_reported": "행정관 셔틀 승차장",
+  "route": "행정관 → 대학동 셔틀",
+  "model_mapping_reference": {
+    "model_route_id": "shuttle-daehak",
+    "stop_id": "snu-410",
+    "simulation_stop_key": "admin_daehak",
+    "simulation_node_index": 42,
+    "basis": "existing publicV11 common-node catalog; administration-to-Daehak is distinct from administration-to-SNU-station"
+  },
+  "reported_departure_time": "16:59",
+  "time_precision": "minute",
+  "exact_departure_second": null,
+  "reported_departure_window_start": "2026-11-23T16:59:00+09:00",
+  "reported_departure_window_end_exclusive": "2026-11-23T17:00:00+09:00",
+  "vehicle_observation": {
+    "reported_full_at_departure": true,
+    "fullness_type": "qualitative_user_report",
+    "reported_capacity_people": null,
+    "reported_onboard_people": null,
+    "reported_boarded_at_this_stop_people": null,
+    "vehicle_identifier": null,
+    "number_of_vehicles": null
+  },
+  "queue_observation": {
+    "reported_queue_people": 1,
+    "count_scope": "outside_vehicle_residual_waiting_queue_after_departure",
+    "measurement_phase": "after_full_vehicle_departure",
+    "exact_observation_second": null,
+    "offset_after_departure_seconds": null,
+    "includes_already_onboard": false,
+    "includes_observer": null,
+    "people_in_queue_before_boarding": null,
+    "count_error_people": null,
+    "denied_boarding_attempts_observed_count": null,
+    "one_person_waited_throughout_whole_minute": "not_observed"
+  },
+  "evidence_role": {
+    "event_sample_count": 1,
+    "two_independent_samples_from_fullness_and_queue": false,
+    "independently_verified": false,
+    "model_comparison_requested": true,
+    "used_to_recalibrate_or_select_model": false,
+    "used_to_publish_model": false,
+    "interpretation": "Residual queue=1 after a full departure; vehicle occupancy and stop queue are separate. Fullness supplies no exact capacity or boarding count. Do not infer pre-boarding queue=capacity+1, shift16:59 to match model schedule, or apply queue=1 to the whole minute."
+  }
+}

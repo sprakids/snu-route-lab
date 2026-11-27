@@ -1,0 +1,140 @@
+{
+  "release_id": "261112171315",
+  "operating_model": "capacity_v11/261110162302",
+  "recommendation": "KEEP_PRIVATE_DO_NOT_PROMOTE",
+  "internal_ten_case_gate_passed": true,
+  "retrospective_queue_calibration": true,
+  "parameter": "cohort_release_lag_scale",
+  "alpha": 1.125,
+  "independent_field_accuracy": "NOT_EVALUABLE",
+  "old_queue_reports_improved_vs_immediate_parent": 3,
+  "primary_normalized_loss_before": 0.39592711580504175,
+  "primary_normalized_loss_after": 0.2600975835223413,
+  "primary_loss_decrease_fraction": 0.3430670112263394,
+  "field_comparisons": [
+    {
+      "observation_id": "20261109-1653-admin-snu-queue-01",
+      "parent_mean": 59.561389153764516,
+      "new_mean": 50.18198901456594,
+      "parent_error": 9.888375776513275,
+      "new_error": 11.360268336149716,
+      "improved": false
+    },
+    {
+      "observation_id": "20261109-1655-culture-city-queue-01",
+      "parent_mean": 1.556401479694266,
+      "new_mean": 1.811729109304733,
+      "parent_error": 3.4435985203057338,
+      "new_error": 3.1882708906952666,
+      "improved": true
+    },
+    {
+      "observation_id": "20261109-1703-snu-gate-queue-01",
+      "parent_mean": 26.354180485113286,
+      "new_mean": 28.621191917463758,
+      "parent_error": 6.662243786893396,
+      "new_error": 4.700506265039535,
+      "improved": true
+    },
+    {
+      "observation_id": "20261110-1523-admin-snu-queue-wait-01",
+      "parent_mean": 121.68177477355948,
+      "new_mean": 96.17035591590019,
+      "parent_error": 54.68177477355948,
+      "new_error": 29.17035591590019,
+      "improved": true
+    }
+  ],
+  "maximum_all_recorded_continuous_wait_min": 19.295697832027752,
+  "over20_episode_weight": 0.0,
+  "unserved_trip_weight": 0.0,
+  "mean_total_improved_conditions": 7,
+  "p99_total_improved_conditions": 6,
+  "max_total_improved_conditions": 3,
+  "mean_total_regressions": [
+    {
+      "day": "금",
+      "scenario": "regular",
+      "increase_min": 0.006908790075769389
+    },
+    {
+      "day": "수",
+      "scenario": "peak",
+      "increase_min": 0.012788026582200018
+    },
+    {
+      "day": "금",
+      "scenario": "peak",
+      "increase_min": 0.03048987846432638
+    }
+  ],
+  "mean_walk_change_range_min": [
+    -0.39773718303375105,
+    -0.06375265563164945
+  ],
+  "class_end_total_mean_regressions": [
+    {
+      "day": "월",
+      "scenario": "regular",
+      "increase_min": 0.44047660878672446
+    },
+    {
+      "day": "화",
+      "scenario": "regular",
+      "increase_min": 0.47891915571000965
+    },
+    {
+      "day": "수",
+      "scenario": "regular",
+      "increase_min": 0.2446994472200963
+    },
+    {
+      "day": "목",
+      "scenario": "regular",
+      "increase_min": 0.29354464370625877
+    },
+    {
+      "day": "금",
+      "scenario": "regular",
+      "increase_min": 0.503683928714409
+    },
+    {
+      "day": "월",
+      "scenario": "peak",
+      "increase_min": 0.3966908940072251
+    },
+    {
+      "day": "화",
+      "scenario": "peak",
+      "increase_min": 0.48742882914942953
+    },
+    {
+      "day": "수",
+      "scenario": "peak",
+      "increase_min": 0.5125848240167095
+    },
+    {
+      "day": "목",
+      "scenario": "peak",
+      "increase_min": 0.22325922768721185
+    },
+    {
+      "day": "금",
+      "scenario": "peak",
+      "increase_min": 0.5272650171029625
+    }
+  ],
+  "named_40_reference_exceed_conditions": 8,
+  "rare_tail_regression": {
+    "case": "release1p125-combined-regular-tue",
+    "source_parent": 75346,
+    "before_total_min": 27.460901413572962,
+    "after_total_min": 101.47449089305276,
+    "route_changes": 7,
+    "scenario_weight": 0.19180217599830604,
+    "scenario_weight_share": 1.0846392173399272e-05
+  },
+  "new_day_outcomes_opened": false,
+  "production_writes": false,
+  "report_sha256": "87ba168872239903a017c28e5b9db97676ccbaf92b14307e50aa0dc685c5155e"
+}

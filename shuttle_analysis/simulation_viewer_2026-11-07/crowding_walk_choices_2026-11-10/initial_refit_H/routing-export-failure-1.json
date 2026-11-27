@@ -1,0 +1,9 @@
+{
+  "status": "PUBLICATION_STOPPED",
+  "stage": "routing payload validation",
+  "public_latest_unchanged": "261110005327",
+  "exception": "ValueError: invalid_number",
+  "validator": "queue_release.validate ready_packets exit >= ready",
+  "cause_under_review": "New arrival-time reconsideration can leave before boarding-preparation completes; adapter must not create a ready packet for a preparation-cancelled visit. Source audit/model remains unchanged.",
+  "resolution_owner": "implementation agent; prepare_latest_queue.py / prepare_shuttle_queue.py; do not weaken validator"
+}

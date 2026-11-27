@@ -1,0 +1,266 @@
+{
+  "release_id": "261116161819",
+  "group": "pilot",
+  "status": "PASS_STUDENT_BEHAVIOR_GATES",
+  "cases": [
+    {
+      "case": {
+        "case": "anchor-combined-regular-mon",
+        "mode": "combined",
+        "day": "월",
+        "scenario": "regular",
+        "seed": 0,
+        "operations": "v12_empirical"
+      },
+      "source_sha256": "bceec33e856a4e2697cdd32a59e14111661d16a6f8a0477c19c83f3d8b46a420",
+      "finished_fragments_checked": 71092,
+      "returned_stop_weight": 0.0,
+      "far_final_station_walk_weight": 0.0,
+      "wrong_destination_weight": 0.0,
+      "shuttle_left_early_with_forecastable_service_weight": 0.0,
+      "ordinary_snu_final_gate_departure_weight": 0.0,
+      "physical_changes_without_current_queue_pressure_weight": 0.0,
+      "wrong_terminal_service_direction_weight": 0.0,
+      "opposite_branch_intermediate_then_rerouted_weight": 47.804288231094034,
+      "initial_loyalty_guard_check": "PASS",
+      "current_shuttle_threshold_departures_scope": "Includes already-released flexibility. First-release context audited separately where exported; supplemental guard checks retained.",
+      "exported_first_release_visit_records": 79859,
+      "invalid_first_release_visit_weight": 0.0,
+      "same_stop_eligibility_period_updates": 4689,
+      "initial_trunk_checks": {
+        "checked_weight": 11064.695614414935
+      },
+      "invalid_incumbent_chain_count": 0,
+      "initial_profile_mass": 18885.49999999906,
+      "physical_source_mass": 18885.5,
+      "all_recorded_max_continuous_wait_min": 25.61655112872213,
+      "over20_episode_weight": 227.5711945736633,
+      "unserved_weight": 0,
+      "walking_opportunities": {
+        "enabled": true,
+        "window_seconds": 30.0,
+        "flow": {
+          "walking_calls": 197747,
+          "walking_opportunity_weight": 55949.514565056525,
+          "no_existing_path_join_weight": 53131.93082762677,
+          "walking_calls_with_geometry": 10859,
+          "walking_weight_with_geometry": 2817.5837374295,
+          "no_allowed_timetable_window_weight": 2664.542726031352,
+          "intercept_attempt_weight": 153.04101139813713,
+          "opportunistic_boarded_weight": 109.00215002638092,
+          "resumed_walking_weight": 44.038861371755694
+        },
+        "catalogue": {
+          "counts": {
+            "queries": 197747,
+            "distinct_queries": 2816,
+            "distinct_queries_with_geometry": 327,
+            "geometric_opportunities": 826,
+            "cache_hits": 194931
+          },
+          "known_walking_path_count": 3140,
+          "indexed_walking_path_count": 3082,
+          "platform_destination_count": 387,
+          "max_extra_meters": 80.0,
+          "max_lateral_meters": 30.0,
+          "coverage_scope": "Existing exact directed walking prefix/suffix and platform anchors only; missing joins leave the original walk unchanged.",
+          "coordinates_created": false,
+          "new_paths_created": false,
+          "thresholds_are_observed": false
+        },
+        "selection_scope": "Timetabled compatible arrivals inside a bounded platform window; actual seats and partial boarding use the existing physical FIFO.",
+        "coverage_scope": "Walking opportunity exposure is per leg/attempt, not unique students or observed demand."
+      },
+      "student_strategy_counts": {
+        "frequency_initial_choice_weight": 12062.793431587397,
+        "initial_city_stop_optimized": 39633,
+        "loyalty_retained_reviews": 108053,
+        "available_compatible_boarding_accepted": 84039,
+        "eligible_reconsideration_reviews": 47228,
+        "revisit_chain_excluded": 343874,
+        "mode_or_stop_change_weight": 12699.470485696997,
+        "far_terminal_walk_excluded": 13642,
+        "same_stop_policy_update_weight": 1515.6966586908172,
+        "snu_gate_fallback_weight": 1851.3118968395604,
+        "dorm_terminal_walk_weight": 709.3580491328726,
+        "denial_and_remaining_queue_reviews": 2154
+      },
+      "behavior_gate_passed": true
+    },
+    {
+      "case": {
+        "case": "anchor-combined-regular-tue",
+        "mode": "combined",
+        "day": "화",
+        "scenario": "regular",
+        "seed": 0,
+        "operations": "v12_empirical"
+      },
+      "source_sha256": "223ab428fdb63ea37285c39a95f9aa096a36398ef5afcda44f97b6e5a5d569fa",
+      "finished_fragments_checked": 71188,
+      "returned_stop_weight": 0.0,
+      "far_final_station_walk_weight": 0.0,
+      "wrong_destination_weight": 0.0,
+      "shuttle_left_early_with_forecastable_service_weight": 0.0,
+      "ordinary_snu_final_gate_departure_weight": 0.0,
+      "physical_changes_without_current_queue_pressure_weight": 0.0,
+      "wrong_terminal_service_direction_weight": 0.0,
+      "opposite_branch_intermediate_then_rerouted_weight": 61.031144614627905,
+      "initial_loyalty_guard_check": "PASS",
+      "current_shuttle_threshold_departures_scope": "Includes already-released flexibility. First-release context audited separately where exported; supplemental guard checks retained.",
+      "exported_first_release_visit_records": 78545,
+      "invalid_first_release_visit_weight": 0.0,
+      "same_stop_eligibility_period_updates": 4224,
+      "initial_trunk_checks": {
+        "checked_weight": 10360.46410725196
+      },
+      "invalid_incumbent_chain_count": 0,
+      "initial_profile_mass": 17683.49999999917,
+      "physical_source_mass": 17683.5,
+      "all_recorded_max_continuous_wait_min": 25.545253368113116,
+      "over20_episode_weight": 213.50520133964775,
+      "unserved_weight": 0,
+      "walking_opportunities": {
+        "enabled": true,
+        "window_seconds": 30.0,
+        "flow": {
+          "walking_calls": 197135,
+          "walking_opportunity_weight": 51754.479061334845,
+          "no_existing_path_join_weight": 49383.50920825277,
+          "walking_calls_with_geometry": 10182,
+          "walking_weight_with_geometry": 2370.969853084317,
+          "no_allowed_timetable_window_weight": 2233.205307196616,
+          "intercept_attempt_weight": 137.76454588769704,
+          "opportunistic_boarded_weight": 97.80075891918639,
+          "resumed_walking_weight": 39.963786968510334
+        },
+        "catalogue": {
+          "counts": {
+            "queries": 197135,
+            "distinct_queries": 2862,
+            "distinct_queries_with_geometry": 338,
+            "geometric_opportunities": 880,
+            "cache_hits": 194273
+          },
+          "known_walking_path_count": 3164,
+          "indexed_walking_path_count": 3106,
+          "platform_destination_count": 385,
+          "max_extra_meters": 80.0,
+          "max_lateral_meters": 30.0,
+          "coverage_scope": "Existing exact directed walking prefix/suffix and platform anchors only; missing joins leave the original walk unchanged.",
+          "coordinates_created": false,
+          "new_paths_created": false,
+          "thresholds_are_observed": false
+        },
+        "selection_scope": "Timetabled compatible arrivals inside a bounded platform window; actual seats and partial boarding use the existing physical FIFO.",
+        "coverage_scope": "Walking opportunity exposure is per leg/attempt, not unique students or observed demand."
+      },
+      "student_strategy_counts": {
+        "frequency_initial_choice_weight": 11473.118731522543,
+        "initial_city_stop_optimized": 39694,
+        "loyalty_retained_reviews": 107512,
+        "available_compatible_boarding_accepted": 84186,
+        "eligible_reconsideration_reviews": 45953,
+        "revisit_chain_excluded": 340516,
+        "mode_or_stop_change_weight": 11496.10885486235,
+        "dorm_terminal_walk_weight": 621.9839636072694,
+        "far_terminal_walk_excluded": 12696,
+        "snu_gate_fallback_weight": 1550.882772890468,
+        "same_stop_policy_update_weight": 1210.5062087972046,
+        "denial_and_remaining_queue_reviews": 1734
+      },
+      "behavior_gate_passed": true
+    },
+    {
+      "case": {
+        "case": "ablation-old-initial-anchor-tue",
+        "mode": "combined",
+        "day": "화",
+        "scenario": "regular",
+        "seed": 0,
+        "operations": "v12_empirical",
+        "config_overrides": {
+          "consistent_initial_headway_anchor": false
+        }
+      },
+      "source_sha256": "a3ea6b5310b1a868cfcaf2423e8f7d34acaa5b3e2c7ba13d171ef126b2a71a93",
+      "finished_fragments_checked": 71187,
+      "returned_stop_weight": 0.0,
+      "far_final_station_walk_weight": 0.0,
+      "wrong_destination_weight": 0.0,
+      "shuttle_left_early_with_forecastable_service_weight": 0.0,
+      "ordinary_snu_final_gate_departure_weight": 0.0,
+      "physical_changes_without_current_queue_pressure_weight": 0.0,
+      "wrong_terminal_service_direction_weight": 0.0,
+      "opposite_branch_intermediate_then_rerouted_weight": 62.75508083937459,
+      "initial_loyalty_guard_check": "PASS",
+      "current_shuttle_threshold_departures_scope": "Includes already-released flexibility. First-release context audited separately where exported; supplemental guard checks retained.",
+      "exported_first_release_visit_records": 77744,
+      "invalid_first_release_visit_weight": 0.0,
+      "same_stop_eligibility_period_updates": 4151,
+      "initial_trunk_checks": {
+        "checked_weight": 10360.46410725196
+      },
+      "invalid_incumbent_chain_count": 0,
+      "initial_profile_mass": 17683.49999999917,
+      "physical_source_mass": 17683.5,
+      "all_recorded_max_continuous_wait_min": 25.545253368113116,
+      "over20_episode_weight": 214.6120761964719,
+      "unserved_weight": 0,
+      "walking_opportunities": {
+        "enabled": true,
+        "window_seconds": 30.0,
+        "flow": {
+          "walking_calls": 196144,
+          "walking_opportunity_weight": 51554.11147987318,
+          "no_existing_path_join_weight": 49180.91343872443,
+          "walking_calls_with_geometry": 10114,
+          "walking_weight_with_geometry": 2373.1980411510713,
+          "no_allowed_timetable_window_weight": 2236.3225865885133,
+          "intercept_attempt_weight": 136.8754545625556,
+          "opportunistic_boarded_weight": 101.54635451731711,
+          "resumed_walking_weight": 35.329100045238256
+        },
+        "catalogue": {
+          "counts": {
+            "queries": 196144,
+            "distinct_queries": 2855,
+            "distinct_queries_with_geometry": 337,
+            "geometric_opportunities": 873,
+            "cache_hits": 193289
+          },
+          "known_walking_path_count": 3164,
+          "indexed_walking_path_count": 3106,
+          "platform_destination_count": 385,
+          "max_extra_meters": 80.0,
+          "max_lateral_meters": 30.0,
+          "coverage_scope": "Existing exact directed walking prefix/suffix and platform anchors only; missing joins leave the original walk unchanged.",
+          "coordinates_created": false,
+          "new_paths_created": false,
+          "thresholds_are_observed": false
+        },
+        "selection_scope": "Timetabled compatible arrivals inside a bounded platform window; actual seats and partial boarding use the existing physical FIFO.",
+        "coverage_scope": "Walking opportunity exposure is per leg/attempt, not unique students or observed demand."
+      },
+      "student_strategy_counts": {
+        "frequency_initial_choice_weight": 11473.118731522543,
+        "initial_city_stop_optimized": 39703,
+        "loyalty_retained_reviews": 107292,
+        "available_compatible_boarding_accepted": 83623,
+        "eligible_reconsideration_reviews": 45467,
+        "revisit_chain_excluded": 335223,
+        "mode_or_stop_change_weight": 11421.739189003165,
+        "dorm_terminal_walk_weight": 612.4107737942658,
+        "far_terminal_walk_excluded": 12702,
+        "snu_gate_fallback_weight": 1541.3201488339314,
+        "same_stop_policy_update_weight": 1203.5055463895303,
+        "denial_and_remaining_queue_reviews": 1789
+      },
+      "behavior_gate_passed": true
+    }
+  ],
+  "direction_audit_scope": "Explicit planned_terminal flag at every actual boarding; forbidden final directions separated from allowed intermediate boardings.",
+  "over20_is_diagnostic_not_deleted": true,
+  "production_writes": false,
+  "new_date_accuracy": "NOT_EVALUATED"
+}

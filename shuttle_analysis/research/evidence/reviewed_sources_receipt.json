@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "items": [
+    {
+      "id": "upper-homeward",
+      "title": "윗공대 하교 연결의 근거와 미확인 범위",
+      "queries": [
+        {
+          "id": "student-homeward",
+          "source": {
+            "label": "대학신문 2026-08-23 원문",
+            "caveats": [
+              "귀가시간 2~4배는 한 학생의 진술이며 공대생 평균이 아닙니다. 8월 노선 변경 보도는 10월 운행 상태를 보장하지 않습니다."
+            ]
+          },
+          "summary": "대학동행 노선 변경 이후 보행과 귀가시간이 늘어난 경험과, 5516 연장 이후 불편이 일부 줄었다는 학생 경험을 확인했습니다.",
+          "reportingPeriod": "2026년 7~8월 노선 변경에 관한 보도"
+        },
+        {
+          "id": "semester-operation",
+          "source": {
+            "label": "2026-2 공식 운행 안내",
+            "links": [
+              {
+                "label": "컴퓨터공학부 공식 공지",
+                "href": "https://cse.snu.ac.kr/ko/community/notice/25464"
+              }
+            ],
+            "caveats": [
+              "공식 운행 조건과 실제 배차·여석은 다릅니다. 봄 한시 직행의 10월 존속은 확인하지 못했습니다."
+            ]
+          },
+          "summary": "교내 순환·역순환과 교외 통학셔틀을 구분해 검토했습니다.",
+          "reportingPeriod": "2026년 9월 1일~12월 21일 공표 운행 조건"
+        }
+      ]
+    },
+    {
+      "id": "handoff-audit",
+      "title": "7월 수강편람 인계 자료의 추출 정합성",
+      "queries": [
+        {
+          "id": "xls-csv-reconciliation",
+          "source": {
+            "label": "사용자 제공 XLS·CSV",
+            "files": [
+              {
+                "label": "2026_2_courses_published_2026_07_03_revised.xls"
+              },
+              {
+                "label": "sections_raw.csv"
+              },
+              {
+                "label": "meeting_slots_raw.csv"
+              }
+            ],
+            "metricDefinitions": [
+              {
+                "label": "원본 대조",
+                "definition": "원본 대조는 XLS의 원래 셀 값과 제공 CSV 값 및 독립 재파싱한 슬롯 필드의 일치 여부를 확인합니다."
+              }
+            ],
+            "caveats": [
+              "7월 공개 수강편람이며 현재 실제 수강인원이나 하교·셔틀 수요를 검증한 결과가 아닙니다."
+            ]
+          },
+          "columns": [
+            "section_rows",
+            "original_cells_compared",
+            "cell_mismatches",
+            "meeting_rows_reparsed",
+            "meeting_fields_compared",
+            "meeting_mismatches"
+          ],
+          "rows": [
+            {
+              "section_rows": 8008,
+              "original_cells_compared": 192192,
+              "cell_mismatches": 0,
+              "meeting_rows_reparsed": 6959,
+              "meeting_fields_compared": 125262,
+              "meeting_mismatches": 0
+            }
+          ],
+          "preview": {
+            "kind": "aggregate",
+            "note": "이번에 실행한 원본·추출 자료 대조의 집계 결과입니다.",
+            "totalRows": 1
+          },
+          "methods": [
+            {
+              "language": "python",
+              "code": "\"\"\"Read-only, independently reconstructed audit of the user-supplied July snapshot.\n\nRun from any directory. Requires xlrd==2.0.2 (installed into ../.deps here).\nWrites audit evidence under research/evidence; never modifies the handoff.\n\"\"\"\nfrom pathlib import Path\nimport sys, csv, json, re, hashlib\nfrom collections import Counter\n\nROOT = Path(__file__).resolve().parent\nsys.path.insert(0, str(ROOT.parent / '.deps'))\nimport xlrd\n\nINPUT = ROOT.parent / 'input_handoff'\nOUT = ROOT / 'evidence'\nOUT.mkdir(exist_ok=True)\nsource = INPUT / 'raw/2026_2_courses_published_2026_07_03_revised.xls'\nbook = xlrd.open_workbook(source)\nsheet = book.sheet_by_index(0)\nheaders = sheet.row_values(2)\nprovided = list(csv.DictReader((INPUT / 'sections_raw.csv').open(encoding='utf-8-sig')))\nprovided_slots = list(csv.DictReader((INPUT / 'meeting_slots_raw.csv').open(encoding='utf-8-sig')))\nsections = [{h: str(sheet.cell_value(i, j)) for j, h in enumerate(headers)} |\n            {'source_excel_row': str(i+1)} for i in range(3, sheet.nrows)]\ncell_mismatches = []\nassert len(provided) == len(sections), 'Section row count mismatch'\nfor actual, reference in zip(provided, sections):\n    for field in headers + ['source_excel_row']:\n        if actual[field] != reference[field]:\n            cell_mismatches.append({'row':reference['source_excel_row'], 'field':field})\n\nslot_reference, unparsed, alignment_errors = [], [], []\nfor row in sections:\n    times = row['수업교시'].split('/') if row['수업교시'] else []\n    rooms = row['강의실(동-호)(#연건, *평창)'].split('/')\n    types = row['수업형태'].split('/')\n    if times and not len(times) == len(rooms) == len(types):\n        alignment_errors.append(row['source_excel_row'])\n        continue\n    for i, time in enumerate(times):\n        match = re.fullmatch(r'([월화수목금토일])\\((\\d\\d:\\d\\d)~(\\d\\d:\\d\\d)\\)', time.strip())\n        if not match:\n            unparsed.append({'row':row['source_excel_row'], 'time':time})\n            continue\n        day, start, end = match.groups()\n        room, typ = rooms[i], types[i]\n        assert start < end, (row['source_excel_row'], time)\n        slot_reference.append({\n            'section_id':row['교과목번호']+'-'+row['강좌번호'],\n            'source_excel_row':row['source_excel_row'], 'meeting_index':str(i+1),\n            'weekday':day, 'start':start, 'end':end,\n            'meeting_room_raw':room, 'meeting_type_raw':typ,\n            'campus_source_marker':'연건: source # marker' if '#' in room else\n                                   '평창: source * marker' if '*' in room else '미확정',\n            'capacity_raw':row['정원'], 'offering_college':row['개설대학'],\n            'offering_department':row['개설학과'], 'course_category':row['교과구분'],\n            'degree_level':row['이수과정'], 'course_title':row['교과목명'],\n            'notes_raw':row['비고'], 'has_circled_c_marker':str('ⓒ' in row['비고']),\n            'possible_lab_subgroup':str(bool(re.search(r'실습반\\d', typ))),\n        })\nassert len(provided_slots) == len(slot_reference), 'Meeting row count mismatch'\nslot_mismatches = []\nfor actual, reference in zip(provided_slots, slot_reference):\n    for field in reference:\n        if actual[field] != reference[field]:\n            slot_mismatches.append({'row':reference['source_excel_row'],\n                                    'meeting_index':reference['meeting_index'], 'field':field})\ncapacity_pairs = [re.fullmatch(r'(\\d+)\\s*\\((\\d+)\\)', r['정원']) for r in sections]\nkeys = [(r['교과목번호'],r['강좌번호']) for r in sections]\nmeta = json.loads((INPUT / 'provenance_and_coverage.json').read_text(encoding='utf-8'))\naudit = {\n    'dataset_label':'7월 공개 수강편람 기반 예비 분석',\n    'snapshot_basis_kst':'2026-07-03T10:00:00+09:00',\n    'sha256':hashlib.sha256(source.read_bytes()).hexdigest(),\n    'sha256_matches_handoff_metadata':hashlib.sha256(source.read_bytes()).hexdigest()==meta['source_sha256'],\n    'section_rows':len(sections), 'original_columns':len(headers),\n    'original_cells_compared':len(sections)*len(headers),\n    'source_row_mapping_comparisons':len(sections),\n    'cell_mismatches':cell_mismatches,\n    'unique_section_keys':len(set(keys)), 'duplicate_section_keys':len(keys)-len(set(keys)),\n    'sections_with_time':sum(bool(r['수업교시']) for r in sections),\n    'sections_without_time':sum(not r['수업교시'] for r in sections),\n    'meeting_rows_reparsed':len(slot_reference),\n    'meeting_fields_compared':sum(len(s) for s in slot_reference),\n    'meeting_mismatches':slot_mismatches,\n    'unparsed_time_parts':unparsed, 'time_room_type_alignment_errors':alignment_errors,\n    'engineering_degree_counts':dict(Counter(r['이수과정'] for r in sections if r['개설대학']=='공과대학')),\n    'capacity_parenthesized_pairs':sum(m is not None for m in capacity_pairs),\n    'unequal_capacity_pairs':sum(m is not None and m[1]!=m[2] for m in capacity_pairs),\n    'bare_zero_capacity_rows':sum(r['정원']=='0' for r in sections),\n    'all_enrollment_zero':all(r['수강신청인원']=='0' for r in sections),\n    'circled_c_sections':sum('ⓒ' in r['비고'] for r in sections),\n    'lab_subgroup_slots':sum(s['possible_lab_subgroup']=='True' for s in slot_reference),\n    'interpretation':'Checks extraction parity, not actual class attendance, headcount, commute or shuttle demand.',\n}\n(OUT/'handoff_audit.json').write_text(json.dumps(audit,ensure_ascii=False,indent=2),encoding='utf-8')\nassert not cell_mismatches and not slot_mismatches and not unparsed and not alignment_errors\nassert audit['sha256_matches_handoff_metadata']\nprint(json.dumps(audit,ensure_ascii=False,indent=2))\n"
+            }
+          ],
+          "reportingPeriod": "2026년 7월 공개 수강편람 기준"
+        }
+      ]
+    }
+  ]
+}

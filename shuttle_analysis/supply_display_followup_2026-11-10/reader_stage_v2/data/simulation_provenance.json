@@ -1,0 +1,54 @@
+{
+  "source_bridge": "simulation_viewer_2026-11-07/integration_bridge_2026-11-08",
+  "scenario_revision": "campus_stop_corridors_20261108",
+  "kernel_sha256": "d420e0647dd2928a9c9a444ec4966ca9265c35fd60b4fcbc2db67c54f31b3659",
+  "input_sha256": "3b05816499141b8d571b2574999839760c28e8ba165b944f733390701d6da7ba",
+  "prepared_sha256": "46243bdb22b769e3ed1fdbff270d0df74b8ffc55e91c80ab4594f1597288eb55",
+  "sources": [
+    {
+      "path": "capacity_model.py",
+      "sha256": "40d304dc2ad9f1af86827d0d4183cd2b9c2918e26c82866d0a84cbc8cce00d7e"
+    },
+    {
+      "path": "speed_capacity_model.py",
+      "sha256": "878d94db31fde8eb26fedfa09569a1323eb8636694c4e873e0c2d77d0a42208a"
+    },
+    {
+      "path": "city_capacity_model.py",
+      "sha256": "1de61c9761915d404a549655d509055a9b247ee2e498007ae2671096887341ad"
+    },
+    {
+      "path": "prepare_city.py",
+      "sha256": "4e681b9bb97782c4fc912ceb4b82834e1aeb719ce2ac00f0047f7a899550c72a"
+    },
+    {
+      "path": "prepare_adaptive.py",
+      "sha256": "fa63cdab63dd32ccf3a810ee460f4b75e806e6eeb24097debad56bbbe0e3e3fd"
+    },
+    {
+      "path": "model_snapshot/app/routing.py",
+      "sha256": "d334acb55bc5c470deac7d5593f30ebdcd154186e61b5b5cb0fc672e3d34463b"
+    },
+    {
+      "path": "model_snapshot/engine/simulate_stop_inflow.py",
+      "sha256": "81051de9d718919fe29491472be6aa95cfebc3f4c61367d4f0d0b812df20ca49"
+    },
+    {
+      "path": "verify_city.py",
+      "sha256": "188faf61900b051d86648ab5f1d1c3e806cd6c661c5054b75d0a42621ddb88d6"
+    }
+  ],
+  "verification": {
+    "status": "PASS",
+    "routes": 12,
+    "segments_compared_to_frozen_v5": 354,
+    "max_duration_error_seconds": 0.0,
+    "queue_reference_cases": 5,
+    "capacity_and_speed_phases_checked": true,
+    "standard_library_runtime": true,
+    "app_files_modified": false,
+    "original_model_modified": false,
+    "original_results_recomputed": false
+  },
+  "observed_operations": false
+}

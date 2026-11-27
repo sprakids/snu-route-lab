@@ -1,0 +1,49 @@
+{
+  "reviewed_at_utc": "2026-11-15T16:09:25.761977+00:00",
+  "candidate": "261115160710",
+  "status": "STATIC_REVIEW_AND_EXISTING_LEDGER_READBACK_COMPLETE",
+  "project_functions_executed": false,
+  "tests_executed": false,
+  "simulations_executed": false,
+  "new_observed_date_outcomes_opened": false,
+  "candidate_or_frozen_files_written": false,
+  "production_writes": false,
+  "model_replacement_recommended": false,
+  "source_and_existing_artifact_guard": {
+    "path_count": 85,
+    "mismatches": [],
+    "matches_intake": true
+  },
+  "extra_read_source": {
+    "path": "shuttle_analysis\\v12_student_strategy_20261115\\wait_threshold_diagnosis.py",
+    "sha256": "23ae8b1ecd9d4b04725d0c163415494281fadb3cfa99f3b5a6dff492642baa5c",
+    "scope": "diagnostic generator source only; never executed"
+  },
+  "artifacts": {
+    "intake.json": "3be1e89b2669b894d1dba3218543fdf297fb642d39b86f0f8196b2d571624312",
+    "wait-summary-readback.json": "82fd49af8f752437fc46342ae820c75c7fa73316dcbf450e4cf5079998f3717a",
+    "existing-ledger-samples.json": "def1659a5f456aaeba4bd3c39931db99979ce52961d19517ac01b888c9a9e662",
+    "existing-wed-finish-check.json": "99f84b11b5d342e88f2edd573080fb591d0ba5a8947d8005d635d11f1449a868",
+    "DIAGNOSIS.md": "48d047281e9e6228ee0f22d536f8089df946d3843474012de10bbd8483b013b0"
+  },
+  "confirmed_findings": [
+    "Personal P is a reconsideration trigger, not forced departure.",
+    "97.678% of existing over20 visit weight is within configured P.",
+    "97.512% of P-exceeded over20 visit weight is boarded at gate62, which exempts SNU rerouting.",
+    "Sampled non-gate P exceedances include many actual stay reviews, not only silent clocks.",
+    "Two Wednesday retained forecasts match respective existing simulated finish branches.",
+    "Existing P-crossing summary conditions on over20 and reads wrong full_passes field."
+  ],
+  "hypotheses_not_proven_by_traces": [
+    "Near/far30min residual-seat history discontinuity changes first boardable forecast.",
+    "Unknown future upstream boarding or later arrivals makes candidate waiting optimistic.",
+    "State changes not notifying downstream retained reviews can delay reconsideration.",
+    "Whole-seat marginal forecasts are more conservative than fractional physical demand."
+  ],
+  "limits": [
+    "Ten-case sums combine alternative scenarios and repeated weighted visits, not unique students.",
+    "Only existing Monday/Wednesday raw simulated ledgers were read for detailed examples.",
+    "Review diagnostics omit loyalty returns, waits below600s, detailed stay boarding forecasts, and review due clocks.",
+    "Matching a simulated ETA does not establish observed student accuracy."
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "scope": "Read-only readiness assessment for completed KST dates2026-11-09 through2026-11-15",
+  "inventory_file": "recording_inventory.json",
+  "controlling_sources": [
+    "Authenticated existing collector /recording?day= endpoints; eight saved-only GET requests including status",
+    "../collector/worker.mjs:359-369 (recording units and counts)",
+    "../collector/worker.mjs:110-134 (latest shuttle cache checkpoint overwrite)",
+    "../collected_data_review_2026-11-12/calibration_contract.json",
+    "../collected_data_review_2026-11-12/v12_support/future_holdout_rule.json"
+  ],
+  "findings": {
+    "complete_date_partitions_found": 7,
+    "city_routes_per_date": 8,
+    "coarse_vehicle_section_grade_records_including_unknown": 155368,
+    "coarse_stop_headway_intervals_all_route_scope": 82547,
+    "shuttle_daily_route_statistics_entries": 0,
+    "new_unexplored_date_partitions": [
+      "2026-11-12",
+      "2026-11-13",
+      "2026-11-14",
+      "2026-11-15"
+    ],
+    "counts_prove_partition_presence_not_continuous_or_complete_route_time_coverage": true
+  },
+  "candidate_uses": [
+    "Route,direction,stop,time-window passage headway distributions and joint arrival opportunities",
+    "Completed segment passage-time distributions including traffic and dwell where present",
+    "Ordinal crowd-grade transitions and persistence between observations with unknown0 excluded",
+    "Source freshness, missing-vehicle and repeated-timestamp quality controls"
+  ],
+  "not_identified_from_current_source": [
+    "Individual student queue joining time or queue length",
+    "Student/background passenger split or numeric remaining capacity from grades",
+    "Measured shuttle headway/traffic-sensitive trip distributions from latest-only cache",
+    "Reliable separate weekday effect from only one occurrence of each weekday"
+  ],
+  "next_steps_suggested_not_executed": [
+    "Reconcile source timestamps and detector stability before calibration",
+    "Keep existing12-Nov-or-later heldout labels unopened until code,input,metrics and selection protocol are frozen",
+    "Calibrate only on permitted past dates; evaluate on first qualifying later completed date before adoption",
+    "If authorized in a later implementation task, archive shuttle stop-transition events separately instead of only latest checkpoints"
+  ],
+  "model_updates_or_deployments": 0,
+  "new_provider_polls": 0,
+  "new_holdout_raw_exports_or_prediction_errors_opened": false
+}

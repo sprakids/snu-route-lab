@@ -1,0 +1,127 @@
+{
+  "cases": [
+    {
+      "case": {
+        "case": "strategy2-combined-regular-mon",
+        "mode": "combined",
+        "day": "월",
+        "scenario": "regular",
+        "seed": 0,
+        "operations": "v12_empirical"
+      },
+      "counts": {
+        "over20_episode_weight": 529.7464354962568,
+        "over20_boarded": 501.60053130706615,
+        "over20_enroute_episode_weight": 0.0,
+        "within_personal_patience_episode_weight": 529.7464354962568,
+        "over20_switched": 28.145904189190432
+      },
+      "maximum_raw_wait_visit": {
+        "uid": 2466304,
+        "node": 1,
+        "seconds": 1915.8983979962795,
+        "personal_patience_seconds": 1966.6780725448216,
+        "outcome": "boarded",
+        "weight": 0.7938739887186942
+      },
+      "opportunities": {
+        "enabled": true,
+        "window_seconds": 30.0,
+        "flow": {
+          "walking_calls": 204181,
+          "walking_opportunity_weight": 57779.83158142106,
+          "no_existing_path_join_weight": 55277.691492909566,
+          "walking_calls_with_geometry": 10564,
+          "walking_weight_with_geometry": 2502.1400885106955,
+          "no_allowed_timetable_window_weight": 2380.22101626248,
+          "intercept_attempt_weight": 121.91907224821777,
+          "resumed_walking_weight": 57.37411010443114,
+          "opportunistic_boarded_weight": 64.54496214378685
+        },
+        "catalogue": {
+          "counts": {
+            "queries": 204181,
+            "distinct_queries": 2768,
+            "distinct_queries_with_geometry": 329,
+            "geometric_opportunities": 827,
+            "cache_hits": 201413
+          },
+          "known_walking_path_count": 3140,
+          "indexed_walking_path_count": 3082,
+          "platform_destination_count": 387,
+          "max_extra_meters": 80.0,
+          "max_lateral_meters": 30.0,
+          "coverage_scope": "Existing exact directed walking prefix/suffix and platform anchors only; missing joins leave the original walk unchanged.",
+          "coordinates_created": false,
+          "new_paths_created": false,
+          "thresholds_are_observed": false
+        },
+        "selection_scope": "Timetabled compatible arrivals inside a bounded platform window; actual seats and partial boarding use the existing physical FIFO.",
+        "coverage_scope": "Walking opportunity exposure is per leg/attempt, not unique students or observed demand."
+      }
+    },
+    {
+      "case": {
+        "case": "strategy2-combined-regular-tue",
+        "mode": "combined",
+        "day": "화",
+        "scenario": "regular",
+        "seed": 0,
+        "operations": "v12_empirical"
+      },
+      "counts": {
+        "over20_episode_weight": 492.8222030028197,
+        "over20_boarded": 468.8646614272051,
+        "over20_enroute_episode_weight": 0.0,
+        "within_personal_patience_episode_weight": 491.8309228841842,
+        "over20_switched": 23.957541575614723,
+        "past_personal_patience_episode_weight": 0.9912801186355031
+      },
+      "maximum_raw_wait_visit": {
+        "uid": 4119824,
+        "node": 1,
+        "seconds": 1891.3490930615153,
+        "personal_patience_seconds": 2234.181612211994,
+        "outcome": "boarded",
+        "weight": 0.39200603323409955
+      },
+      "opportunities": {
+        "enabled": true,
+        "window_seconds": 30.0,
+        "flow": {
+          "walking_calls": 200575,
+          "walking_opportunity_weight": 53103.14066372415,
+          "no_existing_path_join_weight": 50888.198302565324,
+          "walking_calls_with_geometry": 10508,
+          "walking_weight_with_geometry": 2214.9423611605666,
+          "no_allowed_timetable_window_weight": 2087.4148499280973,
+          "intercept_attempt_weight": 127.52751123248599,
+          "resumed_walking_weight": 57.396891160991565,
+          "opportunistic_boarded_weight": 70.1306200714948
+        },
+        "catalogue": {
+          "counts": {
+            "queries": 200575,
+            "distinct_queries": 2749,
+            "distinct_queries_with_geometry": 337,
+            "geometric_opportunities": 893,
+            "cache_hits": 197826
+          },
+          "known_walking_path_count": 3164,
+          "indexed_walking_path_count": 3106,
+          "platform_destination_count": 385,
+          "max_extra_meters": 80.0,
+          "max_lateral_meters": 30.0,
+          "coverage_scope": "Existing exact directed walking prefix/suffix and platform anchors only; missing joins leave the original walk unchanged.",
+          "coordinates_created": false,
+          "new_paths_created": false,
+          "thresholds_are_observed": false
+        },
+        "selection_scope": "Timetabled compatible arrivals inside a bounded platform window; actual seats and partial boarding use the existing physical FIFO.",
+        "coverage_scope": "Walking opportunity exposure is per leg/attempt, not unique students or observed demand."
+      }
+    }
+  ],
+  "scope": "Weighted queue visits, not unique students; departure threshold is elapsed plus forecast, not forced exit. The integrated same-stop audit remains controlling for continuous20min totals.",
+  "new_outcomes_opened": false
+}

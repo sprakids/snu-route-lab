@@ -1,0 +1,77 @@
+{
+  "reason": "New explicit user correction: reported administration/SNU shuttle maximum44; two vehicles arrived together AFTER joining, exact arrival unknown. Nonzero boarding/departure process possible. No behavior coefficients fitted to this report.",
+  "active_prepared": "frozen/prepared_capacity44.json.gz",
+  "prepared_sha256": "4fa82f2eb7dadebd63ed800e482ff0226357af6deafc38f1e965d9fa81714e4a",
+  "baseline": "frozen v9 engine with capacity-only correction; pending full validation/publication",
+  "old_control": "control-regular-fri attempt01 remains a 60-capacity transport parity check, not a fair corrected comparison",
+  "fair_pilot_attempt": 2,
+  "capacity_daytime": 44,
+  "night_legacy_assumption": 60,
+  "only_route": "shuttle-41841",
+  "observation_sha256_at_intake": "8c295ad33bc76f7a283c654b745141aa749775fba8288eec8f2cdabb097fe6a7",
+  "observation_use": "input correction and external diagnostic, not final untouched holdout or preference/hazard fitting",
+  "source_observation_not_independent_two_photos": true,
+  "do_not_infer_repeated_two_bus_supply": true,
+  "legacy_network_event_limitation": "arrival=boarding=departure; cannot separate 189s join-to-boarding into arrival waiting and boarding service, or the30s post-boarding interval. Dwell module is a separate micro scenario.",
+  "separate_authorized_correction_mutable_paths": [
+    "public/routing-model/latest.json",
+    "../app/queue_release.py",
+    "../app/data/auto_queue_inputs.json",
+    "../app/prepare_latest_queue.py",
+    "../app/prepare_shuttle_queue.py",
+    "../app/prepare_city_queue.py",
+    "../app/queue_readiness.py"
+  ],
+  "additional_frozen": [
+    {
+      "path": "frozen/capacity44_reference_engine.py",
+      "sha256": "690babd48136beae59e2dd06fed4e3061599f1701587bcb4a45b11a6b7f6a7f4"
+    },
+    {
+      "path": "frozen/capacity44_reference_policy.py",
+      "sha256": "4510adfa434d2091f0873286bfa424193029fe34d4835d47f0765b3c1e1a0470"
+    },
+    {
+      "path": "frozen/new_observation_at_amendment.json",
+      "sha256": "8c295ad33bc76f7a283c654b745141aa749775fba8288eec8f2cdabb097fe6a7"
+    },
+    {
+      "path": "frozen/prepared_capacity44.json.gz",
+      "sha256": "4fa82f2eb7dadebd63ed800e482ff0226357af6deafc38f1e965d9fa81714e4a"
+    },
+    {
+      "path": "frozen/v9_latest.json",
+      "sha256": "73c99f8ba0cd5221bc1c690f7eff0b965e1ae4bf71f488aa2e5e43dc7629e623"
+    }
+  ],
+  "micro_batch_grid": {
+    "arrival_after_join_seconds": [
+      30,
+      60,
+      120
+    ],
+    "arrival_offsets_are_scenarios_not_measurements": true,
+    "door_delay_seconds": [
+      0,
+      30,
+      60
+    ],
+    "boarding_service_seconds": [
+      1,
+      2,
+      4,
+      6
+    ],
+    "allocation": [
+      "fill_first",
+      "next_available"
+    ],
+    "already_onboard_each": [
+      0,
+      10
+    ],
+    "post_last_boarding_clearance_scenario": 30,
+    "post_last_boarding_clearance_is_not_measured_total_dwell": true,
+    "fit_parameters_to_report": false
+  }
+}

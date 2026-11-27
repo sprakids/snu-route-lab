@@ -1,0 +1,10 @@
+{
+  "scope": "isolated reviewer fixture, not a candidate run",
+  "status": "HARNESS_CONFIGURATION_ERROR",
+  "exception": "ModuleNotFoundError: No module named 'physics'",
+  "cause": "The fixture read root config defaults without the run_case combined-mode physics and behavior overrides. This selected the v9_frozen branch instead of the branch under review.",
+  "correction": "Set physics=path_local_4p8 and behavior=sequential in the synthetic fixture, matching the inspected Mon/Tue started.json effective settings.",
+  "candidate_code_changed": false,
+  "candidate_run_started": false,
+  "new_date_outcomes_read": false
+}

@@ -1,0 +1,565 @@
+{
+  "release_id": "261116153200",
+  "parent": "261116010854",
+  "scope": "same weighted demand, supply and seed; not independent field validation",
+  "group": "pilot",
+  "cases": [
+    {
+      "case": {
+        "case": "direct-combined-regular-mon",
+        "mode": "combined",
+        "day": "월",
+        "scenario": "regular",
+        "seed": 0,
+        "operations": "v12_empirical"
+      },
+      "source_directory": "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\261116153200\\runs\\direct-combined-regular-mon\\attempt_01",
+      "audit_sha256": "06db95e8da8a4e0849a18f4f75106567942da89ad862e9a1d22dbbca4dabe826",
+      "maximum_continuous_wait_min": 26.41746357300714,
+      "over20_episode_weight": 275.8173611003351,
+      "all_recorded_diagnostics": {
+        "unserved_trip_weight": 0.0,
+        "finished_trip_quantiles": {
+          "walk_min": {
+            "mean": 11.487105918509787,
+            "p50": 8.406805263156881,
+            "p90": 23.17758708256139,
+            "p95": 31.73843472110396,
+            "p99": 50.29653447775078,
+            "maximum": 93.86381197458273
+          },
+          "cumulative_wait_min": {
+            "mean": 9.745086381467255,
+            "p50": 8.002659163221688,
+            "p90": 21.330445731854947,
+            "p95": 25.409268606281692,
+            "p99": 34.54802172074378,
+            "maximum": 57.773963776131254
+          },
+          "total_min": {
+            "mean": 31.5340367311425,
+            "p50": 25.81385654223959,
+            "p90": 60.686116179186136,
+            "p95": 74.10090089116808,
+            "p99": 97.83532641699846,
+            "maximum": 167.44029346111105
+          },
+          "changes": {
+            "mean": 0.9362278350643711,
+            "p50": 0,
+            "p90": 3,
+            "p95": 4,
+            "p99": 6,
+            "maximum": 10
+          }
+        },
+        "all_recorded_time_max_continuous_wait_min": 26.41746357300714,
+        "all_recorded_time_over20_episode_weight": 318.49375612822814,
+        "outside_display_window_max_continuous_wait_min": 23.903931960033635,
+        "outside_display_window_over20_episode_weight": 42.676395027891765,
+        "time_window_note": "Primary criterion uses episodes overlapping11:20-23:10. Additional all-recorded metrics expose earlier/later initialization trajectories. No exposure deleted.",
+        "unserved_quantile_note": "Finished-trip quantiles are explicitly conditional; unserved mass is separately reported, not silently included as completed."
+      },
+      "unserved_trip_weight": 0,
+      "late_finished_weight": 0,
+      "same_stop_revisit_trip_weight": 0.0,
+      "over90_total_trip_weight": 333.45919080994616,
+      "over120_total_trip_weight": 30.56192047076957,
+      "change_distribution": {
+        "0": 10994.024800756555,
+        "1": 3458.6207294634905,
+        "2": 1788.6927272951423,
+        "3": 1158.6880035047302,
+        "4": 725.4374399441226,
+        "5": 449.09102902606224,
+        "6": 199.04487580732376,
+        "7": 79.23674398742804,
+        "8": 22.756154480384488,
+        "9": 8.194976305451434,
+        "10": 1.712519428556304
+      },
+      "switches_over5min_later_than_recorded_comparator_weight": 2624.8272281184245,
+      "comparator_scope": "For boarding_joint_choice old_eta is the wait alternative excluding the arriving bus, not boarding that bus; other reviews use incumbent first-boardable projection. Not a unified board-versus-walk regret measure.",
+      "declines_by_action": {},
+      "named_stop_40_recollection_comparison": [
+        {
+          "node": 46,
+          "name": "서울대정문",
+          "ars": "21269",
+          "maximum_queue": 19.925555189978752,
+          "at": 47136.84185155058,
+          "minutes_above40_recollection_reference": 0.0,
+          "longest_spell_above40_minutes": 0.0
+        },
+        {
+          "node": 47,
+          "name": "법대.사회대입구",
+          "ars": "21270",
+          "maximum_queue": 51.329741579285695,
+          "at": 50675.21856389255,
+          "minutes_above40_recollection_reference": 1.4084527065480263,
+          "longest_spell_above40_minutes": 1.4084527065480263
+        },
+        {
+          "node": 60,
+          "name": "법대.사회대입구",
+          "ars": "21298",
+          "maximum_queue": 44.99555830840965,
+          "at": 43338.49588639836,
+          "minutes_above40_recollection_reference": 4.410055839788886,
+          "longest_spell_above40_minutes": 1.6422736753562883
+        },
+        {
+          "node": 61,
+          "name": "서울대정문",
+          "ars": "21299",
+          "maximum_queue": 34.7464343775951,
+          "at": 58091.68346055475,
+          "minutes_above40_recollection_reference": 0.0,
+          "longest_spell_above40_minutes": 0.0
+        }
+      ],
+      "worst_trip": {
+        "id": 4626128,
+        "parent_id": 289133,
+        "weight": 0.5297393432334166,
+        "start": 55049.93617938951,
+        "finish_time": 65096.35378705617,
+        "history": [
+          [
+            56308.69112360383,
+            "walk_transfer",
+            "도보→기숙사삼거리 · 교내 순환 셔틀 / 관악02-2"
+          ],
+          [
+            56561.97365230287,
+            "walk_transfer",
+            "도보→수의대 · 교내 순환 셔틀 / 관악02-2"
+          ],
+          [
+            58525.68882941041,
+            "walk_transfer",
+            "도보→행정관 · 대학동 셔틀(시간표) / 관악02-2"
+          ],
+          [
+            60582.40775707057,
+            "walk_transfer",
+            "도보→문화관입구 · 5516 / 관악02-2"
+          ],
+          [
+            60820.304955043284,
+            "walk_transfer",
+            "도보→법과대 · 교내 역순환 셔틀 / 관악02-1"
+          ],
+          [
+            60913.79029287971,
+            "transit",
+            "5511 / 관악02-1"
+          ],
+          [
+            61901.42623462882,
+            "walk",
+            "목적지까지 도보"
+          ]
+        ]
+      },
+      "parent_reference_maximum_wait_min": 25.337479826064857,
+      "parent_reference_audit_sha256": "3d95166ffbee7d1c7115bbff35fffec23bd813dee5d20a7abbff4cc4cb8a8620",
+      "preserved_initial_access_path_trip_fragment_checks": 0
+    },
+    {
+      "case": {
+        "case": "direct-combined-regular-tue",
+        "mode": "combined",
+        "day": "화",
+        "scenario": "regular",
+        "seed": 0,
+        "operations": "v12_empirical"
+      },
+      "source_directory": "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\261116153200\\runs\\direct-combined-regular-tue\\attempt_01",
+      "audit_sha256": "7dc5cfe5a3b991e82ce54f6528a4093c17c52027c3901ef920f8f1aa5e95272b",
+      "maximum_continuous_wait_min": 25.033819040714903,
+      "over20_episode_weight": 235.87400569701418,
+      "all_recorded_diagnostics": {
+        "unserved_trip_weight": 0.0,
+        "finished_trip_quantiles": {
+          "walk_min": {
+            "mean": 11.309879236659441,
+            "p50": 8.307336326073466,
+            "p90": 22.103985752064787,
+            "p95": 31.559319539172673,
+            "p99": 51.799270230310505,
+            "maximum": 84.29491878973786
+          },
+          "cumulative_wait_min": {
+            "mean": 9.494734203273046,
+            "p50": 7.892365188868158,
+            "p90": 20.559689663633858,
+            "p95": 24.706244797118778,
+            "p99": 33.996761348774335,
+            "maximum": 53.842346612101274
+          },
+          "total_min": {
+            "mean": 31.206664014400282,
+            "p50": 25.736439703314318,
+            "p90": 58.94980659533006,
+            "p95": 74.34691015848439,
+            "p99": 98.69508914552571,
+            "maximum": 158.7206344263519
+          },
+          "changes": {
+            "mean": 0.9091084093998819,
+            "p50": 0,
+            "p90": 3,
+            "p95": 4,
+            "p99": 6,
+            "maximum": 11
+          }
+        },
+        "all_recorded_time_max_continuous_wait_min": 25.718350703071096,
+        "all_recorded_time_over20_episode_weight": 265.4543454202851,
+        "outside_display_window_max_continuous_wait_min": 25.718350703071096,
+        "outside_display_window_over20_episode_weight": 29.580339723270978,
+        "time_window_note": "Primary criterion uses episodes overlapping11:20-23:10. Additional all-recorded metrics expose earlier/later initialization trajectories. No exposure deleted.",
+        "unserved_quantile_note": "Finished-trip quantiles are explicitly conditional; unserved mass is separately reported, not silently included as completed."
+      },
+      "unserved_trip_weight": 0,
+      "late_finished_weight": 0,
+      "same_stop_revisit_trip_weight": 0.0,
+      "over90_total_trip_weight": 336.3619770356665,
+      "over120_total_trip_weight": 16.06321020645814,
+      "change_distribution": {
+        "0": 10492.403025833228,
+        "1": 3124.660623167623,
+        "2": 1699.4013765202897,
+        "3": 1083.84368880773,
+        "4": 615.2170348978281,
+        "5": 359.50850173443564,
+        "6": 176.81512264594647,
+        "7": 86.54366816796542,
+        "8": 34.04695133665729,
+        "9": 7.845037080059508,
+        "10": 2.22855861636127,
+        "11": 0.986411190848431
+      },
+      "switches_over5min_later_than_recorded_comparator_weight": 1996.0216584525253,
+      "comparator_scope": "For boarding_joint_choice old_eta is the wait alternative excluding the arriving bus, not boarding that bus; other reviews use incumbent first-boardable projection. Not a unified board-versus-walk regret measure.",
+      "declines_by_action": {},
+      "named_stop_40_recollection_comparison": [
+        {
+          "node": 46,
+          "name": "서울대정문",
+          "ars": "21269",
+          "maximum_queue": 24.10957045968072,
+          "at": 47553.7732157848,
+          "minutes_above40_recollection_reference": 0.0,
+          "longest_spell_above40_minutes": 0.0
+        },
+        {
+          "node": 47,
+          "name": "법대.사회대입구",
+          "ars": "21270",
+          "maximum_queue": 33.01650616653523,
+          "at": 50678.210779156885,
+          "minutes_above40_recollection_reference": 0.0,
+          "longest_spell_above40_minutes": 0.0
+        },
+        {
+          "node": 60,
+          "name": "법대.사회대입구",
+          "ars": "21298",
+          "maximum_queue": 61.42296832213632,
+          "at": 61510.23405723355,
+          "minutes_above40_recollection_reference": 13.521799813251953,
+          "longest_spell_above40_minutes": 6.973686876564898
+        },
+        {
+          "node": 61,
+          "name": "서울대정문",
+          "ars": "21299",
+          "maximum_queue": 24.838113161282042,
+          "at": 43406.06098789317,
+          "minutes_above40_recollection_reference": 0.0,
+          "longest_spell_above40_minutes": 0.0
+        }
+      ],
+      "worst_trip": {
+        "id": 263232,
+        "parent_id": 16452,
+        "weight": 0.20093561295060633,
+        "start": 44588.33045902743,
+        "finish_time": 54111.56852460854,
+        "history": [
+          [
+            45010.27081312776,
+            "walk_transfer",
+            "도보→법과대 · 교내 역순환 셔틀 / 관악02-1"
+          ],
+          [
+            45345.81113228355,
+            "transit",
+            "5511 / 관악02-1"
+          ],
+          [
+            46572.442973525875,
+            "walk_transfer",
+            "도보→기숙사 · 교내 역순환 셔틀 / 관악02-1"
+          ],
+          [
+            46897.5074968053,
+            "walk_transfer",
+            "도보→기숙사삼거리 · 교내 순환 셔틀 / 관악02-2"
+          ],
+          [
+            47550.16716391724,
+            "walk_transfer",
+            "도보→수의대입구.보건대학원앞 · 5513 / 관악02-2"
+          ],
+          [
+            47823.72716002681,
+            "walk_transfer",
+            "도보→수의대 · 교내 순환 셔틀 / 관악02-2"
+          ],
+          [
+            49387.2332863045,
+            "walk_transfer",
+            "도보→행정관 · 대학동 셔틀(시간표) / 관악02-2"
+          ],
+          [
+            52158.05388552872,
+            "walk",
+            "목적지까지 도보"
+          ]
+        ]
+      },
+      "parent_reference_maximum_wait_min": 26.56100393228056,
+      "parent_reference_audit_sha256": "967b263d635e068b240a38803c59587ed2814a3c0ac72a954054b4787f1487ab",
+      "preserved_initial_access_path_trip_fragment_checks": 0
+    },
+    {
+      "case": {
+        "case": "ablation-no-direct-restoration-tue",
+        "mode": "combined",
+        "day": "화",
+        "scenario": "regular",
+        "seed": 0,
+        "operations": "v12_empirical",
+        "config_overrides": {
+          "restore_known_snu_direct_policies": false
+        }
+      },
+      "source_directory": "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\261116153200\\runs\\ablation-no-direct-restoration-tue\\attempt_01",
+      "audit_sha256": "fbdc82396e7adf404e99aa0ef3d7cebf74e98721d0c5b67312086618a3ed74db",
+      "maximum_continuous_wait_min": 25.033819040714903,
+      "over20_episode_weight": 235.1712726998592,
+      "all_recorded_diagnostics": {
+        "unserved_trip_weight": 0.0,
+        "finished_trip_quantiles": {
+          "walk_min": {
+            "mean": 11.287993021484343,
+            "p50": 8.285611901410205,
+            "p90": 22.348769782260206,
+            "p95": 31.545290642964027,
+            "p99": 51.05320698803892,
+            "maximum": 89.15721973509923
+          },
+          "cumulative_wait_min": {
+            "mean": 9.529494364478397,
+            "p50": 7.880620418363226,
+            "p90": 20.67004883674599,
+            "p95": 24.858980880533274,
+            "p99": 33.853434551681254,
+            "maximum": 54.19996644871098
+          },
+          "total_min": {
+            "mean": 31.23924863713605,
+            "p50": 25.68904106713926,
+            "p90": 59.292655606441016,
+            "p95": 74.53524728335154,
+            "p99": 98.35351821455636,
+            "maximum": 158.42925044330065
+          },
+          "changes": {
+            "mean": 0.907774630358798,
+            "p50": 0,
+            "p90": 3,
+            "p95": 4,
+            "p99": 6,
+            "maximum": 11
+          }
+        },
+        "all_recorded_time_max_continuous_wait_min": 25.718350686404424,
+        "all_recorded_time_over20_episode_weight": 264.7516124231304,
+        "outside_display_window_max_continuous_wait_min": 25.718350686404424,
+        "outside_display_window_over20_episode_weight": 29.58033972327098,
+        "time_window_note": "Primary criterion uses episodes overlapping11:20-23:10. Additional all-recorded metrics expose earlier/later initialization trajectories. No exposure deleted.",
+        "unserved_quantile_note": "Finished-trip quantiles are explicitly conditional; unserved mass is separately reported, not silently included as completed."
+      },
+      "unserved_trip_weight": 0,
+      "late_finished_weight": 0,
+      "same_stop_revisit_trip_weight": 0.0,
+      "over90_total_trip_weight": 312.7490921412245,
+      "over120_total_trip_weight": 20.156654162647257,
+      "change_distribution": {
+        "0": 10508.45661537909,
+        "1": 3124.584735482744,
+        "2": 1716.2426884139365,
+        "3": 1053.2611392436802,
+        "4": 596.7039874472014,
+        "5": 350.8780153906553,
+        "6": 197.8806151531939,
+        "7": 93.2770618132313,
+        "8": 29.705459587842306,
+        "9": 9.358646338821902,
+        "10": 2.182891431599769,
+        "11": 0.9681443169438305
+      },
+      "switches_over5min_later_than_recorded_comparator_weight": 1839.3736064539767,
+      "comparator_scope": "For boarding_joint_choice old_eta is the wait alternative excluding the arriving bus, not boarding that bus; other reviews use incumbent first-boardable projection. Not a unified board-versus-walk regret measure.",
+      "declines_by_action": {},
+      "named_stop_40_recollection_comparison": [
+        {
+          "node": 46,
+          "name": "서울대정문",
+          "ars": "21269",
+          "maximum_queue": 22.545312239982778,
+          "at": 47553.07553069272,
+          "minutes_above40_recollection_reference": 0.0,
+          "longest_spell_above40_minutes": 0.0
+        },
+        {
+          "node": 47,
+          "name": "법대.사회대입구",
+          "ars": "21270",
+          "maximum_queue": 35.48649667801728,
+          "at": 50678.89119351927,
+          "minutes_above40_recollection_reference": 0.0,
+          "longest_spell_above40_minutes": 0.0
+        },
+        {
+          "node": 60,
+          "name": "법대.사회대입구",
+          "ars": "21298",
+          "maximum_queue": 66.79560606092869,
+          "at": 61260.29786368151,
+          "minutes_above40_recollection_reference": 14.162206761912966,
+          "longest_spell_above40_minutes": 7.1066951673929
+        },
+        {
+          "node": 61,
+          "name": "서울대정문",
+          "ars": "21299",
+          "maximum_queue": 23.360544682561194,
+          "at": 43406.06098789317,
+          "minutes_above40_recollection_reference": 0.0,
+          "longest_spell_above40_minutes": 0.0
+        }
+      ],
+      "worst_trip": {
+        "id": 782400,
+        "parent_id": 48900,
+        "weight": 0.2192024868552069,
+        "start": 46170.60171682073,
+        "finish_time": 55676.35674341877,
+        "history": [
+          [
+            46711.55299283674,
+            "walk_transfer",
+            "도보→법과대 · 교내 순환 셔틀 / 관악02-1"
+          ],
+          [
+            47397.05638430696,
+            "walk_transfer",
+            "도보→기숙사삼거리 · 교내 순환 셔틀 / 관악02-2"
+          ],
+          [
+            48964.373628716734,
+            "walk_transfer",
+            "도보→행정관 · 대학동 셔틀(시간표) / 관악02-2"
+          ],
+          [
+            51573.62356500934,
+            "walk_transfer",
+            "도보→법대.사회대입구 · 5513 / 관악02-1"
+          ],
+          [
+            52722.519231022925,
+            "walk",
+            "목적지까지 도보"
+          ]
+        ]
+      },
+      "parent_reference_maximum_wait_min": 26.56100393228056,
+      "parent_reference_audit_sha256": "967b263d635e068b240a38803c59587ed2814a3c0ac72a954054b4787f1487ab",
+      "preserved_initial_access_path_trip_fragment_checks": 0
+    }
+  ],
+  "source_group_sha256": "a4314e534db4bdde59da9cf65e466234bc85227b00a2d7fc24e54183b5812f59",
+  "all_invariant_audits_pass": true,
+  "all_continuous_waits_under20": false,
+  "unserved_trip_weight": 0.0,
+  "half_hour_rows": 3719,
+  "stop_rows": 297,
+  "all_recorded_stop_rows": 297,
+  "all_recorded_half_hour_rows": 4080,
+  "historical_queue_observations": [
+    {
+      "observation_id": "20261109-1653-admin-snu-queue-01",
+      "day": "월",
+      "minute": "16:53",
+      "second": 60780,
+      "node": 1,
+      "stop": "행정관",
+      "low": 53,
+      "high": 53,
+      "source": "evidence\\field_observations_2026-11-09\\queue_admin_snu_1653.json",
+      "source_sha256": "60b1f4f017debaacad66c9fd391318b5760b30718e0001adffb4e7c9a33bba76",
+      "independent_holdout": false,
+      "time_rule": "uniform unknown second in reported minute; third and Tuesday treatment are comparison assumptions"
+    },
+    {
+      "observation_id": "20261109-1655-culture-city-queue-01",
+      "day": "월",
+      "minute": "16:55",
+      "second": 60900,
+      "node": 59,
+      "stop": "문화관입구",
+      "low": 5,
+      "high": 5,
+      "source": "evidence\\field_observations_2026-11-09\\queue_culture_1655.json",
+      "source_sha256": "3c636feb5f47987416e20c76478f29edc68b77eb0c8c5c5d8daa8ed0dc8f2346",
+      "independent_holdout": false,
+      "time_rule": "uniform unknown second in reported minute; third and Tuesday treatment are comparison assumptions"
+    },
+    {
+      "observation_id": "20261109-1703-snu-gate-queue-01",
+      "day": "월",
+      "minute": "17:03",
+      "second": 61380,
+      "node": 62,
+      "stop": "서울대학교",
+      "low": 33,
+      "high": 39,
+      "source": "evidence\\field_observations_2026-11-09\\queue_snu_gate_1703.json",
+      "source_sha256": "eee913fd29906d3a37d41d24e42375a00481d51b55caad9211df7970b595195e",
+      "independent_holdout": false,
+      "time_rule": "uniform unknown second in reported minute; third and Tuesday treatment are comparison assumptions"
+    },
+    {
+      "observation_id": "20261110-1523-admin-snu-queue-wait-01",
+      "day": "화",
+      "minute": "15:23",
+      "second": 55380,
+      "node": 1,
+      "stop": "행정관",
+      "low": 67,
+      "high": 67,
+      "source": "evidence\\field_observations_2026-11-10\\queue_admin_snu_1523.json",
+      "source_sha256": "2d46bc4bce8aed75bf9770660230b5e702e7ced40dd0b09b33e1cf639e7f005e",
+      "independent_holdout": false,
+      "time_rule": "uniform unknown second in reported minute; third and Tuesday treatment are comparison assumptions"
+    }
+  ],
+  "pristine_holdout_dates": [],
+  "production_replacement_allowed": false
+}

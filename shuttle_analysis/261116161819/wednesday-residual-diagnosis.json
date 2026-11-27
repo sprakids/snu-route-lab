@@ -1,0 +1,111 @@
+{
+  "scope": "Fixed Wednesday regular15-20 law peak, not field observation or actual external load.",
+  "case": {
+    "case": "anchor-combined-regular-wed",
+    "mode": "combined",
+    "day": "수",
+    "scenario": "regular",
+    "seed": 0,
+    "operations": "v12_empirical"
+  },
+  "node": 60,
+  "ars": "21298",
+  "peak": {
+    "node": 60,
+    "maximum_queue": 50.15471686862619,
+    "peak_seconds": 65076.09612218492,
+    "minutes_above40": 7.570022465263052,
+    "longest_spell_above40_minutes": 4.20316560739678
+  },
+  "destination_stock": {
+    "snu": 36.209779427893096,
+    "dorm_ug": 0.6009860534224833,
+    "nak": 13.343951387310716
+  },
+  "prior_ride_by_destination": {
+    "nak": 11.617731803325961
+  },
+  "initial_or_changed": {
+    "initial_plan": 50.15471686862629
+  },
+  "origin_building_stock": {
+    "101": 20.70466210055664,
+    "64": 4.993807390107158,
+    "16": 4.638442819275562,
+    "500": 0.19485784791984773,
+    "50": 1.3025961327551843,
+    "83": 4.087433941387442,
+    "17": 0.9538733217058615,
+    "26": 12.630569291305278,
+    "3": 0.20093561295060633,
+    "25-1": 0.027400310856900863,
+    "200": 0.18266873904600575,
+    "1": 0.23746936075980746
+  },
+  "standing_age_at_peak_mean_minutes": 5.66123855353311,
+  "standing_age_at_peak_max_minutes": 10.221350234751904,
+  "bus_events_plus_minus10min": [
+    {
+      "time": 64476.85039727039,
+      "route": "100100250",
+      "route_name": "5511",
+      "capacity": 50,
+      "known_onboard_before": 0.0,
+      "alighting": 0.0,
+      "model_free_before_boarding": 50.0,
+      "boarded": 0.897763126311399
+    },
+    {
+      "time": 64563.40273608473,
+      "route": "120900012",
+      "route_name": "관악02-2",
+      "capacity": 24,
+      "known_onboard_before": 1.90888832303076,
+      "alighting": 0.0,
+      "model_free_before_boarding": 22.09111167696924,
+      "boarded": 0.0
+    },
+    {
+      "time": 64935.40309925061,
+      "route": "100100253",
+      "route_name": "5516",
+      "capacity": 50,
+      "known_onboard_before": 8.018318173811542,
+      "alighting": 7.8873943845577905,
+      "model_free_before_boarding": 49.86907621074624,
+      "boarded": 1.2344242986781737
+    },
+    {
+      "time": 64980.70289347479,
+      "route": "120900012",
+      "route_name": "관악02-2",
+      "capacity": 24,
+      "known_onboard_before": 6.606993580552489,
+      "alighting": 0.0,
+      "model_free_before_boarding": 17.39300641944751,
+      "boarded": 7.4466642206992715
+    },
+    {
+      "time": 65294.40354180833,
+      "route": "100100250",
+      "route_name": "5511",
+      "capacity": 50,
+      "known_onboard_before": 50.000000000000036,
+      "alighting": 0.0,
+      "model_free_before_boarding": -3.552713678800501e-14,
+      "boarded": 0.0
+    },
+    {
+      "time": 65312.70289353711,
+      "route": "120900012",
+      "route_name": "관악02-2",
+      "capacity": 24,
+      "known_onboard_before": 24.00000000000002,
+      "alighting": 0.0,
+      "model_free_before_boarding": -2.1316282072803006e-14,
+      "boarded": 0.0
+    }
+  ],
+  "source_audit_sha256": "0a20ea55ef3972062fdce8bb55e35a081f183934bcdf1e24b5355fe6983dae46",
+  "production_writes": false
+}

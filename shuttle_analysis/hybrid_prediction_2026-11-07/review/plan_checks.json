@@ -1,0 +1,56 @@
+{
+  "status": "PLAN_REVIEW_ONLY_IMPLEMENTATION_NOT_YET_VERIFIED",
+  "reviewed_at_kst": "2026-11-07T17:35:21.025940+09:00",
+  "plan_sha256": "690b99ccf0a13189181053cc403307f6892c1ecdeced803733be4f2a6fef40d0",
+  "date_counts": {
+    "train_dates": 15,
+    "tuning_dates": 5,
+    "forward_test_dates": 1,
+    "retrospective_test_dates": 5
+  },
+  "date_sets_pairwise_disjoint": true,
+  "within_split_dates_unique": true,
+  "weekday_frequencies_monday0": {
+    "train_dates": {
+      "0": 3,
+      "1": 3,
+      "2": 3,
+      "3": 3,
+      "4": 3
+    },
+    "tuning_dates": {
+      "0": 1,
+      "1": 1,
+      "2": 1,
+      "3": 1,
+      "4": 1
+    },
+    "forward_test_dates": {
+      "0": 1
+    },
+    "retrospective_test_dates": {
+      "0": 1,
+      "1": 1,
+      "2": 1,
+      "3": 1,
+      "4": 1
+    }
+  },
+  "forward_date_after_all_development_dates": true,
+  "retrospective_test_dates_are_before_some_training_dates": true,
+  "test_target_files_read_by_this_review": false,
+  "authentication_keys_read": false,
+  "api_calls": 0,
+  "feature_asof_reported_in_plan": "20261106",
+  "all_test_dates_before_reported_feature_asof": true,
+  "owner_reported_test_access_policy": "First-page availability probes only for November. No SNU test target values may be loaded until selection_frozen.json has been saved with model coefficients and predictions. Test target file hashes are recorded only at evaluation.",
+  "test_access_policy_enforcement_in_model_code_verified": false,
+  "fitting_or_model_selection_executed_by_this_review": false,
+  "required_preimplementation_clarifications": [
+    "Ridge loss mean-vs-sum, train-only scaling, and transformation of original coefficient bounds",
+    "Fit quadratic loss before clipping, or use an explicitly different solver/objective",
+    "Build 1-hour lag before restricting target hours; center with target-cell training masks",
+    "Freeze every evaluated model, preprocessing statistic, code identity and six-date prediction grid",
+    "Qualify chronological forward target evaluation as a historical evaluation using later course features"
+  ]
+}

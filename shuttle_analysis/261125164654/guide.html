@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>행정관 셔틀 연구 R · 자료와 검증</title>
+<style>
+body{max-width:52rem;margin:auto;padding:2rem 1.25rem 4rem;color:#192b3e;font:1rem/1.7 system-ui,sans-serif}h1,h2{line-height:1.3}h2{margin-top:2rem}a{color:#006080}img{width:100%;height:auto}li{margin:.4rem 0}
+</style>
+<main><a href="/">하교길 지도로 돌아가기</a>
+<h1>행정관 셔틀이 돌아온 뒤 줄은 어떻게 움직일까?</h1>
+<p>두 지도 모두 바깥에서 줄 선 학생과 차 안에서 출발을 기다리는 학생을 따로 표시한다. 셔틀까지 수정한 지도에서는 차량별 복귀에 맞춰 문을 열고 입구마다 승객이 순서대로 탄다. 출발시각만 수정한 지도는 기존 R의 셔틀 승차 방식을 따른다.</p>
+<p><a href="http://127.0.0.1:8799/?day=tue&amp;scenario=peak&amp;minute=918">학생 출발시각만 수정한 지도</a> · <a href="http://127.0.0.1:8798/?day=tue&amp;scenario=peak&amp;minute=918">셔틀 승차까지 함께 수정한 지도</a></p>
+<p>현장 바깥줄 7건과 비교하면 출발시각만 바꾼 조건이 기준·피크 배차에서 모두 가장 가까웠다. 차량까지 바꾼 조건에서는 피크 배차의 오차가 조금 줄었고 기준 배차의 오차가 커졌다.</p>
+<h2>자료와 가정</h2>
+<p>11월 17~20일 운영사 위치 기록으로 일부 차량이 행정관에 돌아온 시각을 추정했다. 차당 승객 한 명에 2초, 일반 강의 종료시각에 앞뒤 최대 5분의 편차를 둔 것은 실험 가정이다. 평일별 총 하교 인원과 목적지는 기존 R과 같다.</p>
+<ul><li><a href="/research/guide">모형 가정과 원천자료 설명</a></li><li><a href="/research/returns.csv">별도 날짜의 차량 복귀시각 검증 자료</a></li></ul>
+<h2>실측과 모의 대기열</h2>
+<p>그래프의 계단선은 5분 평균이고 점은 제보된 분 안의 한 시점이다. 대학동행의 17명은 차 안에서 센 인원이다. 대기줄이 짧아도 학생들이 탄 차량이 아직 출발하지 않았을 수 있다.</p>
+<img src="/research/window.png" alt="화요일 피크 배차에서 기존 R과 새 R의 14시 48분부터 15시 48분까지 바깥줄과 차내 인원">
+<ul><li><a href="/research/results">네 실험의 결과표와 첫 차 탑승 비교</a></li><li><a href="/research/counts.csv">현장 관측과 모의 1분 범위</a></li><li><a href="/research/weekdays.csv">평일별 20분 초과·정원·완료 검증</a></li></ul>
+</main></html>

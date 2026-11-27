@@ -1,0 +1,381 @@
+--- before/adaptive.py
++++ app/adaptive.py
+@@ -59,18 +59,20 @@
+     if vehicle is not None and (not isinstance(vehicle,str) or len(vehicle)>100):raise ValueError('다음 차량 정보를 다시 확인해 주세요.')
+     rid=value.get('route_id');sid=value.get('station_id')
+     if not isinstance(rid,str) or not rid.startswith('shuttle-') or len(rid)>50 or not isinstance(sid,str) or len(sid)>50:raise ValueError('셔틀 정류소를 확인해 주세요.')
++    terminal=number('opportunity_terminal_dispatch_at',now-86400,now+21600) if value.get('opportunity_terminal_dispatch_at') is not None else None
+     return {'route_id':rid,'station_id':sid,'reported_at':observed,'queue_ahead':number('queue_ahead',0,10000),
+             'next_seats':number('next_seats',0,60) if value.get('next_seats') is not None else None,
+             'next_full':value.get('next_full') is True,'source':'user_report','party_weight':1.,
+-            'opportunity_departure_at':opportunity,'opportunity_vehicle_id':vehicle}
++            'opportunity_departure_at':opportunity,'opportunity_vehicle_id':vehicle,
++            'opportunity_terminal_dispatch_at':terminal}
+ 
+ def fifo_departure(rows,ready,ahead,weight=1.):
+     """Known current queue only; don't peek at future inflows or recycle a full vehicle."""
+     return fifo_opportunity(rows,ready,ahead,weight)
+ 
+-def queue_arrivals(route,index,ready,observed,report,timetable,now):
++def queue_arrivals(route,index,ready,observed,report,timetable,now,*,capacity_model=None):
+     """Replace the hourly queue mean only for a fresh report at this waiting stop."""
+-    cap=route.get('capacity',25 if route['provider_id'] in ('41914','41869','41916') else 60)
++    default_cap=route.get('capacity',25 if route['provider_id'] in ('41914','41869','41916') else 60)
+     first=timetable._schedule_arrival(route,index,ready)
+     raw=[dict(a) for a in observed if a.get('arrival_source')=='live_shuttle' and a.get('earliest_departure_at',a['departure_at'])>=ready]
+     raw.sort(key=lambda a:a['departure_at'])
+@@ -82,6 +84,8 @@
+     if not raw and first:raw=[first]
+     if raw and frozen is not None and not vehicle:
+         raw[0].update(departure_at=frozen,earliest_departure_at=frozen)
++        # The first opportunity is frozen by the report, not a new mean ETA.
++        raw[0].pop('vehicle_supply',None)
+     # Future seats are unknown. Full nominal capacity is an explicit optimistic scenario.
+     while raw and len(raw)<12:
+         previous=raw[-1];after=previous['departure_at']+.01
+@@ -94,7 +98,20 @@
+         if not following or following['departure_at']<=previous['departure_at']:break
+         following['departure_at']=round(following['departure_at']);following['earliest_departure_at']=following['departure_at']
+         raw.append(following)
++    supplied=[]
+     for n,row in enumerate(raw):
++        if capacity_model:
++            terminal=report.get('opportunity_terminal_dispatch_at') if n==0 else None
++            clock_row={**row,'departure_at':frozen} if terminal is not None and frozen is not None else row
++            supplied_row=capacity_model.with_vehicle_supply(route,index,clock_row,terminal_dispatch_at=terminal)
++            row={**row,'vehicle_supply':supplied_row['vehicle_supply']} if supplied_row.get('vehicle_supply') else row
++        count=(row.get('vehicle_supply') or {}).get('batch_vehicles',1)
++        # Actual observed vehicles are already individual opportunities.
++        count=count if row.get('arrival_source')!='live_shuttle' and not row.get('vehicle_id') else 1
++        supplied.extend({**row,'batch_member':member} for member in range(count))
++    raw=supplied
++    for n,row in enumerate(raw):
++        cap=(row.get('vehicle_supply') or {}).get('capacity',default_cap)
+         seats=row.get('seats_available');at=row.get('provided_at')
+         observed_seats=bool(row.get('arrival_source')=='live_shuttle' and isinstance(seats,(int,float)) and
+             not isinstance(seats,bool) and math.isfinite(seats) and 0<=seats<=cap and
+@@ -106,6 +123,7 @@
+         if n==0 and report['next_full']:row['full']=True;row['seat_source']='user_report_full'
+     chosen,passed,full=fifo_departure(raw,ready,report['queue_ahead'],report['party_weight'])
+     if chosen is None:return []
++    cap=(chosen.get('vehicle_supply') or {}).get('capacity',default_cap)
+     projection={'queue_ahead':report['queue_ahead'],'capacity_assumption':cap,'skipped_departures':passed,
+         'full_departures':full,'report_age_seconds':round(now-report['reported_at']),
+         'report_opportunity_departure_at':frozen,'report_opportunity_vehicle_id':vehicle,
+--- before/automatic_queue.py
++++ app/automatic_queue.py
+@@ -6,7 +6,7 @@
+ from shuttle_timetable import KST,service_day
+ from simulation_travel import fifo_opportunity
+ from shuttle_clock import dispatches as terminal_dispatches
+-from shuttle_supply import CONTRACT as SUPPLY_CONTRACT,vehicles as supply_vehicles
++from shuttle_supply import CONTRACT as SUPPLY_CONTRACT,capacity_at,vehicles as supply_vehicles
+ from calculation_context import memoized
+ 
+ def grade_signals(node,vehicles,asof):
+@@ -111,6 +111,37 @@
+         self.operations=CityOperations(self.data.get('city_operations'),self.config['id'],self.data.get('city_wait'))
+         self.cache=OrderedDict();self.hist_cache={}
+         for rid,route in self.data['routes'].items():route['id']=rid
++
++    def with_vehicle_supply(self,route,index,row,*,terminal_dispatch_at=None):
++        """Annotate one opportunity from the active model, never the query clock.
++
++        A retained terminal clock survives ETA shifts and rechecks. An updated
++        model can correct its assumed capacity without reassigning that clock.
++        """
++        if row is None or route['id'] not in self.data['routes']:return row
++        target=self.data['routes'][route['id']];rid=target.get('profile_route_id',route['id'])
++        primary=self.data['routes'][rid]
++        index=target.get('profile_index_map',list(range(target['n'])))[index%target['n']]
++        delta=primary['offsets'][index]-primary['offsets'][primary['anchor']]
++        stored=row.get('vehicle_supply') or {}
++        terminal=terminal_dispatch_at if terminal_dispatch_at is not None else stored.get('terminal_dispatch_at',row['departure_at']-delta)
++        if isinstance(terminal,bool) or not isinstance(terminal,(int,float)) or not math.isfinite(terminal):raise ValueError('vehicle_terminal_clock')
++        # A newer ETA may be shifted from this retained dispatch clock. Reports
++        # carry the bounded original clock, never a client-provided capacity.
++        midnight=row.get('service_midnight',stored.get('service_midnight'))
++        if midnight is None:midnight=datetime.fromtimestamp(terminal,KST).replace(hour=0,minute=0,second=0,microsecond=0).timestamp()
++        second=terminal-midnight
++        count=next((p['vehicles'] for p in primary.get('dispatch_batches',[]) if p['start_second']<=second<p['end_second']),1)
++        supply={'model_id':self.config['id'],'profile_route_id':rid,'capacity':capacity_at(primary,second),
++            'terminal_dispatch_at':terminal,'terminal_dispatch_second':second,'service_midnight':midnight,
++            'batch_vehicles':count,'basis':'active_model_original_terminal_dispatch','observed_capacity':False}
++        return {**row,'vehicle_supply':supply}
++
++    def legacy_queue_compatible(self,route):
++        target=self.data['routes'].get(route['id'])
++        if target is None:return True
++        primary=self.data['routes'][target.get('profile_route_id',route['id'])]
++        return primary['capacity']==route.get('capacity') and not any(key in primary for key in ('capacity_periods','dispatch_batches'))
+ 
+     def info(self):
+         return {'model_id':self.config['id'],'automatic':True,'calibrated':False,'observed_queue':False,
+--- before/continuity.py
++++ app/continuity.py
+@@ -119,6 +119,7 @@
+         if route.get('kind')=='shuttle':
+             base=transit.shuttle.timetable._schedule_arrival(route,index,ready)
+             if base is None:return None
++            base=transit.shuttle.with_supply(route,index,base)
+             nominal=(base['wait_model'].get('headway_minutes') or 20)*60
+             value={**base};leave=value['departure_at'];source='shuttle_timetable_simulation'
+             if getattr(transit,'automatic_queue',None):
+--- before/routing.py
++++ app/routing.py
+@@ -400,12 +400,16 @@
+                 if live and r.get('kind')=='shuttle':
+                     first_live=min((a for a in observed if a.get('arrival_source')=='live_shuttle' and a.get('earliest_departure_at',a['departure_at'])>=ready),key=lambda a:a['departure_at'],default=None)
+                     first=first_live or self.transit.shuttle.timetable._schedule_arrival(r,i,ready)
+-                    if first:opportunity={'departure_at':first['departure_at'],'vehicle_id':first.get('vehicle_id') if first_live else None}
++                    if first:
++                        first=self.transit.shuttle.with_supply(r,i,first)
++                        opportunity={'departure_at':first['departure_at'],'vehicle_id':first.get('vehicle_id') if first_live else None,
++                                     'vehicle_supply':first.get('vehicle_supply')}
+                 queue_applied=bool(live and n==0 and queue_context and r.get('kind')=='shuttle' and
+                     queue_context['route_id']==rid and queue_context['station_id']==board['id'] and distance(origin,self.point(board))<=60)
+                 if queue_applied:
+                     from adaptive import queue_arrivals
+-                    projected=queue_arrivals(r,i,ready,observed,queue_context,self.transit.shuttle.timetable,self.transit.now())
++                    projected=queue_arrivals(r,i,ready,observed,queue_context,self.transit.shuttle.timetable,self.transit.now(),
++                        capacity_model=getattr(self.transit,'automatic_queue',None))
+                     if projected is None:queue_applied=False
+                     else:
+                         observed=projected
+@@ -475,6 +479,7 @@
+                     legs[-1].update({key:selected[key] for key in ('observed_interval','eta_window_seconds','prediction_note','observed_at_stop')})
+                 if selected and selected.get('queue_projection'):legs[-1]['queue_projection']=selected['queue_projection']
+                 if selected and selected.get('automatic_queue'):legs[-1]['automatic_queue']=selected['automatic_queue']
++                if selected and selected.get('vehicle_supply'):legs[-1]['vehicle_supply']=selected['vehicle_supply']
+                 if selected and selected.get('city_wait'):legs[-1]['city_wait']=selected['city_wait']
+                 if opportunity:legs[-1]['queue_report_opportunity']=opportunity
+                 clock=leave+ride
+--- before/shuttle_live.py
++++ app/shuttle_live.py
+@@ -181,6 +181,8 @@
+             self.routes.append({'id':'shuttle-'+spec['id'],'name':spec['name'],'kind':'shuttle',
+                 'provider_id':spec['id'],'color':spec['color'],'stops':stops,'cycle_length':len(base) if spec['loop'] else None,
+                 'travel_prior':spec.get('travel_prior'),
++                # Catalogue default only. Trip capacities come from the active
++                # release via with_supply(), without mutating shared routes.
+                 'capacity':spec.get('capacity',25 if spec['id']=='41914' else 60),
+                 'arrival_policy':'timetable_and_simulation',
+                 'interval_minutes':0,'source_url':spec['source_url']})
+@@ -196,7 +198,7 @@
+         for route in self.routes:
+             index=next((i for i,s in enumerate(route['stops']) if s['board_allowed'] and
+                         (s['id']=='snu-410' if route['provider_id'] in ('41841','41843','41915','41942') else True)),0)
+-            base=self.timetable._schedule_arrival(route,index,now+20)
++            base=self.with_supply(route,index,self.timetable._schedule_arrival(route,index,now+20))
+             item={'route_id':route['id'],'boarding_stop':route['stops'][index]['name'],
+                   'model_only':True,'position_used_as_departure':False,'source_url':self.timetable.info(now)['source_url']}
+             if base:
+@@ -204,6 +206,7 @@
+                 value=(values or [base])[0] if values!=[] else None
+                 if value:item.update(expected_boarding_at=value['departure_at'],remaining_seconds=round(value['departure_at']-now),
+                                      next_scheduled_departure_at=base['departure_at'] if base.get('fixed_departure') else None,
++                                     next_scheduled_vehicle_supply=base.get('vehicle_supply'),
+                                      automatic_queue=value.get('automatic_queue'),label='시간표·시뮬레이션 예상 승차 · 실제 출발 미확인')
+                 else:item['reason']='정원 시나리오에서 막차 전 승차기회를 찾지 못했습니다.'
+             else:item['reason']='현재 날짜·방향의 정규 시간표 운행시간 밖입니다.'
+@@ -228,8 +231,17 @@
+         return service_day(at)
+ 
+     def scheduled_arrivals(self,route,index,ready):
+-        value=self.timetable.arrival(route,index,ready)
++        model=getattr(self.transit,'automatic_queue',None)
++        # The frozen legacy hourly delay was computed at its own old capacity.
++        # Do not relabel that delay as a 44-seat/batched model calculation.
++        value=(self.timetable.arrival(route,index,ready) if not model or model.legacy_queue_compatible(route)
++               else self.timetable._schedule_arrival(route,index,ready))
++        value=self.with_supply(route,index,value)
+         return [value] if value else []
++
++    def with_supply(self,route,index,value):
++        model=getattr(self.transit,'automatic_queue',None)
++        return model.with_vehicle_supply(route,index,value) if model and value else value
+ 
+     def ready_arrivals(self,route,index,ready):
+         # BUSIN observes an approach/parked area, not a departure or free seats.
+@@ -242,7 +254,7 @@
+             values=self.lines[route['provider_id']].arrivals(route['stops'][index],ready)
+             values=[{**a,'clock_conditioning_verified':True} for a in values if a.get('arrival_source')=='live_shuttle' and not a.get('observed_at_stop') and
+                     a.get('earliest_departure_at',a['departure_at'])>=ready and a['departure_at']<=base.get('last_scheduled_departure_at',float('inf'))]
+-            if values:return values
++            if values:return [self.with_supply(route,index,value) for value in values]
+         return self.scheduled_arrivals(route,index,ready)
+ 
+     def can_condition_clock(self,route,index):
+--- before/static/app.js
++++ app/static/app.js
+@@ -487,6 +487,13 @@
+   state.queueReport=null;state.plan.adaptive_decision=null;selectRoute(next.id,true);
+   toast('경로를 변경했습니다. 이동 중 재판단은 멈춥니다. 현재 위치를 갱신하거나 다음 정류장 도착을 선택해 주세요.');
+ }
++function queueCapacity(leg){
++  if(!leg)return null;
++  const catalogue=state.bootstrap?.routes?.find(r=>r.id===leg.route_id);
++  const choices=[leg.queue_report_opportunity?.vehicle_supply?.capacity,leg.vehicle_supply?.capacity,
++    leg.queue_projection?.capacity_assumption,leg.automatic_queue?.capacity_assumption,catalogue?.capacity];
++  return choices.find(n=>typeof n==='number'&&Number.isFinite(n)&&n>0)??null;
++}
+ function renderMonitor(){
+   const box=$('adaptive-monitor'),plan=state.plan,j=state.journey;if(!plan){box.hidden=true;return;}
+   const bus=state.selected?.legs.find(l=>l.type==='bus');
+@@ -496,10 +503,11 @@
+   const current=plan.candidates.find(c=>continuationKey(c)===j.currentKey);
+   const b=current?.legs.find(l=>l.type==='bus');
+   const queue=b?.mode==='shuttle'&&j.waiting;
++  const capacity=queueCapacity(b);
+   const old=state.queueReport,expired=old&&(nowSeconds()-old.reported_at>90||old.opportunity_departure_at<=nowSeconds());
+   box.innerHTML=`<h3>대기 중 남은시간 비교</h3><p>${j.waiting?escape(j.anchor.name)+' 기준':'현재 선택 출발점 기준'} · ${j.waiting?'정류장 대기 중':'이동 중 · 자동 비교 중지'} · 변경 ${j.switchCount}/2회</p>${b?.automatic_queue?`<p class="automatic-queue-evidence">${automaticQueueText(b.automatic_queue,true)}<br>직접 입력 없이 추천 시간에 반영 중입니다.</p>`:''}<p>${escape(d?labels[d.reason]||'남은시간을 비교합니다.':'현재 위치를 갱신하거나 다음 대기 정류장 도착을 선택해 주세요.')}${d?.gain_seconds!=null?` 예상 차이 ${durationText(Math.abs(d.gain_seconds))}.`:''}</p>${d?.action==='suggest_switch'?'<button type="button" id="accept-switch">추천 경로로 변경</button>':''}
+     <div class="monitor-actions">${j.waiting?`<button type="button" id="toggle-monitor">${j.monitoring?'자동 비교 중지':'60초 자동 비교 켜기'}</button>`:b?'<button type="button" id="arrived-waiting">다음 정류장 도착 · 대기 재개</button>':''}<button type="button" id="monitor-location">현재 위치로 갱신</button><button type="button" id="end-monitor">이동 비교 종료</button></div>
+-    ${queue?`<details><summary>지금 보이는 줄·다음 차 여석 입력 (선택)</summary><form id="queue-report-form"><label>내 앞 대기 인원<input name="ahead" type="number" min="0" max="10000" step="1" required value="${expired?'':old?.queue_ahead??''}"></label><label>다음 차 여석 (모르면 비워두기)<input name="seats" type="number" min="0" max="${['shuttle-41914','shuttle-41869','shuttle-41916'].includes(b.route_id)?25:60}" step="1" value="${expired?'':old?.next_seats??''}"></label><label class="queue-full"><input name="full" type="checkbox" ${!expired&&old?.next_full?'checked':''}> 다음 차량 만차</label><button type="submit">줄 정보로 다시 계산</button></form><p>입력은 기준 차량 통과 전·최대 90초 동안만 사용합니다. 노선별 정원 25·60명 가정이며, 후속 차의 여석과 미래 유입은 미확인입니다.${expired?' 입력의 기준 차량이 지났거나 90초가 지나 만료됐습니다. 현재 줄 인원을 새로 입력해 주세요.':old?(plan.queue_report_applied?' 입력을 반영한 FIFO 추정입니다.':' 현재 위치·정류소 조건에서 입력이 적용되지 않았습니다.'):''}</p></details>`:''}
++    ${queue?`<details><summary>지금 보이는 줄·다음 차 여석 입력 (선택)</summary><form id="queue-report-form"><label>내 앞 대기 인원<input name="ahead" type="number" min="0" max="10000" step="1" required value="${expired?'':old?.queue_ahead??''}"></label><label>다음 차 여석 (모르면 비워두기)<input name="seats" type="number" min="0" ${capacity!=null?`max="${capacity}"`:'disabled'} step="1" value="${expired||old?.next_seats>capacity?'':old?.next_seats??''}"></label><label class="queue-full"><input name="full" type="checkbox" ${!expired&&old?.next_full?'checked':''}> 다음 차량 만차</label><button type="submit">줄 정보로 다시 계산</button></form><p>입력은 기준 차량 통과 전·최대 90초 동안만 사용합니다. ${capacity!=null?`선택한 차량 정원 ${capacity}명 기준입니다.`:'차량 정원이 확인되면 여석을 입력할 수 있습니다.'}${expired?' 입력의 기준 차량이 지났거나 90초가 지나 만료됐습니다. 현재 줄 인원을 새로 입력해 주세요.':old?(plan.queue_report_applied?' 입력을 반영한 FIFO 추정입니다.':' 현재 위치·정류소 조건에서 입력이 적용되지 않았습니다.'):''}</p></details>`:''}
+     <details><summary>변경 기준과 근거</summary><p>앞으로 남은 보행·대기·차내·환승시간만 비교합니다. 이미 기다린 시간은 다시 더하지 않습니다. 2분 이상 개선·60초 재판단·변경 후 180초 유지·최대 2회는 시뮬레이션의 가정입니다. 실제 수단선택 계수로 검증되지 않았습니다. 떠난 승차지로의 복귀 권고를 제외합니다.</p>${adaptiveReferenceText()}<p>공용 캐시와 기존 호출 예산을 재사용합니다. 화면이 보이는 동안, 도착했다고 선택한 정류장에서만 자동 비교합니다. 위치가 바뀌면 갱신해 주세요.</p></details>`;
+   $('accept-switch')?.addEventListener('click',acceptSuggestedSwitch);
+   $('toggle-monitor')?.addEventListener('click',()=>{j.monitoring=!j.monitoring;renderMonitor();});
+@@ -510,7 +518,8 @@
+     if(!b.queue_report_opportunity||b.queue_report_opportunity.departure_at<=nowSeconds()){toast('다음 차량 기준이 오래됐습니다. 다시 비교한 뒤 입력해 주세요.');return;}
+     const data=new FormData(f);state.queueReport={route_id:b.route_id,station_id:b.station_id,queue_ahead:Number(data.get('ahead')),
+       next_seats:data.get('seats')===''?null:Number(data.get('seats')),next_full:data.has('full'),reported_at:nowSeconds(),
+-      opportunity_departure_at:b.queue_report_opportunity.departure_at,opportunity_vehicle_id:b.queue_report_opportunity.vehicle_id};search(null,{monitor:true});});
++      opportunity_departure_at:b.queue_report_opportunity.departure_at,opportunity_vehicle_id:b.queue_report_opportunity.vehicle_id,
++      opportunity_terminal_dispatch_at:b.queue_report_opportunity.vehicle_supply?.terminal_dispatch_at??null};search(null,{monitor:true});});
+ }
+ async function recheckWaiting(){
+   if($('mobile-editor')?.open)return;
+--- /dev/null
++++ app/test_supply_consumers.py
+@@ -0,0 +1,131 @@
++"""Active-release capacities in manual FIFO, fallback and reported opportunities."""
++import copy
++import json
++import unittest
++from datetime import datetime
++from pathlib import Path
++from unittest.mock import patch
++
++import server
++from adaptive import POLICY,queue_arrivals,queue_input
++from automatic_queue import AutomaticQueue
++from shuttle_timetable import KST
++
++
++def stamp(text):return datetime.fromisoformat(text).replace(tzinfo=KST).timestamp()
++
++
++class SupplyConsumerTests(unittest.TestCase):
++    @classmethod
++    def setUpClass(cls):
++        cls.app=server.Application()
++        cls.seed=json.loads((Path(__file__).parent/'data/auto_queue_inputs.json').read_bytes())
++
++    def setUp(self):
++        self.now=stamp('2026-11-10T16:00:00')
++        clock=patch('time.time',return_value=self.now);clock.start();self.addCleanup(clock.stop)
++        network=patch('urllib.request.urlopen',side_effect=AssertionError('No provider API for capacity'));self.network=network.start();self.addCleanup(network.stop)
++
++    def route(self,provider):return next(r for r in self.app.transit.shuttle.routes if r['provider_id']==provider)
++
++    def admin_index(self,route):return next(i for i,s in enumerate(route['stops']) if s['id']=='snu-410' and s['board_allowed'])
++
++    def model(self,updated=True,pair=True):
++        data=copy.deepcopy(self.seed)
++        if updated:
++            route=data['routes']['shuttle-41841']
++            route.update(capacity=44,capacity_periods=[{'start_second':75600,'capacity':60}])
++            if pair:route['dispatch_batches']=[{'start_second':54000,'end_second':68400,'vehicles':2}]
++            data['model']['id']='261110160000'
++        return AutomaticQueue(self.app.historical,data=data)
++
++    def test_active_day_night_and_other_route_capacities(self):
++        for updated,expected in ((False,60),(True,44)):
++            model=self.model(updated)
++            for provider,at,capacity in [('41841',self.now,expected),('41915',stamp('2026-11-10T21:10:00'),60),('41946',self.now,60),('41914',self.now,25)]:
++                route=self.route(provider);index=self.admin_index(route) if provider in ('41841','41915') else 0
++                row=model.with_vehicle_supply(route,index,{'departure_at':at})
++                self.assertEqual(row['vehicle_supply']['capacity'],capacity)
++
++    def test_same_vehicle_keeps_dispatch_capacity_after_eta_crosses_21(self):
++        route=self.route('41841');index=self.admin_index(route);model=self.model()
++        row=model.with_vehicle_supply(route,index,{'departure_at':stamp('2026-11-10T20:59:00')})
++        shifted={**row,'departure_at':stamp('2026-11-10T21:01:00')}
++        value=model.with_vehicle_supply(route,index,shifted)
++        self.assertEqual(value['vehicle_supply']['capacity'],44)
++        self.assertEqual(value['vehicle_supply']['terminal_dispatch_at'],stamp('2026-11-10T20:59:00'))
++        night=self.route('41915')
++        self.assertEqual(model.with_vehicle_supply(night,self.admin_index(night),{'departure_at':stamp('2026-11-10T21:10:00')})['vehicle_supply']['capacity'],60)
++
++    def test_manual_queue_uses_two_individual_44_seat_vehicles(self):
++        route=self.route('41841');index=self.admin_index(route)
++        report={'queue_ahead':66,'next_seats':None,'next_full':False,'reported_at':self.now,'party_weight':1}
++        old=queue_arrivals(route,index,self.now,[],report,self.app.transit.shuttle.timetable,self.now,capacity_model=self.model(False))
++        new=queue_arrivals(route,index,self.now,[],report,self.app.transit.shuttle.timetable,self.now,capacity_model=self.model())
++        self.assertEqual(old[0]['queue_projection']['capacity_assumption'],60)
++        self.assertEqual(new[0]['queue_projection']['capacity_assumption'],44)
++        self.assertEqual(new[0]['queue_projection']['skipped_departures'],1)
++        self.assertLess(new[0]['departure_at'],old[0]['departure_at'])
++        self.assertEqual(new[0]['batch_member'],1)
++        self.assertEqual(new[0]['vehicle_supply']['batch_vehicles'],2)
++        self.assertEqual(route['capacity'],60)  # Never mutate the shared catalogue.
++
++    def test_next_seat_report_is_bounded_by_selected_vehicle_capacity(self):
++        route=self.route('41841');index=self.admin_index(route)
++        report={'queue_ahead':44,'next_seats':60,'next_full':False,'reported_at':self.now,'party_weight':1}
++        result=queue_arrivals(route,index,self.now,[],report,self.app.transit.shuttle.timetable,self.now,capacity_model=self.model())
++        self.assertEqual(result[0]['batch_member'],1)
++        self.assertEqual(result[0]['queue_projection']['capacity_assumption'],44)
++
++    def test_real_individual_vehicles_are_not_doubled_by_batch_assumption(self):
++        route=self.route('41841');index=self.admin_index(route)
++        observed=[{'departure_at':self.now+120,'arrival_source':'live_shuttle','vehicle_id':name,
++                   'provided_at':self.now,'seats_available':44} for name in ('one','two')]
++        report={'queue_ahead':88,'next_seats':None,'next_full':False,'reported_at':self.now,'party_weight':1}
++        result=queue_arrivals(route,index,self.now,observed,report,self.app.transit.shuttle.timetable,self.now,capacity_model=self.model())
++        self.assertGreater(result[0]['departure_at'],self.now+120)
++        self.assertEqual(result[0]['queue_projection']['skipped_departures'],2)
++
++    def test_retained_report_clock_is_not_replaced_by_new_eta_or_query_time(self):
++        route=self.route('41841');index=self.admin_index(route);model=self.model()
++        terminal=stamp('2026-11-10T20:59:00');eta=stamp('2026-11-10T21:01:00')
++        observed=[{'departure_at':eta,'arrival_source':'live_shuttle','vehicle_id':'same','provided_at':eta-30}]
++        report={'queue_ahead':0,'next_seats':60,'next_full':False,'reported_at':eta-30,'party_weight':1,
++                'opportunity_departure_at':eta,'opportunity_vehicle_id':'same','opportunity_terminal_dispatch_at':terminal}
++        class LastVehicle:
++            def _schedule_arrival(self,*args):return None
++        result=queue_arrivals(route,index,eta-20,observed,report,LastVehicle(),eta-30,capacity_model=model)
++        self.assertEqual(result[0]['vehicle_supply']['capacity'],44)
++        self.assertEqual(result[0]['vehicle_supply']['terminal_dispatch_at'],terminal)
++        self.assertEqual(result[0]['seats_available'],44)
++
++    def test_optional_terminal_input_must_be_finite_and_bounded(self):
++        value={'route_id':'shuttle-41841','station_id':'snu-410','reported_at':self.now,'queue_ahead':1,
++               'opportunity_departure_at':self.now+100,'opportunity_terminal_dispatch_at':self.now+100}
++        self.assertEqual(queue_input(value,self.now)['opportunity_terminal_dispatch_at'],self.now+100)
++        for bad in (True,float('nan'),float('inf'),self.now-86401,self.now+21601):
++            with self.subTest(bad=bad),self.assertRaises(ValueError):queue_input({**value,'opportunity_terminal_dispatch_at':bad},self.now)
++
++    def test_new_supply_skips_old_60_seat_hourly_delay_but_legacy_keeps_it(self):
++        service=self.app.transit.shuttle;route=self.route('41841');index=self.admin_index(route)
++        for updated in (False,True):
++            model=self.model(updated)
++            with patch.object(self.app.transit,'automatic_queue',model),patch.object(service.timetable,'arrival',wraps=service.timetable.arrival) as legacy:
++                values=service.scheduled_arrivals(route,index,self.now)
++            self.assertTrue(values)
++            self.assertEqual(legacy.call_count,0 if updated else 1)
++            self.assertEqual(values[0]['vehicle_supply']['capacity'],44 if updated else 60)
++            if updated:self.assertNotIn('queue_model',values[0])
++
++    def test_planner_exposes_next_opportunity_capacity_without_extra_api_calls(self):
++        app=self.app;model=self.model();point=next(s for s in self.route('41841')['stops'] if s['id']=='snu-410');destination=app.destinations[0]
++        with patch.object(app.transit,'automatic_queue',model),patch.object(app.transit,'prefetch',return_value=None),patch.object(app.transit,'arrivals',return_value=[]):
++            result=app.planner.plan((point['lat'],point['lon']),(destination['lat'],destination['lon']),self.now,'live',server.PRESETS['fast'],True)
++        legs=[l for c in result['candidates'] for l in c['legs'] if l.get('route_id')=='shuttle-41841']
++        self.assertTrue(legs)
++        for leg in legs:self.assertEqual(leg['queue_report_opportunity']['vehicle_supply']['capacity'],44)
++        self.assertEqual(self.network.call_count,0)
++        self.assertEqual(POLICY['max_switches'],2)
++
++
++if __name__=='__main__':unittest.main()

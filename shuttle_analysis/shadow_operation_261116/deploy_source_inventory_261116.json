@@ -1,0 +1,1238 @@
+{
+  "framework": {
+    "name": "Other",
+    "slug": null
+  },
+  "basePath": "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\app",
+  "fileCount": 135,
+  "totalSize": 19570563,
+  "ignoredCount": 75,
+  "ignored": [
+    ".env.local",
+    ".gitignore",
+    ".vercel",
+    "Start.ps1",
+    "Stop.ps1",
+    "__pycache__",
+    "api\\__pycache__",
+    "backend_setup.py",
+    "data\\building_footprints_osm.json",
+    "data\\campus_map_osm.json",
+    "data\\east_map_osm.json",
+    "data\\east_map_osm.json.source.json",
+    "data\\north2_map_osm.json",
+    "data\\north2_map_osm.json.source.json",
+    "data\\north_map_osm.json",
+    "data\\north_map_osm.json.source.json",
+    "data\\raw",
+    "data\\roads_osm.json",
+    "data\\shuttle_live",
+    "data\\west_map_osm.json",
+    "data\\west_map_osm.json.source.json",
+    "node_modules",
+    "prepare_all_shuttles.py",
+    "prepare_city_queue.py",
+    "prepare_data.py",
+    "prepare_geometry.py",
+    "prepare_shuttle_queue.py",
+    "prepare_town_shuttle.py",
+    "prepare_travel_history.py",
+    "public",
+    "runtime",
+    "shadow_transport\\__pycache__",
+    "test_adaptive.py",
+    "test_all_shuttles.py",
+    "test_arrival_preview.py",
+    "test_automatic_queue.py",
+    "test_build_assets.py",
+    "test_calculation_performance.py",
+    "test_campus_places.py",
+    "test_candidate_search.py",
+    "test_city_operations.py",
+    "test_city_wait.py",
+    "test_cloud_store.py",
+    "test_collector_shuttle_cache.py",
+    "test_continuity.py",
+    "test_destinations.py",
+    "test_fixtures\\__pycache__",
+    "test_historical_forecast.py",
+    "test_map.mjs",
+    "test_mobile_ui.mjs",
+    "test_model_validation.py",
+    "test_motion.mjs",
+    "test_origin_search.mjs",
+    "test_prediction_road.py",
+    "test_queue_model_sync.py",
+    "test_queue_readiness.py",
+    "test_routing.py",
+    "test_service_state.py",
+    "test_settings.mjs",
+    "test_shadow_runtime.py",
+    "test_shuttle_supply.py",
+    "test_shuttle_timetable.py",
+    "test_shuttles.py",
+    "test_simulation_integration.py",
+    "test_strategy_comparison.py",
+    "test_supply_consumers.py",
+    "test_town_shuttle.py",
+    "test_travel_time.py",
+    "test_ui.mjs",
+    "test_walking_lookup.py",
+    "test_wide_ui.mjs",
+    "verify_coverage.py",
+    "verify_shadow_http.py",
+    "verify_shadow_local.py",
+    "verify_shadow_operation.py"
+  ],
+  "directories": [
+    {
+      "path": "shadow_transport",
+      "fileCount": 11,
+      "size": 8980032
+    },
+    {
+      "path": "data",
+      "fileCount": 24,
+      "size": 6860444
+    },
+    {
+      "path": "static",
+      "fileCount": 47,
+      "size": 3316618
+    },
+    {
+      "path": "server.py",
+      "fileCount": 1,
+      "size": 46866
+    },
+    {
+      "path": "README.md",
+      "fileCount": 1,
+      "size": 39049
+    },
+    {
+      "path": "routing.py",
+      "fileCount": 1,
+      "size": 37791
+    },
+    {
+      "path": "automatic_queue.py",
+      "fileCount": 1,
+      "size": 21890
+    },
+    {
+      "path": "shuttle_live.py",
+      "fileCount": 1,
+      "size": 18832
+    },
+    {
+      "path": "continuity.py",
+      "fileCount": 1,
+      "size": 17164
+    },
+    {
+      "path": "shadow_runtime.py",
+      "fileCount": 1,
+      "size": 14238
+    },
+    {
+      "path": "test_fixtures",
+      "fileCount": 2,
+      "size": 13792
+    },
+    {
+      "path": "package-lock.json",
+      "fileCount": 1,
+      "size": 13684
+    },
+    {
+      "path": "travel_time.py",
+      "fileCount": 1,
+      "size": 11472
+    },
+    {
+      "path": "queue_release.py",
+      "fileCount": 1,
+      "size": 10694
+    },
+    {
+      "path": "adaptive.py",
+      "fileCount": 1,
+      "size": 10331
+    },
+    {
+      "path": "prepare_latest_queue.py",
+      "fileCount": 1,
+      "size": 10077
+    },
+    {
+      "path": "historical_forecast.py",
+      "fileCount": 1,
+      "size": 9555
+    },
+    {
+      "path": "shuttle_timetable.py",
+      "fileCount": 1,
+      "size": 8900
+    },
+    {
+      "path": "design-qa.md",
+      "fileCount": 1,
+      "size": 8619
+    },
+    {
+      "path": "shadow_shuttle.py",
+      "fileCount": 1,
+      "size": 8229
+    },
+    {
+      "path": "city_operations.py",
+      "fileCount": 1,
+      "size": 7856
+    },
+    {
+      "path": "origin-search-qa.md",
+      "fileCount": 1,
+      "size": 7605
+    },
+    {
+      "path": "road_geometry.py",
+      "fileCount": 1,
+      "size": 7469
+    },
+    {
+      "path": "city_wait.py",
+      "fileCount": 1,
+      "size": 7313
+    },
+    {
+      "path": "gate_service.py",
+      "fileCount": 1,
+      "size": 7106
+    },
+    {
+      "path": "prepare_auto_queue.py",
+      "fileCount": 1,
+      "size": 6706
+    },
+    {
+      "path": "queue_model_sync.py",
+      "fileCount": 1,
+      "size": 6029
+    },
+    {
+      "path": "simulation_kernel.py",
+      "fileCount": 1,
+      "size": 5964
+    },
+    {
+      "path": "cloud_store.py",
+      "fileCount": 1,
+      "size": 5011
+    },
+    {
+      "path": "prepare_campus_places.py",
+      "fileCount": 1,
+      "size": 4926
+    },
+    {
+      "path": "strategies.py",
+      "fileCount": 1,
+      "size": 4705
+    },
+    {
+      "path": "simulation_travel.py",
+      "fileCount": 1,
+      "size": 4543
+    },
+    {
+      "path": "collector_client.py",
+      "fileCount": 1,
+      "size": 4361
+    },
+    {
+      "path": "shuttle_waiting.py",
+      "fileCount": 1,
+      "size": 3520
+    },
+    {
+      "path": "shuttle_supply.py",
+      "fileCount": 1,
+      "size": 3159
+    },
+    {
+      "path": "shuttle.py",
+      "fileCount": 1,
+      "size": 2979
+    },
+    {
+      "path": "prepare_adaptive_policy.py",
+      "fileCount": 1,
+      "size": 2890
+    },
+    {
+      "path": "prepare_empirical_profiles.py",
+      "fileCount": 1,
+      "size": 2873
+    },
+    {
+      "path": "crowd_model.py",
+      "fileCount": 1,
+      "size": 2817
+    },
+    {
+      "path": "service_state.py",
+      "fileCount": 1,
+      "size": 2750
+    },
+    {
+      "path": "campus_places.py",
+      "fileCount": 1,
+      "size": 1446
+    },
+    {
+      "path": "calculation_context.py",
+      "fileCount": 1,
+      "size": 1429
+    },
+    {
+      "path": "build_static.py",
+      "fileCount": 1,
+      "size": 1388
+    },
+    {
+      "path": "prediction.py",
+      "fileCount": 1,
+      "size": 1201
+    },
+    {
+      "path": "shuttle_clock.py",
+      "fileCount": 1,
+      "size": 1120
+    },
+    {
+      "path": "vercel.json",
+      "fileCount": 1,
+      "size": 1084
+    },
+    {
+      "path": "api",
+      "fileCount": 1,
+      "size": 953
+    },
+    {
+      "path": "validation.py",
+      "fileCount": 1,
+      "size": 819
+    },
+    {
+      "path": "queue_readiness.py",
+      "fileCount": 1,
+      "size": 565
+    },
+    {
+      "path": "walking_profile.py",
+      "fileCount": 1,
+      "size": 539
+    },
+    {
+      "path": ".vercelignore",
+      "fileCount": 1,
+      "size": 490
+    },
+    {
+      "path": ".env.example",
+      "fileCount": 1,
+      "size": 355
+    },
+    {
+      "path": "package.json",
+      "fileCount": 1,
+      "size": 256
+    },
+    {
+      "path": "requirements.txt",
+      "fileCount": 1,
+      "size": 54
+    },
+    {
+      "path": ".python-version",
+      "fileCount": 1,
+      "size": 5
+    }
+  ],
+  "largestFiles": [
+    {
+      "path": "shadow_transport/candidate.json.gz",
+      "size": 6588638,
+      "mode": 33206,
+      "sha": "a97e1327181f9eab7f42a4ad2853622320121b6c"
+    },
+    {
+      "path": "shadow_transport/parent.json.gz",
+      "size": 2333368,
+      "mode": 33206,
+      "sha": "fc2cc70e2253779d78e8920914e8c160e02afbed"
+    },
+    {
+      "path": "data/walking_osm.json",
+      "size": 1975405,
+      "mode": 33206,
+      "sha": "ecc5c11fa8de2d9a63595139ff43287ef21b9f69"
+    },
+    {
+      "path": "data/auto_queue_inputs.json",
+      "size": 1584493,
+      "mode": 33206,
+      "sha": "c820402ba03186aa4072845481a7776fea452e72"
+    },
+    {
+      "path": "static/assets/fonts/noto-sans-kr.woff2",
+      "size": 1425560,
+      "mode": 33206,
+      "sha": "1d3db544b83e77e632db7ebf8b97764006ca61a2"
+    },
+    {
+      "path": "data/building_access.json",
+      "size": 837575,
+      "mode": 33206,
+      "sha": "090395e22ce1944875e43d808f6c62341481f4ce"
+    },
+    {
+      "path": "data/demand_features.json",
+      "size": 671453,
+      "mode": 33206,
+      "sha": "c99d70896fdf321925336ae54ec52100a24806d8"
+    },
+    {
+      "path": "static/assets/fonts/gmarket-sans-bold.woff",
+      "size": 629668,
+      "mode": 33206,
+      "sha": "bb98b3060b26d3586476e5a8b46dbbe213a6c25f"
+    },
+    {
+      "path": "data/road_geometry.json",
+      "size": 343145,
+      "mode": 33206,
+      "sha": "c5d03fb57d0dd7af7d636c865bd9c6826f63a552"
+    },
+    {
+      "path": "static/icons/hagyogil-v2-512.png",
+      "size": 288689,
+      "mode": 33206,
+      "sha": "e08e5c6c558bf22bb59ad7e292f8f057d2b04f9f"
+    }
+  ],
+  "files": [
+    {
+      "path": ".env.example",
+      "size": 355,
+      "mode": 33206,
+      "sha": "25041026abc8769a7793509b6ade4f4563ceb307"
+    },
+    {
+      "path": ".python-version",
+      "size": 5,
+      "mode": 33206,
+      "sha": "2c561ed018185a0ab382c0d28e718aa1debe8756"
+    },
+    {
+      "path": ".vercelignore",
+      "size": 490,
+      "mode": 33206,
+      "sha": "ae90fbcba22ee1aa9fd605580c2f5061f0337572"
+    },
+    {
+      "path": "adaptive.py",
+      "size": 10331,
+      "mode": 33206,
+      "sha": "203ea6d935affae4071c67c0f0357209aea0c5dc"
+    },
+    {
+      "path": "api/index.py",
+      "size": 953,
+      "mode": 33206,
+      "sha": "0ed0dd77d06e0f21fabae54934d81fb33c7705cd"
+    },
+    {
+      "path": "automatic_queue.py",
+      "size": 21890,
+      "mode": 33206,
+      "sha": "12d02721cf090cfa925c9f4946ba1a64e495f861"
+    },
+    {
+      "path": "build_static.py",
+      "size": 1388,
+      "mode": 33206,
+      "sha": "151bc72e1d369c03a12b7325b87bd8cc8bef0934"
+    },
+    {
+      "path": "calculation_context.py",
+      "size": 1429,
+      "mode": 33206,
+      "sha": "5fe3fe2ccb31c8455211b6e69443bca21b210d86"
+    },
+    {
+      "path": "campus_places.py",
+      "size": 1446,
+      "mode": 33206,
+      "sha": "8b995f76162637cf671559eee58c402b962ee51b"
+    },
+    {
+      "path": "city_operations.py",
+      "size": 7856,
+      "mode": 33206,
+      "sha": "d21540e990bf81e528a150d22dfa646fea36b8fc"
+    },
+    {
+      "path": "city_wait.py",
+      "size": 7313,
+      "mode": 33206,
+      "sha": "d2d277533b582d5e4a24e58f2896677c36962479"
+    },
+    {
+      "path": "cloud_store.py",
+      "size": 5011,
+      "mode": 33206,
+      "sha": "0d1b5e3b2d091280e6e9105a20089983cfb3189d"
+    },
+    {
+      "path": "collector_client.py",
+      "size": 4361,
+      "mode": 33206,
+      "sha": "75a8c5a8f499e06c9dcb848199be270f6ad78c44"
+    },
+    {
+      "path": "continuity.py",
+      "size": 17164,
+      "mode": 33206,
+      "sha": "4f9a8bcdb3406e81ea410434bbf62d53fb4e0a37"
+    },
+    {
+      "path": "crowd_model.py",
+      "size": 2817,
+      "mode": 33206,
+      "sha": "ecbe2d108df9bc46b1beb193ab1ef8229e5802b8"
+    },
+    {
+      "path": "data/adaptive_reference.json",
+      "size": 3252,
+      "mode": 33206,
+      "sha": "144d4fb4b7e719731a81bad0f559b91138c338f8"
+    },
+    {
+      "path": "data/auto_queue_inputs.json",
+      "size": 1584493,
+      "mode": 33206,
+      "sha": "c820402ba03186aa4072845481a7776fea452e72"
+    },
+    {
+      "path": "data/building_access.json",
+      "size": 837575,
+      "mode": 33206,
+      "sha": "090395e22ce1944875e43d808f6c62341481f4ce"
+    },
+    {
+      "path": "data/buildings_osm.json",
+      "size": 97205,
+      "mode": 33206,
+      "sha": "ac381efd7ecba4e42c983878c166bf20cea13cd6"
+    },
+    {
+      "path": "data/campus_places.json",
+      "size": 152691,
+      "mode": 33206,
+      "sha": "de525078ba374ddf1381caa2949fc74d79ccb4a5"
+    },
+    {
+      "path": "data/demand_features_source.json",
+      "size": 866,
+      "mode": 33206,
+      "sha": "3235b79f88247e554e84bd803117852ce3fc85b3"
+    },
+    {
+      "path": "data/demand_features.json",
+      "size": 671453,
+      "mode": 33206,
+      "sha": "c99d70896fdf321925336ae54ec52100a24806d8"
+    },
+    {
+      "path": "data/empirical_profiles.json",
+      "size": 113993,
+      "mode": 33206,
+      "sha": "0d9fee7e68103f510f5c1e39e0f54f03ea78dfb2"
+    },
+    {
+      "path": "data/network.json",
+      "size": 82876,
+      "mode": 33206,
+      "sha": "fedd40de8e2182f35c063edc9c5caa11c78bbc0a"
+    },
+    {
+      "path": "data/official_route_path_status.json",
+      "size": 106,
+      "mode": 33206,
+      "sha": "e27a36a3f29e841b9c3c6301065f9f88eef8f5bb"
+    },
+    {
+      "path": "data/official_route_paths.json",
+      "size": 218351,
+      "mode": 33206,
+      "sha": "93a96b0c528d6e382e9dc6c8a2245e8b3b3153a4"
+    },
+    {
+      "path": "data/queue_release.json",
+      "size": 601,
+      "mode": 33206,
+      "sha": "b44c8bc3e61245a0bcc339bb518f0b9799e95a6c"
+    },
+    {
+      "path": "data/road_geometry.json",
+      "size": 343145,
+      "mode": 33206,
+      "sha": "c5d03fb57d0dd7af7d636c865bd9c6826f63a552"
+    },
+    {
+      "path": "data/shuttle_model_extension.json",
+      "size": 5047,
+      "mode": 33206,
+      "sha": "60cc59d8af481946ec77e6ae594f9ed3917cb585"
+    },
+    {
+      "path": "data/shuttle_network.json",
+      "size": 41388,
+      "mode": 33206,
+      "sha": "937df15e25e121668ebf97ecafdec7a95f9d33d2"
+    },
+    {
+      "path": "data/shuttle_source.json",
+      "size": 570,
+      "mode": 33206,
+      "sha": "eb55e0cda303953324164582fb2dbd79da945f72"
+    },
+    {
+      "path": "data/shuttle_waiting_scenario.json",
+      "size": 99176,
+      "mode": 33206,
+      "sha": "9541a7034f368f6e6c79a714cb8a9d5ff3dc2290"
+    },
+    {
+      "path": "data/simulation_provenance.json",
+      "size": 1978,
+      "mode": 33206,
+      "sha": "5958a932eb44321452872ef6c65138180d6276c4"
+    },
+    {
+      "path": "data/simulation_time_inputs.json",
+      "size": 183377,
+      "mode": 33206,
+      "sha": "0845a26c39db05d9881ab04dc9c3a8f13b308aa8"
+    },
+    {
+      "path": "data/travel_history.json",
+      "size": 21224,
+      "mode": 33206,
+      "sha": "daa74f45b0c83fb4f372d8c13b3266218f63b54b"
+    },
+    {
+      "path": "data/walking_osm.json",
+      "size": 1975405,
+      "mode": 33206,
+      "sha": "ecc5c11fa8de2d9a63595139ff43287ef21b9f69"
+    },
+    {
+      "path": "data/walking_source.json",
+      "size": 524,
+      "mode": 33206,
+      "sha": "01fd629e36026b23e7c2cd4c35ba4a59b4c2d715"
+    },
+    {
+      "path": "data/weekday_history_extension.json",
+      "size": 195795,
+      "mode": 33206,
+      "sha": "790cd42277562df5efaa840235c81b44bf76bc4c"
+    },
+    {
+      "path": "data/weekday_history.json",
+      "size": 229353,
+      "mode": 33206,
+      "sha": "a4aa5f1492b501b07d3d2a8b38cf4f3c4ad762ac"
+    },
+    {
+      "path": "design-qa.md",
+      "size": 8619,
+      "mode": 33206,
+      "sha": "8fa23fc0fb7d8f3a79fb84de6d356ddcf29521b8"
+    },
+    {
+      "path": "gate_service.py",
+      "size": 7106,
+      "mode": 33206,
+      "sha": "66148a3f52514da2eda9be398627d32024d9d2e3"
+    },
+    {
+      "path": "historical_forecast.py",
+      "size": 9555,
+      "mode": 33206,
+      "sha": "f5689f6e5a2135f3dcb3f25ef17e13d1dc00b3be"
+    },
+    {
+      "path": "origin-search-qa.md",
+      "size": 7605,
+      "mode": 33206,
+      "sha": "7b9395986f39bf7fd42bc945a9720b5c6821f120"
+    },
+    {
+      "path": "package-lock.json",
+      "size": 13684,
+      "mode": 33206,
+      "sha": "12bdfe2120a15e9686a45d134969f5398da3f1d3"
+    },
+    {
+      "path": "package.json",
+      "size": 256,
+      "mode": 33206,
+      "sha": "42745d766a728c1ee430340259edb0ded018130e"
+    },
+    {
+      "path": "prediction.py",
+      "size": 1201,
+      "mode": 33206,
+      "sha": "c6d82caecdeb84ca8c2f566d7b8b55dd397e5910"
+    },
+    {
+      "path": "prepare_adaptive_policy.py",
+      "size": 2890,
+      "mode": 33206,
+      "sha": "2c147674b63172e448e55fe4b7aa524d9f934dbf"
+    },
+    {
+      "path": "prepare_auto_queue.py",
+      "size": 6706,
+      "mode": 33206,
+      "sha": "2203d56e2586d07e2a6fc3fd84dd0ed490e07080"
+    },
+    {
+      "path": "prepare_campus_places.py",
+      "size": 4926,
+      "mode": 33206,
+      "sha": "bf30edd4da1d7b5ec2078315d9482d9fe98a7d5c"
+    },
+    {
+      "path": "prepare_empirical_profiles.py",
+      "size": 2873,
+      "mode": 33206,
+      "sha": "890eb8b3898bfb667c6fba17a672928c0f533bbe"
+    },
+    {
+      "path": "prepare_latest_queue.py",
+      "size": 10077,
+      "mode": 33206,
+      "sha": "8e70af81b256b7efa55b216efb0c58a465c9ed6f"
+    },
+    {
+      "path": "queue_model_sync.py",
+      "size": 6029,
+      "mode": 33206,
+      "sha": "c9fe0fab0980a6b6e5682eaacba3ac23eb42c07a"
+    },
+    {
+      "path": "queue_readiness.py",
+      "size": 565,
+      "mode": 33206,
+      "sha": "25285f6f0783c6ff24fca624c0493721bc4f57df"
+    },
+    {
+      "path": "queue_release.py",
+      "size": 10694,
+      "mode": 33206,
+      "sha": "249fb59ac827ae217d807fbd9e44bc2380b91d2b"
+    },
+    {
+      "path": "README.md",
+      "size": 39049,
+      "mode": 33206,
+      "sha": "e1020ddb2c5e4a96b3b532a99616387692def850"
+    },
+    {
+      "path": "requirements.txt",
+      "size": 54,
+      "mode": 33206,
+      "sha": "df60b3ece86d8186af7a0e80b63fb82bc267df93"
+    },
+    {
+      "path": "road_geometry.py",
+      "size": 7469,
+      "mode": 33206,
+      "sha": "359f4956109e0b39359fd4089aa4fc7cafe9e434"
+    },
+    {
+      "path": "routing.py",
+      "size": 37791,
+      "mode": 33206,
+      "sha": "bbc81f7ae9b0f281dbe62b90da6907e4bca749f7"
+    },
+    {
+      "path": "server.py",
+      "size": 46866,
+      "mode": 33206,
+      "sha": "796990e4eae30bf54f99ff0b2a962776c8c2c7f1"
+    },
+    {
+      "path": "service_state.py",
+      "size": 2750,
+      "mode": 33206,
+      "sha": "4350ba2a6e3564d53384561a5f15554c5597c340"
+    },
+    {
+      "path": "shadow_runtime.py",
+      "size": 14238,
+      "mode": 33206,
+      "sha": "8c73dd87dd07ca1e1e069d3b417a051d3fda61c6"
+    },
+    {
+      "path": "shadow_shuttle.py",
+      "size": 8229,
+      "mode": 33206,
+      "sha": "fa059105e5dc434c49f6ec278aac0ee1feaf8bdb"
+    },
+    {
+      "path": "shadow_transport/__init__.py",
+      "size": 70,
+      "mode": 33206,
+      "sha": "f13de8a132624f01466bf1550595dcaa14403522"
+    },
+    {
+      "path": "shadow_transport/candidate_runtime.py",
+      "size": 16637,
+      "mode": 33206,
+      "sha": "32c6349fbb997b945645987a07898bc2d3017a7e"
+    },
+    {
+      "path": "shadow_transport/candidate.json.gz",
+      "size": 6588638,
+      "mode": 33206,
+      "sha": "a97e1327181f9eab7f42a4ad2853622320121b6c"
+    },
+    {
+      "path": "shadow_transport/empirical_transport.py",
+      "size": 178,
+      "mode": 33206,
+      "sha": "c47cf6a8b2d92f274bba1ad4a08f909af695bbfe"
+    },
+    {
+      "path": "shadow_transport/manifest.json",
+      "size": 2930,
+      "mode": 33206,
+      "sha": "256f9a27669106374b52d8e44891ac10151f11bc"
+    },
+    {
+      "path": "shadow_transport/parent_transport.py",
+      "size": 11908,
+      "mode": 33206,
+      "sha": "fe3edc0b6d09affd12a59992838ceebeb80ae48a"
+    },
+    {
+      "path": "shadow_transport/parent.json.gz",
+      "size": 2333368,
+      "mode": 33206,
+      "sha": "fc2cc70e2253779d78e8920914e8c160e02afbed"
+    },
+    {
+      "path": "shadow_transport/policy.json",
+      "size": 468,
+      "mode": 33206,
+      "sha": "30538eaea53c36a6a1fddb2edcbfe637668dbeec"
+    },
+    {
+      "path": "shadow_transport/recent_history.py",
+      "size": 4364,
+      "mode": 33206,
+      "sha": "5898f2f0c2c5dfbe15022d9c4de899219cd8bb0a"
+    },
+    {
+      "path": "shadow_transport/review_runtime.py",
+      "size": 4393,
+      "mode": 33206,
+      "sha": "7117164e270feff4477c1e0d8b583e5e15f26cc2"
+    },
+    {
+      "path": "shadow_transport/transport_v2.py",
+      "size": 17078,
+      "mode": 33206,
+      "sha": "f36318bfaf3af605326554875d5f1a63aa9409b6"
+    },
+    {
+      "path": "shuttle_clock.py",
+      "size": 1120,
+      "mode": 33206,
+      "sha": "25ae0b41a2816cf26c63064242e51f30a2a5cea7"
+    },
+    {
+      "path": "shuttle_live.py",
+      "size": 18832,
+      "mode": 33206,
+      "sha": "d2a4de7eee0b9e87e2c0624ce924a5eab888f8a9"
+    },
+    {
+      "path": "shuttle_supply.py",
+      "size": 3159,
+      "mode": 33206,
+      "sha": "6ed18ca1f751654ed2f1f6c222c4ee2999d26aa9"
+    },
+    {
+      "path": "shuttle_timetable.py",
+      "size": 8900,
+      "mode": 33206,
+      "sha": "1005b0e0ca158254167fe4afb622eba1c9339c11"
+    },
+    {
+      "path": "shuttle_waiting.py",
+      "size": 3520,
+      "mode": 33206,
+      "sha": "ee322f1d70626a1b94b04993ee9a861ac3ab6857"
+    },
+    {
+      "path": "shuttle.py",
+      "size": 2979,
+      "mode": 33206,
+      "sha": "6c25f88def92e5a96a01139bb8acf4f82e767c1d"
+    },
+    {
+      "path": "simulation_kernel.py",
+      "size": 5964,
+      "mode": 33206,
+      "sha": "accdfa37016653401d110d6ecfbccb76aed5b213"
+    },
+    {
+      "path": "simulation_travel.py",
+      "size": 4543,
+      "mode": 33206,
+      "sha": "e4ae173873fbc092fa4b73b2b76c070d7f2b52c9"
+    },
+    {
+      "path": "static/accessibility.html",
+      "size": 5480,
+      "mode": 33206,
+      "sha": "531cfe901b16573300053599577834108981f4d0"
+    },
+    {
+      "path": "static/app.js",
+      "size": 82120,
+      "mode": 33206,
+      "sha": "aadc753b0f0eb5028a6c4510d2c799acf46ed26a"
+    },
+    {
+      "path": "static/assets/fonts/gmarket-sans-bold.woff",
+      "size": 629668,
+      "mode": 33206,
+      "sha": "bb98b3060b26d3586476e5a8b46dbbe213a6c25f"
+    },
+    {
+      "path": "static/assets/fonts/GmarketSans-LICENSE.txt",
+      "size": 11757,
+      "mode": 33206,
+      "sha": "121d02f665d49d5705e5d30d906b2334078fdb04"
+    },
+    {
+      "path": "static/assets/fonts/material-symbols-rounded.ttf",
+      "size": 7596,
+      "mode": 33206,
+      "sha": "b12aa8a8c165af36ab8f8f949c6363c2694b1819"
+    },
+    {
+      "path": "static/assets/fonts/material-symbols-source.json",
+      "size": 894,
+      "mode": 33206,
+      "sha": "9093cb07159b98556fd958c0ea0995073e6760ff"
+    },
+    {
+      "path": "static/assets/fonts/MaterialSymbols-LICENSE.txt",
+      "size": 11358,
+      "mode": 33206,
+      "sha": "2b8b815229aa8a61e483fb4ba0588b8b6c491890"
+    },
+    {
+      "path": "static/assets/fonts/Montserrat-OFL.txt",
+      "size": 4400,
+      "mode": 33206,
+      "sha": "c6e5a0782514a498ac406c73aee2c0fe4170188b"
+    },
+    {
+      "path": "static/assets/fonts/montserrat.woff2",
+      "size": 216152,
+      "mode": 33206,
+      "sha": "dcfb5aa74d28f09cff28cefb6a14078ca15ccbe1"
+    },
+    {
+      "path": "static/assets/fonts/noto-sans-kr.woff2",
+      "size": 1425560,
+      "mode": 33206,
+      "sha": "1d3db544b83e77e632db7ebf8b97764006ca61a2"
+    },
+    {
+      "path": "static/assets/fonts/NotoSansKR-OFL.txt",
+      "size": 4388,
+      "mode": 33206,
+      "sha": "89ab24ad3b9bb9f35dc4470908cf65a38c2e2073"
+    },
+    {
+      "path": "static/brand.css",
+      "size": 368,
+      "mode": 33206,
+      "sha": "13b6c3d52e6101a5866b702c2c26adad803cc8bd"
+    },
+    {
+      "path": "static/campus-theme.css",
+      "size": 15680,
+      "mode": 33206,
+      "sha": "c06e43e4e240e4b455812e2b671707467f6bd0ed"
+    },
+    {
+      "path": "static/campus-theme.js",
+      "size": 2610,
+      "mode": 33206,
+      "sha": "a1948acdd4ec22008f5e0615910fe424e4bb703f"
+    },
+    {
+      "path": "static/docs/shuttle-timetable.pdf",
+      "size": 41814,
+      "mode": 33206,
+      "sha": "fe8c88796d7303b686c5cf52c49c26112cd3dd54"
+    },
+    {
+      "path": "static/favicon-v2.ico",
+      "size": 14201,
+      "mode": 33206,
+      "sha": "d595e76ce7014cdb7adf2c5a8aed4338e489183a"
+    },
+    {
+      "path": "static/favicon.ico",
+      "size": 14201,
+      "mode": 33206,
+      "sha": "d595e76ce7014cdb7adf2c5a8aed4338e489183a"
+    },
+    {
+      "path": "static/icon.svg",
+      "size": 27715,
+      "mode": 33206,
+      "sha": "7b6138b7f280c23271210fb7db76f49e02e9cf8f"
+    },
+    {
+      "path": "static/icons/hagyogil-v2-128.png",
+      "size": 20687,
+      "mode": 33206,
+      "sha": "7f683673780c59360c0527bfa209673cf300dd95"
+    },
+    {
+      "path": "static/icons/hagyogil-v2-16.png",
+      "size": 912,
+      "mode": 33206,
+      "sha": "1c6ee9532ab3d13ef0668f463bc51da4fcb68622"
+    },
+    {
+      "path": "static/icons/hagyogil-v2-180.png",
+      "size": 37627,
+      "mode": 33206,
+      "sha": "4fd6484201352981a2e160183e642b4605abcd41"
+    },
+    {
+      "path": "static/icons/hagyogil-v2-192.png",
+      "size": 42362,
+      "mode": 33206,
+      "sha": "af44742772ac91573cc69bc8eee264fc20d97c65"
+    },
+    {
+      "path": "static/icons/hagyogil-v2-256.png",
+      "size": 73542,
+      "mode": 33206,
+      "sha": "874fd5d708ff2f8afdf3c3cd6509dd52cbe3a334"
+    },
+    {
+      "path": "static/icons/hagyogil-v2-32.png",
+      "size": 2391,
+      "mode": 33206,
+      "sha": "e0a60cb0d086678e345b0a722b953a49014c2bbd"
+    },
+    {
+      "path": "static/icons/hagyogil-v2-48.png",
+      "size": 4244,
+      "mode": 33206,
+      "sha": "f01f8898ab1e6a56c31b5d0c06da1f14349e3a95"
+    },
+    {
+      "path": "static/icons/hagyogil-v2-512.png",
+      "size": 288689,
+      "mode": 33206,
+      "sha": "e08e5c6c558bf22bb59ad7e292f8f057d2b04f9f"
+    },
+    {
+      "path": "static/icons/hagyogil-v2-64.png",
+      "size": 6584,
+      "mode": 33206,
+      "sha": "3fbb374043e582ff968b32a4c720edf97ac71903"
+    },
+    {
+      "path": "static/icons/hagyogil-v2-96.png",
+      "size": 12830,
+      "mode": 33206,
+      "sha": "35afb7a45f6a07ba13da5677800cf9cc0a2b35e8"
+    },
+    {
+      "path": "static/index.html",
+      "size": 20224,
+      "mode": 33206,
+      "sha": "4b49f055cc4eb18a2dc9b40fb80f55222c92ad77"
+    },
+    {
+      "path": "static/map.js",
+      "size": 13257,
+      "mode": 33206,
+      "sha": "ddab743c4ba462696ea2f9b396bcce8a8dc95864"
+    },
+    {
+      "path": "static/mobile.css",
+      "size": 21979,
+      "mode": 33206,
+      "sha": "85a9b8bb3304ce17fc925fa4469bad0de6ac8cda"
+    },
+    {
+      "path": "static/motion.css",
+      "size": 5751,
+      "mode": 33206,
+      "sha": "0822a3ff6c9243bd5d98210013b2825f3ada35d2"
+    },
+    {
+      "path": "static/motion.js",
+      "size": 6452,
+      "mode": 33206,
+      "sha": "aa1d11d042a7811ffae50ab9c3df2a740a5ac26f"
+    },
+    {
+      "path": "static/privacy.html",
+      "size": 12118,
+      "mode": 33206,
+      "sha": "dbe47135e068cf111342e87e6fc3934e0e4025f0"
+    },
+    {
+      "path": "static/settings.css",
+      "size": 8005,
+      "mode": 33206,
+      "sha": "5e12278c1eefcf5dff793c71999a31ddb1ec4f82"
+    },
+    {
+      "path": "static/settings.js",
+      "size": 6911,
+      "mode": 33206,
+      "sha": "08e5ee14c740fc43e54be2469990ea27e37dcd84"
+    },
+    {
+      "path": "static/site-v2.webmanifest",
+      "size": 456,
+      "mode": 33206,
+      "sha": "3b0ec7b9e84d8fed279428b6d32a6fceb74b9dff"
+    },
+    {
+      "path": "static/style.css",
+      "size": 26964,
+      "mode": 33206,
+      "sha": "0b80d4719c546a3c35cc58b81d8feb2c6b640959"
+    },
+    {
+      "path": "static/vendor/images/layers-2x.png",
+      "size": 1259,
+      "mode": 33206,
+      "sha": "152a162333e46d24f9d89f566312fc0c64011dee"
+    },
+    {
+      "path": "static/vendor/images/layers.png",
+      "size": 696,
+      "mode": 33206,
+      "sha": "c9e7528e491a39232ba24a2706c6c739d6fb0f06"
+    },
+    {
+      "path": "static/vendor/images/marker-icon-2x.png",
+      "size": 2464,
+      "mode": 33206,
+      "sha": "cf3a536596b1f58e0ac805404183c8e6d6bdacb5"
+    },
+    {
+      "path": "static/vendor/images/marker-icon.png",
+      "size": 1466,
+      "mode": 33206,
+      "sha": "60a90bcbb2b42b7ddb4556db94eb7c1084b0e5da"
+    },
+    {
+      "path": "static/vendor/images/marker-shadow.png",
+      "size": 618,
+      "mode": 33206,
+      "sha": "7b6a8df63930381e96604e705168d0527d6b82bc"
+    },
+    {
+      "path": "static/vendor/LEAFLET-LICENSE",
+      "size": 1395,
+      "mode": 33206,
+      "sha": "ee80e793452e086761cee32b05a64a4eda66b24e"
+    },
+    {
+      "path": "static/vendor/leaflet.css",
+      "size": 14806,
+      "mode": 33206,
+      "sha": "ec929f1100c6642ccc5c4272cf4cca12251a9a5d"
+    },
+    {
+      "path": "static/vendor/leaflet.js",
+      "size": 147552,
+      "mode": 33206,
+      "sha": "5a640ff863e7902a8cac2ce6ba37c87b30677761"
+    },
+    {
+      "path": "static/wide.css",
+      "size": 18415,
+      "mode": 33206,
+      "sha": "8a08353a147e6ff7287fa2f7fe28100adfdf16ec"
+    },
+    {
+      "path": "strategies.py",
+      "size": 4705,
+      "mode": 33206,
+      "sha": "bd6864ec757d7074338a145bc5ff37e083769e11"
+    },
+    {
+      "path": "test_fixtures/queue_release_v3_contract.py",
+      "size": 8304,
+      "mode": 33206,
+      "sha": "994db54137036fe3e8baf881a866b68712670505"
+    },
+    {
+      "path": "test_fixtures/simulation_kernel.json",
+      "size": 5488,
+      "mode": 33206,
+      "sha": "73c55ba28204534f087277a6ec6fbc73146e2c3c"
+    },
+    {
+      "path": "travel_time.py",
+      "size": 11472,
+      "mode": 33206,
+      "sha": "ebcf8208391876e2cfc682e99fb8a8507aec57d5"
+    },
+    {
+      "path": "validation.py",
+      "size": 819,
+      "mode": 33206,
+      "sha": "b51929fb3ecd9b4ce790b935229fd0655db1560d"
+    },
+    {
+      "path": "vercel.json",
+      "size": 1084,
+      "mode": 33206,
+      "sha": "94fa45780a0217de97ece4de29510f5bce0f6204"
+    },
+    {
+      "path": "walking_profile.py",
+      "size": 539,
+      "mode": 33206,
+      "sha": "586c1066162ea2c2ad3ae8207ffb28a05f3ee7dd"
+    }
+  ]
+}

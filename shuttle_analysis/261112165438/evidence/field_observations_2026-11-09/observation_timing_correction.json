@@ -1,0 +1,14 @@
+{
+  "schema": "observation_timing_correction_v1",
+  "source": "explicit_user_clarification_in_project_chat",
+  "original_text": "그 아까 셔틀 줄과 문화관 정류장 줄은 00초 기준이 아니야. 그냥 그 분 안에 랜덤한 시간에 측정햇다고 봐줘 그냥",
+  "explicitly_corrected_observations": ["20261109-1653-admin-snu-queue-01", "20261109-1655-culture-city-queue-01"],
+  "observation_time_model": "uniform within the reported minute",
+  "exact_second_known": false,
+  "second_zero_is_observation_time": false,
+  "old_second_zero_comparisons_are_representative_queries_only": true,
+  "new_primary_comparison": "integrate model queues over every subinterval of the reported minute",
+  "calibration_loss": "expected absolute distance from modeled queue at a uniform random second to the reported count or reported count interval",
+  "best_fitting_second_selected": false,
+  "third_observation": {"id": "20261109-1703-snu-gate-queue-01", "exact_second_known": false, "comparison_assumption": "same uniform-within-minute treatment for consistency; no exact-second claim"}
+}

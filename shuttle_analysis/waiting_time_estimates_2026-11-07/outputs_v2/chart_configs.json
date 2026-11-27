@@ -1,0 +1,1322 @@
+[
+  {
+    "node": "admin_snu",
+    "config": {
+      "id": "wait-admin_snu",
+      "title": "행정관 → 서울대입구역 평균 대기(분)",
+      "description": "정류소 도착시간 기준·12:00–19:00·실측이 아닌 조건부 추산. 대형60명, 입구역 오후4분 배차. 빈칸은 모형 도착량 없음.",
+      "spec": {
+        "type": "heatmap",
+        "x": "hour",
+        "y": "weekday",
+        "value": "wait_min",
+        "xOrder": [
+          "12시",
+          "13시",
+          "14시",
+          "15시",
+          "16시",
+          "17시",
+          "18시"
+        ],
+        "yOrder": [
+          "월",
+          "화",
+          "수",
+          "목",
+          "금"
+        ],
+        "xLabel": "정류소 도착 시간대",
+        "yLabel": "요일",
+        "colorDomain": [
+          0,
+          20
+        ],
+        "showValues": true,
+        "missingValues": "gap",
+        "valueFormat": {
+          "style": "decimal",
+          "maximumFractionDigits": 1
+        }
+      },
+      "rows": [
+        {
+          "hour": "12시",
+          "weekday": "월",
+          "wait_min": 17.157816934222097
+        },
+        {
+          "hour": "13시",
+          "weekday": "월",
+          "wait_min": 15.836884183211762
+        },
+        {
+          "hour": "14시",
+          "weekday": "월",
+          "wait_min": 14.536241648881015
+        },
+        {
+          "hour": "15시",
+          "weekday": "월",
+          "wait_min": 9.47203711360411
+        },
+        {
+          "hour": "16시",
+          "weekday": "월",
+          "wait_min": 7.022308495922666
+        },
+        {
+          "hour": "17시",
+          "weekday": "월",
+          "wait_min": 9.275813970506592
+        },
+        {
+          "hour": "18시",
+          "weekday": "월",
+          "wait_min": 2.833244483930064
+        },
+        {
+          "hour": "12시",
+          "weekday": "화",
+          "wait_min": 16.04931955912813
+        },
+        {
+          "hour": "13시",
+          "weekday": "화",
+          "wait_min": 13.61828688460942
+        },
+        {
+          "hour": "14시",
+          "weekday": "화",
+          "wait_min": 18.02987085292606
+        },
+        {
+          "hour": "15시",
+          "weekday": "화",
+          "wait_min": 8.348005644149335
+        },
+        {
+          "hour": "16시",
+          "weekday": "화",
+          "wait_min": 6.210483025955756
+        },
+        {
+          "hour": "17시",
+          "weekday": "화",
+          "wait_min": 9.785327738090048
+        },
+        {
+          "hour": "18시",
+          "weekday": "화",
+          "wait_min": 2.484038591648321
+        },
+        {
+          "hour": "12시",
+          "weekday": "수",
+          "wait_min": 16.727394164576364
+        },
+        {
+          "hour": "13시",
+          "weekday": "수",
+          "wait_min": 14.436949521298748
+        },
+        {
+          "hour": "14시",
+          "weekday": "수",
+          "wait_min": 10.484401820219832
+        },
+        {
+          "hour": "15시",
+          "weekday": "수",
+          "wait_min": 8.926017133650584
+        },
+        {
+          "hour": "16시",
+          "weekday": "수",
+          "wait_min": 6.718115527320716
+        },
+        {
+          "hour": "17시",
+          "weekday": "수",
+          "wait_min": 8.323905609429964
+        },
+        {
+          "hour": "18시",
+          "weekday": "수",
+          "wait_min": 2.6434015500671415
+        },
+        {
+          "hour": "12시",
+          "weekday": "목",
+          "wait_min": 15.406880943354121
+        },
+        {
+          "hour": "13시",
+          "weekday": "목",
+          "wait_min": 12.87445296115854
+        },
+        {
+          "hour": "14시",
+          "weekday": "목",
+          "wait_min": 12.649610806295115
+        },
+        {
+          "hour": "15시",
+          "weekday": "목",
+          "wait_min": 9.453914363066676
+        },
+        {
+          "hour": "16시",
+          "weekday": "목",
+          "wait_min": 5.986295498220319
+        },
+        {
+          "hour": "17시",
+          "weekday": "목",
+          "wait_min": 9.145974636779748
+        },
+        {
+          "hour": "18시",
+          "weekday": "목",
+          "wait_min": 2.588873091133058
+        },
+        {
+          "hour": "12시",
+          "weekday": "금",
+          "wait_min": 6.336790059747357
+        },
+        {
+          "hour": "13시",
+          "weekday": "금",
+          "wait_min": 7.889244467662503
+        },
+        {
+          "hour": "14시",
+          "weekday": "금",
+          "wait_min": 3.9116524800068064
+        },
+        {
+          "hour": "15시",
+          "weekday": "금",
+          "wait_min": 2.549958305909264
+        },
+        {
+          "hour": "16시",
+          "weekday": "금",
+          "wait_min": 2.7933110816895583
+        },
+        {
+          "hour": "17시",
+          "weekday": "금",
+          "wait_min": 3.9291379692608968
+        },
+        {
+          "hour": "18시",
+          "weekday": "금",
+          "wait_min": 2.4525851667155565
+        }
+      ],
+      "height": 320
+    }
+  },
+  {
+    "node": "admin_daehak",
+    "config": {
+      "id": "wait-admin_daehak",
+      "title": "행정관 → 대학동 평균 대기(분)",
+      "description": "정류소 도착시간 기준·12:00–19:00·실측이 아닌 조건부 추산. 대형60명, 입구역 오후4분 배차. 빈칸은 모형 도착량 없음.",
+      "spec": {
+        "type": "heatmap",
+        "x": "hour",
+        "y": "weekday",
+        "value": "wait_min",
+        "xOrder": [
+          "12시",
+          "13시",
+          "14시",
+          "15시",
+          "16시",
+          "17시",
+          "18시"
+        ],
+        "yOrder": [
+          "월",
+          "화",
+          "수",
+          "목",
+          "금"
+        ],
+        "xLabel": "정류소 도착 시간대",
+        "yLabel": "요일",
+        "colorDomain": [
+          0,
+          20
+        ],
+        "showValues": true,
+        "missingValues": "gap",
+        "valueFormat": {
+          "style": "decimal",
+          "maximumFractionDigits": 1
+        }
+      },
+      "rows": [
+        {
+          "hour": "12시",
+          "weekday": "월",
+          "wait_min": 17.070020881305553
+        },
+        {
+          "hour": "13시",
+          "weekday": "월",
+          "wait_min": 14.519205186170245
+        },
+        {
+          "hour": "14시",
+          "weekday": "월",
+          "wait_min": 15.423790007340399
+        },
+        {
+          "hour": "15시",
+          "weekday": "월",
+          "wait_min": 15.126559794150761
+        },
+        {
+          "hour": "16시",
+          "weekday": "월",
+          "wait_min": 11.058991637034184
+        },
+        {
+          "hour": "17시",
+          "weekday": "월",
+          "wait_min": 15.719346175887248
+        },
+        {
+          "hour": "18시",
+          "weekday": "월",
+          "wait_min": 6.302549366915347
+        },
+        {
+          "hour": "12시",
+          "weekday": "화",
+          "wait_min": 16.190287381668494
+        },
+        {
+          "hour": "13시",
+          "weekday": "화",
+          "wait_min": 11.481946592021723
+        },
+        {
+          "hour": "14시",
+          "weekday": "화",
+          "wait_min": 18.125744806398977
+        },
+        {
+          "hour": "15시",
+          "weekday": "화",
+          "wait_min": 13.676639596575985
+        },
+        {
+          "hour": "16시",
+          "weekday": "화",
+          "wait_min": 10.302209620186924
+        },
+        {
+          "hour": "17시",
+          "weekday": "화",
+          "wait_min": 19.07475302507793
+        },
+        {
+          "hour": "18시",
+          "weekday": "화",
+          "wait_min": 6.303076673886606
+        },
+        {
+          "hour": "12시",
+          "weekday": "수",
+          "wait_min": 17.48747414179351
+        },
+        {
+          "hour": "13시",
+          "weekday": "수",
+          "wait_min": 14.564147893906462
+        },
+        {
+          "hour": "14시",
+          "weekday": "수",
+          "wait_min": 15.880483401989114
+        },
+        {
+          "hour": "15시",
+          "weekday": "수",
+          "wait_min": 14.823053751201462
+        },
+        {
+          "hour": "16시",
+          "weekday": "수",
+          "wait_min": 10.755814799676923
+        },
+        {
+          "hour": "17시",
+          "weekday": "수",
+          "wait_min": 15.726589447102107
+        },
+        {
+          "hour": "18시",
+          "weekday": "수",
+          "wait_min": 6.432793940626953
+        },
+        {
+          "hour": "12시",
+          "weekday": "목",
+          "wait_min": 15.869463662749691
+        },
+        {
+          "hour": "13시",
+          "weekday": "목",
+          "wait_min": 11.456313803704713
+        },
+        {
+          "hour": "14시",
+          "weekday": "목",
+          "wait_min": 15.716114557973224
+        },
+        {
+          "hour": "15시",
+          "weekday": "목",
+          "wait_min": 14.275936664339392
+        },
+        {
+          "hour": "16시",
+          "weekday": "목",
+          "wait_min": 9.972717410152356
+        },
+        {
+          "hour": "17시",
+          "weekday": "목",
+          "wait_min": 17.11673310176784
+        },
+        {
+          "hour": "18시",
+          "weekday": "목",
+          "wait_min": 6.747140200706558
+        },
+        {
+          "hour": "12시",
+          "weekday": "금",
+          "wait_min": 5.515630717165436
+        },
+        {
+          "hour": "13시",
+          "weekday": "금",
+          "wait_min": 6.224125883996987
+        },
+        {
+          "hour": "14시",
+          "weekday": "금",
+          "wait_min": 5.333333333333334
+        },
+        {
+          "hour": "15시",
+          "weekday": "금",
+          "wait_min": 5.387629787473493
+        },
+        {
+          "hour": "16시",
+          "weekday": "금",
+          "wait_min": 5.333333333333334
+        },
+        {
+          "hour": "17시",
+          "weekday": "금",
+          "wait_min": 7.139704707351737
+        },
+        {
+          "hour": "18시",
+          "weekday": "금",
+          "wait_min": 5.557728778831519
+        }
+      ],
+      "height": 320
+    }
+  },
+  {
+    "node": "circle_302",
+    "config": {
+      "id": "wait-circle_302",
+      "title": "302동 · 순환 평균 대기(분)",
+      "description": "정류소 도착시간 기준·12:00–19:00·실측이 아닌 조건부 추산. 302동 승차 전 가용60명·302→301 정원 공유·배경 승객 미반영. 빈칸은 모형 도착량 없음.",
+      "spec": {
+        "type": "heatmap",
+        "x": "hour",
+        "y": "weekday",
+        "value": "wait_min",
+        "xOrder": [
+          "12시",
+          "13시",
+          "14시",
+          "15시",
+          "16시",
+          "17시",
+          "18시"
+        ],
+        "yOrder": [
+          "월",
+          "화",
+          "수",
+          "목",
+          "금"
+        ],
+        "xLabel": "정류소 도착 시간대",
+        "yLabel": "요일",
+        "colorDomain": [
+          0,
+          20
+        ],
+        "showValues": true,
+        "missingValues": "gap",
+        "valueFormat": {
+          "style": "decimal",
+          "maximumFractionDigits": 1
+        }
+      },
+      "rows": [
+        {
+          "hour": "12시",
+          "weekday": "월",
+          "wait_min": 3.3344319939892784
+        },
+        {
+          "hour": "13시",
+          "weekday": "월",
+          "wait_min": 3.3350000000000004
+        },
+        {
+          "hour": "14시",
+          "weekday": "월",
+          "wait_min": null
+        },
+        {
+          "hour": "15시",
+          "weekday": "월",
+          "wait_min": 3.3347049424862107
+        },
+        {
+          "hour": "16시",
+          "weekday": "월",
+          "wait_min": 3.3349942044738925
+        },
+        {
+          "hour": "17시",
+          "weekday": "월",
+          "wait_min": 3.3305670069826396
+        },
+        {
+          "hour": "18시",
+          "weekday": "월",
+          "wait_min": 3.3803459796698605
+        },
+        {
+          "hour": "12시",
+          "weekday": "화",
+          "wait_min": 3.334720220717305
+        },
+        {
+          "hour": "13시",
+          "weekday": "화",
+          "wait_min": 3.3340494251999133
+        },
+        {
+          "hour": "14시",
+          "weekday": "화",
+          "wait_min": 3.3303333333333334
+        },
+        {
+          "hour": "15시",
+          "weekday": "화",
+          "wait_min": 3.3340815085594557
+        },
+        {
+          "hour": "16시",
+          "weekday": "화",
+          "wait_min": 3.3349624736974635
+        },
+        {
+          "hour": "17시",
+          "weekday": "화",
+          "wait_min": 3.3315622418105
+        },
+        {
+          "hour": "18시",
+          "weekday": "화",
+          "wait_min": 3.6001299034760876
+        },
+        {
+          "hour": "12시",
+          "weekday": "수",
+          "wait_min": 3.3342731206879823
+        },
+        {
+          "hour": "13시",
+          "weekday": "수",
+          "wait_min": 3.334817324343507
+        },
+        {
+          "hour": "14시",
+          "weekday": "수",
+          "wait_min": 3.332075843978268
+        },
+        {
+          "hour": "15시",
+          "weekday": "수",
+          "wait_min": 3.334800461102068
+        },
+        {
+          "hour": "16시",
+          "weekday": "수",
+          "wait_min": 3.33495117074737
+        },
+        {
+          "hour": "17시",
+          "weekday": "수",
+          "wait_min": 3.3306061038798203
+        },
+        {
+          "hour": "18시",
+          "weekday": "수",
+          "wait_min": 3.8165389939212297
+        },
+        {
+          "hour": "12시",
+          "weekday": "목",
+          "wait_min": 3.334870300984864
+        },
+        {
+          "hour": "13시",
+          "weekday": "목",
+          "wait_min": 3.3350000000000004
+        },
+        {
+          "hour": "14시",
+          "weekday": "목",
+          "wait_min": 3.33
+        },
+        {
+          "hour": "15시",
+          "weekday": "목",
+          "wait_min": 3.334971788060954
+        },
+        {
+          "hour": "16시",
+          "weekday": "목",
+          "wait_min": 3.334873584171585
+        },
+        {
+          "hour": "17시",
+          "weekday": "목",
+          "wait_min": 3.3316272020434656
+        },
+        {
+          "hour": "18시",
+          "weekday": "목",
+          "wait_min": 4.009855391459002
+        },
+        {
+          "hour": "12시",
+          "weekday": "금",
+          "wait_min": 3.3313221664340964
+        },
+        {
+          "hour": "13시",
+          "weekday": "금",
+          "wait_min": 3.335
+        },
+        {
+          "hour": "14시",
+          "weekday": "금",
+          "wait_min": 3.33
+        },
+        {
+          "hour": "15시",
+          "weekday": "금",
+          "wait_min": 3.3319270651668615
+        },
+        {
+          "hour": "16시",
+          "weekday": "금",
+          "wait_min": 3.3322948619234127
+        },
+        {
+          "hour": "17시",
+          "weekday": "금",
+          "wait_min": 3.331565380132944
+        },
+        {
+          "hour": "18시",
+          "weekday": "금",
+          "wait_min": 5.181047885136913
+        }
+      ],
+      "height": 320
+    }
+  },
+  {
+    "node": "circle_301",
+    "config": {
+      "id": "wait-circle_301",
+      "title": "301동 · 순환 평균 대기(분)",
+      "description": "정류소 도착시간 기준·12:00–19:00·실측이 아닌 조건부 추산. 302동 승차 전 가용60명·302→301 정원 공유·배경 승객 미반영. 빈칸은 모형 도착량 없음.",
+      "spec": {
+        "type": "heatmap",
+        "x": "hour",
+        "y": "weekday",
+        "value": "wait_min",
+        "xOrder": [
+          "12시",
+          "13시",
+          "14시",
+          "15시",
+          "16시",
+          "17시",
+          "18시"
+        ],
+        "yOrder": [
+          "월",
+          "화",
+          "수",
+          "목",
+          "금"
+        ],
+        "xLabel": "정류소 도착 시간대",
+        "yLabel": "요일",
+        "colorDomain": [
+          0,
+          20
+        ],
+        "showValues": true,
+        "missingValues": "gap",
+        "valueFormat": {
+          "style": "decimal",
+          "maximumFractionDigits": 1
+        }
+      },
+      "rows": [
+        {
+          "hour": "12시",
+          "weekday": "월",
+          "wait_min": 3.326425655104754
+        },
+        {
+          "hour": "13시",
+          "weekday": "월",
+          "wait_min": 3.3264256551047535
+        },
+        {
+          "hour": "14시",
+          "weekday": "월",
+          "wait_min": null
+        },
+        {
+          "hour": "15시",
+          "weekday": "월",
+          "wait_min": 3.3264256551047535
+        },
+        {
+          "hour": "16시",
+          "weekday": "월",
+          "wait_min": 3.326425655104754
+        },
+        {
+          "hour": "17시",
+          "weekday": "월",
+          "wait_min": 3.32642565510464
+        },
+        {
+          "hour": "18시",
+          "weekday": "월",
+          "wait_min": 3.4348212541549104
+        },
+        {
+          "hour": "12시",
+          "weekday": "화",
+          "wait_min": 3.3264256551047535
+        },
+        {
+          "hour": "13시",
+          "weekday": "화",
+          "wait_min": 3.3264256551047535
+        },
+        {
+          "hour": "14시",
+          "weekday": "화",
+          "wait_min": 3.326425655104754
+        },
+        {
+          "hour": "15시",
+          "weekday": "화",
+          "wait_min": 3.326425655104754
+        },
+        {
+          "hour": "16시",
+          "weekday": "화",
+          "wait_min": 3.3264256551047535
+        },
+        {
+          "hour": "17시",
+          "weekday": "화",
+          "wait_min": 3.3264256551046403
+        },
+        {
+          "hour": "18시",
+          "weekday": "화",
+          "wait_min": 4.021736965382743
+        },
+        {
+          "hour": "12시",
+          "weekday": "수",
+          "wait_min": 3.326425655104754
+        },
+        {
+          "hour": "13시",
+          "weekday": "수",
+          "wait_min": 3.3264256551047535
+        },
+        {
+          "hour": "14시",
+          "weekday": "수",
+          "wait_min": 3.3264256551047535
+        },
+        {
+          "hour": "15시",
+          "weekday": "수",
+          "wait_min": 3.3264256551047535
+        },
+        {
+          "hour": "16시",
+          "weekday": "수",
+          "wait_min": 3.3264256551047526
+        },
+        {
+          "hour": "17시",
+          "weekday": "수",
+          "wait_min": 3.3264256551046403
+        },
+        {
+          "hour": "18시",
+          "weekday": "수",
+          "wait_min": 4.063824456791722
+        },
+        {
+          "hour": "12시",
+          "weekday": "목",
+          "wait_min": 3.326425655104754
+        },
+        {
+          "hour": "13시",
+          "weekday": "목",
+          "wait_min": 3.3264256551047535
+        },
+        {
+          "hour": "14시",
+          "weekday": "목",
+          "wait_min": 3.326425655104754
+        },
+        {
+          "hour": "15시",
+          "weekday": "목",
+          "wait_min": 3.3264256551047535
+        },
+        {
+          "hour": "16시",
+          "weekday": "목",
+          "wait_min": 3.326425655104753
+        },
+        {
+          "hour": "17시",
+          "weekday": "목",
+          "wait_min": 3.32642565510464
+        },
+        {
+          "hour": "18시",
+          "weekday": "목",
+          "wait_min": 4.350741269841057
+        },
+        {
+          "hour": "12시",
+          "weekday": "금",
+          "wait_min": 3.3264256551047535
+        },
+        {
+          "hour": "13시",
+          "weekday": "금",
+          "wait_min": 3.3264256551047535
+        },
+        {
+          "hour": "14시",
+          "weekday": "금",
+          "wait_min": 3.326425655104754
+        },
+        {
+          "hour": "15시",
+          "weekday": "금",
+          "wait_min": 3.326425655104754
+        },
+        {
+          "hour": "16시",
+          "weekday": "금",
+          "wait_min": 3.326425655104747
+        },
+        {
+          "hour": "17시",
+          "weekday": "금",
+          "wait_min": 3.3264256551046403
+        },
+        {
+          "hour": "18시",
+          "weekday": "금",
+          "wait_min": 4.105195341321376
+        }
+      ],
+      "height": 320
+    }
+  },
+  {
+    "node": "reverse_302",
+    "config": {
+      "id": "wait-reverse_302",
+      "title": "302동 · 역순환 평균 대기(분)",
+      "description": "정류소 도착시간 기준·12:00–19:00·실측이 아닌 조건부 추산. 소형25명,302→301 정원 공유·배경 승객 미반영. 빈칸은 모형 도착량 없음.",
+      "spec": {
+        "type": "heatmap",
+        "x": "hour",
+        "y": "weekday",
+        "value": "wait_min",
+        "xOrder": [
+          "12시",
+          "13시",
+          "14시",
+          "15시",
+          "16시",
+          "17시",
+          "18시"
+        ],
+        "yOrder": [
+          "월",
+          "화",
+          "수",
+          "목",
+          "금"
+        ],
+        "xLabel": "정류소 도착 시간대",
+        "yLabel": "요일",
+        "colorDomain": [
+          0,
+          20
+        ],
+        "showValues": true,
+        "missingValues": "gap",
+        "valueFormat": {
+          "style": "decimal",
+          "maximumFractionDigits": 1
+        }
+      },
+      "rows": [
+        {
+          "hour": "12시",
+          "weekday": "월",
+          "wait_min": 10.698641179571434
+        },
+        {
+          "hour": "13시",
+          "weekday": "월",
+          "wait_min": 3.8333333333333335
+        },
+        {
+          "hour": "14시",
+          "weekday": "월",
+          "wait_min": null
+        },
+        {
+          "hour": "15시",
+          "weekday": "월",
+          "wait_min": 9.89983026532101
+        },
+        {
+          "hour": "16시",
+          "weekday": "월",
+          "wait_min": 3.833333333333333
+        },
+        {
+          "hour": "17시",
+          "weekday": "월",
+          "wait_min": null
+        },
+        {
+          "hour": "18시",
+          "weekday": "월",
+          "wait_min": null
+        },
+        {
+          "hour": "12시",
+          "weekday": "화",
+          "wait_min": 10.017143000847113
+        },
+        {
+          "hour": "13시",
+          "weekday": "화",
+          "wait_min": 7.388576550389491
+        },
+        {
+          "hour": "14시",
+          "weekday": "화",
+          "wait_min": null
+        },
+        {
+          "hour": "15시",
+          "weekday": "화",
+          "wait_min": 10.937880527486744
+        },
+        {
+          "hour": "16시",
+          "weekday": "화",
+          "wait_min": 3.838380813684731
+        },
+        {
+          "hour": "17시",
+          "weekday": "화",
+          "wait_min": null
+        },
+        {
+          "hour": "18시",
+          "weekday": "화",
+          "wait_min": null
+        },
+        {
+          "hour": "12시",
+          "weekday": "수",
+          "wait_min": 11.098957638079757
+        },
+        {
+          "hour": "13시",
+          "weekday": "수",
+          "wait_min": 3.8333333333333335
+        },
+        {
+          "hour": "14시",
+          "weekday": "수",
+          "wait_min": 12.5
+        },
+        {
+          "hour": "15시",
+          "weekday": "수",
+          "wait_min": 10.482821078899665
+        },
+        {
+          "hour": "16시",
+          "weekday": "수",
+          "wait_min": 3.892696617699087
+        },
+        {
+          "hour": "17시",
+          "weekday": "수",
+          "wait_min": null
+        },
+        {
+          "hour": "18시",
+          "weekday": "수",
+          "wait_min": null
+        },
+        {
+          "hour": "12시",
+          "weekday": "목",
+          "wait_min": 10.741335987088734
+        },
+        {
+          "hour": "13시",
+          "weekday": "목",
+          "wait_min": 3.8333333333333335
+        },
+        {
+          "hour": "14시",
+          "weekday": "목",
+          "wait_min": null
+        },
+        {
+          "hour": "15시",
+          "weekday": "목",
+          "wait_min": 10.805335373316858
+        },
+        {
+          "hour": "16시",
+          "weekday": "목",
+          "wait_min": 4.575346933179611
+        },
+        {
+          "hour": "17시",
+          "weekday": "목",
+          "wait_min": null
+        },
+        {
+          "hour": "18시",
+          "weekday": "목",
+          "wait_min": null
+        },
+        {
+          "hour": "12시",
+          "weekday": "금",
+          "wait_min": 12.02439237628956
+        },
+        {
+          "hour": "13시",
+          "weekday": "금",
+          "wait_min": null
+        },
+        {
+          "hour": "14시",
+          "weekday": "금",
+          "wait_min": null
+        },
+        {
+          "hour": "15시",
+          "weekday": "금",
+          "wait_min": 4.352112676056338
+        },
+        {
+          "hour": "16시",
+          "weekday": "금",
+          "wait_min": 12.5
+        },
+        {
+          "hour": "17시",
+          "weekday": "금",
+          "wait_min": null
+        },
+        {
+          "hour": "18시",
+          "weekday": "금",
+          "wait_min": null
+        }
+      ],
+      "height": 320
+    }
+  },
+  {
+    "node": "reverse_301",
+    "config": {
+      "id": "wait-reverse_301",
+      "title": "301동 · 역순환 평균 대기(분)",
+      "description": "정류소 도착시간 기준·12:00–19:00·실측이 아닌 조건부 추산. 소형25명,302→301 정원 공유·배경 승객 미반영. 빈칸은 모형 도착량 없음.",
+      "spec": {
+        "type": "heatmap",
+        "x": "hour",
+        "y": "weekday",
+        "value": "wait_min",
+        "xOrder": [
+          "12시",
+          "13시",
+          "14시",
+          "15시",
+          "16시",
+          "17시",
+          "18시"
+        ],
+        "yOrder": [
+          "월",
+          "화",
+          "수",
+          "목",
+          "금"
+        ],
+        "xLabel": "정류소 도착 시간대",
+        "yLabel": "요일",
+        "colorDomain": [
+          0,
+          20
+        ],
+        "showValues": true,
+        "missingValues": "gap",
+        "valueFormat": {
+          "style": "decimal",
+          "maximumFractionDigits": 1
+        }
+      },
+      "rows": [
+        {
+          "hour": "12시",
+          "weekday": "월",
+          "wait_min": 7.04309232177142
+        },
+        {
+          "hour": "13시",
+          "weekday": "월",
+          "wait_min": 10.827391954417964
+        },
+        {
+          "hour": "14시",
+          "weekday": "월",
+          "wait_min": null
+        },
+        {
+          "hour": "15시",
+          "weekday": "월",
+          "wait_min": 5.116583135419714
+        },
+        {
+          "hour": "16시",
+          "weekday": "월",
+          "wait_min": 12.678737186494226
+        },
+        {
+          "hour": "17시",
+          "weekday": "월",
+          "wait_min": null
+        },
+        {
+          "hour": "18시",
+          "weekday": "월",
+          "wait_min": null
+        },
+        {
+          "hour": "12시",
+          "weekday": "화",
+          "wait_min": 3.876425655104754
+        },
+        {
+          "hour": "13시",
+          "weekday": "화",
+          "wait_min": 13.428332942565016
+        },
+        {
+          "hour": "14시",
+          "weekday": "화",
+          "wait_min": null
+        },
+        {
+          "hour": "15시",
+          "weekday": "화",
+          "wait_min": 7.444500772475646
+        },
+        {
+          "hour": "16시",
+          "weekday": "화",
+          "wait_min": 12.122791255299214
+        },
+        {
+          "hour": "17시",
+          "weekday": "화",
+          "wait_min": null
+        },
+        {
+          "hour": "18시",
+          "weekday": "화",
+          "wait_min": null
+        },
+        {
+          "hour": "12시",
+          "weekday": "수",
+          "wait_min": 4.6123563910354894
+        },
+        {
+          "hour": "13시",
+          "weekday": "수",
+          "wait_min": 13.476425655104753
+        },
+        {
+          "hour": "14시",
+          "weekday": "수",
+          "wait_min": null
+        },
+        {
+          "hour": "15시",
+          "weekday": "수",
+          "wait_min": 5.409444523029282
+        },
+        {
+          "hour": "16시",
+          "weekday": "수",
+          "wait_min": 12.43223675755037
+        },
+        {
+          "hour": "17시",
+          "weekday": "수",
+          "wait_min": null
+        },
+        {
+          "hour": "18시",
+          "weekday": "수",
+          "wait_min": null
+        },
+        {
+          "hour": "12시",
+          "weekday": "목",
+          "wait_min": 7.228380962367324
+        },
+        {
+          "hour": "13시",
+          "weekday": "목",
+          "wait_min": 10.987536766215865
+        },
+        {
+          "hour": "14시",
+          "weekday": "목",
+          "wait_min": null
+        },
+        {
+          "hour": "15시",
+          "weekday": "목",
+          "wait_min": 5.728277506956605
+        },
+        {
+          "hour": "16시",
+          "weekday": "목",
+          "wait_min": 11.942822384906028
+        },
+        {
+          "hour": "17시",
+          "weekday": "목",
+          "wait_min": null
+        },
+        {
+          "hour": "18시",
+          "weekday": "목",
+          "wait_min": null
+        },
+        {
+          "hour": "12시",
+          "weekday": "금",
+          "wait_min": null
+        },
+        {
+          "hour": "13시",
+          "weekday": "금",
+          "wait_min": null
+        },
+        {
+          "hour": "14시",
+          "weekday": "금",
+          "wait_min": 4.4566923217714205
+        },
+        {
+          "hour": "15시",
+          "weekday": "금",
+          "wait_min": 4.761410200411407
+        },
+        {
+          "hour": "16시",
+          "weekday": "금",
+          "wait_min": null
+        },
+        {
+          "hour": "17시",
+          "weekday": "금",
+          "wait_min": null
+        },
+        {
+          "hour": "18시",
+          "weekday": "금",
+          "wait_min": null
+        }
+      ],
+      "height": 320
+    }
+  }
+]

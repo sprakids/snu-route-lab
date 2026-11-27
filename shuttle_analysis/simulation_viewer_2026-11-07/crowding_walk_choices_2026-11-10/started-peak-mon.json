@@ -1,0 +1,51 @@
+{
+  "status": "STARTED",
+  "model_sha256": "9baaeda1ea8523e39455c24c57159bbf917ce44e1dd617f0648bb5254c15d14f",
+  "prepared_sha256": "857b47bcb50501b045190e02f97b53327713ce999d9caf4078a016bedc9d2343",
+  "case": [
+    "peak",
+    "월"
+  ],
+  "started_at": "2026-11-10T13:45:24.472700+09:00",
+  "rule": {
+    "neighbor_walk_seconds": 600,
+    "maximum_individual_transfer_walk_seconds": 900,
+    "neighbor_stops": 6,
+    "options_per_stop": 2,
+    "minimum_gain_seconds": 120,
+    "maximum_changes": 4,
+    "change_budget_probabilities": [
+      0.35,
+      0.4,
+      0.17,
+      0.06,
+      0.02
+    ],
+    "change_budget_prior_mean": 1.0,
+    "congestion_can_raise_budget": true,
+    "same_line_downstream_consideration_probability": 0.08,
+    "continuous_wait_review_limit_seconds": 1200,
+    "walking_willingness": {
+      "plateau_meters": 500,
+      "weight_at_1000_meters": 0.3,
+      "tail_decay_meters": 150,
+      "meaning": "relative consideration weight, user scenario, not measured mode share"
+    },
+    "named_stop_queue_tolerance_range": [
+      25.0,
+      40.0
+    ],
+    "terminal_walk_reserved_for_final_change": true,
+    "include_shuttle": true,
+    "soft_queue_reference_people": 40,
+    "soft_reference_stop_ids": [
+      "120000167",
+      "120000168",
+      "120000196",
+      "120000197"
+    ],
+    "reference_source": "user recollection, not counted observations",
+    "do_not_clip_queue_or_delete_demand": true,
+    "independent_empirical_validation": false
+  }
+}

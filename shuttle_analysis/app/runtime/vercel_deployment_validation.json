@@ -1,0 +1,95 @@
+{
+  "public_url": "https://snu-route-lab.vercel.app",
+  "deployment_id": "dpl_BgMztXeK3VbF8aeznSKdsZfEkVaa",
+  "team": "june-f3d1",
+  "project": "snu-route-lab",
+  "checked_at": 1793954085.8551786,
+  "anonymous_access": true,
+  "checks": [
+    {
+      "path": "/vendor/leaflet.js",
+      "status": 200,
+      "bytes": 147552
+    },
+    {
+      "path": "/vendor/leaflet.css",
+      "status": 200,
+      "bytes": 14806
+    },
+    {
+      "path": "/style.css",
+      "status": 200,
+      "bytes": 18745
+    },
+    {
+      "path": "/server.py",
+      "status": 404,
+      "bytes": 79
+    },
+    {
+      "path": "/api/shuttle",
+      "status": 200,
+      "records": 18,
+      "stale": false,
+      "error": null
+    },
+    {
+      "path": "/api/plan",
+      "status": 200,
+      "origin_header_accepted": true,
+      "candidates": 12,
+      "live_shuttle_candidates": 1,
+      "error": null
+    },
+    {
+      "path": "/api/refresh",
+      "cross_origin_status": 403
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 7982,
+      "content_type": "text/html; charset=utf-8",
+      "expected_title": true
+    },
+    {
+      "path": "/api/health",
+      "status": 200,
+      "bytes": 56,
+      "content_type": "application/json; charset=utf-8",
+      "body": {
+        "ok": true,
+        "app": "snu-route-lab",
+        "version": "0.1.0"
+      }
+    },
+    {
+      "path": "/api/bootstrap",
+      "status": 200,
+      "bytes": 70905,
+      "content_type": "application/json; charset=utf-8",
+      "origins": 13,
+      "error": null,
+      "bus_key_configured": true
+    },
+    {
+      "path": "/app.js",
+      "status": 200,
+      "bytes": 22356,
+      "content_type": "application/javascript; charset=utf-8"
+    },
+    {
+      "path": "/map.js",
+      "status": 200,
+      "bytes": 7396,
+      "content_type": "application/javascript; charset=utf-8"
+    }
+  ],
+  "server_key_exposure_found": false,
+  "private_storage_live_read_write": true,
+  "private_storage_live_conditional_write": true,
+  "unit_tests": 35,
+  "simulated_dom_tests": 12,
+  "visual_browser_test": false,
+  "source_sha256": "a0ff132418d380b90a7a5f39277aa7edb60520cd7b00e96fafb68cc125bab715"
+}

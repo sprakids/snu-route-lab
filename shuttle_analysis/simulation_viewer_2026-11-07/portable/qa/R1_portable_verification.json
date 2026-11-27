@@ -1,0 +1,56 @@
+{
+  "status": "PASS",
+  "zip": "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\share_packages\\SNU_Shuttle_Map_Windows_2026-11-07_R1.zip",
+  "zip_sha256": "76ca2b0dab36d35b04e7911777ab3a673e57d9a388866ae3bf5a398fecf7fe49",
+  "extracted_test_folder": "C:\\Users\\김예준\\AppData\\Local\\Temp\\SNU_Map_Portable_20261107_rx_vj2wb\\한글 공백 & 괄호 (검증)\\SNU_Shuttle_Map_Windows_2026-11-07_R1",
+  "launcher_sha256": "81a34181b2285579918355c5d57f373c324b951a838cb7fe0c9d8185b1217212",
+  "tests": [
+    {
+      "test": "archive_crc_and_extracted_manifest",
+      "files": 24,
+      "pass": true
+    },
+    {
+      "test": "independent_working_directory_and_no_runtime_on_path",
+      "cwd": "C:\\WINDOWS",
+      "url": "http://127.0.0.1:64977/",
+      "pass": true
+    },
+    {
+      "test": "concurrent_all_assets_match_model_snapshot",
+      "files": 24,
+      "pass": true
+    },
+    {
+      "test": "gzip_identity_q0_and_head",
+      "pass": true
+    },
+    {
+      "test": "read_only_allowlist_and_loopback_host",
+      "pass": true
+    },
+    {
+      "test": "duplicate_reuses_existing_instance",
+      "pass": true
+    },
+    {
+      "test": "graceful_stop_closes_port_and_state",
+      "pass": true
+    },
+    {
+      "test": "restart_after_shutdown",
+      "pass": true
+    },
+    {
+      "test": "incomplete_extraction_reports_error",
+      "pass": true
+    },
+    {
+      "test": "changed_asset_detected_before_start",
+      "pass": true
+    }
+  ],
+  "platform_tested": "Current Windows 11 x64; other Windows machines not physically tested",
+  "no_python_node_or_codex_used_by_launcher": true,
+  "original_viewer_inputs_changed": false
+}

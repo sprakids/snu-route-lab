@@ -1,0 +1,78 @@
+{
+  "status": "PASS",
+  "scenario_count": 10,
+  "replications": 10,
+  "conditional_csv_rows": 41928,
+  "scenario_csv_rows": 249130,
+  "independent_scenario_reconstruction": [
+    {
+      "scenario": "historical_reference",
+      "matched_bins": 24913,
+      "max_absolute_error": 5.684341886080802e-14
+    },
+    {
+      "scenario": "equal_reference",
+      "matched_bins": 24913,
+      "max_absolute_error": 5.684341886080802e-14
+    },
+    {
+      "scenario": "snu_plus10pp",
+      "matched_bins": 24913,
+      "max_absolute_error": 5.684341886080802e-14
+    },
+    {
+      "scenario": "snu_minus10pp",
+      "matched_bins": 24913,
+      "max_absolute_error": 2.842170943040401e-14
+    },
+    {
+      "scenario": "nak_plus10pp",
+      "matched_bins": 24913,
+      "max_absolute_error": 5.684341886080802e-14
+    },
+    {
+      "scenario": "nak_minus10pp",
+      "matched_bins": 24913,
+      "max_absolute_error": 2.842170943040401e-14
+    },
+    {
+      "scenario": "daehak_plus10pp",
+      "matched_bins": 24913,
+      "max_absolute_error": 5.684341886080802e-14
+    },
+    {
+      "scenario": "daehak_minus10pp",
+      "matched_bins": 24913,
+      "max_absolute_error": 2.842170943040401e-14
+    },
+    {
+      "scenario": "historical_dorm10",
+      "matched_bins": 24913,
+      "max_absolute_error": 5.684341886080802e-14
+    },
+    {
+      "scenario": "historical_dorm30",
+      "matched_bins": 24913,
+      "max_absolute_error": 2.842170943040401e-14
+    }
+  ],
+  "maximum_mode_conservation_error": 2.5465851649641987e-11,
+  "maximum_conditional_boarding_link_error": 1.7462298274040222e-10,
+  "duplicate_scenario_stop_route_stage_bins": 0,
+  "original_files_verified_unchanged": 122,
+  "equal_baseline_max_absolute_error": 4.999831153540413e-07,
+  "zero_filled_peak_exports": [
+    {
+      "file": "replicate_stop_peaks_zero_filled.csv",
+      "rows": 71200,
+      "zero_filled_rows": 6140
+    },
+    {
+      "file": "replicate_stop_direction_peaks_zero_filled.csv",
+      "rows": 128100,
+      "zero_filled_rows": 13860
+    }
+  ],
+  "unmeasured_current_destination_shares_preserved_null": true,
+  "meaning": "Internal simulation arithmetic passed; not validation against observed queues or occupancy."
+}

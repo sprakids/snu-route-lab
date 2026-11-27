@@ -1,0 +1,12 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "snu-route-collector",
+  "account_id": "da0a8006016706a86257d162837dc4a8",
+  "main": "worker.mjs",
+  "compatibility_date": "2026-11-07",
+  "workers_dev": true,
+  "durable_objects": {"bindings": [{"name":"COORDINATOR","class_name":"Coordinator"},{"name":"HISTORY","class_name":"DailyHistory"}]},
+  "migrations": [{"tag":"v1","new_sqlite_classes":["Coordinator","DailyHistory"]}],
+  "triggers": {"crons":["* * * * *"]},
+  "observability": {"enabled":true,"head_sampling_rate":0.1}
+}

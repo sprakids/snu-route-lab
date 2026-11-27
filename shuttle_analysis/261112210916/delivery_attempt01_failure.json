@@ -1,0 +1,11 @@
+{
+  "status": "DELIVERY_GENERATOR_SCHEMA_ASSERTION_FAILED",
+  "observed_at": "2026-11-12T21:51:03+09:00",
+  "cause": "Peer report_sha256 is a per-document mapping; writer incorrectly compared it as a scalar digest. Both document digests and runtime14 actually matched.",
+  "model_or_numeric_results_changed": false,
+  "partial_outputs": [
+    "empty collaboration delivery directory",
+    "runtime-comparison.csv"
+  ],
+  "recovery": "Preserve original writer, reuse identical runtime CSV, validate each mapped peer document, complete remaining new delivery files without rerunning models."
+}

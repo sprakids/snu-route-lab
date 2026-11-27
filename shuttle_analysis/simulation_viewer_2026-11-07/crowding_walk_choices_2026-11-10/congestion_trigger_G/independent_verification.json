@@ -1,0 +1,1315 @@
+{
+  "status": "PASS",
+  "simulation_runs": 10,
+  "model_sha256": "bd645a47900570cd60031196dd298530c1e8f7270cacae0bc0911e249621d141",
+  "source_simulation": "capacity_v7",
+  "dataset": "capacity_v9",
+  "all_stop_quality": {
+    "status": "PASS",
+    "wait_limit_minutes": 20,
+    "named_queue_reference": 40,
+    "all_cases_pass": true,
+    "field_fit": [
+      {
+        "id": "admin_snu_1653",
+        "before": {
+          "id": "admin_snu_1653",
+          "stop": "admin_snu",
+          "minute": 1013,
+          "people_interval": [
+            53,
+            53
+          ],
+          "node": 1,
+          "uniform_minute_mean": 54.01685838731642,
+          "temporal_min_max": [
+            34.45166,
+            76.160239
+          ],
+          "expected_absolute_distance_to_report_interval": 10.47742374954983,
+          "fraction_of_minute_in_report_interval_with_half_person_rounding": 0.0,
+          "not_independent_validation": true
+        },
+        "after": {
+          "id": "admin_snu_1653",
+          "stop": "admin_snu",
+          "minute": 1013,
+          "people_interval": [
+            53,
+            53
+          ],
+          "node": 1,
+          "uniform_minute_mean": 54.01685838731642,
+          "temporal_min_max": [
+            34.45166,
+            76.160239
+          ],
+          "expected_absolute_distance_to_report_interval": 10.47742374954983,
+          "fraction_of_minute_in_report_interval_with_half_person_rounding": 0.0,
+          "not_independent_validation": true
+        },
+        "passes": true
+      },
+      {
+        "id": "culture_1655",
+        "before": {
+          "id": "culture_1655",
+          "stop": "city_120000195",
+          "minute": 1015,
+          "people_interval": [
+            5,
+            5
+          ],
+          "node": 59,
+          "uniform_minute_mean": 5.342952470083406,
+          "temporal_min_max": [
+            3.198281,
+            7.892834
+          ],
+          "expected_absolute_distance_to_report_interval": 1.2045588344834282,
+          "fraction_of_minute_in_report_interval_with_half_person_rounding": 0.3777999999999641,
+          "not_independent_validation": true
+        },
+        "after": {
+          "id": "culture_1655",
+          "stop": "city_120000195",
+          "minute": 1015,
+          "people_interval": [
+            5,
+            5
+          ],
+          "node": 59,
+          "uniform_minute_mean": 4.570150396350041,
+          "temporal_min_max": [
+            3.198281,
+            5.498799
+          ],
+          "expected_absolute_distance_to_report_interval": 0.5315994406500364,
+          "fraction_of_minute_in_report_interval_with_half_person_rounding": 0.6652333333332838,
+          "not_independent_validation": true
+        },
+        "passes": true
+      },
+      {
+        "id": "snu_gate_1703",
+        "before": {
+          "id": "snu_gate_1703",
+          "stop": "city_gate",
+          "minute": 1023,
+          "people_interval": [
+            33,
+            39
+          ],
+          "node": 62,
+          "uniform_minute_mean": 31.898865214650073,
+          "temporal_min_max": [
+            28.410462,
+            37.20106
+          ],
+          "expected_absolute_distance_to_report_interval": 1.597088155750007,
+          "fraction_of_minute_in_report_interval_with_half_person_rounding": 0.4798499999999573,
+          "not_independent_validation": true
+        },
+        "after": {
+          "id": "snu_gate_1703",
+          "stop": "city_gate",
+          "minute": 1023,
+          "people_interval": [
+            33,
+            39
+          ],
+          "node": 62,
+          "uniform_minute_mean": 40.19906875738348,
+          "temporal_min_max": [
+            35.143686,
+            47.226081
+          ],
+          "expected_absolute_distance_to_report_interval": 2.2618970721001483,
+          "fraction_of_minute_in_report_interval_with_half_person_rounding": 0.5197166666666211,
+          "not_independent_validation": true
+        },
+        "passes": true
+      }
+    ]
+  },
+  "field_fit_selection_rule": {
+    "sum_expected_absolute_interval_error_before": 13.279070739783265,
+    "sum_expected_absolute_interval_error_after": 13.270920262300015,
+    "sum_not_worse": true,
+    "per_case_maximum_error_increase_people": 1.0,
+    "rule_selected_after_pilot_review": true,
+    "reason": "Preserve comparable overall fit to three minute-uncertain count observations; do not claim independent accuracy from reused selection observations."
+  },
+  "maximum_particle_mass_error": 8.826273045769994e-15,
+  "original_hashes_unchanged": true,
+  "protected_files": 106,
+  "run_summaries": [
+    {
+      "scenario": "peak",
+      "weekday": "mon",
+      "quality_gates": {
+        "no_wait_over_20_min": true,
+        "named_stops_at_most_40": true,
+        "independent_conservation": true
+      },
+      "maximum_continuous_wait_min": 16.594410087802316,
+      "over_20_minute_weight": 0.0,
+      "baseline_over_20_minute_weight": 2784.7963373159387,
+      "paired_metrics": {
+        "wait_seconds": {
+          "before": 10.336374382289659,
+          "after": 8.71051988103195
+        },
+        "walking_seconds": {
+          "before": 9.773916907074229,
+          "after": 11.494576044404257
+        },
+        "total_seconds": {
+          "before": 27.165997745652096,
+          "after": 27.26732773929242
+        },
+        "route_changes": {
+          "before": 0.4247805976806229,
+          "after": 0.9994746155013272
+        }
+      },
+      "targets": {
+        "46": {
+          "name": "서울대정문",
+          "ars": "21269",
+          "before_max_queue": 0.102751,
+          "after_max_queue": 0.150597,
+          "before_waits": {
+            "waiting_episode_weight": 0.10275116571337825,
+            "mean_continuous_wait_min": 1.00785408224959,
+            "p90_continuous_wait_min": 1.00785408224959,
+            "max_continuous_wait_min": 1.00785408224959,
+            "over_20_minute_weight": 0.0,
+            "over_20_minute_partition_rows": 0
+          },
+          "after_waits": {
+            "waiting_episode_weight": 0.2533486023760565,
+            "mean_continuous_wait_min": 2.9979763205659964,
+            "p90_continuous_wait_min": 5.333333333333333,
+            "max_continuous_wait_min": 5.333333333333333,
+            "over_20_minute_weight": 0.0,
+            "over_20_minute_partition_rows": 0
+          }
+        },
+        "47": {
+          "name": "법대.사회대입구",
+          "ars": "21270",
+          "before_max_queue": 2.568779,
+          "after_max_queue": 25.164431,
+          "before_waits": {
+            "waiting_episode_weight": 6.350098249399232,
+            "mean_continuous_wait_min": 3.261384445937294,
+            "p90_continuous_wait_min": 6.415712981964801,
+            "max_continuous_wait_min": 7.260362111831152,
+            "over_20_minute_weight": 0.0,
+            "over_20_minute_partition_rows": 0
+          },
+          "after_waits": {
+            "waiting_episode_weight": 104.43670922467393,
+            "mean_continuous_wait_min": 2.0815433143102013,
+            "p90_continuous_wait_min": 5.563527819766872,
+            "max_continuous_wait_min": 8.182363767526597,
+            "over_20_minute_weight": 0.0,
+            "over_20_minute_partition_rows": 0
+          }
+        },
+        "60": {
+          "name": "법대.사회대입구",
+          "ars": "21298",
+          "before_max_queue": 127.033993,
+          "after_max_queue": 35.739739,
+          "before_waits": {
+            "waiting_episode_weight": 912.9484850441567,
+            "mean_continuous_wait_min": 19.915541919934533,
+            "p90_continuous_wait_min": 48.4103076810877,
+            "max_continuous_wait_min": 66.19094699331278,
+            "over_20_minute_weight": 393.8497784330779,
+            "over_20_minute_partition_rows": 692
+          },
+          "after_waits": {
+            "waiting_episode_weight": 709.9477828933178,
+            "mean_continuous_wait_min": 4.8962281243212695,
+            "p90_continuous_wait_min": 9.294244109301266,
+            "max_continuous_wait_min": 15.993276235577287,
+            "over_20_minute_weight": 0.0,
+            "over_20_minute_partition_rows": 0
+          }
+        },
+        "61": {
+          "name": "서울대정문",
+          "ars": "21299",
+          "before_max_queue": 93.747249,
+          "after_max_queue": 35.38683,
+          "before_waits": {
+            "waiting_episode_weight": 236.16231225907296,
+            "mean_continuous_wait_min": 47.89891182084528,
+            "p90_continuous_wait_min": 94.26054997418639,
+            "max_continuous_wait_min": 112.27304143791552,
+            "over_20_minute_weight": 207.8831629218114,
+            "over_20_minute_partition_rows": 461
+          },
+          "after_waits": {
+            "waiting_episode_weight": 280.5160372864,
+            "mean_continuous_wait_min": 5.141794573503328,
+            "p90_continuous_wait_min": 10.393800862149995,
+            "max_continuous_wait_min": 15.424666667459315,
+            "over_20_minute_weight": 0.0,
+            "over_20_minute_partition_rows": 0
+          }
+        }
+      }
+    },
+    {
+      "scenario": "peak",
+      "weekday": "tue",
+      "quality_gates": {
+        "no_wait_over_20_min": true,
+        "named_stops_at_most_40": true,
+        "independent_conservation": true
+      },
+      "maximum_continuous_wait_min": 18.15677309037795,
+      "over_20_minute_weight": 0.0,
+      "baseline_over_20_minute_weight": 2751.197084735428,
+      "paired_metrics": {
+        "wait_seconds": {
+          "before": 10.543270770869574,
+          "after": 8.653911886213326
+        },
+        "walking_seconds": {
+          "before": 9.533122609610583,
+          "after": 11.328157936380238
+        },
+        "total_seconds": {
+          "before": 27.31760791322013,
+          "after": 27.187313691498964
+        },
+        "route_changes": {
+          "before": 0.4149277501077967,
+          "after": 0.9930931566579861
+        }
+      },
+      "targets": {
+        "46": {
+          "name": "서울대정문",
+          "ars": "21269",
+          "before_max_queue": 0.0,
+          "after_max_queue": 8.282886,
+          "before_waits": null,
+          "after_waits": {
+            "waiting_episode_weight": 8.80349154239844,
+            "mean_continuous_wait_min": 1.0967579306434057,
+            "p90_continuous_wait_min": 2.0101680684265983,
+            "max_continuous_wait_min": 2.1743226838494594,
+            "over_20_minute_weight": 0.0,
+            "over_20_minute_partition_rows": 0
+          }
+        },
+        "47": {
+          "name": "법대.사회대입구",
+          "ars": "21270",
+          "before_max_queue": 1.626893,
+          "after_max_queue": 28.774034,
+          "before_waits": {
+            "waiting_episode_weight": 4.714795942736374,
+            "mean_continuous_wait_min": 2.8027326895626348,
+            "p90_continuous_wait_min": 5.738830795377726,
+            "max_continuous_wait_min": 7.0654040891725645,
+            "over_20_minute_weight": 0.0,
+            "over_20_minute_partition_rows": 0
+          },
+          "after_waits": {
+            "waiting_episode_weight": 115.37735964360658,
+            "mean_continuous_wait_min": 2.219538656004415,
+            "p90_continuous_wait_min": 6.039438691144945,
+            "max_continuous_wait_min": 9.869849911723456,
+            "over_20_minute_weight": 0.0,
+            "over_20_minute_partition_rows": 0
+          }
+        },
+        "60": {
+          "name": "법대.사회대입구",
+          "ars": "21298",
+          "before_max_queue": 130.917289,
+          "after_max_queue": 35.101912,
+          "before_waits": {
+            "waiting_episode_weight": 977.1156978323679,
+            "mean_continuous_wait_min": 19.178317368262448,
+            "p90_continuous_wait_min": 40.36331140184581,
+            "max_continuous_wait_min": 60.974287628806756,
+            "over_20_minute_weight": 399.63901008444356,
+            "over_20_minute_partition_rows": 916
+          },
+          "after_waits": {
+            "waiting_episode_weight": 755.5585118600516,
+            "mean_continuous_wait_min": 4.789973066015725,
+            "p90_continuous_wait_min": 9.23524999230261,
+            "max_continuous_wait_min": 15.650966856750044,
+            "over_20_minute_weight": 0.0,
+            "over_20_minute_partition_rows": 0
+          }
+        },
+        "61": {
+          "name": "서울대정문",
+          "ars": "21299",
+          "before_max_queue": 106.377859,
+          "after_max_queue": 37.088839,
+          "before_waits": {
+            "waiting_episode_weight": 268.96488317919784,
+            "mean_continuous_wait_min": 42.443953910938276,
+            "p90_continuous_wait_min": 58.31465300740274,
+            "max_continuous_wait_min": 73.09931276525252,
+            "over_20_minute_weight": 259.0707853913076,
+            "over_20_minute_partition_rows": 536
+          },
+          "after_waits": {
+            "waiting_episode_weight": 284.18069196235035,
+            "mean_continuous_wait_min": 4.978943956737433,
+            "p90_continuous_wait_min": 9.468229663624031,
+            "max_continuous_wait_min": 15.953781427740129,
+            "over_20_minute_weight": 0.0,
+            "over_20_minute_partition_rows": 0
+          }
+        }
+      }
+    },
+    {
+      "scenario": "peak",
+      "weekday": "wed",
+      "quality_gates": {
+        "no_wait_over_20_min": true,
+        "named_stops_at_most_40": true,
+        "independent_conservation": true
+      },
+      "maximum_continuous_wait_min": 17.517034748361645,
+      "over_20_minute_weight": 0.0,
+      "baseline_over_20_minute_weight": 2708.1119724475748,
+      "paired_metrics": {
+        "wait_seconds": {
+          "before": 10.069920314940342,
+          "after": 8.845594174614426
+        },
+        "walking_seconds": {
+          "before": 9.842466327133435,
+          "after": 11.564968776531218
+        },
+        "total_seconds": {
+          "before": 26.995054083393395,
+          "after": 27.54323637972488
+        },
+        "route_changes": {
+          "before": 0.421062241170545,
+          "after": 1.006902051280015
+        }
+      },
+      "targets": {
+        "46": {
+          "name": "서울대정문",
+          "ars": "21269",
+          "before_max_queue": 0.0,
+          "after_max_queue": 4.362874,
+          "before_waits": null,
+          "after_waits": {
+            "waiting_episode_weight": 4.362873865659804,
+            "mean_continuous_wait_min": 0.8611135829323591,
+            "p90_continuous_wait_min": 1.213957494247855,
+            "max_continuous_wait_min": 1.8362732552103505,
+            "over_20_minute_weight": 0.0,
+            "over_20_minute_partition_rows": 0
+          }
+        },
+        "47": {
+          "name": "법대.사회대입구",
+          "ars": "21270",
+          "before_max_queue": 2.934117,
+          "after_max_queue": 28.542288,
+          "before_waits": {
+            "waiting_episode_weight": 5.943217810049944,
+            "mean_continuous_wait_min": 4.020489095926721,
+            "p90_continuous_wait_min": 7.157652581515867,
+            "max_continuous_wait_min": 9.061872372168242,
+            "over_20_minute_weight": 0.0,
+            "over_20_minute_partition_rows": 0
+          },
+          "after_waits": {
+            "waiting_episode_weight": 141.45529477405663,
+            "mean_continuous_wait_min": 2.314787005159591,
+            "p90_continuous_wait_min": 6.0868036131229015,
+            "max_continuous_wait_min": 10.217539827975028,
+            "over_20_minute_weight": 0.0,
+            "over_20_minute_partition_rows": 0
+          }
+        },
+        "60": {
+          "name": "법대.사회대입구",
+          "ars": "21298",
+          "before_max_queue": 112.348106,
+          "after_max_queue": 34.623558,
+          "before_waits": {
+            "waiting_episode_weight": 1004.513495868475,
+            "mean_continuous_wait_min": 20.418182296845583,
+            "p90_continuous_wait_min": 40.4090135753943,
+            "max_continuous_wait_min": 62.85385263659761,
+            "over_20_minute_weight": 444.7293151093549,
+            "over_20_minute_partition_rows": 930
+          },
+          "after_waits": {
+            "waiting_episode_weight": 752.8478560365653,
+            "mean_continuous_wait_min": 5.011346860596146,
+            "p90_continuous_wait_min": 9.540457926925349,
+            "max_continuous_wait_min": 15.857447642867434,
+            "over_20_minute_weight": 0.0,
+            "over_20_minute_partition_rows": 0
+          }
+        },
+        "61": {
+          "name": "서울대정문",
+          "ars": "21299",
+          "before_max_queue": 101.896115,
+          "after_max_queue": 34.058889,
+          "before_waits": {
+            "waiting_episode_weight": 196.33585969213058,
+            "mean_continuous_wait_min": 44.23873052730572,
+            "p90_continuous_wait_min": 58.29355150793005,
+            "max_continuous_wait_min": 74.46883700183376,
+            "over_20_minute_weight": 174.80824805912184,
+            "over_20_minute_partition_rows": 389
+          },
+          "after_waits": {
+            "waiting_episode_weight": 279.7908408484465,
+            "mean_continuous_wait_min": 4.986426602391053,
+            "p90_continuous_wait_min": 10.513713940708476,
+            "max_continuous_wait_min": 15.90027394370239,
+            "over_20_minute_weight": 0.0,
+            "over_20_minute_partition_rows": 0
+          }
+        }
+      }
+    },
+    {
+      "scenario": "peak",
+      "weekday": "thu",
+      "quality_gates": {
+        "no_wait_over_20_min": true,
+        "named_stops_at_most_40": true,
+        "independent_conservation": true
+      },
+      "maximum_continuous_wait_min": 16.56085007217213,
+      "over_20_minute_weight": 0.0,
+      "baseline_over_20_minute_weight": 2172.870224583309,
+      "paired_metrics": {
+        "wait_seconds": {
+          "before": 9.727456329066795,
+          "after": 8.264250626342223
+        },
+        "walking_seconds": {
+          "before": 9.532921649151943,
+          "after": 11.140433604011244
+        },
+        "total_seconds": {
+          "before": 26.408812960242145,
+          "after": 26.579576602304723
+        },
+        "route_changes": {
+          "before": 0.36891927784874234,
+          "after": 0.9358800878026942
+        }
+      },
+      "targets": {
+        "46": {
+          "name": "서울대정문",
+          "ars": "21269",
+          "before_max_queue": 0.0,
+          "after_max_queue": 2.580196,
+          "before_waits": null,
+          "after_waits": {
+            "waiting_episode_weight": 2.5801959390248315,
+            "mean_continuous_wait_min": 0.6947957691248733,
+            "p90_continuous_wait_min": 1.1534074007596549,
+            "max_continuous_wait_min": 1.1751510107602372,
+            "over_20_minute_weight": 0.0,
+            "over_20_minute_partition_rows": 0
+          }
+        },
+        "47": {
+          "name": "법대.사회대입구",
+          "ars": "21270",
+          "before_max_queue": 1.594822,
+          "after_max_queue": 29.235754,
+          "before_waits": {
+            "waiting_episode_weight": 5.38815452824925,
+            "mean_continuous_wait_min": 3.6280360188530225,
+            "p90_continuous_wait_min": 7.426598056472236,
+            "max_continuous_wait_min": 9.831103956361767,
+            "over_20_minute_weight": 0.0,
+            "over_20_minute_partition_rows": 0
+          },
+          "after_waits": {
+            "waiting_episode_weight": 96.3813134631945,
+            "mean_continuous_wait_min": 2.1750388778013687,
+            "p90_continuous_wait_min": 5.589925030988889,
+            "max_continuous_wait_min": 9.831103956361767,
+            "over_20_minute_weight": 0.0,
+            "over_20_minute_partition_rows": 0
+          }
+        },
+        "60": {
+          "name": "법대.사회대입구",
+          "ars": "21298",
+          "before_max_queue": 123.133164,
+          "after_max_queue": 33.41065,
+          "before_waits": {
+            "waiting_episode_weight": 829.7119410591829,
+            "mean_continuous_wait_min": 19.40846092849078,
+            "p90_continuous_wait_min": 42.883478139141275,
+            "max_continuous_wait_min": 63.24850116312688,
+            "over_20_minute_weight": 329.6072232322485,
+            "over_20_minute_partition_rows": 705
+          },
+          "after_waits": {
+            "waiting_episode_weight": 651.4717137484965,
+            "mean_continuous_wait_min": 5.046921069185236,
+            "p90_continuous_wait_min": 9.217632874851066,
+            "max_continuous_wait_min": 15.900726293176557,
+            "over_20_minute_weight": 0.0,
+            "over_20_minute_partition_rows": 0
+          }
+        },
+        "61": {
+          "name": "서울대정문",
+          "ars": "21299",
+          "before_max_queue": 74.196382,
+          "after_max_queue": 34.171109,
+          "before_waits": {
+            "waiting_episode_weight": 165.8243307891013,
+            "mean_continuous_wait_min": 40.694176326883806,
+            "p90_continuous_wait_min": 65.25193116296383,
+            "max_continuous_wait_min": 80.40612142566485,
+            "over_20_minute_weight": 150.7489144878846,
+            "over_20_minute_partition_rows": 355
+          },
+          "after_waits": {
+            "waiting_episode_weight": 203.6386433034188,
+            "mean_continuous_wait_min": 4.605737482767689,
+            "p90_continuous_wait_min": 9.420692150701507,
+            "max_continuous_wait_min": 15.668517114175968,
+            "over_20_minute_weight": 0.0,
+            "over_20_minute_partition_rows": 0
+          }
+        }
+      }
+    },
+    {
+      "scenario": "peak",
+      "weekday": "fri",
+      "quality_gates": {
+        "no_wait_over_20_min": true,
+        "named_stops_at_most_40": true,
+        "independent_conservation": true
+      },
+      "maximum_continuous_wait_min": 15.969094410059066,
+      "over_20_minute_weight": 0.0,
+      "baseline_over_20_minute_weight": 132.76927077771717,
+      "paired_metrics": {
+        "wait_seconds": {
+          "before": 4.799668417410377,
+          "after": 4.596161343878828
+        },
+        "walking_seconds": {
+          "before": 7.8277035613211,
+          "after": 8.133315644066139
+        },
+        "total_seconds": {
+          "before": 19.99664200145851,
+          "after": 20.017211033289154
+        },
+        "route_changes": {
+          "before": 0.1523789682128058,
+          "after": 0.18140259384827204
+        }
+      },
+      "targets": {
+        "46": {
+          "name": "서울대정문",
+          "ars": "21269",
+          "before_max_queue": 0.0,
+          "after_max_queue": 0.0,
+          "before_waits": null,
+          "after_waits": null
+        },
+        "47": {
+          "name": "법대.사회대입구",
+          "ars": "21270",
+          "before_max_queue": 1.107195,
+          "after_max_queue": 2.882005,
+          "before_waits": {
+            "waiting_episode_weight": 2.254349349856391,
+            "mean_continuous_wait_min": 2.849080878532544,
+            "p90_continuous_wait_min": 5.434011686633797,
+            "max_continuous_wait_min": 8.946739617312899,
+            "over_20_minute_weight": 0.0,
+            "over_20_minute_partition_rows": 0
+          },
+          "after_waits": {
+            "waiting_episode_weight": 4.02915857808979,
+            "mean_continuous_wait_min": 2.1151089725828935,
+            "p90_continuous_wait_min": 5.333333333333333,
+            "max_continuous_wait_min": 8.946739617312899,
+            "over_20_minute_weight": 0.0,
+            "over_20_minute_partition_rows": 0
+          }
+        },
+        "60": {
+          "name": "법대.사회대입구",
+          "ars": "21298",
+          "before_max_queue": 45.670379,
+          "after_max_queue": 31.422005,
+          "before_waits": {
+            "waiting_episode_weight": 239.95020265935065,
+            "mean_continuous_wait_min": 6.007485379858897,
+            "p90_continuous_wait_min": 9.302150287117668,
+            "max_continuous_wait_min": 20.26157920264098,
+            "over_20_minute_weight": 0.7895386141891437,
+            "over_20_minute_partition_rows": 3
+          },
+          "after_waits": {
+            "waiting_episode_weight": 198.04875384958456,
+            "mean_continuous_wait_min": 4.793222200039328,
+            "p90_continuous_wait_min": 8.343085139719552,
+            "max_continuous_wait_min": 10.692709944673455,
+            "over_20_minute_weight": 0.0,
+            "over_20_minute_partition_rows": 0
+          }
+        },
+        "61": {
+          "name": "서울대정문",
+          "ars": "21299",
+          "before_max_queue": 4.694553,
+          "after_max_queue": 19.389608,
+          "before_waits": {
+            "waiting_episode_weight": 11.259445875822129,
+            "mean_continuous_wait_min": 12.75296265129021,
+            "p90_continuous_wait_min": 17.57356655460159,
+            "max_continuous_wait_min": 20.501280397633067,
+            "over_20_minute_weight": 0.5423985554798035,
+            "over_20_minute_partition_rows": 3
+          },
+          "after_waits": {
+            "waiting_episode_weight": 53.0253903356298,
+            "mean_continuous_wait_min": 3.234650722448179,
+            "p90_continuous_wait_min": 7.360120861252896,
+            "max_continuous_wait_min": 10.512361509798575,
+            "over_20_minute_weight": 0.0,
+            "over_20_minute_partition_rows": 0
+          }
+        }
+      }
+    },
+    {
+      "scenario": "regular",
+      "weekday": "mon",
+      "quality_gates": {
+        "no_wait_over_20_min": true,
+        "named_stops_at_most_40": true,
+        "independent_conservation": true
+      },
+      "maximum_continuous_wait_min": 16.594410087802316,
+      "over_20_minute_weight": 0.0,
+      "baseline_over_20_minute_weight": 2922.053166173973,
+      "paired_metrics": {
+        "wait_seconds": {
+          "before": 10.635667437003734,
+          "after": 8.925526058115405
+        },
+        "walking_seconds": {
+          "before": 9.831677981777705,
+          "after": 11.586798022477018
+        },
+        "total_seconds": {
+          "before": 27.565338682893024,
+          "after": 27.626298454923223
+        },
+        "route_changes": {
+          "before": 0.4388743186231708,
+          "after": 1.0278859832140932
+        }
+      },
+      "targets": {
+        "46": {
+          "name": "서울대정문",
+          "ars": "21269",
+          "before_max_queue": 0.102751,
+          "after_max_queue": 0.102751,
+          "before_waits": {
+            "waiting_episode_weight": 0.10275116571337825,
+            "mean_continuous_wait_min": 1.00785408224959,
+            "p90_continuous_wait_min": 1.00785408224959,
+            "max_continuous_wait_min": 1.00785408224959,
+            "over_20_minute_weight": 0.0,
+            "over_20_minute_partition_rows": 0
+          },
+          "after_waits": {
+            "waiting_episode_weight": 0.10275116571337825,
+            "mean_continuous_wait_min": 5.333333333333333,
+            "p90_continuous_wait_min": 5.333333333333333,
+            "max_continuous_wait_min": 5.333333333333333,
+            "over_20_minute_weight": 0.0,
+            "over_20_minute_partition_rows": 0
+          }
+        },
+        "47": {
+          "name": "법대.사회대입구",
+          "ars": "21270",
+          "before_max_queue": 2.568779,
+          "after_max_queue": 29.140632,
+          "before_waits": {
+            "waiting_episode_weight": 6.350098249399232,
+            "mean_continuous_wait_min": 3.261384445937294,
+            "p90_continuous_wait_min": 6.415712981964801,
+            "max_continuous_wait_min": 7.260362111831152,
+            "over_20_minute_weight": 0.0,
+            "over_20_minute_partition_rows": 0
+          },
+          "after_waits": {
+            "waiting_episode_weight": 78.43920915394169,
+            "mean_continuous_wait_min": 2.6675559833652307,
+            "p90_continuous_wait_min": 5.977301928454229,
+            "max_continuous_wait_min": 11.595413228996525,
+            "over_20_minute_weight": 0.0,
+            "over_20_minute_partition_rows": 0
+          }
+        },
+        "60": {
+          "name": "법대.사회대입구",
+          "ars": "21298",
+          "before_max_queue": 127.033993,
+          "after_max_queue": 35.739739,
+          "before_waits": {
+            "waiting_episode_weight": 988.6621389269931,
+            "mean_continuous_wait_min": 20.324641903027775,
+            "p90_continuous_wait_min": 39.72644452997071,
+            "max_continuous_wait_min": 66.19094699331278,
+            "over_20_minute_weight": 432.69497311109086,
+            "over_20_minute_partition_rows": 811
+          },
+          "after_waits": {
+            "waiting_episode_weight": 758.9748029992306,
+            "mean_continuous_wait_min": 5.086703442270632,
+            "p90_continuous_wait_min": 9.779399559175605,
+            "max_continuous_wait_min": 15.993276235577287,
+            "over_20_minute_weight": 0.0,
+            "over_20_minute_partition_rows": 0
+          }
+        },
+        "61": {
+          "name": "서울대정문",
+          "ars": "21299",
+          "before_max_queue": 93.747249,
+          "after_max_queue": 34.512572,
+          "before_waits": {
+            "waiting_episode_weight": 246.8906756391687,
+            "mean_continuous_wait_min": 48.91467765806166,
+            "p90_continuous_wait_min": 65.31021644838984,
+            "max_continuous_wait_min": 112.27304143791552,
+            "over_20_minute_weight": 230.05761702082998,
+            "over_20_minute_partition_rows": 515
+          },
+          "after_waits": {
+            "waiting_episode_weight": 248.25655821204654,
+            "mean_continuous_wait_min": 5.814413549827974,
+            "p90_continuous_wait_min": 11.439011020711161,
+            "max_continuous_wait_min": 15.903828862509908,
+            "over_20_minute_weight": 0.0,
+            "over_20_minute_partition_rows": 0
+          }
+        }
+      }
+    },
+    {
+      "scenario": "regular",
+      "weekday": "tue",
+      "quality_gates": {
+        "no_wait_over_20_min": true,
+        "named_stops_at_most_40": true,
+        "independent_conservation": true
+      },
+      "maximum_continuous_wait_min": 17.264026128104767,
+      "over_20_minute_weight": 0.0,
+      "baseline_over_20_minute_weight": 2887.2292640376154,
+      "paired_metrics": {
+        "wait_seconds": {
+          "before": 10.859659972723552,
+          "after": 8.879869507496378
+        },
+        "walking_seconds": {
+          "before": 9.578576671660752,
+          "after": 11.444719966380259
+        },
+        "total_seconds": {
+          "before": 27.706672403968813,
+          "after": 27.56722601476027
+        },
+        "route_changes": {
+          "before": 0.4293901183716049,
+          "after": 1.02636771586051
+        }
+      },
+      "targets": {
+        "46": {
+          "name": "서울대정문",
+          "ars": "21269",
+          "before_max_queue": 0.0,
+          "after_max_queue": 0.0,
+          "before_waits": null,
+          "after_waits": null
+        },
+        "47": {
+          "name": "법대.사회대입구",
+          "ars": "21270",
+          "before_max_queue": 1.626893,
+          "after_max_queue": 23.009042,
+          "before_waits": {
+            "waiting_episode_weight": 4.714795942736374,
+            "mean_continuous_wait_min": 2.8027326895626348,
+            "p90_continuous_wait_min": 5.738830795377726,
+            "max_continuous_wait_min": 7.0654040891725645,
+            "over_20_minute_weight": 0.0,
+            "over_20_minute_partition_rows": 0
+          },
+          "after_waits": {
+            "waiting_episode_weight": 103.5422440473094,
+            "mean_continuous_wait_min": 2.312605128735785,
+            "p90_continuous_wait_min": 5.914756406068773,
+            "max_continuous_wait_min": 11.447121111021866,
+            "over_20_minute_weight": 0.0,
+            "over_20_minute_partition_rows": 0
+          }
+        },
+        "60": {
+          "name": "법대.사회대입구",
+          "ars": "21298",
+          "before_max_queue": 140.282768,
+          "after_max_queue": 35.101912,
+          "before_waits": {
+            "waiting_episode_weight": 1060.9283798158406,
+            "mean_continuous_wait_min": 19.94956939037058,
+            "p90_continuous_wait_min": 40.371097848881135,
+            "max_continuous_wait_min": 60.974287628806756,
+            "over_20_minute_weight": 454.5956604842102,
+            "over_20_minute_partition_rows": 984
+          },
+          "after_waits": {
+            "waiting_episode_weight": 773.2437005311458,
+            "mean_continuous_wait_min": 5.101589914156191,
+            "p90_continuous_wait_min": 9.640778212097576,
+            "max_continuous_wait_min": 15.650966856750044,
+            "over_20_minute_weight": 0.0,
+            "over_20_minute_partition_rows": 0
+          }
+        },
+        "61": {
+          "name": "서울대정문",
+          "ars": "21299",
+          "before_max_queue": 106.377859,
+          "after_max_queue": 35.181093,
+          "before_waits": {
+            "waiting_episode_weight": 286.901442306961,
+            "mean_continuous_wait_min": 42.08224966529375,
+            "p90_continuous_wait_min": 58.31511732880608,
+            "max_continuous_wait_min": 73.09931276525252,
+            "over_20_minute_weight": 273.9025803739105,
+            "over_20_minute_partition_rows": 569
+          },
+          "after_waits": {
+            "waiting_episode_weight": 273.22150501225565,
+            "mean_continuous_wait_min": 5.110463295971517,
+            "p90_continuous_wait_min": 9.740657538811138,
+            "max_continuous_wait_min": 15.953781427740129,
+            "over_20_minute_weight": 0.0,
+            "over_20_minute_partition_rows": 0
+          }
+        }
+      }
+    },
+    {
+      "scenario": "regular",
+      "weekday": "wed",
+      "quality_gates": {
+        "no_wait_over_20_min": true,
+        "named_stops_at_most_40": true,
+        "independent_conservation": true
+      },
+      "maximum_continuous_wait_min": 16.95936581029467,
+      "over_20_minute_weight": 0.0,
+      "baseline_over_20_minute_weight": 2857.883800538963,
+      "paired_metrics": {
+        "wait_seconds": {
+          "before": 10.397307323345128,
+          "after": 9.043336592047066
+        },
+        "walking_seconds": {
+          "before": 9.901227136010032,
+          "after": 11.647916559937597
+        },
+        "total_seconds": {
+          "before": 27.420372886781923,
+          "after": 27.86275802711606
+        },
+        "route_changes": {
+          "before": 0.43323371990109383,
+          "after": 1.030515659172186
+        }
+      },
+      "targets": {
+        "46": {
+          "name": "서울대정문",
+          "ars": "21269",
+          "before_max_queue": 0.0,
+          "after_max_queue": 0.0,
+          "before_waits": null,
+          "after_waits": null
+        },
+        "47": {
+          "name": "법대.사회대입구",
+          "ars": "21270",
+          "before_max_queue": 2.934117,
+          "after_max_queue": 29.236544,
+          "before_waits": {
+            "waiting_episode_weight": 5.943217810049944,
+            "mean_continuous_wait_min": 4.020489095926721,
+            "p90_continuous_wait_min": 7.157652581515867,
+            "max_continuous_wait_min": 9.061872372168242,
+            "over_20_minute_weight": 0.0,
+            "over_20_minute_partition_rows": 0
+          },
+          "after_waits": {
+            "waiting_episode_weight": 119.86922790483712,
+            "mean_continuous_wait_min": 2.0463416734021758,
+            "p90_continuous_wait_min": 5.040580969551229,
+            "max_continuous_wait_min": 10.217539827975028,
+            "over_20_minute_weight": 0.0,
+            "over_20_minute_partition_rows": 0
+          }
+        },
+        "60": {
+          "name": "법대.사회대입구",
+          "ars": "21298",
+          "before_max_queue": 112.348106,
+          "after_max_queue": 34.623558,
+          "before_waits": {
+            "waiting_episode_weight": 1035.4489059011396,
+            "mean_continuous_wait_min": 21.2661649726094,
+            "p90_continuous_wait_min": 40.40015125519518,
+            "max_continuous_wait_min": 62.85385263659761,
+            "over_20_minute_weight": 476.0073939175726,
+            "over_20_minute_partition_rows": 1008
+          },
+          "after_waits": {
+            "waiting_episode_weight": 786.6890268472299,
+            "mean_continuous_wait_min": 5.092209899276431,
+            "p90_continuous_wait_min": 9.667593922572754,
+            "max_continuous_wait_min": 15.954896059979365,
+            "over_20_minute_weight": 0.0,
+            "over_20_minute_partition_rows": 0
+          }
+        },
+        "61": {
+          "name": "서울대정문",
+          "ars": "21299",
+          "before_max_queue": 101.896115,
+          "after_max_queue": 34.058889,
+          "before_waits": {
+            "waiting_episode_weight": 230.4134516950341,
+            "mean_continuous_wait_min": 42.90909622270516,
+            "p90_continuous_wait_min": 58.2884681818067,
+            "max_continuous_wait_min": 74.46883700183376,
+            "over_20_minute_weight": 201.64762485613971,
+            "over_20_minute_partition_rows": 470
+          },
+          "after_waits": {
+            "waiting_episode_weight": 274.2496588499146,
+            "mean_continuous_wait_min": 5.24083786317197,
+            "p90_continuous_wait_min": 10.552605937400829,
+            "max_continuous_wait_min": 15.90027394370239,
+            "over_20_minute_weight": 0.0,
+            "over_20_minute_partition_rows": 0
+          }
+        }
+      }
+    },
+    {
+      "scenario": "regular",
+      "weekday": "thu",
+      "quality_gates": {
+        "no_wait_over_20_min": true,
+        "named_stops_at_most_40": true,
+        "independent_conservation": true
+      },
+      "maximum_continuous_wait_min": 16.56085007217213,
+      "over_20_minute_weight": 0.0,
+      "baseline_over_20_minute_weight": 2412.3818959776295,
+      "paired_metrics": {
+        "wait_seconds": {
+          "before": 10.199047911406426,
+          "after": 8.480417619123637
+        },
+        "walking_seconds": {
+          "before": 9.533942981913919,
+          "after": 11.24016355944493
+        },
+        "total_seconds": {
+          "before": 26.959309334234614,
+          "after": 26.939977661004132
+        },
+        "route_changes": {
+          "before": 0.38160557676918844,
+          "after": 0.9634211794272586
+        }
+      },
+      "targets": {
+        "46": {
+          "name": "서울대정문",
+          "ars": "21269",
+          "before_max_queue": 0.0,
+          "after_max_queue": 0.045667,
+          "before_waits": null,
+          "after_waits": {
+            "waiting_episode_weight": 0.045667184761501445,
+            "mean_continuous_wait_min": 0.7079676507689631,
+            "p90_continuous_wait_min": 0.7079676507689631,
+            "max_continuous_wait_min": 0.7079676507689631,
+            "over_20_minute_weight": 0.0,
+            "over_20_minute_partition_rows": 0
+          }
+        },
+        "47": {
+          "name": "법대.사회대입구",
+          "ars": "21270",
+          "before_max_queue": 1.594822,
+          "after_max_queue": 26.841754,
+          "before_waits": {
+            "waiting_episode_weight": 5.38815452824925,
+            "mean_continuous_wait_min": 3.6280360188530225,
+            "p90_continuous_wait_min": 7.426598056472236,
+            "max_continuous_wait_min": 9.831103956361767,
+            "over_20_minute_weight": 0.0,
+            "over_20_minute_partition_rows": 0
+          },
+          "after_waits": {
+            "waiting_episode_weight": 79.71805586358313,
+            "mean_continuous_wait_min": 2.457699035181357,
+            "p90_continuous_wait_min": 5.241915409147138,
+            "max_continuous_wait_min": 11.368327720861393,
+            "over_20_minute_weight": 0.0,
+            "over_20_minute_partition_rows": 0
+          }
+        },
+        "60": {
+          "name": "법대.사회대입구",
+          "ars": "21298",
+          "before_max_queue": 123.133164,
+          "after_max_queue": 34.234029,
+          "before_waits": {
+            "waiting_episode_weight": 898.4243722245191,
+            "mean_continuous_wait_min": 21.472630238646236,
+            "p90_continuous_wait_min": 43.374939178457375,
+            "max_continuous_wait_min": 63.24850116312688,
+            "over_20_minute_weight": 392.53003550607633,
+            "over_20_minute_partition_rows": 872
+          },
+          "after_waits": {
+            "waiting_episode_weight": 694.9352587568826,
+            "mean_continuous_wait_min": 5.159439012806983,
+            "p90_continuous_wait_min": 9.684231976798037,
+            "max_continuous_wait_min": 15.900726293176557,
+            "over_20_minute_weight": 0.0,
+            "over_20_minute_partition_rows": 0
+          }
+        },
+        "61": {
+          "name": "서울대정문",
+          "ars": "21299",
+          "before_max_queue": 74.196382,
+          "after_max_queue": 33.087289,
+          "before_waits": {
+            "waiting_episode_weight": 199.56526161963808,
+            "mean_continuous_wait_min": 39.69698198537465,
+            "p90_continuous_wait_min": 58.33088731609993,
+            "max_continuous_wait_min": 80.40612142566485,
+            "over_20_minute_weight": 177.2516301125357,
+            "over_20_minute_partition_rows": 413
+          },
+          "after_waits": {
+            "waiting_episode_weight": 193.02316169882764,
+            "mean_continuous_wait_min": 5.208862534334208,
+            "p90_continuous_wait_min": 10.94799672075278,
+            "max_continuous_wait_min": 15.668517114175968,
+            "over_20_minute_weight": 0.0,
+            "over_20_minute_partition_rows": 0
+          }
+        }
+      }
+    },
+    {
+      "scenario": "regular",
+      "weekday": "fri",
+      "quality_gates": {
+        "no_wait_over_20_min": true,
+        "named_stops_at_most_40": true,
+        "independent_conservation": true
+      },
+      "maximum_continuous_wait_min": 15.969094410059066,
+      "over_20_minute_weight": 0.0,
+      "baseline_over_20_minute_weight": 135.6526040654168,
+      "paired_metrics": {
+        "wait_seconds": {
+          "before": 4.902302665453993,
+          "after": 4.664631431084734
+        },
+        "walking_seconds": {
+          "before": 7.836165964540999,
+          "after": 8.138485965844318
+        },
+        "total_seconds": {
+          "before": 20.08071231808163,
+          "after": 20.110241687273415
+        },
+        "route_changes": {
+          "before": 0.15397015333847874,
+          "after": 0.18512152716970176
+        }
+      },
+      "targets": {
+        "46": {
+          "name": "서울대정문",
+          "ars": "21269",
+          "before_max_queue": 0.0,
+          "after_max_queue": 0.0,
+          "before_waits": null,
+          "after_waits": null
+        },
+        "47": {
+          "name": "법대.사회대입구",
+          "ars": "21270",
+          "before_max_queue": 1.107195,
+          "after_max_queue": 2.882005,
+          "before_waits": {
+            "waiting_episode_weight": 2.254349349856391,
+            "mean_continuous_wait_min": 2.849080878532544,
+            "p90_continuous_wait_min": 5.434011686633797,
+            "max_continuous_wait_min": 8.946739617312899,
+            "over_20_minute_weight": 0.0,
+            "over_20_minute_partition_rows": 0
+          },
+          "after_waits": {
+            "waiting_episode_weight": 4.02915857808979,
+            "mean_continuous_wait_min": 2.1151089725828935,
+            "p90_continuous_wait_min": 5.333333333333333,
+            "max_continuous_wait_min": 8.946739617312899,
+            "over_20_minute_weight": 0.0,
+            "over_20_minute_partition_rows": 0
+          }
+        },
+        "60": {
+          "name": "법대.사회대입구",
+          "ars": "21298",
+          "before_max_queue": 45.670379,
+          "after_max_queue": 31.422005,
+          "before_waits": {
+            "waiting_episode_weight": 239.52396470018797,
+            "mean_continuous_wait_min": 6.010655085396878,
+            "p90_continuous_wait_min": 9.302150287117668,
+            "max_continuous_wait_min": 20.26157920264098,
+            "over_20_minute_weight": 0.7895386141891437,
+            "over_20_minute_partition_rows": 3
+          },
+          "after_waits": {
+            "waiting_episode_weight": 197.95268486752377,
+            "mean_continuous_wait_min": 4.733585219976388,
+            "p90_continuous_wait_min": 8.338580681681197,
+            "max_continuous_wait_min": 10.692709944673455,
+            "over_20_minute_weight": 0.0,
+            "over_20_minute_partition_rows": 0
+          }
+        },
+        "61": {
+          "name": "서울대정문",
+          "ars": "21299",
+          "before_max_queue": 4.694553,
+          "after_max_queue": 19.389608,
+          "before_waits": {
+            "waiting_episode_weight": 11.072411891173921,
+            "mean_continuous_wait_min": 11.492376976261621,
+            "p90_continuous_wait_min": 17.57356655460159,
+            "max_continuous_wait_min": 20.501280397633067,
+            "over_20_minute_weight": 0.5423985554798035,
+            "over_20_minute_partition_rows": 3
+          },
+          "after_waits": {
+            "waiting_episode_weight": 52.48299178015,
+            "mean_continuous_wait_min": 3.218283069033392,
+            "p90_continuous_wait_min": 7.360120861252896,
+            "max_continuous_wait_min": 10.512361509798575,
+            "over_20_minute_weight": 0.0,
+            "over_20_minute_partition_rows": 0
+          }
+        }
+      }
+    }
+  ],
+  "independent_empirical_validation": false,
+  "no_forced_queue_or_wait_clipping": true,
+  "change_limit": null,
+  "rule": {
+    "neighbor_walk_seconds": 1250,
+    "maximum_individual_transfer_walk_seconds": 1800,
+    "maximum_transfer_path_meters": 1500,
+    "diverse_route_targets": true,
+    "neighbor_stops": 6,
+    "options_per_stop": 2,
+    "minimum_gain_seconds": 120,
+    "maximum_changes": null,
+    "target_mean_changes": 1.0,
+    "repeat_change_probability_multiplier": 0.3,
+    "congestion_can_raise_change_probability": true,
+    "same_line_downstream_consideration_probability": 0.08,
+    "downstream_probability_applies_to_action_not_each_line": true,
+    "previously_left_queue_reconsideration_probability": 0.05,
+    "full_bus_stress_is_personally_experienced": true,
+    "continuous_wait_review_limit_seconds": 1200,
+    "walking_willingness": {
+      "plateau_meters": 500,
+      "weight_at_1000_meters": 0.3,
+      "tail_decay_meters": 150,
+      "meaning": "relative consideration weight, user scenario, not measured mode share"
+    },
+    "named_stop_queue_tolerance_range": [
+      20.0,
+      35.0
+    ],
+    "review_threshold_is_forced_exit": false,
+    "same_stop_policy_scope": "single-stage alternatives to the same final destination",
+    "normal_reconsideration_trigger": {
+      "queue_capacity_fraction": 0.6,
+      "minimum_queue_threshold": 12,
+      "wait_seconds": 300,
+      "personally_experienced_full_bus": true
+    },
+    "terminal_walk_reserved_for_final_change": false,
+    "include_shuttle": true,
+    "soft_queue_reference_people": 40,
+    "soft_reference_stop_ids": [
+      "120000167",
+      "120000168",
+      "120000196",
+      "120000197"
+    ],
+    "reference_source": "user recollection, not counted observations",
+    "do_not_clip_queue_or_delete_demand": true,
+    "independent_empirical_validation": false
+  }
+}

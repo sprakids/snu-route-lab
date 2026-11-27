@@ -1,0 +1,1526 @@
+{
+  "status": "PASS",
+  "scenario": "regular",
+  "weekday": "thu",
+  "core": {
+    "scenario": "regular",
+    "weekday": "목",
+    "status": "PASS",
+    "particle_mass_max_error": 2.220446049250313e-16,
+    "checks": {
+      "legs": 377705,
+      "vehicle_segments": 29280,
+      "planned_city_departures": 723,
+      "capacity_events": 22581,
+      "fifo_events": 411,
+      "hourly_cells": 1092,
+      "queue_samples": 49056
+    },
+    "summaries": [
+      {
+        "scenario": "regular",
+        "weekday": "목",
+        "scope": "all",
+        "weight": 14585.0,
+        "completed_weight": 14585.0,
+        "unserved_weight": 0.0,
+        "mean_cumulative_wait_min": 8.778151446141361,
+        "mean_class_end_total_min_completed": 31.55576714385503,
+        "switched_trip_weight": 6693.0378528665415
+      },
+      {
+        "scenario": "regular",
+        "weekday": "목",
+        "scope": "snu",
+        "weight": 6546.937598625877,
+        "completed_weight": 6546.937598625877,
+        "unserved_weight": 0.0,
+        "mean_cumulative_wait_min": 8.463401241350699,
+        "mean_class_end_total_min_completed": 30.242089631105557,
+        "switched_trip_weight": 3407.699362048199
+      },
+      {
+        "scenario": "regular",
+        "weekday": "목",
+        "scope": "engineering_snu",
+        "weight": 826.3909577696428,
+        "completed_weight": 826.3909577696428,
+        "unserved_weight": 0.0,
+        "mean_cumulative_wait_min": 6.409203829875309,
+        "mean_class_end_total_min_completed": 29.796656221728778,
+        "switched_trip_weight": 257.46788739910005
+      }
+    ]
+  },
+  "targets": {
+    "46": {
+      "name": "서울대정문",
+      "ars": "21269",
+      "before_max_queue": 0.045667,
+      "after_max_queue": 0.045667,
+      "before_waits": {
+        "waiting_episode_weight": 0.045667184761501445,
+        "mean_continuous_wait_min": 0.7079676507689631,
+        "p90_continuous_wait_min": 0.7079676507689631,
+        "max_continuous_wait_min": 0.7079676507689631,
+        "over_20_minute_weight": 0.0,
+        "over_20_minute_partition_rows": 0
+      },
+      "after_waits": {
+        "waiting_episode_weight": 0.045667184761501445,
+        "mean_continuous_wait_min": 0.7079676507689631,
+        "p90_continuous_wait_min": 0.7079676507689631,
+        "max_continuous_wait_min": 0.7079676507689631,
+        "over_20_minute_weight": 0.0,
+        "over_20_minute_partition_rows": 0
+      }
+    },
+    "47": {
+      "name": "법대.사회대입구",
+      "ars": "21270",
+      "before_max_queue": 25.675401,
+      "after_max_queue": 30.580622,
+      "before_waits": {
+        "waiting_episode_weight": 75.68854773119791,
+        "mean_continuous_wait_min": 2.3946749112791226,
+        "p90_continuous_wait_min": 5.017158749408554,
+        "max_continuous_wait_min": 11.368327720861393,
+        "over_20_minute_weight": 0.0,
+        "over_20_minute_partition_rows": 0
+      },
+      "after_waits": {
+        "waiting_episode_weight": 101.28068848658188,
+        "mean_continuous_wait_min": 2.489120720244327,
+        "p90_continuous_wait_min": 5.241915409147138,
+        "max_continuous_wait_min": 11.274237882034747,
+        "over_20_minute_weight": 0.0,
+        "over_20_minute_partition_rows": 0
+      }
+    },
+    "60": {
+      "name": "법대.사회대입구",
+      "ars": "21298",
+      "before_max_queue": 33.696188,
+      "after_max_queue": 34.676101,
+      "before_waits": {
+        "waiting_episode_weight": 694.1031338805118,
+        "mean_continuous_wait_min": 5.203797784619616,
+        "p90_continuous_wait_min": 9.705026384534479,
+        "max_continuous_wait_min": 15.900726293176557,
+        "over_20_minute_weight": 0.0,
+        "over_20_minute_partition_rows": 0
+      },
+      "after_waits": {
+        "waiting_episode_weight": 734.5743560017315,
+        "mean_continuous_wait_min": 5.2910976366804885,
+        "p90_continuous_wait_min": 9.921558675268777,
+        "max_continuous_wait_min": 15.789665865405187,
+        "over_20_minute_weight": 0.0,
+        "over_20_minute_partition_rows": 0
+      }
+    },
+    "61": {
+      "name": "서울대정문",
+      "ars": "21299",
+      "before_max_queue": 32.43267,
+      "after_max_queue": 32.2726,
+      "before_waits": {
+        "waiting_episode_weight": 194.5065232261944,
+        "mean_continuous_wait_min": 5.249395062749311,
+        "p90_continuous_wait_min": 10.793022102938146,
+        "max_continuous_wait_min": 15.668517114175968,
+        "over_20_minute_weight": 0.0,
+        "over_20_minute_partition_rows": 0
+      },
+      "after_waits": {
+        "waiting_episode_weight": 214.96360817306,
+        "mean_continuous_wait_min": 5.2525560836776215,
+        "p90_continuous_wait_min": 10.776755576382008,
+        "max_continuous_wait_min": 15.668517114175968,
+        "over_20_minute_weight": 0.0,
+        "over_20_minute_partition_rows": 0
+      }
+    }
+  },
+  "all_stops": {
+    "93": {
+      "waiting_episode_weight": 939.4755835259834,
+      "mean_continuous_wait_min": 7.3369978411557835,
+      "p90_continuous_wait_min": 13.199914305300142,
+      "max_continuous_wait_min": 16.464211940160144,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "77": {
+      "waiting_episode_weight": 1811.719886840543,
+      "mean_continuous_wait_min": 5.104960348303524,
+      "p90_continuous_wait_min": 11.055537393278792,
+      "max_continuous_wait_min": 16.275277852350335,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "95": {
+      "waiting_episode_weight": 476.1254608625439,
+      "mean_continuous_wait_min": 7.650382032581523,
+      "p90_continuous_wait_min": 12.517723804662456,
+      "max_continuous_wait_min": 16.194486529653297,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "94": {
+      "waiting_episode_weight": 927.6932179621622,
+      "mean_continuous_wait_min": 6.928731206009217,
+      "p90_continuous_wait_min": 11.719182609846515,
+      "max_continuous_wait_min": 16.291832197449427,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "91": {
+      "waiting_episode_weight": 1239.3579593041525,
+      "mean_continuous_wait_min": 4.391461125974377,
+      "p90_continuous_wait_min": 9.027676636124186,
+      "max_continuous_wait_min": 15.988821481578514,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "28": {
+      "waiting_episode_weight": 412.5882099427965,
+      "mean_continuous_wait_min": 4.194948758779647,
+      "p90_continuous_wait_min": 7.862214521475592,
+      "max_continuous_wait_min": 15.705400016281297,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "62": {
+      "waiting_episode_weight": 1926.4308447212281,
+      "mean_continuous_wait_min": 2.5051721723253437,
+      "p90_continuous_wait_min": 5.391292809277244,
+      "max_continuous_wait_min": 12.04417694917344,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "80": {
+      "waiting_episode_weight": 622.5655186515661,
+      "mean_continuous_wait_min": 4.525073115140057,
+      "p90_continuous_wait_min": 8.148780786632535,
+      "max_continuous_wait_min": 15.10031078991936,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "96": {
+      "waiting_episode_weight": 334.2514019439353,
+      "mean_continuous_wait_min": 7.205511692389202,
+      "p90_continuous_wait_min": 12.23274160278088,
+      "max_continuous_wait_min": 16.56085007217213,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "61": {
+      "waiting_episode_weight": 214.96360817306,
+      "mean_continuous_wait_min": 5.2525560836776215,
+      "p90_continuous_wait_min": 10.776755576382008,
+      "max_continuous_wait_min": 15.668517114175968,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "33": {
+      "waiting_episode_weight": 153.89992418717978,
+      "mean_continuous_wait_min": 3.8519924846668596,
+      "p90_continuous_wait_min": 6.000717659199169,
+      "max_continuous_wait_min": 14.86242060729431,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "58": {
+      "waiting_episode_weight": 1494.1274062660566,
+      "mean_continuous_wait_min": 4.429697183113044,
+      "p90_continuous_wait_min": 8.882096240736065,
+      "max_continuous_wait_min": 14.864060916379094,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "59": {
+      "waiting_episode_weight": 1495.5608424121617,
+      "mean_continuous_wait_min": 4.697639577254009,
+      "p90_continuous_wait_min": 9.620933613397817,
+      "max_continuous_wait_min": 15.772244694161419,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "29": {
+      "waiting_episode_weight": 146.56095425280412,
+      "mean_continuous_wait_min": 2.2632204707062407,
+      "p90_continuous_wait_min": 4.738874395978079,
+      "max_continuous_wait_min": 15.710724117705952,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "1": {
+      "waiting_episode_weight": 2804.3686757748524,
+      "mean_continuous_wait_min": 4.434668813307542,
+      "p90_continuous_wait_min": 8.221228433472788,
+      "max_continuous_wait_min": 15.729700723559047,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "3": {
+      "waiting_episode_weight": 592.0606077407562,
+      "mean_continuous_wait_min": 2.16707468202836,
+      "p90_continuous_wait_min": 4.697780536030162,
+      "max_continuous_wait_min": 7.347804536932866,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "60": {
+      "waiting_episode_weight": 734.5743560017315,
+      "mean_continuous_wait_min": 5.2910976366804885,
+      "p90_continuous_wait_min": 9.921558675268777,
+      "max_continuous_wait_min": 15.789665865405187,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "84": {
+      "waiting_episode_weight": 241.44946628322162,
+      "mean_continuous_wait_min": 8.238098504643798,
+      "p90_continuous_wait_min": 13.257775074376696,
+      "max_continuous_wait_min": 16.153573960424424,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "42": {
+      "waiting_episode_weight": 1640.1602612134977,
+      "mean_continuous_wait_min": 5.935603078855867,
+      "p90_continuous_wait_min": 11.502057900420914,
+      "max_continuous_wait_min": 14.997926703677027,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "92": {
+      "waiting_episode_weight": 1347.6868582187694,
+      "mean_continuous_wait_min": 5.4477506431471605,
+      "p90_continuous_wait_min": 11.512512837725202,
+      "max_continuous_wait_min": 15.949812336947797,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "98": {
+      "waiting_episode_weight": 172.74594787777338,
+      "mean_continuous_wait_min": 4.721943584840215,
+      "p90_continuous_wait_min": 9.218745570924996,
+      "max_continuous_wait_min": 10.644349100403996,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "12": {
+      "waiting_episode_weight": 377.83136541718494,
+      "mean_continuous_wait_min": 2.960019804433455,
+      "p90_continuous_wait_min": 5.012775961600467,
+      "max_continuous_wait_min": 8.333333333333334,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "69": {
+      "waiting_episode_weight": 477.114317488393,
+      "mean_continuous_wait_min": 4.961340009934233,
+      "p90_continuous_wait_min": 10.061744579581136,
+      "max_continuous_wait_min": 15.80724604254877,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "56": {
+      "waiting_episode_weight": 481.86635819032483,
+      "mean_continuous_wait_min": 4.78197329218836,
+      "p90_continuous_wait_min": 9.695139325911684,
+      "max_continuous_wait_min": 15.705433549786783,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "55": {
+      "waiting_episode_weight": 245.33273252738098,
+      "mean_continuous_wait_min": 3.617501744218347,
+      "p90_continuous_wait_min": 6.976950287626581,
+      "max_continuous_wait_min": 12.380959915112907,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "51": {
+      "waiting_episode_weight": 72.43886876441834,
+      "mean_continuous_wait_min": 2.790390631052069,
+      "p90_continuous_wait_min": 4.693884634300654,
+      "max_continuous_wait_min": 8.319459693413348,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "19": {
+      "waiting_episode_weight": 138.56931073764474,
+      "mean_continuous_wait_min": 4.634588230375664,
+      "p90_continuous_wait_min": 7.847603547519005,
+      "max_continuous_wait_min": 14.669879785454032,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "30": {
+      "waiting_episode_weight": 32.08929575913671,
+      "mean_continuous_wait_min": 3.1851936331917057,
+      "p90_continuous_wait_min": 7.231350952130985,
+      "max_continuous_wait_min": 8.476425256471218,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "20": {
+      "waiting_episode_weight": 175.37947020315823,
+      "mean_continuous_wait_min": 4.810640400443465,
+      "p90_continuous_wait_min": 8.84287396616613,
+      "max_continuous_wait_min": 14.83019127656274,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "21": {
+      "waiting_episode_weight": 370.05061292931055,
+      "mean_continuous_wait_min": 4.887363501250432,
+      "p90_continuous_wait_min": 8.65269819313568,
+      "max_continuous_wait_min": 15.94555892648059,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "23": {
+      "waiting_episode_weight": 60.733310341544055,
+      "mean_continuous_wait_min": 3.0247987021937686,
+      "p90_continuous_wait_min": 5.333333333333333,
+      "max_continuous_wait_min": 13.659488147697024,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "24": {
+      "waiting_episode_weight": 15.706393329810409,
+      "mean_continuous_wait_min": 4.877214537924934,
+      "p90_continuous_wait_min": 7.333333333333333,
+      "max_continuous_wait_min": 10.333333333333334,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "26": {
+      "waiting_episode_weight": 137.3833442397924,
+      "mean_continuous_wait_min": 4.084595545265708,
+      "p90_continuous_wait_min": 7.333333333333333,
+      "max_continuous_wait_min": 13.333333333333334,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "27": {
+      "waiting_episode_weight": 31.774057108471048,
+      "mean_continuous_wait_min": 5.897770281687979,
+      "p90_continuous_wait_min": 8.333333333333334,
+      "max_continuous_wait_min": 14.333333333333334,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "68": {
+      "waiting_episode_weight": 311.04214441368725,
+      "mean_continuous_wait_min": 5.297077176365866,
+      "p90_continuous_wait_min": 11.070389565307293,
+      "max_continuous_wait_min": 15.896817533526336,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "63": {
+      "waiting_episode_weight": 64.0546703754712,
+      "mean_continuous_wait_min": 2.777752511932824,
+      "p90_continuous_wait_min": 6.608052396560257,
+      "max_continuous_wait_min": 13.846760936557256,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "76": {
+      "waiting_episode_weight": 45.12548071321244,
+      "mean_continuous_wait_min": 3.123069239775918,
+      "p90_continuous_wait_min": 6.825068696680804,
+      "max_continuous_wait_min": 8.501542702616037,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "79": {
+      "waiting_episode_weight": 523.2656740800167,
+      "mean_continuous_wait_min": 5.125332819737441,
+      "p90_continuous_wait_min": 8.882198440389766,
+      "max_continuous_wait_min": 13.665456770711655,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "5": {
+      "waiting_episode_weight": 235.24965755695922,
+      "mean_continuous_wait_min": 2.4575467226170282,
+      "p90_continuous_wait_min": 5.279615455754053,
+      "max_continuous_wait_min": 6.796423268814154,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "6": {
+      "waiting_episode_weight": 63.35457529761551,
+      "mean_continuous_wait_min": 3.000090884346873,
+      "p90_continuous_wait_min": 5.483426785441892,
+      "max_continuous_wait_min": 6.287860282924764,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "10": {
+      "waiting_episode_weight": 84.83103658820406,
+      "mean_continuous_wait_min": 4.780637056328498,
+      "p90_continuous_wait_min": 8.961158317541534,
+      "max_continuous_wait_min": 14.85817014344284,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "70": {
+      "waiting_episode_weight": 57.91328923899077,
+      "mean_continuous_wait_min": 4.787754413277387,
+      "p90_continuous_wait_min": 10.344671796455684,
+      "max_continuous_wait_min": 15.541291056556778,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "57": {
+      "waiting_episode_weight": 1000.2612689429374,
+      "mean_continuous_wait_min": 3.7129712565960356,
+      "p90_continuous_wait_min": 6.5961235215283525,
+      "max_continuous_wait_min": 15.183437301969873,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "78": {
+      "waiting_episode_weight": 445.98006734320177,
+      "mean_continuous_wait_min": 4.705423163740703,
+      "p90_continuous_wait_min": 10.550541758070176,
+      "max_continuous_wait_min": 13.853543564830277,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "75": {
+      "waiting_episode_weight": 154.34211816669264,
+      "mean_continuous_wait_min": 4.452765594620646,
+      "p90_continuous_wait_min": 9.910735727667149,
+      "max_continuous_wait_min": 12.99697075485201,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "25": {
+      "waiting_episode_weight": 81.98290941128545,
+      "mean_continuous_wait_min": 5.134175613486694,
+      "p90_continuous_wait_min": 7.333333333333333,
+      "max_continuous_wait_min": 11.333333333333334,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "49": {
+      "waiting_episode_weight": 26.307156424482425,
+      "mean_continuous_wait_min": 3.814802873006839,
+      "p90_continuous_wait_min": 6.924086064612493,
+      "max_continuous_wait_min": 9.197407337957703,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "50": {
+      "waiting_episode_weight": 11.54828458283022,
+      "mean_continuous_wait_min": 4.681973163791291,
+      "p90_continuous_wait_min": 8.663253371578806,
+      "max_continuous_wait_min": 9.325774085610707,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "7": {
+      "waiting_episode_weight": 18.91143940009303,
+      "mean_continuous_wait_min": 2.645347303254126,
+      "p90_continuous_wait_min": 5.252273256430756,
+      "max_continuous_wait_min": 6.216563846928087,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "22": {
+      "waiting_episode_weight": 157.93309043264716,
+      "mean_continuous_wait_min": 4.1147140763195695,
+      "p90_continuous_wait_min": 6.303636901719316,
+      "max_continuous_wait_min": 14.12220077723335,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "47": {
+      "waiting_episode_weight": 101.28068848658188,
+      "mean_continuous_wait_min": 2.489120720244327,
+      "p90_continuous_wait_min": 5.241915409147138,
+      "max_continuous_wait_min": 11.274237882034747,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "14": {
+      "waiting_episode_weight": 163.12897405053712,
+      "mean_continuous_wait_min": 3.0877280798451214,
+      "p90_continuous_wait_min": 5.262214142410812,
+      "max_continuous_wait_min": 6.313312496410193,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "15": {
+      "waiting_episode_weight": 122.20269669426283,
+      "mean_continuous_wait_min": 2.782553964566728,
+      "p90_continuous_wait_min": 4.84917210773965,
+      "max_continuous_wait_min": 6.07605096034337,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "48": {
+      "waiting_episode_weight": 3.3665659378353125,
+      "mean_continuous_wait_min": 2.2451036403971774,
+      "p90_continuous_wait_min": 6.333333333333333,
+      "max_continuous_wait_min": 9.099525587280612,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "64": {
+      "waiting_episode_weight": 17.693414947720488,
+      "mean_continuous_wait_min": 7.561617875608698,
+      "p90_continuous_wait_min": 10.3625130635109,
+      "max_continuous_wait_min": 12.071179688240955,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "53": {
+      "waiting_episode_weight": 767.7646830677298,
+      "mean_continuous_wait_min": 2.545128385614216,
+      "p90_continuous_wait_min": 4.95484552183625,
+      "max_continuous_wait_min": 9.302564547248767,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "54": {
+      "waiting_episode_weight": 928.2950726914737,
+      "mean_continuous_wait_min": 2.920638898438447,
+      "p90_continuous_wait_min": 5.800041660957382,
+      "max_continuous_wait_min": 14.06010851040337,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "4": {
+      "waiting_episode_weight": 61.493089457606736,
+      "mean_continuous_wait_min": 1.735263989867509,
+      "p90_continuous_wait_min": 4.7006821651941815,
+      "max_continuous_wait_min": 6.173548321806568,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "8": {
+      "waiting_episode_weight": 273.41009510675696,
+      "mean_continuous_wait_min": 2.293695606282617,
+      "p90_continuous_wait_min": 4.6308019296272205,
+      "max_continuous_wait_min": 6.584582433232572,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "9": {
+      "waiting_episode_weight": 409.76647171941465,
+      "mean_continuous_wait_min": 3.9441203927007713,
+      "p90_continuous_wait_min": 7.074618614235805,
+      "max_continuous_wait_min": 14.096610182158717,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "73": {
+      "waiting_episode_weight": 22.07710193477846,
+      "mean_continuous_wait_min": 2.0776735186734854,
+      "p90_continuous_wait_min": 3.4098110009947655,
+      "max_continuous_wait_min": 5.560191882027357,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "72": {
+      "waiting_episode_weight": 9.436281636717256,
+      "mean_continuous_wait_min": 2.9632047448721863,
+      "p90_continuous_wait_min": 7.6056955538670685,
+      "max_continuous_wait_min": 7.6056955538670685,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "87": {
+      "waiting_episode_weight": 3.540944855300037,
+      "mean_continuous_wait_min": 1.2703063861492008,
+      "p90_continuous_wait_min": 2.7583926640863257,
+      "max_continuous_wait_min": 2.828166960749998,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "13": {
+      "waiting_episode_weight": 134.33156061542246,
+      "mean_continuous_wait_min": 3.0272281724199286,
+      "p90_continuous_wait_min": 4.828574299642302,
+      "max_continuous_wait_min": 6.018864561921509,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "41": {
+      "waiting_episode_weight": 6.513282226609143,
+      "mean_continuous_wait_min": 5.949634823254455,
+      "p90_continuous_wait_min": 7.333333333333333,
+      "max_continuous_wait_min": 8.333333333333334,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "17": {
+      "waiting_episode_weight": 125.421225475298,
+      "mean_continuous_wait_min": 5.514915777109996,
+      "p90_continuous_wait_min": 9.078114623962028,
+      "max_continuous_wait_min": 12.587296081948928,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "16": {
+      "waiting_episode_weight": 19.851558794637004,
+      "mean_continuous_wait_min": 1.694590694266108,
+      "p90_continuous_wait_min": 5.179215834560455,
+      "max_continuous_wait_min": 7.808111266394795,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "11": {
+      "waiting_episode_weight": 3.5247019889913216,
+      "mean_continuous_wait_min": 2.726548974433533,
+      "p90_continuous_wait_min": 7.99906833114995,
+      "max_continuous_wait_min": 8.325384118195021,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "18": {
+      "waiting_episode_weight": 17.92281394706429,
+      "mean_continuous_wait_min": 4.521757293128872,
+      "p90_continuous_wait_min": 7.006986262068919,
+      "max_continuous_wait_min": 10.043128871428053,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "38": {
+      "waiting_episode_weight": 25.49273210755077,
+      "mean_continuous_wait_min": 3.315699650279605,
+      "p90_continuous_wait_min": 10.785368835171175,
+      "max_continuous_wait_min": 11.889943763858295,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "36": {
+      "waiting_episode_weight": 13.33552310541724,
+      "mean_continuous_wait_min": 1.5119821180950663,
+      "p90_continuous_wait_min": 2.4773348657308816,
+      "max_continuous_wait_min": 2.865915710390618,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "88": {
+      "waiting_episode_weight": 13.729033207049618,
+      "mean_continuous_wait_min": 2.6978814339080346,
+      "p90_continuous_wait_min": 5.640601049953935,
+      "max_continuous_wait_min": 10.289486479564827,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "74": {
+      "waiting_episode_weight": 6.708643756713861,
+      "mean_continuous_wait_min": 2.6784975098276296,
+      "p90_continuous_wait_min": 6.702212892764631,
+      "max_continuous_wait_min": 6.954788904077456,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "37": {
+      "waiting_episode_weight": 3.8269100830138205,
+      "mean_continuous_wait_min": 2.911010412049723,
+      "p90_continuous_wait_min": 6.017844412465517,
+      "max_continuous_wait_min": 6.081301778677759,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "81": {
+      "waiting_episode_weight": 9.274623042655662,
+      "mean_continuous_wait_min": 0.9092721086114349,
+      "p90_continuous_wait_min": 1.4683552118965357,
+      "max_continuous_wait_min": 4.154933139000059,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "2": {
+      "waiting_episode_weight": 42.301983347951335,
+      "mean_continuous_wait_min": 2.7959958306446007,
+      "p90_continuous_wait_min": 4.035943373976382,
+      "max_continuous_wait_min": 6.212490402899978,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "31": {
+      "waiting_episode_weight": 0.2648696716167083,
+      "mean_continuous_wait_min": 2.955216990954432,
+      "p90_continuous_wait_min": 2.955216990954432,
+      "max_continuous_wait_min": 2.955216990954432,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "35": {
+      "waiting_episode_weight": 0.21735424513767754,
+      "mean_continuous_wait_min": 1.479630444645887,
+      "p90_continuous_wait_min": 1.504744109057962,
+      "max_continuous_wait_min": 1.504744109057962,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "44": {
+      "waiting_episode_weight": 0.034250388571126084,
+      "mean_continuous_wait_min": 0.9842880058361819,
+      "p90_continuous_wait_min": 0.9842880058361819,
+      "max_continuous_wait_min": 0.9842880058361819,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "39": {
+      "waiting_episode_weight": 0.6393405866610201,
+      "mean_continuous_wait_min": 5.333333333333333,
+      "p90_continuous_wait_min": 5.333333333333333,
+      "max_continuous_wait_min": 5.333333333333333,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "46": {
+      "waiting_episode_weight": 0.045667184761501445,
+      "mean_continuous_wait_min": 0.7079676507689631,
+      "p90_continuous_wait_min": 0.7079676507689631,
+      "max_continuous_wait_min": 0.7079676507689631,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "65": {
+      "waiting_episode_weight": 3.983823873006833,
+      "mean_continuous_wait_min": 1.0723697483579746,
+      "p90_continuous_wait_min": 2.4263420394316197,
+      "max_continuous_wait_min": 2.4263420394316197,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "71": {
+      "waiting_episode_weight": 0.17353530209370546,
+      "mean_continuous_wait_min": 4.696697979486271,
+      "p90_continuous_wait_min": 4.696697979486271,
+      "max_continuous_wait_min": 4.696697979486271,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "52": {
+      "waiting_episode_weight": 0.3535513149660653,
+      "mean_continuous_wait_min": 2.8810259354094936,
+      "p90_continuous_wait_min": 3.671618881314013,
+      "max_continuous_wait_min": 3.6787013331452423,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    }
+  },
+  "baseline_all_stops": {
+    "93": {
+      "waiting_episode_weight": 940.5142283657375,
+      "mean_continuous_wait_min": 7.317332278979261,
+      "p90_continuous_wait_min": 13.12652551200966,
+      "max_continuous_wait_min": 16.464211940160144,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "77": {
+      "waiting_episode_weight": 1811.3681849081374,
+      "mean_continuous_wait_min": 5.1088226821067195,
+      "p90_continuous_wait_min": 11.058944384442414,
+      "max_continuous_wait_min": 16.275277852350335,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "95": {
+      "waiting_episode_weight": 478.85706963675227,
+      "mean_continuous_wait_min": 7.700017979510817,
+      "p90_continuous_wait_min": 12.604570709635542,
+      "max_continuous_wait_min": 16.194486529653297,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "94": {
+      "waiting_episode_weight": 930.9145059100229,
+      "mean_continuous_wait_min": 6.914432743486686,
+      "p90_continuous_wait_min": 11.69982200492268,
+      "max_continuous_wait_min": 16.291832197449427,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "91": {
+      "waiting_episode_weight": 1245.304339645085,
+      "mean_continuous_wait_min": 4.3864254029066245,
+      "p90_continuous_wait_min": 9.013489368658945,
+      "max_continuous_wait_min": 15.988821481578514,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "28": {
+      "waiting_episode_weight": 414.3950255214184,
+      "mean_continuous_wait_min": 4.144349158796315,
+      "p90_continuous_wait_min": 7.847164899250614,
+      "max_continuous_wait_min": 15.705400016281297,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "62": {
+      "waiting_episode_weight": 1681.6427680593163,
+      "mean_continuous_wait_min": 2.5048700921980362,
+      "p90_continuous_wait_min": 5.3689027064402275,
+      "max_continuous_wait_min": 12.04417694917344,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "80": {
+      "waiting_episode_weight": 615.573234667146,
+      "mean_continuous_wait_min": 4.5405756369596375,
+      "p90_continuous_wait_min": 8.144651899756354,
+      "max_continuous_wait_min": 15.10031078991936,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "96": {
+      "waiting_episode_weight": 335.2441052642144,
+      "mean_continuous_wait_min": 7.241004569572262,
+      "p90_continuous_wait_min": 12.20119833404436,
+      "max_continuous_wait_min": 16.56085007217213,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "61": {
+      "waiting_episode_weight": 194.5065232261944,
+      "mean_continuous_wait_min": 5.249395062749311,
+      "p90_continuous_wait_min": 10.793022102938146,
+      "max_continuous_wait_min": 15.668517114175968,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "33": {
+      "waiting_episode_weight": 154.17798945739378,
+      "mean_continuous_wait_min": 3.8675599384742916,
+      "p90_continuous_wait_min": 6.000717659199169,
+      "max_continuous_wait_min": 14.86242060729431,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "58": {
+      "waiting_episode_weight": 1324.2142444972574,
+      "mean_continuous_wait_min": 4.056400620679305,
+      "p90_continuous_wait_min": 8.591723489942645,
+      "max_continuous_wait_min": 12.974068171036198,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "59": {
+      "waiting_episode_weight": 1320.4786411753662,
+      "mean_continuous_wait_min": 4.636526598481331,
+      "p90_continuous_wait_min": 9.476553300372446,
+      "max_continuous_wait_min": 15.56282157385649,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "29": {
+      "waiting_episode_weight": 149.89149784471948,
+      "mean_continuous_wait_min": 2.330444823926152,
+      "p90_continuous_wait_min": 5.653679099999985,
+      "max_continuous_wait_min": 15.710724117705952,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "1": {
+      "waiting_episode_weight": 2976.9228773018785,
+      "mean_continuous_wait_min": 4.132577659923293,
+      "p90_continuous_wait_min": 7.567377643151849,
+      "max_continuous_wait_min": 15.078121200326374,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "60": {
+      "waiting_episode_weight": 694.1031338805118,
+      "mean_continuous_wait_min": 5.203797784619616,
+      "p90_continuous_wait_min": 9.705026384534479,
+      "max_continuous_wait_min": 15.900726293176557,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "3": {
+      "waiting_episode_weight": 574.5138783170769,
+      "mean_continuous_wait_min": 2.0309877429170267,
+      "p90_continuous_wait_min": 4.663065141551487,
+      "max_continuous_wait_min": 7.165775390802082,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "84": {
+      "waiting_episode_weight": 242.65424197371297,
+      "mean_continuous_wait_min": 8.247724090037211,
+      "p90_continuous_wait_min": 13.225017870545344,
+      "max_continuous_wait_min": 16.153573960424424,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "42": {
+      "waiting_episode_weight": 1639.9844387493558,
+      "mean_continuous_wait_min": 5.955954394708636,
+      "p90_continuous_wait_min": 11.481475627800197,
+      "max_continuous_wait_min": 14.997926703677027,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "92": {
+      "waiting_episode_weight": 1343.0699260323029,
+      "mean_continuous_wait_min": 5.43538165171131,
+      "p90_continuous_wait_min": 11.457721991404348,
+      "max_continuous_wait_min": 15.95129867678855,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "98": {
+      "waiting_episode_weight": 168.85135074290164,
+      "mean_continuous_wait_min": 4.7718578216030485,
+      "p90_continuous_wait_min": 9.218745570924996,
+      "max_continuous_wait_min": 10.273977609308591,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "12": {
+      "waiting_episode_weight": 378.79079532881065,
+      "mean_continuous_wait_min": 2.9639085745925353,
+      "p90_continuous_wait_min": 5.032133880188242,
+      "max_continuous_wait_min": 8.333333333333334,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "69": {
+      "waiting_episode_weight": 476.8350921329595,
+      "mean_continuous_wait_min": 4.995648103318973,
+      "p90_continuous_wait_min": 10.089395280819371,
+      "max_continuous_wait_min": 15.80724604254877,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "56": {
+      "waiting_episode_weight": 456.7243903563172,
+      "mean_continuous_wait_min": 4.801358226930569,
+      "p90_continuous_wait_min": 9.983329140668138,
+      "max_continuous_wait_min": 15.705433549786783,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "55": {
+      "waiting_episode_weight": 245.33273252738098,
+      "mean_continuous_wait_min": 3.617501744218347,
+      "p90_continuous_wait_min": 6.976950287626581,
+      "max_continuous_wait_min": 12.380959915112907,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "51": {
+      "waiting_episode_weight": 72.43886876441834,
+      "mean_continuous_wait_min": 2.790390631052069,
+      "p90_continuous_wait_min": 4.693884634300654,
+      "max_continuous_wait_min": 8.319459693413348,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "19": {
+      "waiting_episode_weight": 130.47073920237733,
+      "mean_continuous_wait_min": 4.436344205207735,
+      "p90_continuous_wait_min": 7.437698674276422,
+      "max_continuous_wait_min": 14.669879785454032,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "30": {
+      "waiting_episode_weight": 32.52077033978556,
+      "mean_continuous_wait_min": 3.2249951541485773,
+      "p90_continuous_wait_min": 7.231350952130985,
+      "max_continuous_wait_min": 8.476425256471218,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "20": {
+      "waiting_episode_weight": 172.7244167097905,
+      "mean_continuous_wait_min": 4.673824321900319,
+      "p90_continuous_wait_min": 8.835558732566763,
+      "max_continuous_wait_min": 14.83019127656274,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "21": {
+      "waiting_episode_weight": 362.13961340025065,
+      "mean_continuous_wait_min": 4.899730755349916,
+      "p90_continuous_wait_min": 8.689533814387202,
+      "max_continuous_wait_min": 15.94555892648059,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "23": {
+      "waiting_episode_weight": 57.07524114378789,
+      "mean_continuous_wait_min": 3.035900003173833,
+      "p90_continuous_wait_min": 5.333333333333333,
+      "max_continuous_wait_min": 13.333333333333334,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "24": {
+      "waiting_episode_weight": 14.883443797358293,
+      "mean_continuous_wait_min": 5.091567716556478,
+      "p90_continuous_wait_min": 7.333333333333333,
+      "max_continuous_wait_min": 10.333333333333334,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "26": {
+      "waiting_episode_weight": 137.36365617973357,
+      "mean_continuous_wait_min": 4.104268962056214,
+      "p90_continuous_wait_min": 7.333333333333333,
+      "max_continuous_wait_min": 14.333333333333334,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "27": {
+      "waiting_episode_weight": 31.774057108471048,
+      "mean_continuous_wait_min": 5.897770281687979,
+      "p90_continuous_wait_min": 8.333333333333334,
+      "max_continuous_wait_min": 14.333333333333334,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "68": {
+      "waiting_episode_weight": 312.56050833530315,
+      "mean_continuous_wait_min": 5.302800278324116,
+      "p90_continuous_wait_min": 11.060299686685175,
+      "max_continuous_wait_min": 15.896817533526336,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "63": {
+      "waiting_episode_weight": 61.590291144654934,
+      "mean_continuous_wait_min": 2.5532667863543774,
+      "p90_continuous_wait_min": 6.608052396560257,
+      "max_continuous_wait_min": 13.846760936557256,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "76": {
+      "waiting_episode_weight": 44.902081901575364,
+      "mean_continuous_wait_min": 3.102274835913798,
+      "p90_continuous_wait_min": 6.7668307397725584,
+      "max_continuous_wait_min": 8.501542702616037,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "79": {
+      "waiting_episode_weight": 522.7153845036405,
+      "mean_continuous_wait_min": 5.126906161370016,
+      "p90_continuous_wait_min": 8.882198440389766,
+      "max_continuous_wait_min": 13.665456770711655,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "5": {
+      "waiting_episode_weight": 213.94648670552832,
+      "mean_continuous_wait_min": 2.565405892807751,
+      "p90_continuous_wait_min": 5.457745527737643,
+      "max_continuous_wait_min": 6.796423268814154,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "6": {
+      "waiting_episode_weight": 63.217573743331,
+      "mean_continuous_wait_min": 3.00097820326801,
+      "p90_continuous_wait_min": 5.483426785441892,
+      "max_continuous_wait_min": 6.287860282924764,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "10": {
+      "waiting_episode_weight": 84.83103658820406,
+      "mean_continuous_wait_min": 4.780637056328498,
+      "p90_continuous_wait_min": 8.961158317541534,
+      "max_continuous_wait_min": 14.85817014344284,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "70": {
+      "waiting_episode_weight": 58.123329083312804,
+      "mean_continuous_wait_min": 4.777076839287186,
+      "p90_continuous_wait_min": 10.269938657152428,
+      "max_continuous_wait_min": 15.541291056556778,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "57": {
+      "waiting_episode_weight": 961.7682409387403,
+      "mean_continuous_wait_min": 3.7032666887906025,
+      "p90_continuous_wait_min": 6.485693842181475,
+      "max_continuous_wait_min": 15.183437301969873,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "78": {
+      "waiting_episode_weight": 446.26061832017405,
+      "mean_continuous_wait_min": 4.6978301295955,
+      "p90_continuous_wait_min": 10.550541758070176,
+      "max_continuous_wait_min": 13.853543564830277,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "75": {
+      "waiting_episode_weight": 154.34211816669264,
+      "mean_continuous_wait_min": 4.452765594620646,
+      "p90_continuous_wait_min": 9.910735727667149,
+      "max_continuous_wait_min": 12.99697075485201,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "25": {
+      "waiting_episode_weight": 82.73185124137407,
+      "mean_continuous_wait_min": 5.16112736670497,
+      "p90_continuous_wait_min": 7.333333333333333,
+      "max_continuous_wait_min": 11.333333333333334,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "49": {
+      "waiting_episode_weight": 26.307156424482425,
+      "mean_continuous_wait_min": 3.814802873006839,
+      "p90_continuous_wait_min": 6.924086064612493,
+      "max_continuous_wait_min": 9.197407337957703,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "50": {
+      "waiting_episode_weight": 11.685286137114725,
+      "mean_continuous_wait_min": 4.634709868733627,
+      "p90_continuous_wait_min": 8.663253371578806,
+      "max_continuous_wait_min": 9.325774085610707,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "7": {
+      "waiting_episode_weight": 17.489981116766646,
+      "mean_continuous_wait_min": 2.7993983669582243,
+      "p90_continuous_wait_min": 5.305696272981004,
+      "max_continuous_wait_min": 6.216563846928087,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "22": {
+      "waiting_episode_weight": 143.34357692460975,
+      "mean_continuous_wait_min": 3.888334071343776,
+      "p90_continuous_wait_min": 6.725524210685277,
+      "max_continuous_wait_min": 14.12220077723335,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "47": {
+      "waiting_episode_weight": 75.68854773119791,
+      "mean_continuous_wait_min": 2.3946749112791226,
+      "p90_continuous_wait_min": 5.017158749408554,
+      "max_continuous_wait_min": 11.368327720861393,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "14": {
+      "waiting_episode_weight": 164.48179442739257,
+      "mean_continuous_wait_min": 3.076563531409464,
+      "p90_continuous_wait_min": 5.26167532844144,
+      "max_continuous_wait_min": 6.313312496410193,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "15": {
+      "waiting_episode_weight": 118.51812719669311,
+      "mean_continuous_wait_min": 2.7721120616868915,
+      "p90_continuous_wait_min": 4.846273370574151,
+      "max_continuous_wait_min": 6.07605096034337,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "48": {
+      "waiting_episode_weight": 4.354118808302782,
+      "mean_continuous_wait_min": 2.002847154366331,
+      "p90_continuous_wait_min": 5.333333333333333,
+      "max_continuous_wait_min": 9.099525587280612,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "64": {
+      "waiting_episode_weight": 13.298116308487598,
+      "mean_continuous_wait_min": 7.686466040398693,
+      "p90_continuous_wait_min": 11.071163021574344,
+      "max_continuous_wait_min": 11.965555101159044,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "53": {
+      "waiting_episode_weight": 767.1039863564303,
+      "mean_continuous_wait_min": 2.5435362784676787,
+      "p90_continuous_wait_min": 4.960215987984944,
+      "max_continuous_wait_min": 9.302564547248767,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "54": {
+      "waiting_episode_weight": 927.3973095651623,
+      "mean_continuous_wait_min": 2.9205577127274602,
+      "p90_continuous_wait_min": 5.800041660957382,
+      "max_continuous_wait_min": 14.06010851040337,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "4": {
+      "waiting_episode_weight": 26.87875006502805,
+      "mean_continuous_wait_min": 2.5967095203197337,
+      "p90_continuous_wait_min": 5.100653572797577,
+      "max_continuous_wait_min": 6.173548321806568,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "8": {
+      "waiting_episode_weight": 273.41009510675696,
+      "mean_continuous_wait_min": 2.293695606282617,
+      "p90_continuous_wait_min": 4.6308019296272205,
+      "max_continuous_wait_min": 6.584582433232572,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "9": {
+      "waiting_episode_weight": 409.76647171941465,
+      "mean_continuous_wait_min": 3.9439060213963724,
+      "p90_continuous_wait_min": 7.074618614235805,
+      "max_continuous_wait_min": 14.096610182158717,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "73": {
+      "waiting_episode_weight": 22.07710193477846,
+      "mean_continuous_wait_min": 2.0776735186734854,
+      "p90_continuous_wait_min": 3.4098110009947655,
+      "max_continuous_wait_min": 5.560191882027357,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "72": {
+      "waiting_episode_weight": 9.436281636717256,
+      "mean_continuous_wait_min": 2.9632047448721863,
+      "p90_continuous_wait_min": 7.6056955538670685,
+      "max_continuous_wait_min": 7.6056955538670685,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "87": {
+      "waiting_episode_weight": 3.540944855300037,
+      "mean_continuous_wait_min": 1.2703063861492008,
+      "p90_continuous_wait_min": 2.7583926640863257,
+      "max_continuous_wait_min": 2.828166960749998,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "13": {
+      "waiting_episode_weight": 134.04842406990116,
+      "mean_continuous_wait_min": 3.03135234042566,
+      "p90_continuous_wait_min": 4.828574299642302,
+      "max_continuous_wait_min": 6.018864561921509,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "41": {
+      "waiting_episode_weight": 6.513282226609143,
+      "mean_continuous_wait_min": 5.949634823254455,
+      "p90_continuous_wait_min": 7.333333333333333,
+      "max_continuous_wait_min": 8.333333333333334,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "17": {
+      "waiting_episode_weight": 125.421225475298,
+      "mean_continuous_wait_min": 5.526113080892095,
+      "p90_continuous_wait_min": 9.078114623962028,
+      "max_continuous_wait_min": 12.587296081948928,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "16": {
+      "waiting_episode_weight": 19.851558794637004,
+      "mean_continuous_wait_min": 1.694590694266108,
+      "p90_continuous_wait_min": 5.179215834560455,
+      "max_continuous_wait_min": 7.808111266394795,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "11": {
+      "waiting_episode_weight": 3.5247019889913216,
+      "mean_continuous_wait_min": 2.726548974433533,
+      "p90_continuous_wait_min": 7.99906833114995,
+      "max_continuous_wait_min": 8.325384118195021,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "18": {
+      "waiting_episode_weight": 17.92281394706429,
+      "mean_continuous_wait_min": 4.521757293128872,
+      "p90_continuous_wait_min": 7.006986262068919,
+      "max_continuous_wait_min": 10.043128871428053,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "38": {
+      "waiting_episode_weight": 25.49273210755077,
+      "mean_continuous_wait_min": 3.315699650279605,
+      "p90_continuous_wait_min": 10.785368835171175,
+      "max_continuous_wait_min": 11.889943763858295,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "36": {
+      "waiting_episode_weight": 13.33552310541724,
+      "mean_continuous_wait_min": 1.5119821180950663,
+      "p90_continuous_wait_min": 2.4773348657308816,
+      "max_continuous_wait_min": 2.865915710390618,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "88": {
+      "waiting_episode_weight": 13.729033207049618,
+      "mean_continuous_wait_min": 2.6978814339080346,
+      "p90_continuous_wait_min": 5.640601049953935,
+      "max_continuous_wait_min": 10.289486479564827,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "74": {
+      "waiting_episode_weight": 6.708643756713861,
+      "mean_continuous_wait_min": 2.6784975098276296,
+      "p90_continuous_wait_min": 6.702212892764631,
+      "max_continuous_wait_min": 6.954788904077456,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "37": {
+      "waiting_episode_weight": 3.8269100830138205,
+      "mean_continuous_wait_min": 2.911010412049723,
+      "p90_continuous_wait_min": 6.017844412465517,
+      "max_continuous_wait_min": 6.081301778677759,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "81": {
+      "waiting_episode_weight": 12.753455157112333,
+      "mean_continuous_wait_min": 0.9525287363473592,
+      "p90_continuous_wait_min": 1.4048436209764381,
+      "max_continuous_wait_min": 4.154933139000059,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "2": {
+      "waiting_episode_weight": 29.062791656513177,
+      "mean_continuous_wait_min": 2.7055400295914813,
+      "p90_continuous_wait_min": 4.014674370114517,
+      "max_continuous_wait_min": 6.212490402899978,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "31": {
+      "waiting_episode_weight": 0.4658052845673146,
+      "mean_continuous_wait_min": 2.92981578616266,
+      "p90_continuous_wait_min": 2.955216990954432,
+      "max_continuous_wait_min": 2.955216990954432,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "35": {
+      "waiting_episode_weight": 0.21735424513767754,
+      "mean_continuous_wait_min": 1.479630444645887,
+      "p90_continuous_wait_min": 1.504744109057962,
+      "max_continuous_wait_min": 1.504744109057962,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "44": {
+      "waiting_episode_weight": 0.034250388571126084,
+      "mean_continuous_wait_min": 0.9842880058361819,
+      "p90_continuous_wait_min": 0.9842880058361819,
+      "max_continuous_wait_min": 0.9842880058361819,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "39": {
+      "waiting_episode_weight": 0.6393405866610201,
+      "mean_continuous_wait_min": 5.333333333333333,
+      "p90_continuous_wait_min": 5.333333333333333,
+      "max_continuous_wait_min": 5.333333333333333,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "46": {
+      "waiting_episode_weight": 0.045667184761501445,
+      "mean_continuous_wait_min": 0.7079676507689631,
+      "p90_continuous_wait_min": 0.7079676507689631,
+      "max_continuous_wait_min": 0.7079676507689631,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "65": {
+      "waiting_episode_weight": 1.2344242986781735,
+      "mean_continuous_wait_min": 0.7049196293681088,
+      "p90_continuous_wait_min": 1.6248825997872094,
+      "max_continuous_wait_min": 1.6248825997872094,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "71": {
+      "waiting_episode_weight": 0.17353530209370546,
+      "mean_continuous_wait_min": 4.696697979486271,
+      "p90_continuous_wait_min": 4.696697979486271,
+      "max_continuous_wait_min": 4.696697979486271,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    },
+    "52": {
+      "waiting_episode_weight": 0.3535513149660653,
+      "mean_continuous_wait_min": 2.8810259354094936,
+      "p90_continuous_wait_min": 3.671618881314013,
+      "max_continuous_wait_min": 3.6787013331452423,
+      "over_20_minute_weight": 0.0,
+      "over_20_minute_partition_rows": 0
+    }
+  },
+  "maximum_continuous_wait_min": 16.56085007217213,
+  "over_20_minute_weight": 0.0,
+  "baseline_over_20_minute_weight": 0.0,
+  "decision_weight_by_reason": {
+    "queue_recheck": 13548.337573579305,
+    "arrival": 3209.374743500552
+  },
+  "paired_complete_weight": 16517.0,
+  "paired_metrics": {
+    "wait_seconds": {
+      "before": 8.48386447928259,
+      "after": 8.742398681286117
+    },
+    "walking_seconds": {
+      "before": 11.240594532138639,
+      "after": 11.426997793005768
+    },
+    "total_seconds": {
+      "before": 26.945392629903516,
+      "after": 27.45557523142323
+    },
+    "route_changes": {
+      "before": 0.9662159802518208,
+      "after": 1.0145736100430485
+    }
+  },
+  "field_fit": null,
+  "forty_reference_is_user_recollection_not_measurement": true,
+  "quality_gates": {
+    "no_wait_over_20_min": true,
+    "named_stops_at_most_40": true,
+    "independent_conservation": true
+  }
+}

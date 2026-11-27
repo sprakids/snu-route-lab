@@ -1,0 +1,186 @@
+{
+  "schema": "saved_observation_calibration_review_v1",
+  "generated_at": "2026-11-12T10:46:20.251364",
+  "source": {
+    "archive_manifest": "download_manifest.json",
+    "source_sha256": {
+      "2026-11-07": "ba6d8cbda1c6eea6d9a0ca417f2daded680edae8de810534dff0c8ee9fb616ef",
+      "2026-11-08": "a14fd7c5fa650fb340d2560fc9958f2e32a2f6adfd8dd449ca9d0b916f9574fd",
+      "2026-11-09": "6b0545020a896ac7118f3b741bedacf3ca6b4c84312df0db725b4af52eef3737",
+      "2026-11-10": "81c2b1851a55ede1c46daad3568cec5afe852f053c8a6a68484b9d247d06e63c",
+      "2026-11-11": "900cd59c603e644d86607578c64b5727b69e8165974a599835bcddb04608551f"
+    },
+    "provider_calls_triggered_by_analysis": 0,
+    "source_contract_url": "https://www.data.go.kr/data/15000332/openapi.do"
+  },
+  "scope": {
+    "descriptive_dates": [
+      "2026-11-09",
+      "2026-11-10",
+      "2026-11-11"
+    ],
+    "preferred_current_detector_dates": [
+      "2026-11-10",
+      "2026-11-11"
+    ],
+    "why_not_1109_for_calibration": "recording logic changed during the day; replay gives15757 gaps versus stored11547",
+    "time_zone": "Asia/Seoul",
+    "hours": "provider time; headways keyed by later passage hour, travel by first passage hour",
+    "section_order": "provider sectOrd matched to stored route stop sequence; not a direct boarding event",
+    "congestion_threshold": "known grade5 or6; unknown0 excluded, never treated as empty"
+  },
+  "sample_and_error_limits": [
+    "A stop passage requires stopFlag=true and distance to recorded stop <=60m, with a previous provider update within120s.",
+    "Passage time is first confirmed stop detection. True arrival can precede it by the detection gap; it is not an exact arrival/departure timestamp.",
+    "Travel spans two detected stop events and may contain dwell/signal delay; it is not pure moving time and must not receive a second blanket dwell addition.",
+    "Repeated provider timestamps are deduplicated; stop intervals and overlapping origin-destination legs are correlated across the same vehicle/trip/day.",
+    "Missing a vehicle can inflate a measured headway. Gaps below15s and above3600s are excluded; this truncates the distribution and cannot rule out longer true gaps.",
+    "Route dispatch gaps at a depot and observed stop passage gaps are different. Stop-flag runs cannot identify boarded/alighted counts.",
+    "Only2 stable detector days exist. One weekday occurrence per date does not identify a weekday effect.",
+    "11/11 has already been examined descriptively. A11/10-fit,11/11-evaluation is a date-split backtest, not a pristine untouched holdout.",
+    "Observed headway wait E[H^2]/(2E[H]) assumes independent random arrivals and full service eligibility; it is not a student queue wait prediction.",
+    "No numeric occupancy, remaining capacity or denied-boarding frequency can be recovered directly from ordinal congestion labels.",
+    "No statistical confidence interval or model-accuracy improvement is established by these descriptive results."
+  ],
+  "shuttle_gap": {
+    "continuous_archives_available": false,
+    "reason": "BUSIN latest shared cache is overwritten; no shuttle entries in daily raw or route_stats",
+    "coordinates": "schematic x/y and stop-area intervals, not GPS; provider timestamp absent",
+    "observed_user_report": {
+      "date": "2026-11-10",
+      "route": "administration_to_snu_station",
+      "queue_join_minute": "15:23",
+      "outside_queue_including_observer": 67,
+      "individual_queue_wait_seconds": 189,
+      "boarding_to_departure_seconds": 30,
+      "reported_capacity": 44,
+      "reported_batch_size": 2,
+      "exact_arrival_clock": null
+    },
+    "not_identified": [
+      "actual headway distribution",
+      "true departure timing",
+      "batch size prevalence",
+      "traffic-dependent completed shuttle trip times"
+    ]
+  },
+  "missing_city_crowd": [
+    "120900011",
+    "120900012"
+  ],
+  "application_boundary": "separate prototype only; operating V11, active route model and collector unchanged",
+  "reconciliation": [
+    {
+      "day": "2026-11-10",
+      "route": "100100250",
+      "recorded_headway_n": 2316,
+      "replay_n": 2316,
+      "match": true
+    },
+    {
+      "day": "2026-11-10",
+      "route": "100100251",
+      "recorded_headway_n": 1121,
+      "replay_n": 1121,
+      "match": true
+    },
+    {
+      "day": "2026-11-10",
+      "route": "100100252",
+      "recorded_headway_n": 1348,
+      "replay_n": 1348,
+      "match": true
+    },
+    {
+      "day": "2026-11-10",
+      "route": "100100253",
+      "recorded_headway_n": 2315,
+      "replay_n": 2315,
+      "match": true
+    },
+    {
+      "day": "2026-11-10",
+      "route": "100100263",
+      "recorded_headway_n": 2118,
+      "replay_n": 2118,
+      "match": true
+    },
+    {
+      "day": "2026-11-10",
+      "route": "100100521",
+      "recorded_headway_n": 4073,
+      "replay_n": 4073,
+      "match": true
+    },
+    {
+      "day": "2026-11-10",
+      "route": "120900011",
+      "recorded_headway_n": 1717,
+      "replay_n": 1717,
+      "match": true
+    },
+    {
+      "day": "2026-11-10",
+      "route": "120900012",
+      "recorded_headway_n": 478,
+      "replay_n": 478,
+      "match": true
+    },
+    {
+      "day": "2026-11-11",
+      "route": "100100250",
+      "recorded_headway_n": 2284,
+      "replay_n": 2284,
+      "match": true
+    },
+    {
+      "day": "2026-11-11",
+      "route": "100100251",
+      "recorded_headway_n": 1160,
+      "replay_n": 1160,
+      "match": true
+    },
+    {
+      "day": "2026-11-11",
+      "route": "100100252",
+      "recorded_headway_n": 1338,
+      "replay_n": 1338,
+      "match": true
+    },
+    {
+      "day": "2026-11-11",
+      "route": "100100253",
+      "recorded_headway_n": 2306,
+      "replay_n": 2306,
+      "match": true
+    },
+    {
+      "day": "2026-11-11",
+      "route": "100100263",
+      "recorded_headway_n": 2134,
+      "replay_n": 2134,
+      "match": true
+    },
+    {
+      "day": "2026-11-11",
+      "route": "100100521",
+      "recorded_headway_n": 3983,
+      "replay_n": 3983,
+      "match": true
+    },
+    {
+      "day": "2026-11-11",
+      "route": "120900011",
+      "recorded_headway_n": 1310,
+      "replay_n": 1310,
+      "match": true
+    },
+    {
+      "day": "2026-11-11",
+      "route": "120900012",
+      "recorded_headway_n": 420,
+      "replay_n": 420,
+      "match": true
+    }
+  ]
+}

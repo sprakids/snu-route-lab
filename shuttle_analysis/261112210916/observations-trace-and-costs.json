@@ -1,0 +1,108 @@
+{
+  "status": "PASS_TARGET_MASS_TIME_AND_DECLINE_COST_ARITHMETIC",
+  "traces": [
+    {
+      "model": "261112171315",
+      "uid": 1205536,
+      "parent_id": 75346,
+      "fragment_count": 1,
+      "mass": 0.19180217599830604,
+      "weighted_mean_total_min": 101.47449089305276,
+      "maximum_total_min": 101.47449089305276,
+      "fragments": [
+        {
+          "weight": 0.19180217599830604,
+          "duration_min": 101.47449089305276,
+          "leg_times": {
+            "walk": 73.27218509828757,
+            "queue": 20.206528028440516,
+            "ride": 7.995777766324681
+          },
+          "route_changes": 7,
+          "history": [
+            [
+              50231.30231397559,
+              "walk_transfer",
+              "도보→기숙사삼거리 · 교내 순환 셔틀 / 관악02-2"
+            ],
+            [
+              50269.31117314806,
+              "walk_transfer",
+              "도보→대학원생활관 · 관악02-1"
+            ],
+            [
+              50822.119916592215,
+              "walk_transfer",
+              "도보→대학원생활관 · 관악02-2"
+            ],
+            [
+              51113.053527185744,
+              "walk_transfer",
+              "도보→관악사삼거리 · 5516 / 관악02-1"
+            ],
+            [
+              51964.09611145401,
+              "walk_transfer",
+              "도보→301동(제1공학관) · 교내 역순환 셔틀 / 관악02-1"
+            ],
+            [
+              52251.439841444604,
+              "walk_transfer",
+              "도보→제2공학관 · 5516 / 관악02-1"
+            ],
+            [
+              52567.92843630822,
+              "walk",
+              "목적지까지 도보"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "model": "261112210916",
+      "uid": 1205536,
+      "parent_id": 75346,
+      "fragment_count": 1,
+      "mass": 0.19180217599830604,
+      "weighted_mean_total_min": 61.707677083425615,
+      "maximum_total_min": 61.707677083425615,
+      "fragments": [
+        {
+          "weight": 0.19180217599830604,
+          "duration_min": 61.707677083425615,
+          "leg_times": {
+            "walk": 44.31547004323135,
+            "queue": 15.45505590544999,
+            "ride": 1.937151134744272
+          },
+          "route_changes": 3,
+          "history": [
+            [
+              50231.30231397559,
+              "walk_transfer",
+              "도보→기숙사삼거리 · 교내 순환 셔틀 / 관악02-2"
+            ],
+            [
+              50686.680433218164,
+              "walk_transfer",
+              "도보→수의대입구.보건대학원앞 · 관악02-2"
+            ],
+            [
+              51252.92447801783,
+              "walk",
+              "목적지까지 도보"
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "cost_vectors_checked": 72222,
+  "maximum_cost_error_minutes": 5.275069270282984e-11,
+  "source_audits": {
+    "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\261112171315\\runs\\release1p125-combined-regular-tue\\attempt_01\\audit-regular-tue.json.gz": "87e8f0d7af254cdcc33bede6c4582e4cceb4f2ff2c7d7a75d0ab9a80617c7500",
+    "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\261112210916\\runs\\committed-combined-regular-tue\\attempt_01\\audit-regular-tue.json.gz": "fea26945d7757ea4af2aa5c294d5660b88dac411aef9fe0bebe42035d08db3ed"
+  },
+  "scope": "Existing weighted model traces, not actual people; not a causal estimate from one UID; cost arithmetic does not validate preference coefficients."
+}

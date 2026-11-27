@@ -1,0 +1,127 @@
+{
+  "release_id": "261112220847",
+  "parent": "261112210916",
+  "recommendation": "KEEP_PRIVATE_DO_NOT_PROMOTE",
+  "internal_ten_case_gate_passed": true,
+  "conditional_probability_formula": "1-(1-p_ref)**(2**n)",
+  "growth_factor": 2.0,
+  "growth_empirically_estimated": false,
+  "base_distance_and_cost_coefficients_unchanged": true,
+  "review_timing_unchanged": true,
+  "unlimited_changes": true,
+  "maximum_all_recorded_continuous_wait_min": 19.295697832027752,
+  "over20_episode_weight": 0.0,
+  "unserved_trip_weight": 0.0,
+  "mean_total_improved": 9,
+  "p99_total_improved": 10,
+  "max_total_improved": 5,
+  "maximum_total_journey_min": 100.68564962946972,
+  "parent_maximum_total_journey_min": 106.13838762079952,
+  "p99_delta_range": [
+    -2.1242807188696986,
+    -0.047891203768813284
+  ],
+  "mean_walk_delta_range": [
+    0.0028357969255061732,
+    0.06565752929789603
+  ],
+  "mean_change_count_delta_range": [
+    -0.009445189309019164,
+    0.0013768895733269337
+  ],
+  "mean_total_regressions": [
+    {
+      "day": "월",
+      "scenario": "regular",
+      "delta_min": 0.012301713222157673
+    }
+  ],
+  "primary_loss_before": 0.24215903256298624,
+  "primary_loss_after": 0.24215903256298643,
+  "old_field_errors_improved": 0,
+  "old_field_errors_worse": 0,
+  "named_40_reference_exceed_conditions": 0,
+  "target_trace": [
+    {
+      "model": "261112210916",
+      "uid": 1205536,
+      "parent_id": 75346,
+      "fragment_count": 1,
+      "mass": 0.19180217599830604,
+      "weighted_mean_total_min": 61.707677083425615,
+      "maximum_total_min": 61.707677083425615,
+      "fragments": [
+        {
+          "weight": 0.19180217599830604,
+          "duration_min": 61.707677083425615,
+          "leg_times": {
+            "walk": 44.31547004323135,
+            "queue": 15.45505590544999,
+            "ride": 1.937151134744272
+          },
+          "route_changes": 3,
+          "history": [
+            [
+              50231.30231397559,
+              "walk_transfer",
+              "도보→기숙사삼거리 · 교내 순환 셔틀 / 관악02-2"
+            ],
+            [
+              50686.680433218164,
+              "walk_transfer",
+              "도보→수의대입구.보건대학원앞 · 관악02-2"
+            ],
+            [
+              51252.92447801783,
+              "walk",
+              "목적지까지 도보"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "model": "261112220847",
+      "uid": 1205536,
+      "parent_id": 75346,
+      "fragment_count": 1,
+      "mass": 0.19180217599830604,
+      "weighted_mean_total_min": 61.707677083425615,
+      "maximum_total_min": 61.707677083425615,
+      "fragments": [
+        {
+          "weight": 0.19180217599830604,
+          "duration_min": 61.707677083425615,
+          "leg_times": {
+            "walk": 44.31547004323135,
+            "queue": 15.45505590544999,
+            "ride": 1.937151134744272
+          },
+          "route_changes": 3,
+          "history": [
+            [
+              50231.30231397559,
+              "walk_transfer",
+              "도보→기숙사삼거리 · 교내 순환 셔틀 / 관악02-2"
+            ],
+            [
+              50686.680433218164,
+              "walk_transfer",
+              "도보→수의대입구.보건대학원앞 · 관악02-2"
+            ],
+            [
+              51252.92447801783,
+              "walk",
+              "목적지까지 도보"
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "recorded_probability_checks": 642513,
+  "independent_field_accuracy": "NOT_EVALUABLE",
+  "new_day_outcomes_opened": false,
+  "production_writes": false,
+  "report_sha256": "c9bd1353c3659359b27d5b302bb416a574a93599152adb54f0669f39920ec5a7"
+}

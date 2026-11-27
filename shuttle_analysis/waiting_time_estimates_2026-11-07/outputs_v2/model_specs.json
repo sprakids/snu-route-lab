@@ -1,0 +1,162 @@
+{
+  "created_at_utc": "2026-11-07T11:55:59.772854+00:00",
+  "configs": [
+    {
+      "id": "base60",
+      "label": "기준: 대형60명·입구역4분",
+      "large_capacity": 60,
+      "upper_capacity": 60,
+      "peak_headway": 4,
+      "move_share": 0.5,
+      "mix": [
+        0.5575575575575575,
+        0.27227227227227224,
+        0.17017017017017017
+      ]
+    },
+    {
+      "id": "fast3",
+      "label": "입구역 배차3분",
+      "large_capacity": 60,
+      "upper_capacity": 60,
+      "peak_headway": 3,
+      "move_share": 0.5,
+      "mix": [
+        0.5575575575575575,
+        0.27227227227227224,
+        0.17017017017017017
+      ]
+    },
+    {
+      "id": "slow5",
+      "label": "입구역 배차5분",
+      "large_capacity": 60,
+      "upper_capacity": 60,
+      "peak_headway": 5,
+      "move_share": 0.5,
+      "mix": [
+        0.5575575575575575,
+        0.27227227227227224,
+        0.17017017017017017
+      ]
+    },
+    {
+      "id": "large44",
+      "label": "대형 정원44명 가정",
+      "large_capacity": 44,
+      "upper_capacity": 44,
+      "peak_headway": 4,
+      "move_share": 0.5,
+      "mix": [
+        0.5575575575575575,
+        0.27227227227227224,
+        0.17017017017017017
+      ]
+    },
+    {
+      "id": "upper30",
+      "label": "순환302동의 가용정원30명",
+      "large_capacity": 60,
+      "upper_capacity": 30,
+      "peak_headway": 4,
+      "move_share": 0.5,
+      "mix": [
+        0.5575575575575575,
+        0.27227227227227224,
+        0.17017017017017017
+      ]
+    },
+    {
+      "id": "move25",
+      "label": "수업 직후 이동25%",
+      "large_capacity": 60,
+      "upper_capacity": 60,
+      "peak_headway": 4,
+      "move_share": 0.25,
+      "mix": [
+        0.5575575575575575,
+        0.27227227227227224,
+        0.17017017017017017
+      ]
+    },
+    {
+      "id": "move75",
+      "label": "수업 직후 이동75%",
+      "large_capacity": 60,
+      "upper_capacity": 60,
+      "peak_headway": 4,
+      "move_share": 0.75,
+      "mix": [
+        0.5575575575575575,
+        0.27227227227227224,
+        0.17017017017017017
+      ]
+    },
+    {
+      "id": "equal_mix",
+      "label": "교외 목적지 세 방향 균등",
+      "large_capacity": 60,
+      "upper_capacity": 60,
+      "peak_headway": 4,
+      "move_share": 0.5,
+      "mix": [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.3333333333333333
+      ]
+    }
+  ],
+  "nodes": {
+    "admin_snu": [
+      "shuttle-41841",
+      "snu-410",
+      "행정관 → 서울대입구역"
+    ],
+    "admin_daehak": [
+      "shuttle-daehak",
+      "snu-410",
+      "행정관 → 대학동"
+    ],
+    "circle_302": [
+      "shuttle-41946",
+      "snu-901",
+      "302동 · 순환"
+    ],
+    "circle_301": [
+      "shuttle-41946",
+      "snu-1001",
+      "301동 · 순환"
+    ],
+    "reverse_302": [
+      "shuttle-41914",
+      "snu-901",
+      "302동 · 역순환"
+    ],
+    "reverse_301": [
+      "shuttle-41914",
+      "snu-1001",
+      "301동 · 역순환"
+    ]
+  },
+  "offsets_min": {
+    "circle": 1.3764256551047518,
+    "reverse": 1.3764256551047518
+  },
+  "arrival_support_minutes": [
+    680,
+    1390
+  ],
+  "arrival_bin_reconstruction": "Uniform across5min bin; sixty5sec midpoint packets, checked against three hundred1sec packets",
+  "capacity": "Large60 user-selected unverified; reverse25 nominal small-bus assumption",
+  "fifo": "302 boardings remain aboard through301; residual capacity shared",
+  "initial_occupancy": "Zero at302 baseline; upper30 sensitivity reserves30 places for unmodelled riders",
+  "queues": "Separate lines for every route and stop; no rerouting or abandonment",
+  "transfer_arrivals": "Held at original model times; queue delay does not propagate to later transfers",
+  "daytime_clock": "20 equally spaced unknown departure phases, not a confidence interval",
+  "demand": "Mean of prior10 route-choice repetitions; not mean queue over10 repetitions",
+  "background_demand": "Not measured, not added; results conditional on modeled course-related flow",
+  "time_scope": "Regular semester weekdays, 2026-2 general operation, no September-October-only extra buses or exam-night extra bus",
+  "study_week": "Nov9-13 typical-week labels only; not an actual-day forecast",
+  "service_boundaries": "Published last departures19:00Daehak,21:00at302circle,17:10at302reverse,23:10night",
+  "prep_seconds": 20
+}

@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "correction": {
+    "schema": "route_specific_capacity_correction_v1",
+    "route_id": "shuttle-41841",
+    "daytime_max_passengers": 44,
+    "daytime_end_second": 75600,
+    "night_paired_assumption_max_passengers": 60,
+    "source": "latest user report; vehicle registration not independently checked",
+    "source_observation_id": "20261110-1523-admin-snu-queue-wait-01",
+    "source_sha256": "ccd17f517720c1e9324ac08d2f1fe09b56b3a41656cd1f5387262539c9345d37",
+    "parent_dataset": "capacity_v9",
+    "parent_model_id": "261110150729",
+    "parent_prepared_sha256": "2b7284d40bab677b2f232e8444c522d3fa88995ac8d42342c9638adb7988ebf2",
+    "only_capacity_input_changed": true,
+    "behavior_demand_speed_supply_geometry_unchanged": true,
+    "other_shuttle_capacities_unchanged": true,
+    "independent_empirical_validation": false
+  },
+  "changed_route_info_keys": [
+    "shuttle-41841.capacity",
+    "shuttle-41841.capacity_periods"
+  ],
+  "same_student_plans": true,
+  "engine_sha256": "690babd48136beae59e2dd06fed4e3061599f1701587bcb4a45b11a6b7f6a7f4",
+  "capacity_policy_sha256": "4510adfa434d2091f0873286bfa424193029fe34d4835d47f0765b3c1e1a0470"
+}

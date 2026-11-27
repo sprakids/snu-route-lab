@@ -1,0 +1,265 @@
+{
+  "schema": "student_policy_static_input_shape_scan_v1",
+  "scope": "Existing frozen input schema/ID inspection only; no project functions, preparation, model or tests executed. No new-date observations opened.",
+  "source_path": "shuttle_analysis\\261115144206\\frozen\\prepared_capacity44_pair.json.gz",
+  "source_sha256": "08d92c334000990d00c843a51efe9cdb49ca145291421f4cd39b56dbb8492852",
+  "path_count": 4659,
+  "known_walk_ids": 3388,
+  "ride_only_ids": 1104,
+  "ride_only_ids_passing_initial_exact_origin_and_platform_endpoint_gate": [],
+  "raw_alternative_head_collision_groups": 19,
+  "raw_alternative_head_collision_examples": [
+    {
+      "source_key": "49|nak",
+      "options": [
+        {
+          "option_index": 2,
+          "name": "5513 / 관악02-1",
+          "walk_path": 3073,
+          "first_services": [
+            [
+              "100100251",
+              39,
+              41,
+              147
+            ]
+          ],
+          "full_identity": [
+            [
+              "100100251",
+              39,
+              41,
+              147,
+              [
+                [
+                  "120900011",
+                  18,
+                  38,
+                  16,
+                  []
+                ]
+              ]
+            ]
+          ]
+        },
+        {
+          "option_index": 3,
+          "name": "5513 / 관악02-1",
+          "walk_path": 3073,
+          "first_services": [
+            [
+              "100100251",
+              39,
+              41,
+              147
+            ]
+          ],
+          "full_identity": [
+            [
+              "100100251",
+              39,
+              41,
+              147,
+              [
+                [
+                  "120900011",
+                  18,
+                  37,
+                  20,
+                  []
+                ]
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "source_key": "53|dorm_ug",
+      "options": [
+        {
+          "option_index": 6,
+          "name": "5516 / 관악02-1",
+          "walk_path": 3097,
+          "first_services": [
+            [
+              "100100253",
+              63,
+              67,
+              88
+            ]
+          ],
+          "full_identity": [
+            [
+              "100100253",
+              63,
+              67,
+              88,
+              [
+                [
+                  "120900011",
+                  26,
+                  27,
+                  95,
+                  []
+                ]
+              ]
+            ]
+          ]
+        },
+        {
+          "option_index": 7,
+          "name": "5516 / 관악02-1",
+          "walk_path": 3097,
+          "first_services": [
+            [
+              "100100253",
+              63,
+              67,
+              88
+            ]
+          ],
+          "full_identity": [
+            [
+              "100100253",
+              63,
+              67,
+              88,
+              [
+                [
+                  "120900011",
+                  26,
+                  28,
+                  97,
+                  []
+                ]
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "source_key": "53|dorm_ug",
+      "options": [
+        {
+          "option_index": 8,
+          "name": "5513 / 관악02-1",
+          "walk_path": 3097,
+          "first_services": [
+            [
+              "100100251",
+              0,
+              4,
+              88
+            ]
+          ],
+          "full_identity": [
+            [
+              "100100251",
+              0,
+              4,
+              88,
+              [
+                [
+                  "120900011",
+                  26,
+                  27,
+                  95,
+                  []
+                ]
+              ]
+            ]
+          ]
+        },
+        {
+          "option_index": 9,
+          "name": "5513 / 관악02-1",
+          "walk_path": 3097,
+          "first_services": [
+            [
+              "100100251",
+              0,
+              4,
+              88
+            ]
+          ],
+          "full_identity": [
+            [
+              "100100251",
+              0,
+              4,
+              88,
+              [
+                [
+                  "120900011",
+                  26,
+                  28,
+                  97,
+                  []
+                ]
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "raw_subset_pairs_with_different_shared_continuations": 0,
+  "raw_subset_conflict_examples": [],
+  "initial_plan_later_stop_with_existing_prefix_suffix_endpoint_joins": 214,
+  "later_stop_join_examples": [
+    {
+      "original_access_path": 337,
+      "first_service": "100100250",
+      "later_service": "120900012",
+      "later_node": 70,
+      "prefix_path_candidates": [
+        1151
+      ],
+      "suffix_path_candidates": [
+        4230
+      ]
+    },
+    {
+      "original_access_path": 330,
+      "first_service": "100100251",
+      "later_service": "100100253",
+      "later_node": 80,
+      "prefix_path_candidates": [
+        329
+      ],
+      "suffix_path_candidates": [
+        4366
+      ]
+    },
+    {
+      "original_access_path": 759,
+      "first_service": "120900011",
+      "later_service": "100100250",
+      "later_node": 55,
+      "prefix_path_candidates": [
+        565
+      ],
+      "suffix_path_candidates": [
+        4037
+      ]
+    },
+    {
+      "original_access_path": 739,
+      "first_service": "120900011",
+      "later_service": "100100251",
+      "later_node": 77,
+      "prefix_path_candidates": [
+        740
+      ],
+      "suffix_path_candidates": [
+        4324
+      ]
+    }
+  ],
+  "limitations": [
+    "Raw input shapes are not the post-filter candidate set. Timing, empty-seat availability, lateral/extra-distance admission and actual model reachability were not tested.",
+    "No scenario occurrence, performance error or frequency follows from these counts."
+  ]
+}

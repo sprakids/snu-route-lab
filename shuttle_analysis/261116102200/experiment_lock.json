@@ -1,0 +1,111 @@
+{
+  "status": "REGISTERED_BEFORE_EXECUTION",
+  "release_id": "261116102200",
+  "implementation_parent": "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\261116010854",
+  "comparison_parent": "261116010854",
+  "pilot_cases": [
+    {
+      "case": "poolfix-combined-regular-mon",
+      "mode": "combined",
+      "day": "월",
+      "scenario": "regular",
+      "seed": 0,
+      "operations": "v12_empirical"
+    },
+    {
+      "case": "poolfix-combined-regular-tue",
+      "mode": "combined",
+      "day": "화",
+      "scenario": "regular",
+      "seed": 0,
+      "operations": "v12_empirical"
+    },
+    {
+      "case": "poolfix-combined-regular-wed",
+      "mode": "combined",
+      "day": "수",
+      "scenario": "regular",
+      "seed": 0,
+      "operations": "v12_empirical"
+    },
+    {
+      "case": "poolfix-combined-regular-thu",
+      "mode": "combined",
+      "day": "목",
+      "scenario": "regular",
+      "seed": 0,
+      "operations": "v12_empirical"
+    },
+    {
+      "case": "poolfix-combined-regular-fri",
+      "mode": "combined",
+      "day": "금",
+      "scenario": "regular",
+      "seed": 0,
+      "operations": "v12_empirical"
+    },
+    {
+      "case": "poolfix-combined-peak-mon",
+      "mode": "combined",
+      "day": "월",
+      "scenario": "peak",
+      "seed": 0,
+      "operations": "v12_empirical"
+    },
+    {
+      "case": "poolfix-combined-peak-tue",
+      "mode": "combined",
+      "day": "화",
+      "scenario": "peak",
+      "seed": 0,
+      "operations": "v12_empirical"
+    },
+    {
+      "case": "poolfix-combined-peak-wed",
+      "mode": "combined",
+      "day": "수",
+      "scenario": "peak",
+      "seed": 0,
+      "operations": "v12_empirical"
+    },
+    {
+      "case": "poolfix-combined-peak-thu",
+      "mode": "combined",
+      "day": "목",
+      "scenario": "peak",
+      "seed": 0,
+      "operations": "v12_empirical"
+    },
+    {
+      "case": "poolfix-combined-peak-fri",
+      "mode": "combined",
+      "day": "금",
+      "scenario": "peak",
+      "seed": 0,
+      "operations": "v12_empirical"
+    },
+    {
+      "case": "ablation-no-same-stop-mon",
+      "mode": "combined",
+      "day": "월",
+      "scenario": "regular",
+      "seed": 0,
+      "operations": "v12_empirical",
+      "config_overrides": {
+        "same_stop_flexible_pool_choice": false
+      }
+    }
+  ],
+  "selection_rule": "First main Monday/Tuesday regular and Monday disabled-mechanism diagnostic, once each. Only if physical/user-rule audits pass, no unserved, combined reused observation error and over20 weight do not worsen and at least one improves, extend remaining8main weekday/scenario cases. Retain all failed and worsening results. No numeric wait/queue caps, demand additions, capacity/clock/patience/taste fitting or new-date outcome reads.",
+  "new_day_outcomes_opened": false,
+  "production_replacement_allowed": false,
+  "retained_user_behavior": [
+    "initial shuttle loyalty until heterogeneous expected-wait threshold",
+    "city two actual full buses plus further queue delay reconsideration",
+    "no visited boarding-stop returns",
+    "unlimited rerouting with repeat aversion",
+    "nearby walking and legal enroute boarding",
+    "SNU gate final fallback",
+    "correct terminal5516 direction"
+  ]
+}

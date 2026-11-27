@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "authorization": "User requested historical reference scenarios, selected dorm ratio, implementation collaboration and station sensitivity comparison on 2026-11-07.",
+  "baseline": "historical_reference",
+  "source_evidence_file": "../collaboration/research_inputs.json",
+  "historical_raw_percent": [
+    55.7,
+    27.2,
+    17.0
+  ],
+  "historical_normalization": "Divide each published percentage by 99.9; do not alter raw evidence or claim current observed shares.",
+  "external_mix_order": [
+    "snu",
+    "nak",
+    "daehak"
+  ],
+  "historical_scope": "2022-04 all transit trips both directions, not students-only or homeward-only; public repost text, issuer PDF unavailable.",
+  "destination_mapping_limit": "Historical Sillim including Daehak is represented by the model Daehak point; not an observed Daehak-only share.",
+  "selected_dorm_numerator": 5772,
+  "selected_dorm_denominator": 29613,
+  "dorm_scope_limit": "University-wide 2025 denominator and user-selected dorm count; not measured residence rate of current Gwanak course-takers.",
+  "conditional_model": "Common walking/route samples for every scenario; no crowding feedback, capacity or background riders.",
+  "primary_metric": "Mean modeled boarding-event weight per direction-specific stop and 5-minute bin; transfers counted at transfer stops.",
+  "secondary_metrics": [
+    "first boarding only",
+    "transfer boarding only",
+    "daily modeled boarding-event volume"
+  ],
+  "time_scopes": {
+    "all": [
+      680,
+      1390
+    ],
+    "afternoon": [
+      900,
+      1390
+    ]
+  },
+  "comparison_rule": "Compare the maximum of mean five-minute bins within each stop/day/window; also retain same historical peak-bin changes.",
+  "scenarios": [
+    {
+      "name": "historical_reference",
+      "label": "과거 방향비중 참고",
+      "external_mix": [
+        0.5575575575575575,
+        0.27227227227227224,
+        0.17017017017017017
+      ],
+      "dorm_share": 0.1949143957045892,
+      "immediate_trip_share": 0.5
+    },
+    {
+      "name": "equal_reference",
+      "label": "교외 세 방향 균등",
+      "external_mix": [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.3333333333333333
+      ],
+      "dorm_share": 0.1949143957045892,
+      "immediate_trip_share": 0.5
+    },
+    {
+      "name": "snu_plus10pp",
+      "label": "서울대입구 +10%p",
+      "external_mix": [
+        0.6575575575575575,
+        0.22227227227227225,
+        0.12017017017017016
+      ],
+      "dorm_share": 0.1949143957045892,
+      "immediate_trip_share": 0.5
+    },
+    {
+      "name": "snu_minus10pp",
+      "label": "서울대입구 -10%p",
+      "external_mix": [
+        0.45755755755755756,
+        0.32227227227227223,
+        0.22017017017017015
+      ],
+      "dorm_share": 0.1949143957045892,
+      "immediate_trip_share": 0.5
+    },
+    {
+      "name": "nak_plus10pp",
+      "label": "낙성대 +10%p",
+      "external_mix": [
+        0.5075575575575575,
+        0.3722722722722722,
+        0.12017017017017016
+      ],
+      "dorm_share": 0.1949143957045892,
+      "immediate_trip_share": 0.5
+    },
+    {
+      "name": "nak_minus10pp",
+      "label": "낙성대 -10%p",
+      "external_mix": [
+        0.6075575575575576,
+        0.17227227227227224,
+        0.22017017017017015
+      ],
+      "dorm_share": 0.1949143957045892,
+      "immediate_trip_share": 0.5
+    },
+    {
+      "name": "daehak_plus10pp",
+      "label": "대학동 대표점 +10%p",
+      "external_mix": [
+        0.5075575575575575,
+        0.22227227227227225,
+        0.2701701701701702
+      ],
+      "dorm_share": 0.1949143957045892,
+      "immediate_trip_share": 0.5
+    },
+    {
+      "name": "daehak_minus10pp",
+      "label": "대학동 대표점 -10%p",
+      "external_mix": [
+        0.6075575575575576,
+        0.32227227227227223,
+        0.07017017017017016
+      ],
+      "dorm_share": 0.1949143957045892,
+      "immediate_trip_share": 0.5
+    },
+    {
+      "name": "historical_dorm10",
+      "label": "과거 방향비중·기숙사 10%",
+      "external_mix": [
+        0.5575575575575575,
+        0.27227227227227224,
+        0.17017017017017017
+      ],
+      "dorm_share": 0.1,
+      "immediate_trip_share": 0.5
+    },
+    {
+      "name": "historical_dorm30",
+      "label": "과거 방향비중·기숙사 30%",
+      "external_mix": [
+        0.5575575575575575,
+        0.27227227227227224,
+        0.17017017017017017
+      ],
+      "dorm_share": 0.3,
+      "immediate_trip_share": 0.5
+    }
+  ]
+}

@@ -1,0 +1,1772 @@
+
+	
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" type="text/css" href="/web/common/css/font.css"/>
+<link rel="stylesheet" type="text/css" href="/web/common/css/map_style.css"/>
+<script nonce="" src="/web/common/js/jquery-1.11.0.min.js"></script>
+<script nonce="" src="/web/common/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script nonce="" src="/web/common/js/clipboard.js"></script>
+<script nonce="" type="text/javascript">
+    //<![CDATA[
+if(!window.localStorage) {
+	document.write('이 Browser 는 Local Storage 를 지원하지 않습니다.');
+	} else {
+		$(document).ready(function () {
+			if(!localStorage.getItem("lang")){
+				localStorage.setItem("lang", "kor");
+				$('.lang').html("English");
+				$('.lang').attr('id','kor');
+			}else if(localStorage.getItem("lang") == "kor"){
+				$('.lang').html("English");
+				$('.lang').attr('id','kor');
+			}else if(localStorage.getItem("lang") == "eng"){
+				$('.lang').html("Korean");
+				$('.lang').attr('id','eng');
+			}
+			$('.lang').click(function(){
+				var targetId = $(this).attr('id');
+				if(targetId == 'eng'){
+					localStorage.setItem("lang", "kor");
+					$('.lang').attr('id','kor');
+					$('.lang').html("English");
+				}else if(targetId == 'kor'){
+					localStorage.setItem("lang", "eng");
+					$('.lang').attr('id','eng');
+					$('.lang').html("Korean");
+				}
+				location.reload();
+			});
+		});
+		var langType = localStorage.getItem("lang");
+		 //]]>
+	};
+
+
+</script>
+<title>:: SNU Campus ::</title>
+<style type="text/css">
+.floor_info_list {overflow-y: auto;width:238px;padding:5px; max-height: 200px;background: #fff;line-height: 20px; border-left:1px #1f64cb solid; border-right:1px #1f64cb solid;}
+
+.search_res_field { padding: 15px; font-size: 14px;}
+.search_res_text { font-weight: bold; color: #6DACE2;}
+.search_res_nm {font-size: 16px; font-weight: bold;}
+
+.refresh_btn {width: 6%; float: right; padding-top: 7px;}
+.bus_info {max-height:190px; overflow:auto;}
+.shuttleType1{position:relative}
+.shuttleType2{position:relative}
+.shuttleType3{position:relative}
+.busDetail{padding-top: 5px;}
+
+.loadWaySub.bus {padding: 0px; border-bottom: none;text-indent:10px}
+.loadWay {position: relative;}
+.bus p {padding-left:25px}
+.busWay {position:relative}
+.loadWay .loadShort .loadWayHide span.icon { right:20px;  top:-2px;  background-position:-211px -421px;; width:20px; height:20px; line-height:1000px; overflow:hidden; display:block; position:absolute	}
+.loadWay .loadShort.on .loadWayHide {color:#2d72d9; font-size:12px; font-weight:600; padding-right:8px;}
+.loadWay .loadShort.on .loadWayHide span.icon { right:20px;  top:-2px;  background-position:-180px -421px;; width:20px; height:20px; line-height:1000px; overflow:hidden; display:block; position:absolute	}
+.loadWayT .loadShortT.on .loadWayHide {color:#2d72d9; font-size:12px; font-weight:600; padding-right:8px;}
+.loadWayT .loadShortT.on .loadWayHide span.icon { right:0;  top:-2px;  background-position:-180px -421px;; width:20px; height:20px; line-height:1000px; overflow:hidden; display:block; position:absolute	}
+</style>
+</head>
+<body>
+<div id="wrap">
+	<div id="header">
+    	<div class="logoSearchZone">
+            <h1><a href="/web/main.action">서울대학교</a></h1>
+
+            <!--검색-->
+            <div class="search">
+               <fieldset>
+                        <legend>검색</legend>
+                        <input type="text" title="검색어 입력" class="inputSt" id="search_word">
+                        <button class="searchBtn" type="submit" onClick="searchWord()">검색</button>
+
+               </fieldset>
+           </div>
+           <!--//검색-->
+           	<a href="#url" class="lang" id="kor"></a>
+       </div>
+        <ul class="gnb">
+        	<li><a href="/web/main.action" id="facility">검색</a></li>
+            <li><a href="/web/search_road.action" id="road">길찾기</a></li>
+            <li><a href="/web/busStation.action" id="bus">버스정류장</a></li>
+            <li><a href="/web/event_search.action" id="event">행사/이벤트</a></li>
+            <li><a href="/web/campus_tour_list.action" id="campus">캠퍼스 투어</a></li>
+        </ul>
+    </div>
+    <input type="hidden" id="current_lat_val" value="37.4613186057004"/>
+    <input type="hidden" id="current_lon_val" value="126.95395103327749"/>
+<script nonce="" type="text/javascript">
+    //<![CDATA[
+	var search_word = $('#search_word').val();
+	var current_lat_val = $('#current_lat_val').val();
+	var current_lon_val = $('#current_lon_val').val();
+
+	 webLocationCallBack = function( location_info ){
+        $('.nowArea').text(location_info.addr);
+        $('#current_lat_val').val(location_info.lat);
+        $('#current_lon_val').val(location_info.lon);
+     };
+
+	(function($){
+
+
+		// 해당 탑 메뉴 ON
+		var tmp_url = document.URL;
+		var tmps = tmp_url.split('/');
+		var param = tmps[tmps.length-1];
+		var tmps_param = param.split('?');
+		var current_url = tmps_param[0];
+		var menuChk = true;
+		$('.gnb li a').each(function(index){
+			if ( $(this).attr('id') != undefined ){
+
+				var menu_attr = $(this).attr('id');
+				if ( current_url.indexOf(menu_attr) > -1 ){
+					$(this).addClass('on');
+					menuChk = false;
+				}
+			}
+		});
+
+		if(menuChk){
+			$('.gnb li a').first().addClass('on');
+		}
+
+		if(langType == 'eng'){ // 영문
+			$('.gnb li:eq(0) a').first().html('Search');
+			$('.gnb li:eq(1) a').first().html('Get Directions');
+			$('.gnb li:eq(2) a').first().html('Bus Stop');
+			$('.gnb li:eq(3) a').first().html('Event');
+			$('.gnb li:eq(4) a').first().html('Campus Tour');
+		}
+		else{	//한글
+			$('.gnb li:eq(0) a').first().html('검색');
+			$('.gnb li:eq(1) a').first().html('길찾기');
+			$('.gnb li:eq(2) a').first().html('버스정류장');
+			$('.gnb li:eq(3) a').first().html('행사/이벤트');
+			$('.gnb li:eq(4) a').first().html('캠퍼스 투어');
+		}
+
+	})(jQuery);
+
+
+	$(document).on('click', '.placeChoice', function(){
+		$(".clickPlace").hide();
+// 		  $("body").find(".position2").removeClass("position2").addClass("position");
+		  $(this).parent().children(".clickPlace").attr("style","display:block");
+// 		  $(this).parent().parent().children(".imgBg").addClass("position2");
+    });
+
+
+
+	$(document).ready(function () {
+		//webMyLocation();
+		var pageUrl = document.location;
+		$('.pop_input').val(pageUrl);
+		$("#copy").on("click", function(){
+			var copyTextarea = document.querySelector('.pop_input');
+			 copyTextarea.select();
+
+	 		try {
+			    document.execCommand('copy');
+			  } catch (err) {
+			  }
+
+			//clipboard.copy({"text/plain": pageUrl});
+			pop_hide('url_copy');
+			alert('이 포스트의 주소가 복사되었습니다.\n게시판이나 메신저 창에서 Ctrl + V 를 눌러보세요!');
+		});
+
+		$('#search_word').keyup(function(event){
+			if(event.keyCode == 13){
+				searchWord();
+				return;
+			}
+		});
+
+		if(search_word == ''){
+			$('.nowArea').hide();
+			$('.searchResultTxt').hide();
+			$('.searchResultTxt2').show();
+			$('.appClick').show();
+		}
+
+	});
+
+
+	var searchMarkers = [];
+	var upperParkingLotList = [];
+    var underParkingLotList = [];
+    var amenitiesMarkers = [];
+    var disabledMarkers = [];
+    var overlays = [];
+    var ceremonyMarkers = [];
+    var gatePath = [];
+	var parkingLotPath = [];
+	var path = [];
+	var path2 = [];
+	var path3 = [];
+	var gateList=[];
+	var spot_markers = [];
+    var numMarkers = [];
+	var tourLine;
+    var ceremonyMarker;
+    var searchMarker;
+    var amenitiesMarker;
+    var buildingMarker;
+    var organizationMarker;
+    var parkingLotMarker;
+    var gateMarker;
+    var upperParkingCenter;
+    var underParkingCenter;
+    var parkingLot;
+    var searchMarkers;
+    var road_search_polyline;
+    var road_search_polyline2;
+    var road_search_polyline3;
+    var marker;
+    var startMarker;
+    var arriveMarker;
+    var polyline_arr = [];
+	var path_arr = [];
+	var startMarker_arr = [];
+	var arriveMarker_arr = [];
+
+	var mouseOverMarker;
+
+	searchWord = function(){
+		var search_word2 = encodeURIComponent($('#search_word').val());
+		$('.gnb li a').removeClass('on');
+		$('.gnb li a').first().addClass('on');
+
+		if($('#search_word').val() == '셔틀' || $('#search_word').val() == '셔틀버스' || $('#search_word').val() == 'shuttle' || $('#search_word').val() == 'shuttlebus' ){
+			location.href = "/web/busStation.action?search_type=s";
+		}
+
+
+		var lang_type = '';
+
+		if(langType == 'eng'){ // 영문
+			lang_type = 'ENG';
+		}
+		else{	//한글
+			lang_type = 'KOR';
+		}
+
+        clearMarkers();
+        clearParkingLots();
+        clearRoadSearchPolyline();
+
+
+		$('.nowArea').hide();
+		$('.searchResultTxt').html('<strong>'+$('#search_word').val()+'</strong> 검색결과');
+		$('.searchResultTxt').show();
+		$('.searchResultTxt2').hide();
+		$('.appClick').hide();
+		$('.event').hide();
+		$('.subTitle').show();
+		$('.startEndClick').remove();
+		$('.detailCon').remove();
+		$('.btnZone').remove();
+		$('.subTitle2').remove();
+		$('.searchLoad').remove();
+		$('.moveType').remove();
+		$('.subSeT').remove();
+		$('.loadDetailType').remove();
+		$('.searchLoad').remove();
+		$('#aside').removeClass("bgBlack");
+		$('.tourType1').css({"background":"none"});
+		$('.swiper-container').remove();
+		$('#map').show();
+
+		var ajax_url = '/api/search.action?search_word='+search_word2+'&lang_type='+lang_type;
+		var param = '';
+
+		$.ajax({
+	        'type': 'GET',
+	        'url': ajax_url,
+	        'contentType': 'text/plain; charset=utf-8',
+	        'data': param,
+	        'dataType': 'json',
+	        'beforeSend':function(request){
+	        	request.setRequestHeader('access_token', '111');
+	        },
+	        'error':function(request,status,error){
+	        	searchWordFailCallback(request,status,error); //실패 콜백함수 호출
+	        },
+	        'success': function(data){
+	        	searchWordSuccessCallback(data); //성공 콜백함수 호출
+	        }
+	    });
+	};
+
+
+
+    searchWordSuccessCallback = function(data){
+	var search_list = data.search_list;
+	var html = "";
+
+
+	var name = '';
+	$('.subTitle').html("검색"+ "("+search_list.length+")건");
+	if(search_list.length > 0){
+		for ( var i=0; i<search_list.length; i++ ){
+			var search = search_list[i];
+
+
+			if(langType == 'eng'){ // 영문
+				name = search.ename;
+			}
+			else{	//한글
+				name = search.name;
+			}
+
+			var url='';
+			url+= '/web/facility_detail.action?lat_val='+search.lat_val+'&lon_val='+search.lon_val;
+
+			if ( search.con_type == 'F' ){
+				url += '&convinType=Y&inst_seq='+search.seq;
+			}
+			else if ( search.con_type =='B'  ){
+				url += '&convin_inst_seq='+search.seq+'&convin_inst_knd_cd='+search.knd_cd;
+			}
+			else{
+				url += '&breu_seq='+search.seq;
+			}
+
+			var search_img='';
+			if(search.knd_cd == '1'){
+				search_img ='/web/common/images/marker/marker_facilities_1.png';
+			} else if(search.knd_cd == '2'){
+				search_img ='/web/common/images/marker/marker_facilities_2.png';
+			} else if(search.knd_cd == '3'){
+				search_img ='/web/common/images/marker/marker_facilities_3.png';
+			} else if(search.knd_cd == '4'){
+				search_img ='/web/common/images/marker/marker_facilities_4.png';
+			} else if(search.knd_cd == '5' || search.knd_cd == '6' || search.knd_cd == '7'){
+				search_img ='/web/common/images/marker/marker_facilities_5.png';
+			} else if(search.knd_cd == '8' || search.knd_cd == '9' || search.knd_cd == '10' || search.knd_cd == '11'){
+				search_img ='/web/common/images/marker/marker_facilities_8.png';
+			} else if(search.knd_cd == '12' || search.knd_cd == '13' || search.knd_cd == '14' || search.knd_cd == '15'){
+				search_img ='/web/common/images/marker/marker_facilities_12.png';
+			} else if(search.knd_cd == '16'  || search.knd_cd == '17' || search.knd_cd == '18' || search.knd_cd == '19'){
+				search_img ='/web/common/images/marker/marker_facilities_16.png';
+			} else if(search.knd_cd == '20'){
+				search_img ='/web/common/images/marker/marker_facilities_20.png';
+			} else if(search.knd_cd == '21'){
+				search_img ='/web/common/images/marker/marker_facilities_21.png';
+			} else if(search.knd_cd == '22' || search.knd_cd == '23' || search.knd_cd == '24'){
+				search_img ='/web/common/images/marker/marker_facilities_22.png';
+			} else if(search.knd_cd == '27' || search.knd_cd == '30'){
+				search_img ='/web/common/images/marker/marker_facilities_27.png';
+			} else if(search.knd_cd == '28'){
+				search_img ='/web/common/images/marker/marker_facilities_30.png';
+			} else {
+				if ( search.con_type == 'F' ){
+					search_img ='/web/common/images/marker/marker_facilities_22.png';
+				}else{
+					search_img ='/web/common/images/marker/marker_facilities_0.png';
+				}
+			}
+
+			html += '<div class="place"  onmouseover="mouseoverFunction('+i+')" onmouseout="mouseoutFunction('+i+')">';
+			html += '<span class="position3"><img src="'+search_img+'" alt=\'시설아이콘\'></span>';
+			html += '<div class="placeCon">';
+			html += '<a href="#url" class="placeChoice"><strong>'+name;
+			if(search.vil_dong_nm != '' && search.vil_dong_nm != null){
+				html += '('+search.vil_dong_nm;
+				if(langType == 'eng'){ // 영문
+					html += 'DONG)';
+				}
+				else{	//한글
+					html += '동)';
+				}
+			}
+			html += '</strong></a>';
+			html += '<div class="clickPlace" style="display:none">';
+			html += '<button class="imgBg startBtn" type="button" onClick="location.href=\'/web/search_road.action?sName='+search.name;
+			if(search.vil_dong_nm != '' && search.vil_dong_nm != null){
+				html += '('+ search.vil_dong_nm;
+				if(langType == 'eng'){ // 영문
+					html += 'DONG)';
+				}
+				else{	//한글
+					html += '동)';
+				}
+			}
+			if(langType == 'eng'){ // 영문
+				html += '&start_lat='+search.lat_val+'&start_lon='+search.lon_val+'\'">Start</button>';
+			}
+			else{	//한글
+				html += '&start_lat='+search.lat_val+'&start_lon='+search.lon_val+'\'">출발</button>';
+			}
+			html += '<button class="imgBg endBtn" type="button" onClick="location.href=\'/web/search_road.action?eName='+search.name;
+			if(search.vil_dong_nm != '' && search.vil_dong_nm != null){
+				html += '('+ search.vil_dong_nm +'동)';
+			}
+			if(langType == 'eng'){ // 영문
+				html += '&end_lat='+search.lat_val+'&end_lon='+search.lon_val+'\'">Stop</button>';
+			}
+			else{	//한글
+				html += '&end_lat='+search.lat_val+'&end_lon='+search.lon_val+'\'">도착</button>';
+			}
+			html += '<a href="'+url+'">상세보기<span class="arr"></span> </a>';
+			html += '</div>';
+			html += '</div>';
+			html += '</div>';
+
+			var searchPosition = new daum.maps.LatLng(search.lat_val, search.lon_val);
+
+			searchMarker = new daum.maps.Marker({
+		        map: map,
+		        position: searchPosition,
+		    });
+			if(search.knd_cd == '1'){
+				searchMarker.setImage(libraryImage2);
+			} else if(search.knd_cd == '2'){
+				searchMarker.setImage(informationImage2);
+			} else if(search.knd_cd == '3'){
+				searchMarker.setImage(supportcenterImage2);
+			} else if(search.knd_cd == '4'){
+				searchMarker.setImage(restaurantImage2);
+			} else if(search.knd_cd == '5' || search.knd_cd == '6' || search.knd_cd == '7'){
+				searchMarker.setImage(cafeImage2);
+			} else if(search.knd_cd == '8' || search.knd_cd == '9' || search.knd_cd == '10' || search.knd_cd == '11'){
+				searchMarker.setImage(bankImage2);
+			} else if(search.knd_cd == '12' || search.knd_cd == '13' || search.knd_cd == '14' || search.knd_cd == '15'){
+				searchMarker.setImage(hospitalImage2);
+			} else if(search.knd_cd == '16'  || search.knd_cd == '17' || search.knd_cd == '18' || search.knd_cd == '19'){
+				searchMarker.setImage(bookstoreImage2);
+			} else if(search.knd_cd == '20'){
+				searchMarker.setImage(disabled_supportImage2);
+			} else if(search.knd_cd == '21'){
+				searchMarker.setImage(disabledImage2);
+			} else if(search.knd_cd == '22' || search.knd_cd == '23' || search.knd_cd == '24'){
+				searchMarker.setImage(officeImage2);
+			} else if(search.knd_cd == '27' || search.knd_cd == '30'){
+				searchMarker.setImage(upperParkingLotImage2);
+			} else if(search.knd_cd == '28'){
+				searchMarker.setImage(gateImage2);
+			} else {
+				searchMarker.setImage(facilitiesImage2);
+			}
+			searchMarkers.push(searchMarker);
+			searchMarkers[i].setMap(map);
+			var content='';
+			var convin_name='';
+			if(langType == 'eng'){
+				convin_name = search.ename;
+			} else {
+				convin_name = search.name;
+			}
+		    content += '<div class="info_wrap">';
+		    content +=  '    <div class="info_title">' ;
+		    content += '        <a href="'+url+'"><p class="kor_title">'+convin_name;
+		    if(search.vil_dong_nm != '' && search.vil_dong_nm != null){
+		    	content += '('+search.vil_dong_nm;
+		    	if(langType == 'eng'){ // 영문
+		    		content += 'DONG)';
+				}
+				else{	//한글
+					content += '동)';
+				}
+		    }
+		    content += '</p></a>';
+		    content +=   '		<img class="info_close_btn" src="/m/img/btn/menu_close.png" alt="" onclick="closeOverlay()" style="cursor:pointer"/>' ;
+
+			if(search.con_type == 'F'){
+		    	if(search.floor_info.length != 0){
+		    		content +=  '<div class="floor_info_list">';
+		    		for(var j=0; j<search.floor_info.length; j++){
+		    			var floor_info = search.floor_info[j];
+		    			content += '<p>'+floor_info.flr_nm+'&nbsp;'+floor_info.convin_inst_kor_nm+'</p>';
+		    		}
+		    		content +=  '</div>';
+		    	}
+			}
+
+		    content +=  '    </div>';
+		    content += '<div class="bus_infoStartEnd">';
+            content += '<div class="btn">';
+            content += '<a href="#url" class="start" onClick="location.href=\'/web/search_road.action?sName='+convin_name;
+            if(search.vil_dong_nm != '' && search.vil_dong_nm != null){
+            	content += '('+ search.vil_dong_nm;
+            	if(langType == 'eng'){ // 영문
+            		content += 'DONG)';
+				}
+				else{	//한글
+					content += '동)';
+				}
+			}
+			if(langType == 'eng'){ // 영문
+				content += '&start_lat='+search.lat_val+'&start_lon='+search.lon_val+'\'"><img src="common/images/b_start_eng.png" alt="출발"></a>';
+			}
+			else{	//한글
+				content += '&start_lat='+search.lat_val+'&start_lon='+search.lon_val+'\'"><img src="common/images/btn_start.png" alt="출발"></a>';
+			}
+			content += '<a href="#url" class="end" onClick="location.href=\'/web/search_road.action?eName='+search.name;
+			if(search.vil_dong_nm != '' && search.vil_dong_nm != null){
+				content += '('+ search.vil_dong_nm ;
+				if(langType == 'eng'){ // 영문
+            		content += 'DONG)';
+				}
+				else{	//한글
+					content += '동)';
+				}
+			}
+			if(langType == 'eng'){ // 영문
+				content += '&end_lat='+search.lat_val+'&end_lon='+search.lon_val+'\'"><img src="common/images/b_end_eng.png" alt="도착"></a>';
+			}
+			else{	//한글
+				content += '&end_lat='+search.lat_val+'&end_lon='+search.lon_val+'\'"><img src="common/images/btn_end.png" alt="도착"></a>';
+			}
+            content += '</div>';
+            content += '</div>';
+		    content +=  '</div>';
+
+
+		    var infowindow = new daum.maps.CustomOverlay({});
+
+		    infowindow = new daum.maps.CustomOverlay({
+				content: content,
+				position : new daum.maps.LatLng(search.lat_val, search.lon_val)
+			});
+
+		    daum.maps.event.addListener(searchMarkers[i], 'mouseover', makeOverListener(map, searchMarkers[i], infowindow));
+
+		    overlays.push(infowindow);
+
+		    mouseoverFunction = function(i){
+		    	var search_img2='';
+
+		    	if(search_list[i].knd_cd == '1'){
+		    		search_img2 ='/web/common/images/marker/marker_facilities_1.png';
+		    		} else if(search_list[i].knd_cd == '2'){
+		    		search_img2 ='/web/common/images/marker/marker_facilities_2.png';
+		    		} else if(search_list[i].knd_cd == '3'){
+		    		search_img2 ='/web/common/images/marker/marker_facilities_3.png';
+		    		} else if(search_list[i].knd_cd == '4'){
+		    		search_img2 ='/web/common/images/marker/marker_facilities_4.png';
+		    		} else if(search_list[i].knd_cd == '5' || search_list[i].knd_cd == '6' || search_list[i].knd_cd == '7'){
+		    		search_img2 ='/web/common/images/marker/marker_facilities_5.png';
+		    		} else if(search_list[i].knd_cd == '8' || search_list[i].knd_cd == '9' || search_list[i].knd_cd == '10' || search_list[i].knd_cd == '11'){
+		    		search_img2 ='/web/common/images/marker/marker_facilities_8.png';
+		    		} else if(search_list[i].knd_cd == '12' || search_list[i].knd_cd == '13' || search_list[i].knd_cd == '14' || search_list[i].knd_cd == '15'){
+		    		search_img2 ='/web/common/images/marker/marker_facilities_12.png';
+		    		} else if(search_list[i].knd_cd == '16'  || search_list[i].knd_cd == '17' || search_list[i].knd_cd == '18' || search_list[i].knd_cd == '19'){
+		    		search_img2 ='/web/common/images/marker/marker_facilities_16.png';
+		    		} else if(search_list[i].knd_cd == '20'){
+		    		search_img2 ='/web/common/images/marker/marker_facilities_20.png';
+		    		} else if(search_list[i].knd_cd == '21'){
+		    		search_img2 ='/web/common/images/marker/marker_facilities_21.png';
+		    		} else if(search_list[i].knd_cd == '22' || search_list[i].knd_cd == '23' || search_list[i].knd_cd == '24'){
+		    		search_img2 ='/web/common/images/marker/marker_facilities_22.png';
+		    		} else if(search_list[i].knd_cd == '27' || search_list[i].knd_cd == '30'){
+		    		search_img2 ='/web/common/images/marker/marker_facilities_27.png';
+		    		} else if(search_list[i].knd_cd == '28'){
+		    		search_img2 ='/web/common/images/marker/marker_facilities_30.png';
+		    		} else {
+		    		search_img2 ='/web/common/images/marker/marker_facilities_0.png';
+		    		}
+		    	var content2 ='';
+		    	var convin_name='';
+		    	if(langType == 'eng'){
+		    		convin_name = search_list[i].ename;
+		    	} else {
+		    		convin_name = search_list[i].name;
+		    	}
+				content2 += '<div class="info_wrap">';
+				content2 += '    <div class="info_title">';
+				content2 += '        <a href="'+url+'"><p class="kor_title">'+convin_name;
+				if(search_list[i].vil_dong_nm != '' && search_list[i].vil_dong_nm != null){
+					content2 += '('+search_list[i].vil_dong_nm;
+					if(langType == 'eng'){ // 영문
+			    		content2 += 'DONG)';
+					}
+					else{	//한글
+						content2 += '동)';
+					}
+				}
+				content2 += '</p></a>';
+				content2 +=   '		<img class="info_close_btn" src="/m/img/btn/menu_close.png" alt="" onclick="closeOverlay()" style="cursor:pointer"/>' ;
+
+				if(search_list[i].con_type == 'F'){
+			    	if(search_list[i].floor_info.length != 0){
+			    		content2 +=  '<div class="floor_info_list">';
+			    		for(var j=0; j<search_list[i].floor_info.length; j++){
+			    			var floor_info = search_list[i].floor_info[j];
+			    			content2 += '<p >'+floor_info.flr_nm+'&nbsp;'+floor_info.convin_inst_kor_nm+'</p>';
+			    		}
+			    		content2 +=  '</div>';
+			    	}
+				}
+
+
+				content2 += '    </div>' ;
+				content2 += '<div class="bus_infoStartEnd">';
+                content2 += '<div class="btn">';
+
+                content2 += '<a href="#url" class="start" onClick="location.href=\'/web/search_road.action?sName='+convin_name;
+                if(search_list[i].vil_dong_nm != '' && search_list[i].vil_dong_nm != null){
+                	content2 += '('+ search_list[i].vil_dong_nm;
+                	if(langType == 'eng'){ // 영문
+                		content2 += 'DONG)';
+    				}
+    				else{	//한글
+    					content2 += '동)';
+    				}
+    			}
+    			if(langType == 'eng'){ // 영문
+    				content2 += '&start_lat='+search_list[i].lat_val+'&start_lon='+search_list[i].lon_val+'\'"><img src="common/images/b_start_eng.png" alt="출발"></a>';
+    			}
+    			else{	//한글
+    				content2 += '&start_lat='+search_list[i].lat_val+'&start_lon='+search_list[i].lon_val+'\'"><img src="common/images/btn_start.png" alt="출발"></a>';
+    			}
+    			content2 += '<a href="#url" class="end" onClick="location.href=\'/web/search_road.action?eName='+search_list[i].name;
+    			if(search_list[i].vil_dong_nm != '' && search_list[i].vil_dong_nm != null){
+    				content2 += '('+ search_list[i].vil_dong_nm;
+    				if(langType == 'eng'){ // 영문
+                		content2 += 'DONG)';
+    				}
+    				else{	//한글
+    					content2 += '동)';
+    				}
+    			}
+    			if(langType == 'eng'){ // 영문
+    				content2 += '&end_lat='+search_list[i].lat_val+'&end_lon='+search_list[i].lon_val+'\'"><img src="common/images/b_end_eng.png" alt="도착"></a>';
+    			}
+    			else{	//한글
+    				content2 += '&end_lat='+search_list[i].lat_val+'&end_lon='+search_list[i].lon_val+'\'"><img src="common/images/btn_end.png" alt="도착"></a>';
+    			}
+
+                content2 += '</div>';
+                content2 += '</div>';
+				content2 += '</div>';
+
+			    var infowindow2 = new daum.maps.CustomOverlay({});
+			    infowindow2 = new daum.maps.CustomOverlay({
+					content: content2,
+					position : new daum.maps.LatLng(search_list[i].lat_val, search_list[i].lon_val)
+				});
+
+			    makeOverListener2(map, searchMarkers[i], infowindow2);
+			    overlays.push(infowindow2);
+
+			    panLatLngTo(search_list[i].lat_val, search_list[i].lon_val);
+
+			};
+
+			 mouseoutFunction = function(i){
+				 closeOverlay();
+			 };
+
+
+		}
+    }else{
+    	html += '<div class="place">';
+    	html += '<span class="position3"><img src="/web/common/images/marker/marker_facilities_0.png" alt=\'시설아이콘\'/></span>';
+		html += '<div class="placeCon">';
+		if(langType == 'eng'){ // 영문
+			html += '<strong>There are no results to display</strong>';
+		}
+		else{	//한글
+			html += '<strong>검색결과가 없습니다</strong>';
+		}
+		html += '</div>';
+		html += '</div>';
+    }
+
+	$('.asideCon').html(html);
+	};
+
+	searchWordFailCallback = function(request, status, error){
+	};
+
+	function panLatLngTo(x,y) {
+	    var moveLatLon = new daum.maps.LatLng(x,y);
+	    map.panTo(moveLatLon);
+	}
+	function panCoordsTo(x,y) {
+	    var moveCoords = new daum.maps.Coords(x,y);
+	    map.panTo(moveCoords);
+	}
+
+	// Map상의 마커들 삭제
+    function clearMarkers(mode) {
+        for (var i = 0; i < amenitiesMarkers.length; i++) {
+        	closeOverlay();
+            amenitiesMarkers[i].setMap(null);
+        }
+        amenitiesMarkers=[];
+        for (var i = 0; i < disabledMarkers.length; i++) {
+        	closeOverlay();
+        	disabledMarkers[i].setMap(null);
+        }
+        disabledMarkers=[];
+        for (var i = 0; i < searchMarkers.length; i++) {
+        	closeOverlay();
+        	searchMarkers[i].setMap(null);
+        }
+        searchMarkers=[];
+        for (var i = 0; i < ceremonyMarkers.length; i++) {
+        	closeOverlay();
+            ceremonyMarkers[i].setMap(null);
+        }
+        ceremonyMarkers = [];
+        if(path != null){
+        	path = [];
+		}
+        if(path2 != null){
+        	path2 = [];
+		}
+        if(path3 != null){
+        	path3 = [];
+		}
+        if(ceremonyMarker != null){
+	        ceremonyMarker.setMap(null);
+	        ceremonyMarker='';
+        }
+        for (var i = 0; i < gateList.length; i++) {
+        	closeOverlay();
+        	gateList[i].setMap(null);
+        }
+        if(amenitiesMarker != null){
+        	amenitiesMarker.setMap(null);
+        	amenitiesMarker='';
+        }
+        if(buildingMarker != null){
+        	buildingMarker.setMap(null);
+        	buildingMarker='';
+        }
+        if(organizationMarker != null){
+        	organizationMarker.setMap(null);
+        	organizationMarker='';
+        }
+        if(parkingLotMarker != null){
+        	parkingLotMarker.setMap(null);
+        	parkingLotMarker='';
+        }
+        if(parkingLot != null){
+        	parkingLot.setMap(null);
+        	parkingLot='';
+        }
+
+		if(numMarkers.length  > 0){
+			for (var i = 0; i < numMarkers.length; i++) {
+	        	numMarkers[i].setMap(null);
+	        }
+			numMarkers = [];
+		}
+
+
+		if(startMarker_arr.length  > 0){
+			for (var i = 0; i < startMarker_arr.length; i++) {
+	        	startMarker_arr[i].setMap(null);
+	        }
+			startMarker_arr = [];
+		}
+
+		if(arriveMarker_arr.length  > 0){
+			for (var i = 0; i < arriveMarker_arr.length; i++) {
+	        	arriveMarker_arr[i].setMap(null);
+	        }
+			arriveMarker_arr = [];
+		}
+
+		if(tourLine){
+        	tourLine.setMap(null);
+		}
+        path = [];
+		path2 = [];
+		path3 = [];
+        for (var i = 0; i < spot_markers.length; i++) {
+        	closeOverlay();
+        	spot_markers[i].setMap(null);
+        }
+        spot_markers = [];
+    }
+
+    // 주차장 영역 삭제
+    function clearParkingLots() {
+        for (var i = 0; i < upperParkingLotList.length; i++) {
+        	closeOverlay();
+            upperParkingLotList[i].setMap(null);
+        }
+        upperParkingLotList=[];
+        for (var i = 0; i < underParkingLotList.length; i++) {
+        	closeOverlay();
+            underParkingLotList[i].setMap(null);
+        }
+        underParkingLotList=[];
+        for (var i = 0; i < underParkingLotList.length; i++) {
+        	closeOverlay();
+            underParkingLotList[i].setMap(null);
+        }
+        underParkingLotList=[];
+    }
+
+	 function clearRoadSearchPolyline(){
+	   	 if(road_search_polyline != null && road_search_polyline != ''){
+	   		 road_search_polyline.setMap(null);
+	   		 road_search_polyline='';
+	        }
+	   	 if(road_search_polyline2 != '' && road_search_polyline2 != null){
+	   		 road_search_polyline2.setMap(null);
+	   		 road_search_polyline2='';
+	        }
+	   	 if(road_search_polyline3 != '' && road_search_polyline3 != null){
+	   		 road_search_polyline3.setMap(null);
+	   		 road_search_polyline3='';
+	        }
+	   	 if(polyline_arr.length > 0){
+		   	for(var i = 0 ; i < polyline_arr.length ; i++){
+				if(polyline_arr[i] != null){
+					polyline_arr[i].setMap(null);
+				}
+			}
+			polyline_arr = [];
+			path_arr = [];
+	   	 }
+	}
+
+
+
+	function makeOverListener(map, marker, infowindow) {
+	    return function() {
+	    	mouseOverMarker = marker;
+	    	closeOverlay();
+	    	infowindow.setMap(map);
+	    };
+	}
+
+	function makeOverListener2(map, marker, infowindow) {
+		closeOverlay();
+		infowindow.setMap(map);
+	}
+
+	function closeOverlay() {
+		 for (var i = 0; i < overlays.length; i++) {
+	        overlays[i].setMap(null);
+	    }
+	}
+
+
+	function clickRoadMarker(type){
+		location.href = "/web/search_road.action?road_marker_type="+type;
+	}
+
+	function pop_show(obj) {
+		$("#"+obj).show();
+		$("#mask").show();
+	}
+
+	function pop_hide(obj) {
+		$("#"+obj).hide();
+		$("#mask").hide();
+	}
+
+
+	 //]]>
+</script>
+<div id="container">
+	<!--왼쪽메뉴및컨텐츠-->
+	<div id="aside">
+		<!-- 현재위치 주변시설-->
+		<div class="asideHeader">
+			<!--버스찾기 검색-->
+			<div class="event">
+				<div class="inputZone">
+					<div class="inputWrap">
+						<input type="text" class="eventSearch" placeholder="버스정류장을 입력하세요"
+							id="bus_search_word">
+						<!-- <button class="searchBtn imgBg search_btn" type="submit">검색</button> -->
+						<button class="searchBtn imgBg search_btn">검색</button>
+					</div>
+				</div>
+			</div>
+			<!--버스찾기 검색-->
+			<div class="searchResultTxt"></div>
+			<div class="subTitle"></div>
+		</div>
+
+		<!--리스트-->
+		<div class="asideConList" id="init_list">
+			<div class="asideCon">
+				<!--버스 리스트-->
+				<div class="place">
+					<span class="iconImg busIcon" onclick="getBusRoute(1100071747)"><img
+						src="/m/img/ico/list_bus_type1.png" alt="버스아이콘" /></span>
+					<div class="placeCon">
+						<p class="placeChoice">
+							<span class="loadInfo busNum">5511</span> <span
+								class="loadInfo busInfo">서울대 &lt;-&gt; 흑성역, 흑석동빗물펌프장</span> <span
+								class="busTurm">배차간격 6~10분</span>
+						</p>
+					</div>
+				</div>
+				<div class="place">
+					<span class="iconImg busIcon" onclick="getBusRoute(1100071850)"><img
+						src="/m/img/ico/list_bus_type1.png" alt="버스아이콘" /></span>
+					<div class="placeCon">
+						<p class="placeChoice">
+							<span class="loadInfo busNum">5516</span> <span
+								class="loadInfo busInfo">서울대 &lt;-&gt; 노들역</span> <span
+								class="busTurm">배차간격 6~8분</span>
+						</p>
+					</div>
+				</div>
+				<div class="place">
+					<span class="iconImg busIcon" onclick="getBusRoute(1100071654)"><img
+						src="/m/img/ico/list_bus_type1.png" alt="버스아이콘" /></span>
+					<div class="placeCon">
+						<p class="placeChoice">
+							<span class="loadInfo busNum">5513</span> <span
+								class="loadInfo busInfo">서울대 &lt;-&gt; 벽산블루밍벽산아파트303</span> <span
+								class="busTurm">배차간격 8~15분</span>
+						</p>
+					</div>
+				</div>
+				<div class="place">
+					<span class="iconImg busIcon" onclick="getBusRoute('B10029')"><img
+						src="/m/img/ico/list_bus_type1.png" alt="버스아이콘" /></span>
+					<!--마지막리스트에 lastBusListborNo -->
+					<div class="placeCon lastBusListborNo">
+						<p class="placeChoice">
+							<span class="loadInfo busNum">마을 관악02</span> <span
+								class="loadInfo busInfo">서울대신공학관 &lt;-&gt; 제2공학관</span> <span
+								class="busTurm">배차간격 6분</span>
+						</p>
+					</div>
+				</div>
+				<!--//버스 리스트-->
+				<div class="subSeT" id="shuttle_list">셔틀버스 이용안내</div>
+				<div class="shuttleType1">
+					<div class="loadWayT">
+						<div class="busInfoTxt" id="bus1">통학셔틀버스</div>
+						<div class="loadShortT">
+							<a href="#" class="loadWayHide"> <span class="imgBg icon">펼치기</span>
+							</a>
+						</div>
+					</div>
+
+					<div id="shuttleType1List"></div>
+				</div>
+				<div class="shuttleType2">
+					<div class="loadWayT">
+						<div class="busInfoTxt" id="bus2">교내순환</div>
+						<div class="loadShortT">
+							<a href="#" class="loadWayHide"> <span class="imgBg icon">펼치기</span>
+							</a>
+						</div>
+					</div>
+					<div id="shuttleType2List"></div>
+				</div>
+				<div class="shuttleType3">
+					<div class="loadWayT">
+						<div class="busInfoTxt" id="bus3">야간셔틀버스</div>
+						<div class="loadShortT">
+							<a href="#" class="loadWayHide"> <span class="imgBg icon">펼치기</span>
+							</a>
+						</div>
+					</div>
+					<div id="shuttleType3List"></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="asideConList" id="search_list">
+			<div class="asideCon">
+				<div class="search_res_field">
+					<div style="margin-bottom: 5px;">
+						<span class="search_res_text" id="search_res"></span> 검색 결과 <br>
+					</div>
+					총 <span class="search_res_text" id="search_tot"></span> 건
+				</div>
+				<div id="bus_search_res">
+					<div class="subSeT">
+						<div class="search_res_nm">
+							<span id="bus_name">자연대, 행정관입구 </span><span>[21271]</span>
+						</div>
+						<div>
+							<span id="bus_direction">농생대 방면</span>
+						</div>
+					</div>
+					<div class="place">
+						<span class="iconImg busIcon"><img
+							src="/m/img/ico/list_bus_type1.png" alt="버스아이콘" /></span>
+						<div class="placeCon">
+							<p class="placeChoice">
+								<span class="loadInfo busNum">5516</span> <span class="busTurm"
+									style="right: 0; left: 100px; color: black;">제2공학관 방면</span> <span
+									class="loadInfo busInfo">13분 후 도착예정</span>
+							</p>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<!--//리스트-->
+		<!-- //현재위치 주변시설-->
+	</div>
+	<!--//왼쪽메뉴및컨텐츠-->
+	<div id="content">
+		<div id="map"
+			style="width: 1000px; height: 100%; position: relative; overflow: hidden;"></div>
+
+
+		<!-- 지도 위에 표시될 출발,도착 -->
+		<div class="FlagWrap"
+			style="position: absolute; left: 0px; top: -25px;">
+			<div class="Flag">
+				<div class="originWrap">
+					<a id="start" class="origin" onclick="clickRoadMarker('start')">
+						<i></i>
+					</a>
+				</div>
+				<div class="destWrap">
+					<a id="arrive" class="dest" onclick="clickRoadMarker('arrive')">
+						<i></i>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="btn_map">
+			<div class="btn_map_hide">
+				<p>
+					<a href="#" class="btn_st btn_white" style="margin-bottom: 5px"
+						onclick="pop_show('url_copy')">URL 복사</a>
+				</p>
+			</div>
+			<a href="#" class="btn_st btn_white"
+				onclick="$('.btn_map_hide').toggle()">지도 공유</a>
+			<!-- <a href="http://openapi.snu.ac.kr/mob/oapi/main/main.action" target ="_blank" class="btn_st btn_white">OpenAPI 신청 안내</a> -->
+		</div>
+	</div>
+	<!-- url 복사 -->
+	<div class="pop_wrap2" id="url_copy" style="width: 280px">
+		<div class="pop_title">URL 복사</div>
+		<div class="pop_content">
+			<input type="text" name="urlcopy" class="pop_input">
+		</div>
+		<div class="pop_footer">
+			<a href="#" id="copy"><img src="common/images/btn_copy.png"
+				alt="복사"></a> <a href="#" onclick="pop_hide('url_copy')"><img
+				src="common/images/btn_cancel.png" alt="취소"></a>
+		</div>
+	</div>
+	<div id="mask"></div>
+</div>
+</div>
+<!-- map  -->
+<!-- 201812-web
+<script nonce="" type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=11ca7a9d7753db310d523b418513fc66&libraries=services,clusterer"></script>
+-->
+<script nonce="" type="text/javascript"
+	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e3a44bd8c7b111989f6ad5b05f9afd9a&libraries=services,clusterer"></script>
+<!-- <script nonce="" type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=4a99be52171505f704578541eac789ad5f9aff98&libraries=services,clusterer"></script> -->
+<script nonce="" src="/resource/jslib/map/map_core.js"></script>
+<script nonce="" src="/resource/jslib/map/daum_map_core.js"></script>
+<script nonce="" type="text/javascript">
+    //<![CDATA[
+		var current_lat_val = $('#current_lat_val').val();
+		var current_lon_val = $('#current_lon_val').val();
+		var search_word = $('#search_word').val();
+		var search_type = '';
+
+		var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+		   mapOption = {
+		      center: new daum.maps.LatLng(current_lat_val,current_lon_val), // 지도의 중심좌표
+		   };
+		var map = new daum.maps.Map(mapContainer, mapOption);
+		if (window.innerHeight) {
+			$('#map').width(window.innerWidth - 296);
+		 } else {
+			$('#map').width(document.documentElement.clientWidth - 296);
+	    }
+		
+		// CH2105-00011 캠퍼스맵(공통) 버스정류장 탭 개선
+ 		var polyline = new kakao.maps.Polyline({
+ 		    strokeWeight: 5, // 선의 두께
+ 		    strokeColor: '#E9543D', // 선의 색깔
+ 		    strokeStyle: 'solid' // 선의 스타일입니다
+ 		});
+
+		var overlays = [];
+		var bus_station_makers = [];
+		var bus_stop_id = '';
+		var bus_station_code = '';
+		var bus_station_res_length = '';
+
+		var mode = 'init';
+
+		var zoomControl = new daum.maps.ZoomControl();
+		map.addControl(zoomControl, daum.maps.ControlPosition.RIGHT);
+
+		map.relayout();
+
+		(function($){
+			$(window).load(function(){
+				var asideCon = $('.asideCon').height();
+				var headerH = $('.asideHeader').height();
+				 if (window.innerHeight) {
+					var asideConListH = window.innerHeight - (headerH + 96);
+					$('.asideCon').height(asideConListH);
+					$('#map').height(window.innerHeight - 96);
+				 } else {
+					var asideConListH = document.documentElement.clientHeight - (headerH + 96);
+					$('.asideCon').height(asideConListH);
+					$('#map').height(document.documentElement.clientHeight - 96);
+			     }
+
+			});
+			$(window).resize(function() {
+				var asideCon = $('.asideCon').height();
+				var headerH = $('.asideHeader').height();
+				 if (window.innerHeight) {
+					var asideConListH = window.innerHeight - (headerH + 96);
+					$('.asideCon').height(asideConListH);
+					$('#map').height(window.innerHeight - 96);
+				 } else {
+					var asideConListH = document.documentElement.clientHeight - (headerH + 96);
+					$('.asideCon').height(asideConListH);
+					$('#map').height(document.documentElement.clientHeight - 96);
+
+			     }
+			});
+
+			if(langType == 'eng'){ // 영문
+				$('#bus_search_word').attr('placeholder','Bus Stop Name');
+				$('#bus1').html('Commuting Shuttle');
+				$('#bus2').html('On-Campus Cycle');
+				$('#bus3').html('Night Shuttle');
+			}
+			else{	//한글
+				$('#bus_search_word').attr('placeholder','버스정류장을 입력하세요');
+				$('#bus1').html('통학셔틀버스');
+				$('#bus2').html('교내순환');
+				$('#bus3').html('야간셔틀버스');
+			}
+
+		})(jQuery);
+
+		$(document).ready(function() {
+
+			if (search_word == '') {
+				$('.searchResultTxt').hide();
+			}
+
+			//busStationList('');
+			shuttleBusList();
+
+			closeOverlay();
+
+			clearMarker();
+			/*스크롤*/
+			$(".asideCon").mCustomScrollbar({
+				theme:"dark-3"
+			});
+
+			$('#bus_search_word').keyup(function(event){
+				if(event.keyCode == 13){
+					mode = 'search';
+					closeOverlay();
+					busStationList(encodeURIComponent($('#bus_search_word').val()));
+					//busStationList($('#bus_search_word').val());
+					return;
+				}
+			});
+		});
+
+		/* 셔틀버스  대메뉴 클릭*/
+		$(document).on('click', '.loadShortT', function(){
+		  	$(this).toggleClass('on');
+		  	$(this).parent().next("div").find("div.loadWaySub").toggle();
+		  	$(this).parent().parent().find('.loadWaySub2').hide();
+	    });
+
+		/* 셔틀버스 소메뉴 클릭*/
+		$(document).on('click', '.loadShort', function(){
+			$(this).parent().parent().parent().find('.loadWaySub2').hide();
+			$(this).parent().next().css('background', '#BEF4DE').show();
+	    });
+
+		/*검색버튼*/
+		$(document).on('click', '.search_btn', function(){
+			mode = 'search';
+			closeOverlay();
+			busStationList(encodeURIComponent($('#bus_search_word').val()));
+			//busStationList($('#bus_search_word').val());
+	    });
+
+		// 버스정류장 전체
+		function busStationList(search_word){
+			if(search_word == '') {
+				// 버스정류장 검색어가 빈값일때
+				alert('버스정류장을 입력해 주세요.');
+				return;
+			}
+
+			if($('#bus_search_word').val() == '셔틀' || $('#bus_search_word').val() == '셔틀버스' || $('#bus_search_word').val() == 'shuttle' || $('#bus_search_word').val() == 'shuttlebus' ){
+				location.href = "/web/busStation.action?search_type=ss";
+			}else{
+				var ajax_url = '/api/bus/search.action?search_word='+search_word;
+				$.ajax({
+			        'type': 'GET',
+			        'url': ajax_url,
+			        'contentType': 'text/plain; charset=utf-8',
+			        'dataType': 'json',
+			        'beforeSend':function(request){
+			        	request.setRequestHeader('access_token', '111');
+			        },
+			        'error':function(request,status,error){
+			        },
+			        'success': function(data){
+			        	searchSuccessCallback(data); //성공 콜백함수 호출
+			        }
+			    });
+			}
+		}
+
+		searchSuccessCallback  = function(data){
+			console.log('data:::', data);
+			var bus_station_list = data.bus_station_list;
+			var suttle_route_list = data.suttle_route_list;
+			if(mode == 'init'){
+				$('#init_list').show();
+				$('#search_list').hide();
+				for(var i = 0 ; i < bus_station_list.length ; i++){
+					var obj =data.bus_station_list[i];
+
+					var bus_station = new daum.maps.Marker({
+						map : map,
+						position: new daum.maps.LatLng(obj.bus_station_latitude, obj.bus_station_longitude),
+						image : busStationImage
+					});
+
+					// marker property
+					bus_station.name = obj.bus_station_name;
+					bus_station.bus_stop_id = obj.daum_station_id;
+					bus_station.bus_station_code = obj.bus_station_code;
+
+				 	bus_station_makers.push(bus_station);
+
+				 	if(bus_station_list[i].bus_station_div == 'T') {
+				 		bus_station.setImage(webBustStationImage);
+				 	} else {
+				 		bus_station.setImage(webShuttleBusStationImage);
+				 	}
+
+
+
+				 	var content =	'<div class="info_wrap">';
+				 	content +=   '    <div class="info_title">' ;
+				 	content +=   '    	<a>';
+				 	content +=	 '			<p class="kor_title" id="bus_stop_nm">'+obj.bus_station_name+'['+obj.station_no+']</p>' ;
+				 	content +=   '    	</a>' ;
+				 	content +=   '		<img class="info_close_btn" src="/m/img/btn/menu_close.png" alt="" onclick="closeOverlay()" style="cursor:pointer"/>' ;
+				 	content +=   '	</div>';
+				 	content +=   '   <div class="bus_info info_title">';
+				 	content +=   '	</div>';
+				 	content +=   '	<div class="bus_infoStartEnd"><div class="btn">';
+				 	if(langType == 'eng'){ // 영문
+					 	content +=   '		<a href="#url" class="start"><img src="common/images/b_start_eng.png" alt="출발" onclick="location.href=\'/web/search_road.action?sName='+obj.bus_station_name+'&start_lat='+obj.bus_station_latitude+'&start_lon='+obj.bus_station_longitude+'\'"></a>';
+					 	content +=   '		<a href="#url" class="end"><img src="common/images/b_end_eng.png" alt="도착" onclick="location.href=\'/web/search_road.action?eName='+obj.bus_station_name+'&end_lat='+obj.bus_station_latitude+'&end_lon='+obj.bus_station_longitude+'\'"></a>';
+
+				 	}else{
+					 	content +=   '		<a href="#url" class="start"><img src="common/images/btn_start.png" alt="출발" onclick="location.href=\'/web/search_road.action?sName='+obj.bus_station_name+'&start_lat='+obj.bus_station_latitude+'&start_lon='+obj.bus_station_longitude+'\'"></a>';
+					 	content +=   '		<a href="#url" class="end"><img src="common/images/btn_end.png" alt="도착" onclick="location.href=\'/web/search_road.action?eName='+obj.bus_station_name+'&end_lat='+obj.bus_station_latitude+'&end_lon='+obj.bus_station_longitude+'\'"></a>';
+
+			          }
+				 	content +=   '   </div></div>';
+				 	content +=   '</div>';
+
+
+				 	if(i == 0){
+						getBusArrival(obj.daum_station_id, obj.bus_station_code);
+
+						 var customOverlay = new daum.maps.CustomOverlay({
+							  	position: new daum.maps.LatLng(obj.bus_station_latitude, obj.bus_station_longitude),
+								content: content,
+								zIndex: 3
+						});
+
+						overlays.push(customOverlay);
+						map_center_lat = obj.bus_station_latitude;
+						map_center_lng = obj.bus_station_longitude;
+
+						daum.maps.event.addListener(bus_station, 'click', makeOverListener(map, bus_station, customOverlay));
+				 	} else {
+					   var customOverlay = new daum.maps.CustomOverlay({
+						  	position: new daum.maps.LatLng(obj.bus_station_latitude, obj.bus_station_longitude),
+							content: content
+						});
+
+						overlays.push(customOverlay);
+
+						daum.maps.event.addListener(bus_station, 'click', makeOverListener(map, bus_station, customOverlay));
+				 	}
+
+				}
+
+				for(var i = 0 ; i < suttle_route_list.length ; i++){
+					var obj =data.suttle_route_list[i];
+					var shuttlehtml = '';
+
+					shuttlehtml += "<div class='loadWaySub bus' style='display:none; padding: none;' >";
+					shuttlehtml += "	<div class='loadWay'>";
+					shuttlehtml += "		<div class='busInfoTxt'>"+obj.bus_route_name+"</div>";
+
+					shuttlehtml += "		<div class='loadShort' onclick='getShuttleBusDetail("+obj.bus_route_id+","+obj.bus_route_type+")'>";
+					shuttlehtml += "			<a href='#' class='loadWayHide'>";
+					shuttlehtml += "				<span class='imgBg icon'>펼치기</span>";
+					shuttlehtml += "			</a>";
+					shuttlehtml += "		</div>";
+
+					shuttlehtml += "	</div>";
+					shuttlehtml += "	<div class='loadWaySub2 bus' style='display:none'>";
+// 					shuttlehtml += "		<div class='busWayType'>";
+// 					shuttlehtml += "		<span class='busWay busRoute'>운행구간</span>";
+// 					shuttlehtml += "		<p>";
+// 					shuttlehtml += "		</p>";
+// 					shuttlehtml += "	    </div>";
+					shuttlehtml += "	    <div class='busWayType'>";
+					shuttlehtml += "		<span class='busWay busTime'>배차안내</span>";
+					shuttlehtml += "		<p class='busDetail' id=bus_"+obj.bus_route_id+">";
+					shuttlehtml += "		</p>";
+					shuttlehtml += "	    </div>";
+					shuttlehtml += "	</div>";
+					shuttlehtml += "</div>";
+
+					if(obj.bus_route_type == "1101"){
+						$('#shuttleType1List').append(shuttlehtml);
+					}else if(obj.bus_route_type == "1102"){
+						$('#shuttleType2List').append(shuttlehtml);
+					}else if(obj.bus_route_type == "1103"){
+						$('#shuttleType3List').append(shuttlehtml);
+					}
+				}
+
+				if(search_type == 's' ){
+					$('.inputZone').hide();
+					$('.place').hide();
+				}else if(search_type == 'ss'){
+					$('.place').hide();
+				}
+
+			} else if (mode == 'search') {
+				$('#init_list').hide();
+				$('#search_list').show();
+				$('#bus_search_res').empty();
+
+				bus_station_res_length = bus_station_list.length;
+
+				$('#search_res').text($('#bus_search_word').val());
+				$('#search_tot').text(bus_station_list.length);
+				for(var i=0; i<bus_station_list.length; i++){
+					var obj=data.bus_station_list[i];
+
+					var html = '';
+					html += "<div class='search_res_list'>";
+					html += "	<div class='subSeT' id='bus_station_"+i+"'>";
+					html += "		<div class='search_res_nm' onclick='getBusStopLoc("+obj.bus_station_latitude+","+obj.bus_station_longitude+")'>";
+					html += "			<span id='bus_station_name'>"+obj.bus_station_name+" </span id='daum_station_id'> <span> ["+obj.station_no+"]</span>";
+					html += "			<img class='refresh_btn' src='/m/img/ico/icon_refresh.png' alt='' onclick='getBusArrival(\""+obj.daum_station_id+"\", "+obj.bus_station_code+", "+i+")'/>";
+					html += "		</div>";
+					html += "		<div>";
+					html += "			<span id='bus_direction'></span>";
+					html += "		</div>";
+					html += "		<div class='startEndClick'>";
+					html += "			<div class='clickPlace'>";
+					if(langType == 'eng'){ // 영문
+						html += "				<button class='imgBg startBtn' type='button' id='start_"+i+"' onclick='location.href=\"/web/search_road.action?sName="+obj.bus_station_name+"&start_lat="+obj.bus_station_latitude+"&start_lon="+obj.bus_station_longitude+"\"'>Start</button>";
+						html += "				<button class='imgBg endBtn' type='button' id='end_"+i+"' onclick='location.href=\"/web/search_road.action?eName="+obj.bus_station_name+"&end_lat="+obj.bus_station_latitude+"&end_lon="+obj.bus_station_longitude+"\"'>Stop</button>";
+
+					}
+					else{	//한글
+						html += "				<button class='imgBg startBtn' type='button' id='start_"+i+"' onclick='location.href=\"/web/search_road.action?sName="+obj.bus_station_name+"&start_lat="+obj.bus_station_latitude+"&start_lon="+obj.bus_station_longitude+"\"'>출발</button>";
+						html += "				<button class='imgBg endBtn' type='button' id='end_"+i+"' onclick='location.href=\"/web/search_road.action?eName="+obj.bus_station_name+"&end_lat="+obj.bus_station_latitude+"&end_lon="+obj.bus_station_longitude+"\"'>도착</button>";
+
+					}
+					html += "			</div>";
+					html += "		</div>";
+					html += "	</div>";
+
+					$('#bus_search_res').append(html);
+
+					if(obj.daum_station_id != null){
+						getBusArrival(obj.daum_station_id, obj.bus_station_code, i);
+					}
+				}
+			}
+		};
+
+		// 셔틀버스 상세 정보
+		function getShuttleBusDetail(bus_id, bus_route_type){
+			//console.log('$(this)', this);
+			var ajax_url = '/api/bus/suttle/'+bus_id+'.action';
+			var param = {'sch_bus_deta_cd' : bus_route_type};
+			clearMarkers();
+
+			$.ajax({
+		        'type': 'GET',
+		        'url': ajax_url,
+		        'contentType': 'text/plain; charset=utf-8',
+		        'dataType': 'json',
+		        'data': param,
+		        'beforeSend':function(request){
+		        	request.setRequestHeader('access_token', '111');
+		        },
+		        'error':function(request,status,error){
+		        },
+		        'success': function(data, bus_id){
+		        	getShuttleBusDetailSuccessCallback(data);
+		        }
+		    });
+		}
+
+		getShuttleBusDetailSuccessCallback = function(data, bus_id){
+			//console.log('data:::', data);
+			var route_data_list = data.route_data_list;
+			var suttle_route_path_list = data.suttle_route_path_list;
+
+
+			// 셔틀버스 배차안내
+			if(route_data_list.length > 0){
+				var html = '';
+				for(var i=0; i<route_data_list.length; i++){
+					if(langType == 'eng') {
+						html += "<span>"+route_data_list[i].engTtl +" "+ route_data_list[i].engCtnt+"</span>";
+					} else {
+						html += "<span>"+route_data_list[i].ttl +" "+ route_data_list[i].ctnt+"</span>";
+					}
+					$('#bus_'+suttle_route_path_list[0].bus_route_id).html(html);
+				}
+			} else {
+				$('#bus_'+suttle_route_path_list[0].bus_route_id).html("<span> 정보없음 </span>");
+			}
+
+			// 셔틀버스 정류장 마커 표시
+			var total_lat = 0;
+			var total_lon = 0;
+			var size = suttle_route_path_list.length;
+			if(size > 0){
+				var linePath = [];
+				var endLinePath;
+				
+				// CH2105-00011 캠퍼스맵(공통) 버스정류장 탭 개선
+				// 새로운 좌표로 그리기 위해 초기화
+				polyline.setMap(null);
+				
+				for(var i=0; i<suttle_route_path_list.length; i++){
+					var bus_station = new daum.maps.Marker({
+						map : map,
+						position: new daum.maps.LatLng(suttle_route_path_list[i].bus_station_latitude, suttle_route_path_list[i].bus_station_longitude),
+						image : webShuttleBusStationImage
+					});
+
+					bus_station_makers.push(bus_station);
+
+					total_lat += parseFloat(suttle_route_path_list[i].bus_station_latitude);
+					total_lon += parseFloat(suttle_route_path_list[i].bus_station_longitude);
+
+					// CH2105-00011 캠퍼스맵(공통) 버스정류장 탭 개선
+					linePath.push(new daum.maps.LatLng(suttle_route_path_list[i].bus_station_latitude, suttle_route_path_list[i].bus_station_longitude));
+					if (i == 0) {
+						endLinePath = new daum.maps.LatLng(suttle_route_path_list[i].bus_station_latitude, suttle_route_path_list[i].bus_station_longitude);
+					}
+				}
+
+				map.setCenter(new daum.maps.LatLng(total_lat/size, total_lon/size));
+
+		 		map.relayout();
+		 		map.setLevel(5);
+		 		
+		 		// CH2105-00011 캠퍼스맵(공통) 버스정류장 탭 개선
+		 		linePath.push(endLinePath);
+		 		polyline.setPath(linePath);
+		 		polyline.setMap(map); 
+			}
+
+		};
+
+		// 버스 도착 정보
+		function getBusArrival(bus_stop_id, bus_station_code, num){
+			var ajax_url = '/api/bus/arrival.action?bus_stop_id='+bus_stop_id+'&bus_station_code='+bus_station_code;
+
+			$.ajax({
+		        'type': 'GET',
+		        'url': ajax_url,
+		        async: false,
+		        'contentType': 'text/plain; charset=utf-8',
+		        'dataType': 'json',
+		        'beforeSend':function(request){
+		        	request.setRequestHeader('access_token', '111');
+		        },
+		        'error':function(request,status,error){
+		        },
+		        'success': function(data){
+		        	getBusArrivalSuccessCallback(data, bus_stop_id, bus_station_code, num);
+		        }
+		    });
+		}
+
+		getBusArrivalSuccessCallback = function(data, bus_stop_id, bus_station_code, num){
+			$('.bus_info').empty();
+			$('#search_list_around').empty();
+        	var size = 0;
+        	var html = '';
+
+        	if(mode == 'init'){
+        		// 일반버스 도착정보
+      			if(data.bus_arrival_list.length > 0){
+      				size = data.bus_arrival_list.length;
+      				html += "<ul>";
+      				for(var i = 0 ; i < size ; i++){
+      					html += '<li class="busType1">';
+    					html += '	<a>';
+    					html += '		<span class="title bus_type2">'+data.bus_arrival_list[i].name+'</span>';
+    					html += '	<div class="info">'+data.bus_arrival_list[i].arrivalTime+'</div>';
+    					html += '   <div class="infoSub">'+data.bus_arrival_list[i].direction+'</div>';
+    					html += '	</a>';
+    					html += '</li>';
+      				}
+      				html += "</ul>";
+      			}
+
+            	// 셔틀버스 도착정보
+            	if(data.suttle_bus_arrival_list.length > 0){
+      				size = data.suttle_bus_arrival_list.length;
+      				html += "<ul>";
+      				for(var i = 0 ; i < size ; i++){
+      					html += '<li class="busType2">';
+      					html += '	<a>';
+      					var id = data.suttle_bus_arrival_list[i].bus_route_id;   // 셔틀버스 루트 id
+     					 if(id == 10 || id == 20  || id == 30 || id == 40 || id == 40 || id == 50 || id == 70){
+     						if(langType == 'eng'){ // 영문
+     							html += '		<p class="bus_shuttle">Commuting Shuttle</p>';
+     						}
+     						else{	//한글
+     							html += '		<p class="bus_shuttle">통학셔틀</p>';
+     						}
+	    				}else if(id == 61 || id == 81){
+	    					if(langType == 'eng'){ // 영문
+	    						html += '		<p class="bus_shuttle">On-Campus Shuttle</p>';
+     						}
+     						else{	//한글
+     							html += '		<p class="bus_shuttle">교내셔틀</p>';
+     						}
+	    				}else if(id == 92 || id == 102 || id == 112){
+	    					if(langType == 'eng'){ // 영문
+	    						html += '		<p class="bus_shuttle">Night Shuttle</p>';
+     						}
+     						else{	//한글
+     							html += '		<p class="bus_shuttle">야간셔틀</p>';
+     						}
+	    				}
+     					html += '		<span class="infoSub">'+data.suttle_bus_arrival_list[i].bus_route_name+'</span>';
+     					/* html += '	<div class="info">'+data.suttle_bus_arrival_list[i].prev_station_num+'번째 전</div>'; */
+      					html += '	</a>';
+    					html += '</li>';
+      				}
+      				html += "</ul>";
+      			}
+
+    			$('.bus_info').append(html);
+        	} else if(mode == 'search') {
+        			var html = '';
+	        		// 일반버스 도착정보
+	      			if(data.bus_arrival_list.length > 0){
+	      				size = data.bus_arrival_list.length;
+	      				for(var i = 0 ; i < size ; i++){
+	      					var obj = data.bus_arrival_list[i];
+	      					html += "<div class='place'>";
+	      					html += "	<span class='iconImg busIcon'><img src='/m/img/ico/list_bus_type1.png' alt='버스아이콘'/></span>";
+	      					html += "     <div class='placeCon'>";
+	      					html += "		<p class='placeChoice'>";
+	      					html += "		<span class='loadInfo busNum'>"+obj.name+"</span>";
+	      					html += "		<span class='busTurm' style='right: 0; left: 100px; color:black;'>"+obj.direction+"</span>";
+	      					html += "	    <span class='loadInfo busInfo'>"+obj.arrivalTime+"</span>";
+	      					html += "	 </p>";
+	      					html += "     </div>";
+	      					html += "</div>";
+	      				}
+	      			}
+
+	            	// 셔틀버스 도착정보
+	            	if(data.suttle_bus_arrival_list.length > 0){
+	      				size = data.suttle_bus_arrival_list.length;
+	      				for(var i = 0 ; i < size ; i++){
+							var obj = data.suttle_bus_arrival_list[i];
+							html += "<div class='place'>";
+							html += "	<span class='iconImg busIcon'><img src='/m/img/ico/list_bus_type4.png' alt='버스아이콘'/></span>";
+							html += "     <div class='placeCon'>";
+							html += "		<p class='placeChoice'>";
+							html += "		<span class='loadInfo busNum'>"+obj.bus_route_name+"</span>";
+							html += "	    <span class='loadInfo busInfo'>"+obj.prev_station_num+" 번째 전</span>";
+							html += "	 </p>";
+							html += "     </div>";
+							html += "</div>";
+	      				}
+	      			}
+	            	html += "	</div>";
+	            	$('#bus_station_'+num).parent().find('.place').remove();
+            		$('#bus_station_'+num).after(html);
+
+        	}
+
+		};
+
+		function makeOverListener(map, marker, customOverlay) {
+		    return function() {
+				closeOverlay();
+				customOverlay.setMap(map);
+				mode="init";
+				getBusArrival(marker.bus_stop_id, marker.bus_station_code);
+		    };
+		}
+
+		// 커스텀 오버레이를 닫기 위해 호출되는 함수입니다
+		function closeOverlay() {
+			 for (var i = 0; i < overlays.length; i++) {
+		        overlays[i].setMap(null);
+		    }
+		}
+
+		shuttleBusList = function(){
+			busStationList(encodeURIComponent('셔틀'));
+			//busStationList('셔틀');
+		};
+
+		// 버스 노선 정보
+		function getBusRoute(bus_id){
+			var ajax_url = '/api/bus/path.action';
+			var param = {'bus_id' : bus_id};
+
+			clearMarkers();
+
+			$.ajax({
+		        'type': 'GET',
+		        'url': ajax_url,
+		        'contentType': 'text/plain; charset=utf-8',
+		        'dataType': 'json',
+		        'data': param,
+		        'beforeSend':function(request){
+		        	request.setRequestHeader('access_token', '111');
+		        },
+		        'error':function(request,status,error){
+		        },
+		        'success': function(data){
+		        	getBusRouteSuccessCallback(data); //성공 콜백함수 호출
+		        }
+		    });
+		}
+		getBusRouteSuccessCallback = function (data) {
+			    var size = 0;
+			    if (data.bus_path_list.length > 0) {
+			        size = data.bus_path_list.length;
+
+			        for (var i = 0; i < size; i++) {
+			            var obj = data.bus_path_list[i];
+
+			            // 서울시 API용 stId 우선 사용, 없으면 내부 ID fallback
+			            var stopIdForApi = obj.stId ? obj.stId : bus_stop_id;
+
+			            // 콘솔 로그 추가 (실제 호출되는 정류장 ID 확인)
+			            console.log(" 정류장명:", obj.name, " / 호출 ID(stopIdForApi):", stopIdForApi);
+
+			            // 현재 선택된 정류장과 일치할 경우
+			            if (obj.name == bus_stop_nm || obj.id == bus_stop_id) {
+			                var bus_station = new daum.maps.Marker({
+			                    map: map,
+			                    position: new daum.maps.LatLng(obj.wgsy, obj.wgsx),
+			                    image: busStationImage
+			                });
+
+			                // 클릭 시 bus_stop_detail.action 으로 이동 (서울시 stId 적용)
+			                var content =
+			                    '<div class="info_wrap">' +
+			                    '    <div class="info_title">' +
+			                    '        <a onclick="mvRes(\'' + obj.name + '\', ' +
+			                    '\'/m/bus_stop_detail.action?' +
+			                    'bus_stop_id=' + stopIdForApi + // 핵심 수정
+			                    '&bus_station_code=' + bus_station_code +
+			                    '&bus_station_nm=' + encodeURIComponent(bus_stop_nm) +
+			                    '&bus_station_div=' + bus_station_div +
+			                    '&bus_station_id=' + bus_station_id +
+			                    '&bus_station_mode=' + bus_station_mode +
+			                    '&station_no=' + station_no +
+			                    '&lat_val=' + obj.wgsy +
+			                    '&lon_val=' + obj.wgsx +
+			                    '\');"><p class="kor_title">' + obj.name + '</p></a>' +
+			                    '</div>';
+
+			                var customOverlay = new daum.maps.CustomOverlay({
+			                    map: map,
+			                    position: new daum.maps.LatLng(obj.wgsy, obj.wgsx),
+			                    content: content,
+			                    zIndex: 3
+			                });
+
+			                bus_station_makers.push(bus_station);
+			                map.setCenter(new daum.maps.LatLng(obj.wgsy, obj.wgsx));
+			            } else {
+			                // 나머지 정류장 마커 표시
+			                var bus_station = new daum.maps.Marker({
+			                    map: map,
+			                    position: new daum.maps.LatLng(obj.wgsy, obj.wgsx),
+			                    image: busStationImage
+			                });
+			                bus_station_makers.push(bus_station);
+			            }
+			        }
+			    } else {
+			        console.warn(" bus_path_list가 비어 있습니다. 노선 데이터를 확인하세요.");
+			    }
+			};
+	
+
+		clearMarkers = function(){
+			for (var i = 0; i < bus_station_makers.length; i++) {
+	        	closeOverlay();
+	        	bus_station_makers[i].setMap(null);
+	        }
+		};
+
+		var clickBusStopMarker = new daum.maps.Marker({
+			map : map,
+			position: new daum.maps.LatLng(37.461426674177574, 126.95381532921343),
+			image : webClickBusStationImage
+		});
+
+		function clearMarker(){
+			clickBusStopMarker.setMap(null);
+		}
+
+		function getBusStopLoc(lat, lon) {
+			clearMarker();
+
+			map.setCenter(new daum.maps.LatLng(lat, lon));
+			clickBusStopMarker.setPosition(new daum.maps.LatLng(lat, lon));
+			clickBusStopMarker.setMap(map);
+		}
+
+
+		function closeOverlay() {
+			 for (var i = 0; i < overlays.length; i++) {
+		        overlays[i].setMap(null);
+		    }
+		}
+		//]]>
+		</script>
+</body>
+</html>

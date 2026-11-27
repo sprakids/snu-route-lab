@@ -1,0 +1,56 @@
+{
+  "cases": [
+    {
+      "case": "anchor-combined-regular-mon",
+      "mode": "combined",
+      "day": "월",
+      "scenario": "regular",
+      "seed": 0,
+      "operations": "v12_empirical"
+    },
+    {
+      "case": "anchor-combined-regular-tue",
+      "mode": "combined",
+      "day": "화",
+      "scenario": "regular",
+      "seed": 0,
+      "operations": "v12_empirical"
+    },
+    {
+      "case": "ablation-old-initial-anchor-tue",
+      "mode": "combined",
+      "day": "화",
+      "scenario": "regular",
+      "seed": 0,
+      "operations": "v12_empirical",
+      "config_overrides": {
+        "consistent_initial_headway_anchor": false
+      }
+    }
+  ],
+  "runtime_sha256": {
+    "artifacts.py": "6e62dfbe617557377b2feea01918670e050f960548bda5aab27491b24853e1f7",
+    "preferences.py": "3ad5b60778cdf06f57cbc0e2af9b64d26f9852b0a30e2734aecebaaebf357f8e",
+    "hazard.py": "6a37635687d25e0210749e30598d0494f0c16e586d0fa095b0def9fe6b49cc18",
+    "capacity.py": "2fba2637b1a7b0149b4cd5d2b540cbca750b430975e89d2a1851eca8bb55deb2",
+    "physics.py": "b02afdd219ae47df56f4cd8288fe758ad43d5db26ada9adfcfe106841e4e4b15",
+    "fares.py": "6b4bd8c2a5e9a72d5cf75ff134c53af5057be60df769ae9ecf7d3502fa705de3",
+    "prepare.py": "03428516bd9cbaf4aa56b60d1b5d022a13cd8eda49c09b55cd74c84bd4e0e843",
+    "policy.py": "f16fd15dbbde7319a9145e8fde33c85a89fd4440aa9da00722d681dbd8f1433d",
+    "metrics.py": "2161f7f48b9545d10e8d349f6d4c98efa2e0426dc133daaa5749fe3976de9814",
+    "engine.py": "9bd405eb1ca29c6bb8196bec657fe794b93b35934671f20729ed77cdae0ccf03",
+    "operations.py": "6a8cbf12833b8bebdac838b8acc737e8b12a8e82b07c427ac6ba62e7d6cbf645",
+    "empirical_v12.py": "c0943dcc106736bd8bb6de4e1a3f0a479f830ad97a7f53adec076eb36952d8de",
+    "time_profiles.py": "c4d8f8cf9df7c367e6fd1b1e20a04d98d896cb12265e2ebfbf8a1ce40840ed52",
+    "behavioral_policy.py": "d1de72f1f19e5dcdd1c41e6adc5fa745a48c5098605ad7709e85445357e93190",
+    "walking_opportunities.py": "23bcdc81f5159c4a4e36237d28a14a84347cf3ba16ea2bfa8f283cbdc20619a1",
+    "perception.py": "42b5ea2f4b71c84d18360452feca1e7787bb30c7d48e10d8caa56ab2208b9d51",
+    "direct_restoration.py": "65b1029f4dd9bbbbfef8dc2072aff0771838ccb036204f745d5d9dbe24848ae6",
+    "nominal_transfer.py": "d31ff6da866f29e64781de50d493b21dd8dcd529786b6c71b62fb58f98d527c3",
+    "run_case.py": "f57aa6859eabd0768582e55af17d040c31dce96737e5fe087b77ecc1359d1730"
+  },
+  "config_sha256": "abaddf3de9e6da2c9699a158544788d3d3e5aed228e45dc19c4826ddd2add432",
+  "production_writes": false,
+  "executor_workers": 4,
+  "coordinator_script_sha256": "979ded8368e8d45c3984e50521568c16e940fdde9fb0a110c6e9a44410cb2c8e"
+}

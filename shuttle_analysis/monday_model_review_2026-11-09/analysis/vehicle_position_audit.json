@@ -1,0 +1,59 @@
+{
+  "status": "PASS",
+  "snapshot_created_at": "2026-11-09T23:45:26.732251+09:00",
+  "scope": "supplied snapshot, not a fresh export of the continuing live collector",
+  "original_vehicle_rows": 94212,
+  "days": [
+    {
+      "day": "2026-11-09",
+      "rows": 94212,
+      "nonmissing": {
+        "lat": 94212,
+        "lon": 94212,
+        "id": 94212,
+        "route_id": 94212,
+        "section_order": 94212,
+        "provided_at": 94212,
+        "captured_at": 94212,
+        "at_stop": 94212,
+        "crowd_code": 94212
+      },
+      "valid_coordinate_range_rows": 94212
+    }
+  ],
+  "duplicate_provider_position_conflict_rows": 84,
+  "provider_keys_with_position_variants": 83,
+  "maximum_position_spread_from_first_capture_m": 194.5,
+  "position_selection_rule": "earliest captured position for each provider key, with variant count/spread preserved",
+  "paired_rows_with_coordinates": 27222,
+  "coordinate_endpoint_joins_verified": 54444,
+  "output": "paired_section_observations_with_positions.csv",
+  "output_sha256": "5e888d95ed4efb7a9e85705ff520f32b2f136c42fd8c3a85d77534292308a3cc",
+  "added_columns": [
+    "from_lat",
+    "from_lon",
+    "to_lat",
+    "to_lon",
+    "from_at_stop",
+    "to_at_stop",
+    "from_position_lag_seconds",
+    "to_position_lag_seconds",
+    "from_distance_to_reference_stop_m",
+    "to_distance_to_reference_stop_m",
+    "from_position_variant_count",
+    "to_position_variant_count",
+    "from_position_spread_m",
+    "to_position_spread_m"
+  ],
+  "source_comparison_unchanged": true,
+  "collector_modified": false,
+  "new_provider_calls": 0,
+  "source_definition_url": "https://www.data.go.kr/data/15000332/openapi.do",
+  "limitations": [
+    "Coordinates are provider positions, not independently ground-truthed GPS.",
+    "Broad coordinate range checks do not prove stop passage or positional accuracy.",
+    "Reference-stop distances are derived straight-line distances, not measured boarding locations.",
+    "Stored at_stop False does not retain a separate raw-field availability flag.",
+    "Grade changes indicate ordinal net occupancy signals, not passenger boardings or unmet queue demand."
+  ]
+}

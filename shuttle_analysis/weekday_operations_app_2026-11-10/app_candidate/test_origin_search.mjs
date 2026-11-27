@@ -1,0 +1,65 @@
+// Search interaction tests use the real pinned official catalog, not invented places.
+import fs from 'node:fs/promises';
+import vm from 'node:vm';
+import assert from 'node:assert/strict';
+import {JSDOM} from 'jsdom';
+const fixture=JSON.parse(await fs.readFile(new URL('./runtime/ui_fixtures_v2.json',import.meta.url),'utf8'));
+const catalog=JSON.parse(await fs.readFile(new URL('./data/campus_places.json',import.meta.url),'utf8'));
+const dom=new JSDOM(await fs.readFile(new URL('./static/index.html',import.meta.url),'utf8'),{url:'http://localhost:8859',pretendToBeVisual:true,runScripts:'outside-only'});
+const w=dom.window,d=w.document,requests=[],checks=[];let geoSuccess;
+Object.defineProperty(w,'innerWidth',{value:390,writable:true});w.setInterval=()=>0;
+w.HTMLDialogElement.prototype.showModal=function(){this.setAttribute('open','');};
+w.HTMLDialogElement.prototype.close=function(){this.removeAttribute('open');this.dispatchEvent(new w.Event('close'));};
+Object.defineProperty(w.navigator,'geolocation',{value:{getCurrentPosition:ok=>{geoSuccess=ok;}},configurable:true});
+w.RouteMap=class{constructor(){this.provider='osm';}async initialize(){return 'osm';}showRoute(){}showVehicles(){}showShuttle(){}showUserLocation(){}fit(){}resize(){}clearRoute(){}home(){}};
+w.fetch=async(path,options={})=>{const body=options.body?JSON.parse(options.body):null;requests.push({path,body});let data;
+ if(path==='/api/bootstrap'){data=structuredClone(fixture.bootstrap);data.origins.push(...catalog.buildings);data.building_catalog={count:catalog.buildings.length};}
+ else if(path==='/api/status')data=fixture.positions;
+ else if(path==='/api/shuttle')data=fixture.shuttle;
+ else if(path==='/api/arrivals')data={stops:[]};
+ else if(path==='/api/plan'){data=structuredClone(fixture.plans[body.destination_id]);const b=catalog.buildings.find(x=>x.id===body.origin_id);if(b)data.origin_access={...b.access,label:b.label,building_id:b.id};}
+ else throw Error('Unexpected API '+path);
+ return {ok:true,json:async()=>structuredClone(data)};};
+const run=s=>new vm.Script(s).runInContext(dom.getInternalVMContext());
+const until=async p=>{for(let i=0;i<300;i++){if(p())return;await new Promise(r=>setTimeout(r,10));}throw Error('Timed out');};
+const check=(name,f)=>{f();checks.push(name);};const plans=()=>requests.filter(x=>x.path==='/api/plan');
+run((await fs.readFile(new URL('./static/app.js',import.meta.url),'utf8')).replace(/^import[^\n]+\n/,''));
+await until(()=>d.querySelector('#origin-search-status').textContent.includes('237'));
+d.querySelector('[data-destination="snu-station"]').click();
+const input=d.querySelector('#origin-search'),type=q=>{input.value=q;input.dispatchEvent(new w.Event('input',{bubbles:true}));};
+check('all 237 official buildings are available without an initial plan request',()=>{assert.equal(d.querySelectorAll('#origin option').length,fixture.bootstrap.origins.length+238);assert.equal(plans().length,0);});
+type('38');
+check('building number search shows the real official name',()=>{assert.match(d.querySelector('[role=option]').textContent,/38동.*글로벌공학교육센터/);assert.equal(input.getAttribute('aria-expanded'),'true');});
+const network=requests.length;type('220');type('중앙도서관');type('38');
+check('typing and local search do not make API requests',()=>assert.equal(requests.length,network));
+geoSuccess({coords:{latitude:37.4609,longitude:126.9522,accuracy:20},timestamp:Date.now()});await new Promise(r=>setTimeout(r,0));
+check('a late GPS response does not replace a building being typed',()=>{assert.equal(input.value,'38');assert.equal(d.querySelector('#origin').value,'device');assert.equal(run('state.buildingQueryDirty'),true);});
+input.dispatchEvent(new w.KeyboardEvent('keydown',{key:'ArrowDown',bubbles:true,cancelable:true}));
+input.dispatchEvent(new w.KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));
+check('keyboard selection updates the actual origin ID',()=>{assert.equal(d.querySelector('#origin').value,'campus-11E0380');assert.match(input.value,/38동/);assert.equal(input.getAttribute('aria-expanded'),'false');assert.equal(plans().length,0);});
+d.querySelector('#route-form').dispatchEvent(new w.Event('submit',{cancelable:true}));await until(()=>d.body.dataset.mobileView==='results');
+check('building search reaches the plan request by registry ID',()=>{assert.equal(plans().at(-1).body.origin_id,'campus-11E0380');assert.equal(plans().at(-1).body.origin,undefined);assert.match(d.querySelector('.origin-access-banner').textContent,/실내|내부/);});
+d.querySelector('.mobile-card').click();
+check('detail identifies the chosen building and excludes unmeasured indoor travel',()=>{assert.match(d.querySelector('#selected-panel').textContent,/38동.*글로벌공학교육센터/);assert.match(d.querySelector('#selected-panel .origin-access-note').textContent,/내부 이동시간 미포함/);});
+d.querySelector('#mobile-close-detail').click();d.querySelector('#mobile-edit-route').click();type('220');d.querySelector('#mobile-editor-close').click();
+check('cancelled editing restores the prior building and search text',()=>{assert.equal(d.querySelector('#origin').value,'campus-11E0380');assert.match(input.value,/38동/);assert.equal(run('state.buildingQueryDirty'),false);});
+d.querySelector('#mobile-edit-route').click();type('999999동');const before=plans().length;
+d.querySelector('#route-form').dispatchEvent(new w.Event('submit',{cancelable:true}));
+check('an unmatched typed place cannot route from the previous selection',()=>{assert.equal(plans().length,before);assert.equal(d.querySelectorAll('#origin-search-results [role=option]').length,0);assert.match(d.querySelector('#origin-search-count').textContent,/없습니다/);});
+d.querySelector('#origin-search-clear').click();
+check('clearing the query preserves the visibly selected origin',()=>{assert.equal(input.value,'');assert.equal(d.querySelector('#origin').value,'campus-11E0380');assert.equal(run('state.buildingQueryDirty'),false);});
+for(const [q,number] of [['３８ 동','38'],['서울대 220동','220'],['제038동','38'],['관정도서관','62-1'],['종합교육연구동','220'],['Global Education','38']]){
+ check('normalizes '+q,()=>assert.equal(run(`searchCampusBuildings(${JSON.stringify(q)})[0]?.number`),number));
+}
+check('every official building is findable by its complete number',()=>assert.equal(run('state.bootstrap.origins.filter(b=>b.official_building_id).every(b=>searchCampusBuildings(b.number+"동").some(x=>x.id===b.id))'),true));
+type('62');input.dispatchEvent(new w.KeyboardEvent('keydown',{key:'ArrowUp',bubbles:true,cancelable:true}));
+check('ArrowUp starts at the final matching suggestion',()=>assert.equal(run('state.placeMatches[state.placeActive].number'),'62-1'));
+type('73');d.querySelector('[data-building-id="campus-11C0730"]').click();
+check('an inferred walkway origin is disclosed before searching',()=>{assert.match(d.querySelector('#origin-search-status').textContent,/미확인/);assert.match(d.querySelector('#origin-search-status').textContent,/보행로부터 계산/);});
+type('220');let event=new w.KeyboardEvent('keydown',{key:'Escape',bubbles:true,cancelable:true});input.dispatchEvent(event);
+check('Escape dismisses suggestions first',()=>{assert.equal(event.defaultPrevented,true);assert.equal(input.getAttribute('aria-expanded'),'false');});
+event=new w.KeyboardEvent('keydown',{key:'Escape',bubbles:true,cancelable:true});input.dispatchEvent(event);
+check('a second Escape remains available to the native dialog',()=>assert.equal(event.defaultPrevented,false));
+type('220');d.querySelector('[data-building-id="campus-11I2200"]').click();d.querySelector('#route-form').dispatchEvent(new w.Event('submit',{cancelable:true}));await until(()=>plans().at(-1).body.origin_id==='campus-11I2200'&&!d.querySelector('#mobile-editor').open);
+check('220 building replaces 38 in both request and displayed route context',()=>{assert.equal(plans().at(-1).body.origin_id,'campus-11I2200');assert.match(d.querySelector('#mobile-origin-label').textContent,/220동/);});
+dom.window.close();console.log(JSON.stringify({suite:'official building origin search',passed:checks.length,checks,official_buildings:237,visual_browser_test:false,provider_requests_during_typing:0},null,2));

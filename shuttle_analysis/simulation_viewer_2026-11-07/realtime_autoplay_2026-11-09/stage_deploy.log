@@ -1,0 +1,41 @@
+Vercel CLI 65.12.1
+  Inspect         https://vercel.com/june-f3d1/snu-shuttle-simulation/ASa84JTZsQ85VE1x5hw1wQMmFC55
+▲ Production      https://snu-shuttle-simulation-5ni5cd81r-june-f3d1.vercel.app
+{
+  "status": "ok",
+  "deployment": {
+    "id": "dpl_ASa84JTZsQ85VE1x5hw1wQMmFC55",
+    "url": "https://snu-shuttle-simulation-5ni5cd81r-june-f3d1.vercel.app",
+    "productionUrl": null,
+    "inspectorUrl": "https://vercel.com/june-f3d1/snu-shuttle-simulation/ASa84JTZsQ85VE1x5hw1wQMmFC55",
+    "readyState": "READY",
+    "target": "production",
+    "environment": "production",
+    "deploymentApiUrl": "https://api.vercel.com/v13/deployments/dpl_ASa84JTZsQ85VE1x5hw1wQMmFC55",
+    "buildMachine": {
+      "cores": 2,
+      "memory": 8192,
+      "machine": "basic",
+      "selectionType": "fixed",
+      "selectionSource": "plan-default"
+    },
+    "deploymentProtection": [
+      "vercel_authentication"
+    ]
+  },
+  "message": "Deployment snu-shuttle-simulation-5ni5cd81r-june-f3d1.vercel.app ready.",
+  "next": [
+    {
+      "command": "vercel curl https://snu-shuttle-simulation-5ni5cd81r-june-f3d1.vercel.app",
+      "when": "Verify deployment, including when Deployment Protection is enabled"
+    },
+    {
+      "command": "vercel inspect snu-shuttle-simulation-5ni5cd81r-june-f3d1.vercel.app",
+      "when": "Inspect deployment"
+    },
+    {
+      "command": "vercel deploy --prod",
+      "when": "Promote to production"
+    }
+  ]
+}

@@ -1,0 +1,5017 @@
+{
+  "v7": {
+    "inputs": {
+      "demand_signature": "30262f8afa62ca195401b9547b4018b913364dcb364ca7ce50547061373cce10",
+      "full_plans_signature": "17a077f5540bdfdd424692be4dae87cbe3b5440cafb0ebea2fc3abc35f815f09",
+      "demand_weight": 18885.5,
+      "plan_count": 67920,
+      "capacities": {
+        "shuttle-41841": 60,
+        "shuttle-41946": 60,
+        "shuttle-41914": 25,
+        "shuttle-daehak": 60,
+        "100100250": 50,
+        "100100251": 50,
+        "100100252": 50,
+        "100100253": 50,
+        "100100263": 50,
+        "100100521": 50,
+        "120900011": 24,
+        "120900012": 24
+      },
+      "gate_access": {
+        "model_id": "261109171256",
+        "algorithm_id": "provisional_initial_gate_access_v1",
+        "alpha": 0.75,
+        "walking_cutoff_seconds": 900.0,
+        "probability_rule": "alpha * max(0, 1 - individual_gate_walk_seconds / 900)",
+        "gate_ars": "21128",
+        "source_simulation": "capacity_v5",
+        "source_sha256": "46243bdb22b769e3ed1fdbff270d0df74b8ffc55e91c80ab4594f1597288eb55",
+        "observations_used_for_candidate_selection": [
+          "admin_snu_1653",
+          "culture_1655",
+          "snu_gate_1703"
+        ],
+        "observation_second": "unknown; uniform within reported minute",
+        "independent_validation": false,
+        "observed_mode_shares": false,
+        "new_demand_added": false,
+        "timetable_speed_capacity_changed": false,
+        "candidate_only": true
+      }
+    },
+    "decomposition": {
+      "case": "v7",
+      "q_170300": 28.410462268062815,
+      "mean_q_1703": 31.898865223237316,
+      "arrival_mean_increment": 3.635369595899181,
+      "boarded_mean_decrement": 0.0,
+      "switched_mean_decrement": 0.1469511960386937,
+      "unserved_mean_decrement": 0.0,
+      "mean_preparation_weight": 2.122698234598929
+    },
+    "checkpoints": [
+      {
+        "case": "v7",
+        "time": "16:00:00.000",
+        "second": 57600,
+        "queue": 7.256918604350475,
+        "ready_queue": 4.713256413134845,
+        "arrivals": 1211.7390374494644,
+        "boarded": 1062.9722060602796,
+        "switched": 141.50991278483426,
+        "unserved": 0.0,
+        "residual": 1.3322676295501878e-14
+      },
+      {
+        "case": "v7",
+        "time": "16:30:00.000",
+        "second": 59400,
+        "queue": 0.0,
+        "ready_queue": 0.0,
+        "arrivals": 1246.5460619924959,
+        "boarded": 1105.0361492076615,
+        "switched": 141.50991278483426,
+        "unserved": 0.0,
+        "residual": 8.526512829121202e-14
+      },
+      {
+        "case": "v7",
+        "time": "16:50:00.000",
+        "second": 60600,
+        "queue": 0.0,
+        "ready_queue": 0.0,
+        "arrivals": 1246.7705027740737,
+        "boarded": 1105.2605899892394,
+        "switched": 141.50991278483426,
+        "unserved": 0.0,
+        "residual": 8.526512829121202e-14
+      },
+      {
+        "case": "v7",
+        "time": "17:00:00.000",
+        "second": 61200,
+        "queue": 5.4052821563332145,
+        "ready_queue": 2.99254375437133,
+        "arrivals": 1283.803231734419,
+        "boarded": 1136.4391552300958,
+        "switched": 141.95879434798996,
+        "unserved": 0.0,
+        "residual": -1.1368683772161603e-13
+      },
+      {
+        "case": "v7",
+        "time": "17:03:00.000",
+        "second": 61380,
+        "queue": 28.410462268062815,
+        "ready_queue": 27.306961758638387,
+        "arrivals": 1307.5565477847415,
+        "boarded": 1136.4391552300958,
+        "switched": 142.7069302865828,
+        "unserved": 0.0,
+        "residual": 5.684341886080802e-14
+      },
+      {
+        "case": "v7",
+        "time": "17:04:00.000",
+        "second": 61440,
+        "queue": 37.2010595465286,
+        "ready_queue": 33.610007041283,
+        "arrivals": 1316.4967722509257,
+        "boarded": 1136.4391552300958,
+        "switched": 142.85655747430135,
+        "unserved": 0.0,
+        "residual": -8.526512829121202e-14
+      },
+      {
+        "case": "v7",
+        "time": "17:05:00.000",
+        "second": 61500,
+        "queue": 47.562742296039325,
+        "ready_queue": 43.63502861842696,
+        "arrivals": 1326.8584550004364,
+        "boarded": 1136.4391552300958,
+        "switched": 142.85655747430135,
+        "unserved": 0.0,
+        "residual": -1.2079226507921703e-13
+      }
+    ],
+    "windows": [
+      {
+        "case": "v7",
+        "start": "16:50:00.000",
+        "end": "17:03:00.000",
+        "q_start": 0.0,
+        "q_end": 28.410462268062815,
+        "arrivals": 60.78604501066775,
+        "boarded": 31.178565240856415,
+        "switched": 1.1970175017485474,
+        "unserved": 0.0
+      },
+      {
+        "case": "v7",
+        "start": "17:00:00.000",
+        "end": "17:03:00.000",
+        "q_start": 5.4052821563332145,
+        "q_end": 28.410462268062815,
+        "arrivals": 23.75331605032261,
+        "boarded": 0.0,
+        "switched": 0.7481359385928386,
+        "unserved": 0.0
+      },
+      {
+        "case": "v7",
+        "start": "17:03:00.000",
+        "end": "17:04:00.000",
+        "q_start": 28.410462268062815,
+        "q_end": 37.2010595465286,
+        "arrivals": 8.94022446618419,
+        "boarded": 0.0,
+        "switched": 0.14962718771855066,
+        "unserved": 0.0
+      },
+      {
+        "case": "v7",
+        "start": "17:00:00.000",
+        "end": "17:05:00.000",
+        "q_start": 5.4052821563332145,
+        "q_end": 47.562742296039325,
+        "arrivals": 43.05522326601749,
+        "boarded": 0.0,
+        "switched": 0.8977631263113892,
+        "unserved": 0.0
+      },
+      {
+        "case": "v7",
+        "start": "16:00:00.000",
+        "end": "17:03:00.000",
+        "q_start": 7.256918604350475,
+        "q_end": 28.410462268062815,
+        "arrivals": 95.81751033527712,
+        "boarded": 73.46694916981619,
+        "switched": 1.1970175017485474,
+        "unserved": 0.0
+      }
+    ],
+    "events": [
+      {
+        "case": "v7",
+        "time": "16:45:54.076",
+        "second": 60354.075512562435,
+        "route_id": "100100251",
+        "route": "100100251",
+        "capacity": 50,
+        "before": 0.0,
+        "alighted": 0.0,
+        "available": 50.0,
+        "boarded": 0.0,
+        "onboard_after": 0.0,
+        "compatible_left": 0.0,
+        "ready_queue_left": 2.2615243011614439e-13,
+        "display_queue_after": 0.0,
+        "preparing_weight": 0.0
+      },
+      {
+        "case": "v7",
+        "time": "16:46:27.112",
+        "second": 60387.111773556804,
+        "route_id": "100100250",
+        "route": "100100250",
+        "capacity": 50,
+        "before": 0.0,
+        "alighted": 0.0,
+        "available": 50.0,
+        "boarded": 0.0,
+        "onboard_after": 0.0,
+        "compatible_left": 0.0,
+        "ready_queue_left": 2.2615243011614439e-13,
+        "display_queue_after": 0.0,
+        "preparing_weight": 0.0
+      },
+      {
+        "case": "v7",
+        "time": "16:47:16.211",
+        "second": 60436.210717763,
+        "route_id": "100100521",
+        "route": "100100521",
+        "capacity": 50,
+        "before": 0.0,
+        "alighted": 0.0,
+        "available": 50.0,
+        "boarded": 0.0,
+        "onboard_after": 0.0,
+        "compatible_left": 0.0,
+        "ready_queue_left": 2.2615243011614439e-13,
+        "display_queue_after": 0.0,
+        "preparing_weight": 0.0
+      },
+      {
+        "case": "v7",
+        "time": "16:47:34.121",
+        "second": 60454.12078317949,
+        "route_id": "100100263",
+        "route": "100100263",
+        "capacity": 50,
+        "before": 0.0,
+        "alighted": 0.0,
+        "available": 50.0,
+        "boarded": 0.0,
+        "onboard_after": 0.0,
+        "compatible_left": 0.0,
+        "ready_queue_left": 2.2615243011614439e-13,
+        "display_queue_after": 0.0,
+        "preparing_weight": 0.0
+      },
+      {
+        "case": "v7",
+        "time": "16:49:34.628",
+        "second": 60574.62795922473,
+        "route_id": "100100252",
+        "route": "100100252",
+        "capacity": 50,
+        "before": 0.0,
+        "alighted": 0.0,
+        "available": 50.0,
+        "boarded": 0.0,
+        "onboard_after": 0.0,
+        "compatible_left": 0.0,
+        "ready_queue_left": 2.2615243011614439e-13,
+        "display_queue_after": 0.0,
+        "preparing_weight": 0.0
+      },
+      {
+        "case": "v7",
+        "time": "16:53:27.112",
+        "second": 60807.111773556804,
+        "route_id": "100100250",
+        "route": "100100250",
+        "capacity": 50,
+        "before": 4.975103991642336,
+        "alighted": 0.0,
+        "available": 45.024896008357665,
+        "boarded": 0.0,
+        "onboard_after": 4.975103991642336,
+        "compatible_left": 0.0,
+        "ready_queue_left": 2.2615243011614439e-13,
+        "display_queue_after": 0.0,
+        "preparing_weight": 0.0
+      },
+      {
+        "case": "v7",
+        "time": "16:54:54.076",
+        "second": 60894.075512562435,
+        "route_id": "100100251",
+        "route": "100100251",
+        "capacity": 50,
+        "before": 4.507519030021816,
+        "alighted": 0.0,
+        "available": 45.49248096997818,
+        "boarded": 0.0,
+        "onboard_after": 4.507519030021816,
+        "compatible_left": 0.0,
+        "ready_queue_left": 2.2615243011614439e-13,
+        "display_queue_after": 0.0,
+        "preparing_weight": 0.0
+      },
+      {
+        "case": "v7",
+        "time": "16:57:16.211",
+        "second": 61036.210717763,
+        "route_id": "100100521",
+        "route": "100100521",
+        "capacity": 50,
+        "before": 0.0,
+        "alighted": 0.0,
+        "available": 50.0,
+        "boarded": 4.1334510607254,
+        "onboard_after": 4.1334510607254,
+        "compatible_left": 0.0,
+        "ready_queue_left": 2.2531976284767552e-13,
+        "display_queue_after": 3.6658660991048793,
+        "preparing_weight": 3.6658660991048793
+      },
+      {
+        "case": "v7",
+        "time": "16:58:34.628",
+        "second": 61114.62795922473,
+        "route_id": "100100252",
+        "route": "100100252",
+        "capacity": 50,
+        "before": 0.0,
+        "alighted": 0.0,
+        "available": 50.0,
+        "boarded": 8.640970090747215,
+        "onboard_after": 8.640970090747215,
+        "compatible_left": 0.0,
+        "ready_queue_left": 2.2609691896491313e-13,
+        "display_queue_after": 8.584859895352754,
+        "preparing_weight": 8.584859895352754
+      },
+      {
+        "case": "v7",
+        "time": "16:59:34.121",
+        "second": 61174.12078317949,
+        "route_id": "100100263",
+        "route": "100100263",
+        "capacity": 50,
+        "before": 0.0,
+        "alighted": 0.0,
+        "available": 50.0,
+        "boarded": 18.404144089383685,
+        "onboard_after": 18.404144089383685,
+        "compatible_left": 0.0,
+        "ready_queue_left": 2.327027459614328e-13,
+        "display_queue_after": 2.113484026524752,
+        "preparing_weight": 2.113484026524752
+      },
+      {
+        "case": "v7",
+        "time": "17:00:27.112",
+        "second": 61227.111773556804,
+        "route_id": "100100250",
+        "route": "100100250",
+        "capacity": 50,
+        "before": 50.0,
+        "alighted": 0.0,
+        "available": 0.0,
+        "boarded": 0.0,
+        "onboard_after": 50.0,
+        "compatible_left": 5.554909344051781,
+        "ready_queue_left": 5.854163719489147,
+        "display_queue_after": 8.491342903028649,
+        "preparing_weight": 2.6371791835397342
+      },
+      {
+        "case": "v7",
+        "time": "17:03:54.076",
+        "second": 61434.075512562435,
+        "route_id": "100100251",
+        "route": "100100251",
+        "capacity": 50,
+        "before": 50.000000000000014,
+        "alighted": 0.0,
+        "available": -1.4210854715202004e-14,
+        "boarded": 0.0,
+        "onboard_after": 50.000000000000014,
+        "compatible_left": 32.282065750280715,
+        "ready_queue_left": 33.32945606431091,
+        "display_queue_after": 33.83444782286085,
+        "preparing_weight": 0.5049917585501618
+      },
+      {
+        "case": "v7",
+        "time": "17:07:16.211",
+        "second": 61636.210717763,
+        "route_id": "100100521",
+        "route": "100100521",
+        "capacity": 50,
+        "before": 0.0,
+        "alighted": 0.0,
+        "available": 50.0,
+        "boarded": 49.99999999999998,
+        "onboard_after": 49.99999999999998,
+        "compatible_left": 5.979271605208678,
+        "ready_queue_left": 5.9792716052088855,
+        "display_queue_after": 7.625170670112909,
+        "preparing_weight": 1.6458990649042313
+      },
+      {
+        "case": "v7",
+        "time": "17:07:27.112",
+        "second": 61647.111773556804,
+        "route_id": "100100250",
+        "route": "100100250",
+        "capacity": 50,
+        "before": 49.99999999999999,
+        "alighted": 0.0,
+        "available": 7.105427357601002e-15,
+        "boarded": 0.0,
+        "onboard_after": 49.99999999999999,
+        "compatible_left": 6.839627934590435,
+        "ready_queue_left": 6.839627934590643,
+        "display_queue_after": 7.849611451690759,
+        "preparing_weight": 1.0099835171003244
+      },
+      {
+        "case": "v7",
+        "time": "17:07:34.628",
+        "second": 61654.62795922473,
+        "route_id": "100100252",
+        "route": "100100252",
+        "capacity": 50,
+        "before": 0.0,
+        "alighted": 0.0,
+        "available": 50.0,
+        "boarded": 7.625170670112909,
+        "onboard_after": 7.625170670112909,
+        "compatible_left": 0.0,
+        "ready_queue_left": 2.0586310434111965e-13,
+        "display_queue_after": 0.6172121493390867,
+        "preparing_weight": 0.6172121493390867
+      }
+    ],
+    "categories": [
+      {
+        "case": "v7",
+        "category": "initial_gate_walk",
+        "arrival_to_1703": 562.3363782433049,
+        "arrival_1650_1703": 59.5890275089191,
+        "queue_1703": 27.51269914175141,
+        "mean_queue_1703": 30.655831750245767
+      },
+      {
+        "case": "v7",
+        "category": "after_city_ride",
+        "arrival_to_1703": 287.54800910727346,
+        "arrival_1650_1703": 0.0,
+        "queue_1703": 0.0,
+        "mean_queue_1703": 0.0
+      },
+      {
+        "case": "v7",
+        "category": "walk_reroute_from_shuttle",
+        "arrival_to_1703": 441.8303819344626,
+        "arrival_1650_1703": 0.0,
+        "queue_1703": 0.0,
+        "mean_queue_1703": 0.19831899183526247
+      },
+      {
+        "case": "v7",
+        "category": "after_shuttle_ride",
+        "arrival_to_1703": 3.871603482217908,
+        "arrival_1650_1703": 0.0,
+        "queue_1703": 0.0,
+        "mean_queue_1703": 0.0
+      },
+      {
+        "case": "v7",
+        "category": "walk_reroute_from_city",
+        "arrival_to_1703": 11.970175017485321,
+        "arrival_1650_1703": 1.1970175017485316,
+        "queue_1703": 0.8977631263113988,
+        "mean_queue_1703": 1.0447144811562732
+      }
+    ],
+    "switches": [
+      {
+        "case": "v7",
+        "time": "16:58:19.194",
+        "second": 61099.193801201756,
+        "node": 15,
+        "weight": 0.2618475785074914,
+        "old_route": "shuttle-41946",
+        "kind": "gate_pool",
+        "option": "서울대학교 21128 · 먼저 오는 5개 노선"
+      },
+      {
+        "case": "v7",
+        "time": "16:58:44.598",
+        "second": 61124.59786824622,
+        "node": 62,
+        "weight": 0.14962718771856648,
+        "old_route": "100100251",
+        "kind": "transit",
+        "option": "5528"
+      },
+      {
+        "case": "v7",
+        "time": "16:59:01.024",
+        "second": 61141.023934689554,
+        "node": 62,
+        "weight": 0.14962718771856648,
+        "old_route": "100100251",
+        "kind": "transit",
+        "option": "5528"
+      },
+      {
+        "case": "v7",
+        "time": "16:59:50.234",
+        "second": 61190.23406234117,
+        "node": 62,
+        "weight": 0.14962718771856648,
+        "old_route": "100100251",
+        "kind": "transit",
+        "option": "6515"
+      },
+      {
+        "case": "v7",
+        "time": "17:00:05.868",
+        "second": 61205.867986599114,
+        "node": 62,
+        "weight": 0.14962718771856648,
+        "old_route": "100100251",
+        "kind": "transit",
+        "option": "6515"
+      },
+      {
+        "case": "v7",
+        "time": "17:00:30.472",
+        "second": 61230.472027608776,
+        "node": 62,
+        "weight": 0.14962718771856648,
+        "old_route": "100100251",
+        "kind": "transit",
+        "option": "6515"
+      },
+      {
+        "case": "v7",
+        "time": "17:00:50.228",
+        "second": 61250.227563311244,
+        "node": 62,
+        "weight": 0.14962718771856648,
+        "old_route": "100100251",
+        "kind": "transit",
+        "option": "6515"
+      },
+      {
+        "case": "v7",
+        "time": "17:00:58.781",
+        "second": 61258.78149832958,
+        "node": 62,
+        "weight": 0.14962718771856648,
+        "old_route": "100100251",
+        "kind": "transit",
+        "option": "6515"
+      },
+      {
+        "case": "v7",
+        "time": "17:02:01.419",
+        "second": 61321.41859290498,
+        "node": 62,
+        "weight": 0.14962718771856648,
+        "old_route": "100100251",
+        "kind": "transit",
+        "option": "6515"
+      },
+      {
+        "case": "v7",
+        "time": "17:03:01.073",
+        "second": 61381.07306368074,
+        "node": 62,
+        "weight": 0.14962718771856648,
+        "old_route": "100100251",
+        "kind": "transit",
+        "option": "6515"
+      }
+    ],
+    "timeseries": [
+      {
+        "second": 60600,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60605,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60610,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60615,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60620,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60625,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60630,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60635,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60640,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60645,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60650,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60655,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60660,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60665,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60670,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60675,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60680,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60685,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60690,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60695,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60700,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60705,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60710,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60715,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60720,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60725,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60730,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60735,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60740,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60745,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60750,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60755,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60760,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60765,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60770,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60775,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60780,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60785,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60790,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60795,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60800,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60805,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60810,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60815,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60820,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60825,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60830,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60835,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60840,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60845,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60850,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60855,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60860,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60865,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60870,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60875,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60880,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60885,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60890,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60895,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60900,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60905,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60910,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60915,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60920,
+        "queue": 1.496271877185665,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60925,
+        "queue": 1.496271877185665,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60930,
+        "queue": 1.496271877185665,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60935,
+        "queue": 1.496271877185665,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60940,
+        "queue": 1.496271877185665,
+        "ready_queue": 1.496271877185665
+      },
+      {
+        "second": 60945,
+        "queue": 1.496271877185665,
+        "ready_queue": 1.496271877185665
+      },
+      {
+        "second": 60950,
+        "queue": 1.5710854710449482,
+        "ready_queue": 1.496271877185665
+      },
+      {
+        "second": 60955,
+        "queue": 1.5710854710449482,
+        "ready_queue": 1.496271877185665
+      },
+      {
+        "second": 60960,
+        "queue": 2.07607722959511,
+        "ready_queue": 1.496271877185665
+      },
+      {
+        "second": 60965,
+        "queue": 2.1508908234543935,
+        "ready_queue": 1.496271877185665
+      },
+      {
+        "second": 60970,
+        "queue": 2.1508908234543935,
+        "ready_queue": 1.5710854710449482
+      },
+      {
+        "second": 60975,
+        "queue": 2.1508908234543935,
+        "ready_queue": 1.5710854710449482
+      },
+      {
+        "second": 60980,
+        "queue": 2.188297620384035,
+        "ready_queue": 2.07607722959511
+      },
+      {
+        "second": 60985,
+        "queue": 2.188297620384035,
+        "ready_queue": 2.1508908234543935
+      },
+      {
+        "second": 60990,
+        "queue": 2.188297620384035,
+        "ready_queue": 2.1508908234543935
+      },
+      {
+        "second": 60995,
+        "queue": 2.188297620384035,
+        "ready_queue": 2.1508908234543935
+      },
+      {
+        "second": 61000,
+        "queue": 3.2543913328788214,
+        "ready_queue": 2.188297620384035
+      },
+      {
+        "second": 61005,
+        "queue": 3.703272896034521,
+        "ready_queue": 2.188297620384035
+      },
+      {
+        "second": 61010,
+        "queue": 4.1334510607254,
+        "ready_queue": 2.188297620384035
+      },
+      {
+        "second": 61015,
+        "queue": 4.1334510607254,
+        "ready_queue": 2.188297620384035
+      },
+      {
+        "second": 61020,
+        "queue": 6.602299658081747,
+        "ready_queue": 3.2543913328788214
+      },
+      {
+        "second": 61025,
+        "queue": 6.733223447335492,
+        "ready_queue": 3.703272896034521
+      },
+      {
+        "second": 61030,
+        "queue": 7.799317159830278,
+        "ready_queue": 4.1334510607254
+      },
+      {
+        "second": 61035,
+        "queue": 7.799317159830278,
+        "ready_queue": 4.1334510607254
+      },
+      {
+        "second": 61040,
+        "queue": 4.114747662260578,
+        "ready_queue": 2.468848597356347
+      },
+      {
+        "second": 61045,
+        "queue": 4.114747662260578,
+        "ready_queue": 2.599772386610093
+      },
+      {
+        "second": 61050,
+        "queue": 4.114747662260578,
+        "ready_queue": 3.6658660991048793
+      },
+      {
+        "second": 61055,
+        "queue": 5.06862098396644,
+        "ready_queue": 3.6658660991048793
+      },
+      {
+        "second": 61060,
+        "queue": 5.06862098396644,
+        "ready_queue": 4.114747662260578
+      },
+      {
+        "second": 61065,
+        "queue": 5.06862098396644,
+        "ready_queue": 4.114747662260578
+      },
+      {
+        "second": 61070,
+        "queue": 5.06862098396644,
+        "ready_queue": 4.114747662260578
+      },
+      {
+        "second": 61075,
+        "queue": 5.06862098396644,
+        "ready_queue": 5.06862098396644
+      },
+      {
+        "second": 61080,
+        "queue": 7.8741307536895615,
+        "ready_queue": 5.06862098396644
+      },
+      {
+        "second": 61085,
+        "queue": 7.8741307536895615,
+        "ready_queue": 5.06862098396644
+      },
+      {
+        "second": 61090,
+        "queue": 8.640970090747215,
+        "ready_queue": 5.06862098396644
+      },
+      {
+        "second": 61095,
+        "queue": 8.640970090747215,
+        "ready_queue": 5.06862098396644
+      },
+      {
+        "second": 61100,
+        "queue": 11.334259469681411,
+        "ready_queue": 7.8741307536895615
+      },
+      {
+        "second": 61105,
+        "queue": 14.139769239404535,
+        "ready_queue": 7.8741307536895615
+      },
+      {
+        "second": 61110,
+        "queue": 16.907872212198015,
+        "ready_queue": 8.640970090747215
+      },
+      {
+        "second": 61115,
+        "queue": 8.584859895352754,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 61120,
+        "queue": 9.089851653902915,
+        "ready_queue": 2.693289378934197
+      },
+      {
+        "second": 61125,
+        "queue": 10.399089546440372,
+        "ready_queue": 5.4987991486573184
+      },
+      {
+        "second": 61130,
+        "queue": 10.754454117271967,
+        "ready_queue": 8.2669021214508
+      },
+      {
+        "second": 61135,
+        "queue": 12.493870174500303,
+        "ready_queue": 8.584859895352754
+      },
+      {
+        "second": 61140,
+        "queue": 12.493870174500303,
+        "ready_queue": 9.089851653902915
+      },
+      {
+        "second": 61145,
+        "queue": 12.924048339191181,
+        "ready_queue": 10.399089546440372
+      },
+      {
+        "second": 61150,
+        "queue": 15.131049358040038,
+        "ready_queue": 10.754454117271967
+      },
+      {
+        "second": 61155,
+        "queue": 19.002652840257944,
+        "ready_queue": 12.493870174500303
+      },
+      {
+        "second": 61160,
+        "queue": 19.09616983258205,
+        "ready_queue": 12.493870174500303
+      },
+      {
+        "second": 61165,
+        "queue": 19.09616983258205,
+        "ready_queue": 12.924048339191181
+      },
+      {
+        "second": 61170,
+        "queue": 19.507644598808106,
+        "ready_queue": 15.131049358040038
+      },
+      {
+        "second": 61175,
+        "queue": 2.5062553942859886,
+        "ready_queue": 0.598508750874266
+      },
+      {
+        "second": 61180,
+        "queue": 2.99254375437133,
+        "ready_queue": 0.6920257431983701
+      },
+      {
+        "second": 61185,
+        "queue": 2.99254375437133,
+        "ready_queue": 0.6920257431983701
+      },
+      {
+        "second": 61190,
+        "queue": 3.6845694975697,
+        "ready_queue": 1.103500509424428
+      },
+      {
+        "second": 61195,
+        "queue": 4.881586999318232,
+        "ready_queue": 2.5062553942859886
+      },
+      {
+        "second": 61200,
+        "queue": 5.4052821563332145,
+        "ready_queue": 2.99254375437133
+      },
+      {
+        "second": 61205,
+        "queue": 5.8541637194889145,
+        "ready_queue": 2.99254375437133
+      },
+      {
+        "second": 61210,
+        "queue": 6.957664228913342,
+        "ready_queue": 3.6845694975697
+      },
+      {
+        "second": 61215,
+        "queue": 7.948944347548845,
+        "ready_queue": 4.881586999318232
+      },
+      {
+        "second": 61220,
+        "queue": 8.491342903028649,
+        "ready_queue": 5.4052821563332145
+      },
+      {
+        "second": 61225,
+        "queue": 8.491342903028649,
+        "ready_queue": 5.8541637194889145
+      },
+      {
+        "second": 61230,
+        "queue": 9.22077544315666,
+        "ready_queue": 6.957664228913342
+      },
+      {
+        "second": 61235,
+        "queue": 9.370402630875226,
+        "ready_queue": 7.948944347548845
+      },
+      {
+        "second": 61240,
+        "queue": 9.837987592495747,
+        "ready_queue": 8.491342903028649
+      },
+      {
+        "second": 61245,
+        "queue": 10.1559453663977,
+        "ready_queue": 8.491342903028649
+      },
+      {
+        "second": 61250,
+        "queue": 10.249462358721805,
+        "ready_queue": 9.22077544315666
+      },
+      {
+        "second": 61255,
+        "queue": 10.717047320342326,
+        "ready_queue": 9.370402630875226
+      },
+      {
+        "second": 61260,
+        "queue": 10.754454117271967,
+        "ready_queue": 9.837987592495747
+      },
+      {
+        "second": 61265,
+        "queue": 12.157209002133527,
+        "ready_queue": 10.1559453663977
+      },
+      {
+        "second": 61270,
+        "queue": 12.568683768359586,
+        "ready_queue": 10.249462358721805
+      },
+      {
+        "second": 61275,
+        "queue": 12.961455136120822,
+        "ready_queue": 10.717047320342326
+      },
+      {
+        "second": 61280,
+        "queue": 12.961455136120822,
+        "ready_queue": 10.754454117271967
+      },
+      {
+        "second": 61285,
+        "queue": 14.233286231728638,
+        "ready_queue": 12.157209002133527
+      },
+      {
+        "second": 61290,
+        "queue": 14.382913419447204,
+        "ready_queue": 12.568683768359586
+      },
+      {
+        "second": 61295,
+        "queue": 14.7382779902788,
+        "ready_queue": 12.961455136120822
+      },
+      {
+        "second": 61300,
+        "queue": 15.729558108914302,
+        "ready_queue": 12.961455136120822
+      },
+      {
+        "second": 61305,
+        "queue": 15.879185296632869,
+        "ready_queue": 14.233286231728638
+      },
+      {
+        "second": 61310,
+        "queue": 17.30064357995925,
+        "ready_queue": 14.382913419447204
+      },
+      {
+        "second": 61315,
+        "queue": 17.91785572929834,
+        "ready_queue": 14.7382779902788
+      },
+      {
+        "second": 61320,
+        "queue": 18.21711010473547,
+        "ready_queue": 15.729558108914302
+      },
+      {
+        "second": 61325,
+        "queue": 22.668518939362823,
+        "ready_queue": 15.879185296632869
+      },
+      {
+        "second": 61330,
+        "queue": 23.02388351019442,
+        "ready_queue": 17.30064357995925
+      },
+      {
+        "second": 61335,
+        "queue": 23.02388351019442,
+        "ready_queue": 17.91785572929834
+      },
+      {
+        "second": 61340,
+        "queue": 24.033867027294743,
+        "ready_queue": 18.21711010473547
+      },
+      {
+        "second": 61345,
+        "queue": 24.538858785844905,
+        "ready_queue": 22.668518939362823
+      },
+      {
+        "second": 61350,
+        "queue": 26.2408680461436,
+        "ready_queue": 23.02388351019442
+      },
+      {
+        "second": 61355,
+        "queue": 26.876783593947508,
+        "ready_queue": 23.02388351019442
+      },
+      {
+        "second": 61360,
+        "queue": 27.306961758638387,
+        "ready_queue": 24.033867027294743
+      },
+      {
+        "second": 61365,
+        "queue": 27.81195351718855,
+        "ready_queue": 24.538858785844905
+      },
+      {
+        "second": 61370,
+        "queue": 27.81195351718855,
+        "ready_queue": 26.2408680461436
+      },
+      {
+        "second": 61375,
+        "queue": 28.410462268062815,
+        "ready_queue": 26.876783593947508
+      },
+      {
+        "second": 61380,
+        "queue": 28.410462268062815,
+        "ready_queue": 27.306961758638387
+      },
+      {
+        "second": 61385,
+        "queue": 28.728420041964768,
+        "ready_queue": 27.81195351718855
+      },
+      {
+        "second": 61390,
+        "queue": 29.45785258209278,
+        "ready_queue": 27.81195351718855
+      },
+      {
+        "second": 61395,
+        "queue": 29.850623949854015,
+        "ready_queue": 28.410462268062815
+      },
+      {
+        "second": 61400,
+        "queue": 30.336912309939358,
+        "ready_queue": 28.410462268062815
+      },
+      {
+        "second": 61405,
+        "queue": 31.178565240856294,
+        "ready_queue": 28.728420041964768
+      },
+      {
+        "second": 61410,
+        "queue": 32.02021817177323,
+        "ready_queue": 29.45785258209278
+      },
+      {
+        "second": 61415,
+        "queue": 33.32945606431069,
+        "ready_queue": 29.850623949854015
+      },
+      {
+        "second": 61420,
+        "queue": 33.610007041283,
+        "ready_queue": 30.336912309939358
+      },
+      {
+        "second": 61425,
+        "queue": 33.610007041283,
+        "ready_queue": 31.178565240856294
+      },
+      {
+        "second": 61430,
+        "queue": 33.83444782286085,
+        "ready_queue": 32.02021817177323
+      },
+      {
+        "second": 61435,
+        "queue": 33.83444782286085,
+        "ready_queue": 33.32945606431069
+      },
+      {
+        "second": 61440,
+        "queue": 37.2010595465286,
+        "ready_queue": 33.610007041283
+      },
+      {
+        "second": 61445,
+        "queue": 37.2010595465286,
+        "ready_queue": 33.610007041283
+      },
+      {
+        "second": 61450,
+        "queue": 37.2945765388527,
+        "ready_queue": 33.83444782286085
+      },
+      {
+        "second": 61455,
+        "queue": 39.42676396384227,
+        "ready_queue": 33.83444782286085
+      },
+      {
+        "second": 61460,
+        "queue": 39.68861154234976,
+        "ready_queue": 37.2010595465286
+      },
+      {
+        "second": 61465,
+        "queue": 41.24099361492989,
+        "ready_queue": 37.2010595465286
+      },
+      {
+        "second": 61470,
+        "queue": 42.15746013970611,
+        "ready_queue": 37.2945765388527
+      },
+      {
+        "second": 61475,
+        "queue": 42.4193077182136,
+        "ready_queue": 39.42676396384227
+      },
+      {
+        "second": 61480,
+        "queue": 43.63502861842696,
+        "ready_queue": 39.68861154234976
+      },
+      {
+        "second": 61485,
+        "queue": 43.63502861842696,
+        "ready_queue": 41.24099361492989
+      },
+      {
+        "second": 61490,
+        "queue": 45.35574127719047,
+        "ready_queue": 42.15746013970611
+      },
+      {
+        "second": 61495,
+        "queue": 46.42183498968526,
+        "ready_queue": 42.4193077182136
+      },
+      {
+        "second": 61500,
+        "queue": 47.562742296039325,
+        "ready_queue": 43.63502861842696
+      },
+      {
+        "second": 61505,
+        "queue": 47.82458987454682,
+        "ready_queue": 43.63502861842696
+      },
+      {
+        "second": 61510,
+        "queue": 47.82458987454682,
+        "ready_queue": 45.35574127719047
+      },
+      {
+        "second": 61515,
+        "queue": 48.049030656124664,
+        "ready_queue": 46.42183498968526
+      },
+      {
+        "second": 61520,
+        "queue": 48.049030656124664,
+        "ready_queue": 47.562742296039325
+      },
+      {
+        "second": 61525,
+        "queue": 48.21736124230805,
+        "ready_queue": 47.82458987454682
+      },
+      {
+        "second": 61530,
+        "queue": 48.741056399323035,
+        "ready_queue": 47.82458987454682
+      },
+      {
+        "second": 61535,
+        "queue": 49.15253116554909,
+        "ready_queue": 48.049030656124664
+      },
+      {
+        "second": 61540,
+        "queue": 49.807150111817826,
+        "ready_queue": 48.049030656124664
+      },
+      {
+        "second": 61545,
+        "queue": 50.01288749493085,
+        "ready_queue": 48.21736124230805
+      },
+      {
+        "second": 61550,
+        "queue": 50.31214187036799,
+        "ready_queue": 48.741056399323035
+      },
+      {
+        "second": 61555,
+        "queue": 50.36825206576245,
+        "ready_queue": 49.15253116554909
+      },
+      {
+        "second": 61560,
+        "queue": 50.36825206576245,
+        "ready_queue": 49.807150111817826
+      },
+      {
+        "second": 61565,
+        "queue": 50.910650621242254,
+        "ready_queue": 50.01288749493085
+      },
+      {
+        "second": 61570,
+        "queue": 52.07026132606114,
+        "ready_queue": 50.31214187036799
+      },
+      {
+        "second": 61575,
+        "queue": 52.444329295357555,
+        "ready_queue": 50.36825206576245
+      },
+      {
+        "second": 61580,
+        "queue": 52.444329295357555,
+        "ready_queue": 50.36825206576245
+      },
+      {
+        "second": 61585,
+        "queue": 52.444329295357555,
+        "ready_queue": 50.910650621242254
+      },
+      {
+        "second": 61590,
+        "queue": 52.444329295357555,
+        "ready_queue": 52.07026132606114
+      },
+      {
+        "second": 61595,
+        "queue": 53.54782980478198,
+        "ready_queue": 52.444329295357555
+      },
+      {
+        "second": 61600,
+        "queue": 54.55781332188231,
+        "ready_queue": 52.444329295357555
+      },
+      {
+        "second": 61605,
+        "queue": 54.8196609003898,
+        "ready_queue": 52.444329295357555
+      },
+      {
+        "second": 61610,
+        "queue": 55.68001722977156,
+        "ready_queue": 52.444329295357555
+      },
+      {
+        "second": 61615,
+        "queue": 55.979271605208694,
+        "ready_queue": 53.54782980478198
+      },
+      {
+        "second": 61620,
+        "queue": 55.979271605208694,
+        "ready_queue": 54.55781332188231
+      },
+      {
+        "second": 61625,
+        "queue": 56.37204297296993,
+        "ready_queue": 54.8196609003898
+      },
+      {
+        "second": 61630,
+        "queue": 57.53165367778882,
+        "ready_queue": 55.68001722977156
+      },
+      {
+        "second": 61635,
+        "queue": 57.62517067011292,
+        "ready_queue": 55.979271605208694
+      },
+      {
+        "second": 61640,
+        "queue": 7.625170670112909,
+        "ready_queue": 5.979271605208678
+      },
+      {
+        "second": 61645,
+        "queue": 7.849611451690759,
+        "ready_queue": 6.372042972969915
+      },
+      {
+        "second": 61650,
+        "queue": 7.849611451690759,
+        "ready_queue": 7.531653677788805
+      },
+      {
+        "second": 61655,
+        "queue": 0.6172121493390867,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 61660,
+        "queue": 0.8416529309169365,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 61665,
+        "queue": 1.1970175017485318,
+        "ready_queue": 0.22444078157784975
+      },
+      {
+        "second": 61670,
+        "queue": 1.1970175017485318,
+        "ready_queue": 0.22444078157784975
+      },
+      {
+        "second": 61675,
+        "queue": 1.4401616817912024,
+        "ready_queue": 0.6172121493390867
+      },
+      {
+        "second": 61680,
+        "queue": 1.6646024633690522,
+        "ready_queue": 0.8416529309169365
+      }
+    ],
+    "sources": {
+      "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\simulation_viewer_2026-11-07\\gate_access_calibration_2026-11-09\\candidates\\alpha_075\\audit-peak-mon.json.gz": "6de313d3f0ea79b315db640db3a9770d59de0bf7d0b08e0ac749d09aa0fa9666",
+      "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\simulation_viewer_2026-11-07\\gate_access_calibration_2026-11-09\\candidates\\alpha_075\\prepared.json.gz": "7e08ef3a3e4f3be3d5c46372bf60f18010536f8be897fa46bf5fb1539b6793e7"
+    }
+  },
+  "v8": {
+    "inputs": {
+      "demand_signature": "30262f8afa62ca195401b9547b4018b913364dcb364ca7ce50547061373cce10",
+      "full_plans_signature": "17a077f5540bdfdd424692be4dae87cbe3b5440cafb0ebea2fc3abc35f815f09",
+      "demand_weight": 18885.5,
+      "plan_count": 67920,
+      "capacities": {
+        "shuttle-41841": 60,
+        "shuttle-41946": 60,
+        "shuttle-41914": 25,
+        "shuttle-daehak": 60,
+        "100100250": 50,
+        "100100251": 50,
+        "100100252": 50,
+        "100100253": 50,
+        "100100263": 50,
+        "100100521": 50,
+        "120900011": 24,
+        "120900012": 24
+      },
+      "gate_access": {
+        "model_id": "261109171256",
+        "algorithm_id": "provisional_initial_gate_access_v1",
+        "alpha": 0.75,
+        "walking_cutoff_seconds": 900.0,
+        "probability_rule": "alpha * max(0, 1 - individual_gate_walk_seconds / 900)",
+        "gate_ars": "21128",
+        "source_simulation": "capacity_v5",
+        "source_sha256": "46243bdb22b769e3ed1fdbff270d0df74b8ffc55e91c80ab4594f1597288eb55",
+        "observations_used_for_candidate_selection": [
+          "admin_snu_1653",
+          "culture_1655",
+          "snu_gate_1703"
+        ],
+        "observation_second": "unknown; uniform within reported minute",
+        "independent_validation": false,
+        "observed_mode_shares": false,
+        "new_demand_added": false,
+        "timetable_speed_capacity_changed": false,
+        "candidate_only": true
+      }
+    },
+    "decomposition": {
+      "case": "v8",
+      "q_170300": 17.656008150790846,
+      "mean_q_1703": 21.144411105965347,
+      "arrival_mean_increment": 3.635369595899181,
+      "boarded_mean_decrement": 0.0,
+      "switched_mean_decrement": 0.1469511960386937,
+      "unserved_mean_decrement": 0.0,
+      "mean_preparation_weight": 2.122698234598929
+    },
+    "checkpoints": [
+      {
+        "case": "v8",
+        "time": "16:00:00.000",
+        "second": 57600,
+        "queue": 8.472639504563828,
+        "ready_queue": 5.928977313348198,
+        "arrivals": 1019.1749717375161,
+        "boarded": 904.2051813742626,
+        "switched": 106.49715085868971,
+        "unserved": 0.0,
+        "residual": 1.7763568394002505e-15
+      },
+      {
+        "case": "v8",
+        "time": "16:30:00.000",
+        "second": 59400,
+        "queue": 0.0,
+        "ready_queue": 0.0,
+        "arrivals": 1053.9819962805475,
+        "boarded": 947.4848454218579,
+        "switched": 106.49715085868971,
+        "unserved": 0.0,
+        "residual": -1.4210854715202004e-13
+      },
+      {
+        "case": "v8",
+        "time": "16:50:00.000",
+        "second": 60600,
+        "queue": 0.0,
+        "ready_queue": 0.0,
+        "arrivals": 1054.2064370621254,
+        "boarded": 947.7092862034357,
+        "switched": 106.49715085868971,
+        "unserved": 0.0,
+        "residual": -2.842170943040401e-14
+      },
+      {
+        "case": "v8",
+        "time": "17:00:00.000",
+        "second": 61200,
+        "queue": 28.33564867420353,
+        "ready_queue": 25.922910272241644,
+        "arrivals": 1091.2391660224707,
+        "boarded": 955.9574849264217,
+        "switched": 106.9460324218454,
+        "unserved": 0.0,
+        "residual": 1.2434497875801753e-13
+      },
+      {
+        "case": "v8",
+        "time": "17:03:00.000",
+        "second": 61380,
+        "queue": 17.656008150790846,
+        "ready_queue": 16.552507641366418,
+        "arrivals": 1114.992482072793,
+        "boarded": 989.642305561564,
+        "switched": 107.69416836043824,
+        "unserved": 0.0,
+        "residual": 7.815970093361102e-14
+      },
+      {
+        "case": "v8",
+        "time": "17:04:00.000",
+        "second": 61440,
+        "queue": 26.44660542925663,
+        "ready_queue": 22.855552924011032,
+        "arrivals": 1123.9327065389775,
+        "boarded": 989.642305561564,
+        "switched": 107.8437955481568,
+        "unserved": 0.0,
+        "residual": 1.4921397450962104e-13
+      },
+      {
+        "case": "v8",
+        "time": "17:05:00.000",
+        "second": 61500,
+        "queue": 38.2858566574882,
+        "ready_queue": 34.35814297987583,
+        "arrivals": 1135.771957767209,
+        "boarded": 989.642305561564,
+        "switched": 107.8437955481568,
+        "unserved": 0.0,
+        "residual": 7.105427357601002e-15
+      }
+    ],
+    "windows": [
+      {
+        "case": "v8",
+        "start": "16:50:00.000",
+        "end": "17:03:00.000",
+        "q_start": 0.0,
+        "q_end": 17.656008150790846,
+        "arrivals": 60.78604501066775,
+        "boarded": 41.93301935812826,
+        "switched": 1.1970175017485332,
+        "unserved": 0.0
+      },
+      {
+        "case": "v8",
+        "start": "17:00:00.000",
+        "end": "17:03:00.000",
+        "q_start": 28.33564867420353,
+        "q_end": 17.656008150790846,
+        "arrivals": 23.753316050322383,
+        "boarded": 33.68482063514227,
+        "switched": 0.7481359385928386,
+        "unserved": 0.0
+      },
+      {
+        "case": "v8",
+        "start": "17:03:00.000",
+        "end": "17:04:00.000",
+        "q_start": 17.656008150790846,
+        "q_end": 26.44660542925663,
+        "arrivals": 8.940224466184418,
+        "boarded": 0.0,
+        "switched": 0.14962718771856487,
+        "unserved": 0.0
+      },
+      {
+        "case": "v8",
+        "start": "17:00:00.000",
+        "end": "17:05:00.000",
+        "q_start": 28.33564867420353,
+        "q_end": 38.2858566574882,
+        "arrivals": 44.53279174473823,
+        "boarded": 33.68482063514227,
+        "switched": 0.8977631263114034,
+        "unserved": 0.0
+      },
+      {
+        "case": "v8",
+        "start": "16:00:00.000",
+        "end": "17:03:00.000",
+        "q_start": 8.472639504563828,
+        "q_end": 17.656008150790846,
+        "arrivals": 95.817510335277,
+        "boarded": 85.43712418730138,
+        "switched": 1.1970175017485332,
+        "unserved": 0.0
+      }
+    ],
+    "events": [
+      {
+        "case": "v8",
+        "time": "16:45:24.628",
+        "second": 60324.62795922473,
+        "route_id": "100100252",
+        "route": "100100252",
+        "capacity": 50,
+        "before": 0.0,
+        "alighted": 0.0,
+        "available": 50.0,
+        "boarded": 0.0,
+        "onboard_after": 0.0,
+        "compatible_left": 0.0,
+        "ready_queue_left": 3.785860513971784e-14,
+        "display_queue_after": 0.0,
+        "preparing_weight": 0.0
+      },
+      {
+        "case": "v8",
+        "time": "16:46:39.711",
+        "second": 60399.710717762995,
+        "route_id": "100100521",
+        "route": "100100521",
+        "capacity": 50,
+        "before": 0.0,
+        "alighted": 0.0,
+        "available": 50.0,
+        "boarded": 0.0,
+        "onboard_after": 0.0,
+        "compatible_left": 0.0,
+        "ready_queue_left": 3.785860513971784e-14,
+        "display_queue_after": 0.0,
+        "preparing_weight": 0.0
+      },
+      {
+        "case": "v8",
+        "time": "16:50:18.954",
+        "second": 60618.95374681688,
+        "route_id": "100100250",
+        "route": "100100250",
+        "capacity": 50,
+        "before": 0.0,
+        "alighted": 0.0,
+        "available": 50.0,
+        "boarded": 0.0,
+        "onboard_after": 0.0,
+        "compatible_left": 0.0,
+        "ready_queue_left": 3.785860513971784e-14,
+        "display_queue_after": 0.0,
+        "preparing_weight": 0.0
+      },
+      {
+        "case": "v8",
+        "time": "16:50:48.621",
+        "second": 60648.62078317949,
+        "route_id": "100100263",
+        "route": "100100263",
+        "capacity": 50,
+        "before": 0.0,
+        "alighted": 0.0,
+        "available": 50.0,
+        "boarded": 0.0,
+        "onboard_after": 0.0,
+        "compatible_left": 0.0,
+        "ready_queue_left": 3.785860513971784e-14,
+        "display_queue_after": 0.0,
+        "preparing_weight": 0.0
+      },
+      {
+        "case": "v8",
+        "time": "16:51:50.527",
+        "second": 60710.52655637196,
+        "route_id": "100100251",
+        "route": "100100251",
+        "capacity": 50,
+        "before": 0.0,
+        "alighted": 0.0,
+        "available": 50.0,
+        "boarded": 0.0,
+        "onboard_after": 0.0,
+        "compatible_left": 0.0,
+        "ready_queue_left": 3.785860513971784e-14,
+        "display_queue_after": 0.0,
+        "preparing_weight": 0.0
+      },
+      {
+        "case": "v8",
+        "time": "16:53:54.628",
+        "second": 60834.62795922473,
+        "route_id": "100100252",
+        "route": "100100252",
+        "capacity": 50,
+        "before": 0.0,
+        "alighted": 0.0,
+        "available": 50.0,
+        "boarded": 0.0,
+        "onboard_after": 0.0,
+        "compatible_left": 0.0,
+        "ready_queue_left": 3.785860513971784e-14,
+        "display_queue_after": 0.0,
+        "preparing_weight": 0.0
+      },
+      {
+        "case": "v8",
+        "time": "16:56:54.621",
+        "second": 61014.62078317949,
+        "route_id": "100100263",
+        "route": "100100263",
+        "capacity": 50,
+        "before": 0.0,
+        "alighted": 0.0,
+        "available": 50.0,
+        "boarded": 2.188297620384035,
+        "onboard_after": 2.188297620384035,
+        "compatible_left": 0.0,
+        "ready_queue_left": 3.798350522998817e-14,
+        "display_queue_after": 1.9451534403413644,
+        "preparing_weight": 1.9451534403413644
+      },
+      {
+        "case": "v8",
+        "time": "16:57:49.211",
+        "second": 61069.210717762995,
+        "route_id": "100100521",
+        "route": "100100521",
+        "capacity": 50,
+        "before": 0.0,
+        "alighted": 0.0,
+        "available": 50.0,
+        "boarded": 6.059901102601943,
+        "onboard_after": 6.059901102601943,
+        "compatible_left": 0.0,
+        "ready_queue_left": 3.8191672047105385e-14,
+        "display_queue_after": 0.9538733217058615,
+        "preparing_weight": 0.9538733217058615
+      },
+      {
+        "case": "v8",
+        "time": "17:01:21.128",
+        "second": 61281.12795922473,
+        "route_id": "100100252",
+        "route": "100100252",
+        "capacity": 50,
+        "before": 0.0,
+        "alighted": 0.0,
+        "available": 50.0,
+        "boarded": 33.68482063514229,
+        "onboard_after": 33.68482063514229,
+        "compatible_left": 0.0,
+        "ready_queue_left": 3.7012060083441156e-14,
+        "display_queue_after": 2.207001018848856,
+        "preparing_weight": 2.207001018848856
+      },
+      {
+        "case": "v8",
+        "time": "17:01:46.535",
+        "second": 61306.53485709174,
+        "route_id": "100100250",
+        "route": "100100250",
+        "capacity": 50,
+        "before": 50.0,
+        "alighted": 0.0,
+        "available": 0.0,
+        "boarded": 0.0,
+        "onboard_after": 50.0,
+        "compatible_left": 3.478832114456671,
+        "ready_queue_left": 3.4788321144567083,
+        "display_queue_after": 5.442688953262857,
+        "preparing_weight": 1.9638568388061857
+      },
+      {
+        "case": "v8",
+        "time": "17:05:36.978",
+        "second": 61536.97819788968,
+        "route_id": "100100251",
+        "route": "100100251",
+        "capacity": 50,
+        "before": 50.00000000000001,
+        "alighted": 0.0,
+        "available": -7.105427357601002e-15,
+        "boarded": 0.0,
+        "onboard_after": 50.00000000000001,
+        "compatible_left": 38.472890642136406,
+        "ready_queue_left": 38.77214501757357,
+        "display_queue_after": 39.87564552699797,
+        "preparing_weight": 1.1035005094244283
+      },
+      {
+        "case": "v8",
+        "time": "17:08:01.211",
+        "second": 61681.210717762995,
+        "route_id": "100100521",
+        "route": "100100521",
+        "capacity": 50,
+        "before": 0.0,
+        "alighted": 0.0,
+        "available": 50.0,
+        "boarded": 49.189937962478695,
+        "onboard_after": 49.189937962478695,
+        "compatible_left": 0.0,
+        "ready_queue_left": 2.942091015256665e-15,
+        "display_queue_after": 0.8229495324521157,
+        "preparing_weight": 0.8229495324521157
+      }
+    ],
+    "categories": [
+      {
+        "case": "v8",
+        "category": "initial_gate_walk",
+        "arrival_to_1703": 562.3363782433049,
+        "arrival_1650_1703": 59.5890275089191,
+        "queue_1703": 17.506380963072274,
+        "mean_queue_1703": 20.649513571566633
+      },
+      {
+        "case": "v8",
+        "category": "after_city_ride",
+        "arrival_to_1703": 213.13331149759833,
+        "arrival_1650_1703": 0.0,
+        "queue_1703": 0.0,
+        "mean_queue_1703": 0.0
+      },
+      {
+        "case": "v8",
+        "category": "walk_reroute_from_shuttle",
+        "arrival_to_1703": 322.8393609012731,
+        "arrival_1650_1703": 0.0,
+        "queue_1703": 0.0,
+        "mean_queue_1703": 0.19831899183526247
+      },
+      {
+        "case": "v8",
+        "category": "after_shuttle_ride",
+        "arrival_to_1703": 3.4227219190622087,
+        "arrival_1650_1703": 0.0,
+        "queue_1703": 0.0,
+        "mean_queue_1703": 0.0
+      },
+      {
+        "case": "v8",
+        "category": "walk_reroute_from_city",
+        "arrival_to_1703": 13.260709511557954,
+        "arrival_1650_1703": 1.1970175017485316,
+        "queue_1703": 0.14962718771856648,
+        "mean_queue_1703": 0.29657854256344085
+      }
+    ],
+    "switches": [
+      {
+        "case": "v8",
+        "time": "16:57:25.849",
+        "second": 61045.84880339216,
+        "node": 14,
+        "weight": 0.5236951570149828,
+        "old_route": "shuttle-41946",
+        "kind": "gate_pool",
+        "option": "서울대학교 21128 · 먼저 오는 5개 노선"
+      },
+      {
+        "case": "v8",
+        "time": "16:58:19.194",
+        "second": 61099.193801201756,
+        "node": 15,
+        "weight": 0.2618475785074914,
+        "old_route": "shuttle-41946",
+        "kind": "gate_pool",
+        "option": "서울대학교 21128 · 먼저 오는 5개 노선"
+      },
+      {
+        "case": "v8",
+        "time": "16:58:44.598",
+        "second": 61124.59786824622,
+        "node": 62,
+        "weight": 0.14962718771856648,
+        "old_route": "100100251",
+        "kind": "transit",
+        "option": "5515"
+      },
+      {
+        "case": "v8",
+        "time": "16:58:57.399",
+        "second": 61137.39941273055,
+        "node": 15,
+        "weight": 0.8416529309169365,
+        "old_route": "shuttle-41946",
+        "kind": "gate_pool",
+        "option": "서울대학교 21128 · 먼저 오는 5개 노선"
+      },
+      {
+        "case": "v8",
+        "time": "16:59:01.024",
+        "second": 61141.023934689554,
+        "node": 62,
+        "weight": 0.14962718771856648,
+        "old_route": "100100251",
+        "kind": "transit",
+        "option": "5515"
+      },
+      {
+        "case": "v8",
+        "time": "16:59:39.477",
+        "second": 61179.47676212131,
+        "node": 15,
+        "weight": 0.11222039078892487,
+        "old_route": "shuttle-41946",
+        "kind": "gate_pool",
+        "option": "서울대학교 21128 · 먼저 오는 5개 노선"
+      },
+      {
+        "case": "v8",
+        "time": "16:59:50.234",
+        "second": 61190.23406234117,
+        "node": 62,
+        "weight": 0.14962718771856648,
+        "old_route": "100100251",
+        "kind": "transit",
+        "option": "5515"
+      },
+      {
+        "case": "v8",
+        "time": "17:00:05.868",
+        "second": 61205.867986599114,
+        "node": 62,
+        "weight": 0.14962718771856648,
+        "old_route": "100100251",
+        "kind": "transit",
+        "option": "5515"
+      },
+      {
+        "case": "v8",
+        "time": "17:00:30.472",
+        "second": 61230.472027608776,
+        "node": 62,
+        "weight": 0.14962718771856648,
+        "old_route": "100100251",
+        "kind": "transit",
+        "option": "5515"
+      },
+      {
+        "case": "v8",
+        "time": "17:00:50.228",
+        "second": 61250.227563311244,
+        "node": 62,
+        "weight": 0.14962718771856648,
+        "old_route": "100100251",
+        "kind": "transit",
+        "option": "5515"
+      },
+      {
+        "case": "v8",
+        "time": "17:00:58.781",
+        "second": 61258.78149832958,
+        "node": 62,
+        "weight": 0.14962718771856648,
+        "old_route": "100100251",
+        "kind": "transit",
+        "option": "5515"
+      },
+      {
+        "case": "v8",
+        "time": "17:02:01.419",
+        "second": 61321.41859290498,
+        "node": 62,
+        "weight": 0.14962718771856648,
+        "old_route": "100100251",
+        "kind": "transit",
+        "option": "6515"
+      },
+      {
+        "case": "v8",
+        "time": "17:03:01.073",
+        "second": 61381.07306368074,
+        "node": 62,
+        "weight": 0.14962718771856648,
+        "old_route": "100100251",
+        "kind": "transit",
+        "option": "6515"
+      }
+    ],
+    "timeseries": [
+      {
+        "second": 60600,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60605,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60610,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60615,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60620,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60625,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60630,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60635,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60640,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60645,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60650,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60655,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60660,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60665,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60670,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60675,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60680,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60685,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60690,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60695,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60700,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60705,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60710,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60715,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60720,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60725,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60730,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60735,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60740,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60745,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60750,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60755,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60760,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60765,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60770,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60775,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60780,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60785,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60790,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60795,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60800,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60805,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60810,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60815,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60820,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60825,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60830,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60835,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60840,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60845,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60850,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60855,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60860,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60865,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60870,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60875,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60880,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60885,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60890,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60895,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60900,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60905,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60910,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60915,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60920,
+        "queue": 1.496271877185665,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60925,
+        "queue": 1.496271877185665,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60930,
+        "queue": 1.496271877185665,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60935,
+        "queue": 1.496271877185665,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60940,
+        "queue": 1.496271877185665,
+        "ready_queue": 1.496271877185665
+      },
+      {
+        "second": 60945,
+        "queue": 1.496271877185665,
+        "ready_queue": 1.496271877185665
+      },
+      {
+        "second": 60950,
+        "queue": 1.5710854710449482,
+        "ready_queue": 1.496271877185665
+      },
+      {
+        "second": 60955,
+        "queue": 1.5710854710449482,
+        "ready_queue": 1.496271877185665
+      },
+      {
+        "second": 60960,
+        "queue": 2.07607722959511,
+        "ready_queue": 1.496271877185665
+      },
+      {
+        "second": 60965,
+        "queue": 2.1508908234543935,
+        "ready_queue": 1.496271877185665
+      },
+      {
+        "second": 60970,
+        "queue": 2.1508908234543935,
+        "ready_queue": 1.5710854710449482
+      },
+      {
+        "second": 60975,
+        "queue": 2.1508908234543935,
+        "ready_queue": 1.5710854710449482
+      },
+      {
+        "second": 60980,
+        "queue": 2.188297620384035,
+        "ready_queue": 2.07607722959511
+      },
+      {
+        "second": 60985,
+        "queue": 2.188297620384035,
+        "ready_queue": 2.1508908234543935
+      },
+      {
+        "second": 60990,
+        "queue": 2.188297620384035,
+        "ready_queue": 2.1508908234543935
+      },
+      {
+        "second": 60995,
+        "queue": 2.188297620384035,
+        "ready_queue": 2.1508908234543935
+      },
+      {
+        "second": 61000,
+        "queue": 3.2543913328788214,
+        "ready_queue": 2.188297620384035
+      },
+      {
+        "second": 61005,
+        "queue": 3.703272896034521,
+        "ready_queue": 2.188297620384035
+      },
+      {
+        "second": 61010,
+        "queue": 4.1334510607254,
+        "ready_queue": 2.188297620384035
+      },
+      {
+        "second": 61015,
+        "queue": 1.9451534403413644,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 61020,
+        "queue": 4.414002037697712,
+        "ready_queue": 1.0660937124947862
+      },
+      {
+        "second": 61025,
+        "queue": 4.544925826951458,
+        "ready_queue": 1.5149752756504857
+      },
+      {
+        "second": 61030,
+        "queue": 5.611019539446244,
+        "ready_queue": 1.9451534403413644
+      },
+      {
+        "second": 61035,
+        "queue": 5.611019539446244,
+        "ready_queue": 1.9451534403413644
+      },
+      {
+        "second": 61040,
+        "queue": 6.059901102601943,
+        "ready_queue": 4.414002037697712
+      },
+      {
+        "second": 61045,
+        "queue": 6.059901102601943,
+        "ready_queue": 4.544925826951458
+      },
+      {
+        "second": 61050,
+        "queue": 6.059901102601943,
+        "ready_queue": 5.611019539446244
+      },
+      {
+        "second": 61055,
+        "queue": 7.013774424307805,
+        "ready_queue": 5.611019539446244
+      },
+      {
+        "second": 61060,
+        "queue": 7.013774424307805,
+        "ready_queue": 6.059901102601943
+      },
+      {
+        "second": 61065,
+        "queue": 7.013774424307805,
+        "ready_queue": 6.059901102601943
+      },
+      {
+        "second": 61070,
+        "queue": 0.9538733217058615,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 61075,
+        "queue": 0.9538733217058615,
+        "ready_queue": 0.9538733217058615
+      },
+      {
+        "second": 61080,
+        "queue": 3.759383091428983,
+        "ready_queue": 0.9538733217058615
+      },
+      {
+        "second": 61085,
+        "queue": 3.759383091428983,
+        "ready_queue": 0.9538733217058615
+      },
+      {
+        "second": 61090,
+        "queue": 4.526222428486636,
+        "ready_queue": 0.9538733217058615
+      },
+      {
+        "second": 61095,
+        "queue": 4.526222428486636,
+        "ready_queue": 0.9538733217058615
+      },
+      {
+        "second": 61100,
+        "queue": 7.219511807420834,
+        "ready_queue": 3.759383091428983
+      },
+      {
+        "second": 61105,
+        "queue": 10.025021577143955,
+        "ready_queue": 3.759383091428983
+      },
+      {
+        "second": 61110,
+        "queue": 12.793124549937435,
+        "ready_queue": 4.526222428486636
+      },
+      {
+        "second": 61115,
+        "queue": 13.111082323839389,
+        "ready_queue": 4.526222428486636
+      },
+      {
+        "second": 61120,
+        "queue": 13.61607408238955,
+        "ready_queue": 7.219511807420834
+      },
+      {
+        "second": 61125,
+        "queue": 14.925311974927007,
+        "ready_queue": 10.025021577143955
+      },
+      {
+        "second": 61130,
+        "queue": 15.280676545758604,
+        "ready_queue": 12.793124549937435
+      },
+      {
+        "second": 61135,
+        "queue": 17.02009260298694,
+        "ready_queue": 13.111082323839389
+      },
+      {
+        "second": 61140,
+        "queue": 17.02009260298694,
+        "ready_queue": 13.61607408238955
+      },
+      {
+        "second": 61145,
+        "queue": 17.450270767677818,
+        "ready_queue": 14.925311974927007
+      },
+      {
+        "second": 61150,
+        "queue": 19.657271786526675,
+        "ready_queue": 15.280676545758604
+      },
+      {
+        "second": 61155,
+        "queue": 23.52887526874458,
+        "ready_queue": 17.02009260298694
+      },
+      {
+        "second": 61160,
+        "queue": 23.622392261068686,
+        "ready_queue": 17.02009260298694
+      },
+      {
+        "second": 61165,
+        "queue": 23.622392261068686,
+        "ready_queue": 17.450270767677818
+      },
+      {
+        "second": 61170,
+        "queue": 24.033867027294743,
+        "ready_queue": 19.657271786526675
+      },
+      {
+        "second": 61175,
+        "queue": 25.436621912156305,
+        "ready_queue": 23.52887526874458
+      },
+      {
+        "second": 61180,
+        "queue": 25.922910272241644,
+        "ready_queue": 23.622392261068686
+      },
+      {
+        "second": 61185,
+        "queue": 25.922910272241644,
+        "ready_queue": 23.622392261068686
+      },
+      {
+        "second": 61190,
+        "queue": 26.614936015440016,
+        "ready_queue": 24.033867027294743
+      },
+      {
+        "second": 61195,
+        "queue": 27.81195351718855,
+        "ready_queue": 25.436621912156305
+      },
+      {
+        "second": 61200,
+        "queue": 28.33564867420353,
+        "ready_queue": 25.922910272241644
+      },
+      {
+        "second": 61205,
+        "queue": 28.78453023735923,
+        "ready_queue": 25.922910272241644
+      },
+      {
+        "second": 61210,
+        "queue": 29.88803074678366,
+        "ready_queue": 26.614936015440016
+      },
+      {
+        "second": 61215,
+        "queue": 30.87931086541916,
+        "ready_queue": 27.81195351718855
+      },
+      {
+        "second": 61220,
+        "queue": 31.421709420898964,
+        "ready_queue": 28.33564867420353
+      },
+      {
+        "second": 61225,
+        "queue": 31.421709420898964,
+        "ready_queue": 28.78453023735923
+      },
+      {
+        "second": 61230,
+        "queue": 32.15114196102698,
+        "ready_queue": 29.88803074678366
+      },
+      {
+        "second": 61235,
+        "queue": 32.300769148745545,
+        "ready_queue": 30.87931086541916
+      },
+      {
+        "second": 61240,
+        "queue": 32.76835411036606,
+        "ready_queue": 31.421709420898964
+      },
+      {
+        "second": 61245,
+        "queue": 33.086311884268014,
+        "ready_queue": 31.421709420898964
+      },
+      {
+        "second": 61250,
+        "queue": 33.17982887659212,
+        "ready_queue": 32.15114196102698
+      },
+      {
+        "second": 61255,
+        "queue": 33.64741383821264,
+        "ready_queue": 32.300769148745545
+      },
+      {
+        "second": 61260,
+        "queue": 33.68482063514228,
+        "ready_queue": 32.76835411036606
+      },
+      {
+        "second": 61265,
+        "queue": 35.087575520003845,
+        "ready_queue": 33.086311884268014
+      },
+      {
+        "second": 61270,
+        "queue": 35.4990502862299,
+        "ready_queue": 33.17982887659212
+      },
+      {
+        "second": 61275,
+        "queue": 35.89182165399114,
+        "ready_queue": 33.64741383821264
+      },
+      {
+        "second": 61280,
+        "queue": 35.89182165399114,
+        "ready_queue": 33.68482063514228
+      },
+      {
+        "second": 61285,
+        "queue": 3.478832114456671,
+        "ready_queue": 1.402754884861561
+      },
+      {
+        "second": 61290,
+        "queue": 3.6284593021752376,
+        "ready_queue": 1.8142296510876188
+      },
+      {
+        "second": 61295,
+        "queue": 3.983823873006833,
+        "ready_queue": 2.207001018848856
+      },
+      {
+        "second": 61300,
+        "queue": 4.975103991642336,
+        "ready_queue": 2.207001018848856
+      },
+      {
+        "second": 61305,
+        "queue": 5.124731179360903,
+        "ready_queue": 3.478832114456671
+      },
+      {
+        "second": 61310,
+        "queue": 6.546189462687284,
+        "ready_queue": 3.6284593021752376
+      },
+      {
+        "second": 61315,
+        "queue": 7.163401612026371,
+        "ready_queue": 3.983823873006833
+      },
+      {
+        "second": 61320,
+        "queue": 7.462655987463504,
+        "ready_queue": 4.975103991642336
+      },
+      {
+        "second": 61325,
+        "queue": 11.914064822090857,
+        "ready_queue": 5.124731179360903
+      },
+      {
+        "second": 61330,
+        "queue": 12.269429392922452,
+        "ready_queue": 6.546189462687284
+      },
+      {
+        "second": 61335,
+        "queue": 12.269429392922452,
+        "ready_queue": 7.163401612026371
+      },
+      {
+        "second": 61340,
+        "queue": 13.279412910022776,
+        "ready_queue": 7.462655987463504
+      },
+      {
+        "second": 61345,
+        "queue": 13.784404668572938,
+        "ready_queue": 11.914064822090857
+      },
+      {
+        "second": 61350,
+        "queue": 15.486413928871633,
+        "ready_queue": 12.269429392922452
+      },
+      {
+        "second": 61355,
+        "queue": 16.12232947667554,
+        "ready_queue": 12.269429392922452
+      },
+      {
+        "second": 61360,
+        "queue": 16.552507641366418,
+        "ready_queue": 13.279412910022776
+      },
+      {
+        "second": 61365,
+        "queue": 17.05749939991658,
+        "ready_queue": 13.784404668572938
+      },
+      {
+        "second": 61370,
+        "queue": 17.05749939991658,
+        "ready_queue": 15.486413928871633
+      },
+      {
+        "second": 61375,
+        "queue": 17.656008150790846,
+        "ready_queue": 16.12232947667554
+      },
+      {
+        "second": 61380,
+        "queue": 17.656008150790846,
+        "ready_queue": 16.552507641366418
+      },
+      {
+        "second": 61385,
+        "queue": 17.973965924692802,
+        "ready_queue": 17.05749939991658
+      },
+      {
+        "second": 61390,
+        "queue": 18.70339846482081,
+        "ready_queue": 17.05749939991658
+      },
+      {
+        "second": 61395,
+        "queue": 19.09616983258205,
+        "ready_queue": 17.656008150790846
+      },
+      {
+        "second": 61400,
+        "queue": 19.582458192667392,
+        "ready_queue": 17.656008150790846
+      },
+      {
+        "second": 61405,
+        "queue": 20.42411112358433,
+        "ready_queue": 17.973965924692802
+      },
+      {
+        "second": 61410,
+        "queue": 21.265764054501265,
+        "ready_queue": 18.70339846482081
+      },
+      {
+        "second": 61415,
+        "queue": 22.57500194703872,
+        "ready_queue": 19.09616983258205
+      },
+      {
+        "second": 61420,
+        "queue": 22.855552924011032,
+        "ready_queue": 19.582458192667392
+      },
+      {
+        "second": 61425,
+        "queue": 22.855552924011032,
+        "ready_queue": 20.42411112358433
+      },
+      {
+        "second": 61430,
+        "queue": 23.079993705588883,
+        "ready_queue": 21.265764054501265
+      },
+      {
+        "second": 61435,
+        "queue": 23.079993705588883,
+        "ready_queue": 22.57500194703872
+      },
+      {
+        "second": 61440,
+        "queue": 26.44660542925663,
+        "ready_queue": 22.855552924011032
+      },
+      {
+        "second": 61445,
+        "queue": 26.44660542925663,
+        "ready_queue": 22.855552924011032
+      },
+      {
+        "second": 61450,
+        "queue": 27.38177535249767,
+        "ready_queue": 23.079993705588883
+      },
+      {
+        "second": 61455,
+        "queue": 29.51396277748724,
+        "ready_queue": 23.079993705588883
+      },
+      {
+        "second": 61460,
+        "queue": 29.775810355994732,
+        "ready_queue": 26.44660542925663
+      },
+      {
+        "second": 61465,
+        "queue": 31.440412819363786,
+        "ready_queue": 26.44660542925663
+      },
+      {
+        "second": 61470,
+        "queue": 32.356879344140005,
+        "ready_queue": 27.38177535249767
+      },
+      {
+        "second": 61475,
+        "queue": 33.14242207966248,
+        "ready_queue": 29.51396277748724
+      },
+      {
+        "second": 61480,
+        "queue": 34.35814297987583,
+        "ready_queue": 29.775810355994732
+      },
+      {
+        "second": 61485,
+        "queue": 34.35814297987583,
+        "ready_queue": 31.440412819363786
+      },
+      {
+        "second": 61490,
+        "queue": 36.07885563863935,
+        "ready_queue": 32.356879344140005
+      },
+      {
+        "second": 61495,
+        "queue": 37.14494935113413,
+        "ready_queue": 33.14242207966248
+      },
+      {
+        "second": 61500,
+        "queue": 38.2858566574882,
+        "ready_queue": 34.35814297987583
+      },
+      {
+        "second": 61505,
+        "queue": 38.547704235995695,
+        "ready_queue": 34.35814297987583
+      },
+      {
+        "second": 61510,
+        "queue": 38.547704235995695,
+        "ready_queue": 36.07885563863935
+      },
+      {
+        "second": 61515,
+        "queue": 38.77214501757354,
+        "ready_queue": 37.14494935113413
+      },
+      {
+        "second": 61520,
+        "queue": 38.77214501757354,
+        "ready_queue": 38.2858566574882
+      },
+      {
+        "second": 61525,
+        "queue": 38.94047560375693,
+        "ready_queue": 38.547704235995695
+      },
+      {
+        "second": 61530,
+        "queue": 39.464170760771914,
+        "ready_queue": 38.547704235995695
+      },
+      {
+        "second": 61535,
+        "queue": 39.87564552699797,
+        "ready_queue": 38.77214501757354
+      },
+      {
+        "second": 61540,
+        "queue": 40.5302644732667,
+        "ready_queue": 38.77214501757354
+      },
+      {
+        "second": 61545,
+        "queue": 40.73600185637973,
+        "ready_queue": 38.94047560375693
+      },
+      {
+        "second": 61550,
+        "queue": 41.03525623181686,
+        "ready_queue": 39.464170760771914
+      },
+      {
+        "second": 61555,
+        "queue": 41.09136642721133,
+        "ready_queue": 39.87564552699797
+      },
+      {
+        "second": 61560,
+        "queue": 41.09136642721133,
+        "ready_queue": 40.5302644732667
+      },
+      {
+        "second": 61565,
+        "queue": 41.633764982691126,
+        "ready_queue": 40.73600185637973
+      },
+      {
+        "second": 61570,
+        "queue": 42.79337568751002,
+        "ready_queue": 41.03525623181686
+      },
+      {
+        "second": 61575,
+        "queue": 43.167443656806434,
+        "ready_queue": 41.09136642721133
+      },
+      {
+        "second": 61580,
+        "queue": 43.167443656806434,
+        "ready_queue": 41.09136642721133
+      },
+      {
+        "second": 61585,
+        "queue": 43.167443656806434,
+        "ready_queue": 41.633764982691126
+      },
+      {
+        "second": 61590,
+        "queue": 43.167443656806434,
+        "ready_queue": 42.79337568751002
+      },
+      {
+        "second": 61595,
+        "queue": 44.27094416623086,
+        "ready_queue": 43.167443656806434
+      },
+      {
+        "second": 61600,
+        "queue": 45.280927683331186,
+        "ready_queue": 43.167443656806434
+      },
+      {
+        "second": 61605,
+        "queue": 45.54277526183868,
+        "ready_queue": 43.167443656806434
+      },
+      {
+        "second": 61610,
+        "queue": 46.403131591220436,
+        "ready_queue": 43.167443656806434
+      },
+      {
+        "second": 61615,
+        "queue": 46.702385966657566,
+        "ready_queue": 44.27094416623086
+      },
+      {
+        "second": 61620,
+        "queue": 46.702385966657566,
+        "ready_queue": 45.280927683331186
+      },
+      {
+        "second": 61625,
+        "queue": 47.09515733441881,
+        "ready_queue": 45.54277526183868
+      },
+      {
+        "second": 61630,
+        "queue": 48.254768039237696,
+        "ready_queue": 46.403131591220436
+      },
+      {
+        "second": 61635,
+        "queue": 48.3482850315618,
+        "ready_queue": 46.702385966657566
+      },
+      {
+        "second": 61640,
+        "queue": 48.3482850315618,
+        "ready_queue": 46.702385966657566
+      },
+      {
+        "second": 61645,
+        "queue": 48.57272581313965,
+        "ready_queue": 47.09515733441881
+      },
+      {
+        "second": 61650,
+        "queue": 48.57272581313965,
+        "ready_queue": 48.254768039237696
+      },
+      {
+        "second": 61655,
+        "queue": 48.96549718090089,
+        "ready_queue": 48.3482850315618
+      },
+      {
+        "second": 61660,
+        "queue": 49.18993796247874,
+        "ready_queue": 48.3482850315618
+      },
+      {
+        "second": 61665,
+        "queue": 49.545302533310334,
+        "ready_queue": 48.57272581313965
+      },
+      {
+        "second": 61670,
+        "queue": 49.545302533310334,
+        "ready_queue": 48.57272581313965
+      },
+      {
+        "second": 61675,
+        "queue": 49.788446713353004,
+        "ready_queue": 48.96549718090089
+      },
+      {
+        "second": 61680,
+        "queue": 50.01288749493085,
+        "ready_queue": 49.18993796247874
+      }
+    ],
+    "sources": {
+      "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\simulation_viewer_2026-11-07\\weekday_operations_2026-11-10\\audit-peak-mon.json.gz": "1e9e79f3e8a0a5427a5d1f410f0f4904c198f3d5c93208f32d0b3bc207117233",
+      "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\simulation_viewer_2026-11-07\\weekday_operations_2026-11-10\\prepared.json.gz": "94447789b4175742994fbc69953b344f662d3871ad6abe8e9235f053eb3f5dec"
+    }
+  },
+  "docked": {
+    "inputs": {
+      "demand_signature": "30262f8afa62ca195401b9547b4018b913364dcb364ca7ce50547061373cce10",
+      "full_plans_signature": "17a077f5540bdfdd424692be4dae87cbe3b5440cafb0ebea2fc3abc35f815f09",
+      "demand_weight": 18885.5,
+      "plan_count": 67920,
+      "capacities": {
+        "shuttle-41841": 60,
+        "shuttle-41946": 60,
+        "shuttle-41914": 25,
+        "shuttle-daehak": 60,
+        "100100250": 50,
+        "100100251": 50,
+        "100100252": 50,
+        "100100253": 50,
+        "100100263": 50,
+        "100100521": 50,
+        "120900011": 24,
+        "120900012": 24
+      },
+      "gate_access": {
+        "model_id": "261109171256",
+        "algorithm_id": "provisional_initial_gate_access_v1",
+        "alpha": 0.75,
+        "walking_cutoff_seconds": 900.0,
+        "probability_rule": "alpha * max(0, 1 - individual_gate_walk_seconds / 900)",
+        "gate_ars": "21128",
+        "source_simulation": "capacity_v5",
+        "source_sha256": "46243bdb22b769e3ed1fdbff270d0df74b8ffc55e91c80ab4594f1597288eb55",
+        "observations_used_for_candidate_selection": [
+          "admin_snu_1653",
+          "culture_1655",
+          "snu_gate_1703"
+        ],
+        "observation_second": "unknown; uniform within reported minute",
+        "independent_validation": false,
+        "observed_mode_shares": false,
+        "new_demand_added": false,
+        "timetable_speed_capacity_changed": false,
+        "candidate_only": true
+      }
+    },
+    "decomposition": {
+      "case": "docked",
+      "q_170300": 58.09275563173344,
+      "mean_q_1703": 61.38283959507268,
+      "arrival_mean_increment": 3.4370503348944084,
+      "boarded_mean_decrement": 0.0,
+      "switched_mean_decrement": 0.1469511960386937,
+      "unserved_mean_decrement": 0.0,
+      "mean_preparation_weight": 2.0354157084297655
+    },
+    "checkpoints": [
+      {
+        "case": "docked",
+        "time": "16:00:00.000",
+        "second": 57600,
+        "queue": 7.256918604350475,
+        "ready_queue": 4.713256413134845,
+        "arrivals": 1010.3282642636558,
+        "boarded": 901.231341018356,
+        "switched": 101.84000464094932,
+        "unserved": 0.0,
+        "residual": -2.930988785010413e-14
+      },
+      {
+        "case": "docked",
+        "time": "16:30:00.000",
+        "second": 59400,
+        "queue": 0.0,
+        "ready_queue": 0.0,
+        "arrivals": 1045.1352888066874,
+        "boarded": 943.295284165738,
+        "switched": 101.84000464094932,
+        "unserved": 0.0,
+        "residual": 4.263256414560601e-14
+      },
+      {
+        "case": "docked",
+        "time": "16:50:00.000",
+        "second": 60600,
+        "queue": 0.0,
+        "ready_queue": 0.0,
+        "arrivals": 1045.3597295882653,
+        "boarded": 943.5197249473159,
+        "switched": 101.84000464094932,
+        "unserved": 0.0,
+        "residual": 4.263256414560601e-14
+      },
+      {
+        "case": "docked",
+        "time": "17:00:00.000",
+        "second": 61200,
+        "queue": 35.087575520003845,
+        "ready_queue": 32.67483711804196,
+        "arrivals": 1082.3924585486104,
+        "boarded": 945.0159968245015,
+        "switched": 102.28888620410503,
+        "unserved": 0.0,
+        "residual": 6.394884621840902e-14
+      },
+      {
+        "case": "docked",
+        "time": "17:03:00.000",
+        "second": 61380,
+        "queue": 58.09275563173344,
+        "ready_queue": 56.98925512230902,
+        "arrivals": 1106.1457745989328,
+        "boarded": 945.0159968245015,
+        "switched": 103.03702214269785,
+        "unserved": 0.0,
+        "residual": 2.842170943040401e-14
+      },
+      {
+        "case": "docked",
+        "time": "17:04:00.000",
+        "second": 61440,
+        "queue": 66.62150533169174,
+        "ready_queue": 63.03045282644614,
+        "arrivals": 1114.8241514866097,
+        "boarded": 945.0159968245015,
+        "switched": 103.18664933041642,
+        "unserved": 0.0,
+        "residual": 7.105427357601002e-14
+      },
+      {
+        "case": "docked",
+        "time": "17:05:00.000",
+        "second": 61500,
+        "queue": 5.29306176554429,
+        "ready_queue": 1.3653480879319193,
+        "arrivals": 1125.1858342361204,
+        "boarded": 1016.7061231401597,
+        "switched": 103.18664933041642,
+        "unserved": 0.0,
+        "residual": 3.2862601528904634e-14
+      }
+    ],
+    "windows": [
+      {
+        "case": "docked",
+        "start": "16:50:00.000",
+        "end": "17:03:00.000",
+        "q_start": 0.0,
+        "q_end": 58.09275563173344,
+        "arrivals": 60.78604501066752,
+        "boarded": 1.4962718771855634,
+        "switched": 1.1970175017485332,
+        "unserved": 0.0
+      },
+      {
+        "case": "docked",
+        "start": "17:00:00.000",
+        "end": "17:03:00.000",
+        "q_start": 35.087575520003845,
+        "q_end": 58.09275563173344,
+        "arrivals": 23.753316050322383,
+        "boarded": 0.0,
+        "switched": 0.7481359385928243,
+        "unserved": 0.0
+      },
+      {
+        "case": "docked",
+        "start": "17:03:00.000",
+        "end": "17:04:00.000",
+        "q_start": 58.09275563173344,
+        "q_end": 66.62150533169174,
+        "arrivals": 8.678376887676905,
+        "boarded": 0.0,
+        "switched": 0.14962718771856487,
+        "unserved": 0.0
+      },
+      {
+        "case": "docked",
+        "start": "17:00:00.000",
+        "end": "17:05:00.000",
+        "q_start": 35.087575520003845,
+        "q_end": 5.29306176554429,
+        "arrivals": 42.79337568750998,
+        "boarded": 71.69012631565818,
+        "switched": 0.8977631263113892,
+        "unserved": 0.0
+      },
+      {
+        "case": "docked",
+        "start": "16:00:00.000",
+        "end": "17:03:00.000",
+        "q_start": 7.256918604350475,
+        "q_end": 58.09275563173344,
+        "arrivals": 95.817510335277,
+        "boarded": 43.78465580614545,
+        "switched": 1.1970175017485332,
+        "unserved": 0.0
+      }
+    ],
+    "events": [
+      {
+        "case": "docked",
+        "time": "16:45:21.000",
+        "second": 60321.0,
+        "route_id": "100100263",
+        "route": "100100263",
+        "capacity": 50,
+        "before": 0.0,
+        "alighted": 0.0,
+        "available": 50.0,
+        "boarded": 0.0,
+        "onboard_after": 0.0,
+        "compatible_left": 0.0,
+        "ready_queue_left": 3.0309088572266774e-14,
+        "display_queue_after": 0.0,
+        "preparing_weight": 0.0
+      },
+      {
+        "case": "docked",
+        "time": "16:45:31.000",
+        "second": 60331.0,
+        "route_id": "100100521",
+        "route": "100100521",
+        "capacity": 50,
+        "before": 0.0,
+        "alighted": 0.0,
+        "available": 50.0,
+        "boarded": 0.0,
+        "onboard_after": 0.0,
+        "compatible_left": 0.0,
+        "ready_queue_left": 3.0309088572266774e-14,
+        "display_queue_after": 0.0,
+        "preparing_weight": 0.0
+      },
+      {
+        "case": "docked",
+        "time": "16:49:35.000",
+        "second": 60575.0,
+        "route_id": "100100252",
+        "route": "100100252",
+        "capacity": 50,
+        "before": 0.0,
+        "alighted": 0.0,
+        "available": 50.0,
+        "boarded": 0.0,
+        "onboard_after": 0.0,
+        "compatible_left": 0.0,
+        "ready_queue_left": 3.0309088572266774e-14,
+        "display_queue_after": 0.0,
+        "preparing_weight": 0.0
+      },
+      {
+        "case": "docked",
+        "time": "16:50:18.954",
+        "second": 60618.95374681688,
+        "route_id": "100100250",
+        "route": "100100250",
+        "capacity": 50,
+        "before": 0.0,
+        "alighted": 0.0,
+        "available": 50.0,
+        "boarded": 0.0,
+        "onboard_after": 0.0,
+        "compatible_left": 0.0,
+        "ready_queue_left": 3.0309088572266774e-14,
+        "display_queue_after": 0.0,
+        "preparing_weight": 0.0
+      },
+      {
+        "case": "docked",
+        "time": "16:54:34.000",
+        "second": 60874.0,
+        "route_id": "100100521",
+        "route": "100100521",
+        "capacity": 50,
+        "before": 0.0,
+        "alighted": 0.0,
+        "available": 50.0,
+        "boarded": 0.0,
+        "onboard_after": 0.0,
+        "compatible_left": 0.0,
+        "ready_queue_left": 3.0309088572266774e-14,
+        "display_queue_after": 0.0,
+        "preparing_weight": 0.0
+      },
+      {
+        "case": "docked",
+        "time": "16:55:42.000",
+        "second": 60942.0,
+        "route_id": "100100252",
+        "route": "100100252",
+        "capacity": 50,
+        "before": 0.0,
+        "alighted": 0.0,
+        "available": 50.0,
+        "boarded": 1.496271877185665,
+        "onboard_after": 1.496271877185665,
+        "compatible_left": 0.0,
+        "ready_queue_left": 3.042011087472929e-14,
+        "display_queue_after": 0.0,
+        "preparing_weight": 0.0
+      },
+      {
+        "case": "docked",
+        "time": "16:57:47.000",
+        "second": 61067.0,
+        "route_id": "100100251",
+        "route": "100100251",
+        "capacity": 50,
+        "before": 49.999999999999986,
+        "alighted": 0.0,
+        "available": 1.4210854715202004e-14,
+        "boarded": 0.0,
+        "onboard_after": 49.999999999999986,
+        "compatible_left": 6.7519268458003125,
+        "ready_queue_left": 6.751926845800343,
+        "display_queue_after": 7.705800167506174,
+        "preparing_weight": 0.9538733217058608
+      },
+      {
+        "case": "docked",
+        "time": "17:01:46.535",
+        "second": 61306.53485709174,
+        "route_id": "100100250",
+        "route": "100100250",
+        "capacity": 50,
+        "before": 50.0,
+        "alighted": 0.0,
+        "available": 0.0,
+        "boarded": 0.0,
+        "onboard_after": 50.0,
+        "compatible_left": 42.86818928136931,
+        "ready_queue_left": 43.91557959539929,
+        "display_queue_after": 45.87943643420545,
+        "preparing_weight": 1.963856838806187
+      },
+      {
+        "case": "docked",
+        "time": "17:04:04.000",
+        "second": 61444.0,
+        "route_id": "100100263",
+        "route": "100100263",
+        "capacity": 50,
+        "before": 0.0,
+        "alighted": 0.0,
+        "available": 50.0,
+        "boarded": 50.00000000000001,
+        "onboard_after": 50.00000000000001,
+        "compatible_left": 12.880825638727543,
+        "ready_queue_left": 13.030452826446165,
+        "display_queue_after": 16.621505331691708,
+        "preparing_weight": 3.591052505245596
+      },
+      {
+        "case": "docked",
+        "time": "17:04:56.000",
+        "second": 61496.0,
+        "route_id": "100100252",
+        "route": "100100252",
+        "capacity": 50,
+        "before": 0.0,
+        "alighted": 0.0,
+        "available": 50.0,
+        "boarded": 21.690126315658148,
+        "onboard_after": 21.690126315658148,
+        "compatible_left": 0.0,
+        "ready_queue_left": 0.1496271877186205,
+        "display_queue_after": 4.15215445919022,
+        "preparing_weight": 4.002527271471654
+      },
+      {
+        "case": "docked",
+        "time": "17:05:28.000",
+        "second": 61528.0,
+        "route_id": "100100521",
+        "route": "100100521",
+        "capacity": 50,
+        "before": 0.0,
+        "alighted": 0.0,
+        "available": 50.0,
+        "boarded": 5.55490934405178,
+        "onboard_after": 5.55490934405178,
+        "compatible_left": 0.0,
+        "ready_queue_left": 5.395683899678261e-14,
+        "display_queue_after": 0.48628836008534115,
+        "preparing_weight": 0.48628836008534115
+      }
+    ],
+    "categories": [
+      {
+        "case": "docked",
+        "category": "initial_gate_walk",
+        "arrival_to_1703": 562.3363782433049,
+        "arrival_1650_1703": 59.5890275089191,
+        "queue_1703": 56.89573812998492,
+        "mean_queue_1703": 60.038870738479275
+      },
+      {
+        "case": "docked",
+        "category": "after_city_ride",
+        "arrival_to_1703": 213.13331149759833,
+        "arrival_1650_1703": 0.0,
+        "queue_1703": 0.0,
+        "mean_queue_1703": 0.0
+      },
+      {
+        "case": "docked",
+        "category": "walk_reroute_from_shuttle",
+        "arrival_to_1703": 318.64979964515317,
+        "arrival_1650_1703": 0.0,
+        "queue_1703": 0.0,
+        "mean_queue_1703": 0.0
+      },
+      {
+        "case": "docked",
+        "category": "after_shuttle_ride",
+        "arrival_to_1703": 3.4227219190622087,
+        "arrival_1650_1703": 0.0,
+        "queue_1703": 0.0,
+        "mean_queue_1703": 0.0
+      },
+      {
+        "case": "docked",
+        "category": "walk_reroute_from_city",
+        "arrival_to_1703": 8.603563293817576,
+        "arrival_1650_1703": 1.1970175017485316,
+        "queue_1703": 1.1970175017485316,
+        "mean_queue_1703": 1.343968856593406
+      }
+    ],
+    "switches": [
+      {
+        "case": "docked",
+        "time": "16:58:44.598",
+        "second": 61124.59786824622,
+        "node": 62,
+        "weight": 0.14962718771856648,
+        "old_route": "100100251",
+        "kind": "transit",
+        "option": "5528"
+      },
+      {
+        "case": "docked",
+        "time": "16:59:01.024",
+        "second": 61141.023934689554,
+        "node": 62,
+        "weight": 0.14962718771856648,
+        "old_route": "100100251",
+        "kind": "transit",
+        "option": "5528"
+      },
+      {
+        "case": "docked",
+        "time": "16:59:50.234",
+        "second": 61190.23406234117,
+        "node": 62,
+        "weight": 0.14962718771856648,
+        "old_route": "100100251",
+        "kind": "transit",
+        "option": "5528"
+      },
+      {
+        "case": "docked",
+        "time": "17:00:05.868",
+        "second": 61205.867986599114,
+        "node": 62,
+        "weight": 0.14962718771856648,
+        "old_route": "100100251",
+        "kind": "transit",
+        "option": "5528"
+      },
+      {
+        "case": "docked",
+        "time": "17:00:17.196",
+        "second": 61217.195803645925,
+        "node": 14,
+        "weight": 0.39277136776123706,
+        "old_route": "shuttle-41946",
+        "kind": "gate_pool",
+        "option": "서울대학교 21128 · 먼저 오는 5개 노선"
+      },
+      {
+        "case": "docked",
+        "time": "17:00:30.472",
+        "second": 61230.472027608776,
+        "node": 62,
+        "weight": 0.14962718771856648,
+        "old_route": "100100251",
+        "kind": "transit",
+        "option": "5528"
+      },
+      {
+        "case": "docked",
+        "time": "17:00:50.228",
+        "second": 61250.227563311244,
+        "node": 62,
+        "weight": 0.14962718771856648,
+        "old_route": "100100251",
+        "kind": "transit",
+        "option": "5528"
+      },
+      {
+        "case": "docked",
+        "time": "17:00:50.489",
+        "second": 61250.488561248814,
+        "node": 15,
+        "weight": 0.11222039078892487,
+        "old_route": "shuttle-41946",
+        "kind": "gate_pool",
+        "option": "서울대학교 21128 · 먼저 오는 5개 노선"
+      },
+      {
+        "case": "docked",
+        "time": "17:00:58.781",
+        "second": 61258.78149832958,
+        "node": 62,
+        "weight": 0.14962718771856648,
+        "old_route": "100100251",
+        "kind": "transit",
+        "option": "5528"
+      },
+      {
+        "case": "docked",
+        "time": "17:01:55.048",
+        "second": 61315.04755609356,
+        "node": 15,
+        "weight": 0.9164665247762197,
+        "old_route": "shuttle-41946",
+        "kind": "gate_pool",
+        "option": "서울대학교 21128 · 먼저 오는 5개 노선"
+      },
+      {
+        "case": "docked",
+        "time": "17:01:55.497",
+        "second": 61315.49670268583,
+        "node": 15,
+        "weight": 0.2618475785074914,
+        "old_route": "shuttle-41946",
+        "kind": "gate_pool",
+        "option": "서울대학교 21128 · 먼저 오는 5개 노선"
+      },
+      {
+        "case": "docked",
+        "time": "17:01:55.554",
+        "second": 61315.55361523148,
+        "node": 15,
+        "weight": 0.4862883600853411,
+        "old_route": "shuttle-41946",
+        "kind": "gate_pool",
+        "option": "서울대학교 21128 · 먼저 오는 5개 노선"
+      },
+      {
+        "case": "docked",
+        "time": "17:02:01.419",
+        "second": 61321.41859290498,
+        "node": 62,
+        "weight": 0.14962718771856648,
+        "old_route": "100100251",
+        "kind": "transit",
+        "option": "5528"
+      },
+      {
+        "case": "docked",
+        "time": "17:03:01.073",
+        "second": 61381.07306368074,
+        "node": 62,
+        "weight": 0.14962718771856648,
+        "old_route": "100100251",
+        "kind": "transit",
+        "option": "6515"
+      }
+    ],
+    "timeseries": [
+      {
+        "second": 60600,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60605,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60610,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60615,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60620,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60625,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60630,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60635,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60640,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60645,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60650,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60655,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60660,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60665,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60670,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60675,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60680,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60685,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60690,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60695,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60700,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60705,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60710,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60715,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60720,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60725,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60730,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60735,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60740,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60745,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60750,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60755,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60760,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60765,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60770,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60775,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60780,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60785,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60790,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60795,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60800,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60805,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60810,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60815,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60820,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60825,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60830,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60835,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60840,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60845,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60850,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60855,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60860,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60865,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60870,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60875,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60880,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60885,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60890,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60895,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60900,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60905,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60910,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60915,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60920,
+        "queue": 1.496271877185665,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60925,
+        "queue": 1.496271877185665,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60930,
+        "queue": 1.496271877185665,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60935,
+        "queue": 1.496271877185665,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60940,
+        "queue": 1.496271877185665,
+        "ready_queue": 1.496271877185665
+      },
+      {
+        "second": 60945,
+        "queue": 0.0,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60950,
+        "queue": 0.07481359385928324,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60955,
+        "queue": 0.07481359385928324,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60960,
+        "queue": 0.5798053524094452,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60965,
+        "queue": 0.6546189462687284,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 60970,
+        "queue": 0.6546189462687284,
+        "ready_queue": 0.07481359385928324
+      },
+      {
+        "second": 60975,
+        "queue": 0.6546189462687284,
+        "ready_queue": 0.07481359385928324
+      },
+      {
+        "second": 60980,
+        "queue": 0.6920257431983701,
+        "ready_queue": 0.5798053524094452
+      },
+      {
+        "second": 60985,
+        "queue": 0.6920257431983701,
+        "ready_queue": 0.6546189462687284
+      },
+      {
+        "second": 60990,
+        "queue": 0.6920257431983701,
+        "ready_queue": 0.6546189462687284
+      },
+      {
+        "second": 60995,
+        "queue": 0.6920257431983701,
+        "ready_queue": 0.6546189462687284
+      },
+      {
+        "second": 61000,
+        "queue": 1.7581194556931563,
+        "ready_queue": 0.6920257431983701
+      },
+      {
+        "second": 61005,
+        "queue": 2.207001018848856,
+        "ready_queue": 0.6920257431983701
+      },
+      {
+        "second": 61010,
+        "queue": 2.6371791835397347,
+        "ready_queue": 0.6920257431983701
+      },
+      {
+        "second": 61015,
+        "queue": 2.6371791835397347,
+        "ready_queue": 0.6920257431983701
+      },
+      {
+        "second": 61020,
+        "queue": 5.106027780896081,
+        "ready_queue": 1.7581194556931563
+      },
+      {
+        "second": 61025,
+        "queue": 5.236951570149827,
+        "ready_queue": 2.207001018848856
+      },
+      {
+        "second": 61030,
+        "queue": 6.3030452826446135,
+        "ready_queue": 2.6371791835397347
+      },
+      {
+        "second": 61035,
+        "queue": 6.3030452826446135,
+        "ready_queue": 2.6371791835397347
+      },
+      {
+        "second": 61040,
+        "queue": 6.751926845800313,
+        "ready_queue": 5.106027780896081
+      },
+      {
+        "second": 61045,
+        "queue": 6.751926845800313,
+        "ready_queue": 5.236951570149827
+      },
+      {
+        "second": 61050,
+        "queue": 6.751926845800313,
+        "ready_queue": 6.3030452826446135
+      },
+      {
+        "second": 61055,
+        "queue": 7.705800167506174,
+        "ready_queue": 6.3030452826446135
+      },
+      {
+        "second": 61060,
+        "queue": 7.705800167506174,
+        "ready_queue": 6.751926845800313
+      },
+      {
+        "second": 61065,
+        "queue": 7.705800167506174,
+        "ready_queue": 6.751926845800313
+      },
+      {
+        "second": 61070,
+        "queue": 7.705800167506174,
+        "ready_queue": 6.751926845800313
+      },
+      {
+        "second": 61075,
+        "queue": 7.705800167506174,
+        "ready_queue": 7.705800167506174
+      },
+      {
+        "second": 61080,
+        "queue": 10.511309937229296,
+        "ready_queue": 7.705800167506174
+      },
+      {
+        "second": 61085,
+        "queue": 10.511309937229296,
+        "ready_queue": 7.705800167506174
+      },
+      {
+        "second": 61090,
+        "queue": 11.27814927428695,
+        "ready_queue": 7.705800167506174
+      },
+      {
+        "second": 61095,
+        "queue": 11.27814927428695,
+        "ready_queue": 7.705800167506174
+      },
+      {
+        "second": 61100,
+        "queue": 13.971438653221147,
+        "ready_queue": 10.511309937229296
+      },
+      {
+        "second": 61105,
+        "queue": 16.77694842294427,
+        "ready_queue": 10.511309937229296
+      },
+      {
+        "second": 61110,
+        "queue": 19.545051395737747,
+        "ready_queue": 11.27814927428695
+      },
+      {
+        "second": 61115,
+        "queue": 19.863009169639703,
+        "ready_queue": 11.27814927428695
+      },
+      {
+        "second": 61120,
+        "queue": 20.368000928189865,
+        "ready_queue": 13.971438653221147
+      },
+      {
+        "second": 61125,
+        "queue": 21.67723882072732,
+        "ready_queue": 16.77694842294427
+      },
+      {
+        "second": 61130,
+        "queue": 22.032603391558915,
+        "ready_queue": 19.545051395737747
+      },
+      {
+        "second": 61135,
+        "queue": 23.77201944878725,
+        "ready_queue": 19.863009169639703
+      },
+      {
+        "second": 61140,
+        "queue": 23.77201944878725,
+        "ready_queue": 20.368000928189865
+      },
+      {
+        "second": 61145,
+        "queue": 24.20219761347813,
+        "ready_queue": 21.67723882072732
+      },
+      {
+        "second": 61150,
+        "queue": 26.409198632326987,
+        "ready_queue": 22.032603391558915
+      },
+      {
+        "second": 61155,
+        "queue": 30.280802114544894,
+        "ready_queue": 23.77201944878725
+      },
+      {
+        "second": 61160,
+        "queue": 30.374319106869,
+        "ready_queue": 23.77201944878725
+      },
+      {
+        "second": 61165,
+        "queue": 30.374319106869,
+        "ready_queue": 24.20219761347813
+      },
+      {
+        "second": 61170,
+        "queue": 30.785793873095056,
+        "ready_queue": 26.409198632326987
+      },
+      {
+        "second": 61175,
+        "queue": 32.18854875795662,
+        "ready_queue": 30.280802114544894
+      },
+      {
+        "second": 61180,
+        "queue": 32.67483711804196,
+        "ready_queue": 30.374319106869
+      },
+      {
+        "second": 61185,
+        "queue": 32.67483711804196,
+        "ready_queue": 30.374319106869
+      },
+      {
+        "second": 61190,
+        "queue": 33.36686286124033,
+        "ready_queue": 30.785793873095056
+      },
+      {
+        "second": 61195,
+        "queue": 34.56388036298886,
+        "ready_queue": 32.18854875795662
+      },
+      {
+        "second": 61200,
+        "queue": 35.087575520003845,
+        "ready_queue": 32.67483711804196
+      },
+      {
+        "second": 61205,
+        "queue": 35.53645708315954,
+        "ready_queue": 32.67483711804196
+      },
+      {
+        "second": 61210,
+        "queue": 36.63995759258397,
+        "ready_queue": 33.36686286124033
+      },
+      {
+        "second": 61215,
+        "queue": 37.63123771121948,
+        "ready_queue": 34.56388036298886
+      },
+      {
+        "second": 61220,
+        "queue": 38.173636266699276,
+        "ready_queue": 35.087575520003845
+      },
+      {
+        "second": 61225,
+        "queue": 38.173636266699276,
+        "ready_queue": 35.53645708315954
+      },
+      {
+        "second": 61230,
+        "queue": 38.90306880682729,
+        "ready_queue": 36.63995759258397
+      },
+      {
+        "second": 61235,
+        "queue": 39.05269599454586,
+        "ready_queue": 37.63123771121948
+      },
+      {
+        "second": 61240,
+        "queue": 39.520280956166374,
+        "ready_queue": 38.173636266699276
+      },
+      {
+        "second": 61245,
+        "queue": 39.83823873006833,
+        "ready_queue": 38.173636266699276
+      },
+      {
+        "second": 61250,
+        "queue": 39.93175572239243,
+        "ready_queue": 38.90306880682729
+      },
+      {
+        "second": 61255,
+        "queue": 40.399340684012955,
+        "ready_queue": 39.05269599454586
+      },
+      {
+        "second": 61260,
+        "queue": 40.43674748094259,
+        "ready_queue": 39.520280956166374
+      },
+      {
+        "second": 61265,
+        "queue": 41.83950236580416,
+        "ready_queue": 39.83823873006833
+      },
+      {
+        "second": 61270,
+        "queue": 42.250977132030215,
+        "ready_queue": 39.93175572239243
+      },
+      {
+        "second": 61275,
+        "queue": 42.64374849979145,
+        "ready_queue": 40.399340684012955
+      },
+      {
+        "second": 61280,
+        "queue": 42.64374849979145,
+        "ready_queue": 40.43674748094259
+      },
+      {
+        "second": 61285,
+        "queue": 43.915579595399265,
+        "ready_queue": 41.83950236580416
+      },
+      {
+        "second": 61290,
+        "queue": 44.06520678311783,
+        "ready_queue": 42.250977132030215
+      },
+      {
+        "second": 61295,
+        "queue": 44.42057135394943,
+        "ready_queue": 42.64374849979145
+      },
+      {
+        "second": 61300,
+        "queue": 45.411851472584935,
+        "ready_queue": 42.64374849979145
+      },
+      {
+        "second": 61305,
+        "queue": 45.5614786603035,
+        "ready_queue": 43.915579595399265
+      },
+      {
+        "second": 61310,
+        "queue": 46.98293694362988,
+        "ready_queue": 44.06520678311783
+      },
+      {
+        "second": 61315,
+        "queue": 47.60014909296897,
+        "ready_queue": 44.42057135394943
+      },
+      {
+        "second": 61320,
+        "queue": 47.8994034684061,
+        "ready_queue": 45.411851472584935
+      },
+      {
+        "second": 61325,
+        "queue": 52.35081230303345,
+        "ready_queue": 45.5614786603035
+      },
+      {
+        "second": 61330,
+        "queue": 52.70617687386505,
+        "ready_queue": 46.98293694362988
+      },
+      {
+        "second": 61335,
+        "queue": 52.70617687386505,
+        "ready_queue": 47.60014909296897
+      },
+      {
+        "second": 61340,
+        "queue": 53.71616039096537,
+        "ready_queue": 47.8994034684061
+      },
+      {
+        "second": 61345,
+        "queue": 54.22115214951553,
+        "ready_queue": 52.35081230303345
+      },
+      {
+        "second": 61350,
+        "queue": 55.92316140981423,
+        "ready_queue": 52.70617687386505
+      },
+      {
+        "second": 61355,
+        "queue": 56.55907695761814,
+        "ready_queue": 52.70617687386505
+      },
+      {
+        "second": 61360,
+        "queue": 56.98925512230902,
+        "ready_queue": 53.71616039096537
+      },
+      {
+        "second": 61365,
+        "queue": 57.49424688085918,
+        "ready_queue": 54.22115214951553
+      },
+      {
+        "second": 61370,
+        "queue": 57.49424688085918,
+        "ready_queue": 55.92316140981423
+      },
+      {
+        "second": 61375,
+        "queue": 58.09275563173344,
+        "ready_queue": 56.55907695761814
+      },
+      {
+        "second": 61380,
+        "queue": 58.09275563173344,
+        "ready_queue": 56.98925512230902
+      },
+      {
+        "second": 61385,
+        "queue": 58.4107134056354,
+        "ready_queue": 57.49424688085918
+      },
+      {
+        "second": 61390,
+        "queue": 59.14014594576341,
+        "ready_queue": 57.49424688085918
+      },
+      {
+        "second": 61395,
+        "queue": 59.27106973501716,
+        "ready_queue": 58.09275563173344
+      },
+      {
+        "second": 61400,
+        "queue": 59.7573580951025,
+        "ready_queue": 58.09275563173344
+      },
+      {
+        "second": 61405,
+        "queue": 60.59901102601943,
+        "ready_queue": 58.4107134056354
+      },
+      {
+        "second": 61410,
+        "queue": 61.44066395693637,
+        "ready_queue": 59.14014594576341
+      },
+      {
+        "second": 61415,
+        "queue": 62.74990184947382,
+        "ready_queue": 59.27106973501716
+      },
+      {
+        "second": 61420,
+        "queue": 63.03045282644614,
+        "ready_queue": 59.7573580951025
+      },
+      {
+        "second": 61425,
+        "queue": 63.03045282644614,
+        "ready_queue": 60.59901102601943
+      },
+      {
+        "second": 61430,
+        "queue": 63.254893608023984,
+        "ready_queue": 61.44066395693637
+      },
+      {
+        "second": 61435,
+        "queue": 63.254893608023984,
+        "ready_queue": 62.74990184947382
+      },
+      {
+        "second": 61440,
+        "queue": 66.62150533169174,
+        "ready_queue": 63.03045282644614
+      },
+      {
+        "second": 61445,
+        "queue": 16.621505331691708,
+        "ready_queue": 13.030452826446112
+      },
+      {
+        "second": 61450,
+        "queue": 16.715022324015813,
+        "ready_queue": 13.254893608023961
+      },
+      {
+        "second": 61455,
+        "queue": 18.847209749005383,
+        "ready_queue": 13.254893608023961
+      },
+      {
+        "second": 61460,
+        "queue": 19.109057327512875,
+        "ready_queue": 16.621505331691708
+      },
+      {
+        "second": 61465,
+        "queue": 20.661439400093006,
+        "ready_queue": 16.621505331691708
+      },
+      {
+        "second": 61470,
+        "queue": 21.577905924869224,
+        "ready_queue": 16.715022324015813
+      },
+      {
+        "second": 61475,
+        "queue": 21.839753503376716,
+        "ready_queue": 18.847209749005383
+      },
+      {
+        "second": 61480,
+        "queue": 23.05547440359007,
+        "ready_queue": 19.109057327512875
+      },
+      {
+        "second": 61485,
+        "queue": 23.05547440359007,
+        "ready_queue": 20.661439400093006
+      },
+      {
+        "second": 61490,
+        "queue": 24.776187062353582,
+        "ready_queue": 21.577905924869224
+      },
+      {
+        "second": 61495,
+        "queue": 25.84228077484837,
+        "ready_queue": 21.839753503376716
+      },
+      {
+        "second": 61500,
+        "queue": 5.29306176554429,
+        "ready_queue": 1.3653480879319193
+      },
+      {
+        "second": 61505,
+        "queue": 5.554909344051781,
+        "ready_queue": 1.3653480879319193
+      },
+      {
+        "second": 61510,
+        "queue": 5.554909344051781,
+        "ready_queue": 3.086060746695434
+      },
+      {
+        "second": 61515,
+        "queue": 5.779350125629631,
+        "ready_queue": 4.15215445919022
+      },
+      {
+        "second": 61520,
+        "queue": 5.779350125629631,
+        "ready_queue": 5.29306176554429
+      },
+      {
+        "second": 61525,
+        "queue": 5.947680711813018,
+        "ready_queue": 5.554909344051781
+      },
+      {
+        "second": 61530,
+        "queue": 0.9164665247762198,
+        "ready_queue": 0.0
+      },
+      {
+        "second": 61535,
+        "queue": 1.3279412910022776,
+        "ready_queue": 0.22444078157784975
+      },
+      {
+        "second": 61540,
+        "queue": 1.982560237271006,
+        "ready_queue": 0.22444078157784975
+      },
+      {
+        "second": 61545,
+        "queue": 2.188297620384035,
+        "ready_queue": 0.39277136776123706
+      },
+      {
+        "second": 61550,
+        "queue": 2.487551995821168,
+        "ready_queue": 0.9164665247762198
+      },
+      {
+        "second": 61555,
+        "queue": 2.5436621912156303,
+        "ready_queue": 1.3279412910022776
+      },
+      {
+        "second": 61560,
+        "queue": 2.5436621912156303,
+        "ready_queue": 1.982560237271006
+      },
+      {
+        "second": 61565,
+        "queue": 3.086060746695434,
+        "ready_queue": 2.188297620384035
+      },
+      {
+        "second": 61570,
+        "queue": 4.245671451514324,
+        "ready_queue": 2.487551995821168
+      },
+      {
+        "second": 61575,
+        "queue": 4.61973942081074,
+        "ready_queue": 2.5436621912156303
+      },
+      {
+        "second": 61580,
+        "queue": 4.61973942081074,
+        "ready_queue": 2.5436621912156303
+      },
+      {
+        "second": 61585,
+        "queue": 4.61973942081074,
+        "ready_queue": 3.086060746695434
+      },
+      {
+        "second": 61590,
+        "queue": 4.61973942081074,
+        "ready_queue": 4.245671451514324
+      },
+      {
+        "second": 61595,
+        "queue": 5.723239930235168,
+        "ready_queue": 4.61973942081074
+      },
+      {
+        "second": 61600,
+        "queue": 6.733223447335492,
+        "ready_queue": 4.61973942081074
+      },
+      {
+        "second": 61605,
+        "queue": 6.995071025842984,
+        "ready_queue": 4.61973942081074
+      },
+      {
+        "second": 61610,
+        "queue": 7.855427355224741,
+        "ready_queue": 4.61973942081074
+      },
+      {
+        "second": 61615,
+        "queue": 8.154681730661874,
+        "ready_queue": 5.723239930235168
+      },
+      {
+        "second": 61620,
+        "queue": 8.154681730661874,
+        "ready_queue": 6.733223447335492
+      },
+      {
+        "second": 61625,
+        "queue": 8.54745309842311,
+        "ready_queue": 6.995071025842984
+      },
+      {
+        "second": 61630,
+        "queue": 9.819284194030926,
+        "ready_queue": 7.855427355224741
+      },
+      {
+        "second": 61635,
+        "queue": 10.82926771113125,
+        "ready_queue": 8.154681730661874
+      },
+      {
+        "second": 61640,
+        "queue": 10.82926771113125,
+        "ready_queue": 8.154681730661874
+      },
+      {
+        "second": 61645,
+        "queue": 11.0537084927091,
+        "ready_queue": 8.54745309842311
+      },
+      {
+        "second": 61650,
+        "queue": 11.0537084927091,
+        "ready_queue": 9.819284194030926
+      },
+      {
+        "second": 61655,
+        "queue": 11.446479860470337,
+        "ready_queue": 10.82926771113125
+      },
+      {
+        "second": 61660,
+        "queue": 11.670920642048188,
+        "ready_queue": 10.82926771113125
+      },
+      {
+        "second": 61665,
+        "queue": 12.026285212879783,
+        "ready_queue": 11.0537084927091
+      },
+      {
+        "second": 61670,
+        "queue": 12.026285212879783,
+        "ready_queue": 11.0537084927091
+      },
+      {
+        "second": 61675,
+        "queue": 12.269429392922452,
+        "ready_queue": 11.446479860470337
+      },
+      {
+        "second": 61680,
+        "queue": 12.493870174500303,
+        "ready_queue": 11.670920642048188
+      }
+    ],
+    "sources": {
+      "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\simulation_viewer_2026-11-07\\gate_clock_repair_2026-11-10\\audit-peak-mon.json.gz": "9779d700177d1b375ec0ad2a809873908ddc496cd0327232aabd7ca91884cc83",
+      "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\simulation_viewer_2026-11-07\\gate_clock_repair_2026-11-10\\prepared.json.gz": "8ccf95c11ce1800de6a77a7887a796aa0df544ffa9dd05f03f5cb359d6cc7cc5"
+    }
+  }
+}

@@ -1,0 +1,165 @@
+{
+  "status": "PASS_FROZEN_LINEAGE_AND_ISOLATED_TIME_TRANSFORM",
+  "checked_at": "2026-11-12T08:02:48.062400+00:00",
+  "scope": "raw_frozen_course_to_synthetic_parent_lineage_and_AST_lag_statement_only_not_a_model_run",
+  "source_course_rows": 7503,
+  "eligible_weekday_events": 6201,
+  "source_parent_rows": 297648,
+  "parents_per_event": 48,
+  "by_weekday": {
+    "월": 67920,
+    "금": 28800,
+    "화": 68448,
+    "수": 69360,
+    "목": 63120
+  },
+  "original_lag_seconds_range": [
+    60.27683510719362,
+    479.1393984987517
+  ],
+  "transform_checks": [
+    {
+      "alpha": 0.5,
+      "parent_rows": 297648,
+      "departure_not_before_class_end": true,
+      "min_new_lag_seconds": 30.13841755359317,
+      "max_new_lag_seconds": 239.56969924937584,
+      "maximum_advance_seconds": 239.56969924937584,
+      "only_departure_field_changed": true,
+      "total_scenario_mass_preserved": 78168.99999997983
+    },
+    {
+      "alpha": 0.75,
+      "parent_rows": 297648,
+      "departure_not_before_class_end": true,
+      "min_new_lag_seconds": 45.207626330397034,
+      "max_new_lag_seconds": 359.35454887406377,
+      "maximum_advance_seconds": 119.78484962468792,
+      "only_departure_field_changed": true,
+      "total_scenario_mass_preserved": 78168.99999997983
+    },
+    {
+      "alpha": 1.0,
+      "parent_rows": 297648,
+      "departure_not_before_class_end": true,
+      "min_new_lag_seconds": 60.27683510719362,
+      "max_new_lag_seconds": 479.1393984987517,
+      "maximum_advance_seconds": 0.0,
+      "only_departure_field_changed": true,
+      "total_scenario_mass_preserved": 78168.99999997983
+    }
+  ],
+  "invalid_alphas_rejected": [
+    0.0,
+    -0.5,
+    1.01
+  ],
+  "registered_hash_checks": [
+    {
+      "model": "261112165437",
+      "future_registered_hashes_verified": 22
+    },
+    {
+      "model": "261112165438",
+      "future_registered_hashes_verified": 22
+    }
+  ],
+  "receipts": [
+    {
+      "model": "261112165437",
+      "case": "release0p75-combined-regular-mon",
+      "alpha": 0.75,
+      "source_manifest_matches_current": true
+    },
+    {
+      "model": "261112165437",
+      "case": "release0p75-combined-regular-tue",
+      "alpha": 0.75,
+      "source_manifest_matches_current": true
+    },
+    {
+      "model": "261112165438",
+      "case": "release0p5-combined-regular-mon",
+      "alpha": 0.5,
+      "source_manifest_matches_current": true
+    },
+    {
+      "model": "261112165438",
+      "case": "release0p5-combined-regular-tue",
+      "alpha": 0.5,
+      "source_manifest_matches_current": true
+    }
+  ],
+  "lock_summaries": [
+    {
+      "model": "261112165437",
+      "alpha": 0.75,
+      "selection_rule": "Retrospective scalar calibration grid alpha in[.5,.75,1]. Primary objective: mean over three direction-confirmed reports of uniform-minute expected absolute distance to count/interval divided by observation midpoint; culture direction uncertain so secondary only. Preserve all outputs. Prefer feasible candidate with minimum primary loss; ties closest to1. Check full10conditions before accepting; not pristine holdout.",
+      "comparison_parent": "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\261112132736",
+      "future_evaluation_rules": [
+        "First subsequent completed stable collector weekday, date/schema/coverage checked before labels.",
+        "Report arrival detection intervals, adjacent segment times and categorical grades separately; not passenger waits or headcounts.",
+        "Do not fit behavioral parameters to four previously used queue reports or treat them as pristine holdout.",
+        "No selection of best minute-second, route subset, weekday or scenario after inspecting outcomes.",
+        "Use same source/scope censoring for comparison; missing and unmapped records remain separate.",
+        "New manual queue counts and individual waiting episodes are separate observation units.",
+        "Retain whole-journey tails and every continuous wait including departures outside the display window."
+      ],
+      "production_replacement_allowed": false
+    },
+    {
+      "model": "261112165438",
+      "alpha": 0.5,
+      "selection_rule": "Retrospective scalar calibration grid alpha in[.5,.75,1]. Primary objective: mean over three direction-confirmed reports of uniform-minute expected absolute distance to count/interval divided by observation midpoint; culture direction uncertain so secondary only. Preserve all outputs. Prefer feasible candidate with minimum primary loss; ties closest to1. Check full10conditions before accepting; not pristine holdout.",
+      "comparison_parent": "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\261112132736",
+      "future_evaluation_rules": [
+        "First subsequent completed stable collector weekday, date/schema/coverage checked before labels.",
+        "Report arrival detection intervals, adjacent segment times and categorical grades separately; not passenger waits or headcounts.",
+        "Do not fit behavioral parameters to four previously used queue reports or treat them as pristine holdout.",
+        "No selection of best minute-second, route subset, weekday or scenario after inspecting outcomes.",
+        "Use same source/scope censoring for comparison; missing and unmapped records remain separate.",
+        "New manual queue counts and individual waiting episodes are separate observation units.",
+        "Retain whole-journey tails and every continuous wait including departures outside the display window."
+      ],
+      "production_replacement_allowed": false
+    }
+  ],
+  "source_hashes_before": {
+    "261112165437/prepare.py": "83d78996c29d2b3cab4051e2f0a8b3a74b48da836b506afb92f66a39bd7bd2a3",
+    "261112165437/analyze_followup.py": "587f63ce232e2ca1e9b05cddd28e7bb513061a0e0f6a9976487d86c19c7d8895",
+    "261112165437/config.json": "78686621e3a09d894e8c5ca50ba7c60e2470154991f0fefce9fb6e769cff179d",
+    "261112165437/experiment_lock.json": "3757571b57fe7e94f7982a379407132aa2213b169c41518878cdc106a25c93d3",
+    "261112165437/input_manifest.json": "d3829d8f5fcb395ac224835a3306f114f01b1021e274985f2fe88d12198eb86b",
+    "261112165437/run_case.py": "027c98db38c89c869384276b9dee514aa0bcca4f093aae714f4b03ead82eab7e",
+    "261112165437/future_evaluation_plan.json": "5d7ee1297b405add39ad54fb5acf97e220f0108056b3be0ae66c2bde134fb37e",
+    "261112165438/prepare.py": "83d78996c29d2b3cab4051e2f0a8b3a74b48da836b506afb92f66a39bd7bd2a3",
+    "261112165438/analyze_followup.py": "587f63ce232e2ca1e9b05cddd28e7bb513061a0e0f6a9976487d86c19c7d8895",
+    "261112165438/config.json": "2fc2f5a4c588da8097d4709cc3a2ebb7e4d4d604be7925ba667dea5817ba06d7",
+    "261112165438/experiment_lock.json": "e8bb16307e45feee9ad7900572d5ec824f64883611050094bfa0bd7157c4ade9",
+    "261112165438/input_manifest.json": "d3829d8f5fcb395ac224835a3306f114f01b1021e274985f2fe88d12198eb86b",
+    "261112165438/run_case.py": "027c98db38c89c869384276b9dee514aa0bcca4f093aae714f4b03ead82eab7e",
+    "261112165438/future_evaluation_plan.json": "b8428c26eaff7645140e572c2868065efb518ea37b11f5c6d56aec1f34431cc4"
+  },
+  "source_hashes_after": {
+    "261112165437/prepare.py": "83d78996c29d2b3cab4051e2f0a8b3a74b48da836b506afb92f66a39bd7bd2a3",
+    "261112165437/analyze_followup.py": "587f63ce232e2ca1e9b05cddd28e7bb513061a0e0f6a9976487d86c19c7d8895",
+    "261112165437/config.json": "78686621e3a09d894e8c5ca50ba7c60e2470154991f0fefce9fb6e769cff179d",
+    "261112165437/experiment_lock.json": "3757571b57fe7e94f7982a379407132aa2213b169c41518878cdc106a25c93d3",
+    "261112165437/input_manifest.json": "d3829d8f5fcb395ac224835a3306f114f01b1021e274985f2fe88d12198eb86b",
+    "261112165437/run_case.py": "027c98db38c89c869384276b9dee514aa0bcca4f093aae714f4b03ead82eab7e",
+    "261112165437/future_evaluation_plan.json": "5d7ee1297b405add39ad54fb5acf97e220f0108056b3be0ae66c2bde134fb37e",
+    "261112165438/prepare.py": "83d78996c29d2b3cab4051e2f0a8b3a74b48da836b506afb92f66a39bd7bd2a3",
+    "261112165438/analyze_followup.py": "587f63ce232e2ca1e9b05cddd28e7bb513061a0e0f6a9976487d86c19c7d8895",
+    "261112165438/config.json": "2fc2f5a4c588da8097d4709cc3a2ebb7e4d4d604be7925ba667dea5817ba06d7",
+    "261112165438/experiment_lock.json": "e8bb16307e45feee9ad7900572d5ec824f64883611050094bfa0bd7157c4ade9",
+    "261112165438/input_manifest.json": "d3829d8f5fcb395ac224835a3306f114f01b1021e274985f2fe88d12198eb86b",
+    "261112165438/run_case.py": "027c98db38c89c869384276b9dee514aa0bcca4f093aae714f4b03ead82eab7e",
+    "261112165438/future_evaluation_plan.json": "b8428c26eaff7645140e572c2868065efb518ea37b11f5c6d56aec1f34431cc4"
+  },
+  "source_files_unchanged": true,
+  "simulator_imported": false,
+  "model_runs_started": false,
+  "new_date_observation_outcomes_read": false,
+  "candidate_performance_recomputed": false,
+  "production_writes": false
+}

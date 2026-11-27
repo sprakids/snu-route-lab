@@ -1,0 +1,2446 @@
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    
+
+
+
+    <title>T Data 서울교통빅데이터플랫폼</title>
+    
+    <meta name="apple-mobile-web-app-title" content="서울시 교통빅데이터플랫폼">
+    <meta name="descripption" content="서울시 교통빅데이터 제공 창구입니다." />
+    <meta property="og:title" content="서울시 교통빅데이터플랫폼">
+    <meta name="keywords" content="서울시 교통빅데이터플랫폼" />
+    <meta property="og:description" content="서울시 교통빅데이터 제공 창구입니다.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" />
+    <link rel="apple-touch-icon" href="/assets/images/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/index.css" />
+    <script rel="dns-prefetch" type="text/javascript" src="//www.seoul.go.kr/seoulgnb/gnb.js"></script>
+    <style>
+        .mstatus_mark {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            font-weight: 400;
+            color: #fff;
+            height: 24px;
+            padding: 0 6px;
+            border-radius: 4px;
+            background: #39C613;
+        }
+        .mstatus_mark.slow {
+            background: #BF5300;
+        }
+        .mstatus_mark.heavy {
+            background: #D62E22;
+        }
+
+        .slide_bg.hover {
+            height: 400px;
+        }
+
+        h2{
+            text-align: center;
+        }
+        .modal {
+            display: none;
+            position: absolute;
+            top:0;
+            left: 0;
+            width: 100%;
+            height: 4000px;
+            overflow: hidden;
+            background: rgba(0,0,0,0.5);
+            z-index: 997;
+        }
+        .modal .modal_popup {
+            position: absolute;
+            /*top: 5%;*/
+            top: 10%;
+            /*left: 25%;*/
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 20px;
+            z-index: 998;
+        }
+        .modal .modal_popup .close_btn {
+            padding: 10px 20px;
+            background-color: rgb(116, 0, 0);
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+            transition: box-shadow 0.2s;
+            z-index: 998;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="wrap">
+        
+
+
+<div id="menu_skip">
+    <a href="#naviGation"><span>메인메뉴 바로가기</span></a>
+    <a href="#mainContents"><span>본문 바로가기</span></a>
+</div>
+<header class="header">
+    <!-- seoulgnb 는 live server 로 열면 확인가능 -->
+    <div id="seoul-common-gnb"></div>
+    <!-- seoulgnb End -->
+    <div class="header_line">
+        <div class="slide_bg"></div>
+        <div class="header_inner">
+            <div class="hedaer_left">
+                <h1>
+                    <a href="/" class="hedaer_logo" title="메인화면 바로가기">
+                        <img src="/assets/images/header_logo.svg" alt="T Data 서울시 교통빅데이터플랫폼" />
+                    </a>
+                </h1>
+            </div>
+            <nav id="naviGation" class="header_center" title="전체메뉴">
+                <ul class="header_menu_list">
+                    <li class="slidedown_menu" title="데이터제공 메뉴">
+                        <a href="javascript:moveMenu('/dataprovide/vizsearch.do', 'MENU_DATAPROVIDE_01')" class="header_nav_text" title="데이터제공">데이터제공</a>
+                        <ul title="데이터제공" class="sub_slidedown_menu">
+                            <li class="slidedown_list">
+                                <a href="javascript:moveMenu('/dataprovide/vizsearch.do', 'MENU_DATAPROVIDE_01')" class="slidedown_anchor" title="시각화 검색">시각화 검색</a>
+                            </li>
+                            <li class="slidedown_list">
+                                <a href="javascript:moveMenu('/dataprovide/trafficdatalist.do', 'MENU_DATAPROVIDE_02')" class="slidedown_anchor" title="교통빅데이터 검색">교통빅데이터 검색</a>
+                            </li>
+                            <li class="slidedown_list">
+                                <a href="javascript:moveMenu('/dataprovide/datastatus.do', 'MENU_DATAPROVIDE_03')" class="slidedown_anchor" title="데이터 현황">데이터 현황</a>
+                            </li>
+                            <li class="slidedown_list">
+                                <a href="javascript:moveMenu('/dataprovide/populardata.do', 'MENU_DATAPROVIDE_04')" class="slidedown_anchor" title="인기 데이터">인기 데이터</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="slidedown_menu" title="데이터활용 메뉴">
+                        <a href="javascript:moveMenu('/datause/analysistype.do', 'MENU_DATAUSE_01')" class="header_nav_text" title="데이터활용">데이터활용</a>
+                        <ul title="데이터활용" class="sub_slidedown_menu">
+                            <li class="slidedown_list">
+                                <a href="javascript:moveMenu('/datause/analysistype.do', 'MENU_DATAUSE_01')" class="slidedown_anchor" title="유형별 분석">유형별 분석</a>
+                            </li>
+                            
+							
+                            
+                        </ul>
+                    </li>
+                    <li class="slidedown_menu" title="소통 메뉴">
+                        <a href="javascript:moveMenu('/board/notice/list.do', 'MENU_BOARD_01')" class="header_nav_text" title="소통">소통</a>
+                        <ul title="소통" class="sub_slidedown_menu">
+                            <li class="slidedown_list">
+                                <a href="javascript:moveMenu('/board/notice/list.do', 'MENU_BOARD_01')" class="slidedown_anchor" title="공지사항">공지사항</a>
+                            </li>
+                            <li class="slidedown_list">
+                                <a href="javascript:moveMenu('/board/faq/list.do', 'MENU_BOARD_02')" class="slidedown_anchor" title="자주묻는질문">자주묻는질문</a>
+                            </li>
+                            <!---->
+                        </ul>
+                    </li>
+                    <li class="slidedown_menu" title="이용안내 메뉴">
+                        <a href="javascript:moveMenu('/userguide/tdataintroduce.do', 'MENU_USERGUIDE_01')" class="header_nav_text" title="이용안내">이용안내</a>
+                        <ul title="이용안내" class="sub_slidedown_menu">
+                            <li class="slidedown_list">
+                                <a href="javascript:moveMenu('/userguide/tdataintroduce.do', 'MENU_USERGUIDE_01')" class="slidedown_anchor" title="T-DATA 소개">T-DATA 소개</a>
+                            </li>
+                            <li class="slidedown_list">
+                                <a href="javascript:moveMenu('/userguide/trafficpolicy.do', 'MENU_USERGUIDE_02')" class="slidedown_anchor" title="데이터 이용정책">데이터 이용정책</a>
+                            </li>
+                            <li class="slidedown_list">
+                                <a href="javascript:moveMenu('/userguide/guideopenapi.do', 'MENU_USERGUIDE_03')" class="slidedown_anchor" title="Open API 이용안내">Open API 이용안내</a>
+                            </li>
+							<!--<li class="slidedown_list">
+							    <a href="javascript:moveMenu('/userguide/personalInfo.do', 'MENU_USERGUIDE_04')" class="slidedown_anchor" title="개인정보 처리방침">개인정보 처리방침</a>
+							</li>-->
+                        </ul>
+                    </li>
+                    
+                </ul>
+            </nav>
+
+            <div class="header_right" title="고객정보 팝업">
+                
+                    
+                    
+                        <ul class="memeber_head_login">
+
+
+
+                            <li>
+                                <a href="/sso/login.do" class="login_anchor" title="서울시 통합 로그인 바로가기">로그인</a>
+                            </li>
+                            <li>
+                                <a href="https://www.seoul.go.kr/member/join/regist01.do" target="_blank" rel="dns-prefetch" class="login_anchor" title="서울시 통합 회원가입 새창열기">서울시 통합 회원가입</a>
+                                
+                            </li>
+                        </ul>
+                    
+                
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+
+        function moveMenu(hrefUrl, accessMenuType) {
+            // 메뉴 접근 이력 저장 후, 페이지 이동.
+            $.ajax({
+                  url: "/system/datausage/save.do"
+                , data: JSON.stringify({ accessMenuType })
+                , method: 'POST'
+                , dataType : "json"
+                , contentType: "application/json"
+                , cache: false
+                , complete: function () {
+                    location.href = hrefUrl;
+                }
+            })
+        }
+
+        // 로그아웃
+        function onClickLogout() {
+            //새 창 띄우고 바로 닫기
+            const logout_window = window.open("https://www.seoul.go.kr/member/userlogin/logOut.do");
+            logout_window.close();
+
+            location.href='/sso/logout.do'
+        }
+
+        // 신청데이터 건수
+        function getReportAllNotAppCnt() {
+            //페이지 끝인지 체크
+            $.ajax({
+                url: "/main/getReportAllNotAppCnt.do"
+                , type: 'POST'
+                , data: ''
+                , dataType: 'text'
+                , cache: false
+                , success : function (result) {
+                    $('.alram_number').text(result);
+                }
+                , error: function (request, status, error) {
+                    console.log(error);
+                }
+            });
+        }
+    </script>
+</header>
+
+
+        <input type="hidden" id="hdd_existYn" value="">
+        <main id="mainContents" class="sub_contents">
+
+            <div class="row_box">
+                <!-- 경로 및 타이틀 -->
+                
+
+
+
+
+    <div class="detailList_summary">
+        <div title="리스트 상세 제목" class="summary_column_full">
+            <div class="document_information_column m-b-20">
+                <span id="supportType" class="hidden_tag">제공유형</span>
+                <div class="document_label_row">
+                    <p class="data_slider_label on"> OPEN API
+					    <!--
+					        
+					        OPEN API
+					    -->
+					</p>
+                    <p class="data_slider_label">
+                        
+                            
+                            JSON
+                        
+                    </p>
+                </div>
+            </div>
+            <h2 class="summary_title">일자별-시간대별-버스노선별-구간별-승객수(API)</h2>
+            <p class="summary_description lh_24">
+                교통정책지원시스템 일자별-시간대별-버스노선별-구간별-승객수 데이터
+            </p>
+			
+        </div>
+    </div>
+
+
+				
+                <!--  상세내용 -->
+                
+
+
+
+
+    <section class="sub_cont_group m-t-80">
+        <div class="subtitle_withbtn">
+            <h3 id="detailInformation" class="sub_contents_title">
+                상세 정보
+            </h3>
+        </div>
+        <div class="detail_info_table">
+            <span id="detailTable" class="hidden_tag">상세 정보</span>
+            <div>
+                <div class="table_grid_fourparts">
+                    <div class="table_th">서비스명</div>
+                    <div class="table_td">일자별-시간대별-버스노선별-구간별-승객수</div>
+                    <div class="table_th">활용신청수</div>
+                    <div class="table_td">133</div>
+                </div>
+                <div class="table_grid_fourparts">
+                    <div class="table_th">공개일자</div>
+                    <div class="table_td">2021-12-01</div>
+                    <div class="table_th">수정일자</div>
+                    <div class="table_td">2026-11-06</div>
+                </div>
+                <div class="table_grid_fourparts">
+                    <div class="table_th">업데이트 주기</div>
+                    <div class="table_td">월1회</div>
+                    <div class="table_th">유형분류</div>
+                    <div class="table_td">대중교통</div>
+                </div>
+                <div class="table_grid_fourparts">
+                    <div class="table_th">제공기관</div>
+                    <div class="table_td">교통정책지원시스템(TAIMS)</div>
+                    <div class="table_th">제공부서</div>
+                    <div class="table_td">미래첨단교통과</div>
+                </div>
+                <div class="table_grid_fourparts">
+                    <div class="table_th">서비스유형</div>
+                    <div class="table_td"></div>
+                    <div class="table_th">담당자 전화번호</div>
+                    <div class="table_td">02-2133-4959</div>
+                </div>
+                <div class="table_grid_twoparts">
+                    <div class="table_th">저작권정책</div>
+                    <div class="table_td cc_td">
+                        <img src="/assets/images/cc_by.png" alt="저작자 표시(BY)" />
+                        저작권자표시(BY) : 이용이나 변경 및 2차적 저작물의 작성을 포함한 자유이용을 허락합니다.
+                        <!--
+                        저작권자표시(BY) : 이용이나 변경 및 2차적 저작물의 작성을 포함한 자유이용을 허락합니다.
+                        -->
+                    </div>
+                </div>
+                <div class="table_grid_twoparts">
+                    <div class="table_th">키워드</div>
+                    <div class="table_td fc_black60">#재차인원  #노선  #구간</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+                <!--   OPEN API 활용 -->
+				
+				    
+				    
+						
+
+
+
+
+    <section aria-labelledby="fileDatas" class="sub_cont_group m-t-80">
+        <div class="subtitle_withbtn">
+            <h3 id="fileDatas" class="sub_contents_title">
+                Open API활용
+            </h3>
+            <div class="btn_gap">
+				
+				<!--<form id="callTest" method="post" action="/dataprovide/insert_report.do" >
+					<input type="hidden" name="reqType" value="DEV">
+					<input type="hidden" name="userId" value="mjpark06">
+					<input type="hidden" name="erNo" value="4071">
+					<input type="hidden" name="dataId" value="10025">
+					<input type="hidden" name="reqList" value="1000">
+					
+					<button type="button" class="btn_line_gray large" onclick="callTest()" title="Open API 이용안내 바로가기" />
+					    운영계정
+					</button>
+		        </form>-->
+                <button type="button" class="btn_line_gray large" onclick="location.href='/userguide/guideopenapi.do'" title="Open API 이용안내 바로가기" >
+                    Open API 이용안내
+                </button>
+                
+                    
+                    
+                        
+                        
+                    
+                
+                <button type="button" class="btn_primary large btn_download" onclick="user_login()" title="로그인 체크하기" >
+                    활용신청
+                </button>
+            </div>
+        </div>
+        <div class="roundary_table_box">
+            <div class="dflx_ac_jbet">
+                <p class="fs_18_bold">요청인자</p>
+            </div>
+            <div class="scroll_table scroll detailList_mt m-b-32" tabindex="-1">
+                <table class="data_table">
+                    <caption class="hidden_tag">요청인자 목록</caption>
+                    <colgroup>
+                        <col style="width:160px">
+                        <col style="width:160px">
+                        <col style="width:auto">
+                        <col style="width:110px">
+                        <col style="width:210px">
+                        <col style="width:210px">
+                        <col style="width:210px">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th scope="col">변수명</th>
+                            <th scope="col">타입</th>
+                            <th scope="col">필수 여부</th>
+                            <th scope="col">변수 크기</th>
+                            <th scope="col">변수 설명</th>
+                            <th scope="col">값 설명</th>
+                            <th scope="col">샘플데이터</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            <td>apikey</td>
+                            <td></td>
+                            <td>필</td>
+                            <td>100</td>
+                            <td>인증키</td>
+                            <td class="tal">교통빅데이터 포털에서 받은 인증키</td>
+                            <td class="tal">-</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>startRow</td>
+                            <td></td>
+                            <td></td>
+                            <td>4</td>
+                            <td>시작행번호</td>
+                            <td class="tal">시작행번호</td>
+                            <td class="tal">1</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>rowCnt</td>
+                            <td></td>
+                            <td></td>
+                            <td>10</td>
+                            <td>한 페이지 결과수</td>
+                            <td class="tal">한 페이지 결과 수</td>
+                            <td class="tal">10</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>stdrDe</td>
+                            <td></td>
+                            <td>필</td>
+                            <td>8</td>
+                            <td>기준날짜</td>
+                            <td class="tal">기준 날짜</td>
+                            <td class="tal">20210101</td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+            <div class="dflx_ac_jbet">
+                <p class="fs_18_bold">출력인자</p>
+            </div>
+            <div class="scroll_table scroll detailList_mt m-b-32" tabindex="-1">
+                <table class="data_table">
+                    <caption class="hidden_tag">출력인자 목록</caption>
+                    <colgroup>
+                        <col style="width:160px">
+                        <!--<col style="width:160px">-->
+                        <!--<col style="width:auto">-->
+                        <!--<col style="width:110px">-->
+                        <col style="width:300px">
+                        <col style="width:auto">
+                        <col style="width:auto">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th scope="col">변수명</th>
+                            <!--<th scope="col">타입</th>-->
+                            <!--<th scope="col">필수 여부</th>-->
+                            <!--<th scope="col">변수 크기</th>-->
+                            <th scope="col">변수 설명</th>
+                            <th scope="col">값 설명</th>
+                            <th scope="col">샘플데이터</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                             <tr>
+                                <td>a18OverDistNum23h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9,2</td>-->
+                                <td>용량초과_운행거리_23시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18FcntNum01h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td></td>-->
+                                <td>운행횟수_1시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>max_a18Num08h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>최대_재차인원_수_08시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>max_a18Num09h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>최대_재차인원_수_09시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>max_a18Num10h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>최대_재차인원_수_10시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>max_a18Num11h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>최대_재차인원_수_11시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>max_a18Num12h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>최대_재차인원_수_12시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>max_a18Num13h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>최대_재차인원_수_13시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>max_a18Num14h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>최대_재차인원_수_14시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>max_a18Num15h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>최대_재차인원_수_15시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>max_a18Num16h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>최대_재차인원_수_16시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18OverDistNum00h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9,2</td>-->
+                                <td>용량초과_운행거리_0시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18OverDistNum01h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9,2</td>-->
+                                <td>용량초과_운행거리_1시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18OverDistNum02h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9,2</td>-->
+                                <td>용량초과_운행거리_2시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18OverDistNum03h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9,2</td>-->
+                                <td>용량초과_운행거리_3시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18OverDistNum07h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9,2</td>-->
+                                <td>용량초과_운행거리_7시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18OverDistNum08h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9,2</td>-->
+                                <td>용량초과_운행거리_8시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18OverDistNum09h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9,2</td>-->
+                                <td>용량초과_운행거리_9시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18OverDistNum10h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9,2</td>-->
+                                <td>용량초과_운행거리_10시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18OverDistNum11h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9,2</td>-->
+                                <td>용량초과_운행거리_11시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18OverDistNum12h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9,2</td>-->
+                                <td>용량초과_운행거리_12시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18OverDistNum13h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9,2</td>-->
+                                <td>용량초과_운행거리_13시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18OverDistNum14h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9,2</td>-->
+                                <td>용량초과_운행거리_14시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18OverDistNum15h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9,2</td>-->
+                                <td>용량초과_운행거리_15시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18OverDistNum16h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9,2</td>-->
+                                <td>용량초과_운행거리_16시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18OverDistNum17h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9,2</td>-->
+                                <td>용량초과_운행거리_17시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18OverDistNum18h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9,2</td>-->
+                                <td>용량초과_운행거리_18시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18OverDistNum19h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9,2</td>-->
+                                <td>용량초과_운행거리_19시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18OverDistNum20h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9,2</td>-->
+                                <td>용량초과_운행거리_20시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18OverDistNum21h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9,2</td>-->
+                                <td>용량초과_운행거리_21시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18OverDistNum22h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9,2</td>-->
+                                <td>용량초과_운행거리_22시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18FcntNum18h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td></td>-->
+                                <td>운행횟수_18시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18FcntNum19h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td></td>-->
+                                <td>운행횟수_19시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18FcntNum20h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td></td>-->
+                                <td>운행횟수_20시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18FcntNum21h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td></td>-->
+                                <td>운행횟수_21시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18FcntNum22h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td></td>-->
+                                <td>운행횟수_22시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18FcntNum23h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td></td>-->
+                                <td>운행횟수_23시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18SumLoadPsngNum00h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td></td>-->
+                                <td>재차인원합_0시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18SumLoadPsngNum01h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td></td>-->
+                                <td>재차인원합_1시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18SumLoadPsngNum02h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td></td>-->
+                                <td>재차인원합_2시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18SumLoadPsngNum03h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td></td>-->
+                                <td>재차인원합_3시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18SumLoadPsngNum04h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td></td>-->
+                                <td>재차인원합_4시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18SumLoadPsngNum05h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td></td>-->
+                                <td>재차인원합_5시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18SumLoadPsngNum06h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td></td>-->
+                                <td>재차인원합_6시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18SumLoadPsngNum07h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td></td>-->
+                                <td>재차인원합_7시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18SumLoadPsngNum08h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td></td>-->
+                                <td>재차인원합_8시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18SumLoadPsngNum09h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td></td>-->
+                                <td>재차인원합_9시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18SumLoadPsngNum10h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td></td>-->
+                                <td>재차인원합_10시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18SumLoadPsngNum11h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td></td>-->
+                                <td>재차인원합_11시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18SumLoadPsngNum12h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td></td>-->
+                                <td>재차인원합_12시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18SumLoadPsngNum13h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td></td>-->
+                                <td>재차인원합_13시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18SumLoadPsngNum14h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td></td>-->
+                                <td>재차인원합_14시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18SumLoadPsngNum15h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td></td>-->
+                                <td>재차인원합_15시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18SumLoadPsngNum16h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td></td>-->
+                                <td>재차인원합_16시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18SumLoadPsngNum17h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td></td>-->
+                                <td>재차인원합_17시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18SumLoadPsngNum18h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td></td>-->
+                                <td>재차인원합_18시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18SumLoadPsngNum19h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td></td>-->
+                                <td>재차인원합_19시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18OverDistNum06h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9,2</td>-->
+                                <td>용량초과_운행거리_6시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18Fcnt</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td></td>-->
+                                <td>운행횟수_일</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18OverCntNum17h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>용량초과_운행횟수_17시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18OverCntNum18h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>용량초과_운행횟수_18시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18OverCntNum19h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>용량초과_운행횟수_19시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18OverCntNum20h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>용량초과_운행횟수_20시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18OverCntNum21h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>용량초과_운행횟수_21시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18OverCntNum22h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>용량초과_운행횟수_22시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18OverCntNum23h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>용량초과_운행횟수_23시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18SumLoadPsng</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td></td>-->
+                                <td>재차인원합_일</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18OverDist</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>용량초과_운행거리_일</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18FcntNum02h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td></td>-->
+                                <td>운행횟수_2시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18FcntNum03h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td></td>-->
+                                <td>운행횟수_3시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18FcntNum04h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td></td>-->
+                                <td>운행횟수_4시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18FcntNum05h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td></td>-->
+                                <td>운행횟수_5시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18FcntNum06h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td></td>-->
+                                <td>운행횟수_6시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18FcntNum07h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td></td>-->
+                                <td>운행횟수_7시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18FcntNum08h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td></td>-->
+                                <td>운행횟수_8시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18FcntNum09h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td></td>-->
+                                <td>운행횟수_9시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18FcntNum10h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td></td>-->
+                                <td>운행횟수_10시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18FcntNum11h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td></td>-->
+                                <td>운행횟수_11시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18FcntNum12h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td></td>-->
+                                <td>운행횟수_12시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18FcntNum13h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td></td>-->
+                                <td>운행횟수_13시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18FcntNum14h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td></td>-->
+                                <td>운행횟수_14시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18FcntNum15h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td></td>-->
+                                <td>운행횟수_15시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18FcntNum16h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td></td>-->
+                                <td>운행횟수_16시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18FcntNum17h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td></td>-->
+                                <td>운행횟수_17시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18OverCntNum10h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>용량초과_운행횟수_10시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18OverCntNum11h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>용량초과_운행횟수_11시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18OverCntNum12h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>용량초과_운행횟수_12시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18OverCntNum13h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>용량초과_운행횟수_13시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18OverCntNum14h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>용량초과_운행횟수_14시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18OverCntNum15h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>용량초과_운행횟수_15시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18OverCntNum16h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>용량초과_운행횟수_16시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18OverDistNum04h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9,2</td>-->
+                                <td>용량초과_운행거리_4시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18OverDistNum05h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9,2</td>-->
+                                <td>용량초과_운행거리_5시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18SumLoadPsngNum20h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td></td>-->
+                                <td>재차인원합_20시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18SumLoadPsngNum21h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td></td>-->
+                                <td>재차인원합_21시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18SumLoadPsngNum22h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td></td>-->
+                                <td>재차인원합_22시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>max_a18Num17h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>최대_재차인원_수_17시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>max_a18Num18h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>최대_재차인원_수_18시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>max_a18Num19h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>최대_재차인원_수_19시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>max_a18Num20h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>최대_재차인원_수_20시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>max_a18Num21h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>최대_재차인원_수_21시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>max_a18Num22h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>최대_재차인원_수_22시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>max_a18Num23h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>최대_재차인원_수_23시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18_over_cnt</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>용량초과_운행횟수_일</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18Num02h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>7,2</td>-->
+                                <td>평균재차인원_2시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18Num03h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>7,2</td>-->
+                                <td>평균재차인원_3시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18Num04h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>7,2</td>-->
+                                <td>평균재차인원_4시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18Num05h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>7,2</td>-->
+                                <td>평균재차인원_5시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18Num06h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>7,2</td>-->
+                                <td>평균재차인원_6시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18Num07h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>7,2</td>-->
+                                <td>평균재차인원_7시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18Num08h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>7,2</td>-->
+                                <td>평균재차인원_8시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18Num09h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>7,2</td>-->
+                                <td>평균재차인원_9시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18Num10h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>7,2</td>-->
+                                <td>평균재차인원_10시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18Num11h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>7,2</td>-->
+                                <td>평균재차인원_11시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18Num12h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>7,2</td>-->
+                                <td>평균재차인원_12시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>stdr_de</td>
+                                <!--<td>VARCHAR2</td>-->
+                                <!--<td></td>-->
+                                <!--<td>8</td>-->
+                                <td>기준_날짜</td>
+                                <td class="tal"></td>
+                                <td class="tal">20211021</td>
+                            </tr>
+                        
+                             <tr>
+                                <td>route_id</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>노선_ID</td>
+                                <td class="tal"></td>
+                                <td class="tal">100100001</td>
+                            </tr>
+                        
+                             <tr>
+                                <td>from_sta_id</td>
+                                <!--<td>VARCHAR2</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>출발_정류장_ID</td>
+                                <td class="tal"></td>
+                                <td class="tal">101000053</td>
+                            </tr>
+                        
+                             <tr>
+                                <td>to_sta_id</td>
+                                <!--<td>VARCHAR2</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>TO_정류장_ID</td>
+                                <td class="tal"></td>
+                                <td class="tal">101000054</td>
+                            </tr>
+                        
+                             <tr>
+                                <td>sta_sn</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>정류장_순서</td>
+                                <td class="tal"></td>
+                                <td class="tal">2</td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>7,2</td>-->
+                                <td>평균재차인원_일</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18Num00h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>7,2</td>-->
+                                <td>평균재차인원_0시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18Num01h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>7,2</td>-->
+                                <td>평균재차인원_1시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18Num13h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>7,2</td>-->
+                                <td>평균재차인원_13시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18Num14h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>7,2</td>-->
+                                <td>평균재차인원_14시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18Num15h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>7,2</td>-->
+                                <td>평균재차인원_15시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18Num16h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>7,2</td>-->
+                                <td>평균재차인원_16시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18Num17h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>7,2</td>-->
+                                <td>평균재차인원_17시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18Num18h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>7,2</td>-->
+                                <td>평균재차인원_18시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>max_a18Num01h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>최대_재차인원_수_01시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>max_a18Num02h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>최대_재차인원_수_02시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>max_a18Num03h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>최대_재차인원_수_03시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>max_a18Num04h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>최대_재차인원_수_04시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>max_a18Num05h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>최대_재차인원_수_05시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>max_a18Num06h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>최대_재차인원_수_06시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>max_a18Num07h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>최대_재차인원_수_07시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18OverCntNum00h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>용량초과_운행횟수_0시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18OverCntNum01h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>용량초과_운행횟수_1시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18OverCntNum02h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>용량초과_운행횟수_2시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18OverCntNum03h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>용량초과_운행횟수_3시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18OverCntNum04h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>용량초과_운행횟수_4시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18OverCntNum05h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>용량초과_운행횟수_5시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18OverCntNum06h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>용량초과_운행횟수_6시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18OverCntNum07h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>용량초과_운행횟수_7시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18OverCntNum08h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>용량초과_운행횟수_8시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18OverCntNum09h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>용량초과_운행횟수_9시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18Num19h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>7,2</td>-->
+                                <td>평균재차인원_19시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18Num20h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>7,2</td>-->
+                                <td>평균재차인원_20시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18Num21h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>7,2</td>-->
+                                <td>평균재차인원_21시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18Num22h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>7,2</td>-->
+                                <td>평균재차인원_22시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18Num23h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>7,2</td>-->
+                                <td>평균재차인원_23시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>max_a18</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>최대_재차인원</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>max_a18Num00h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td>9</td>-->
+                                <td>최대_재차인원_수_00시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18FcntNum00h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td></td>-->
+                                <td>운행횟수_0시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                             <tr>
+                                <td>a18SumLoadPsngNum23h</td>
+                                <!--<td>NUMBER</td>-->
+                                <!--<td></td>-->
+                                <!--<td></td>-->
+                                <td>재차인원합_23시</td>
+                                <td class="tal"></td>
+                                <td class="tal"></td>
+                            </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+            <div role="tablist" title="Sample 설명 탭" class="main_tab_list tab_btn_list m-b-32">
+                <button type="button" id="Sample" tabindex="0"
+                class="search_tab_category trans tab_btn tabid_sample_tabPanel tabEventTrue on" title="샘플 URL 선택됨">
+                    샘플 URL
+                </button>
+                <button type="button" id="Message" tabindex="0"
+                class="search_tab_category trans tab_btn tabid_message_tabPanel tabEventFalse" title="메시지 설명 선택안됨">
+                    메시지 설명
+                </button>
+            </div>
+            <div id="sample_tabPanel" class="tabpanel">
+                <table class="horizontal_table">
+                    <caption class="hidden_tag">서울시 OPEN API 샘플URL</caption>
+                    <thead class="thead_hidden">
+                        <tr>
+                            <th scope="col">구분</th>
+                            <th scope="col">내용</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row" class="sample_table_th">샘플URL</th>
+                            <td>http://t-data.seoul.go.kr/apig/apiman-gateway/tapi/TaimsTpssA18RouteSection/1.0</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="sample_table_th">샘플 미리보기</th>
+                            <td>
+                                &quot;  {
+    &quot;routeId&quot;: &quot;100100018&quot;,
+    &quot;stdrDe&quot;: &quot;20211217&quot;,
+    &quot;fromStaId&quot;: &quot;104000003&quot;,
+    &quot;toStaId&quot;: &quot;104000001&quot;,
+    &quot;staSn&quot;: &quot;55&quot;,
+    &quot;a18&quot;: null,
+    &quot;a18Num00h&quot;: null,
+    &quot;a18Num01h&quot;: null,
+    &quot;a18Num02h&quot;: null,
+    &quot;a18Num03h&quot;: null,
+    &quot;a18Num04h&quot;: null,
+    &quot;a18Num05h&quot;: null,
+    &quot;a18Num06h&quot;: null,
+    &quot;a18Num07h&quot;: null,
+    &quot;a18Num08h&quot;: null,
+    &quot;a18Num09h&quot;: null,
+    &quot;a18Num10h&quot;: null,
+    &quot;a18Num11h&quot;: null,
+    &quot;a18Num12h&quot;: null,
+    &quot;a18Num13h&quot;: null,
+    &quot;a18Num14h&quot;: null,
+    &quot;a18Num15h&quot;: null,
+    &quot;a18Num16h&quot;: null,
+    &quot;a18Num17h&quot;: null,
+    &quot;a18Num18h&quot;: null,
+    &quot;a18Num19h&quot;: null,
+    &quot;a18Num20h&quot;: null,
+    &quot;a18Num21h&quot;: null,
+    &quot;a18Num22h&quot;: null,
+    &quot;a18Num23h&quot;: null,
+    &quot;maxA18&quot;: null,
+    &quot;maxA18Num00h&quot;: null,
+    &quot;maxA18Num01h&quot;: null,
+    &quot;maxA18Num02h&quot;: null,
+    &quot;maxA18Num03h&quot;: null,
+    &quot;maxA18Num04h&quot;: null,
+    &quot;maxA18Num05h&quot;: null,
+    &quot;maxA18Num06h&quot;: null,
+    &quot;maxA18Num07h&quot;: null,
+    &quot;maxA18Num08h&quot;: null,
+    &quot;maxA18Num09h&quot;: null,
+    &quot;maxA18Num10h&quot;: null,
+    &quot;maxA18Num11h&quot;: null,
+    &quot;maxA18Num12h&quot;: null,
+    &quot;maxA18Num13h&quot;: null,
+    &quot;maxA18Num14h&quot;: null,
+    &quot;maxA18Num15h&quot;: null,
+    &quot;maxA18Num16h&quot;: null,
+    &quot;maxA18Num17h&quot;: null,
+    &quot;maxA18Num18h&quot;: null,
+    &quot;maxA18Num19h&quot;: null,
+    &quot;maxA18Num20h&quot;: null,
+    &quot;maxA18Num21h&quot;: null,
+    &quot;maxA18Num22h&quot;: null,
+    &quot;maxA18Num23h&quot;: null,
+    &quot;a18OverCnt&quot;: null,
+    &quot;a18OverCntNum00h&quot;: null,
+    &quot;a18OverCntNum01h&quot;: null,
+    &quot;a18OverCntNum02h&quot;: null,
+    &quot;a18OverCntNum03h&quot;: null,
+    &quot;a18OverCntNum04h&quot;: null,
+    &quot;a18OverCntNum05h&quot;: null,
+    &quot;a18OverCntNum06h&quot;: null,
+    &quot;a18OverCntNum07h&quot;: null,
+    &quot;a18OverCntNum08h&quot;: null,
+    &quot;a18OverCntNum09h&quot;: null,
+    &quot;a18OverCntNum10h&quot;: null,
+    &quot;a18OverCntNum11h&quot;: null,
+    &quot;a18OverCntNum12h&quot;: null,
+    &quot;a18OverCntNum13h&quot;: null,
+    &quot;a18OverCntNum14h&quot;: null,
+    &quot;a18OverCntNum15h&quot;: null,
+    &quot;a18OverCntNum16h&quot;: null,
+    &quot;a18OverCntNum17h&quot;: null,
+    &quot;a18OverCntNum18h&quot;: null,
+    &quot;a18OverCntNum19h&quot;: null,
+    &quot;a18OverCntNum20h&quot;: null,
+    &quot;a18OverCntNum21h&quot;: null,
+    &quot;a18OverCntNum22h&quot;: null,
+    &quot;a18OverCntNum23h&quot;: null,
+    &quot;a18OverDist&quot;: null,
+    &quot;a18OverDistNum00h&quot;: null,
+    &quot;a18OverDistNum01h&quot;: null,
+    &quot;a18OverDistNum02h&quot;: null,
+    &quot;a18OverDistNum03h&quot;: null,
+    &quot;a18OverDistNum04h&quot;: null,
+    &quot;a18OverDistNum05h&quot;: null,
+    &quot;a18OverDistNum06h&quot;: null,
+    &quot;a18OverDistNum07h&quot;: null,
+    &quot;a18OverDistNum08h&quot;: null,
+    &quot;a18OverDistNum09h&quot;: null,
+    &quot;a18OverDistNum10h&quot;: null,
+    &quot;a18OverDistNum11h&quot;: null,
+    &quot;a18OverDistNum12h&quot;: null,
+    &quot;a18OverDistNum13h&quot;: null,
+    &quot;a18OverDistNum14h&quot;: null,
+    &quot;a18OverDistNum15h&quot;: null,
+    &quot;a18OverDistNum16h&quot;: null,
+    &quot;a18OverDistNum17h&quot;: null,
+    &quot;a18OverDistNum18h&quot;: null,
+    &quot;a18OverDistNum19h&quot;: null,
+    &quot;a18OverDistNum20h&quot;: null,
+    &quot;a18OverDistNum21h&quot;: null,
+    &quot;a18OverDistNum22h&quot;: null,
+    &quot;a18OverDistNum23h&quot;: null,
+    &quot;a18Fcnt&quot;: null,
+    &quot;a18FcntNum00h&quot;: null,
+    &quot;a18FcntNum01h&quot;: null,
+    &quot;a18FcntNum02h&quot;: null,
+    &quot;a18FcntNum03h&quot;: null,
+    &quot;a18FcntNum04h&quot;: null,
+    &quot;a18FcntNum05h&quot;: null,
+    &quot;a18FcntNum06h&quot;: null,
+    &quot;a18FcntNum07h&quot;: null,
+    &quot;a18FcntNum08h&quot;: null,
+    &quot;a18FcntNum09h&quot;: null,
+    &quot;a18FcntNum10h&quot;: null,
+    &quot;a18FcntNum11h&quot;: null,
+    &quot;a18FcntNum12h&quot;: null,
+    &quot;a18FcntNum13h&quot;: null,
+    &quot;a18FcntNum14h&quot;: null,
+    &quot;a18FcntNum15h&quot;: null,
+    &quot;a18FcntNum16h&quot;: null,
+    &quot;a18FcntNum17h&quot;: null,
+    &quot;a18FcntNum18h&quot;: null,
+    &quot;a18FcntNum19h&quot;: null,
+    &quot;a18FcntNum20h&quot;: null,
+    &quot;a18FcntNum21h&quot;: null,
+    &quot;a18FcntNum22h&quot;: null,
+    &quot;a18FcntNum23h&quot;: null,
+    &quot;a18SumLoadPsng&quot;: &quot;3019&quot;,
+    &quot;a18SumLoadPsngNum00h&quot;: null,
+    &quot;a18SumLoadPsngNum01h&quot;: null,
+    &quot;a18SumLoadPsngNum02h&quot;: null,
+    &quot;a18SumLoadPsngNum03h&quot;: null,
+    &quot;a18SumLoadPsngNum04h&quot;: &quot;94&quot;,
+    &quot;a18SumLoadPsngNum05h&quot;: &quot;178&quot;,
+    &quot;a18SumLoadPsngNum06h&quot;: &quot;333&quot;,
+    &quot;a18SumLoadPsngNum07h&quot;: &quot;165&quot;,
+    &quot;a18SumLoadPsngNum08h&quot;: &quot;120&quot;,
+    &quot;a18SumLoadPsngNum09h&quot;: &quot;132&quot;,
+    &quot;a18SumLoadPsngNum10h&quot;: &quot;170&quot;,
+    &quot;a18SumLoadPsngNum11h&quot;: &quot;142&quot;,
+    &quot;a18SumLoadPsngNum12h&quot;: &quot;123&quot;,
+    &quot;a18SumLoadPsngNum13h&quot;: &quot;135&quot;,
+    &quot;a18SumLoadPsngNum14h&quot;: &quot;162&quot;,
+    &quot;a18SumLoadPsngNum15h&quot;: &quot;238&quot;,
+    &quot;a18SumLoadPsngNum16h&quot;: &quot;248&quot;,
+    &quot;a18SumLoadPsngNum17h&quot;: &quot;104&quot;,
+    &quot;a18SumLoadPsngNum18h&quot;: &quot;137&quot;,
+    &quot;a18SumLoadPsngNum19h&quot;: &quot;133&quot;,
+    &quot;a18SumLoadPsngNum20h&quot;: &quot;179&quot;,
+    &quot;a18SumLoadPsngNum21h&quot;: &quot;109&quot;,
+    &quot;a18SumLoadPsngNum22h&quot;: &quot;117&quot;,
+    &quot;a18SumLoadPsngNum23h&quot;: null
+  }&quot;
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="message_tabPanel" class="tabpanel" hidden>
+                
+            </div>
+        </div>
+    </section>
+    <button type="button" class="btn_historyback btn_line_gray large" onclick="window.location.href='/dataprovide/trafficdatalist.do'" title="목록으로 이동">
+        목록으로
+    </button>
+
+
+				    
+				
+                
+                
+                
+                
+            </div>
+        </main>
+
+        
+
+
+
+	<footer class="footer">
+		<div class="row_box footer_box">
+			<a href="/" title="메인화면 바로가기" class="footer_logo">
+				<img src="/assets/images/footer_logo.svg" alt="T Data 서울교통빅데이터플랫폼" />
+			</a>
+			<article class="footer_text">
+				<ul class="footer_pagelist">
+					<li>
+						<a href="/userguide/tdataintroduce.do" class="footer_sitemap" title="T-DATA 소개 바로가기">T-DATA 소개</a>
+					</li>
+					<li>
+						<!--<a href="https://www.seoul.go.kr/helper/privacy.do?type=www" target="_blank" rel="dns-prefetch" class="footer_sitemap" title="서울시 개인정보처리방침 새창열기">개인정보처리방침</a>-->
+						<a href="/userguide/personalInfo.do" class="footer_sitemap" title="개인정보처리방침">개인정보처리방침</a>
+					</li>
+					
+					<li>
+						<a href="https://www.seoul.go.kr/helper/email.do" target="_blank" rel="dns-prefetch" class="footer_sitemap" title="서울시 이메일무단수집거부 새창열기">이메일무단수집거부</a>
+					</li>
+					<!--<li>
+						<a href="https://www.seoul.go.kr/homepageCorrect/user/hpCorrect.do" target="_blank" rel="dns-prefetch" class="footer_sitemap" title="서울시 누리집바로잡기 새창열기">홈페이지바로잡기</a>
+					</li>-->
+				</ul>
+				<address title="주소" class="footer_address fc_black60">서울특별시청 04524 서울특별시 중구 세종대로 110</address>
+				<p title="Copyright" class="fc_black60 lh_1">COPYRIGHT ©서울시청 ALL RIGHTS RESERVED</p>
+			</article>
+			<div class="m-l-a" style="display: flex;float: left;">
+				<div>
+					<!-- 기존소스
+					<iframe id='fe709c65' name='fe709c65' width='376' height='129' style='border:none' title="서울시에서 제공하는 유용한 생활정보 홍보물 이미지, 클릭 시 해당 내용으로 이동함">
+						<a href='https://delivery.dighty.com/www/delivery/ck.php?n=fe709c65&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank' rel='noopener noreferrer'><img src='https://delivery.dighty.com/www/delivery/avw.php?zoneid=1131&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=fe709c65' alt='' /></a>
+					</iframe>
+					-->
+					<!--변경_20260312 **20261027 php문제로 주석처리 요청 -->
+					<iframe id='fe709c65' name='fe709c65' width='376' height='129' style='border:none; overflow:hidden;' scrolling='no' title="서울시에서 제공하는 유용한 생활정보 홍보물 이미지, 클릭 시 해당 내용으로 이동함" src="/assets/images/test_footer_image.png">
+					</iframe>
+					
+					<!--기존_20260312-->
+					<!--<div id="delivery_container" style="width:376px; height:129px; border:none;" title="서울시에서 제공하는 유용한 생활정보 홍보물 이미지, 클릭 시 해당 내용으로 이동함">
+						<img src="/assets/images/test_footer_image.png" alt="서울시홍보물이미지" />
+					</div>-->
+				</div>
+				<div style="padding-left: 20px;">
+					<!-- 접근성 인증마크 들어갈자리 -->
+					<a title="새창" href="https://www.wa.or.kr/board/list.asp?search=total&SearchString=%BC%AD%BF%EF%B1%B3%C5%EB%BA%F2%B5%A5%C0%CC%C5%CD%C7%C3%B7%A7%C6%FB&BoardID=0006" target="_blank">
+						<img class="wa" alt="(사)한국장애인단체총연합회 한국웹접근성인증평가원 웹 접근성 우수사이트 인증마크(WA인증마크)" src="/assets/images/wa_mark.png" width="80" height="48" />
+					</a>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!--  **20261027 php문제로 주석처리 요청 -->
+	<script type='text/javascript'>
+		//var iframeUrl = 'https://www.seoul.go.kr/main/index.jsp';
+		//var iframeUrl = 'https://delivery.dighty.com/www/delivery/afr.php?zoneid=1131&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=fe709c65';
+		var iframeUrl = 'https://delivery.acecounter.com/delivery/www/delivery/afr.php?zoneid=1131&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=fe709c65';
+				
+		window.addEventListener('DOMContentLoaded', function() {
+			var m3_b = ''; 
+			if(document.cookie.indexOf('ACEUACS=')>-1){
+				var m3_b=document.cookie.substr(document.cookie.indexOf('ACEUACS=') + 8, 19);
+				iframeUrl = 'https://delivery.acecounter.com/delivery/www/delivery/afr.php?zoneid=1131&bd='+m3_b+'&cb=INSERT_RANDOM_NUMBER_HERE';
+			}
+			
+			//변경_20260312
+			document.getElementById('fe709c65').src=iframeUrl;
+			//document.getElementById('fe709c65').src=iframeUrl;
+			
+			//기존_20260312
+			/*fetch('https://delivery.dighty.com/www/delivery/afr.php?zoneid=1131&bd='+m3_b+'&cb=INSERT_RANDOM_NUMBER_HERE')
+				.then(response => response.text())
+				.then(html => {
+				document.getElementById('delivery_container').innerHTML = html;
+				console.log("html: ", html);
+			});
+			*/
+		});
+		
+	</script>
+	
+        
+
+
+
+	<div class="fab_box">
+		<button class="btn_teritary btn_gotop" type="button" title="위로 가기">
+			<img src="/assets/images/go_to_top.svg" alt="위로 가기" />
+		</button>
+	</div>
+
+<script type="text/javascript" src="//weblog.eseoul.go.kr/wlo/js/install.js" rel="preconnect"></script>
+<script>
+	document.addEventListener("DOMContentLoaded", function(){
+     //go top
+     const goTop = document.querySelector('.btn_gotop');
+     goTop.addEventListener('click', function(){
+         window.scrollTo({
+             top:0, behavior:'smooth'
+         });
+		 //#menu_skip a.first().focus();
+		 const first = document.querySelector('#menu_skip a');
+		 console.log("first: ", first);
+		 if (first) first.focus();
+     });
+ })
+
+</script>
+
+    </div>
+
+    <script type="text/javascript" src="/assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/js/common.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+            //tab
+            tabsEvent();
+            //타이틀 동적으로 등록
+            chageLoadPageTitle("Open API 상세정보")
+        })
+		
+		function callTest() {
+			window.alert("callTest.");
+			document.getElementById("callTest").submit();
+		}
+
+        function user_req(){
+            if(false){
+                window.alert("이미 활용신청이 완료된 데이터입니다.");
+            }else{
+                location.href='/dataprovide/trafficdatarequestapi.do?data_id=1025&id=';
+            }
+        }
+
+         function user_login(){
+            if (window.confirm("로그인 후에 이용가능합니다.")) {
+                window.location.href="/sso/login.do";
+                //location.href='/dataprovide/trafficdatarequestapi.do?data_id=1025&id=';
+            }
+			//location.href='/dataprovide/trafficdatarequestapi.do?data_id=1025&id=';
+        }
+         
+         function insert_board(){
+        	 var userId = '';
+        	 
+        	 if('' === userId) {
+        		 user_login();
+        		 return;
+        	 }
+        	 
+        	 var contents = $('#contents').val();
+        	 if('' === contents) return;
+        	 
+        	 var checkbox = document.getElementById('notice_checkbox');
+        	 
+        	 var formData = new FormData();
+        	 var fileInput = $('#insert_board_file')[0] != undefined ? $('#insert_board_file')[0].files[0] : null;
+        	 
+        	 formData.append("file", fileInput); // 파일 추가        	 
+       	     formData.append("contents", contents);
+       	     formData.append("data_id", "1025");
+       	  	 formData.append("notice_at", checkbox == null ? "N" : checkbox.checked ? "Y" : "N");
+       	  	 
+        	 $.ajax({
+       			url :"/dataprovide/insert_board.do"
+       	        ,type: "POST"
+       	        //,contentType: "application/x-www-form-urlencoded"
+       	        //,data : {"data_id": "1025", "contents": contents, "notice_at": checkbox.checked ? "Y" : "N"}
+       	        ,data : formData
+       	     	,processData: false // jQuery가 데이터를 처리하지 않도록 설정
+             	,contentType: false // 기본 콘텐츠 타입을 사용하지 않도록 설정
+       	        ,dataType: 'json'  	   
+       	        ,success : function(response){
+       	        	console.log("success");
+       	        	console.log(response);
+       	        	const data = JSON.parse(response);
+       	        	console.log(data.redirectUrl);
+       	        	if (data.redirectUrl) {
+       	            	window.location.href = data.redirectUrl; // 리다이렉트
+       	         	}
+       			}
+       		    ,error: function(){
+       		    	console.log("error");
+       		    }
+       		});
+         }
+         
+      
+    </script>
+</body>
+</html>

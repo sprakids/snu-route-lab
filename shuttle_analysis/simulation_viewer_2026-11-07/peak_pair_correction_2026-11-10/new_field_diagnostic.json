@@ -1,0 +1,77 @@
+{
+  "observation_id": "20261110-1523-admin-snu-queue-wait-01",
+  "status": "DIAGNOSTIC_NOT_INDEPENDENT_ACCURACY",
+  "outside_queue_including_observer": 67,
+  "people_ahead": 66,
+  "join_minute": "15:23",
+  "reported_pure_queue_wait_seconds": 189,
+  "reported_join_to_departure_seconds": 219,
+  "same_batch_second_vehicle": true,
+  "vehicle_arrival_time": "after joining; maybe after15:24 is uncertain recollection, not exact or strict lower bound",
+  "one_observation_not_two_photos_or67_individual_wait_samples": true,
+  "coefficient_tuning_performed": false,
+  "single_event_model_cannot_match_arrival_boarding_departure_separately": true,
+  "do_not_infer_denials_or_headway_from67_div44": true,
+  "queue_minute_comparison": [
+    {
+      "model": "v9_60_single",
+      "scenario": "regular",
+      "uniform_minute_mean": 83.11150901555001,
+      "minute_range": [
+        66.378361,
+        98.005808
+      ],
+      "expected_absolute_count_error": 16.111695507249987
+    },
+    {
+      "model": "v9_60_single",
+      "scenario": "peak",
+      "uniform_minute_mean": 84.81140010613329,
+      "minute_range": [
+        63.703775,
+        101.615564
+      ],
+      "expected_absolute_count_error": 17.901622762533126
+    },
+    {
+      "model": "capacity44_single",
+      "scenario": "regular",
+      "uniform_minute_mean": 81.12929202739988,
+      "minute_range": [
+        66.378361,
+        92.226458
+      ],
+      "expected_absolute_count_error": 14.129478519099846
+    },
+    {
+      "model": "capacity44_single",
+      "scenario": "peak",
+      "uniform_minute_mean": 84.5946610988332,
+      "minute_range": [
+        63.703775,
+        99.146715
+      ],
+      "expected_absolute_count_error": 17.684883755233027
+    },
+    {
+      "model": "capacity44_pair",
+      "scenario": "regular",
+      "uniform_minute_mean": 89.43304130823327,
+      "minute_range": [
+        66.378361,
+        108.292677
+      ],
+      "expected_absolute_count_error": 22.43322779993323
+    },
+    {
+      "model": "capacity44_pair",
+      "scenario": "peak",
+      "uniform_minute_mean": 86.89250389563327,
+      "minute_range": [
+        63.703775,
+        106.141786
+      ],
+      "expected_absolute_count_error": 19.982726552033107
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "schema": "crowd_grade_calibration_plan_v1",
+  "created_date_kst": "2026-11-09",
+  "status": "planned_requires_count_anchors",
+  "requested_analysis": "crowd_grade_to_onboard_people_and_remaining_capacity",
+  "plan_document": "../../../research/혼잡등급_인원대응_추후분석계획.md",
+  "api_field": "congetion",
+  "api_codes": {"0": "없음", "3": "여유", "4": "보통", "5": "혼잡", "6": "매우혼잡"},
+  "grade_zero_is_missing_not_empty": true,
+  "current_numeric_thresholds_verified": false,
+  "current_numeric_thresholds": null,
+  "person_conversion_enabled_by_this_plan": false,
+  "ordinal_records_alone_identify_people": false,
+  "independent_count_anchors_required_for_empirical_person_calibration": true,
+  "required_join_dimensions": ["vehicle", "route", "run", "direction", "stop_sequence", "provider_observation_time", "boarding_stage"],
+  "required_additional_evidence": ["current_official_criteria_and_effective_date", "matched_onboard_count_with_source_and_error", "actual_vehicle_class_seats_and_registered_capacity", "grade_update_lag", "alighting_and_boarding_when_available"],
+  "validation": {
+    "existing_date_partition_days": {"calibration": 14, "selection": 7, "final_validation": 7},
+    "elapsed_days_alone_sufficient": false,
+    "same_date_train_test_overlap_allowed": false,
+    "weekday_evening_route_direction_vehicle_coverage_required": true,
+    "model_generated_counts_are_independent_ground_truth": false,
+    "waiting_time_validation_requires_separate_queue_and_boarding_observations": true
+  },
+  "capacity_rules": {
+    "use_same_vehicle_shared_capacity": true,
+    "use_total_onboard_after_alighting": true,
+    "do_not_double_add_modeled_campus_onboard_to_observed_total": true,
+    "default_terminal_all_alight": false,
+    "full_flag_equals_denied_boarding": false,
+    "external_boarding_implies_nonstudent": false
+  },
+  "source_register": [
+    {"id": "seoul_bus_position_api", "url": "https://www.data.go.kr/data/15000332/openapi.do", "role": "official_code_labels_no_current_numeric_threshold_verified"},
+    {"id": "seoul_qualitative_20231027", "url": "https://news.seoul.go.kr/traffic/archives/508221?listPage=1", "role": "qualitative_BIT_three_grade_explanation"},
+    {"id": "kakaomap_20180130", "url": "https://kakaomap.tistory.com/160", "role": "historical_only", "historical_people_intervals": {"여유": {"upper_inclusive": 25}, "보통": {"lower_inclusive": 26, "upper_inclusive": 44}, "혼잡": {"lower_inclusive": 45}}},
+    {"id": "seoul_20200511", "url": "https://mediahub.seoul.go.kr/archives/1280193", "role": "historical_45_and_planned_around_35_not_current_or_completed_change"}
+  ],
+  "scope_of_this_update": "documentation_and_future_analysis_registration_only"
+}

@@ -1,0 +1,99 @@
+"""Write the Korean review from completed fixed-case outputs, with unresolved limits."""
+from pathlib import Path
+import argparse,csv,hashlib,json
+ROOT=Path(__file__).resolve().parent;ANALYSIS=ROOT.parent;PARENT=ANALYSIS/'261112111627'
+def read(p):return json.loads(p.read_bytes())
+def number(value):return f'{float(value):.2f}'
+def main():
+    parser=argparse.ArgumentParser();parser.add_argument('candidate');args=parser.parse_args();work=Path(args.candidate).resolve()
+    target=work/'RESULTS_FINAL.md';assert not target.exists()
+    d=read(work/'grid-diagnostics.json');v=read(work/'grid-validation.json');baseline=read(PARENT/'validation_reference_corrected.json')
+    fields=list(csv.DictReader((work/'grid-field-comparison.csv').open(encoding='utf-8-sig')))
+    old_by_case={(r['case']['day'],r['case']['scenario']):r for r in baseline['results']}
+    def q(row,key):return row['all_recorded_diagnostics']['finished_trip_quantiles'][key]
+    passed=d['all_continuous_waits_under20'] and d['unserved_trip_weight']<1e-7
+    lines=[f'# V12 이론 검토와 수정 후보 {work.name}', '',
+      f"상태: **{'내부 10조건 검증 통과' if passed else '추가 수정 필요'} / 현장 정확도 미검증 / 운영 승격 안 함**",'',
+      '운영은 V11 `261110162302` 그대로입니다. 이 보고서는 비운영 V12 `261112111627`을 고친 후보의 결과입니다. 수치는 수업·목적지 시나리오의 가중 모의 여정이며, 실측 학생의 실제 귀가시간이 아닙니다.', '',
+      '## 원인과 수정', '',
+      '1. **정류장 이동에 따른 불편 초기화 유인:** V12는 과거 시간을 삭제하지 않았지만, 새 줄로 옮기면 비선형 대기 부담을 크게 낮추었습니다. 같은 20분을 한곳에서 기다릴 때와 10분씩 두 곳에서 기다릴 때 비용이 크게 달랐습니다. 실제 누적 대기와 물리 정류장 대기를 분리하고, 앞으로의 부담을 `G(A+W)-G(A)`로 계산하도록 바꿨습니다. 이 곡선의 계수와 회복 가정은 아직 미추정입니다.', '',
+      '2. **버스 도착 시 도보 선택 누락:** 다음 버스가 없으면 도보를 비교하지 않고 승차하던 분기를 고쳤습니다. 승차·계속 대기·다른 정류장·목적지 도보를 함께 비교합니다. 이미 이 비교에서 대기를 선택했다면 1ms 뒤 같은 선택을 또 추첨하지 않습니다. 새 버스와 이후 정규 재검토는 계속 허용합니다.', '',
+      '3. **출발 때의 이동수단 재배분:** 모든 출발을 미추정 효용으로 다시 최적화하면 기존의 첫 정류장/이동수단 시나리오 배분까지 바뀝니다. 행정관 오차의 유입 수지를 확인하고, 후보에서는 기존 출발 배분을 보존했습니다. 줄을 보고 바꾸는 동적 선택은 유지합니다. 원래 배분도 실측 통행수단 비중이라는 뜻은 아닙니다.', '',
+      '4. **사건별 오차를 무조건 버그로 취급하지 않음:** 고정 개인 계수와 사건별 iid Gumbel은 논문에 허용된 모형입니다. 완전 지속 오차 후보도 비교했지만 단독 적용은 대기 24.799분으로 탈락했고 누적 부담만 수정한 경우보다 여정 꼬리도 나빴습니다. 최종 후보는 기존 iid 오차를 유지합니다.', '',
+      '각 이론의 확인 범위·수식·1차 논문 링크는 [이론 검토](../v12_theory_repair_20261112/THEORY_REVIEW.md), 독립 검토는 [구현 에이전트 검토](../collaboration/v12_theory_peer_20261112/READ_ONLY_REVIEW.md)와 [최종 두 수정의 실행 설정 점검](../collaboration/v12_theory_peer_20261112/ADDENDUM_261112132736.md)에 있습니다. 이항·순차 선택 자체나 재방문 자체를 오류라고 결론 내리지 않았습니다.', '',
+      '## 같은 수요·공급·시드의 평일 비교', '',
+      '각 행은 별개 조건입니다. 월~금 × regular/peak, 모두 시드 0이며, 시내버스 시간 프로필·셔틀 정원·배차·수요 총량은 부모 V12와 같습니다. 최장 시간은 희소한 가중 여정의 극값이고 평균 학생을 뜻하지 않습니다.', '',
+      '|요일|조건|평균 총시간 V12→수정|총시간 p99 V12→수정|최장 총시간 V12→수정|수정 최대 연속대기|',
+      '|---|---|---:|---:|---:|---:|']
+    for row in d['cases']:
+        case=row['case'];old=old_by_case[case['day'],case['scenario']]['extended_diagnostics']['finished_trip_quantiles']['total_min'];new=q(row,'total_min')
+        lines.append(f"|{case['day']}|{case['scenario']}|{number(old['mean'])}→{number(new['mean'])}|{number(old['p99'])}→{number(new['p99'])}|{number(old['maximum'])}→{number(new['maximum'])}|{number(row['all_recorded_diagnostics']['all_recorded_time_max_continuous_wait_min'])}|")
+    walk_deltas=[q(r,'walk_min')['mean']-old_by_case[r['case']['day'],r['case']['scenario']]['extended_diagnostics']['finished_trip_quantiles']['walk_min']['mean'] for r in d['cases']]
+    mean_improved=sum(q(r,'total_min')['mean']<old_by_case[r['case']['day'],r['case']['scenario']]['extended_diagnostics']['finished_trip_quantiles']['total_min']['mean'] for r in d['cases'])
+    lines += ['',f'평균 총시간은 10조건 중 {mean_improved}조건에서 감소했습니다. 금요일은 regular 약0.35분·peak 약0.46분 증가했습니다. 평균 도보시간은 **모든 10조건에서 {min(walk_deltas):.2f}~{max(walk_deltas):.2f}분 증가**했습니다. 대기를 줄이는 과정에서 도보 부담이 늘어난 대가를 포함하며, 모든 지표가 개선된 결과가 아닙니다.']
+    maximum=max(r['all_recorded_diagnostics']['all_recorded_time_max_continuous_wait_min'] for r in d['cases'])
+    over=sum(r['all_recorded_diagnostics']['all_recorded_time_over20_episode_weight'] for r in d['cases'])
+    late=sum(r['late_finished_weight'] for r in d['cases'])
+    lines += ['',f"단위: 분. 모든 기록 시간을 포함한 최대 연속 대기는 **{number(maximum)}분**, 20분 초과 대기 구간의 가중치 합은 **{number(over)}**, 미완료 가중치 합은 **{number(d['unserved_trip_weight'])}**, 종료창 이후 완료 가중치 합은 **{number(late)}**입니다. 서로 다른 시나리오의 가중치 합은 실제 학생 수가 아닙니다.", '',
+      f"모든 정류장 집계 {d['stop_rows']}행과 정류장 진입 시각 기준 30분 구간 {d['half_hour_rows']}행을 보존했습니다. [전체 정류장](grid-all-stops.csv), [30분 구간](grid-half-hour-waits.csv), [보행·누적대기·총시간·변경 분포](grid-journey-comparison.csv)를 보시면 됩니다. 변경 횟수를 제한하거나 20분에 강제 이탈시키지 않았습니다.", '',
+      '## 과거 줄 관측과의 비교', '',
+      '관측 초가 불명확하므로 해당 1분 안에서 균등하게 측정했다고 가정해 적분했습니다. 평균과 오차를 구분합니다. 오차는 1분 안 각 시점에서 관측값 또는 관측 구간까지의 절대거리 평균입니다. 수치 계수는 네 점에 맞추지 않았지만 이번 구조 선택에도 참고했으므로 새 독립 검증으로 볼 수 없습니다. 문화관 방향 미확정 등 기존 불확실성도 남습니다. [프로토콜 문구와 실제 등록 목록의 구분](protocol_clarification.json).', '',
+      '|관측|실제 보고|V11 평균/오차|V12 평균/오차|수정 평균/오차|', '|---|---:|---:|---:|---:|']
+    improved=0
+    for new in [r for r in fields if r['model']==work.name and r['scenario']=='regular']:
+        pairs={name:next(r for r in fields if r['model']==name and r['scenario']=='regular' and r['observation_id']==new['observation_id']) for name in ('V11','V12')}
+        err='expected_absolute_distance_to_count_or_interval'
+        if float(new[err])<float(pairs['V12'][err]):improved+=1
+        obs=new['observed_low'] if new['observed_low']==new['observed_high'] else new['observed_low']+'~'+new['observed_high']
+        cells=[number(pairs[name]['uniform_minute_mean'])+'/'+number(pairs[name][err]) for name in ('V11','V12')]+[number(new['uniform_minute_mean'])+'/'+number(new[err])]
+        lines.append('|'+new['weekday']+' '+new['reported_minute']+' '+new['stop']+'|'+str(obs)+'|'+'|'.join(cells)+'|')
+    lines += ['',f'기존 V12보다 오차가 줄어든 과거 보고는 4건 중 {improved}건입니다. [최소·최대와 peak 조건까지 포함한 원표](grid-field-comparison.csv)를 함께 보존합니다. 이 결과만으로 현재 실제 정류장 인원이나 개인 대기시간을 예측할 수 있다고 주장하지 않습니다.', '',
+      '유입 수지에서 화요일 15:00~15:24 직전 행정관은 V11 유입159.409·승차47.002·이탈7.425명분, V12 유입290.408·승차63.498·이탈1.945명분이었습니다. 같은 셔틀 공급에서도 유입 재배분이 크게 달랐습니다. 이 수지는 최초 가설을 좁히는 진단이며, 출발 배분의 단독 효과는 origin 보존/자유선택 대조로 따로 확인합니다. [수지 원표](../v12_theory_repair_20261112/historical_queue_flow_decomposition.json).', '',
+      '## 정문·법대 줄 40명 참고 조건', '',
+      '이전의 40명 정도라는 기억은 불확실한 참고 조건입니다. 충족 여부를 따로 확인했으며, 수요나 줄 인원을 40명으로 잘라 내지 않았습니다. 아래 최대는 10개 조건 각각의 모의 극값 중 가장 큰 값입니다.', '',
+      '|정류장 ARS|10조건 최대 줄 인원분|40명분 초과 조건 수|한 조건에서 최장 연속 초과(분)|', '|---|---:|---:|---:|']
+    named_by_ars={}
+    for row in d['cases']:
+        for item in row['named_stop_40_recollection_comparison']:named_by_ars.setdefault(item['ars'],[]).append(item)
+    named_exceed=0
+    for ars,items in sorted(named_by_ars.items()):
+        n=sum(x['maximum_queue']>40 for x in items);named_exceed+=n
+        lines.append(f"|{items[0]['name']} {ars}|{number(max(x['maximum_queue'] for x in items))}|{n}|{number(max(x['longest_spell_above40_minutes'] for x in items))}|")
+    lines += ['',f'40명 참고값을 넘는 정류장×조건은 {named_exceed}/40개입니다. 이 조건까지 모두 맞춘 완성 모형이라고 판단하지 않습니다. 초기 배분과 수업 직후 실제 출발/잔류 수요가 미확정이므로 후속 측정·보정 대상으로 남깁니다.', '',
+      '## 초기 배분 보존의 대가', '',
+      '과거 줄 오차 일부가 줄었다고 모든 이동 지표가 좋아진 것은 아닙니다. 자유 출발 선택을 유지한 수정 모드와 비교하면, 보존 모드의 평균 총시간은 월요일 약0.12분·화요일 약0.25분 증가하고 총시간 p99도 증가했습니다. 원래 V12와의 개선과 수정 후보끼리의 우열을 구분합니다. [대조 보고서](ORIGIN_CONTRAST.md)와 [분포 원표](origin-assignment-comparison.csv)를 함께 보세요.', '',
+      '## 검증과 남은 한계', '',
+      '- 수업·기숙사/목적지 시나리오·시내버스 자료의 역할과 미확보 항목은 [부모 V12 자료 인벤토리](../261112111627/evidence_inventory_final.json)를 계승합니다. 새 관측으로 다시 학습한 후보가 아닙니다. 시간 프로필과 순서형 혼잡 입력은 동결 파일 해시로 같음을 확인합니다.',
+      '- 54개 경계·통합·증거·선택지 회귀시험을 통과했습니다. [시험 로그](boundary-tests.log). 마지막 버스에서 도보 비교, 동시각 두 차량 중 둘째 차 선택, 도보 이탈 후 FIFO 갱신, 공동 대기 선택 직후 중복 재추첨 방지를 포함합니다.',
+      '- 전체 원장의 수요 질량, 차량 명단·시계·정원, 승하차 수지, 탑승 의사가 있는 승객 사이 FIFO, 보행/대기/승차 시간 분해와 실제 누적 대기 재구성을 독립 감사했습니다. [실행 감사](grid-validation.json), [상세 진단](grid-diagnostics.json).',
+      '- 미래 경로의 공통 노선은 여전히 첫 승차 가능 서비스를 타는 근사입니다. 실제 향후 자발적 거절까지 푼 기대 ETA가 아닙니다. 완전한 Bellman 계속가치·경로 간 상관·내생적 중간 하차는 아직 구현하지 않았습니다.',
+      '- 실제 목적지 비중·수업 후 도서관 잔류·교외 유입 점유 좌석·노선별 실정원은 미확정입니다. 혼잡등급을 승객 수로 바꾸지 않았고, 통과 간격을 개인 대기시간으로 사용하지 않았습니다. 한 사람의189초 대기는 네트워크 전체 승차과정의 분포가 아닙니다.',
+      '- 이번 10조건은 시드0의 유한 검증입니다. 모든 난수와 현장 상황의 20분 이하를 보장하지 않습니다. 새 날짜 정답을 보지 않고 19개 코드/입력 해시와 향후 평가 규칙을 [동결](future_evaluation_plan.json)했습니다.',
+      '- 운영 V11을 대체하거나 공개 사이트에 배포하지 않았습니다. 원본·탈락 후보·실패 로그를 보존합니다. [최종 무결성 및 공개 읽기 확인](final_verification.json).', '',
+      '## 재현과 후보 계보', '',
+      '- `261112131401`: 지속성/누적 부담의 화요일 분리 실험. 지속성 단독 대기 기준 실패를 그대로 보존했습니다.',
+      '- `261112131737`: 완전 지속성과 공동 선택을 결합한 비교 후보. 최종 기본값으로 채택하지 않았습니다.',
+      '- `261112132407`: iid·누적 부담·공동 선택·중복 재추첨 제거, 자유 출발 선택의 화요일 대조.',
+      f'- `{work.name}`: 초기 시나리오 배분 보존 후보. 같은 후보의 월요일 자유 출발 선택 대조를 따로 등록했습니다.',
+      '- 생성·유한 실행·원장 재분석 스크립트는 `../v12_theory_repair_20261112/`에 있습니다. 완료된 같은 case는 다시 실행하지 않고 해시를 확인해 재사용합니다.', '']
+    target.write_text('\n'.join(lines),encoding='utf8')
+    (work/'README.md').write_text(f'# 비운영 V12 수정 후보 {work.name}\n\n[최종 검토 결과](RESULTS_FINAL.md)와 [논문 대조](../v12_theory_repair_20261112/THEORY_REVIEW.md)를 먼저 보세요.\n\n운영 V11은 그대로이며, 이 후보는 실측 정확도가 검증된 배포 모델이 아닙니다. 평균 도보 증가·금요일 평균 총시간 증가·일부 정류장 혼잡을 최종 보고서에 함께 명시했습니다. 이전 RESULTS.md와 검증 원본도 보존합니다.\n',encoding='utf8')
+    decision={'release_id':work.name,'operating_model':'V11/261110162302','recommendation':'KEEP_PRIVATE_DO_NOT_PROMOTE',
+      'internal_ten_case_wait_gate_passed':passed,'pristine_empirical_accuracy':'NOT_EVALUABLE',
+      'old_queue_reports_improved_vs_v12':improved,'old_queue_reports_total':4,
+      'old_queue_reports_used_for_structural_selection':True,'numerical_preference_coefficients_fitted_to_four_reports':False,
+      'named_stop_conditions_above40_recollection_reference':named_exceed,
+      'remaining_issues':['Four old reports are not independent and retain queue errors',
+        'Some named-stop scenario peaks exceed uncertain40-person recollection',
+        'Future first-boardable projection does not integrate all future voluntary rejection/walking decisions',
+        'Initial mixture, latent actual homeward demand and numeric external occupancy remain unverified'],
+      'logic_repairs':['last-service walking alternative compared','shared board/wait/walk candidate set',
+        'no extra1ms draw after joint voluntary wait','whole-journey prospective waiting burden retained across walks'],
+      'modeling_hypotheses_not_empirical_facts':['Cumulative nonlinear burden and inherited initial mixture'],
+      'mean_total_improved_case_count':mean_improved,'mean_total_regressed_cases':['regular-fri','peak-fri'],
+      'mean_walking_increased_cases':10,'mean_walking_increase_minutes_range':[min(walk_deltas),max(walk_deltas)],
+      'production_writes':False,'report_sha256':hashlib.sha256(target.read_bytes()).hexdigest()}
+    decision_path=work/'release_recommendation_final.json';assert not decision_path.exists()
+    decision_path.write_text(json.dumps(decision,ensure_ascii=False,indent=2),encoding='utf8')
+    print('REPORT_WRITTEN',work.name,'known_reports_improved',improved,flush=True)
+if __name__=='__main__':main()

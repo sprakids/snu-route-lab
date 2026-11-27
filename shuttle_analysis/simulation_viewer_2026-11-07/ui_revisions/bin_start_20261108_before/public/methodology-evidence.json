@@ -1,0 +1,867 @@
+{
+  "document_date_kst": "2026-11-08",
+  "simulation_version": "capacity_v5",
+  "simulation_recomputed": true,
+  "counts": {
+    "events": 6201,
+    "buildings": 88,
+    "enrollment_sum": 156338
+  },
+  "raw_course_rows": 8654,
+  "immediate_trip_share_assumption": 0.5,
+  "dorm_share_assumption": 0.1949143957045892,
+  "dorm_share_is_observed_gwanak_rate": false,
+  "historical_destination_percentages": [
+    55.7,
+    27.2,
+    17.0
+  ],
+  "historical_destination_source_is_student_council_survey": false,
+  "class_end_comparison_window": "11:20-23:10",
+  "wait_denominator": "all original weighted particles in the fixed class-end cohort",
+  "total_denominator": "same original whole particles completed under both policies",
+  "summaries": [
+    {
+      "origin": "all",
+      "scope": "snu_all",
+      "label": "서울대입구행 전체",
+      "scenario": "peak",
+      "weight": 31002.902922474696,
+      "common_complete_weight": 30994.561206759387,
+      "common_complete_share_pct": 99.9730937592,
+      "wait_before": 5.124274073220033,
+      "total_before": 20.779066012359714,
+      "unserved_before": 8.341715715310082,
+      "wait_after": 3.6592503728317594,
+      "total_after": 19.712365420906732,
+      "unserved_after": 0.0
+    },
+    {
+      "origin": "all",
+      "scope": "snu_all",
+      "label": "서울대입구행 전체",
+      "scenario": "regular",
+      "weight": 31002.902922474696,
+      "common_complete_weight": 30994.561206759387,
+      "common_complete_share_pct": 99.9730937592,
+      "wait_before": 5.644380495646923,
+      "total_before": 21.29931241353605,
+      "unserved_before": 8.341715715310082,
+      "wait_after": 3.733269872010623,
+      "total_after": 19.88977601222048,
+      "unserved_after": 0.0
+    },
+    {
+      "origin": "all",
+      "scope": "snu_initial_shuttle",
+      "label": "서울대입구행 · 최초 셔틀 집단",
+      "scenario": "peak",
+      "weight": 9414.505244455275,
+      "common_complete_weight": 9406.163528739964,
+      "common_complete_share_pct": 99.91139507070514,
+      "wait_before": 9.050134726310445,
+      "total_before": 23.94333388407903,
+      "unserved_before": 8.341715715310082,
+      "wait_after": 4.225665847394833,
+      "total_after": 20.428413409854123,
+      "unserved_after": 0.0
+    },
+    {
+      "origin": "all",
+      "scope": "snu_initial_shuttle",
+      "label": "서울대입구행 · 최초 셔틀 집단",
+      "scenario": "regular",
+      "weight": 9414.505244455275,
+      "common_complete_weight": 9406.163528739964,
+      "common_complete_share_pct": 99.91139507070514,
+      "wait_before": 10.762896948558213,
+      "total_before": 25.657615043936403,
+      "unserved_before": 8.341715715310082,
+      "wait_after": 4.469419426348336,
+      "total_after": 21.013004929489107,
+      "unserved_after": 0.0
+    },
+    {
+      "origin": "301_302",
+      "scope": "snu_all",
+      "label": "301·302동 출발 · 서울대입구행",
+      "scenario": "peak",
+      "weight": 3767.9118411289414,
+      "common_complete_weight": 3767.9118411289414,
+      "common_complete_share_pct": 100.0,
+      "wait_before": 3.2273072658144244,
+      "total_before": 21.097888607649285,
+      "unserved_before": 0.0,
+      "wait_after": 3.076402273597095,
+      "total_after": 20.95352160620691,
+      "unserved_after": 0.0
+    },
+    {
+      "origin": "301_302",
+      "scope": "snu_all",
+      "label": "301·302동 출발 · 서울대입구행",
+      "scenario": "regular",
+      "weight": 3767.9118411289414,
+      "common_complete_weight": 3767.9118411289414,
+      "common_complete_share_pct": 100.0,
+      "wait_before": 3.249743926921565,
+      "total_before": 21.12032526875642,
+      "unserved_before": 0.0,
+      "wait_after": 3.073049031432577,
+      "total_after": 20.95509942627538,
+      "unserved_after": 0.0
+    }
+  ],
+  "legacy_comparison_version": "v3_to_v4_unlimited_city_capacity",
+  "city_summaries": [
+    {
+      "scope": "all",
+      "label": "전체 목적지",
+      "scenario": "peak",
+      "weight": 69067.0,
+      "completed_weight": 69067.0,
+      "unserved_weight": 0.0,
+      "mean_cumulative_wait_min": 10.488715659770092,
+      "mean_class_end_total_min_completed": 31.120588533014246
+    },
+    {
+      "scope": "all",
+      "label": "전체 목적지",
+      "scenario": "regular",
+      "weight": 69067.0,
+      "completed_weight": 69067.0,
+      "unserved_weight": 0.0,
+      "mean_cumulative_wait_min": 10.89367840197393,
+      "mean_class_end_total_min_completed": 31.63194340438333
+    },
+    {
+      "scope": "snu",
+      "label": "서울대입구행 전체",
+      "scenario": "peak",
+      "weight": 31002.9029224747,
+      "completed_weight": 31002.9029224747,
+      "unserved_weight": 0.0,
+      "mean_cumulative_wait_min": 13.343389420464478,
+      "mean_class_end_total_min_completed": 31.855715867454958
+    },
+    {
+      "scope": "snu",
+      "label": "서울대입구행 전체",
+      "scenario": "regular",
+      "weight": 31002.9029224747,
+      "completed_weight": 31002.9029224747,
+      "unserved_weight": 0.0,
+      "mean_cumulative_wait_min": 14.207038040360784,
+      "mean_class_end_total_min_completed": 32.95927340407406
+    },
+    {
+      "scope": "engineering_snu",
+      "label": "301·302동 출발 · 서울대입구행",
+      "scenario": "peak",
+      "weight": 3767.9118411289414,
+      "completed_weight": 3767.9118411289414,
+      "unserved_weight": 0.0,
+      "mean_cumulative_wait_min": 6.01140311003075,
+      "mean_class_end_total_min_completed": 27.978067207950623
+    },
+    {
+      "scope": "engineering_snu",
+      "label": "301·302동 출발 · 서울대입구행",
+      "scenario": "regular",
+      "weight": 3767.9118411289414,
+      "completed_weight": 3767.9118411289414,
+      "unserved_weight": 0.0,
+      "mean_cumulative_wait_min": 6.041705427085657,
+      "mean_class_end_total_min_completed": 28.006333371725685
+    }
+  ],
+  "city_plans": {
+    "captured_at": "2026-11-08T02:03:42.182418+09:00",
+    "source": "http://m.bus.go.kr/mBus/bus/",
+    "route_plans_are_observed_departures": false,
+    "transport_note": "Official HTTP endpoint, without TLS verification bypass; public AJAX request headers required.",
+    "routes": [
+      {
+        "name": "5511",
+        "rid": "100100250",
+        "metadata": {
+          "stStationNm": "대학동고시촌입구",
+          "busRouteId": "100100250",
+          "corpNm": "한남여객  02-873-8730",
+          "edStationNm": "중앙대학교",
+          "corpNm3": " ",
+          "term_all": "7분(평일), 11분(토요일), 13분(공휴일)",
+          "corpNm2": " ",
+          "firstBusTm": "20261108052000",
+          "lastBusYn": " ",
+          "routeType": "4",
+          "firstLowTm": "20190130000000",
+          "busRouteNm": "5511",
+          "term": "7",
+          "tm_all": "05:20 ~ 23:20(평일), 05:20 ~ 23:20(토요일), 05:20 ~ 23:20(공휴일)",
+          "length": "25.4",
+          "lastLowTm": "20190130000000",
+          "lastBusTm": "20261108232000"
+        },
+        "stop_count": 73,
+        "route_sha256": "a8bcb21ed1c38b8e7263c35cdf97c908999bcbe132d201157166f22b4d3fb040"
+      },
+      {
+        "name": "5513",
+        "rid": "100100251",
+        "metadata": {
+          "stStationNm": "제2공학관",
+          "busRouteId": "100100251",
+          "corpNm": "한남여객  02-873-8730",
+          "edStationNm": "벽산블루밍아파트종점",
+          "corpNm3": " ",
+          "term_all": "9분(평일), 9분(토요일), 14분(공휴일)",
+          "corpNm2": " ",
+          "firstBusTm": "20261108053000",
+          "lastBusYn": " ",
+          "routeType": "4",
+          "firstLowTm": "              ",
+          "busRouteNm": "5513",
+          "term": "9",
+          "tm_all": "05:30 ~ 23:30(평일), 05:30 ~ 23:30(토요일), 05:30 ~ 23:30(공휴일)",
+          "length": "15.16",
+          "lastLowTm": "              ",
+          "lastBusTm": "20261108233000"
+        },
+        "stop_count": 44,
+        "route_sha256": "b1181e9bd9b8349e84ff2d3914198a302ef90715399bed9adc1a529d4f241f7b"
+      },
+      {
+        "name": "5515",
+        "rid": "100100252",
+        "metadata": {
+          "stStationNm": "금호타운아파트",
+          "busRouteId": "100100252",
+          "corpNm": "관악교통  02-877-1112",
+          "edStationNm": "청림동현대아파트",
+          "corpNm3": " ",
+          "term_all": "9분(평일), 10분(토요일), 10분(공휴일)",
+          "corpNm2": "한남여객  02-873-8730",
+          "firstBusTm": "20261108053000",
+          "lastBusYn": "0",
+          "routeType": "4",
+          "firstLowTm": "              ",
+          "busRouteNm": "5515",
+          "term": "9",
+          "tm_all": "05:30 ~ 23:30(평일), 05:30 ~ 23:30(토요일), 05:30 ~ 23:30(공휴일)",
+          "length": "10.8",
+          "lastLowTm": "              ",
+          "lastBusTm": "20261108233000"
+        },
+        "stop_count": 32,
+        "route_sha256": "c9e97abd703305345c193cee348d89fa36a8fbfb5647afe8c2f66c24bc7b896c"
+      },
+      {
+        "name": "5516",
+        "rid": "100100253",
+        "metadata": {
+          "stStationNm": "대학동고시촌입구",
+          "busRouteId": "100100253",
+          "corpNm": "한남여객  02-873-8730",
+          "edStationNm": "노들역",
+          "corpNm3": " ",
+          "term_all": "9분(평일), 11분(토요일), 11분(공휴일)",
+          "corpNm2": " ",
+          "firstBusTm": "20261108050000",
+          "lastBusYn": " ",
+          "routeType": "4",
+          "firstLowTm": "20260810000000",
+          "busRouteNm": "5516",
+          "term": "9",
+          "tm_all": "05:00 ~ 23:00(평일), 05:00 ~ 23:00(토요일), 05:00 ~ 23:00(공휴일)",
+          "length": "32.56",
+          "lastLowTm": "20260810000000",
+          "lastBusTm": "20261108230000"
+        },
+        "stop_count": 74,
+        "route_sha256": "3e2e01bc6ad1136557c615166ff7efbf0ba12b3ccdd56ef54f261b78c6335ef2"
+      },
+      {
+        "name": "5528",
+        "rid": "100100263",
+        "metadata": {
+          "stStationNm": "가산동기점",
+          "busRouteId": "100100263",
+          "corpNm": "신인운수  02-854-8001",
+          "edStationNm": "사당역4번출구",
+          "corpNm3": " ",
+          "term_all": "12분(평일), 20분(토요일), 20분(공휴일)",
+          "corpNm2": " ",
+          "firstBusTm": "20261108043000",
+          "lastBusYn": " ",
+          "routeType": "4",
+          "firstLowTm": "20240201000000",
+          "busRouteNm": "5528",
+          "term": "12",
+          "tm_all": "04:30 ~ 22:50(평일), 04:30 ~ 22:50(토요일), 04:30 ~ 22:50(공휴일)",
+          "length": "36.73",
+          "lastLowTm": "              ",
+          "lastBusTm": "20261108225000"
+        },
+        "stop_count": 82,
+        "route_sha256": "385f38b18c16c4a95adf9592d74d4e6da0f8c8a55562277f7fcd775be6792aa6"
+      },
+      {
+        "name": "6515",
+        "rid": "100100521",
+        "metadata": {
+          "stStationNm": "양천공영차고지",
+          "busRouteId": "100100521",
+          "corpNm": "관악교통  02-877-1112",
+          "edStationNm": "경인교육대후문",
+          "corpNm3": " ",
+          "term_all": "10분(평일), 12분(토요일), 14분(공휴일)",
+          "corpNm2": " ",
+          "firstBusTm": "20261108041000",
+          "lastBusYn": " ",
+          "routeType": "4",
+          "firstLowTm": "              ",
+          "busRouteNm": "6515",
+          "term": "10",
+          "tm_all": "04:10 ~ 22:10(평일), 04:10 ~ 22:10(토요일), 04:10 ~ 22:10(공휴일)",
+          "length": "54",
+          "lastLowTm": "20150717000000",
+          "lastBusTm": "20261108221000"
+        },
+        "stop_count": 112,
+        "route_sha256": "7d0417f039234ab83e971aa2c4623270c1907e8edeeb6073c56fcbc9b9f924e9"
+      },
+      {
+        "name": "관악02-1",
+        "rid": "120900011",
+        "metadata": {
+          "stStationNm": "낙성대역",
+          "busRouteId": "120900011",
+          "corpNm": "인헌운수  02-874-0777",
+          "edStationNm": "제2공학관",
+          "corpNm3": " ",
+          "term_all": "5분(평일), 9분(토요일), 9분(공휴일)",
+          "corpNm2": " ",
+          "firstBusTm": "20261108060000",
+          "lastBusYn": " ",
+          "routeType": "2",
+          "firstLowTm": "              ",
+          "busRouteNm": "관악02-1",
+          "term": "5",
+          "tm_all": "06:00 ~ 23:55(평일), 06:00 ~ 23:50(토요일), 06:00 ~ 23:50(공휴일)",
+          "length": "10.3",
+          "lastLowTm": "              ",
+          "lastBusTm": "20261108235000"
+        },
+        "stop_count": 39,
+        "route_sha256": "ca73683208a6dc34f8ab6a4d8d492ed3676235498880edefa19888b8195e583b"
+      },
+      {
+        "name": "관악02-2",
+        "rid": "120900012",
+        "metadata": {
+          "stStationNm": "낙성대역",
+          "busRouteId": "120900012",
+          "corpNm": "인헌운수  02-874-0777",
+          "edStationNm": "행정관",
+          "corpNm3": " ",
+          "term_all": "10분(평일), 16분(토요일), 16분(공휴일)",
+          "corpNm2": " ",
+          "firstBusTm": "20261108060000",
+          "lastBusYn": " ",
+          "routeType": "2",
+          "firstLowTm": "              ",
+          "busRouteNm": "관악02-2",
+          "term": "10",
+          "tm_all": "06:00 ~ 23:00(평일), 06:00 ~ 22:00(토요일), 06:00 ~ 22:00(공휴일)",
+          "length": "9.2",
+          "lastLowTm": "              ",
+          "lastBusTm": "20261108220000"
+        },
+        "stop_count": 34,
+        "route_sha256": "cb89d8fa0ece8b75fbcbe9bf6e17169ca7aa9bb85d3357d540c12136760dbf4d"
+      }
+    ]
+  },
+  "city_reference_capacities": {
+    "large": 50,
+    "village": 24,
+    "actual_route_fleet_verified": false
+  },
+  "city_input_sha256": {
+    "simulation_viewer_2026-11-07\\adaptive_model\\prepared.json.gz": "1dcd4b7b54fd85772417621b36949753ac5ea76aa429db728e6c8aab521f9bd0",
+    "simulation_viewer_2026-11-07\\model_snapshot\\road_geometry.json": "ec7bed38a4f00db8a15c0cc0aa2ec1cde90f161a140effd6ace813012e6b8054",
+    "simulation_viewer_2026-11-07\\model_snapshot\\app\\data\\walking_osm.json": "7ee35e5b592e4578798d80c642eb8643c61c2c9304ab617e8149494f22bd0b15",
+    "simulation_viewer_2026-11-07\\model_snapshot\\engine\\simulate_stop_inflow.py": "81051de9d718919fe29491472be6aa95cfebc3f4c61367d4f0d0b812df20ca49",
+    "app\\data\\travel_history.json": "b38c7449ec9470c06d7b2620d966c23121ceeda20e68e28a54899424fac641d2",
+    "app\\data\\weekday_history.json": "ccb819d00d3ec925066dc85214cffe42d0655ec50241e8a6f39a7ecfe786c424",
+    "route_expansion_2026-11-07\\cached_history_new_routes.json": "df50bf9b3f72c16d1b4729f6a914113fad57a0a021a5925faefb3092257e0961",
+    "simulation_viewer_2026-11-07\\prepare_city.py": "4e681b9bb97782c4fc912ceb4b82834e1aeb719ce2ac00f0047f7a899550c72a",
+    "simulation_viewer_2026-11-07\\speed_capacity_model.py": "878d94db31fde8eb26fedfa09569a1323eb8636694c4e873e0c2d77d0a42208a",
+    "app\\data\\campus_map_osm.json": "b09c8b4a6e9efd848c846229c00630a8727095541c509525549fe678929b5b64",
+    "simulation_viewer_2026-11-07\\city_bus_model_2026-11-08\\sources\\route_100100250.json": "a8bcb21ed1c38b8e7263c35cdf97c908999bcbe132d201157166f22b4d3fb040",
+    "simulation_viewer_2026-11-07\\city_bus_model_2026-11-08\\sources\\route_100100251.json": "b1181e9bd9b8349e84ff2d3914198a302ef90715399bed9adc1a529d4f241f7b",
+    "simulation_viewer_2026-11-07\\city_bus_model_2026-11-08\\sources\\route_100100252.json": "c9e97abd703305345c193cee348d89fa36a8fbfb5647afe8c2f66c24bc7b896c",
+    "simulation_viewer_2026-11-07\\city_bus_model_2026-11-08\\sources\\route_100100253.json": "3e2e01bc6ad1136557c615166ff7efbf0ba12b3ccdd56ef54f261b78c6335ef2",
+    "simulation_viewer_2026-11-07\\city_bus_model_2026-11-08\\sources\\route_100100263.json": "385f38b18c16c4a95adf9592d74d4e6da0f8c8a55562277f7fcd775be6792aa6",
+    "simulation_viewer_2026-11-07\\city_bus_model_2026-11-08\\sources\\route_100100521.json": "7d0417f039234ab83e971aa2c4623270c1907e8edeeb6073c56fcbc9b9f924e9",
+    "simulation_viewer_2026-11-07\\city_bus_model_2026-11-08\\sources\\route_120900011.json": "ca73683208a6dc34f8ab6a4d8d492ed3676235498880edefa19888b8195e583b",
+    "simulation_viewer_2026-11-07\\city_bus_model_2026-11-08\\sources\\route_120900012.json": "cb89d8fa0ece8b75fbcbe9bf6e17169ca7aa9bb85d3357d540c12136760dbf4d",
+    "simulation_viewer_2026-11-07\\city_bus_model_2026-11-08\\sources\\route_metadata.json": "d6c498f87ce60529c6b26f0de5794ab70c72c7413cfe0bea2e139acb0ee06b4b",
+    "simulation_viewer_2026-11-07\\city_bus_model_2026-11-08\\sources\\route_search_02_all.json": "d5c2a2148f9788469674b9a10f5b4df3ac2b0bcb08ee2dd832e0da01a0353bac",
+    "simulation_viewer_2026-11-07\\city_bus_model_2026-11-08\\sources\\route_search_100100250.json": "806e33c86f14154691ab1e0fbb95e6b120e96902d2a7a945857fe97480649248",
+    "simulation_viewer_2026-11-07\\city_bus_model_2026-11-08\\sources\\route_search_100100251.json": "288afff48fd367ce284c7b045bb27951a55753a280cd70a534a4598af322db24",
+    "simulation_viewer_2026-11-07\\city_bus_model_2026-11-08\\sources\\route_search_100100252.json": "18c606caade23fa6e1e730ef60f21d0e1eebbaf7c08a7b6ec2ecefb6b5458a02",
+    "simulation_viewer_2026-11-07\\city_bus_model_2026-11-08\\sources\\route_search_100100253.json": "574ffa56ae8e5dcbd1702d6af153d948c3666655b7d60b2894ab2f9f7b0ddb0a",
+    "simulation_viewer_2026-11-07\\city_bus_model_2026-11-08\\sources\\route_search_100100263.json": "ef6f65f1cf32c91f4a522405893de47a22dd9c7fdd79fe2dc79c352a32a74303",
+    "simulation_viewer_2026-11-07\\city_bus_model_2026-11-08\\sources\\route_search_100100521.json": "3216d5458320e94cbfdeba186bdf7c453aaf154d1e781179ac56d56bd40b97c5",
+    "simulation_viewer_2026-11-07\\city_bus_model_2026-11-08\\sources\\route_search_120900011.json": "d5c2a2148f9788469674b9a10f5b4df3ac2b0bcb08ee2dd832e0da01a0353bac",
+    "simulation_viewer_2026-11-07\\city_bus_model_2026-11-08\\sources\\route_search_120900012.json": "d5c2a2148f9788469674b9a10f5b4df3ac2b0bcb08ee2dd832e0da01a0353bac",
+    "simulation_viewer_2026-11-07\\city_bus_model_2026-11-08\\sources\\route_search_probe.json": "806e33c86f14154691ab1e0fbb95e6b120e96902d2a7a945857fe97480649248",
+    "simulation_viewer_2026-11-07\\city_bus_model_2026-11-08\\sources\\manufacturer_sources.json": "efcfe9c80fda9e3a0951ddd3eeaf17b36dd4a5822a8d4aa7c9ae9d4504881b2b",
+    "tdata_calibration_2026-11-07\\collected\\20260907\\target_routes.json": "7fd0c70d435ecf61af54f74e34e7125eee23af57b36e14f80c108dc665c70c31",
+    "tdata_calibration_2026-11-07\\collected\\20260908\\target_routes.json": "4743d9f4de2085142c3a911177c1c8737652ea81ee70259678f3d2f82a471fc8",
+    "tdata_calibration_2026-11-07\\collected\\20260909\\target_routes.json": "7b11686e7d76f323debe82c106f67887f2c010ef419542691ac60a03f300fae8",
+    "tdata_calibration_2026-11-07\\collected\\20260910\\target_routes.json": "0f47662ef45b8472f6d419d16696501fbfd6ba6bc433ada2826152750e83f3a8",
+    "tdata_calibration_2026-11-07\\collected\\20260911\\target_routes.json": "21fde1aa7fe9a3a40b1659624251645cf2a6d46ae47c45ab1a45d6c06d9f9b97",
+    "tdata_calibration_2026-11-07\\collected\\20260914\\target_routes.json": "784fb7bc23a09ca92d66cb5dff77f3308365bf6c3b9d88b5fd988dff3cd30d56",
+    "tdata_calibration_2026-11-07\\collected\\20260915\\target_routes.json": "5a8fb2b289a0022cde4d45bf87173c126a22721185b33d800ae411d3609e60bb",
+    "tdata_calibration_2026-11-07\\collected\\20260916\\target_routes.json": "0bcf4b2cad0a8821808d4c73cd973e4a9450514f7752302c90e290136535676a",
+    "tdata_calibration_2026-11-07\\collected\\20260917\\target_routes.json": "39218cdb026e46e6cf13fefc42d623ac94aca36e980d5f1d4a928c407aa9a277",
+    "tdata_calibration_2026-11-07\\collected\\20260918\\target_routes.json": "7484970dbe8af8248a85411fa65e0e2f1fb3d7782223fd916cf88f194c38e181",
+    "tdata_calibration_2026-11-07\\collected\\20261019\\target_routes.json": "c74ed47f2c08f5f76262be86da8f6aca2e50f28f947ef2b70b3ee1df30e99d3f",
+    "tdata_calibration_2026-11-07\\collected\\20261020\\target_routes.json": "a58889574903541bae55721db84b48e4714b09732e14d2d0e165d71dab194174",
+    "tdata_calibration_2026-11-07\\collected\\20261021\\target_routes.json": "fafb204e6a9a05e50a7094f23358d3906e7403d28dd11bcb75a9c12a19832cc0",
+    "tdata_calibration_2026-11-07\\collected\\20261022\\target_routes.json": "1eece7411b2c61e32c743bd31214a228cdfe4c720b778e17e7d4bfec10d099c3",
+    "tdata_calibration_2026-11-07\\collected\\20261023\\target_routes.json": "46a6decd6644c04b7399d7502aa84fab8011fa3b3f40a24375213141a03b5ebc",
+    "tdata_calibration_2026-11-07\\collected\\20261026\\target_routes.json": "2f4caaf47efd1de1748e3c5bf833dd1710276a035ecb12c3ce0fa59d6b6ba937",
+    "tdata_calibration_2026-11-07\\collected\\20261027\\target_routes.json": "96e80d2cc9c6ba6ca3b704bf730337740d7530bf091ec2006053ecdccd331876",
+    "tdata_calibration_2026-11-07\\collected\\20261028\\target_routes.json": "59e1adae90924c0b85661db09fa4b9e61d2beb127661b41e67ff9e41431498f5",
+    "tdata_calibration_2026-11-07\\collected\\20261029\\target_routes.json": "afa625436a7253c01e1aee6861b080801d197a2028219d6c2e6e00c6e759acc6",
+    "tdata_calibration_2026-11-07\\collected\\20261030\\target_routes.json": "b67cf0a5535d7421d370cefc0e5c45956e279f68794e107e7e417952649d93f7"
+  },
+  "manufacturer_reference_sources": {
+    "sources": [
+      {
+        "file": "apollo1100.html",
+        "url": "https://www.wjis.co.kr/kr/business/apollo1100.php",
+        "sha256": "e8f6310102dffdfc64d76bb6fed187b09c83b89b224b3840e4fcb97578eff1fa"
+      },
+      {
+        "file": "apollo900.html",
+        "url": "https://www.wjis.co.kr/kr/business/apollo900.php",
+        "sha256": "c4419b6cfbbaee02ac5b6c8e9251cb8f30ad540b9fdc61eba2370dddad919a58"
+      },
+      {
+        "file": "elec_city_global.html",
+        "url": "https://ecv.hyundai.com/global/en/products/elec-city-ev/",
+        "sha256": "291a3df3bb6113ab59f569a0c2e02345ef083a0f998fce52c622a5718a988188"
+      }
+    ],
+    "reference_capacities": {
+      "large": {
+        "passenger_seats": 24,
+        "standing": 26,
+        "driver": 1,
+        "passenger_capacity": 50,
+        "model": "APOLLO1100",
+        "published_total_including_driver": 51
+      },
+      "village": {
+        "passenger_seats": 20,
+        "standing": 4,
+        "driver": 1,
+        "passenger_capacity": 24,
+        "model": "APOLLO900",
+        "published_total_including_driver": 25
+      }
+    },
+    "actual_route_fleet_match_verified": false,
+    "vehicle_specific_legal_capacity_verified": false,
+    "use": "manufacturer specification reference scenario; not proof that these exact models operate every route"
+  },
+  "background_passengers_included": false,
+  "city_run_count": 10,
+  "files": [
+    {
+      "path": "course_demand_2026-11-06/sources/courses_2026-2_20261106.xls",
+      "bytes": 3531776,
+      "sha256": "0bb32aeea9fd9a10262ce5458167d37e5fb6c14b3253a7287849b611e4ab7d67"
+    },
+    {
+      "path": "scenario_comparison_2026-11-07/simulation_outputs/input_snapshot/course_endings_current.json",
+      "bytes": 4781667,
+      "sha256": "1077b14303d111b7aa91f73bc435f3c1d3af64ab1bfae01d7f7a51a100873cf2"
+    },
+    {
+      "path": "course_demand_2026-11-06/sources/residence_user_reference.json",
+      "bytes": 1153,
+      "sha256": "e345a44bf6c2a89be28c64a65b179a7e045d9d4a991a68ae9a44abd453b88b77"
+    },
+    {
+      "path": "scenario_comparison_2026-11-07/simulation_outputs/input_snapshot/historical_reported_shares.json",
+      "bytes": 2265,
+      "sha256": "0c2d62e7b3c69baf503ae50d3b03b75e8de143d0e4510c52474c334d93a60af3"
+    },
+    {
+      "path": "operation_plans_2026-11-01/sources/O11_2.pdf",
+      "bytes": 41814,
+      "sha256": "20052b9b14259aada10c47ef0f4b82447c57bad6a7e8c527fd4bd63f2a1c6c7a"
+    },
+    {
+      "path": "scenario_comparison_2026-11-07/scenario_specs.json",
+      "bytes": 4684,
+      "sha256": "91dae50b3781f0d4e40e27541136a861cec24d3983f9b2c0a364c9c4a5593f78"
+    },
+    {
+      "path": "simulation_viewer_2026-11-07/adaptive_model/route_verification.json",
+      "bytes": 3953,
+      "sha256": "b5a5c0aed959c6ef9535a5d974836a5b584377e42860704c34efb8343c4558c3"
+    },
+    {
+      "path": "simulation_viewer_2026-11-07/capacity_model.py",
+      "bytes": 24750,
+      "sha256": "40d304dc2ad9f1af86827d0d4183cd2b9c2918e26c82866d0a84cbc8cce00d7e"
+    },
+    {
+      "path": "simulation_viewer_2026-11-07/speed_capacity_model.py",
+      "bytes": 10837,
+      "sha256": "878d94db31fde8eb26fedfa09569a1323eb8636694c4e873e0c2d77d0a42208a"
+    },
+    {
+      "path": "simulation_viewer_2026-11-07/adaptive_capacity_model.py",
+      "bytes": 18576,
+      "sha256": "077859ad7596f0413b611e4c361fe9fc8be821a0f39b1a1792b3e3fd7f07ddcd"
+    },
+    {
+      "path": "simulation_viewer_2026-11-07/adaptive_model/independent_verification.json",
+      "bytes": 7415,
+      "sha256": "44e09b9b35e15f9a213213e58c2e2aa508b0c0e604e3b3b7ca16d631ac18cce2"
+    },
+    {
+      "path": "adaptive_comparison_2026-11-07/reviewed_results.json",
+      "bytes": 2634351,
+      "sha256": "7c940c07d9504fd9cf89b8367dd1254597f9ee3c3bcc9b519b4036790cdb9745"
+    },
+    {
+      "path": "adaptive_comparison_2026-11-07/verification.json",
+      "bytes": 8904,
+      "sha256": "a72953b2c50e9dee9b1012539b0202fac701a28918ffd601a8e5b1cd9e8a9e41"
+    },
+    {
+      "path": "adaptive_comparison_2026-11-07/independent_check.json",
+      "bytes": 428,
+      "sha256": "3bf944c81ac7897d0b2c23b921830c4040d9582ff99f0e80b3703710ce3e8dd3"
+    },
+    {
+      "path": "app/routing.py",
+      "bytes": 30400,
+      "sha256": "b0027b1aa7fc7d833fc1163d1e39d7a7184f050d35500c1c245d354fdc276112"
+    },
+    {
+      "path": "app/adaptive.py",
+      "bytes": 9204,
+      "sha256": "71495609ba19b88c47d9d3eff6eb7dbe6a5f051be8e731c8f7cc452e639a312d"
+    },
+    {
+      "path": "app/gate_service.py",
+      "bytes": 4114,
+      "sha256": "885e0f7e3398498f2188eb40c88bf74bf8db338bb1275d5f59cf4ae7f1233def"
+    },
+    {
+      "path": "app/historical_forecast.py",
+      "bytes": 9240,
+      "sha256": "78e26876f468a71f6bf297f36ef4f670615a3ce22dbd23033cb7d5a55430ffa7"
+    },
+    {
+      "path": "app/automatic_queue.py",
+      "bytes": 12717,
+      "sha256": "173cc75f26b25f77f4bd04ab0bcfb68078241b699ec3b2a44ded243c3044e964"
+    },
+    {
+      "path": "app/prepare_auto_queue.py",
+      "bytes": 6347,
+      "sha256": "15b6a7dac68a5f79b5342fe404ddffcf835bcd0ea4ad9de62c3a31e24e9f0fcc"
+    },
+    {
+      "path": "app/data/auto_queue_inputs.json",
+      "bytes": 157616,
+      "sha256": "1fea973db9a2463fb4565c0dcf7141961e87ddcd279bc99dd2a4960eb94767f2"
+    },
+    {
+      "path": "app/data/weekday_history.json",
+      "bytes": 229353,
+      "sha256": "ccb819d00d3ec925066dc85214cffe42d0655ec50241e8a6f39a7ecfe786c424"
+    },
+    {
+      "path": "app/data/travel_history.json",
+      "bytes": 21224,
+      "sha256": "b38c7449ec9470c06d7b2620d966c23121ceeda20e68e28a54899424fac641d2"
+    },
+    {
+      "path": "simulation_viewer_2026-11-07/prepare_city.py",
+      "bytes": 18334,
+      "sha256": "4e681b9bb97782c4fc912ceb4b82834e1aeb719ce2ac00f0047f7a899550c72a"
+    },
+    {
+      "path": "simulation_viewer_2026-11-07/city_capacity_model.py",
+      "bytes": 22073,
+      "sha256": "1de61c9761915d404a549655d509055a9b247ee2e498007ae2671096887341ad"
+    },
+    {
+      "path": "simulation_viewer_2026-11-07/verify_city.py",
+      "bytes": 9349,
+      "sha256": "188faf61900b051d86648ab5f1d1c3e806cd6c661c5054b75d0a42621ddb88d6"
+    },
+    {
+      "path": "simulation_viewer_2026-11-07/aggregate_half_hour.py",
+      "bytes": 5042,
+      "sha256": "786ba3ac0737f58321ca86819b243250fed8d106698a4732df8cab5bcf1995de"
+    },
+    {
+      "path": "simulation_viewer_2026-11-07/chart_aggregation_2026-11-08/verification.json",
+      "bytes": 6434,
+      "sha256": "2d5f097ea0210915916927c26fcfc434f6d215875de5e36f3e59eb1c87d685ce"
+    },
+    {
+      "path": "simulation_viewer_2026-11-07/city_bus_model_2026-11-08/preparation_verification.json",
+      "bytes": 8609,
+      "sha256": "becc9cdea3c8c28442a31babe44f6f9c456eddf2fbe39ecd1814a67ea443779b"
+    },
+    {
+      "path": "simulation_viewer_2026-11-07/city_bus_model_2026-11-08/independent_verification.json",
+      "bytes": 17011,
+      "sha256": "45e15b33f26443952e22bae3172090cb5c13f28861f2e9e64d994d14f8157979"
+    },
+    {
+      "path": "simulation_viewer_2026-11-07/city_bus_model_2026-11-08/results_summary.json",
+      "bytes": 11371,
+      "sha256": "dbbbb9bfcaf743ff38fc4e78eec3243e2ae030982674ae7501c0d52c0ec99b36"
+    },
+    {
+      "path": "simulation_viewer_2026-11-07/city_bus_model_2026-11-08/sources/manufacturer_sources.json",
+      "bytes": 1296,
+      "sha256": "efcfe9c80fda9e3a0951ddd3eeaf17b36dd4a5822a8d4aa7c9ae9d4504881b2b"
+    },
+    {
+      "path": "simulation_viewer_2026-11-07/city_bus_model_2026-11-08/sources/route_metadata.json",
+      "bytes": 7544,
+      "sha256": "d6c498f87ce60529c6b26f0de5794ab70c72c7413cfe0bea2e139acb0ee06b4b"
+    },
+    {
+      "path": "simulation_viewer_2026-11-07/city_bus_model_2026-11-08/sources/route_100100250.json",
+      "bytes": 35725,
+      "sha256": "a8bcb21ed1c38b8e7263c35cdf97c908999bcbe132d201157166f22b4d3fb040"
+    },
+    {
+      "path": "simulation_viewer_2026-11-07/city_bus_model_2026-11-08/sources/route_100100251.json",
+      "bytes": 21575,
+      "sha256": "b1181e9bd9b8349e84ff2d3914198a302ef90715399bed9adc1a529d4f241f7b"
+    },
+    {
+      "path": "simulation_viewer_2026-11-07/city_bus_model_2026-11-08/sources/route_100100252.json",
+      "bytes": 15892,
+      "sha256": "c9e97abd703305345c193cee348d89fa36a8fbfb5647afe8c2f66c24bc7b896c"
+    },
+    {
+      "path": "simulation_viewer_2026-11-07/city_bus_model_2026-11-08/sources/route_100100253.json",
+      "bytes": 36078,
+      "sha256": "3e2e01bc6ad1136557c615166ff7efbf0ba12b3ccdd56ef54f261b78c6335ef2"
+    },
+    {
+      "path": "simulation_viewer_2026-11-07/city_bus_model_2026-11-08/sources/route_100100263.json",
+      "bytes": 39406,
+      "sha256": "385f38b18c16c4a95adf9592d74d4e6da0f8c8a55562277f7fcd775be6792aa6"
+    },
+    {
+      "path": "simulation_viewer_2026-11-07/city_bus_model_2026-11-08/sources/route_100100521.json",
+      "bytes": 55186,
+      "sha256": "7d0417f039234ab83e971aa2c4623270c1907e8edeeb6073c56fcbc9b9f924e9"
+    },
+    {
+      "path": "simulation_viewer_2026-11-07/city_bus_model_2026-11-08/sources/route_120900011.json",
+      "bytes": 19364,
+      "sha256": "ca73683208a6dc34f8ab6a4d8d492ed3676235498880edefa19888b8195e583b"
+    },
+    {
+      "path": "simulation_viewer_2026-11-07/city_bus_model_2026-11-08/sources/route_120900012.json",
+      "bytes": 16597,
+      "sha256": "cb89d8fa0ece8b75fbcbe9bf6e17169ca7aa9bb85d3357d540c12136760dbf4d"
+    }
+  ],
+  "city_speed_revision": "campus_stop_corridors_20261108",
+  "half_hour_chart_aggregation": {
+    "status": "PASS",
+    "interval_seconds": 1800,
+    "datasets": [
+      {
+        "dataset": "capacity_v3",
+        "runs": 10,
+        "nodes": 44,
+        "bins": 25,
+        "sources": [
+          {
+            "path": "capacity_model/speed_40_65/audit-regular-mon.json.gz",
+            "sha256": "b1bbcc35cfa9fd6f8b6e3757e34db19d9db3fde58e608dcb9229d315f86dde84"
+          },
+          {
+            "path": "capacity_model/speed_40_65/audit-regular-tue.json.gz",
+            "sha256": "203cf6811e64b30bd396863782211627273c3bc4c8bd0f84ab1e004f561074a3"
+          },
+          {
+            "path": "capacity_model/speed_40_65/audit-regular-wed.json.gz",
+            "sha256": "60cf82aa64f693df8acdfda48cab95458b7e088a532436ad6c703929f1132526"
+          },
+          {
+            "path": "capacity_model/speed_40_65/audit-regular-thu.json.gz",
+            "sha256": "854d3e48cfc518b2c8045aaa25d6e286916b2704d34694d2a5f4186d24701bfd"
+          },
+          {
+            "path": "capacity_model/speed_40_65/audit-regular-fri.json.gz",
+            "sha256": "4c2639c2625da0656a8d9e204bd22a6b12ffc391a8feb589e85b3ff8bf778cdb"
+          },
+          {
+            "path": "capacity_model/speed_40_65/audit-peak-mon.json.gz",
+            "sha256": "dadb639e6180843b6bfd28ff7c5fd30fa8038d8b8b3ba0da662f05f9c4c0cfec"
+          },
+          {
+            "path": "capacity_model/speed_40_65/audit-peak-tue.json.gz",
+            "sha256": "fe64f8e3282861ca09d54ec4d3c7f97f29376d8354cb7a8d44cc81fe59202103"
+          },
+          {
+            "path": "capacity_model/speed_40_65/audit-peak-wed.json.gz",
+            "sha256": "a17b86f228af16c11794241047bab3b0e2c6ccc3ec5057d864eec3422587febe"
+          },
+          {
+            "path": "capacity_model/speed_40_65/audit-peak-thu.json.gz",
+            "sha256": "0ea37b587d300cb14f643ffb340e5652f831a17516ec5f0abb54cd15a2b4a1e2"
+          },
+          {
+            "path": "capacity_model/speed_40_65/audit-peak-fri.json.gz",
+            "sha256": "81a638ec9b20277c60f8390984c91366e2113480dbbf866149908db996a6dbfe"
+          }
+        ],
+        "json_sha256": "86f53cd30d84db94a80326b38dc22d2b7a0b48ddda9d4f6d2c40f9741e1b1b76"
+      },
+      {
+        "dataset": "capacity_v4",
+        "runs": 10,
+        "nodes": 44,
+        "bins": 25,
+        "sources": [
+          {
+            "path": "adaptive_model/audit-regular-mon.json.gz",
+            "sha256": "70900ce6b5c2ec923f26c55bdffb9ab00ba12576b73b1c8bfa52110f3f16d128"
+          },
+          {
+            "path": "adaptive_model/audit-regular-tue.json.gz",
+            "sha256": "edf42a808c109797a51100d97425e1d8acbbd5a40667295901ad1af2a78639ca"
+          },
+          {
+            "path": "adaptive_model/audit-regular-wed.json.gz",
+            "sha256": "bf179120c015654d76536412ee577af67e4e19b6db784aada5fe5d3c796fa811"
+          },
+          {
+            "path": "adaptive_model/audit-regular-thu.json.gz",
+            "sha256": "1368bd0a180a0ef900897b1eae9b67f3bc77f4246adb7847d7b942ce76bc0931"
+          },
+          {
+            "path": "adaptive_model/audit-regular-fri.json.gz",
+            "sha256": "c831abb26a8e76dd996511d044544a236d0bcdd6a3135448f406b7f72de4e93b"
+          },
+          {
+            "path": "adaptive_model/audit-peak-mon.json.gz",
+            "sha256": "4da75b9f32ff43f86b8f065a8c16f05833fb7f9b2911a1e6d8e13f03e232e386"
+          },
+          {
+            "path": "adaptive_model/audit-peak-tue.json.gz",
+            "sha256": "e105ba83a74a29c64592c8816c2aea3dce724a0b9b49c7ad5d33a1b30b755ccc"
+          },
+          {
+            "path": "adaptive_model/audit-peak-wed.json.gz",
+            "sha256": "0bda41c9e4266dde98baf26541072bbad3c6809731db1c5a73f90dc3ca2accd9"
+          },
+          {
+            "path": "adaptive_model/audit-peak-thu.json.gz",
+            "sha256": "9d2c62c3d8ecbf3fcbc0c7a4dc0ece0343248860db50b39ffaa5844a9e999a64"
+          },
+          {
+            "path": "adaptive_model/audit-peak-fri.json.gz",
+            "sha256": "80c266ad64ed50f1e14486d432a8eff657cba1a128896f005c55d4727a0758eb"
+          }
+        ],
+        "json_sha256": "3e531ce1567f87f05ae4c45b24d149c45cdb8fad923d89f869b7d0e031a71848"
+      },
+      {
+        "dataset": "capacity_v5",
+        "runs": 10,
+        "nodes": 99,
+        "bins": 25,
+        "sources": [
+          {
+            "path": "city_bus_model_2026-11-08/audit-regular-mon.json.gz",
+            "sha256": "0b1353363b9669591ca11f268a21e223b052b1c1624ec591d21ab830ce7fa4f7"
+          },
+          {
+            "path": "city_bus_model_2026-11-08/audit-regular-tue.json.gz",
+            "sha256": "cf10cf466bdb34c01b7a1eb8c19eb89b56fc6e45e4a5acb44748514c752671dc"
+          },
+          {
+            "path": "city_bus_model_2026-11-08/audit-regular-wed.json.gz",
+            "sha256": "6a3559dd15d94e3f7f3a2bda810e877b8c91a5afcd2cb13cf012ecadf70111e9"
+          },
+          {
+            "path": "city_bus_model_2026-11-08/audit-regular-thu.json.gz",
+            "sha256": "f39b4e2ce3c1853cfa857c8ae5faffa675c1d66aa315cb8ee5377c9a5cb43ce9"
+          },
+          {
+            "path": "city_bus_model_2026-11-08/audit-regular-fri.json.gz",
+            "sha256": "9e517fef52e7bc0b77c3b00fb5eea57990871b693b9ac3c989044c2c5448261a"
+          },
+          {
+            "path": "city_bus_model_2026-11-08/audit-peak-mon.json.gz",
+            "sha256": "20a65a8723bc892eb7fb524153e8ffbce913b68603df03f28a878016cd79825a"
+          },
+          {
+            "path": "city_bus_model_2026-11-08/audit-peak-tue.json.gz",
+            "sha256": "a2ffb3dbb03937cf7e1c15a20e79cb87b061f5e6da0e6530d883758d06379370"
+          },
+          {
+            "path": "city_bus_model_2026-11-08/audit-peak-wed.json.gz",
+            "sha256": "3142e161b27daee8f56c12f588457665be99d129a2c2e42cae42a18059dc64b8"
+          },
+          {
+            "path": "city_bus_model_2026-11-08/audit-peak-thu.json.gz",
+            "sha256": "e7b21b4a0e03d9290722483fd1f010aea86c4f7d4b0591c07a55cc4219bc3b40"
+          },
+          {
+            "path": "city_bus_model_2026-11-08/audit-peak-fri.json.gz",
+            "sha256": "09c8b8eb0e6c7aa56af761385515136ed44e302d7db2090601cf9fac88074ec6"
+          }
+        ],
+        "json_sha256": "2fbff7b839b356f9c3ee4cbe247b733a1e23dbd06b5092d2a11cc606cd7932ce"
+      }
+    ],
+    "runs": 30,
+    "half_hour_cells_reconciled_to_hourly": 46750,
+    "simulation_recomputed": false,
+    "original_replay_datasets_changed": false,
+    "legacy_hourly_reference_resampled": false,
+    "builder_sha256": "786ba3ac0737f58321ca86819b243250fed8d106698a4732df8cab5bcf1995de"
+  },
+  "city_historical_field_availability": {
+    "sum_load_missing": 47963,
+    "average_missing": 231360,
+    "maximum_missing": 231360,
+    "runs_missing": 231360,
+    "sum_load_present": 183397
+  },
+  "source_document_sha256": "28d20c77b5d92e8af57b1b3fab818ad2cf507f3a9589ea914ba5ca2027d35cf0",
+  "document_checks": {
+    "status": "PASS",
+    "sections": 12,
+    "internal_links_valid": true,
+    "duplicate_ids": false,
+    "unresolved_placeholders": false
+  }
+}

@@ -1,0 +1,5 @@
+# 초기 재고 탐색 수치의 범위
+
+direct-policy-inventory.json은모든원래plans·alternatives·카탈로그의직통suffix를걷기경로ID까지구분해모은탐색기록입니다. 서로다른하차후보행경로ID와후속단계에서추출된정책도세므로232개를누락된독립노선/서비스수로해석하면틀립니다.
+
+실제수정은single-stage와full카탈로그의(rid,board,alight)직통서비스를같은승차지·설입목적지별로비교해확인한5개뿐입니다. 소스direct_restoration.py와준비감사preparation-catalog-audit.json의정의가최종범위입니다. exploratory routing_catalog.py는대안설계초안이며후보에복사하거나실행하지않았습니다. 후보는전역카탈로그를변경하지않는별도registry방식을사용합니다.

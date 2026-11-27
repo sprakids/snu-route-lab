@@ -1,0 +1,38 @@
+page.selectOption: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator('#vehicle-filter')
+    - locator resolved to <select id="vehicle-filter">…</select>
+  - attempting select option action
+    2 × waiting for element to be visible and enabled
+      - did not find some options
+    - retrying select option action
+    - waiting 20ms
+    2 × waiting for element to be visible and enabled
+      - did not find some options
+    - retrying select option action
+      - waiting 100ms
+    59 × waiting for element to be visible and enabled
+       - did not find some options
+     - retrying select option action
+       - waiting 500ms
+
+    at C:\Users\김예준\Documents\ChatGPT\공대 문제해결\shuttle_analysis\simulation_viewer_2026-11-07\verify_supply_render.cjs:16:14 {
+  log: [
+    "  - waiting for locator('#vehicle-filter')",
+    '    - locator resolved to <select id="vehicle-filter">…</select>',
+    '  - attempting select option action',
+    '    2 × waiting for element to be visible and enabled',
+    '      - did not find some options',
+    '    - retrying select option action',
+    '    - waiting 20ms',
+    '    2 × waiting for element to be visible and enabled',
+    '      - did not find some options',
+    '    - retrying select option action',
+    '      - waiting 100ms',
+    '    59 × waiting for element to be visible and enabled',
+    '       - did not find some options',
+    '     - retrying select option action',
+    '       - waiting 500ms'
+  ],
+  name: 'TimeoutError'
+}

@@ -1,0 +1,352 @@
+{
+  "created_at": "2026-11-16T03:22:31.299482+00:00",
+  "summary": {
+    "comparison_parent": "261116010854",
+    "fully_evaluated_comparison_candidate": "261116105704",
+    "latest_literal_behavior_candidate": "261116120358",
+    "latest_pilot_status": "PILOT_NOT_ACCEPTED",
+    "max_wait_before": 26.56100393228056,
+    "max_wait_after": 31.674464248289464,
+    "over20_before": 1938.6033366653537,
+    "over20_after": 1553.345721035085,
+    "field_error_before": 117.25027673225885,
+    "field_error_after": 109.0951785157073,
+    "law_all_recorded_max_after": 74.10741733400909,
+    "unserved_weight": 0.0,
+    "new_date_accuracy": "NOT_EVALUATED",
+    "production_writes": false,
+    "operating_adoption_recommended": false,
+    "completed_executions_this_task": 24
+  },
+  "experiments": [
+    {
+      "model": "261116102200",
+      "executed_cases": 3,
+      "pilot": {
+        "status": "PILOT_QUALIFIED",
+        "comparison_parent": "261116010854",
+        "physical": true,
+        "behavior": true,
+        "main_cases": 2,
+        "diagnostic_cases": 1,
+        "over20_before": 476.8620540336957,
+        "over20_after": 453.8225249297005,
+        "field_error_sum_before": 59.475675923729476,
+        "field_error_sum_after": 59.47567592372889,
+        "observations": [
+          {
+            "observation": "20261109-1653-admin-snu-queue-01",
+            "minute": "16:53",
+            "old_mean": 48.56099556972961,
+            "new_mean": 48.56099556972968,
+            "old_error": 11.717543595339245,
+            "new_error": 11.717543595339231
+          },
+          {
+            "observation": "20261109-1655-culture-city-queue-01",
+            "minute": "16:55",
+            "old_mean": 3.775852552871402,
+            "new_mean": 3.7758525528713367,
+            "old_error": 1.8524931516843064,
+            "new_error": 1.8524931516843437
+          },
+          {
+            "observation": "20261109-1703-snu-gate-queue-01",
+            "minute": "17:03",
+            "old_mean": 13.376720552680082,
+            "new_mean": 13.376720552680643,
+            "old_error": 19.623279447319916,
+            "new_error": 19.62327944731936
+          },
+          {
+            "observation": "20261110-1523-admin-snu-queue-wait-01",
+            "minute": "15:23",
+            "old_mean": 93.282359729386,
+            "new_mean": 93.28235972938596,
+            "old_error": 26.282359729386005,
+            "new_error": 26.28235972938596
+          }
+        ],
+        "mean_journey_delta_minutes": [
+          0.0916735443249479,
+          0.0867631065586103
+        ],
+        "unserved_weight": 0.0,
+        "new_date_accuracy": "NOT_EVALUATED",
+        "production_writes": false
+      },
+      "completed_main_grid": false,
+      "started_sha256": {
+        "261116102200\\runs\\ablation-no-same-stop-mon\\attempt_01\\started.json": "5af31e395d71001d16c4373b3395a9641e591b92847c3686a60b24d38b4198f5",
+        "261116102200\\runs\\poolfix-combined-regular-mon\\attempt_01\\started.json": "47161c2fe9b0c403c9bf6107b9dc8e289c910320f2f5811bf81bc7876cf08966",
+        "261116102200\\runs\\poolfix-combined-regular-tue\\attempt_01\\started.json": "c245dce1446e5874f4275a06eeb6bdb143747e82a0a215ed2305927f0b519a18"
+      }
+    },
+    {
+      "model": "261116103210",
+      "executed_cases": 3,
+      "pilot": {
+        "status": "PILOT_NOT_ACCEPTED",
+        "comparison_parent": "261116010854",
+        "physical": true,
+        "behavior": true,
+        "main_cases": 2,
+        "diagnostic_cases": 1,
+        "over20_before": 476.8620540336957,
+        "over20_after": 396.65133784630535,
+        "field_error_sum_before": 59.475675923729476,
+        "field_error_sum_after": 60.97964281072162,
+        "observations": [
+          {
+            "observation": "20261109-1653-admin-snu-queue-01",
+            "minute": "16:53",
+            "old_mean": 48.56099556972961,
+            "new_mean": 48.49170746187018,
+            "old_error": 11.717543595339245,
+            "new_error": 11.648255487480421
+          },
+          {
+            "observation": "20261109-1655-culture-city-queue-01",
+            "minute": "16:55",
+            "old_mean": 3.775852552871402,
+            "new_mean": 7.154324214008113,
+            "old_error": 1.8524931516843064,
+            "new_error": 2.215506341460207
+          },
+          {
+            "observation": "20261109-1703-snu-gate-queue-01",
+            "minute": "17:03",
+            "old_mean": 13.376720552680082,
+            "new_mean": 12.166478747604922,
+            "old_error": 19.623279447319916,
+            "new_error": 20.833521252395077
+          },
+          {
+            "observation": "20261110-1523-admin-snu-queue-wait-01",
+            "minute": "15:23",
+            "old_mean": 93.282359729386,
+            "new_mean": 93.28235972938592,
+            "old_error": 26.282359729386005,
+            "new_error": 26.282359729385917
+          }
+        ],
+        "mean_journey_delta_minutes": [
+          -0.2148791802696941,
+          -0.22494848988072746
+        ],
+        "unserved_weight": 0.0,
+        "new_date_accuracy": "NOT_EVALUATED",
+        "production_writes": false
+      },
+      "completed_main_grid": false,
+      "started_sha256": {
+        "261116103210\\runs\\ablation-no-trunk-mon\\attempt_01\\started.json": "31391afeba125375992786eb91fd86da47df0186e8b53521e46902a479704fa6",
+        "261116103210\\runs\\trunkfix-combined-regular-mon\\attempt_01\\started.json": "9a9b3fc62fe40083ac13d50e2a2b89e6f295a298924533ca02bd6ffcbc1ec3e1",
+        "261116103210\\runs\\trunkfix-combined-regular-tue\\attempt_01\\started.json": "ac9638d947c68e6b75f1cb9a0f3615f1e155c13eb863933e48c06653ecc6c3be"
+      }
+    },
+    {
+      "model": "261116105704",
+      "executed_cases": 12,
+      "pilot": {
+        "status": "PILOT_QUALIFIED",
+        "comparison_parent": "261116010854",
+        "physical": true,
+        "behavior": true,
+        "main_cases": 2,
+        "diagnostic_cases": 2,
+        "over20_before": 476.8620540336957,
+        "over20_after": 405.7067960334457,
+        "field_error_sum_before": 59.475675923729476,
+        "field_error_sum_after": 54.69619138138514,
+        "observations": [
+          {
+            "observation": "20261109-1653-admin-snu-queue-01",
+            "minute": "16:53",
+            "old_mean": 48.56099556972961,
+            "new_mean": 48.50416027190432,
+            "old_error": 11.717543595339245,
+            "new_error": 11.660708297514466
+          },
+          {
+            "observation": "20261109-1655-culture-city-queue-01",
+            "minute": "16:55",
+            "old_mean": 3.775852552871402,
+            "new_mean": 6.31326576125746,
+            "old_error": 1.8524931516843064,
+            "new_error": 1.4586159691312914
+          },
+          {
+            "observation": "20261109-1703-snu-gate-queue-01",
+            "minute": "17:03",
+            "old_mean": 13.376720552680082,
+            "new_mean": 17.705492614646573,
+            "old_error": 19.623279447319916,
+            "new_error": 15.294507385353427
+          },
+          {
+            "observation": "20261110-1523-admin-snu-queue-wait-01",
+            "minute": "15:23",
+            "old_mean": 93.282359729386,
+            "new_mean": 93.28235972938596,
+            "old_error": 26.282359729386005,
+            "new_error": 26.28235972938596
+          }
+        ],
+        "mean_journey_delta_minutes": [
+          -0.6432577816588143,
+          -0.6885753436721274
+        ],
+        "unserved_weight": 0.0,
+        "new_date_accuracy": "NOT_EVALUATED",
+        "production_writes": false
+      },
+      "completed_main_grid": true,
+      "started_sha256": {
+        "261116105704\\runs\\ablation-first-stop-group-mon\\attempt_01\\started.json": "fac36bfecc4d323888480cbd506be356ac4b76d466d65ed469666b1531ad10b2",
+        "261116105704\\runs\\ablation-legacy-initial-mon\\attempt_01\\started.json": "bf96d1647cbb709730c39ff5883df6e6a18701e3894fbd58e7bcf10748c22467",
+        "261116105704\\runs\\primaryfix-combined-peak-fri\\attempt_01\\started.json": "8810dcad4761b0b3937b78df385558bfaffee39e64f5967a87fcacbeaf1a7c03",
+        "261116105704\\runs\\primaryfix-combined-peak-mon\\attempt_01\\started.json": "6c0d0b0d917f6c1c42b63597b582e657d77ed5023edf737404ebd2fe52ef74e5",
+        "261116105704\\runs\\primaryfix-combined-peak-thu\\attempt_01\\started.json": "aa08ceaf1af4092841da506f336666beb9801ebd782f20a8405ec2c5c7d13b03",
+        "261116105704\\runs\\primaryfix-combined-peak-tue\\attempt_01\\started.json": "601453e6413169695213ac2d4a788a7e908bd0512f8f8b6902d42811cb918b4d",
+        "261116105704\\runs\\primaryfix-combined-peak-wed\\attempt_01\\started.json": "e889a846707420d30dc259dc60301a8dc9744caf14c1386a98279b85c7a193d4",
+        "261116105704\\runs\\primaryfix-combined-regular-fri\\attempt_01\\started.json": "0546780703f3aceefed7ee022dd25213bd76e664a708190a51c50b32b07f0cb2",
+        "261116105704\\runs\\primaryfix-combined-regular-mon\\attempt_01\\started.json": "d6ccafc19b55265f263286ebd1cf649a6692b003db131b5ba90ef1818f12abbb",
+        "261116105704\\runs\\primaryfix-combined-regular-thu\\attempt_01\\started.json": "45ea141e0a464a7a1e05a02b648e29910d99b0529041a99b416d95eec235ff54",
+        "261116105704\\runs\\primaryfix-combined-regular-tue\\attempt_01\\started.json": "a97d999622a38c1970b46458677e8dab388286258eebc1053f82cd207e300cfc",
+        "261116105704\\runs\\primaryfix-combined-regular-wed\\attempt_01\\started.json": "2976ba6143edbb31784aa2c73d23ed5cd648ab2ea7347a84e8fc368f2602f052"
+      }
+    },
+    {
+      "model": "261116112731",
+      "executed_cases": 4,
+      "pilot": {
+        "status": "PILOT_NOT_ACCEPTED",
+        "comparison_parent": "261116105704",
+        "physical": true,
+        "behavior": true,
+        "main_cases": 2,
+        "diagnostic_cases": 2,
+        "over20_before": 405.7067960334457,
+        "over20_after": 420.7922677166325,
+        "field_error_sum_before": 54.69619138138514,
+        "field_error_sum_after": 59.516880104319796,
+        "observations": [
+          {
+            "observation": "20261109-1653-admin-snu-queue-01",
+            "minute": "16:53",
+            "old_mean": 48.50416027190432,
+            "new_mean": 48.504160271904176,
+            "old_error": 11.660708297514466,
+            "new_error": 11.660708297514498
+          },
+          {
+            "observation": "20261109-1655-culture-city-queue-01",
+            "minute": "16:55",
+            "old_mean": 6.31326576125746,
+            "new_mean": 8.903207442717935,
+            "old_error": 1.4586159691312914,
+            "new_error": 3.903207442717935
+          },
+          {
+            "observation": "20261109-1703-snu-gate-queue-01",
+            "minute": "17:03",
+            "old_mean": 17.705492614646573,
+            "new_mean": 15.329395365298543,
+            "old_error": 15.294507385353427,
+            "new_error": 17.67060463470146
+          },
+          {
+            "observation": "20261110-1523-admin-snu-queue-wait-01",
+            "minute": "15:23",
+            "old_mean": 93.28235972938596,
+            "new_mean": 93.2823597293859,
+            "old_error": 26.28235972938596,
+            "new_error": 26.282359729385902
+          }
+        ],
+        "mean_journey_delta_minutes": [
+          3.644554532615505,
+          3.490196021468705
+        ],
+        "max_wait_before": 31.674464248289464,
+        "max_wait_after": 26.94624630044042,
+        "unserved_weight": 0.0,
+        "new_date_accuracy": "NOT_EVALUATED",
+        "production_writes": false
+      },
+      "completed_main_grid": false,
+      "started_sha256": {
+        "261116112731\\runs\\ablation-full-transfer-mon\\attempt_01\\started.json": "1850b9649368b9c86d317f0a5496c2ab92cc144617bdba19dba3221f59e5ce7d",
+        "261116112731\\runs\\ablation-full-transfer-tue\\attempt_01\\started.json": "c0aaef1dac67563aa7d3f6db4cf2455cc9c90236f7a81afa473f19ca5c53a61a",
+        "261116112731\\runs\\perceptionfix-combined-regular-mon\\attempt_01\\started.json": "69c2c7b70c55e25081949c14cdc05e3e1827a859dd4a9e35d6f2105656401086",
+        "261116112731\\runs\\perceptionfix-combined-regular-tue\\attempt_01\\started.json": "5eadb2e19fc28290b2e76b96fca1043e446fd8b302e6887a60143be0c9522cb7"
+      }
+    },
+    {
+      "model": "261116120358",
+      "executed_cases": 2,
+      "pilot": {
+        "status": "PILOT_NOT_ACCEPTED",
+        "comparison_parent": "261116105704",
+        "physical": true,
+        "behavior": true,
+        "main_cases": 2,
+        "diagnostic_cases": 0,
+        "over20_before": 405.7067960334457,
+        "over20_after": 583.1281589676507,
+        "field_error_sum_before": 54.69619138138514,
+        "field_error_sum_after": 70.41328794391477,
+        "observations": [
+          {
+            "observation": "20261109-1653-admin-snu-queue-01",
+            "minute": "16:53",
+            "old_mean": 48.50416027190432,
+            "new_mean": 48.49170746187012,
+            "old_error": 11.660708297514466,
+            "new_error": 11.648255487480435
+          },
+          {
+            "observation": "20261109-1655-culture-city-queue-01",
+            "minute": "16:55",
+            "old_mean": 6.31326576125746,
+            "new_mean": 19.707838818314933,
+            "old_error": 1.4586159691312914,
+            "new_error": 14.707838818314935
+          },
+          {
+            "observation": "20261109-1703-snu-gate-queue-01",
+            "minute": "17:03",
+            "old_mean": 17.705492614646573,
+            "new_mean": 15.225166091266747,
+            "old_error": 15.294507385353427,
+            "new_error": 17.774833908733253
+          },
+          {
+            "observation": "20261110-1523-admin-snu-queue-wait-01",
+            "minute": "15:23",
+            "old_mean": 93.28235972938596,
+            "new_mean": 93.28235972938614,
+            "old_error": 26.28235972938596,
+            "new_error": 26.282359729386144
+          }
+        ],
+        "mean_journey_delta_minutes": [
+          6.343708554582481,
+          5.027754621376481
+        ],
+        "max_wait_before": 31.674464248289464,
+        "max_wait_after": 33.43290561563299,
+        "unserved_weight": 0.0,
+        "new_date_accuracy": "NOT_EVALUATED",
+        "production_writes": false
+      },
+      "completed_main_grid": false,
+      "started_sha256": {
+        "261116120358\\runs\\linear-combined-regular-mon\\attempt_01\\started.json": "94cb3689050d166df1ca9580eb82f075cfd160d1ed85d84e6ff1026a2efb6faf",
+        "261116120358\\runs\\linear-combined-regular-tue\\attempt_01\\started.json": "2d623a35f3e6082700fcd6e711608f67de912caa7e97adc0a17afa19fa7affb0"
+      }
+    }
+  ],
+  "input_provenance": "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\261116105704\\input_manifest.json"
+}

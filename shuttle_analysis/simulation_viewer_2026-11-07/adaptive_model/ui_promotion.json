@@ -1,0 +1,72 @@
+{
+  "status": "PASS",
+  "v3_dataset_files_identical_to_R2": 12,
+  "backup_index": "revisions\\index_v3_before_adaptive.html",
+  "new_default": "public/index.html",
+  "qa_report": "C:\\Users\\김예준\\AppData\\Local\\Temp\\SNU_Adaptive_QA_20261107\\qa.json",
+  "ui": {
+    "status": "PASS",
+    "browser": "Edge via Playwright",
+    "browser_plugin": "Absent: Browser plugin not available",
+    "viewport_desktop": [
+      1440,
+      1000
+    ],
+    "viewport_mobile": [
+      390,
+      844
+    ],
+    "errors": [],
+    "warnings": [],
+    "checks": [
+      {
+        "test": "page_identity_nonblank_no_overlay",
+        "pass": true,
+        "url": "http://127.0.0.1:8786/adaptive.html",
+        "title": "하교길 실험실 · 대기줄을 보고 경로 변경"
+      },
+      {
+        "test": "reroute_scene_and_walking_dots",
+        "pass": true,
+        "detail": "15:27:22 · 행정관 · 5511 · 예상 16분 → 11.6분"
+      },
+      {
+        "test": "one_second_per_second_playback",
+        "pass": true,
+        "elapsed": 1.4169999999940046
+      },
+      {
+        "test": "graphs_and_changed_flow_column",
+        "pass": true,
+        "heatmapRows": 5
+      },
+      {
+        "test": "original_v3_comparison_policy",
+        "pass": true
+      },
+      {
+        "test": "weekday_headway_and_policy_reload",
+        "pass": true
+      },
+      {
+        "test": "graph_cell_to_map",
+        "pass": true,
+        "clock": "12:30:00"
+      },
+      {
+        "test": "mobile_controls_and_no_horizontal_overflow",
+        "pass": true,
+        "overflow": 0
+      },
+      {
+        "test": "model_assumptions_dialog",
+        "pass": true
+      }
+    ],
+    "screenshots": [
+      "desktop-rerouting.png",
+      "desktop-charts.png",
+      "mobile-rerouting.png"
+    ]
+  }
+}

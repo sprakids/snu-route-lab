@@ -1,0 +1,122 @@
+{
+  "status": "PASS_FINAL_SNAPSHOT_SCOPED_STATIC_REVIEW",
+  "checked_at": "2026-11-12T12:19:47.384403+00:00",
+  "candidate": "261112210916",
+  "parent": "261112171315",
+  "intake_source_hashes": {
+    "engine.py": "69f76c12a3a564b0e4a1205c3c664add96a6650f2bc59f091052ebed264cc328",
+    "policy.py": "854628f8aff94cde96aefaca0f21238e5b72ceccef8367203a76e2dee64f7169",
+    "prepare.py": "6a7bc435d0de712162ef2346a3f3b513a44b8dbd983c4292fbec03502e1ba9df",
+    "preferences.py": "3306c94dd020009cd150e9ccce66270bb740de60a16409c216b1b8e37516e1c4",
+    "config.json": "39e25d9e9939c0c022e681ef10945a1e2a7de873004e8dc5981d3a64292ef211",
+    "run_case.py": "027c98db38c89c869384276b9dee514aa0bcca4f093aae714f4b03ead82eab7e",
+    "experiment_lock.json": "2a0d3766b3310a250494f41dbc0190a89b1f8cc1cabe19a9c039e69507f70f0c"
+  },
+  "intake_source_hashes_were_unchanged": false,
+  "initial_patch_sha256": "80a9452332a83f7bcd85b710c4cc97be4170736522649610ddccd4357562d87a",
+  "final_source_hashes": {
+    "engine.py": "8c27ea322b9bb7f71d6fde9f1da14785aa3035a3fd45e55ed098a915279637ef",
+    "policy.py": "1dedcd915ac715561a7984c8ddb4700f6fd241ef520d4163a6f91f0ff506d946",
+    "prepare.py": "6a7bc435d0de712162ef2346a3f3b513a44b8dbd983c4292fbec03502e1ba9df",
+    "preferences.py": "3306c94dd020009cd150e9ccce66270bb740de60a16409c216b1b8e37516e1c4",
+    "config.json": "39e25d9e9939c0c022e681ef10945a1e2a7de873004e8dc5981d3a64292ef211",
+    "run_case.py": "027c98db38c89c869384276b9dee514aa0bcca4f093aae714f4b03ead82eab7e",
+    "experiment_lock.json": "2a0d3766b3310a250494f41dbc0190a89b1f8cc1cabe19a9c039e69507f70f0c"
+  },
+  "final_patch_sha256": "8d3931500cb0fba5b8d9f65adf0f4d97ce19bd5a54770fec72ecd17dd6c11aa8",
+  "final_checkpoint_unchanged_during_verification": true,
+  "patch_addition_AST_matches_candidate": {
+    "CommittedArrivals": true,
+    "consume_current_view": true,
+    "timed_boardable": true
+  },
+  "runtime_count": 14,
+  "runtime_files_unchanged_from_parent": [
+    "artifacts.py",
+    "preferences.py",
+    "hazard.py",
+    "capacity.py",
+    "physics.py",
+    "fares.py",
+    "prepare.py",
+    "metrics.py",
+    "operations.py",
+    "empirical_v12.py",
+    "time_profiles.py",
+    "run_case.py"
+  ],
+  "runtime_files_changed_from_parent": [
+    "policy.py",
+    "engine.py"
+  ],
+  "runtime_sha256": {
+    "artifacts.py": "6e62dfbe617557377b2feea01918670e050f960548bda5aab27491b24853e1f7",
+    "preferences.py": "3306c94dd020009cd150e9ccce66270bb740de60a16409c216b1b8e37516e1c4",
+    "hazard.py": "6a37635687d25e0210749e30598d0494f0c16e586d0fa095b0def9fe6b49cc18",
+    "capacity.py": "2fba2637b1a7b0149b4cd5d2b540cbca750b430975e89d2a1851eca8bb55deb2",
+    "physics.py": "b02afdd219ae47df56f4cd8288fe758ad43d5db26ada9adfcfe106841e4e4b15",
+    "fares.py": "6b4bd8c2a5e9a72d5cf75ff134c53af5057be60df769ae9ecf7d3502fa705de3",
+    "prepare.py": "6a7bc435d0de712162ef2346a3f3b513a44b8dbd983c4292fbec03502e1ba9df",
+    "policy.py": "1dedcd915ac715561a7984c8ddb4700f6fd241ef520d4163a6f91f0ff506d946",
+    "metrics.py": "2161f7f48b9545d10e8d349f6d4c98efa2e0426dc133daaa5749fe3976de9814",
+    "engine.py": "8c27ea322b9bb7f71d6fde9f1da14785aa3035a3fd45e55ed098a915279637ef",
+    "operations.py": "6a8cbf12833b8bebdac838b8acc737e8b12a8e82b07c427ac6ba62e7d6cbf645",
+    "empirical_v12.py": "c0943dcc106736bd8bb6de4e1a3f0a479f830ad97a7f53adec076eb36952d8de",
+    "time_profiles.py": "c4d8f8cf9df7c367e6fd1b1e20a04d98d896cb12265e2ebfbf8a1ce40840ed52",
+    "run_case.py": "027c98db38c89c869384276b9dee514aa0bcca4f093aae714f4b03ead82eab7e"
+  },
+  "config_diff": {
+    "committed_arrivals_information": {
+      "parent": null,
+      "candidate": "Simulation information assumption: already-started approach intent and readiness known to predictor; excludes future departures, later rerouting and realized future queue. Not measured student tracking."
+    },
+    "forecast_committed_arrivals": {
+      "parent": null,
+      "candidate": true
+    },
+    "later_walking_preference": {
+      "parent": null,
+      "candidate": "Preserve171315 preferences, cumulative wait burden, unlimited changes and walking distance priors unchanged as requested."
+    },
+    "release_id": {
+      "parent": "261112171315",
+      "candidate": "261112210916"
+    },
+    "version_family": {
+      "parent": "V12-empirical-refinement",
+      "candidate": "V12-committed-arrivals"
+    }
+  },
+  "execution_snapshot_receipts": [
+    {
+      "case": "committed-combined-regular-mon",
+      "receipt_path": "shuttle_analysis\\261112210916\\runs\\committed-combined-regular-mon\\attempt_01\\started.json",
+      "snapshot_and_current_match_receipt": true,
+      "source_count": 14
+    },
+    {
+      "case": "committed-combined-regular-tue",
+      "receipt_path": "shuttle_analysis\\261112210916\\runs\\committed-combined-regular-tue\\attempt_01\\started.json",
+      "snapshot_and_current_match_receipt": true,
+      "source_count": 14
+    }
+  ],
+  "future_registered_hashes_checked": 22,
+  "report_sha256": {
+    "READ_ONLY_REVIEW.md": "2c6b948c6495e01af9c0fb0cadaf14aa721f702d87769e3bc15090562cad3d70",
+    "READ_ONLY_REVIEW_FINAL.md": "c10892478fb60b76c04a26b0799a275f82b6c34a2405a80f574a50585adf219b"
+  },
+  "tests_executed_by_reviewer": false,
+  "algorithm_or_patch_executed_by_reviewer": false,
+  "model_runs_started_by_reviewer": false,
+  "model_code_modified_by_reviewer": false,
+  "new_date_observation_outcomes_read": false,
+  "production_writes": false,
+  "scope_failure_record": "scope_check_attempt01_failure.json",
+  "limits": [
+    "Static review, not runtime/empirical approval",
+    "Equal-ready future ties intentionally excluded",
+    "Currently started model intent/readiness assumed known; not student GPS",
+    "Onboard later transfers and full future choice policy not added"
+  ]
+}

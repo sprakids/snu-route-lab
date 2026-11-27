@@ -1,0 +1,314 @@
+--- a/public/index.html
++++ b/public/index.html
+@@ -1,9 +1,9 @@
+ <!doctype html>
+ <html lang="ko" data-replay-loading><head>
+-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light">
++<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="color-scheme" content="light">
+ <title>하교길 실험실 · 시내버스·셔틀 정원과 운행계획</title><link rel="icon" href="data:,">
+-<link rel="stylesheet" href="vendor/leaflet.css"><link rel="stylesheet" href="viewer-v2.css"><link rel="stylesheet" href="viewer-v5.css"><script defer src="vendor/leaflet.js"></script><script type="module" src="viewer-v5.js"></script>
+-<link rel="stylesheet" href="campus-theme.css"><script src="campus-theme.js"></script></head><body class="campus-simulation">
++<link rel="stylesheet" href="vendor/leaflet.css"><link rel="stylesheet" href="viewer-v2.css"><link rel="stylesheet" href="viewer-v5.css"><script defer src="vendor/leaflet.js"></script><script type="module" src="viewer-v5.js?v=mobile-261110165808"></script>
++<link rel="stylesheet" href="campus-theme.css"><script src="campus-theme.js"></script><link rel="stylesheet" href="mobile-lab.css?v=261110165808" data-mobile-lab></head><body class="campus-simulation">
+ <header class="header"><a class="brand" href="./"><i class="brand-dot" aria-hidden="true"></i>하교길 실험실</a><nav class="page-tabs" aria-label="화면 선택"><button id="map-tab" class="active" aria-pressed="true">지도</button><button id="charts-tab" aria-pressed="false">그래프</button></nav><div class="header-links"><a class="methodology-link" href="methodology.html" target="_blank" rel="noopener noreferrer" aria-label="가정·자료·출처 설명서 새 탭에서 열기"><span class="methodology-full">가정·자료·출처</span><span class="methodology-short">설명서</span> ↗</a><button class="text-button" id="about-button">모형 안내</button><button type="button" class="theme-toggle" role="switch" aria-checked="false" aria-label="다크 모드" data-theme-toggle title="다크 모드로 전환"><span class="theme-label" aria-hidden="true">다크 모드</span><span class="theme-track" aria-hidden="true"><span class="theme-knob"></span></span></button></div></header>
+ <main class="workspace">
+ <aside class="sidebar" aria-label="시뮬레이션 설정">
+--- a/public/viewer-v5.js
++++ b/public/viewer-v5.js
+@@ -3,6 +3,7 @@
+ import {snapshotAt,summaryMarkup,installSnapshotQuery} from './snapshot-query.js';
+ import {initialReplayClock} from './initial-clock.js';
+ import {createJsonLoader} from './json-loader.js';
++import {installMobileLab} from './mobile-lab.js?v=261110165808';
+ const CITY_DATASETS=new Map([['baseline_v5','capacity_v5'],['empirical_speed_v1','capacity_v6'],['gate_access_v1','capacity_v7'],['walk_choices_v1','capacity_v9'],['corrected_supply_v1','capacity_v11']]);
+ const CITY_DATASET=CITY_DATASETS.get(new URLSearchParams(location.search).get('dataset'))||'capacity_v11';
+ const $=id=>document.getElementById(id),ROOT=`data/${CITY_DATASET}/`;
+@@ -129,7 +130,7 @@
+   ctx.fillStyle=load>=capacity-.01?RED:rid.startsWith('shuttle')?'#365b65':'#3b5f9d';ctx.beginPath();ctx.roundRect(p.x-w/2,p.y-19,w,43,5);ctx.fill();ctx.strokeStyle='#fff';ctx.lineWidth=1;ctx.stroke();ctx.fillStyle='#fff';ctx.textAlign='center';ctx.textBaseline='middle';ctx.font="600 9px 'Malgun Gothic',sans-serif";ctx.fillText(name,p.x,p.y-10);ctx.font="600 10px 'Malgun Gothic',sans-serif";ctx.fillText(text,p.x,p.y+3);ctx.font="8px 'Malgun Gothic',sans-serif";ctx.fillText(kmh<.5?'정차':`${Math.round(kmh)} km/h`,p.x,p.y+15);
+ }
+ function draw(){
+-  const s=map.getSize();ctx.clearRect(0,0,s.x,s.y);if(!state.ready||!state.data||state.pane!=='map')return;
++  const s=map.getSize();ctx.clearRect(0,0,s.x,s.y);if(!state.ready||!state.data||(state.pane!=='map'&&!document.body.dataset.labMobile))return;
+   const t=state.second,busPositions=new Map(),buses=[];
+   for(const v of state.data.vehicles){const legs=v[3],i=latest(legs,t),leg=i>=0?legs[i]:null;if(!leg||t>=leg[1])continue;const motion=busMotion(leg[2],t-leg[0],leg[1]-leg[0]);busPositions.set(v[0],motion.point);if(showVehicle(v[1]))buses.push([motion.point,leg[3],v[2],motion.kmh,v[1]]);}
+   const waiting=new Map();let count=0,redCount=0,reroutedWalkDots=0;
+@@ -326,7 +327,7 @@
+   }catch(error){if(token!==state.request)return;$('loading-overlay').hidden=true;$('error-panel').hidden=false;console.error('Capacity replay load failed',error);}
+ }
+ function setMode(mode){state.mode=mode;for(const [id,on] of [['movement-view',mode==='movement'],['queue-view',mode==='queue']]){$(id).classList.toggle('active',on);$(id).setAttribute('aria-pressed',on);}draw();}
+-function pane(name){state.pane=name;setPlaying(false);$('map-pane').hidden=name!=='map';$('charts-pane').hidden=name!=='charts';for(const [id,on] of [['map-tab',name==='map'],['charts-tab',name==='charts']]){$(id).classList.toggle('active',on);$(id).setAttribute('aria-pressed',on);}if(name==='map'){map.invalidateSize({pan:false});sizeCanvas();}else graphs.render();}
++function pane(name){state.pane=name;setPlaying(false);$('map-pane').hidden=name!=='map';$('charts-pane').hidden=name!=='charts';for(const [id,on] of [['map-tab',name==='map'],['charts-tab',name==='charts']]){$(id).classList.toggle('active',on);$(id).setAttribute('aria-pressed',on);}if(name==='map'){map.invalidateSize({pan:false});sizeCanvas();}else graphs.render();document.dispatchEvent(new CustomEvent('lab:panechange',{detail:{pane:name}}));}
+ let graphs=createGraphs({state,load,queueAt,clock,dayName:d=>DAYS[d],selectTime,goTo:async(day,t)=>{state.day=day;$('weekday').value=day;await loadSelected();selectTime(t);pane('map');selectStop(true);}});
+ installSnapshotQuery({state,clock,goTo:async(day,t,stop,isOpen)=>{
+   if(state.day!==day||!state.ready){state.day=day;$('weekday').value=day;await loadSelected();}
+@@ -415,6 +416,7 @@
+     requestAnimationFrame(frame);}
+   catch(error){$('loading-overlay').hidden=true;$('error-panel').hidden=false;console.error('Capacity viewer initialization failed',error);}
+ }
++installMobileLab({map,getState:()=>state,setPane:pane});
+ updateClock();start();
+ function renderPlans(){
+   const box=$('city-plan-table');if(!box||!state.common)return;
+--- /dev/null
++++ b/public/mobile-lab.js
+@@ -0,0 +1,142 @@
++// Responsive presentation only. Existing controls and their event handlers move
++// into the mobile sheet and return to their original anchors above 700px.
++export function installMobileLab({map,getState,setPane}){
++  // Archived entry pages share the viewer module but keep their own layout.
++  if(!document.querySelector('link[data-mobile-lab]'))return;
++  const $=id=>document.getElementById(id),media=matchMedia('(max-width:700px), (max-width:1000px) and (max-height:500px) and (pointer:coarse)');
++  const sidebar=document.querySelector('.sidebar'),mapPane=$('map-pane'),charts=$('charts-pane');
++  let active=false,opened=false,section='settings',moves=[],header,body,tabs,sections,timeButton,observer,queryIcon,queryLabel;
++  let pointer=null,skipClick=false;
++  const originalLabel=sidebar.getAttribute('aria-label');
++  const resizeMap=()=>requestAnimationFrame(()=>map.invalidateSize({pan:false}));
++  function move(node,target){
++    if(!node)return;
++    const anchor=document.createComment('mobile lab original position');node.before(anchor);
++    moves.push({node,anchor});target.append(node);
++  }
++  function summary(){
++    if(!active)return;
++    const option=$('stop-select').selectedOptions[0],state=getState();
++    const label=state.ready?(option?.textContent||'승차지 선택'):'재생자료 준비 중';
++    if($('lab-sheet-stop').textContent!==label)$('lab-sheet-stop').textContent=label;
++    if($('lab-sheet-stop').title!==label)$('lab-sheet-stop').title=label;
++    const q=$('stop-queue').textContent;
++    const status=state.ready?`모형 대기량 ${q}`:'설정과 상세';
++    if($('lab-sheet-status').textContent!==status)$('lab-sheet-status').textContent=status;
++    if($('time-slider').getAttribute('aria-valuetext')!==$('clock').textContent)$('time-slider').setAttribute('aria-valuetext',$('clock').textContent);
++  }
++  function selectSection(name){
++    const changed=section!==name;section=name;
++    for(const button of tabs.querySelectorAll('button')){
++      const selected=button.dataset.labSection===name;
++      button.setAttribute('aria-selected',String(selected));button.tabIndex=selected?0:-1;
++    }
++    for(const [key,panel] of Object.entries(sections))panel.hidden=key!==name;
++    if(changed)body.scrollTop=0;
++  }
++  function expand(value){
++    if(!active)return;
++    opened=value;document.body.dataset.labSheet=value?'open':'closed';
++    $('lab-sheet-toggle').setAttribute('aria-expanded',String(value));
++    $('lab-sheet-toggle').setAttribute('aria-label',value?'실험 설정과 상세 접기':'실험 설정과 상세 펼치기');
++    body.inert=!value;
++    if(!value&&body.contains(document.activeElement))$('lab-sheet-toggle').focus({preventScroll:true});
++    resizeMap();
++  }
++  function choose(name){
++    if(name==='charts'){
++      if(getState().pane!=='charts')setPane('charts');
++      else{selectSection(name);expand(true);}
++    }else{
++      if(getState().pane!=='map')setPane('map');
++      selectSection(name);expand(true);
++    }
++  }
++  function collapse(){
++    if(getState().pane!=='map')setPane('map');
++    expand(false);
++  }
++  function paneChanged(event){
++    if(!active)return;
++    // Graphs are in the sheet on phones; the map remains behind it.
++    mapPane.hidden=false;
++    if(event.detail.pane==='charts'){selectSection('charts');expand(true);}
++    else{if(section==='charts')selectSection('stops');expand(false);}
++  }
++  function mount(){
++    if(active)return;active=true;moves=[];
++    document.body.dataset.labMobile='true';sidebar.setAttribute('aria-label','실험 설정과 승차지 상세');
++    const children=[...sidebar.children];
++    header=document.createElement('div');header.className='lab-sheet-header';
++    header.innerHTML='<button type="button" id="lab-sheet-toggle" aria-expanded="false" aria-controls="lab-sheet-body"><span class="lab-sheet-heading">실험 설정 · 상세<span id="lab-sheet-status"></span></span><strong id="lab-sheet-stop">승차지 선택</strong><svg class="lab-sheet-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 14 6-6 6 6"/></svg></button>';
++    body=document.createElement('div');body.id='lab-sheet-body';body.className='lab-sheet-body';
++    tabs=document.createElement('div');tabs.className='lab-sheet-tabs';tabs.setAttribute('role','tablist');tabs.setAttribute('aria-label','실험실 상세');
++    sections={};
++    for(const [key,label] of [['settings','실험 설정'],['stops','승차지'],['charts','그래프']]){
++      const button=document.createElement('button');button.type='button';button.id='lab-tab-'+key;button.dataset.labSection=key;
++      button.textContent=label;button.setAttribute('role','tab');button.setAttribute('aria-controls','lab-panel-'+key);
++      button.addEventListener('click',()=>choose(key));tabs.append(button);
++      const panel=document.createElement('section');panel.id='lab-panel-'+key;panel.className='lab-sheet-section';panel.setAttribute('role','tabpanel');panel.setAttribute('aria-labelledby',button.id);sections[key]=panel;
++    }
++    body.append(tabs,...Object.values(sections));sidebar.append(header,body);
++    const timeFields=document.createElement('div');timeFields.className='lab-time-fields';sections.settings.append(timeFields);
++    move(document.querySelector('.time-input-label'),timeFields);move(document.querySelector('.speed-label'),timeFields);
++    const notes=document.createElement('details');notes.className='lab-model-notes';notes.innerHTML='<summary>모형·표시 안내</summary>';
++    for(const child of children){
++      if(child.classList.contains('control-grid')||child.classList.contains('view-switch'))move(child,sections.settings);
++      else if(child.classList.contains('stop-card'))move(child,sections.stops);
++      else move(child,notes);
++    }
++    move(document.querySelector('.stop-map-hint'),sections.stops);
++    const query=$('snapshot-open');queryLabel=query.getAttribute('aria-label');
++    query.classList.add('lab-snapshot-button');query.setAttribute('aria-label','요일과 시간으로 대기 상황 조회');
++    queryIcon=document.createElement('span');queryIcon.setAttribute('aria-hidden','true');
++    queryIcon.innerHTML='<svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16 16 5 5M11 7v4l3 2"/></svg>';
++    query.append(queryIcon);move(query,header);
++    move(charts,sections.charts);
++    move(document.querySelector('.map-status'),notes);move(document.querySelector('.bus-key'),notes);
++    sections.settings.append(notes);
++    const links=document.createElement('div');links.className='lab-sheet-links';
++    move(document.querySelector('.header .methodology-link'),links);move($('about-button'),links);sections.settings.append(links);
++    timeButton=document.createElement('button');timeButton.type='button';timeButton.className='lab-time-settings';
++    timeButton.setAttribute('aria-label','재생 시각과 속도 설정');timeButton.setAttribute('aria-controls','lab-sheet-body');
++    timeButton.addEventListener('click',()=>{choose('settings');$('time-input').focus({preventScroll:true});});
++    document.querySelector('.playback-heading').append(timeButton);
++    $('lab-sheet-toggle').addEventListener('click',()=>{if(skipClick){skipClick=false;return;}opened?collapse():expand(true);});
++    $('lab-sheet-toggle').addEventListener('pointerdown',event=>{pointer={id:event.pointerId,y:event.clientY};event.currentTarget.setPointerCapture(event.pointerId);});
++    $('lab-sheet-toggle').addEventListener('pointerup',event=>{
++      if(!pointer||event.pointerId!==pointer.id)return;
++      const delta=event.clientY-pointer.y;pointer=null;
++      if(Math.abs(delta)>32){skipClick=true;delta<0?expand(true):collapse();}
++    });
++    $('lab-sheet-toggle').addEventListener('pointercancel',()=>{pointer=null;});
++    tabs.addEventListener('keydown',event=>{
++      const buttons=[...tabs.querySelectorAll('button')],index=buttons.indexOf(event.target);
++      if(index<0||!['ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;
++      event.preventDefault();
++      const next=event.key==='Home'?0:event.key==='End'?buttons.length-1:(index+(event.key==='ArrowRight'?1:-1)+buttons.length)%buttons.length;
++      buttons[next].focus();choose(buttons[next].dataset.labSection);
++    });
++    observer=new MutationObserver(summary);
++    for(const id of ['stop-queue','clock'])observer.observe($(id),{childList:true,characterData:true,subtree:true});
++    observer.observe($('snapshot-open'),{attributes:true,attributeFilter:['disabled']});
++    selectSection(getState().pane==='charts'?'charts':'settings');mapPane.hidden=false;
++    expand(getState().pane==='charts');summary();resizeMap();
++  }
++  function restore(){
++    if(!active)return;
++    active=false;observer?.disconnect();body.inert=false;
++    queryIcon.remove();$('snapshot-open').classList.remove('lab-snapshot-button');
++    if(queryLabel===null)$('snapshot-open').removeAttribute('aria-label');else $('snapshot-open').setAttribute('aria-label',queryLabel);
++    for(const {node,anchor} of moves.reverse()){anchor.before(node);anchor.remove();}
++    header.remove();body.remove();timeButton.remove();moves=[];
++    sidebar.setAttribute('aria-label',originalLabel);delete document.body.dataset.labMobile;delete document.body.dataset.labSheet;
++    mapPane.hidden=getState().pane!=='map';charts.hidden=getState().pane!=='charts';resizeMap();
++  }
++  media.addEventListener('change',()=>media.matches?mount():restore());
++  document.addEventListener('lab:panechange',paneChanged);
++  document.addEventListener('keydown',event=>{
++    if(active&&opened&&event.key==='Escape'&&!document.querySelector('dialog[open]')){event.preventDefault();collapse();}
++  });
++  if(media.matches)mount();
++}
+--- /dev/null
++++ b/public/mobile-lab.css
+@@ -0,0 +1,115 @@
++/* Phone-only layout. Desktop/tablet rules and model calculations stay intact. */
++@media(max-width:700px), (max-width:1000px) and (max-height:500px) and (pointer:coarse){
++  body.campus-simulation[data-lab-mobile]{--lab-peek:76px;--lab-safe:env(safe-area-inset-bottom,0px);height:100dvh;overflow:hidden;overscroll-behavior:none}
++  [data-lab-mobile] .workspace{display:block!important;position:fixed;inset:0;height:100dvh!important;min-height:0!important}
++  [data-lab-mobile] .main-pane{position:absolute;inset:0;min-height:0!important}
++  [data-lab-mobile] .map-section{height:100dvh!important;min-height:0!important}
++  [data-lab-mobile] .header{position:fixed;top:calc(env(safe-area-inset-top,0px) + 10px);left:12px;right:12px;width:auto;height:54px;min-height:54px;z-index:1200;padding:0 11px!important;border-radius:22px;gap:8px!important;box-shadow:var(--campus-shadow)}
++  [data-lab-mobile] .header .brand{font-size:14px;letter-spacing:-.6px;flex:1;min-width:0}
++  [data-lab-mobile] .header .page-tabs{flex:none;height:40px;gap:0;padding:3px;border-radius:15px}
++  [data-lab-mobile] .header .page-tabs button{min-height:32px;padding:5px 9px;font-size:12px;border-radius:11px}
++  [data-lab-mobile] .header-links{margin-left:0;gap:0!important}
++  [data-lab-mobile] .header .theme-toggle{padding:0;min-width:40px;min-height:44px}
++  [data-lab-mobile] .theme-label{display:none}
++  [data-lab-mobile] .header .theme-track{width:38px;height:26px}
++  [data-lab-mobile] .header .theme-knob{width:20px;height:20px}
++  [data-lab-mobile] .header .theme-toggle[aria-checked=true] .theme-knob{transform:translateX(12px)}
++  [data-lab-mobile] .map-tools{top:calc(env(safe-area-inset-top,0px) + 73px);left:12px;right:12px;max-width:none;width:auto;display:flex;gap:3px;padding:4px;overflow-x:auto;white-space:nowrap;border:1px solid var(--campus-line);border-radius:17px;background:var(--campus-surface);box-shadow:var(--campus-shadow);scrollbar-width:none}
++  [data-lab-mobile] .map-tools button{flex:1 0 auto;min-height:38px;padding:7px 9px;font-size:11px;border-radius:12px}
++  [data-lab-mobile] .leaflet-top.leaflet-right{top:calc(env(safe-area-inset-top,0px) + 126px);right:12px}
++  [data-lab-mobile] .leaflet-control-zoom{margin:0!important;border:1px solid var(--campus-line)!important;border-radius:16px;overflow:hidden;box-shadow:var(--campus-shadow)}
++  [data-lab-mobile] .leaflet-control-zoom a{width:42px!important;height:42px!important;line-height:42px!important;background:var(--campus-surface);color:var(--campus-accent)}
++  [data-lab-mobile] .leaflet-bottom{bottom:calc(var(--lab-peek) + var(--lab-safe) + 101px)}
++  [data-lab-mobile] .leaflet-control-attribution{font-size:8px;max-width:calc(100vw - 24px)}
++  [data-lab-mobile] .playback{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0 10px;left:12px;right:12px;bottom:calc(var(--lab-peek) + var(--lab-safe) + 8px);width:auto;transform:none;padding:8px 12px;border-radius:22px;box-shadow:var(--campus-shadow);transition:opacity .2s ease,transform .25s ease}
++  [data-lab-mobile] .playback-heading{position:relative;grid-column:1;grid-row:1;min-width:0;min-height:44px;margin:0;display:flex;align-items:center}
++  [data-lab-mobile] .playback-heading>div{display:flex;flex-direction:column;align-items:flex-start;gap:0;min-width:0}
++  [data-lab-mobile] #day-label{font-size:10px;line-height:1.4}
++  [data-lab-mobile] #clock{font-size:20px;line-height:1.35;white-space:nowrap;letter-spacing:-.5px}
++  [data-lab-mobile] .lab-time-settings{position:absolute;inset:0;border:0;background:transparent;border-radius:10px;min-height:44px;cursor:pointer}
++  [data-lab-mobile] #time-slider{grid-column:1/-1;grid-row:2;min-height:30px;height:30px;margin:0;padding:0;touch-action:pan-x}
++  [data-lab-mobile] .timeline-labels{display:none}
++  [data-lab-mobile] .playback-actions{grid-column:2;grid-row:1;display:flex;gap:4px;flex-wrap:nowrap;align-items:center;justify-content:flex-end;margin:0}
++  [data-lab-mobile] .playback-actions button{min-width:42px;min-height:44px;padding:8px 6px;font-size:11px;border-radius:13px}
++  [data-lab-mobile] .playback-actions .play-button{min-width:44px;padding:8px}
++  [data-lab-mobile] #play-label{display:none}
++  [data-lab-mobile] #play-symbol{font-size:16px}
++  [data-lab-mobile] .sidebar{position:fixed;left:0;right:0;bottom:0;width:100%;height:min(74dvh,640px);max-height:calc(100dvh - 80px);display:block!important;padding:0!important;z-index:1100;overflow:hidden;border:1px solid var(--campus-line);border-bottom:0;border-radius:27px 27px 0 0;background:var(--campus-surface);color:var(--campus-ink);box-shadow:0 -6px 28px #0f0f7014;transform:translateY(calc(100% - var(--lab-peek) - var(--lab-safe)));transition:transform .28s cubic-bezier(.2,.8,.2,1)}
++  [data-lab-mobile][data-lab-sheet=open] .sidebar{transform:translateY(0)}
++  [data-lab-mobile][data-lab-sheet=open] .playback{opacity:0;pointer-events:none;transform:translateY(12px)}
++  [data-lab-mobile][data-lab-sheet=open] .leaflet-bottom{bottom:calc(min(74dvh,640px) + 5px)}
++  .lab-sheet-header{height:76px;display:flex;align-items:center;gap:8px;padding:12px 14px 4px;position:relative}
++  .lab-sheet-header:before{content:'';position:absolute;width:34px;height:4px;top:6px;left:calc(50% - 17px);border-radius:10px;background:var(--campus-line)}
++  #lab-sheet-toggle{position:relative;flex:1;min-width:0;min-height:55px;padding:3px 30px 3px 2px;text-align:left;border:0;border-radius:13px;background:transparent;color:var(--campus-ink);touch-action:none}
++  .lab-sheet-heading{display:flex;align-items:center;justify-content:space-between;gap:8px;color:var(--campus-muted);font-size:10px;line-height:1.8;font-weight:500}
++  #lab-sheet-status{font-size:10px;white-space:nowrap}
++  #lab-sheet-stop{display:block;font-size:14px;line-height:1.7;font-weight:700;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
++  .lab-sheet-chevron{position:absolute;right:1px;top:19px;width:22px;height:22px;fill:none;stroke:var(--campus-accent);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .25s ease}
++  [data-lab-sheet=open] .lab-sheet-chevron{transform:rotate(180deg)}
++  .lab-snapshot-button{display:flex;align-items:center;justify-content:center;gap:3px;min-height:44px;min-width:63px;margin:0;padding:8px;border:1px solid var(--campus-line);border-radius:14px;background:var(--campus-raised);color:var(--campus-accent);font-size:0;font-weight:600}
++  .lab-snapshot-button:before{content:'조회';font-size:11px}
++  .lab-snapshot-button svg{display:block;width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}
++  .lab-sheet-body{height:calc(100% - 76px);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;padding:0 16px calc(var(--lab-safe) + 24px)}
++  .lab-sheet-tabs{position:sticky;top:0;z-index:2;display:flex;gap:4px;padding:5px;margin:0 0 18px;border:1px solid var(--campus-line);border-radius:17px;background:var(--campus-raised)}
++  .lab-sheet-tabs button{flex:1;min-height:40px;padding:8px 5px;border:0;border-radius:12px;background:transparent;color:var(--campus-muted);font-size:13px;font-weight:600}
++  .lab-sheet-tabs button[aria-selected=true]{background:var(--campus-surface);color:var(--campus-accent);box-shadow:0 2px 6px #0000000b}
++  .lab-sheet-section{min-width:0}
++  .lab-time-fields{display:grid;grid-template-columns:1.3fr 1fr;gap:12px;margin:0 0 17px}
++  .lab-time-fields .time-input-label,.lab-time-fields .speed-label{display:flex;flex-direction:column;align-items:flex-start;gap:6px;margin:0;font-size:12px;color:var(--campus-muted)}
++  .lab-time-fields #time-input,.lab-time-fields #speed{width:100%;min-width:0;min-height:44px;padding:8px;border:1px solid var(--campus-line);border-radius:13px;background:var(--campus-field);color:var(--campus-ink);font-size:16px}
++  .lab-sheet-section .control-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 12px;margin:0 0 17px}
++  .lab-sheet-section .control-grid .field{font-size:12px;color:var(--campus-muted)}
++  .lab-sheet-section select{width:100%;min-width:0;min-height:44px;padding:8px;border-radius:13px;font-size:16px;box-sizing:border-box}
++  .lab-sheet-section .view-switch{margin:0 0 18px}
++  .lab-sheet-section .view-switch button{min-height:42px;font-size:12px}
++  .lab-sheet-section .stop-card{display:block;padding:0 0 20px;margin:0 0 18px;border-bottom:1px solid var(--campus-line)}
++  .lab-sheet-section .stop-card .field{font-size:12px}
++  .lab-sheet-section .stop-numbers{margin-top:15px}
++  .lab-sheet-section .stop-numbers strong{font-size:25px}
++  .lab-sheet-section .next-bus,.lab-sheet-section .last-bus,.lab-sheet-section .city-history,.lab-sheet-section .snapshot-note{font-size:11px}
++  .lab-sheet-section .highlight-button{width:100%;min-height:44px;font-size:12px}
++  .lab-model-notes{padding:0 0 16px;font-size:12px;color:var(--campus-muted)}
++  .lab-model-notes>summary{min-height:44px;padding:12px 2px;font-size:12px;color:var(--campus-accent);cursor:pointer}
++  .lab-model-notes .intro,.lab-model-notes .legend,.lab-model-notes .sidebar-footer,.lab-model-notes .mobile-caveat,.lab-model-notes .empirical-mobile-note,.lab-model-notes .map-status,.lab-model-notes .bus-key{display:block;position:static;max-width:none;width:auto;margin:12px 0;padding:0;transform:none;border:0;background:none;font-size:11px;line-height:1.85}
++  .lab-model-notes .intro h1{font-size:18px;line-height:1.5;margin:8px 0}
++  .lab-model-notes .intro p,.lab-model-notes .scenario-note,.lab-model-notes .initial-clock-note{font-size:11px;line-height:1.85;margin:10px 0}
++  .lab-model-notes .legend{display:flex;flex-wrap:wrap;gap:10px}
++  .lab-sheet-section .stop-map-hint{position:static;max-width:none;margin:8px 0;padding:12px;font-size:11px;line-height:1.7;background:var(--campus-raised);border-radius:14px;pointer-events:auto}
++  .lab-sheet-section .snapshot-launch{min-height:44px;font-size:12px}
++  .lab-sheet-links{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:5px 0 12px}
++  .lab-sheet-links .methodology-link,.lab-sheet-links .text-button{margin:0;min-height:44px;padding:10px 12px;border:1px solid var(--campus-line);border-radius:14px;background:var(--campus-raised);color:var(--campus-accent);font-size:12px}
++  .lab-sheet-section .charts-pane{padding:0 0 8px;overflow:visible;height:auto;min-height:0}
++  .lab-sheet-section .chart-intro{padding:0}
++  .lab-sheet-section .chart-intro h2{font-size:20px}
++  .lab-sheet-section .chart-card{padding:16px 12px;border-radius:18px}
++  .lab-sheet-section .chart-stop-field{max-width:none}
++  .lab-sheet-section .chart-caption,.lab-sheet-section .chart-footnote{font-size:11px;line-height:1.8}
++  [data-lab-mobile] .loading-overlay{inset:auto auto auto 12px;top:calc(env(safe-area-inset-top,0px) + 130px);width:calc(100% - 80px);max-width:300px;min-height:0;display:flex;flex-direction:row;align-items:center;gap:10px;padding:12px;border:1px solid var(--campus-line);border-radius:16px;background:var(--campus-surface);box-shadow:var(--campus-shadow);pointer-events:none}
++  [data-lab-mobile] .loading-overlay .spinner{width:20px;height:20px;flex:none;border-width:2px}
++  [data-lab-mobile] .loading-overlay p{margin:0;font-size:11px;line-height:1.7}
++  [data-lab-mobile] dialog{max-height:calc(100dvh - 32px);max-width:calc(100vw - 24px);overflow-y:auto;border-radius:22px}
++  [data-lab-mobile] #snapshot-dialog input,[data-lab-mobile] #snapshot-dialog select{font-size:16px;min-height:44px}
++  [data-lab-mobile] #about-dialog .close-button,[data-lab-mobile] #snapshot-close{min-height:44px}
++}
++@media(max-width:1000px) and (max-height:500px) and (pointer:coarse){
++  [data-lab-mobile] .header{left:12px;right:auto;top:8px;width:330px;height:48px;min-height:48px}
++  [data-lab-mobile] .map-tools{top:8px;left:calc(50% + 6px);right:12px}
++  [data-lab-mobile] .leaflet-top.leaflet-right{top:66px}
++  [data-lab-mobile] .playback{left:12px;right:calc(50% + 6px);bottom:8px}
++  [data-lab-mobile] .sidebar{left:calc(50% + 6px);right:12px;bottom:8px;width:auto;height:calc(100dvh - 82px);max-height:none;border-bottom:1px solid var(--campus-line);border-radius:24px;transform:translateY(calc(100% - 76px))}
++  [data-lab-mobile][data-lab-sheet=open] .playback{opacity:1;pointer-events:auto;transform:none}
++  [data-lab-mobile] .leaflet-bottom,[data-lab-mobile][data-lab-sheet=open] .leaflet-bottom{bottom:103px}
++  [data-lab-mobile] .leaflet-bottom.leaflet-right{right:calc(50% + 6px)}
++  [data-lab-mobile] .leaflet-control-attribution{max-width:calc(50vw - 24px)}
++}
++@media(max-width:370px){
++  [data-lab-mobile] .header{left:8px;right:8px;gap:6px!important;padding:0 9px!important}
++  [data-lab-mobile] .header .brand{font-size:13px}
++  [data-lab-mobile] .header .page-tabs button{padding:5px 8px}
++  [data-lab-mobile] .map-tools{left:8px;right:8px}
++  [data-lab-mobile] .map-tools button{padding:7px 7px;font-size:10px}
++  #lab-sheet-status{font-size:9px}
++}
++@media(prefers-reduced-motion:reduce){
++  [data-lab-mobile] .sidebar,[data-lab-mobile] .playback,[data-lab-mobile] .lab-sheet-chevron{transition:none!important}
++}

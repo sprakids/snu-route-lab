@@ -1,0 +1,25 @@
+<section id="shuttle-wait-grid" data-viz-composition>
+  <div class="viz-controls">
+    <label class="form-label" for="shuttle-wait-route">승차 위치·노선
+      <select class="form-select" id="shuttle-wait-route">
+        <option value="admin_snu">행정관 → 서울대입구역</option>
+        <option value="admin_daehak">행정관 → 대학동</option>
+        <option value="circle_302">302동 · 순환</option>
+        <option value="circle_301">301동 · 순환</option>
+        <option value="reverse_302">302동 · 역순환</option>
+        <option value="reverse_301">301동 · 역순환</option>
+      </select>
+    </label>
+  </div>
+  <div data-viz-container></div>
+  <!-- REVIEWED_CHART_CONFIGS -->
+</section>
+<script type="module">
+  import { mountChart } from "https://persistent.oaistatic.com/plugins/visualize/charts/1.2.3/element.js";
+  const root = document.getElementById("shuttle-wait-grid");
+  const select = root.querySelector("#shuttle-wait-route");
+  const configs = Object.fromEntries(Array.from(root.querySelectorAll("[data-viz-chart]")).map(el => [el.dataset.node, JSON.parse(el.textContent)]));
+  select.value = "admin_snu";
+  const chart = mountChart(root.querySelector("[data-viz-container]"), configs[select.value]);
+  select.addEventListener("change", () => { chart.config = configs[select.value]; });
+</script>

@@ -1,0 +1,115 @@
+{
+  "status": "PREREGISTERED_BEFORE_PILOT",
+  "baseline_model_id": "261110150729",
+  "calibration_dates": null,
+  "selection_dates": null,
+  "heldout_dates": null,
+  "reason": "No sufficiently aligned unused queue/travel truth is currently supplied; old three reports are diagnostic only.",
+  "future_split": {
+    "status": "prospective_plan_not_scheduled",
+    "calibration": [
+      "2026-11-11",
+      "2026-11-24"
+    ],
+    "selection": [
+      "2026-11-25",
+      "2026-12-01"
+    ],
+    "heldout": [
+      "2026-12-02",
+      "2026-12-08"
+    ]
+  },
+  "internal_rules": {
+    "maximum_mass_error": 1e-05,
+    "capacity_and_fifo_violations": 0,
+    "preparation_cancelled_in_ready_inflow": 0,
+    "long_wait_minutes": 20,
+    "long_wait_action": "report and investigate; no clipping or forced abandonment",
+    "named_queue_reference": 40,
+    "queue_reference_is_measured": false
+  },
+  "promotion": {
+    "requires_aligned_unused_wait_truth": true,
+    "requires_paired_date_groups": true,
+    "primary_wait_mae_improvement": {
+      "relative": 0.1,
+      "absolute_minutes": 1.0,
+      "both_required": true,
+      "reason": "Initial practical threshold: at least a minute and ten percent; must be reconsidered only before any heldout truth is opened if resolution cannot support it."
+    },
+    "secondary_no_regression": "No observed wait-count, board/alight, total-time metric may worsen; report by stop/route/date. Do not substitute missing truth with internal outcomes.",
+    "uncertainty": "date-clustered differences, not 15-second rows or random seeds as independent real samples",
+    "missing_required_truth": "NOT_EVALUABLE",
+    "adequate_truth_but_failed_rules": "DISCARDED",
+    "no_invariant_or_operational_regression": true
+  },
+  "pilot_cases": [
+    {
+      "case": "control-regular-fri",
+      "mode": "control",
+      "day": "금",
+      "scenario": "regular",
+      "seed": 0
+    },
+    {
+      "case": "physics-regular-mon",
+      "mode": "physics",
+      "day": "월",
+      "scenario": "regular",
+      "seed": 0
+    },
+    {
+      "case": "behavior-regular-mon",
+      "mode": "behavior",
+      "day": "월",
+      "scenario": "regular",
+      "seed": 0
+    },
+    {
+      "case": "combined-regular-mon",
+      "mode": "combined",
+      "day": "월",
+      "scenario": "regular",
+      "seed": 0
+    },
+    {
+      "case": "combined-regular-fri",
+      "mode": "combined",
+      "day": "금",
+      "scenario": "regular",
+      "seed": 0
+    },
+    {
+      "case": "combined-peak-mon",
+      "mode": "combined",
+      "day": "월",
+      "scenario": "peak",
+      "seed": 0
+    },
+    {
+      "case": "combined-regular-mon-seed1",
+      "mode": "combined",
+      "day": "월",
+      "scenario": "regular",
+      "seed": 1
+    },
+    {
+      "case": "combined-regular-mon-seed2",
+      "mode": "combined",
+      "day": "월",
+      "scenario": "regular",
+      "seed": 2
+    },
+    {
+      "case": "fare-scenario-regular-mon",
+      "mode": "fare_scenario",
+      "day": "월",
+      "scenario": "regular",
+      "seed": 0
+    }
+  ],
+  "randomness": "Frozen v9 random input is retained. Named new-agent streams are matched across prototype variants; v9 has no identical counterparts to newly introduced tastes/hazard draws.",
+  "no_parameter_search_against_old_three_reports": true,
+  "full_week_expansion": "After a usable empirical validation target is available; no claim of full-week coverage from this finite pilot."
+}

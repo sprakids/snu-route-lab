@@ -1,0 +1,33 @@
+{
+  "schema": "snu_reader_deployment_handoff_v1",
+  "recorded_at": "2026-11-10T16:02:27.094664+09:00",
+  "source_files_frozen": true,
+  "reader_stage_files": 111,
+  "reader_stage_bytes": 10460993,
+  "files_manifest_sha256": "059847f49b2e6b752c7a7e56134ed39f720f7a6cf26501a8ba444b88c399bfc3",
+  "local_code_tests_passed": 83,
+  "stage_offline_plan_candidates": 40,
+  "stage_offline_provider_calls": 0,
+  "stage_offline_time_sums_reconciled": true,
+  "credential_files_transferred": false,
+  "first_peer_stage": {
+    "deployment_id": "dpl_5Jot9dtpBNAUHWuRMUbDkKPwcFTj",
+    "url": "https://snu-route-kppap6n5r-june-f3d1.vercel.app",
+    "authenticated_queue_api_status_reported_by_peer": 200,
+    "capability_present_reported_by_peer": true,
+    "active_model_reported_by_peer": "261110150729",
+    "payload_unchanged_reported_by_peer": true,
+    "promoted": false,
+    "superseded_reason": "Peer initial snapshot contained source prep files and missed .python-version; exact 111-file stage redeployment selected"
+  },
+  "next_owner_thread": "01a15f4b-516c-79b1-9b9a-c31680e1acd7",
+  "next_step": "Deploy exact reader_stage; verify production environment and static bytes; promote only after checks; retain v9 latest",
+  "public_promotion_confirmed": false,
+  "authentication_conclusion": "This agent saw connector403 and CLI dry login_required; peer actual CLI deployment succeeded. User reauthorization not established as necessary.",
+  "compatibilities": {
+    "scalar_legacy": "7ce2316538b6ff26743a5e60a36041c613465091e64563170497ad51b8ca89d2",
+    "44_single": "7697fd385ae668473eb5f67b869bb2fe6c2e4b31acc987d837ec0731ab41cb1b",
+    "44_pair": "d55ae84edbee58b42c8d2d641fa50075e157a197fa159e93e10caab9aa1d0c2d"
+  },
+  "compatibility_values_recomputed_from_function": true
+}

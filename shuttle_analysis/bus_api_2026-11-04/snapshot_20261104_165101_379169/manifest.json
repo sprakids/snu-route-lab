@@ -1,0 +1,357 @@
+{
+  "started_at_kst": "2026-11-04T16:51:01.379169+09:00",
+  "mode": "one_snapshot_no_scheduler",
+  "requested_routes": [
+    "5511",
+    "5513",
+    "5516",
+    "관악02-1",
+    "관악02-2"
+  ],
+  "position_provider": "서울특별시 버스위치정보조회 OpenAPI",
+  "route_and_stop_provider": "서울시 공식 모바일 버스정보 웹사이트의 조회 인터페이스",
+  "interpretation": "Vehicle congestion, not stop queue size or exact passenger count. All route vehicles, not a campus-boundary filter.",
+  "requests": [
+    {
+      "endpoint": "http://m.bus.go.kr/mBus/bus/getBusRouteList.bms",
+      "method": "POST",
+      "params": {
+        "strSrch": "5511"
+      },
+      "requested_at_kst": "2026-11-04T16:51:01.380023+09:00",
+      "http_status": 200,
+      "content_type": "application/x-json;charset=UTF-8",
+      "received_at_kst": "2026-11-04T16:51:01.417561+09:00",
+      "response_sha256_before_redaction": "a317b12f98940c3b9fec4162a2a49f350e8baf0b6d3955e7fd2148dea1091c8e",
+      "credential_redacted_from_response": false,
+      "response_file": "search_5511.json"
+    },
+    {
+      "endpoint": "http://m.bus.go.kr/mBus/bus/getBusRouteList.bms",
+      "method": "POST",
+      "params": {
+        "strSrch": "5513"
+      },
+      "requested_at_kst": "2026-11-04T16:51:01.419433+09:00",
+      "http_status": 200,
+      "content_type": "application/x-json;charset=UTF-8",
+      "received_at_kst": "2026-11-04T16:51:01.452227+09:00",
+      "response_sha256_before_redaction": "eb4ec4001291ccece81bc06503b9492e9ad487d1618f5d70d419f50e71613ab5",
+      "credential_redacted_from_response": false,
+      "response_file": "search_5513.json"
+    },
+    {
+      "endpoint": "http://m.bus.go.kr/mBus/bus/getBusRouteList.bms",
+      "method": "POST",
+      "params": {
+        "strSrch": "5516"
+      },
+      "requested_at_kst": "2026-11-04T16:51:01.453826+09:00",
+      "http_status": 200,
+      "content_type": "application/x-json;charset=UTF-8",
+      "received_at_kst": "2026-11-04T16:51:01.486349+09:00",
+      "response_sha256_before_redaction": "97b0e68c11e92affe0a50bf20cb93ad9b0457a1ac7b83f4ae3a1062b778fcc90",
+      "credential_redacted_from_response": false,
+      "response_file": "search_5516.json"
+    },
+    {
+      "endpoint": "http://m.bus.go.kr/mBus/bus/getBusRouteList.bms",
+      "method": "POST",
+      "params": {
+        "strSrch": "%EA%B4%80%EC%95%8502"
+      },
+      "requested_at_kst": "2026-11-04T16:51:01.487384+09:00",
+      "http_status": 200,
+      "content_type": "application/x-json;charset=UTF-8",
+      "received_at_kst": "2026-11-04T16:51:01.503399+09:00",
+      "response_sha256_before_redaction": "6bd93756f70068380716f46036d50388bdab0ac91512ce5a96f580b7eb5f4dfa",
+      "credential_redacted_from_response": false,
+      "response_file": "search_관악02.json"
+    },
+    {
+      "endpoint": "http://m.bus.go.kr/mBus/bus/getRouteAndPos.bms",
+      "method": "POST",
+      "params": {
+        "busRouteId": "100100250"
+      },
+      "requested_at_kst": "2026-11-04T16:51:01.505565+09:00",
+      "http_status": 200,
+      "content_type": "application/x-json;charset=UTF-8",
+      "received_at_kst": "2026-11-04T16:51:01.558866+09:00",
+      "response_sha256_before_redaction": "9015fb840c295b440c89deb7a65d9f14688e919d6ead1e9fc87cb3b4bf7066ab",
+      "credential_redacted_from_response": false,
+      "response_file": "stops_5511.json"
+    },
+    {
+      "endpoint": "http://ws.bus.go.kr/api/rest/buspos/getBusPosByRtid",
+      "method": "GET",
+      "params": {
+        "busRouteId": "100100250",
+        "resultType": "json"
+      },
+      "requested_at_kst": "2026-11-04T16:51:01.560261+09:00",
+      "http_status": 200,
+      "content_type": "application/json;charset=utf-8",
+      "received_at_kst": "2026-11-04T16:51:01.589310+09:00",
+      "response_sha256_before_redaction": "9a4dc37e6372147f33d311eca201e17cd3708f94b55deb52042262be08d79290",
+      "credential_redacted_from_response": false,
+      "response_file": "positions_5511.json",
+      "api_header": {
+        "headerMsg": "정상적으로 처리되었습니다.",
+        "headerCd": "0",
+        "itemCount": 0
+      },
+      "header_item_count_matches_array": false
+    },
+    {
+      "endpoint": "http://m.bus.go.kr/mBus/bus/getRouteAndPos.bms",
+      "method": "POST",
+      "params": {
+        "busRouteId": "100100251"
+      },
+      "requested_at_kst": "2026-11-04T16:51:01.505839+09:00",
+      "http_status": 200,
+      "content_type": "application/x-json;charset=UTF-8",
+      "received_at_kst": "2026-11-04T16:51:01.532601+09:00",
+      "response_sha256_before_redaction": "9fd0d3598b1075e3a6dd54cd2f9e4b0b736d8ec3e177cbcc11fd2eb2b4d26c22",
+      "credential_redacted_from_response": false,
+      "response_file": "stops_5513.json"
+    },
+    {
+      "endpoint": "http://ws.bus.go.kr/api/rest/buspos/getBusPosByRtid",
+      "method": "GET",
+      "params": {
+        "busRouteId": "100100251",
+        "resultType": "json"
+      },
+      "requested_at_kst": "2026-11-04T16:51:01.533801+09:00",
+      "http_status": 200,
+      "content_type": "application/json;charset=utf-8",
+      "received_at_kst": "2026-11-04T16:51:01.559219+09:00",
+      "response_sha256_before_redaction": "1d176347aaad2647a3c3f047ab5596dcbc628e92100beae71f0a37b0e1581170",
+      "credential_redacted_from_response": false,
+      "response_file": "positions_5513.json",
+      "api_header": {
+        "headerMsg": "정상적으로 처리되었습니다.",
+        "headerCd": "0",
+        "itemCount": 0
+      },
+      "header_item_count_matches_array": false
+    },
+    {
+      "endpoint": "http://m.bus.go.kr/mBus/bus/getRouteAndPos.bms",
+      "method": "POST",
+      "params": {
+        "busRouteId": "100100253"
+      },
+      "requested_at_kst": "2026-11-04T16:51:01.563289+09:00",
+      "http_status": 200,
+      "content_type": "application/x-json;charset=UTF-8",
+      "received_at_kst": "2026-11-04T16:51:01.592620+09:00",
+      "response_sha256_before_redaction": "7011ca13398679b9bc68e5da4594d84245f5789f069c1c0e38465028751cfd21",
+      "credential_redacted_from_response": false,
+      "response_file": "stops_5516.json"
+    },
+    {
+      "endpoint": "http://ws.bus.go.kr/api/rest/buspos/getBusPosByRtid",
+      "method": "GET",
+      "params": {
+        "busRouteId": "100100253",
+        "resultType": "json"
+      },
+      "requested_at_kst": "2026-11-04T16:51:01.593589+09:00",
+      "http_status": 200,
+      "content_type": "application/json;charset=utf-8",
+      "received_at_kst": "2026-11-04T16:51:01.622456+09:00",
+      "response_sha256_before_redaction": "f53622f8b065089db1a2598cbf1ce8e90bc745f5ead3412ecec969577b611e14",
+      "credential_redacted_from_response": false,
+      "response_file": "positions_5516.json",
+      "api_header": {
+        "headerMsg": "정상적으로 처리되었습니다.",
+        "headerCd": "0",
+        "itemCount": 0
+      },
+      "header_item_count_matches_array": false
+    },
+    {
+      "endpoint": "http://m.bus.go.kr/mBus/bus/getRouteAndPos.bms",
+      "method": "POST",
+      "params": {
+        "busRouteId": "120900011"
+      },
+      "requested_at_kst": "2026-11-04T16:51:01.590368+09:00",
+      "http_status": 200,
+      "content_type": "application/x-json;charset=UTF-8",
+      "received_at_kst": "2026-11-04T16:51:01.613965+09:00",
+      "response_sha256_before_redaction": "678b4f4df3bbdb90e4f676dce5e1dff3068bda5a814704406ac3fcc4eb271f49",
+      "credential_redacted_from_response": false,
+      "response_file": "stops_관악02-1.json"
+    },
+    {
+      "endpoint": "http://ws.bus.go.kr/api/rest/buspos/getBusPosByRtid",
+      "method": "GET",
+      "params": {
+        "busRouteId": "120900011",
+        "resultType": "json"
+      },
+      "requested_at_kst": "2026-11-04T16:51:01.615656+09:00",
+      "http_status": 200,
+      "content_type": "application/json;charset=utf-8",
+      "received_at_kst": "2026-11-04T16:51:01.638581+09:00",
+      "response_sha256_before_redaction": "95ea19abd87775f5e334ad4b6004b16944c66581f6b2f9858c4be8ee67c9ef32",
+      "credential_redacted_from_response": false,
+      "response_file": "positions_관악02-1.json",
+      "api_header": {
+        "headerMsg": "정상적으로 처리되었습니다.",
+        "headerCd": "0",
+        "itemCount": 0
+      },
+      "header_item_count_matches_array": false
+    },
+    {
+      "endpoint": "http://m.bus.go.kr/mBus/bus/getRouteAndPos.bms",
+      "method": "POST",
+      "params": {
+        "busRouteId": "120900012"
+      },
+      "requested_at_kst": "2026-11-04T16:51:01.623566+09:00",
+      "http_status": 200,
+      "content_type": "application/x-json;charset=UTF-8",
+      "received_at_kst": "2026-11-04T16:51:01.666395+09:00",
+      "response_sha256_before_redaction": "674ef1e2025ace9764e1340bf74b0f627273400896487218c2c6de5d9c41046d",
+      "credential_redacted_from_response": false,
+      "response_file": "stops_관악02-2.json"
+    },
+    {
+      "endpoint": "http://ws.bus.go.kr/api/rest/buspos/getBusPosByRtid",
+      "method": "GET",
+      "params": {
+        "busRouteId": "120900012",
+        "resultType": "json"
+      },
+      "requested_at_kst": "2026-11-04T16:51:01.667591+09:00",
+      "http_status": 200,
+      "content_type": "application/json;charset=utf-8",
+      "received_at_kst": "2026-11-04T16:51:01.699540+09:00",
+      "response_sha256_before_redaction": "9e3f9234f0c7b87f955d361c76b49013beb2ffdfa49f8196f5b644028e36555d",
+      "credential_redacted_from_response": false,
+      "response_file": "positions_관악02-2.json",
+      "api_header": {
+        "headerMsg": "정상적으로 처리되었습니다.",
+        "headerCd": "0",
+        "itemCount": 0
+      },
+      "header_item_count_matches_array": false
+    }
+  ],
+  "unresolved_routes": [],
+  "route_summaries": [
+    {
+      "route_name": "5511",
+      "route_id": "100100250",
+      "api_success": true,
+      "query_accepted": true,
+      "service_status": "vehicle_data",
+      "http_status": 200,
+      "api_header": {
+        "headerMsg": "정상적으로 처리되었습니다.",
+        "headerCd": "0",
+        "itemCount": 0
+      },
+      "stop_count": 73,
+      "vehicle_record_count": 11,
+      "running_record_count": 11,
+      "congestion_counts": {
+        "정보 없음": 1,
+        "여유": 8,
+        "보통": 2
+      },
+      "captured_at_kst": "2026-11-04T16:51:01.589310+09:00"
+    },
+    {
+      "route_name": "5513",
+      "route_id": "100100251",
+      "api_success": true,
+      "query_accepted": true,
+      "service_status": "vehicle_data",
+      "http_status": 200,
+      "api_header": {
+        "headerMsg": "정상적으로 처리되었습니다.",
+        "headerCd": "0",
+        "itemCount": 0
+      },
+      "stop_count": 44,
+      "vehicle_record_count": 6,
+      "running_record_count": 6,
+      "congestion_counts": {
+        "보통": 1,
+        "혼잡": 1,
+        "여유": 4
+      },
+      "captured_at_kst": "2026-11-04T16:51:01.559219+09:00"
+    },
+    {
+      "route_name": "5516",
+      "route_id": "100100253",
+      "api_success": true,
+      "query_accepted": true,
+      "service_status": "vehicle_data",
+      "http_status": 200,
+      "api_header": {
+        "headerMsg": "정상적으로 처리되었습니다.",
+        "headerCd": "0",
+        "itemCount": 0
+      },
+      "stop_count": 74,
+      "vehicle_record_count": 13,
+      "running_record_count": 13,
+      "congestion_counts": {
+        "여유": 13
+      },
+      "captured_at_kst": "2026-11-04T16:51:01.622456+09:00"
+    },
+    {
+      "route_name": "관악02-1",
+      "route_id": "120900011",
+      "api_success": true,
+      "query_accepted": true,
+      "service_status": "vehicle_data",
+      "http_status": 200,
+      "api_header": {
+        "headerMsg": "정상적으로 처리되었습니다.",
+        "headerCd": "0",
+        "itemCount": 0
+      },
+      "stop_count": 39,
+      "vehicle_record_count": 9,
+      "running_record_count": 9,
+      "congestion_counts": {
+        "정보 없음": 9
+      },
+      "captured_at_kst": "2026-11-04T16:51:01.638581+09:00"
+    },
+    {
+      "route_name": "관악02-2",
+      "route_id": "120900012",
+      "api_success": true,
+      "query_accepted": true,
+      "service_status": "vehicle_data",
+      "http_status": 200,
+      "api_header": {
+        "headerMsg": "정상적으로 처리되었습니다.",
+        "headerCd": "0",
+        "itemCount": 0
+      },
+      "stop_count": 34,
+      "vehicle_record_count": 4,
+      "running_record_count": 4,
+      "congestion_counts": {
+        "정보 없음": 4
+      },
+      "captured_at_kst": "2026-11-04T16:51:01.699540+09:00"
+    }
+  ],
+  "finished_at_kst": "2026-11-04T16:51:01.705068+09:00",
+  "complete": true,
+  "vehicle_record_count": 43
+}

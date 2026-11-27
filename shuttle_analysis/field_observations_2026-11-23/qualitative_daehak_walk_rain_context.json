@@ -1,0 +1,33 @@
+{
+  "schema": "qualitative_user_context_v1",
+  "record_id": "20261123-daehak-walk-and-rain-context-01",
+  "source": "user_report_in_project_chat",
+  "linked_observation_id": "20261123-1659-admin-daehak-full-departure-queue-01",
+  "original_statements": [
+    "이유를 분석해봐. 대학동가는 사람들은 셔틀의 선호도가 적어",
+    "거리가 가까워서 주로 걸어가려고 해. 대학동 주민인 나도 마찬가지고",
+    "오늘은 비가 많이와서 사람들이 셔틀을 좀 더 선호하는데도 불구하고 줄이 엄청 짧았다는 것을 감안해"
+  ],
+  "interpretation": {
+    "usual_behavior": "User reports that Daehak-dong residents often favor walking because home is relatively close, and identifies as a resident with this preference.",
+    "weather_context": "User reports heavy rain today and a relative increase in shuttle preference despite the short observed queue.",
+    "queue_phase": "Retain the linked event's full departure followed by one residual waiter. Do not turn the short-queue description into a measured pre-boarding count or an all-day queue maximum.",
+    "rain_record_type": "qualitative user report; not independently verified meteorological data"
+  },
+  "not_measured": [
+    "population walking or shuttle shares",
+    "numerical rain effect on mode choice",
+    "rainfall amount and timing",
+    "exact home locations or individual walking distances",
+    "total demand and boarding count of the observed vehicle",
+    "queue before boarding"
+  ],
+  "evidence_role": {
+    "independent_mode_share_survey": false,
+    "additional_independent_queue_count": false,
+    "use": "qualitative mechanism diagnosis and interpretation of the linked observation",
+    "model_parameters_changed": false,
+    "new_simulation_run": false,
+    "notes": "The three statements are contextual follow-ups from one reporter, not three independent commuter samples. Rain preference and a small post-departure queue can coexist with a full vehicle."
+  }
+}

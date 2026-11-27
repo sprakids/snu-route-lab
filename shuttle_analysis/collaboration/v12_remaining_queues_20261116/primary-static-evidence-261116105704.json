@@ -1,0 +1,210 @@
+{
+  "candidate": "261116105704",
+  "parent": "261116103210",
+  "at_utc": "2026-11-16T02:08:11.414879+00:00",
+  "scope": "Static boundaries only: direct/feeder asymmetry, later queue-driven suffixNone, goal-specific own-chain splitting, ETA ties, grouped noise.",
+  "project_code_executed": false,
+  "tests_executed": false,
+  "simulation_results_opened": false,
+  "new_observed_dates_opened": false,
+  "source_config_frozen_or_production_writes": false,
+  "runtime_count": 16,
+  "future_count": 27,
+  "frozen_count": 56,
+  "frozen_identical_to_parent": true,
+  "existing_numeric_config_changes": {},
+  "runtime_changed_vs_parent": [
+    "preferences.py",
+    "policy.py",
+    "behavioral_policy.py"
+  ],
+  "protocol_reference": {
+    "path": "C:\\Users\\\uae40\uc608\uc900\\Documents\\ChatGPT\\\uacf5\ub300 \ubb38\uc81c\ud574\uacb0\\shuttle_analysis\\v12_remaining_queues_20261116\\PRIMARY_PROTOCOL.md",
+    "sha256": "f57e3620ed8a980eef3dd86b75cc281a347a2fc8db95c6312e2b68396057b51f",
+    "registered_before_model_run": true,
+    "production_writes": false
+  },
+  "protocol_hash_match": true,
+  "started_receipts": [
+    {
+      "path": "runs\\ablation-first-stop-group-mon\\attempt_01\\started.json",
+      "sha256": "fac36bfecc4d323888480cbd506be356ac4b76d466d65ed469666b1531ad10b2",
+      "case": {
+        "case": "ablation-first-stop-group-mon",
+        "mode": "combined",
+        "day": "\uc6d4",
+        "scenario": "regular",
+        "seed": 0,
+        "operations": "v12_empirical",
+        "config_overrides": {
+          "city_initial_group_primary_stop": false
+        }
+      },
+      "code_lock_input_match": true,
+      "primary_choice": true,
+      "primary_grouping": false
+    },
+    {
+      "path": "runs\\ablation-legacy-initial-mon\\attempt_01\\started.json",
+      "sha256": "bf96d1647cbb709730c39ff5883df6e6a18701e3894fbd58e7bcf10748c22467",
+      "case": {
+        "case": "ablation-legacy-initial-mon",
+        "mode": "combined",
+        "day": "\uc6d4",
+        "scenario": "regular",
+        "seed": 0,
+        "operations": "v12_empirical",
+        "config_overrides": {
+          "city_initial_primary_stop": false
+        }
+      },
+      "code_lock_input_match": true,
+      "primary_choice": false,
+      "primary_grouping": true
+    },
+    {
+      "path": "runs\\primaryfix-combined-regular-mon\\attempt_01\\started.json",
+      "sha256": "d6ccafc19b55265f263286ebd1cf649a6692b003db131b5ba90ef1818f12abbb",
+      "case": {
+        "case": "primaryfix-combined-regular-mon",
+        "mode": "combined",
+        "day": "\uc6d4",
+        "scenario": "regular",
+        "seed": 0,
+        "operations": "v12_empirical"
+      },
+      "code_lock_input_match": true,
+      "primary_choice": true,
+      "primary_grouping": true
+    },
+    {
+      "path": "runs\\primaryfix-combined-regular-tue\\attempt_01\\started.json",
+      "sha256": "a97d999622a38c1970b46458677e8dab388286258eebc1053f82cd207e300cfc",
+      "case": {
+        "case": "primaryfix-combined-regular-tue",
+        "mode": "combined",
+        "day": "\ud654",
+        "scenario": "regular",
+        "seed": 0,
+        "operations": "v12_empirical"
+      },
+      "code_lock_input_match": true,
+      "primary_choice": true,
+      "primary_grouping": true
+    }
+  ],
+  "main_ablation_config_differences": {
+    "ablation-first-stop-group-mon": [
+      "city_initial_group_primary_stop"
+    ],
+    "ablation-legacy-initial-mon": [
+      "city_initial_primary_stop"
+    ]
+  },
+  "guard_sha256": {
+    "artifacts.py": "6e62dfbe617557377b2feea01918670e050f960548bda5aab27491b24853e1f7",
+    "preferences.py": "3ad5b60778cdf06f57cbc0e2af9b64d26f9852b0a30e2734aecebaaebf357f8e",
+    "hazard.py": "6a37635687d25e0210749e30598d0494f0c16e586d0fa095b0def9fe6b49cc18",
+    "capacity.py": "2fba2637b1a7b0149b4cd5d2b540cbca750b430975e89d2a1851eca8bb55deb2",
+    "physics.py": "b02afdd219ae47df56f4cd8288fe758ad43d5db26ada9adfcfe106841e4e4b15",
+    "fares.py": "6b4bd8c2a5e9a72d5cf75ff134c53af5057be60df769ae9ecf7d3502fa705de3",
+    "prepare.py": "46d24b3b4d6707daf11e6614f59906c4f4adfea3d8163b9fb82fd3e863af1b68",
+    "policy.py": "d67f26b83d33ce2933577d70215ccae54a22a429896ebc5924a63da549774065",
+    "metrics.py": "2161f7f48b9545d10e8d349f6d4c98efa2e0426dc133daaa5749fe3976de9814",
+    "engine.py": "9bd405eb1ca29c6bb8196bec657fe794b93b35934671f20729ed77cdae0ccf03",
+    "operations.py": "6a8cbf12833b8bebdac838b8acc737e8b12a8e82b07c427ac6ba62e7d6cbf645",
+    "empirical_v12.py": "c0943dcc106736bd8bb6de4e1a3f0a479f830ad97a7f53adec076eb36952d8de",
+    "time_profiles.py": "c4d8f8cf9df7c367e6fd1b1e20a04d98d896cb12265e2ebfbf8a1ce40840ed52",
+    "behavioral_policy.py": "769b11ebdffd04b6576be2fcccfc1d21c617ae5e76eb8ca0cd65127b69b454e7",
+    "walking_opportunities.py": "23bcdc81f5159c4a4e36237d28a14a84347cf3ba16ea2bfa8f283cbdc20619a1",
+    "run_case.py": "b0478cdfd4234187f3c17563943eaf4d793f85a14d3ac3bba000ba435b7919e4",
+    "config.json": "786ee0323915efe78c7df77fe29d3a63a2710ee6e1c3b48f0a2bc47650d5ef25",
+    "experiment_lock.json": "19e75e19ca03dbfb6fbcb2f05f9ee701895ac77cb4bd660d62be182ef99493d2",
+    "analyze_followup.py": "c7b2551adcf4f29d91fa8e51aa18f7891e9d9f80d6a31be76ba8d82dc5d17e77",
+    "frozen/prepared_capacity44_pair.json.gz": "08d92c334000990d00c843a51efe9cdb49ca145291421f4cd39b56dbb8492852",
+    "frozen/empirical_evidence.json": "e8d6000713374a6d58134489a7e0c1e3a17db2614ac7f20f358c404d91d16209",
+    "frozen/operations_v12_empirical.json": "97fcd777c49691f4a1c216586ca301dcb8951ef3410492776e488d5f0fcc8205",
+    "frozen/class_release_map.json.gz": "9624fbb5029351997daecd60d2f2726e1d5543dc847be93be28a4466e4916c7b",
+    "frozen/class_endings_source_20261106.json": "1077b14303d111b7aa91f73bc435f3c1d3af64ab1bfae01d7f7a51a100873cf2",
+    "test_same_stop_release.py": "610680ae4914d34ad1e4ede6186113d4bc87e51bcaeb929cd0be2dd88a54b05f",
+    "test_trunk_preservation.py": "c5191a9a09e1ab77f340be94ae8959ab87c8f3691b968ac58047c714d749a896",
+    "test_primary_stop.py": "9232f144a189f9678c04101266dd2a12c242b73f0cb2dd2ad3a8d983f717871c",
+    "frozen/baseline_verification.json": "3911c5230d677d0f49183889c4ea7cbde74b924253c24de68a525c328f434e60",
+    "frozen/prepared.json.gz": "2b7284d40bab677b2f232e8444c522d3fa88995ac8d42342c9638adb7988ebf2",
+    "frozen/supply.json": "519f74589a7b7efd243bdd1feeedcfea6cfe6ec3bf8d8c0b476d38152ee33b45",
+    "frozen/v9_engine.py": "bd645a47900570cd60031196dd298530c1e8f7270cacae0bc0911e249621d141",
+    "frozen/walking_osm.json": "7ee35e5b592e4578798d80c642eb8643c61c2c9304ab617e8149494f22bd0b15",
+    "frozen/operations_observed_train_v1.json": "77ca2b48fcf2ce106c7fc9731f1135af425ec0bf00c87293ecd01a73586aa85d",
+    "frozen/peer_calibration_contract.json": "e4c8c28c9f75768c4fa749ad50e4159c8665364976b197bfd6fe0f69bf7e6541",
+    "frozen/peer_calibration_candidates.json": "e02e7f5b610a8afad5c00224df5285e06e219ba01f4924b556c9d0fed6291749",
+    "evidence/collected_data_review_2026-11-12/calibration_contract.json": "e4c8c28c9f75768c4fa749ad50e4159c8665364976b197bfd6fe0f69bf7e6541",
+    "evidence/collected_data_review_2026-11-12/calibration_candidates.json": "e02e7f5b610a8afad5c00224df5285e06e219ba01f4924b556c9d0fed6291749",
+    "evidence/collected_data_review_2026-11-12/headway_samples_stable_dates.json": "5341203827d0e8e5aa8101138e0be076c71ae2b528aa77ddf14cfd14c7b870bf",
+    "evidence/collected_data_review_2026-11-12/adjacent_segment_samples_stable_dates.json": "00aa9481cdb0e96cc40bb75422ae7b5e986f5cc69f6eb4445e7342caceaada5e",
+    "evidence/collected_data_review_2026-11-12/download_manifest.json": "ddf4f2678e05e1b417e94676bbd4077780f6228029b9abff5d1ae47526d7f3ff",
+    "evidence/collected_data_review_2026-11-12/observed_intervals.json": "035de5531ed997340800264b569fc25eda1a1d35ef8c944ba182edd0e4d9067a",
+    "evidence/collected_data_review_2026-11-12/analysis_summary.json": "46e14f462f05b59419155657c9d80c9f7a35db7a4a33655e4b75c2e69431832a",
+    "evidence/collected_data_review_2026-11-12/deduplicated_grade_passages.csv": "32c49f21aa2151c1e2519a4514be6c07346158c82d24d0b2e86087fdf978cdd4",
+    "evidence/collected_data_review_2026-11-12/provider_section_speeds.csv": "1d63f42329a4edd05cbdbb9281ad388e0b845aaea021fc2a3e2390daf9b06810",
+    "evidence/collected_data_review_2026-11-12/grade_transitions.csv": "8741fcdb234271679f7e4cee43e2e09c019f615c8922dd8215604322259e5d03",
+    "evidence/collected_data_review_2026-11-12/raw/2026-11-07.jsons.gz": "ba6d8cbda1c6eea6d9a0ca417f2daded680edae8de810534dff0c8ee9fb616ef",
+    "evidence/collected_data_review_2026-11-12/raw/2026-11-08.jsons.gz": "a14fd7c5fa650fb340d2560fc9958f2e32a2f6adfd8dd449ca9d0b916f9574fd",
+    "evidence/collected_data_review_2026-11-12/raw/2026-11-09.jsons.gz": "6b0545020a896ac7118f3b741bedacf3ca6b4c84312df0db725b4af52eef3737",
+    "evidence/collected_data_review_2026-11-12/raw/2026-11-10.jsons.gz": "81c2b1851a55ede1c46daad3568cec5afe852f053c8a6a68484b9d247d06e63c",
+    "evidence/collected_data_review_2026-11-12/raw/2026-11-11.jsons.gz": "900cd59c603e644d86607578c64b5727b69e8165974a599835bcddb04608551f",
+    "evidence/field_observations_2026-11-09/queue_admin_snu_1653.json": "60b1f4f017debaacad66c9fd391318b5760b30718e0001adffb4e7c9a33bba76",
+    "evidence/field_observations_2026-11-09/queue_culture_1655.json": "3c636feb5f47987416e20c76478f29edc68b77eb0c8c5c5d8daa8ed0dc8f2346",
+    "evidence/field_observations_2026-11-09/queue_snu_gate_1703.json": "eee913fd29906d3a37d41d24e42375a00481d51b55caad9211df7970b595195e",
+    "evidence/field_observations_2026-11-09/observation_timing_correction.json": "625751aaee64f99addf697f33ea03c6d82901bec386ec17ca578925f9c37b0b0",
+    "evidence/field_observations_2026-11-10/queue_admin_snu_1523.json": "2d46bc4bce8aed75bf9770660230b5e702e7ced40dd0b09b33e1cf639e7f005e",
+    "evidence/prototype_observation_bridge_2026-11-12/operations_observed_train_v1.json": "77ca2b48fcf2ce106c7fc9731f1135af425ec0bf00c87293ecd01a73586aa85d",
+    "evidence/prototype_observation_bridge_2026-11-12/segment_corrections.csv": "ae9c1219d3b5f2553edb55ecbd76ee2b1a4c9125e9bfe3aeb67a5e7a2acd61e1",
+    "evidence/prototype_observation_bridge_2026-11-12/assessment.json": "a0eb3690b6a75b558121d88b9867eea1a5db2b90e377f3926790eb92a20b4e06",
+    "evidence/prototype_observation_bridge_2026-11-12/peer_contract_reconciliation.json": "930e1585f88bac5da9ea0a71c308e019acd37206752eacda2a3d30fc57321042",
+    "evidence/prototype_observation_bridge_2026-11-12/stop_identity_reconciliation.json": "8a8ce09565cf3e2baa0f7f5f04fb4e62c682449be2ab0a38478efdd1a486a619",
+    "evidence/collected_data_review_2026-11-12/v12_support/inventory.json": "79576a31a6ccda6485467aed0fa800a52500cb320fc88067ac1a2f32f6cd71bf",
+    "evidence/collected_data_review_2026-11-12/v12_support/full_flag_availability.json": "185a8aedce5b5cb6e6e5f997fde5ae3437a9df7b1c703d017845abf1537b2fb7",
+    "evidence/collected_data_review_2026-11-12/v12_support/full_flags_by_day_route_section_slot.csv": "2891672a958bd3c65e19ea0b911d1ac4e1b8e7f44296092e0de12d010e2a28f8",
+    "evidence/collected_data_review_2026-11-12/v12_support/future_holdout_rule.json": "90f6ce054d458aa0b04c17bac413bbef68144203368cda4173aa7d93e03a214d",
+    "evidence/collected_data_review_2026-11-12/v12_support/verification.json": "4c4e3b8b0c219b425e0fc0372f44093fc17df8f12d95471b54a6b2a78e631d21",
+    "evidence/seoul_boardings_2026-11-10/outputs/campus_hourly_monthly_202610.csv": "c104da439c7880ae1cc3ec8fce3e01bf575c5054e8207252d45619476885bb3d",
+    "evidence/seoul_boardings_2026-11-10/outputs/campus_hourly_monthly_202610_long.csv": "8b623c74cc379bc7dcc8f7d05480c2f0bfda3dd8765c5bd367e6aaefdd32c859",
+    "evidence/seoul_boardings_2026-11-10/outputs/nearby_8_routes_hourly_monthly_202610.csv": "a52817974c51c8d65c112eeca711f0d7ae9630b15dc9b3a11685c578e824ea62",
+    "evidence/seoul_boardings_2026-11-10/outputs/campus_daily_20261013_20261109_available.csv": "1bfb62fb2663b7e77ad159bb926415298936105514a9f3f164900746a820232c",
+    "evidence/seoul_boardings_2026-11-10/outputs/nearby_8_routes_daily_20261013_20261109_available.csv": "c90d01bf422ac2c8842c547047705b215c037e9aa553c638df23597e5331d208",
+    "frozen/historical_evidence_context.json": "79576a31a6ccda6485467aed0fa800a52500cb320fc88067ac1a2f32f6cd71bf",
+    "frozen/capacity44_reference_engine.py": "690babd48136beae59e2dd06fed4e3061599f1701587bcb4a45b11a6b7f6a7f4",
+    "frozen/capacity44_reference_policy.py": "4510adfa434d2091f0873286bfa424193029fe34d4835d47f0765b3c1e1a0470",
+    "frozen/new_observation_at_amendment.json": "8c295ad33bc76f7a283c654b745141aa749775fba8288eec8f2cdabb097fe6a7",
+    "frozen/prepared_capacity44.json.gz": "4fa82f2eb7dadebd63ed800e482ff0226357af6deafc38f1e965d9fa81714e4a",
+    "frozen/v9_latest.json": "73c99f8ba0cd5221bc1c690f7eff0b965e1ae4bf71f488aa2e5e43dc7629e623",
+    "frozen/pair_reference_engine.py": "987c5280b19ad977039881dd5fb9856d054ba47cd7f5173b5f1085cbaf0802d3",
+    "frozen/pair_reference_policy.py": "6ab50f4a2c96e8044784d5a83375f641a38bbe7542ccf5d89fc878dc288ba9cc",
+    "future_evaluation_plan.json": "6fc1814cbbfad77f912ed99b114b2bf97bf5c55cd5e5605592d4ab31a9ad0619",
+    "protocol-reference.json": "48045a653f86619581a640620acd5fb113bcf361bade7f1524ef7e9c44cb75a9",
+    "input_manifest.json": "d3829d8f5fcb395ac224835a3306f114f01b1021e274985f2fe88d12198eb86b",
+    "capacity44_amendment.json": "8537d970653a6c83c21a495881399b46eea5eb91b3b3347b545c3251b0d69066",
+    "pair_amendment.json": "c6edd8ba73e4a1d7fd483e763cab9edb2279f8b101c30d199933ff7cd81e2752",
+    "runs\\ablation-first-stop-group-mon\\attempt_01\\started.json": "fac36bfecc4d323888480cbd506be356ac4b76d466d65ed469666b1531ad10b2",
+    "runs\\ablation-legacy-initial-mon\\attempt_01\\started.json": "bf96d1647cbb709730c39ff5883df6e6a18701e3894fbd58e7bcf10748c22467",
+    "runs\\primaryfix-combined-regular-mon\\attempt_01\\started.json": "d6ccafc19b55265f263286ebd1cf649a6692b003db131b5ba90ef1818f12abbb",
+    "runs\\primaryfix-combined-regular-tue\\attempt_01\\started.json": "a97d999622a38c1970b46458677e8dab388286258eebc1053f82cd207e300cfc"
+  },
+  "confirmed": [
+    "Own suffix branches are grouped by final applicable primary node and retained as group-specific chains.",
+    "For initial_myopic and count>0 no waiting_before, forecast_available, first_boardable capacity, or committed demand is consulted for choice.",
+    "boarding_timeline appends for every predicted boarding independent of optional crowding projections.",
+    "Access extension subtracts later transfer waiting plus preparation before main arrival, leaving feeder ride and walking only.",
+    "Primary mode ETA tie field is0; actual predictor ETA is diagnostic only.",
+    "Representative approach is selected before one group-level choose error draw; prior remains first walking path only."
+  ],
+  "limits": [
+    "Later suffix may still beNone if no compatible planned operating service exists, not due to later queue occupancy.",
+    "Scheduled clocks still determine physical ride and feasibility; no claim of removing all future schedule information.",
+    "Direct one-stage numerical score unchanged; whole-policy identity not implied because ETA tie-break changed.",
+    "No-reference or no-forecast fallback does not follow the normal grouped-noise branch.",
+    "Missing primary timeline index silently returns0; no runtime occurrence verified.",
+    "Myopic diagnostic ETA is not a validated physical trip ETA; defaults and actual simulation remain separate.",
+    "Owner-reported97 checks not independently rerun."
+  ]
+}

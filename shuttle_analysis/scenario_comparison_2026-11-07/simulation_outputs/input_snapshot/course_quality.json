@@ -1,0 +1,67 @@
+{
+  "source": "C:\\Users\\김예준\\Downloads\\강좌검색.xls",
+  "source_archive": "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\course_demand_2026-11-06\\sources\\courses_2026-2_20261106.xls",
+  "source_sha256": "0bb32aeea9fd9a10262ce5458167d37e5fb6c14b3253a7287849b611e4ab7d67",
+  "source_sheet": "Sheet1",
+  "source_conditions": " 년도 : 2026학년도,   학기 : 2학기,   교양영역 : 전체,   상위영역 : 전체,   이수과정 : 전체,   학년 : 전체,   개설대학 : 전체,   개설학과 : 전체,   개설전공 : 전체,   수업진행형태 : 전체,   성적부여형태 : 전체",
+  "data_rows": 8654,
+  "source_columns": [
+    "교과구분",
+    "개설대학",
+    "개설학과",
+    "이수과정",
+    "학년",
+    "교과목번호",
+    "강좌번호",
+    "교과목명",
+    "부제명",
+    "학점",
+    "강의",
+    "실습",
+    "수업교시",
+    "수업형태",
+    "강의실(동-호)(#연건, *평창)",
+    "주담당교수",
+    "장바구니신청",
+    "재학생장바구니신청",
+    "신입생장바구니신청",
+    "정원",
+    "수강신청인원",
+    "비고",
+    "강의언어",
+    "개설상태"
+  ],
+  "timed_sections": 5438,
+  "meeting_slots": 8030,
+  "merged_ending_events": 7503,
+  "main_ending_events": 6274,
+  "main_distinct_sections": 4442,
+  "main_buildings": 88,
+  "main_enrollment_event_sum": 157265,
+  "status_counts": {
+    "설강": 7760,
+    "폐강대상": 894
+  },
+  "exclusion_counts_overlapping": {
+    "관악 지도 건물번호 대응 불가": 828,
+    "원격 표지": 59,
+    "설강 표시 아님": 214,
+    "수강인원 0": 181,
+    "공동개설 표지": 343,
+    "분반 또는 동시 강의실 인원 미확인": 98
+  },
+  "parse_issues": [],
+  "duplicates_section_keys": 0,
+  "ui_total_enrollment_spot_check": {
+    "100.100-001": 35,
+    "100.102-001": 37,
+    "100.109-001": 26,
+    "100.120A-001": 25
+  },
+  "notes": [
+    "Enrollment-weighted course-ending events are not unique students or observed departures.",
+    "Campus matching uses explicit building number correspondence to SNU public map coordinates; unmarked rooms are not assumed Gwanak.",
+    "Main analysis excludes crosslisted, remote, subgroup, ambiguous-room and non-offered rows.",
+    "A maximum ten-minute within-course break is merged; this does not identify the last class of an individual student."
+  ]
+}

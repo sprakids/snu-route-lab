@@ -1,0 +1,242 @@
+"""Causal sequential decisions on top of shared physical vehicle/FIFO states."""
+from collections import Counter
+import math
+from preferences import Prediction,traits,cost,choose,uniform,walking_weight
+from hazard import ReviewClock
+from fares import FareLedger,board,alight
+from artifacts import EPS,END
+
+def adoption_probability(stay_score,best_score,count,age,full,future_wait,config):
+    temperature=config['choice_temperature_minutes']
+    gain=max(-50.,min(50.,(stay_score-best_score)/temperature))
+    worthwhile=1./(1.+math.exp(-gain))
+    ordinary=config['repeat_multiplier']**count
+    scale=config.get('switch_stress_time_scale_seconds',600.)
+    stress=-math.expm1(-(max(0.,age)/scale)**3-(max(0.,future_wait)/scale)**3-config.get('switch_full_stress_coefficient',.25)*full)
+    return worthwhile*(ordinary+(1-ordinary)*stress)
+
+
+def signature(stages):
+    return tuple(tuple(sorted((s['rid'],s['board'],s['alight'],s['next_walk'][0]) for s in st.get('pool',[st]))) for st in stages)
+
+def attach_policy(bundle,config,node_for,current_stage,legacy_forecast,waiting_before,schedule,vehicles,
+                  queues,qmass,premass,queue_versions,ri,walk_next,record_wait,push,decisions,behavior_decisions):
+    from engine import first_boardable,scaled_stages,stage_choice
+    paths=bundle['physical_paths'];nodes=bundle['prepared']['common']['nodes'];routes=bundle['prepared']['routes']
+
+    class Policy:
+        def __init__(self):
+            self.counts=Counter();self.boarding_choices=[];self.initial_choices=0;self.review_diagnostics=[]
+        def complete_same_stop(self,state,stage,node):
+            # All entries share one physical stop, one arrival/ready clock and
+            # one FIFO ticket. Each boarded service carries its own continuation.
+            from engine import scaled_stages
+            tail=state['stages'][state['stage']+1:];pool=[];seen=set()
+            for source in stage.get('pool',[stage]):
+                entry=dict(source);entry.setdefault('continuation_stages',tail)
+                entry.pop('pool',None);key=(entry['rid'],entry['board'])
+                if key not in seen:pool.append(entry);seen.add(key)
+            for entry in scaled_stages(bundle.get('compatible_route_policies',{}).get(f"{node}|{state['dest']}",[]),state['factor']):
+                key=(entry['rid'],entry['board'])
+                if key not in seen and key not in state['used_services']:pool.append(entry);seen.add(key)
+            return {**stage,'pool':pool,'expanded_compatible_pool':True,'complete_physical_stop_policy':True}
+        def make_traits(self,uid):return traits(uid,config)
+        def empty_ledger(self):return FareLedger()
+        def base_fare(self,rid):
+            if rid.startswith('shuttle'):return 0
+            name=routes[rid]['name']
+            return 1200 if name.startswith(('관악','동작','서초','금천')) else 1500
+        def alighted(self,state,rid,at):
+            state['fare_ledger']=alight(state['fare_ledger'],rid,at,self.base_fare(rid))
+        def boarded(self,state,rid,chosen,at,end):
+            charge,state['fare_ledger']=board(state['fare_ledger'],rid,at,self.base_fare(rid),paths[chosen['ride_path']]['meters'])
+            state['fare_paid']=state.get('fare_paid',0.)+charge;state['rides_taken']=state.get('rides_taken',0)+1
+        def predict(self,stages,now,state,access=0.,factor=1.,keep=False,override=None,access_path=None,exclude_vehicle=None):
+            cursor=now+access;walk=access;wait=ride=prep=fee=crowd=fatigue=0.;first_wait=wait_squared=0.;chain=list(stages);count=0
+            ledger=state['fare_ledger']
+            if access_path is not None:fatigue+=paths[access_path]['stairs_meters']/(config['walking_kmh']/3.6)
+            while chain:
+                stage=chain[0];node=node_for(stage)
+                ready=max(cursor,state['ready_time']) if keep and count==0 else cursor+config['preparation_seconds']
+                prep+=ready-cursor
+                if count==0 and override is not None:
+                    when,vehicle,k,chosen=override;ready=when;prep=0.;choice=(when,vehicle['id'],k,chosen)
+                else:
+                    view=waiting_before(node,state,keep and count==0)
+                    rows=schedule[node]
+                    if count==0 and exclude_vehicle is not None:rows=[r for r in rows if r[1]!=exclude_vehicle]
+                    choice=first_boardable(rows,vehicles,ready,now,stage,state['w'],view)
+                if choice is None:return None
+                when,vid,k,chosen=choice;vehicle=vehicles[vid];info=ri[vehicle['rid']]
+                target=k+chosen['alight']-chosen['board'];duration=vehicle['times'][target]-when
+                if when<ready-EPS:return None
+                if count==0:first_wait=max(0.,when-ready)+max(0.,ready-cursor)
+                wait_squared+=max(0.,when-cursor)**2
+                wait+=max(0.,when-ready);ride+=duration;cursor=when+duration
+                occupied=sum(s['w'] for dest,s in vehicle['onboard'] if dest>k)
+                fraction=min(1.,(occupied+state['w'])/vehicle['cap']);crowd+=duration*fraction*fraction
+                charge,ledger=board(ledger,vehicle['rid'],when,self.base_fare(vehicle['rid']),paths[chosen['ride_path']]['meters'])
+                fee+=charge;ledger=alight(ledger,vehicle['rid'],cursor,self.base_fare(vehicle['rid']))
+                last_walk=chosen['next_walk'][1]*factor;walk+=last_walk;cursor+=last_walk
+                fatigue+=paths[chosen['next_walk'][0]]['stairs_meters']/(config['walking_kmh']/3.6)
+                chain=chosen['continuation_stages'] if 'continuation_stages' in chosen else chain[1:];count+=1
+                assert count<=8,'Cyclic candidate chain, unrelated to the unlimited rerouting count'
+            assert abs((cursor-now)-(walk+wait+ride+prep))<1e-5
+            transfers=max(0,count-1+(1 if state.get('rides_taken',0)>0 and count else 0))
+            return Prediction(cursor,walk,wait,ride,prep,transfers,fee,crowd,fatigue,first_wait,wait_squared)
+        def generalized(self,pred,state,changing=False):
+            base=cost(pred,state['traits'],len(state['history']),changing,config['fare_in_choice'])
+            base+=state['traits'].wait*config.get('predicted_queue_curvature_coefficient',0.)*pred.wait_squared/(60*config.get('predicted_queue_curvature_scale_seconds',600.))
+            # State-dependent dislike of MORE standing in the CURRENT queue.
+            # Elapsed waiting is never re-added to physical ETA or total time.
+            if not changing and pred.wait>0:
+                clock=pred.eta-(pred.walk+pred.wait+pred.ride+pred.prep)
+                age=max(0.,clock-state['stop_entry'])
+                extra=config.get('waiting_discomfort_full_sensitivity',0.)*state['full_passes']+(age/config.get('waiting_discomfort_age_scale_seconds',600.))**2
+                base+=state['traits'].wait*pred.first_wait/60*extra
+            return base
+        def reschedule(self,state,at):
+            if not state['queued'] or state['done']:return
+            if not bundle['alternatives'].get(f"{state['node']}|{state['dest']}"):return
+            clock=state.get('hazard_clock')
+            if clock is None or clock.stop_entry!=state['stop_entry']:
+                clock=ReviewClock.start(at,state['stop_entry'],len(state['history']),state['full_passes'],state['plan'][0],state['traits'].response,config,state['review_ordinal'])
+                state['hazard_clock']=clock
+            else:clock.update(at,len(state['history']),state['full_passes'],config)
+            due=clock.due(config);state['check_version']+=1
+            if due<=END:push(max(at+1e-6,due),2,'recheck',(state,state['check_version']))
+        def maybe_switch(self,state,at,reason,forced=False):
+            assert not forced,'Prototype has no forced-abandonment mechanism'
+            count=len(state['history']);identity=state['plan'][0];node=state['node']
+            if reason=='arrival':
+                p=config['arrival_review_probability']*config['repeat_multiplier']**count
+                # Published/model schedule and the currently visible queue only.
+                # This is a REVIEW chance, not forced rerouting or shorter ETA.
+                stage=current_stage(state)
+                next_row=next((row for row in schedule[node] if row[0]>=state['ready_time']-EPS
+                    and vehicles[row[1]]['last_stop']<row[2] and stage_choice(stage,vehicles[row[1]]['rid'],row[2]) is not None),None)
+                gap=max(0.,next_row[0]-at) if next_row else math.inf
+                capacity=vehicles[next_row[1]]['cap'] if next_row else 1.
+                visible=qmass[node]+premass[node]
+                stress=-math.expm1(-(gap/config.get('arrival_information_wait_scale_seconds',300.))**2-(visible/max(1.,capacity))**2)
+                if config.get('arrival_information_review',True):p=p+(1-p)*stress
+                if uniform(config['seed'],identity,'arrival-review',state['visit'])>=p:return False
+            else:state['hazard_clock']=None
+            state['review_ordinal']+=1;self.counts[reason]+=1
+            current=self.predict(state['stages'][state['stage']:],at,state,keep=True)
+            candidates=[]
+            if current is not None:
+                candidates.append({'key':'stay','cost':self.generalized(current,state),'prediction':current,'option':None})
+            stage=current_stage(state);old_lines={s['rid']:s['board'] for s in stage.get('pool',[stage])}
+            for option in bundle['alternatives'].get(f"{node}|{state['dest']}",[]):
+                chain=option['stages'];factor=state['factor'];access=option['walk'][1]*factor
+                first=node_for(chain[0]) if chain else None
+                if chain and first==node:continue
+                if access<=EPS:continue  # Same physical place belongs to one compatible boarding policy.
+                prior=walking_weight(option.get('walk_meters',paths[option['walk'][0]]['meters']))
+                # Stress relaxes distance aversion, while downstream/revisit
+                # actions keep their separate low consideration multipliers.
+                relief=math.exp(-.35*state['full_passes']-max(0.,at-state['stop_entry'])/1800)
+                prior=1-(1-prior)*relief if prior>0 else 0.
+                if chain:
+                    services=chain[0].get('pool',[chain[0]])
+                    # One action prior for walking downstream, never one draw per line.
+                    if all(s['rid'] in old_lines and s['board']>old_lines[s['rid']] for s in services):prior*=config['same_line_downstream_prior']
+                    if first in state['visited']:prior*=config['revisit_prior']
+                # Bound the minimum possible preference cost before forecasting.
+                lower=state['traits'].walk*access/60+state['traits'].change*(1+.5*count)
+                best_so_far=min((c['cost'] for c in candidates),default=math.inf)
+                if lower>best_so_far+12*config['choice_temperature_minutes']:
+                    self.counts['far_cost_pruned']+=1;continue
+                pred=self.predict(chain,at,state,access,factor,False,access_path=option['walk'][0])
+                if pred is None:continue
+                key=repr((first,option['walk'][0],signature(chain)))
+                candidates.append({'key':key,'cost':self.generalized(pred,state,True),'prediction':pred,'option':option,'prior':prior})
+            # If a compatible superset at the same physical target exists, a
+            # one-stage subset with the same access geometry adds no new strategy.
+            supersets={}
+            for c in candidates:
+                op=c['option']
+                if op and len(op['stages'])==1:
+                    key=op['walk'][0];services=frozenset(signature(op['stages'])[0]);supersets.setdefault(key,[]).append((c,services))
+            redundant=set()
+            for group in supersets.values():
+                for c,s in group:
+                    if any(s<other for d,other in group):redundant.add(c['key'])
+            candidates=[c for c in candidates if c['key'] not in redundant]
+            alternatives=[c for c in candidates if c['option'] is not None]
+            staying=next((c for c in candidates if c['option'] is None),None)
+            selected=staying
+            if alternatives:
+                temperature=config['choice_temperature_minutes']
+                best=min(c['cost']-temperature*math.log(max(1e-300,c.get('prior',1.))) for c in alternatives)
+                chance=1. if staying is None else adoption_probability(staying['cost'],best,count,at-state['stop_entry'],state['full_passes'],current.first_wait,config)
+                if uniform(config['seed'],identity,'adopt-reroute',state['visit'],state['review_ordinal'])<chance:
+                    groups=Counter(c['option']['walk'][0] for c in alternatives)
+                    conditional=[{**c,'prior':c.get('prior',1.)/groups[c['option']['walk'][0]]} for c in alternatives]
+                    selected=choose(conditional,identity,('reroute',state['visit'],state['review_ordinal']),config)
+            if at-state['stop_entry']>=600 and len(self.review_diagnostics)<20000:
+                self.review_diagnostics.append({'time':at,'uid':identity,'node':node,'age':at-state['stop_entry'],
+                    'changes':count,'full_passes':state['full_passes'],'current_eta':current.eta if current else None,
+                    'candidate_count':len(candidates),'selected':selected['key'] if selected else None,
+                    'best_costs':sorted([(str(c['key']),c['cost'],c['prediction'].eta) for c in candidates],key=lambda r:r[1])[:4]})
+            if selected is None or selected['option'] is None:return False
+            option=selected['option'];pred=selected['prediction'];first=node_for(option['stages'][0]) if option['stages'] else None
+            visible=qmass[node]+premass[node]
+            if state['queued']:
+                queues[node].remove(state);qmass[node]-=state['w'];state['queued']=False;queue_versions[node]+=1
+            if state.get('preparing'):premass[node]-=state['w'];state['preparing']=False
+            record_wait(state,at,'switched')
+            name=option.get('name',option['kind']);old_eta=current.eta if current else None
+            decisions.append([at,node,state['w'],identity,stage['rid'],option['kind'],name,old_eta,pred.eta,reason])
+            behavior_decisions.append({'time':at,'origin':node,'target':first,'uid':identity,'weight':state['w'],'kind':option['kind'],
+                'forced':False,'reason':reason,'visible_queue':visible,'continuous_wait_seconds':at-state['stop_entry'],
+                'full_passes':state['full_passes'],'change_count_before':count,'old_eta':old_eta,'new_eta':pred.eta,
+                'generalized_cost_minutes':selected['cost'],'physical_prediction':pred.components(),
+                'old_services':state['entry_eligibility'],
+                'new_services':[(s['rid'],s['board']) for s in option['stages'][0].get('pool',[option['stages'][0]])] if option['stages'] else []})
+            state['history']=state['history']+[[at,option['kind'],name]];state['last_switch']=at
+            state['visited']=state['visited']|{node};state['check_version']+=1;state['hazard_clock']=None
+            state['stages']=scaled_stages(option['stages'],state['factor']);state['stage']=0
+            walk_next(state,at,option['walk'][0],option['walk'][1]*state['factor'],config['preparation_seconds'])
+            return True
+        def initial_choice(self,state,at):
+            plan=state['plan'];origin=tuple(bundle['prepared']['common']['paths'][plan[5][0]][0])
+            options=bundle['origin_catalog'].get(repr((plan[1],plan[2],origin)),[]);candidates=[]
+            for option in options:
+                pred=self.predict(option['stages'],at,state,option['walk'][1],1.,access_path=option['walk'][0])
+                if pred is None:continue
+                prior=walking_weight(paths[option['walk'][0]]['meters'])
+                candidates.append({'key':option['key'],'cost':self.generalized(pred,state),'option':option,'prediction':pred,'prior':prior})
+            access_groups=Counter(c['option']['walk'][0] for c in candidates)
+            candidates=[{**c,'prior':c.get('prior',1.)/access_groups[c['option']['walk'][0]]} for c in candidates]
+            selected=choose(candidates,plan[0],('departure',),config)
+            if selected:
+                op=selected['option'];self.initial_choices+=int((plan[5][0],signature(plan[6]))!=(op['walk'][0],signature(op['stages'])))
+                # Departure, origin, destination and mass stay fixed. Initial
+                # choice is distinct from a later walking reroute count.
+                state['plan']=[*plan[:5],list(op['walk']),op['stages']];state['stages']=op['stages']
+        def accept_boarding(self,state,chosen,vehicle,k,at,available):
+            if 'pool' not in current_stage(state):return True
+            chain=[chosen,*state['stages'][state['stage']+1:]]
+            if 'continuation_stages' in chosen:chain=[chosen,*chosen['continuation_stages']]
+            ride=self.predict(chain,at,state,keep=True,override=(at,vehicle,k,chosen))
+            # Retain another same-time paired vehicle; exclude only the bus
+            # currently being considered, rather than advancing the clock.
+            future=self.predict(state['stages'][state['stage']:],at,state,keep=True,exclude_vehicle=vehicle['id'])
+            if ride is None or future is None:return True
+            options=[{'key':'board','cost':self.generalized(ride,state)}, {'key':'wait','cost':self.generalized(future,state)}]
+            selected=choose(options,state['plan'][0],('board',state['visit'],vehicle['id'],k),config)
+            accept=selected['key']=='board'
+            if not accept:
+                self.boarding_choices.append({'time':at,'uid':state['plan'][0],'ticket':state['queue_ticket'],
+                    'node':state['node'],'vehicle':vehicle['id'],'route':vehicle['rid'],'stop_index':k,'weight':state['w'],
+                    'seats_available':available,'action':'voluntary_continue_waiting','board_cost':options[0]['cost'],'wait_cost':options[1]['cost']})
+            return accept
+        def report(self):
+            return {'opportunity_counts':dict(self.counts),'voluntary_boarding_declines':len(self.boarding_choices),
+                    'initial_plan_changes':self.initial_choices,'generalized_cost_unit':'minute_equivalent_not_eta',
+                    'max_route_changes':None,'forced_abandonment':False,'polling_controls_behavior':False,
+                    'alighting_scope':'inherited candidate alighting targets; new choices after alighting. Endogenous early alighting not implemented.',
+                    'fare_scenario':config['fare_scenario'],'fare_used_in_choice':config['fare_in_choice']}
+    return Policy()

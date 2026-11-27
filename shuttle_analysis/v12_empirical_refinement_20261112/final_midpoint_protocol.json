@@ -1,0 +1,13 @@
+{
+  "status": "REGISTERED_BEFORE_FINAL_MIDPOINT_EXECUTION",
+  "scope": "One final adaptive calibration point, not independent validation",
+  "reason": "The coarse best alpha1.25 reduces the Tuesday overestimate but worsens Monday reports. Test the single midpoint1.125 against alpha1 and1.25 before choosing. Do not continue a dense sweep of four reused reports.",
+  "new_parameter_values": [1.125],
+  "existing_controls": [1.0,1.25],
+  "objective": "Unchanged mean of three direction-confirmed uniform-minute expected absolute interval errors normalized by53,36,67",
+  "gates": "Unchanged full capacity/FIFO/mass/time audit, no all-recorded continuous wait>20, no unserved; final ten weekday/scenario conditions required",
+  "selection_and_disclosure": "Keep all candidates including failed and regressed reports. Score with same rule, disclose all four field errors and full-class-end burden. If no candidate passes full gates, retain previous private candidate and report non-achievement instead of clipping or deleting demand.",
+  "identification_limit": "Effective departure timing, not measured egress or identified latent demand",
+  "new_day_outcomes_opened": false,
+  "production_replacement_allowed": false
+}

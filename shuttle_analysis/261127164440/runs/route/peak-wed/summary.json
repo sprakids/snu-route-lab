@@ -1,0 +1,88 @@
+{
+  "day": "wed",
+  "service": "peak",
+  "condition": "route",
+  "daily": 19079.0,
+  "design": {
+    "upper_v12": 2547.85366236928,
+    "upper_r": 2547.85366236928,
+    "first_target_v12": 968.3724018060736,
+    "first_target_r": 1327.1228639985661,
+    "switch_weight": 237.93208785497
+  },
+  "upper_actual": {
+    "upper_mass": 2547.8536623692858,
+    "first_board_mass": 1196.7319341725606,
+    "ever_board_mass": 1197.1079835940836
+  },
+  "upper_actual_v12": {
+    "upper_mass": 2547.8536623692844,
+    "first_board_mass": 913.0089331139245,
+    "ever_board_mass": 913.3849825354478
+  },
+  "checks": {
+    "legs": 314985,
+    "vehicle_segments": 34231,
+    "stationary_segments": 4626,
+    "planned_city_departures": 723,
+    "capacity_events": 22893,
+    "fifo_events": 453,
+    "terminal_fifo_tickets": 11432,
+    "hourly_cells": 1105,
+    "queue_samples": 49640
+  },
+  "over20_weight": 0.0,
+  "max_continuous_wait": 20.00000000000012,
+  "unserved": 0,
+  "capacity_violations": 0,
+  "observations": {
+    "20261125-1600-admin-snu-arrival-boarding": {
+      "kind": "outside",
+      "stop": "admin_snu",
+      "minute": "16:00",
+      "observed": [
+        8,
+        8
+      ],
+      "matched": true,
+      "mean": 11.036605072116613,
+      "minimum": 5.423905,
+      "maximum": 19.605891,
+      "expected_abs_error": 3.9363593210832333
+    }
+  },
+  "windows": [],
+  "episodes": {
+    "16:00": {
+      "boarded_cohort": 14.181986019216788,
+      "next_departure_group": 14.181986019216788,
+      "boarded_mass": 14.181986019216788,
+      "outside_s": {
+        "minimum": 68.58798128329363,
+        "p10": 70.24352472811006,
+        "median": 79.20781023491145,
+        "p90": 95.18685191919212,
+        "maximum": 100.6038065110115,
+        "mean": 79.77518220354065
+      },
+      "onboard_s": {
+        "minimum": 50.0,
+        "p10": 52.0,
+        "median": 64.0,
+        "p90": 76.0,
+        "maximum": 78.0,
+        "mean": 63.970585837380824
+      },
+      "combined_s": {
+        "minimum": 121.6987107789464,
+        "p10": 123.43297766887554,
+        "median": 143.20781023491145,
+        "p90": 171.18685191919212,
+        "maximum": 178.6038065110115,
+        "mean": 143.7457680409215
+      },
+      "same_minute_boards_mass": 0.0,
+      "doors_opened_within_minute": 0
+    }
+  }
+}

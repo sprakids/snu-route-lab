@@ -1,0 +1,93 @@
+{
+  "history_only": {
+    "settings": {},
+    "development_score": {
+      "candidate_id": 1,
+      "kind": "history_only",
+      "ridge_background": null,
+      "ridge_class": null,
+      "k": null,
+      "valid_cells": 6875,
+      "observed_sum": 475798.0,
+      "predicted_sum": 495586.0,
+      "MAE": 13.392310303030303,
+      "WAPE": 0.19351097174291051,
+      "RMSE": 21.717086621209837
+    }
+  },
+  "weekday_history": {
+    "settings": {
+      "k": 10
+    },
+    "development_score": {
+      "candidate_id": 5,
+      "kind": "weekday_history",
+      "ridge_background": null,
+      "ridge_class": null,
+      "k": 10,
+      "valid_cells": 6875,
+      "observed_sum": 475798.0,
+      "predicted_sum": 495586.0,
+      "MAE": 13.153588811188811,
+      "WAPE": 0.1900615872217266,
+      "RMSE": 21.255444147868015
+    }
+  },
+  "history_plus_background": {
+    "settings": {
+      "ridge_background": 10,
+      "ridge_class": 1.0
+    },
+    "development_score": {
+      "candidate_id": 10,
+      "kind": "history_plus_background",
+      "ridge_background": 10,
+      "ridge_class": 1.0,
+      "k": null,
+      "valid_cells": 6875,
+      "observed_sum": 475798.0,
+      "predicted_sum": 495586.0,
+      "MAE": 13.376680970909755,
+      "WAPE": 0.1932851371275301,
+      "RMSE": 21.685808876271448
+    }
+  },
+  "history_plus_class": {
+    "settings": {
+      "ridge_background": 1.0,
+      "ridge_class": 0.01
+    },
+    "development_score": {
+      "candidate_id": 11,
+      "kind": "history_plus_class",
+      "ridge_background": 1.0,
+      "ridge_class": 0.01,
+      "k": null,
+      "valid_cells": 6875,
+      "observed_sum": 475798.0,
+      "predicted_sum": 495586.0,
+      "MAE": 13.308764379055331,
+      "WAPE": 0.19230378250014796,
+      "RMSE": 21.601536652234895
+    }
+  },
+  "history_background_class": {
+    "settings": {
+      "ridge_background": 10,
+      "ridge_class": 0.01
+    },
+    "development_score": {
+      "candidate_id": 27,
+      "kind": "history_background_class",
+      "ridge_background": 10,
+      "ridge_class": 0.01,
+      "k": null,
+      "valid_cells": 6875,
+      "observed_sum": 475798.0,
+      "predicted_sum": 495586.0,
+      "MAE": 13.302776831666181,
+      "WAPE": 0.1922172659777994,
+      "RMSE": 21.586201478885634
+    }
+  }
+}

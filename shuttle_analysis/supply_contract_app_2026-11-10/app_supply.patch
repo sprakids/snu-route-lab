@@ -1,0 +1,596 @@
+--- before/automatic_queue.py
++++ app/automatic_queue.py
+@@ -6,6 +6,7 @@
+ from shuttle_timetable import KST,service_day
+ from simulation_travel import fifo_opportunity
+ from shuttle_clock import dispatches as terminal_dispatches
++from shuttle_supply import CONTRACT as SUPPLY_CONTRACT,vehicles as supply_vehicles
+ from calculation_context import memoized
+ 
+ def grade_signals(node,vehicles,asof):
+@@ -55,13 +56,16 @@
+             w=mass/pieces*scale*factor(node,at)
+             if w<=0:continue
+             input_mass+=w;serial+=1;events.append((at,0,serial,node,(serial,w)))
+-    for vid,leave in enumerate(dispatches(route['id'],phase)):
++    fleet=list(supply_vehicles(route,dispatches(route['id'],phase)))
++    for vid,vehicle in enumerate(fleet):
++        leave=vehicle['terminal_dispatch_second']
+         origin=leave-route['offsets'][route['anchor']]
+         for k,offset in enumerate(route['offsets']):
+             serial+=1;events.append((origin+offset,2,serial,vid,k))
+     events.sort();queues=[deque() for _ in range(n)];mass=[0.]*n
+     keys=[[] for _ in range(n)];values=[[] for _ in range(n)];supply=[[] for _ in range(n)];loads={}
+-    cap=route['capacity']*(1-reserve);packets={}
++    capacity=max((v['capacity'] for v in fleet),default=route['capacity'])*(1-reserve)
++    packets={};max_capacity_excess=0.
+     for at,kind,_,a,b in events:
+         if kind==0:
+             token,w=b;packet=[w,token];packets[token]=packet
+@@ -72,11 +76,14 @@
+                 exited+=packet[0];mass[a]=max(0.,mass[a]-packet[0]);packet[0]=0.
+                 keys[a].append((at,0));values[a].append(mass[a])
+             continue
+-        vid,k=a,b;onboard=loads.setdefault(vid,{})
++        vid,k=a,b;vehicle=fleet[vid];cap=vehicle['capacity']*(1-reserve);onboard=loads.setdefault(vid,{})
+         for target in [target for target in onboard if target<=k]:onboard.pop(target)
+         occupied=math.fsum(onboard.values())
+         if k>=n or not route['stops'][k]['board_allowed']:continue
+-        free=max(0.,cap-occupied);supply[k].append({'at':at,'free':free,'vehicle':vid})
++        free=max(0.,cap-occupied);supply[k].append({'at':at,'free':free,'vehicle':vid,
++            'capacity':vehicle['capacity'],'effective_capacity':cap,
++            'terminal_dispatch_second':vehicle['terminal_dispatch_second'],
++            'batch_member':vehicle['batch_member'],'batch_vehicles':vehicle['batch_vehicles']})
+         remaining=free;counts=route['od'].get(f'{day}:{k}')
+         if not counts:counts=[[n if route['loop'] else max(1,n-1-k),1.]]
+         normalizer=math.fsum(p for _,p in counts)
+@@ -86,9 +93,11 @@
+             for delta,p in counts:onboard[k+int(delta)]=onboard.get(k+int(delta),0)+w*p/normalizer
+             if queues[k][0][0]<=1e-9:queues[k].popleft()
+         mass[k]=max(0.,mass[k]);keys[k].append((at,1));values[k].append(mass[k])
+-        max_load=max(max_load,math.fsum(onboard.values()))
++        load=math.fsum(onboard.values());max_load=max(max_load,load)
++        max_capacity_excess=max(max_capacity_excess,load-cap)
+     return {'keys':keys,'values':values,'supply':supply,'input_mass':input_mass,'boarded_mass':boarded,
+-            'remaining_mass':math.fsum(mass),'exited_mass':exited,'max_load':max_load,'capacity':cap}
++            'remaining_mass':math.fsum(mass),'exited_mass':exited,'max_load':max_load,'capacity':capacity,
++            'max_capacity_excess':max_capacity_excess,'vehicle_count':len(fleet)}
+ 
+ def queue_at(profile,index,at):
+     k=bisect.bisect_right(profile['keys'][index],(at,0))-1
+@@ -107,6 +116,7 @@
+         return {'model_id':self.config['id'],'automatic':True,'calibrated':False,'observed_queue':False,
+                 'algorithm_id':self.config.get('algorithm_id',self.config['id']),'release':self.data.get('release'),
+                 'travel_clock_model':self.data.get('travel_clock_model'),
++                'vehicle_supply_contract':SUPPLY_CONTRACT,
+                 'city_operations':self.operations.info(),
+                 'boarding_algorithm':'frozen_v5_first_boardable_fifo',
+                 'latest_simulation':self.data.get('latest_simulation'),
+@@ -175,7 +185,7 @@
+         if not self.data['routes'][rid]['stops'][index]['board_allowed']:return None
+         original_index=next((i for i,s in enumerate(route['stops']) if s['id']==self.data['routes'][rid]['stops'][index]['id'] and s['board_allowed']),0)
+         profiles,signals,mid=self.profiles(rid,profile_at,snapshot or {},live,asof)
+-        now=(asof if live else ready)-mid;target=ready-mid;out=[];all_waits=[];q_now=[];q_arrival=[];central_now=[];central_arrival=[];central=[];passed=[];loads=[];no_board=False
++        now=(asof if live else ready)-mid;target=ready-mid;out=[];all_waits=[];q_now=[];q_arrival=[];central_now=[];central_arrival=[];central=[];passed=[];loads=[];capacities=[];no_board=False
+         real=sorted([a for a in observed if live and (not self.config.get('model_only') or a.get('clock_conditioning_verified')) and a.get('arrival_source')=='live_shuttle' and
+             a.get('provided_at') is not None and -5<=asof-a['provided_at']<=60 and a.get('earliest_departure_at',a['departure_at'])>=ready],key=lambda a:a['departure_at'])
+         for profile in profiles:
+@@ -187,19 +197,20 @@
+                 if at<ready:continue
+                 if k>=len(real) and (at>base['last_scheduled_departure_at'] if base.get('last_scheduled_departure_at') else not timetable._schedule_arrival(route,original_index,at-1)):continue
+                 if target_id in ('shuttle-41915','shuttle-41942') and at<mid+1270*60:continue
+-                free=row['free']
++                free=row['free'];capacity=row.get('capacity',self.data['routes'][rid]['capacity'])
+                 if k<len(real) and not self.config.get('model_only'):
+                     a=real[k];seats=a.get('seats_available')
+-                    if isinstance(seats,(int,float)) and math.isfinite(seats) and 0<=seats<=route.get('capacity',self.data['routes'][rid]['capacity']):free=seats
++                    if isinstance(seats,(int,float)) and not isinstance(seats,bool) and math.isfinite(seats) and 0<=seats<=capacity:free=seats
+                     if a.get('full'):free=0
+-                opportunities.append({'departure_at':at,'seats_available':free})
++                opportunities.append({'departure_at':at,'seats_available':free,'capacity':capacity,
++                    'terminal_dispatch_second':row.get('terminal_dispatch_second')})
+             selected,skip,_=fifo_opportunity(opportunities,ready,ahead)
+             if selected:chosen=selected['departure_at']
+             is_central=profile['scenario']['demand']==1.
+             if selected and is_central:
+                 before=sum(o['seats_available'] for o in opportunities[:skip]);remaining=max(0,ahead+1-before)
+-                occupied=self.data['routes'][rid]['capacity']-max(0,selected['seats_available']-remaining)
+-                loads.append(max(0,min(1,occupied/self.data['routes'][rid]['capacity'])))
++                capacity=selected['capacity'];occupied=capacity-max(0,selected['seats_available']-remaining)
++                loads.append(max(0,min(1,occupied/capacity)));capacities.append(capacity)
+             if is_central:central.append(chosen)
+             if is_central:central_now.append(queue_at(profile,index,now));central_arrival.append(ahead)
+             if chosen is None:no_board=True
+@@ -224,7 +235,10 @@
+             'queue_now_range':[round(min(q_now),2),round(max(q_now),2)],'expected_wait_seconds':wait,
+             'wait_scenario_range_seconds':[round(min(all_waits)),None if no_board else round(max(all_waits))],
+             'some_scenarios_unserved':no_board,'range_kind':'assumption_sensitivity_not_confidence_interval',
+-            'mean_skipped_departures':round(statistics.mean(passed),2),'capacity_assumption':self.data['routes'][rid]['capacity'],
++            'mean_skipped_departures':round(statistics.mean(passed),2),
++            'capacity_assumption':capacities[0] if capacities and min(capacities)==max(capacities) else None,
++            'capacity_assumption_range':[min(capacities),max(capacities)] if capacities else None,
++            'capacity_basis':'selected_vehicle_original_terminal_dispatch',
+             'historical_signal':hist,'live_signal':{'available':bool(signal),'vehicles':len(signal),
+                 'newest_observed_at':max((v['at'] for v in signal),default=None),
+                 'oldest_age_seconds':round(max((asof-v['at'] for v in signal),default=0)) if signal else None,
+--- before/queue_release.py
++++ app/queue_release.py
+@@ -1,4 +1,5 @@
+ """Data-only contract for published FIFO queue models. Never executes model code."""
++import copy
+ import hashlib
+ import json
+ import math
+@@ -7,12 +8,14 @@
+ from datetime import datetime
+ 
+ from shuttle_timetable import KST
++from shuttle_supply import CONTRACT as SUPPLY_CONTRACT,validate as validate_supply
+ 
+ SCHEMA='snu_queue_release_v1'
+ ALGORITHM='latest-v5-all-shuttle-clock-fifo-v3'
+ OPERATIONS_ALGORITHM='latest-v5-all-shuttle-clock-fifo-v4'
+ RELEASE_PATTERN=re.compile(r'\d{12}',re.ASCII)
+ MAX_PAYLOAD=4_000_000
++SUPPLY_UPGRADE_BASE='7ce2316538b6ff26743a5e60a36041c613465091e64563170497ad51b8ca89d2'
+ 
+ def encode(value):
+     return json.dumps(value,ensure_ascii=False,sort_keys=True,separators=(',',':'),allow_nan=False).encode('utf-8')
+@@ -39,12 +42,33 @@
+     for rid,r in data['routes'].items():
+         routes[rid]={k:r.get(k) for k in ('n','loop','offsets','anchor','capacity','profile_route_id','profile_index_map')}
+         routes[rid]['stops']=[{k:s[k] for k in ('id','board_allowed')} for s in r['stops']]
++        for key in ('capacity_periods','dispatch_batches'):
++            if key in r:routes[rid][key]=r[key]
+     contract={'schema':data['schema'],'unit':data['unit'],
+         'travel_clock_model':data['travel_clock_model'],'algorithm':ALGORITHM,'routes':routes}
++    if any(any(key in r for key in ('capacity_periods','dispatch_batches')) for r in data['routes'].values()):
++        contract['vehicle_supply_contract']=SUPPLY_CONTRACT
+     if data.get('city_wait'):
+         city=data['city_wait'];contract['city_wait']={k:city[k] for k in ('schema','algorithm_id','network_sha256')}
+         contract['city_wait']['services']={key:{k:s.get(k) for k in ('route_id','seq','stop_id','members')} for key,s in city['services'].items()}
+     return digest(encode(contract))
++
++
++def accepted_compatibilities(seed):
++    """Explicit one-way upgrade from the pinned scalar contract, not arbitrary data.
++
++    Keep the seed's interpretation unchanged. Only the approved administration
++    capacity correction and its separately identified peak-pair scenario may
++    cross contracts; all clocks, other vehicles, stops and aliases stay pinned.
++    """
++    current=compatibility(seed);allowed={current}
++    if current==SUPPLY_UPGRADE_BASE:
++        candidate=copy.deepcopy(seed);route=candidate['routes']['shuttle-41841']
++        route.update(capacity=44,capacity_periods=[{'start_second':75600,'capacity':60}])
++        allowed.add(compatibility(candidate))
++        route['dispatch_batches']=[{'start_second':54000,'end_second':68400,'vehicles':2}]
++        allowed.add(compatibility(candidate))
++    return frozenset(allowed)
+ 
+ def content_digest(data):
+     value={k:v for k,v in data.items() if k!='release'}
+@@ -82,6 +106,7 @@
+     if not isinstance(data.get('limitations'),list) or not all(isinstance(s,str) for s in data['limitations']):raise ValueError('limitations')
+     count=0
+     for rid,r in data['routes'].items():
++        validate_supply(r)
+         n=r['n'];integer(n,1,80)
+         if len(r['stops'])!=n or not 0<=r['anchor']<n:raise ValueError('stop_count')
+         for key,width in (('flows',4),('ready_flows',4),('ready_packets',5)):
+@@ -117,7 +142,8 @@
+             for day in range(5):
+                 profile=simulate({**r,'id':rid},day,m['phases'][0],1,.1,lambda i,t:1,m['step_seconds'])
+                 error=abs(profile['input_mass']-profile['boarded_mass']-profile['exited_mass']-profile['remaining_mass'])
+-                if error>1e-5 or profile['max_load']>profile['capacity']+1e-6:raise ValueError('mass_or_capacity')
++                if error>1e-5 or profile['max_load']>profile['capacity']+1e-6 or profile['max_capacity_excess']>1e-6:
++                    raise ValueError('mass_or_capacity')
+     return data
+ 
+ def validate_city(city):
+--- before/queue_model_sync.py
++++ app/queue_model_sync.py
+@@ -9,7 +9,7 @@
+ from pathlib import Path
+ from automatic_queue import AutomaticQueue
+ from calculation_context import memoized
+-from queue_release import SCHEMA,MAX_PAYLOAD,compatibility,content_digest,release_time,validate
++from queue_release import SCHEMA,MAX_PAYLOAD,SUPPLY_UPGRADE_BASE,accepted_compatibilities,compatibility,content_digest,release_time,validate
+ 
+ ORIGIN='https://snu-shuttle-simulation.vercel.app'
+ FEED=ORIGIN+'/routing-model/latest.json'
+@@ -41,6 +41,7 @@
+     def __init__(self,historical,path=None,*,remote=None,fetch=None,clock=None):
+         self._active=AutomaticQueue(historical,path);self._historical=historical
+         self._compatibility=compatibility(self._active.data)
++        self._accepted_compatibilities=accepted_compatibilities(self._active.data)
+         self._remote=bool(os.environ.get('VERCEL') or os.environ.get('SNU_QUEUE_MODEL_SYNC')=='1') if remote is None else remote
+         self._fetch=fetch or download;self._clock=clock or time.time
+         self._lock=threading.Lock();self._next_check=0;self._checked_at=None;self._error=None
+@@ -58,7 +59,8 @@
+             name=manifest['model_id'];at=release_time(name)
+             if at.timestamp()>now+300:raise ValueError('future_release')
+             if manifest['published_at']!=at.isoformat():raise ValueError('publication_time')
+-            if manifest['compatibility_sha256']!=self._compatibility:raise ValueError('incompatible_clock_or_stops')
++            candidate_compatibility=manifest['compatibility_sha256']
++            if candidate_compatibility not in self._accepted_compatibilities:raise ValueError('incompatible_clock_or_stops')
+             path='/routing-model/releases/'+name+'.json'
+             if manifest['payload_path']!=path:raise ValueError('payload_path')
+             if not re.fullmatch('[0-9a-f]{64}',manifest['sha256']):raise ValueError('digest')
+@@ -71,7 +73,7 @@
+                     self._error=None;return
+             raw=self._fetch(ORIGIN+path,MAX_PAYLOAD,2.0)
+             if len(raw)!=manifest['bytes'] or hashlib.sha256(raw).hexdigest()!=manifest['sha256']:raise ValueError('payload_hash')
+-            data=validate(strict_json(raw),self._compatibility,check_profiles=True)
++            data=validate(strict_json(raw),candidate_compatibility,check_profiles=True)
+             if data['model']['id']!=name or data['model']['algorithm_id']!=manifest['algorithm_id']:raise ValueError('model_identity')
+             if content_digest(data)!=manifest['content_sha256']:raise ValueError('content_hash')
+             release=data.get('release',{})
+@@ -79,7 +81,11 @@
+                 if release.get(key)!=manifest[key]:raise ValueError('release_metadata')
+             candidate=AutomaticQueue(self._historical,data=data)
+             candidate.payload_sha256=manifest['sha256']
+-            self._active=candidate;self._sha256=manifest['sha256'];self._error=None
++            self._active=candidate;self._compatibility=candidate_compatibility
++            # Once upgraded, a newer release cannot silently revert to 60 all day.
++            if candidate_compatibility!=SUPPLY_UPGRADE_BASE:
++                self._accepted_compatibilities=self._accepted_compatibilities-{SUPPLY_UPGRADE_BASE}
++            self._sha256=manifest['sha256'];self._error=None
+         except Exception as error:
+             self._error=str(error) if type(error) is ValueError and re.fullmatch('[a-z_]+',str(error)) else type(error).__name__
+         finally:self._lock.release()
+@@ -95,7 +101,7 @@
+         return {**selected.info(),'sync':{'enabled':self._remote,'source':FEED,'check_interval_seconds':POLL_SECONDS,
+             'checked_at':self._checked_at,'next_check_at':self._next_check if self._remote else None,
+             'status':'last_valid_model' if self._error else 'active','last_error':self._error,
+-            'active_model_id':selected.config['id'],'compatibility_sha256':self._compatibility,
++            'active_model_id':selected.config['id'],'compatibility_sha256':compatibility(selected.data),
+             'payload_sha256':selected.payload_sha256}}
+ 
+     def __getattr__(self,name):return getattr(self.current(),name)
+--- before/prepare_latest_queue.py
++++ app/prepare_latest_queue.py
+@@ -8,6 +8,7 @@
+ from collections import defaultdict
+ from pathlib import Path
+ from queue_readiness import has_ready_entry
++from shuttle_supply import copy_settings,validate as validate_supply
+ 
+ ROOT=Path(__file__).parent;SOURCE=ROOT.parent/'simulation_viewer_2026-11-07'
+ def read(p):return json.loads(gzip.decompress(p.read_bytes()) if p.suffix=='.gz' else p.read_bytes())
+@@ -29,6 +30,12 @@
+         if operations['revision']!=common['city_speed_revision']:raise ValueError('operations_revision')
+     verification=source/'independent_verification.json'
+     assert read(verification)['status']=='PASS'
++    # Retain audited source vehicle supply, including terminal-time periods.
++    # A profile alias shares its primary fleet; it never adds supply of its own.
++    for rid,route in result['routes'].items():
++        info=common['route_info'].get(route.get('source_route_alias',rid))
++        if info and 'capacity' in info and not route.get('profile_route_id'):
++            copy_settings(route,info);validate_supply(route)
+     from prepare_city_queue import CityQueueBuilder
+     city=CityQueueBuilder(common)
+     paths={};stage_rows=[]
+--- before/prepare_shuttle_queue.py
++++ app/prepare_shuttle_queue.py
+@@ -8,6 +8,7 @@
+ from collections import defaultdict
+ from pathlib import Path
+ from queue_readiness import ready_status
++from shuttle_supply import settings,copy_settings,validate as validate_supply
+ 
+ ROOT=Path(__file__).parent;DATA=ROOT/'data';SOURCE=ROOT.parent/'simulation_viewer_2026-11-07/city_bus_model_2026-11-08'
+ def read(p):return json.loads(gzip.decompress(p.read_bytes()) if p.suffix=='.gz' else p.read_bytes())
+@@ -29,7 +30,7 @@
+         for segment in extension['routes'][rid]['segments']:offsets.append(offsets[-1]+segment['seconds'])
+         nodes=[{**{k:s[k] for k in ('id','name','lat','lon','board_allowed')},'city_links':[]} for s in stops]
+         routes[rid]={'id':rid,'stops':nodes,'n':n,'loop':bool(route.get('cycle_length')),'offsets':offsets,
+-                     'anchor':next((i for i,s in enumerate(stops) if s['id']=='snu-410'),0),'capacity':route['capacity'],
++                     'anchor':next((i for i,s in enumerate(stops) if s['id']=='snu-410'),0),**settings(route),
+                      'flows':[],'ready_flows':[],'od':{},'inflow_source':'none_commuter_or_midnight_cohort_unavailable'}
+     for rid in ('shuttle-41841','shuttle-41946','shuttle-41914'):
+         routes[rid]['inflow_source']='latest_audited_v5_regular';routes[rid]['cohort_range_seconds']=[680*60,1390*60]
+@@ -72,6 +73,10 @@
+     for rid,primary,indexes in [('shuttle-41915','shuttle-41841',[1,2]),('shuttle-41942','shuttle-41843',[1,0])]:
+         routes[rid].update(profile_route_id=primary,profile_index_map=indexes,inflow_source='shared_day_night_residual_queue',
+                            cohort_range_seconds=[680*60,1390*60])
++    for rid,route in routes.items():
++        info=common['route_info'].get(route.get('source_route_alias',rid))
++        if info and 'capacity' in info and not route.get('profile_route_id'):copy_settings(route,info)
++        validate_supply(route)
+     data['routes']=routes;data['schema']='all_student_shuttle_queue_v3'
+     data['queue_readiness']={'rule':'Only visits that actually reached a FIFO ticket and completed preparation enter the ready cohort',
+         'unit':'weighted_stop_visits_not_unique_students','source_demand_removed':False,'source_audits_unchanged':True,
+--- before/test_queue_model_sync.py
++++ app/test_queue_model_sync.py
+@@ -120,4 +120,56 @@
+         self.assertNotEqual([v['wait_seconds'] for v in before],[v['wait_seconds'] for v in after])
+         self.assertTrue(after);self.assertEqual(after[0]['automatic_queue']['model_id'],'261109150100')
+ 
++    def supply_upgrade(self,pair=True):
++        route=self.data['routes']['shuttle-41841']
++        route.update(capacity=44,capacity_periods=[{'start_second':75600,'capacity':60}])
++        if pair:route['dispatch_batches']=[{'start_second':54000,'end_second':68400,'vehicles':2}]
++        self.feed,self.raw=self.release(self.data)
++
++    def test_approved_supply_upgrade_changes_fleet_only_after_verified_payload(self):
++        self.supply_upgrade();previous=self.q._active
++        info=self.q.info();self.assertIsNot(previous,self.q._active)
++        self.assertEqual(info['sync']['compatibility_sha256'],compatibility(self.data))
++        self.assertEqual(self.q.data['routes']['shuttle-41841']['capacity'],44)
++        self.assertEqual(previous.data['routes']['shuttle-41841']['capacity'],60)
++        self.assertEqual(previous.data['routes']['shuttle-41946'],self.q.data['routes']['shuttle-41946'])
++
++    def test_approved_manifest_does_not_allow_different_payload_supply(self):
++        self.supply_upgrade();approved=self.feed['compatibility_sha256']
++        self.data['routes']['shuttle-41841']['capacity_periods'][0]['capacity']=61
++        self.feed,self.raw=self.release(self.data)
++        self.feed['compatibility_sha256']=approved
++        previous=self.q._active;self.q.info()
++        self.assertIs(self.q._active,previous)
++        self.assertEqual(self.q._error,'incompatible_clock_or_stops')
++
++    def test_unapproved_supply_contract_is_rejected_before_payload_download(self):
++        self.supply_upgrade()
++        self.data['routes']['shuttle-41946']['capacity']=44
++        self.feed,self.raw=self.release(self.data)
++        previous=self.q._active;self.q.info()
++        self.assertIs(self.q._active,previous)
++        self.assertEqual(self.calls,[FEED])
++        self.assertEqual(self.q._error,'incompatible_clock_or_stops')
++
++    def test_upgraded_model_cannot_silently_return_to_scalar_60_with_newer_name(self):
++        self.supply_upgrade();self.q.info();previous=self.q._active
++        self.data=stamp_model(copy.deepcopy(self.base),datetime(2026,11,9,15,2,tzinfo=KST))
++        self.feed,self.raw=self.release(self.data);self.now+=61;self.q.info()
++        self.assertIs(self.q._active,previous)
++        self.assertEqual(self.q._error,'incompatible_clock_or_stops')
++
++    def test_request_pins_capacity_contract_and_payload_during_upgrade(self):
++        self.supply_upgrade();self.q._remote=False
++        with calculation_context():
++            old=self.q.current();old_compat=compatibility(old.data);self.q._remote=True
++            result=[];thread=threading.Thread(target=lambda:result.append(self.q.current()))
++            thread.start();thread.join(10);self.assertFalse(thread.is_alive())
++            self.assertEqual(result[0].data['routes']['shuttle-41841']['capacity'],44)
++            self.assertIs(self.q.current(),old)
++            info=self.q.info()['sync']
++            self.assertEqual(info['compatibility_sha256'],old_compat)
++            self.assertEqual(info['payload_sha256'],digest(self.path.read_bytes()))
++        self.assertEqual(self.q.current().data['routes']['shuttle-41841']['capacity'],44)
++
+ if __name__=='__main__':unittest.main()
+--- /dev/null
++++ app/shuttle_supply.py
+@@ -0,0 +1,69 @@
++"""Vehicle supply fixed at the original terminal dispatch, in service-day seconds.
++
++Capacity periods start inclusively and last until the next period. Batch windows
++are [start, end); each vehicle retains its own capacity and onboard passengers.
++Aliases consume their primary profile rather than creating additional vehicles.
++"""
++import copy
++import math
++
++SUPPLY_KEYS=('capacity','capacity_periods','dispatch_batches')
++CONTRACT='original_terminal_dispatch_capacity_and_batches_v1'
++
++
++def settings(route):
++    """Copy source supply without inventing periods or carrying stale overrides."""
++    return {key:copy.deepcopy(route[key]) for key in SUPPLY_KEYS if key in route}
++
++
++def copy_settings(target,source):
++    for key in SUPPLY_KEYS:target.pop(key,None)
++    target.update(settings(source))
++
++
++def capacity_at(route,terminal_second):
++    capacity=route['capacity']
++    for period in route.get('capacity_periods',[]):
++        if terminal_second<period['start_second']:break
++        capacity=period['capacity']
++    return capacity
++
++
++def vehicles(route,terminal_seconds):
++    """Expand coincident departures; never flatten a pair into shorter headways."""
++    for second in terminal_seconds:
++        count=next((row['vehicles'] for row in route.get('dispatch_batches',[])
++                    if row['start_second']<=second<row['end_second']),1)
++        for member in range(count):
++            yield {'terminal_dispatch_second':second,'capacity':capacity_at(route,second),
++                   'batch_member':member,'batch_vehicles':count}
++
++
++def _integer(value,low,high,label):
++    if type(value) is not int or not low<=value<=high:raise ValueError(label)
++
++
++def validate(route):
++    capacity=route.get('capacity')
++    if isinstance(capacity,bool) or not isinstance(capacity,(int,float)) or not math.isfinite(capacity) or not 1<=capacity<=200:
++        raise ValueError('vehicle_capacity')
++    if route.get('profile_route_id') and any(key in route for key in SUPPLY_KEYS[1:]):
++        raise ValueError('alias_supply_override')
++    for key in SUPPLY_KEYS[1:]:
++        if key in route and (not isinstance(route[key],list) or not 1<=len(route[key])<=16):
++            raise ValueError('supply_period_count')
++    previous=-1
++    for row in route.get('capacity_periods',[]):
++        if not isinstance(row,dict) or set(row)!={'start_second','capacity'}:raise ValueError('capacity_period_fields')
++        _integer(row['start_second'],0,172800,'capacity_period_clock')
++        _integer(row['capacity'],1,200,'vehicle_capacity')
++        if row['start_second']<=previous:raise ValueError('capacity_period_order')
++        previous=row['start_second']
++    previous=0
++    for row in route.get('dispatch_batches',[]):
++        if not isinstance(row,dict) or set(row)!={'start_second','end_second','vehicles'}:raise ValueError('dispatch_batch_fields')
++        _integer(row['start_second'],0,172799,'dispatch_batch_clock')
++        _integer(row['end_second'],row['start_second']+1,172800,'dispatch_batch_clock')
++        _integer(row['vehicles'],1,4,'dispatch_batch_size')
++        if row['start_second']<previous:raise ValueError('dispatch_batch_overlap')
++        previous=row['end_second']
+--- /dev/null
++++ app/test_shuttle_supply.py
+@@ -0,0 +1,159 @@
++"""Supply regression: original dispatch clocks, separate vehicles and pinned data."""
++import copy
++import importlib.util
++import json
++import unittest
++from datetime import datetime
++from pathlib import Path
++from unittest.mock import patch
++
++from automatic_queue import AutomaticQueue,simulate,queue_at
++from shuttle_supply import capacity_at,copy_settings,validate as validate_supply,vehicles
++from queue_release import compatibility,accepted_compatibilities,validate
++from shuttle_timetable import KST
++
++ROOT=Path(__file__).parent
++
++
++def route():
++    return {'id':'shuttle-41841','capacity':44,
++        'capacity_periods':[{'start_second':75600,'capacity':60}],
++        'n':2,'loop':False,'anchor':0,'offsets':[0,120],
++        'stops':[{'board_allowed':True},{'board_allowed':True}],
++        'ready_packets':[],'flows':[],'od':{}}
++
++
++def upgraded(data,pair=False):
++    result=copy.deepcopy(data);r=result['routes']['shuttle-41841']
++    r.update(capacity=44,capacity_periods=[{'start_second':75600,'capacity':60}])
++    if pair:r['dispatch_batches']=[{'start_second':54000,'end_second':68400,'vehicles':2}]
++    return result
++
++
++class ShuttleSupplyTests(unittest.TestCase):
++    def test_capacity_uses_original_terminal_clock_across_night_boundary(self):
++        r=route()
++        with patch('automatic_queue.dispatches',return_value=[75540,75600]):
++            p=simulate(r,0,0,1,0,lambda i,t:1)
++        self.assertEqual([v['capacity'] for v in p['supply'][0]],[44,60])
++        # First vehicle crosses 21:00 en route without gaining 16 seats.
++        self.assertEqual(p['supply'][1][0]['at'],75660)
++        self.assertEqual(p['supply'][1][0]['capacity'],44)
++        self.assertEqual(p['supply'][1][0]['terminal_dispatch_second'],75540)
++        self.assertEqual(capacity_at(r,75600),60)
++
++    def test_two_vehicles_retain_separate_caps_and_upstream_loads(self):
++        r=route();r['dispatch_batches']=[{'start_second':54000,'end_second':68400,'vehicles':2}]
++        r['ready_packets']=[[0,0,53970,60,None],[0,1,53970,50,None]]
++        r['od']={'0:0':[[2,1.]],'0:1':[[1,1.]]}
++        with patch('automatic_queue.dispatches',return_value=[54000]):
++            p=simulate(r,0,0,1,0,lambda i,t:1)
++        self.assertEqual([v['capacity'] for v in p['supply'][0]],[44,44])
++        self.assertEqual([v['vehicle'] for v in p['supply'][0]],[0,1])
++        self.assertEqual([v['at'] for v in p['supply'][0]],[54000,54000])
++        self.assertEqual([v['free'] for v in p['supply'][1]],[0,28])
++        self.assertEqual(queue_at(p,1,54121),22)
++        self.assertEqual(p['input_mass'],110)
++        self.assertEqual(p['boarded_mass'],88)
++        self.assertEqual(p['remaining_mass'],22)
++        self.assertEqual(p['max_capacity_excess'],0)
++        self.assertEqual(p['max_load'],44)
++
++    def test_67_people_are_served_by_pair_but_not_one_bus(self):
++        r=route();r['ready_packets']=[[0,0,53970,67,None]]
++        with patch('automatic_queue.dispatches',return_value=[54000]):
++            single=simulate(r,0,0,1,0,lambda i,t:1)
++            r['dispatch_batches']=[{'start_second':54000,'end_second':68400,'vehicles':2}]
++            pair=simulate(r,0,0,1,0,lambda i,t:1)
++        self.assertEqual(single['remaining_mass'],23)
++        self.assertEqual(pair['remaining_mass'],0)
++        self.assertEqual(pair['max_load'],44)
++
++    def test_batch_window_is_end_exclusive_and_reserve_is_per_vehicle(self):
++        r=route();r['dispatch_batches']=[{'start_second':54000,'end_second':68400,'vehicles':2}]
++        fleet=list(vehicles(r,[53999,54000,68399,68400,75600]))
++        self.assertEqual([v['terminal_dispatch_second'] for v in fleet],
++                         [53999,54000,54000,68399,68399,68400,75600])
++        with patch('automatic_queue.dispatches',return_value=[54000,75600]):
++            p=simulate(r,0,0,1,.1,lambda i,t:1)
++        for row in p['supply'][0]:
++            self.assertAlmostEqual(row['free'],row['capacity']*.9)
++        self.assertEqual([r['capacity'] for r in p['supply'][0]],[44,44,60])
++
++    def test_copying_source_does_not_mutate_source_or_retain_stale_batches(self):
++        target=route();target['dispatch_batches']=[{'start_second':0,'end_second':100,'vehicles':2}]
++        source={'capacity':60};copy_settings(target,source)
++        self.assertNotIn('capacity_periods',target);self.assertNotIn('dispatch_batches',target)
++        self.assertEqual(source,{'capacity':60})
++
++    def test_invalid_supply_and_alias_override_are_rejected(self):
++        bad=[{'capacity':True},{'capacity':0},{'capacity':float('inf')},
++            {'capacity_periods':[]},{'capacity_periods':[{'start_second':75600,'capacity':44,'source':'ignored'}]},
++            {'capacity_periods':[{'start_second':75600,'capacity':60},{'start_second':75600,'capacity':44}]},
++            {'capacity_periods':[{'start_second':-1,'capacity':44}]},
++            {'dispatch_batches':[{'start_second':100,'end_second':100,'vehicles':2}]},
++            {'dispatch_batches':[{'start_second':100,'end_second':200,'vehicles':True}]},
++            {'dispatch_batches':[{'start_second':100,'end_second':200,'vehicles':2},{'start_second':150,'end_second':300,'vehicles':2}]},
++            {'profile_route_id':'primary'}]
++        for mutation in bad:
++            with self.subTest(mutation=mutation),self.assertRaises(ValueError):
++                validate_supply({**route(),**mutation})
++
++
++class PublishedSupplyTests(unittest.TestCase):
++    @classmethod
++    def setUpClass(cls):cls.seed=json.loads((ROOT/'data/auto_queue_inputs.json').read_bytes())
++
++    def test_scalar_legacy_hash_and_payload_remain_unchanged(self):
++        before=copy.deepcopy(self.seed)
++        spec=importlib.util.spec_from_file_location('legacy_queue_contract',ROOT/'test_fixtures/queue_release_v3_contract.py')
++        legacy=importlib.util.module_from_spec(spec);spec.loader.exec_module(legacy)
++        self.assertEqual(compatibility(self.seed),legacy.compatibility(self.seed))
++        accepted_compatibilities(self.seed)
++        self.assertEqual(self.seed,before)
++
++    def test_upgrade_allowlist_accepts_only_approved_two_supply_contracts(self):
++        allowed=accepted_compatibilities(self.seed)
++        self.assertEqual(len(allowed),3)
++        for pair in (False,True):self.assertIn(compatibility(upgraded(self.seed,pair)),allowed)
++        for mutation in (lambda d:d['routes']['shuttle-41946'].update(capacity=44),
++                         lambda d:d['routes']['shuttle-41841']['capacity_periods'][0].update(start_second=75599),
++                         lambda d:d['routes']['shuttle-41841']['dispatch_batches'][0].update(vehicles=3),
++                         lambda d:d['routes']['shuttle-41841']['dispatch_batches'][0].update(end_second=68401),
++                         lambda d:d['routes']['shuttle-41841']['offsets'].__setitem__(0,999)):
++            data=upgraded(self.seed,True);mutation(data)
++            self.assertNotIn(compatibility(data),allowed)
++
++    def test_profile_validation_preserves_capacity_mass_and_exit_checks(self):
++        data=upgraded(self.seed,True)
++        validate(data,compatibility(data),check_profiles=True)
++        invalid=copy.deepcopy(data)
++        invalid['routes']['shuttle-41841']['ready_packets']=[[0,1,50000,1,49999]]
++        with self.assertRaises(ValueError):validate(invalid,compatibility(invalid))
++
++    def test_alias_and_live_shift_use_selected_vehicle_capacity(self):
++        import server
++        app=server.Application();service=app.transit.shuttle
++        model=AutomaticQueue(None,data=upgraded(self.seed))
++        for rid,text,cap,scheduled in (
++            ('shuttle-41841','2026-11-09T16:00:00',44,75540),
++            ('shuttle-41915','2026-11-09T21:11:00',60,76200)):
++            r=next(r for r in service.routes if r['id']==rid)
++            i=next(i for i,s in enumerate(r['stops']) if s['id']=='snu-410' and s['board_allowed'])
++            primary=model.data['routes']['shuttle-41841'];n=primary['n']
++            mid=datetime(2026,11,9,tzinfo=KST).timestamp();ready=datetime.fromisoformat(text).replace(tzinfo=KST).timestamp()
++            rows=[[] for _ in range(n)];rows[1]=[{'at':ready-mid+120,'free':cap,'capacity':cap,
++                                               'terminal_dispatch_second':scheduled}]
++            profile={'scenario':{'demand':1},'keys':[[] for _ in range(n)],'values':[[] for _ in range(n)],'supply':rows}
++            real=[{'arrival_source':'live_shuttle','departure_at':ready+125,'earliest_departure_at':ready+125,
++                   'provided_at':ready,'clock_conditioning_verified':True}]
++            with patch.object(model,'profiles',return_value=([profile],[[] for _ in range(n)],mid)):
++                result=model.arrival(r,i,ready,real,service.timetable,ready,{},True)
++            self.assertTrue(result)
++            forecast=result[0]['automatic_queue']
++            self.assertEqual(forecast['capacity_assumption'],cap)
++            self.assertEqual(forecast['capacity_assumption_range'],[cap,cap])
++            self.assertEqual(forecast['capacity_basis'],'selected_vehicle_original_terminal_dispatch')
++
++
++if __name__=='__main__':unittest.main()

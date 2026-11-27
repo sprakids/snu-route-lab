@@ -1,0 +1,204 @@
+{
+  "candidate": "261116010854",
+  "uid": 1519408,
+  "parent": 94963,
+  "source_destination": "snu",
+  "source_plan": [
+    94963,
+    "200",
+    "snu",
+    0.4862883600853411,
+    38919.36680630436,
+    [
+      105,
+      111.062167232515
+    ],
+    [
+      {
+        "rid": "100100250",
+        "board": 15,
+        "alight": 24,
+        "ride_path": 106,
+        "wait_path": 107,
+        "city_wait": 229.79804877844435,
+        "ride_seconds": 456.3679518746021,
+        "next_walk": [
+          9,
+          23.95458508936598
+        ]
+      }
+    ]
+  ],
+  "source_first_mode": "city",
+  "source_final_root_rid": "100100250",
+  "actual_finished_branches": [
+    {
+      "uid": 1519408,
+      "weight": 0.08493062761887918,
+      "initial_mode": "city",
+      "P_seconds": 1481.8059718608345,
+      "history": [],
+      "rides": [
+        {
+          "rid": "100100250",
+          "from_node": 57,
+          "begin": 39105.30453813291,
+          "end": 39175.736530426584
+        },
+        {
+          "rid": "shuttle-41841",
+          "from_node": 1,
+          "begin": 40200.0,
+          "end": 40382.02360274973
+        }
+      ],
+      "finish": 40471.80284553157
+    },
+    {
+      "uid": 1519408,
+      "weight": 0.4013577324664619,
+      "initial_mode": "city",
+      "P_seconds": 1481.8059718608345,
+      "history": [],
+      "rides": [
+        {
+          "rid": "100100250",
+          "from_node": 57,
+          "begin": 39105.30453813291,
+          "end": 39175.736530426584
+        },
+        {
+          "rid": "shuttle-41841",
+          "from_node": 1,
+          "begin": 40800.0,
+          "end": 40982.02360274973
+        }
+      ],
+      "finish": 41071.80284553157
+    }
+  ],
+  "existing_wait_rows": [
+    {
+      "node": 57,
+      "arrival": 39046.76302950627,
+      "ready": 39066.76302950627,
+      "end": 39105.30453813291,
+      "weight": 0.4862883600853411,
+      "id": 1519408,
+      "ticket": 1023,
+      "eligibility": [
+        [
+          "100100250",
+          15
+        ],
+        [
+          "100100253",
+          12
+        ],
+        [
+          "100100250",
+          68
+        ]
+      ],
+      "outcome": "boarded",
+      "vehicle": 485,
+      "physical_stop_entry": 39046.76302950627,
+      "realized_change_count": 0,
+      "full_passes_seen": 0,
+      "parent_id": 94963,
+      "enroute_intercept": false,
+      "stop_arrival_at": 39046.76302950627,
+      "ready_at": 39066.76302950627,
+      "boarding_at": 39105.30453813291,
+      "leave_at": 39105.30453813291,
+      "entry_forecast": {
+        "issued_at": 39046.76302950627,
+        "first_wait_seconds": 58.54150862663664,
+        "expected_total_queue_wait_seconds": 58.54150862663664
+      },
+      "student_flexible": false,
+      "boarding_intent": {
+        "rid": "100100250",
+        "board": 15,
+        "alight": 16,
+        "planned_terminal": false
+      }
+    },
+    {
+      "node": 1,
+      "arrival": 39337.39176784245,
+      "ready": 39357.39176784245,
+      "end": 40200.0,
+      "weight": 0.08493062761887918,
+      "id": 1519408,
+      "ticket": 4627,
+      "eligibility": [
+        [
+          "shuttle-41841",
+          1
+        ]
+      ],
+      "outcome": "boarded",
+      "vehicle": 50,
+      "physical_stop_entry": 39337.39176784245,
+      "realized_change_count": 0,
+      "full_passes_seen": 2,
+      "parent_id": 94963,
+      "enroute_intercept": false,
+      "stop_arrival_at": 39337.39176784245,
+      "ready_at": 39357.39176784245,
+      "boarding_at": 40200.0,
+      "leave_at": 40200.0,
+      "entry_forecast": {
+        "issued_at": 39337.39176784245,
+        "first_wait_seconds": 1462.6082321575523,
+        "expected_total_queue_wait_seconds": 1462.6082321575523
+      },
+      "student_flexible": false,
+      "boarding_intent": {
+        "rid": "shuttle-41841",
+        "board": 1,
+        "alight": 2,
+        "planned_terminal": true
+      }
+    },
+    {
+      "node": 1,
+      "arrival": 39337.39176784245,
+      "ready": 39357.39176784245,
+      "end": 40800.0,
+      "weight": 0.4013577324664619,
+      "id": 1519408,
+      "ticket": 4627,
+      "eligibility": [
+        [
+          "shuttle-41841",
+          1
+        ]
+      ],
+      "outcome": "boarded",
+      "vehicle": 51,
+      "physical_stop_entry": 39337.39176784245,
+      "realized_change_count": 0,
+      "full_passes_seen": 3,
+      "parent_id": 94963,
+      "enroute_intercept": false,
+      "stop_arrival_at": 39337.39176784245,
+      "ready_at": 39357.39176784245,
+      "boarding_at": 40800.0,
+      "leave_at": 40800.0,
+      "entry_forecast": {
+        "issued_at": 39337.39176784245,
+        "first_wait_seconds": 1462.6082321575523,
+        "expected_total_queue_wait_seconds": 1462.6082321575523
+      },
+      "student_flexible": false,
+      "boarding_intent": {
+        "rid": "shuttle-41841",
+        "board": 1,
+        "alight": 2,
+        "planned_terminal": true
+      }
+    }
+  ]
+}

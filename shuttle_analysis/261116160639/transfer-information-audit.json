@@ -1,0 +1,74 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "case": "ablation-no-transfer-headway-tue",
+      "enabled": false,
+      "initial": {
+        "calls": 0,
+        "future_rows": 0,
+        "calendar_fallback_rows": 0,
+        "reference": "sum(h^2)/(2*sum(h)); hourly, otherwise whole service calendar",
+        "future_queue_or_capacity_used_by_this_reference": false,
+        "exact_future_wait_phase_in_cost": false,
+        "physical_forecast_modified": false
+      },
+      "review": {
+        "calls": 0,
+        "future_rows": 0,
+        "calendar_fallback_rows": 0,
+        "reference": "sum(h^2)/(2*sum(h)); hourly, otherwise whole service calendar",
+        "future_queue_or_capacity_used_by_this_reference": false,
+        "exact_future_wait_phase_in_cost": false,
+        "physical_forecast_modified": false
+      }
+    },
+    {
+      "case": "headway-combined-regular-mon",
+      "enabled": true,
+      "initial": {
+        "calls": 248476,
+        "future_rows": 248476,
+        "calendar_fallback_rows": 45,
+        "reference": "sum(h^2)/(2*sum(h)); hourly, otherwise whole service calendar",
+        "future_queue_or_capacity_used_by_this_reference": false,
+        "exact_future_wait_phase_in_cost": false,
+        "physical_forecast_modified": false
+      },
+      "review": {
+        "calls": 431691,
+        "future_rows": 431691,
+        "calendar_fallback_rows": 4,
+        "reference": "sum(h^2)/(2*sum(h)); hourly, otherwise whole service calendar",
+        "future_queue_or_capacity_used_by_this_reference": false,
+        "exact_future_wait_phase_in_cost": false,
+        "physical_forecast_modified": false
+      }
+    },
+    {
+      "case": "headway-combined-regular-tue",
+      "enabled": true,
+      "initial": {
+        "calls": 243281,
+        "future_rows": 243281,
+        "calendar_fallback_rows": 206,
+        "reference": "sum(h^2)/(2*sum(h)); hourly, otherwise whole service calendar",
+        "future_queue_or_capacity_used_by_this_reference": false,
+        "exact_future_wait_phase_in_cost": false,
+        "physical_forecast_modified": false
+      },
+      "review": {
+        "calls": 409167,
+        "future_rows": 409167,
+        "calendar_fallback_rows": 37,
+        "reference": "sum(h^2)/(2*sum(h)); hourly, otherwise whole service calendar",
+        "future_queue_or_capacity_used_by_this_reference": false,
+        "exact_future_wait_phase_in_cost": false,
+        "physical_forecast_modified": false
+      }
+    }
+  ],
+  "scope": "New headway references never read queue/capacity; inherited known/historical crowd context retained. Physical availability and ETA are audited separately.",
+  "normal_wait_phase_removed": true,
+  "source_calendars_are_scenarios_not_future_observations": true
+}

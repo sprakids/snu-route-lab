@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#173c39"><meta name="description" content="서울대 하교길 시뮬레이션과 경로 추천의 가정, 실제 사용 자료, 출처, 전후 비교 분모와 한계를 정리한 설명서"><title>가정·자료·출처 설명서 · 하교길 실험실</title><link rel="icon" href="data:,"><link rel="stylesheet" href="methodology.css"><link rel="stylesheet" href="campus-theme.css"><script src="campus-theme.js"></script></head>
+<body class="campus-methodology"><a class="skip-link" href="#document">본문으로 이동</a><header class="doc-header"><a class="doc-brand" href="./">하교길 실험실</a><nav aria-label="사이트 이동"><a href="./">시뮬레이션 지도</a><a href="https://snu-route-lab.vercel.app/" target="_blank" rel="noopener noreferrer">경로 추천 ↗</a><button type="button" class="theme-toggle" role="switch" aria-checked="false" aria-label="다크 모드" data-theme-toggle title="다크 모드로 전환"><span class="theme-label" aria-hidden="true">다크 모드</span><span class="theme-track" aria-hidden="true"><span class="theme-knob"></span></span></button></nav></header>
+<div class="doc-layout"><aside class="toc"><p>설명서 목차</p><nav aria-label="설명서 목차"><a href="#section-1">1. 무엇을 계산한 것인가</a><a href="#section-2">2. 수업 입력과 이동량의 단위</a><a href="#section-3">3. 목적지와 기숙사 비율</a><a href="#section-4">4. 건물 이탈·보행·최초 경로 선택</a><a href="#section-5">5. 배차·속도·정원·만차 잔류</a><a href="#section-6">6. 공동 대기열과 줄을 보고 경로를 바꾸는 v5</a><a href="#section-7">7. 지도·그래프와 전후 비교의 분모</a><a href="#section-8">8. 현재 v5 결과와 이전 v3·v4 비교</a><a href="#section-9">9. 경로 추천 사이트와 이번 변경의 범위</a><a href="#section-10">10. 실제 사용 자료와 출처</a><a href="#section-11">11. 아직 확보·검증하지 못한 범위</a><a href="#section-12">12. 버전·근거 확인과 팀 공유</a></nav><a class="download" href="methodology.md" download="서울대_하교길_가정_자료_출처_2026-11-08.md">Markdown 내려받기 ↓</a><a class="evidence" href="methodology-evidence.json">근거·해시 JSON ↗</a></aside>
+<main id="document"><div class="hero"><span class="eyebrow">METHODS & SOURCES · 2026.11.08</span><h1>가정·자료·출처<br>하교길을 계산한 방법</h1><p>무엇을 확인했고, 무엇을 가정했는지.<br>지도와 경로 추천을 읽기 위한 통합 설명서입니다.</p><div class="badges"><span>수업 종료 사건 6,201개</span><span>가중 통행 시뮬레이션</span><span>실측 대기열과 구분</span></div></div>
+<article><p><strong>2026-11-08 시내버스 확장판 · 시뮬레이션 v5 / 경로 추천은 별도 모형</strong></p>
+<p>이 문서는 <a href="./">시뮬레이션 지도</a>와 <a href="https://snu-route-lab.vercel.app/" target="_blank" rel="noopener noreferrer">개인별 경로 추천</a>을 함께 이해하기 위한 설명서입니다. 저장된 입력·코드·검증 기록을 대조해 작성했으며, 웹 배포일과 자료의 기준일을 구분합니다. 2026-11-08에 배포했다고 해서 모든 입력이 그날 조사된 자료라는 뜻은 아닙니다.</p>
+<h2 id="section-1">1. 무엇을 계산한 것인가</h2>
+<p><strong>수업 시간표와 수강신청인원을 출발량의 기반으로 사용했습니다. 개인별 실제 목적지와 귀가를 추적한 자료는 아닙니다.</strong> 강좌 종료 사건에 이동 비율·목적지 비중·보행·배차·정원·경로 선택 가정을 적용해 이동과 대기열을 계산했습니다.</p>
+<div class="table-wrap" role="region" aria-label="구분 표" tabindex="0"><table><thead><tr><th scope="col">구분</th><th scope="col">확보하거나 구현한 내용</th><th scope="col">해석할 때의 경계</th></tr></thead><tbody>
+<tr><td>확인한 자료</td><td>강좌검색 보존본의 수업 요일·종료시각·강의실·수강신청인원, 공식 운행계획, 지도와 노선 정보</td><td>수강신청인원은 출석·귀가·버스 이용 인원이 아님</td></tr>
+<tr><td>사용자 채택 조건</td><td>대형 셔틀 정원 60명, 교내 최고 40km/h, 교외 목표 65km/h, 과거 방향 비중과 기숙사 비율의 참고 사용</td><td>실측값 또는 법정 제한속도로 표시하지 않음</td></tr>
+<tr><td>분석자가 정한 모형 가정</td><td>수업 직후 이동 50%, 보행·건물 이탈 분포, 경로 변경 기준, 미래 유입 미예측</td><td>실제 학생 선호를 조사해 적합한 계수가 아님</td></tr>
+<tr><td>계산 결과</td><td>가중 통행량, 승차·차내 점유, 만차 잔류, 경로 변경, 대기·총시간</td><td>실제 GPS, 고유 학생 수, 실측 혼잡과 구분</td></tr>
+</tbody></table></div>
+<p>계산 흐름은 <strong>수업 종료 → 건물 이탈 → 목적지 배정 → 보행·경로 선택 → 정원 제한 승차 → 잔류 또는 경로 변경 → 목적지 도착</strong>입니다. 개설 학과, 실제 강의동, 학생 소속, 개인의 마지막 수업은 서로 다른 정보입니다. 윗공대 분석은 강의실이 301·302동인 출발 집단을 따로 보는 방식이며 공대 개설 과목 전체와 같지 않습니다.</p>
+<h2 id="section-2">2. 수업 입력과 이동량의 단위</h2>
+<p><a href="#source-s1">S1 강좌검색 보존본</a>을 처리한 규모입니다. 전처리 중 같은 요일의 연속 수업 사이 10분 이하 휴식은 하나의 종료 사건으로 묶었습니다. 정원·장바구니 대신 <code>수강신청인원</code>을 사용하고, 미설강·인원 0·원격 표지·관악 건물 대응 불가·모호한 동시 강의실·공동개설 표지 등은 주 분석에서 제외했습니다.</p>
+<div class="table-wrap" role="region" aria-label="단계 표" tabindex="0"><table><thead><tr><th scope="col">단계</th><th scope="col">규모</th><th scope="col">단위</th></tr></thead><tbody>
+<tr><td>2026-11-06 강좌검색 보존본</td><td>8,654</td><td>강좌 행</td></tr>
+<tr><td>지도 입력</td><td>6,201 / 88</td><td>평일 종료 사건 / 강의동</td></tr>
+<tr><td>종료 사건별 수강신청인원 합계</td><td>156,338</td><td>중복 가능한 수강인원 합</td></tr>
+<tr><td>직후 이동 50% 적용</td><td>78,169.0</td><td>가중 이동 사건</td></tr>
+</tbody></table></div>
+<p>같은 학생이 여러 강좌에 포함될 수 있습니다. 따라서 156,338은 고유 재학생 수가 아니라 <strong>종료 사건별 수강신청인원의 합계</strong>입니다. 78,169.0도 실제 귀가 학생 수가 아닌 가중 이동 사건입니다. 강좌별 상세 강의계획서, 실제 출석, 조기 종료·수업 연장은 관측하지 않았습니다.</p>
+<p>화면은 11:20~23:10을 재생합니다. 그 이전 수업 종료에서 발생한 이동의 이월도 계산에 포함됩니다. 뒤의 전후 비교 표는 비교 대상을 맞추기 위해 <strong>최초 수업 종료가 11:20~23:10인 집단</strong>을 별도로 사용합니다.</p>
+<h2 id="section-3">3. 목적지와 기숙사 비율</h2>
+<h3 id="subsection-1">과거 방향 비중</h3>
+<p><a href="#source-s6">S6 교통체계 마스터플랜 재게시 자료</a>의 과거 비중을 사용자가 요청한 참고 시나리오로 채택했습니다.</p>
+<div class="table-wrap" role="region" aria-label="원자료 구분 표" tabindex="0"><table><thead><tr><th scope="col">원자료 구분</th><th scope="col">판독 비중</th><th scope="col">모형의 교외 대표 목적지</th><th scope="col">교외 배분 계산</th></tr></thead><tbody>
+<tr><td>봉천동권 / 서울대입구역</td><td>55.7%</td><td>서울대입구역 인근</td><td>55.7 / 99.9</td></tr>
+<tr><td>낙성대동권 / 낙성대역</td><td>27.2%</td><td>낙성대역 인근</td><td>27.2 / 99.9</td></tr>
+<tr><td>신림동권, 대학동 포함</td><td>17.0%</td><td>대학동고시촌입구 인근</td><td>17.0 / 99.9</td></tr>
+</tbody></table></div>
+<p><strong>총학생회 교통총조사의 실제 응답 비율이 아닙니다.</strong> 학생만·하교만·대학동만의 비중도 아닙니다. 기준은 2022년 4월 평일, 신림선 개통 전으로 기록된 통행 자료입니다. 발행기관 원문 PDF는 미확보이고 재게시 텍스트를 판독했습니다. 방향별 통행량 합계 41,805와 표시 총계 41,814 사이에 9의 차이가 있습니다. 비중 합계 99.9%를 정규화해도 이 품질 문제와 모집단 차이가 해결되지는 않습니다.</p>
+<h3 id="subsection-2">기숙사 비율과 배분식</h3>
+<p>기숙사 비율은 <code>r = 5,772 / 29,613 ≈ 19.4914%</code>를 채택했습니다. 분자 5,772는 <a href="#source-s7">생활관 현황</a>의 학부 3,122·대학원 2,650 합계입니다. 2026-11-08 공개 페이지에서도 숫자를 확인했지만 표의 통계 기준일과 정원·실거주 구분은 명시되지 않았습니다. 분모 29,613은 <a href="#source-s8">2025년판 통계연보</a> 203쪽을 근거로 보존한 2025-04-01 전교 재학생 참고값입니다.</p>
+<p><strong>두 값의 기준일·캠퍼스·모집단이 일치하는지 확인되지 않아 현재 관악 수강생의 실측 거주율로 해석하지 않습니다.</strong> 학부·대학원 생활관 구성비 역시 각 학위과정 전체의 거주율과 다릅니다.</p>
+<p>수강신청인원 <code>N</code>, 직후 이동 비율 <code>q=0.5</code>일 때 배분은 다음과 같습니다.</p>
+<pre><code>기숙사       = N × q × r
+서울대입구   = N × q × (1-r) × 55.7/99.9
+낙성대       = N × q × (1-r) × 27.2/99.9
+대학동 대표점 = N × q × (1-r) × 17.0/99.9</code></pre>
+<p>기숙사 대표점은 강좌 이수과정을 편의상 이용해 학사 강좌는 919동, 그 외는 900동으로 나눕니다. 실제 개인의 학위과정·거주 동을 확인한 배정이 아닙니다. <code>q=50%</code>도 개인의 마지막 수업을 관측해 구한 귀가 비율이 아닙니다.</p>
+<h2 id="section-4">4. 건물 이탈·보행·최초 경로 선택</h2>
+<div class="table-wrap" role="region" aria-label="요소 표" tabindex="0"><table><thead><tr><th scope="col">요소</th><th scope="col">사용한 조건</th><th scope="col">왜 필요한가 / 한계</th></tr></thead><tbody>
+<tr><td>건물 이탈</td><td>최소 1분·최빈 3분·최대 8분의 삼각분포</td><td>수업 종료와 정류장 도착을 구분. 현장 측정 분포는 아님</td></tr>
+<tr><td>보행</td><td>평지 최소 0.9·최빈 1.2·최대 1.5m/s, 계단 기본 0.7m/s와 입자별 배율</td><td>저장된 보행망·계단 반영. 모든 출입구와 통행 제한의 현장 검증은 미완료</td></tr>
+<tr><td>건물 연결</td><td>건물 대표점과 보행망 연결 최대 110m</td><td>실내 이동·층·실제 출입구를 모두 재현하지 않음</td></tr>
+<tr><td>최초 후보</td><td>직접 도보, 시내버스·셔틀 직행, 최대 1회 환승</td><td>모든 가능한 경로를 완전 탐색한 최적해는 아님</td></tr>
+<tr><td>최초 선택</td><td>예상시간 + 환승당 2분 선택 비용 + Gumbel(scale 90초) 취향 차이</td><td>통계적으로 추정한 실제 학생 선호 계수가 아님</td></tr>
+<tr><td>대표 반복</td><td>난수시드 20261106, 강좌·목적지당 12개 가중 입자</td><td>기본 입자 6,201 × 4 × 12 = 297,648개. 정원 처리에서 가중치를 나눌 수 있음</td></tr>
+</tbody></table></div>
+<p>v3·v4와 새 v5는 이전 18km/h 조건에서 정한 <strong>동일한 최초 경로 선택</strong>을 재사용합니다. 이후 이동시간과 재선택은 각 버전의 속도 조건을 사용합니다. v5 시내버스는 저장된 제공기관 구간속도로 추가 보정합니다. 새 속도에서 최초 경로 선택 전체를 다시 최적화한 결과는 아닙니다. v4 재선택도 각 재탐색 구간에서 최대 1회 환승 후보를 쓰며, 전체 여정의 누적 환승 횟수를 1회로 제한한 것은 아닙니다.</p>
+<h2 id="section-5">5. 배차·속도·정원·만차 잔류</h2>
+<h3 id="subsection-3">운행과 배차 시나리오</h3>
+<p><a href="#source-s3">S3 공식 운행계획</a>은 정규학기 일반 평일의 시간·간격·막차 조건을 제공합니다. 정확한 내부 회차별 출발표는 없어 동일한 예시 출발위상으로 비교합니다.</p>
+<div class="table-wrap" role="region" aria-label="노선 / 시간 표" tabindex="0"><table><thead><tr><th scope="col">노선 / 시간</th><th scope="col">기준 조건</th><th scope="col">피크 최소 간격 조건</th><th scope="col">해석</th></tr></thead><tbody>
+<tr><td>행정관 → 서울대입구, 15~19시</td><td>4분</td><td>3분</td><td>공식 3~5분 범위의 중간값·하한</td></tr>
+<tr><td>교내 순환, 15~19시</td><td>6분</td><td>5분</td><td>공식 5~7분 범위의 중간값·하한</td></tr>
+<tr><td>행정관 ↔ 대학동, 주간 해당 구간</td><td>10분</td><td>10분</td><td>이번 비교에서 유지</td></tr>
+<tr><td>호암 경유 역순환</td><td>20분</td><td>20분</td><td>302동 출발 09:50~17:10 범위 기준</td></tr>
+</tbody></table></div>
+<p>다른 시간대·막차 조건은 두 시나리오에서 같습니다. 15~19시를 데이터로 자동 탐색한 것은 아닙니다. 공식 자료의 9~10월 한시 증차·시험기간 증차를 일반 평일에 상시 적용하지 않았습니다. 야간은 기존 계산의 2대 동시 출발 가정을 유지하며 각각 60명으로 처리하지만, 공표된 대수만으로 내부 동시 출발표가 확인된 것은 아닙니다. 24시 이후 심야 셔틀은 화면 시간 범위 밖입니다.</p>
+<h3 id="subsection-4">정원과 속도</h3>
+<ul>
+<li><strong>대형 셔틀 60명:</strong> 사용자 지정 가정입니다. <strong>역순환 25명:</strong> 공식 안내의 25인승을 구분해 사용합니다.</li>
+<li>도착 후 승차 준비 20초를 마친 흐름부터 FIFO로 태웁니다. 앞 정류장에서 탄 흐름이 뒤 정류장의 자리를 차지하고, 하차 후 여석에 승차합니다. 못 탄 흐름은 다음 차량까지 남으며 그 지연이 다음 보행·환승에도 전파됩니다.</li>
+<li><strong>교내 최고 40km/h·교외 목표 65km/h:</strong> 사용자 요청을 적용한 속도 가정입니다. 실제 속도나 법정 제한속도를 조사한 값이 아닙니다. 저장된 캠퍼스 경계와 도로 도형, 가감속 1m/s², 정류장 15초 정차를 적용합니다. 최고속도와 평균속도는 다릅니다.</li>
+<li>화면의 1초/초~15분/초는 재생 배율이며 km/h 조건과 별개입니다.</li>
+<li>v5는 시내버스에도 정원을 적용합니다. <strong>일반 50명·마을 24명은 제조사 제원에 따른 참고 시나리오</strong>이며 노선별 실제 투입 차종·등록정원은 확인하지 못했습니다. <a href="#source-s12">S12 제조사 제원</a>의 운전석을 제외한 승객 정원입니다.</li>
+<li><strong>외부 배경 승객은 포함하지 않았습니다.</strong> 수업 외 승객·교직원·방문객·실차의 기존 탑승객이 차지하는 자리는 재현하지 않아 현실보다 여석이 많을 수 있습니다. 신호·정체의 일별 변동·차량 재회차·기사 근무·요금·날씨·피로는 따로 모형화하지 않았습니다.</li>
+</ul>
+<h3 id="subsection-5">시내버스 8개 노선의 평일 계획과 참고 정원</h3>
+<p><a href="#source-s13">S13 공식 평일 계획 보존본</a>을 2026-11-08 조회했습니다. 조회일이 일요일이므로 오늘의 <code>firstBusTm</code>·<code>lastBusTm</code> 대신 <strong>`tm_all`·`term_all`의 평일 구분</strong>을 읽었습니다. 아래 시각은 기점의 첫차·막차이며 개별 정류장 통과시각이 아닙니다.</p>
+<div class="table-wrap" role="region" aria-label="노선 표" tabindex="0"><table><thead><tr><th scope="col">노선</th><th scope="col">기점 평일 첫차 ~ 막차</th><th scope="col">간격</th><th scope="col">승객 참고 정원</th><th scope="col">재현 범위</th></tr></thead><tbody>
+<tr><td>5511</td><td>05:20 ~ 23:20</td><td>7분</td><td>50명</td><td>저장 전체 정류장</td></tr>
+<tr><td>5513</td><td>05:30 ~ 23:30</td><td>9분</td><td>50명</td><td>저장 전체 정류장</td></tr>
+<tr><td>5515</td><td>05:30 ~ 23:30</td><td>9분</td><td>50명</td><td>정문→입구역 5정류장</td></tr>
+<tr><td>5516</td><td>05:00 ~ 23:00</td><td>9분</td><td>50명</td><td>저장 전체 정류장</td></tr>
+<tr><td>5528</td><td>04:30 ~ 22:50</td><td>12분</td><td>50명</td><td>정문→입구역 5정류장</td></tr>
+<tr><td>6515</td><td>04:10 ~ 22:10</td><td>10분</td><td>50명</td><td>정문→입구역 5정류장</td></tr>
+<tr><td>관악02-1</td><td>06:00 ~ 23:55</td><td>5분</td><td>24명</td><td>저장 전체 정류장</td></tr>
+<tr><td>관악02-2</td><td>06:00 ~ 23:00</td><td>10분</td><td>24명</td><td>저장 전체 정류장</td></tr>
+</tbody></table></div>
+<p>첫차부터 공표 간격으로 출발을 만들고, 간격 격자에 맞지 않으면 명시된 막차를 마지막 회차로 추가했습니다. 실제 회차별 계획표·GPS 출발기록은 미확보입니다. 첫차와 막차 사이 모든 배차가 같은 간격이라는 뜻은 아니며, 평일 중간에 간격이 달라지는 상세 계획을 확인하지 못해 균일 간격으로 재구성한 예시 시계입니다.</p>
+<p>5511·5513·5516·관악02-1·관악02-2는 저장된 전체 정류장 배열을 운행합니다. <strong>5515·5528·6515는 정문 ARS 21128 → 서울대입구역 ARS 21252의 5정류장 구간만</strong> 재현합니다. 이 3개 노선의 기점→정문 시차는 공식 정류장 순서·구간거리와 저장 속도로 추정하며 앞 구간 승객은 포함하지 않습니다. 5515 등의 정문 이전 차량도 지도에서 움직이는 것처럼 표시하지 않습니다.</p>
+<p>공식 노선경로를 보존한 도로 도형과 저장된 제공기관 구간속도를 사용합니다. OSM 캠퍼스 경계가 도로변 정류장을 제외하는 경우를 보완해, 공식 정류장명으로 확인한 교내 정류장 사이의 시내버스 구간은 전체를 최고40km/h로 처리합니다. 신소재→건설환경종합연구소·윗공대·교내 기숙사 구간을 포함합니다. 이는 사용자 속도 조건의 공간 분류 가정이며 법정 제한속도 자료가 아닙니다. 정류장명 목록과 구간별 적용 표지는 보존 입력에 기록했습니다. 최초 5개 노선 속도에는 2026-11-06의 스냅샷, 추가 3개에는 2026-11-07 저장 응답이 들어 있습니다. <strong>요일·시간대별 실측 운행시간 평균이 아닙니다.</strong> 구간 시간은 <code>max(40/65km/h 가감속·정차 곡선 시간, 도로 길이 / 저장 구간속도)</code>입니다. 관측속도 시간에 별도 정차 15초를 다시 더하지 않으며, 더 긴 구간시간에 맞춰 차량의 위치·표시 속도를 함께 늦춥니다.</p>
+<p>차량 ID는 모형 출발 회차의 식별자입니다. 서로 다른 ID의 수를 필요한 고유 실차 대수로 해석할 수 없으며, 최소 간격 조건의 실제 차량 배치 가능성까지 검증한 운행 최적화가 아닙니다.</p>
+<h2 id="section-6">6. 공동 대기열과 줄을 보고 경로를 바꾸는 v5</h2>
+<p>최초 집단·목적지를 유지한 채 셔틀과 시내버스 승차 준비 완료 시점·대기 중 60초마다·만차로 못 탄 뒤에 <strong>지금부터 남은 목적지 도착시간</strong>을 비교합니다. 이미 기다린 시간을 두 선택에 다시 더하지 않습니다.</p>
+<div class="table-wrap" role="region" aria-label="재판단 요소 표" tabindex="0"><table><thead><tr><th scope="col">재판단 요소</th><th scope="col">구현한 조건</th><th scope="col">근거의 상태</th></tr></thead><tbody>
+<tr><td>현재 경로 대기 예측</td><td>자기 앞 가중치, 예정 도착, 정원, 모형 내 현재 차내 점유·앞선 하차</td><td>모형 상태를 사용. 실제 학생이 이를 정확히 아는지 미확인</td></tr>
+<tr><td>미래 유입</td><td>현재 이후 새로 올 학생을 예측에 넣지 않음</td><td>미래 줄을 미리 보고 선택하지 않음</td></tr>
+<tr><td>변경 대안</td><td>셔틀 줄: 기존 도보·환승·정문 후보. 시내 줄: 직접 도보와 같은 승차지의 준비된 호환 노선</td><td>전체 정류장 간 완전 재탐색은 아님. 목적지 유지</td></tr>
+<tr><td>최소 개선</td><td>예상 도착 120초 이상 단축</td><td>분석자가 정한 시나리오 값</td></tr>
+<tr><td>재판단 / 유지</td><td>60초 간격 / 변경 후 180초 유지</td><td>실제 선택 행동에서 적합하지 않음</td></tr>
+<tr><td>횟수 / 복귀</td><td>흐름당 최대 2회, 떠난 셔틀 승차지로 복귀 제외</td><td>과도한 왕복 변경 완화</td></tr>
+</tbody></table></div>
+<h3 id="subsection-6">서울대학교 정류장 5개 노선</h3>
+<p><a href="#source-s4">S4 서울시 노선 정보</a>에서 서울대학교 <strong>ARS 21128 / ID 120000029</strong> → 서울대입구역2번출구 <strong>ARS 21252 / ID 120000150</strong> 방향을 확인했습니다. 반대편 정류장 21127·21376과 구분합니다.</p>
+<div class="table-wrap" role="region" aria-label="노선 표" tabindex="0"><table><thead><tr><th scope="col">노선</th><th scope="col">확인한 진행 방향</th><th scope="col">공개 평일 간격</th><th scope="col">승차 → 하차 순번</th></tr></thead><tbody>
+<tr><td>5511</td><td>중앙대학교</td><td>7분</td><td>21 → 25</td></tr>
+<tr><td>5513</td><td>벽산블루밍아파트</td><td>9분</td><td>9 → 13</td></tr>
+<tr><td>5515</td><td>청림동현대아파트</td><td>9분</td><td>7 → 11</td></tr>
+<tr><td>5528</td><td>사당역</td><td>12분</td><td>30 → 34</td></tr>
+<tr><td>6515</td><td>양천공영차고지</td><td>10분</td><td>70 → 74</td></tr>
+</tbody></table></div>
+<p>다섯 노선의 해당 구간 정류장 ID 순서가 같습니다. 새로 추가한 5515·5528·6515는 필요한 정문→역 구간만 넣고, 동일한 정류장 순서의 저장 도로 도형을 재사용했습니다. 모든 노선의 전 구간을 새로 모형화한 것은 아닙니다.</p>
+<p>v5는 이 다섯 노선 중 <strong>실제로 여석이 있는 첫 호환 차량</strong>을 탑니다. 시내버스는 물리적 정류장 ID를 기준으로 55개의 공동 대기열을 공유하되, 같은 방향·순번으로 탈 수 있는 흐름 사이에 FIFO를 적용합니다. 다른 목적지 노선을 기다리는 흐름은 호환 승객의 승차를 막지 않습니다. 차량은 전 정류장의 탑승·하차와 점유를 이어받고, 만차 잔류 흐름은 다음 회차 또는 경로 변경을 기다립니다. 예측에는 현재 모형 대기열·차내 인원만 사용하고 미래 유입과 아직 발생하지 않은 상류 승차는 미리 넣지 않습니다.</p>
+<p>v3·v4의 시내버스는 08:00~23:10 고정 난수 위상·무제한 정원 방식이었습니다. 이 자료는 이전 버전으로 보존했습니다. 새 v5는 공식 평일 기점 시계와 구간속도·정원·시내 줄 재판단이 함께 바뀌므로, 두 버전의 차이를 정원 하나의 인과 효과로 해석하지 않습니다.</p>
+<h2 id="section-7">7. 지도·그래프와 전후 비교의 분모</h2>
+<p>현재 모형 그래프의 평균 대기 히트맵과 만차·경로 변경 상세 표는 <strong>정류장 도착시각 기준30분 구간</strong>입니다. 예를 들어15:00 이상15:30 미만과15:30 이상16:00 미만을 따로 계산합니다. 첫 구간은11:20~11:30, 마지막은23:00~23:10으로 잘립니다. 칸을 누르면 구간 시작 시각의 지도로 이동합니다. 대기열 선은5초 표본을 유지하고 가로 눈금은30분입니다. 이전 참고표와 과거 재차합의 원자료1시간 단위는 그대로 명시합니다. <a href="#source-s15">S15 30분 재집계</a>를 참고하세요.</p>
+<p>지도 정류장 표식을 누르면 선택한 요일·시각의 대기량과 그중 만차 잔류량을 볼 수 있습니다. 재생·시간 변경에 따라 같은 전체 가중 대기열 기록에서 갱신합니다. 같은 위치의 셔틀 노선별 대기열과 가까운 시내 승차지는 별도 항목으로 표시하고, 항목을 고르면 승차지 선택·그래프도 연결합니다. 저장된 시내 노선 정류장 중 이 모형에 학생 승차대기 유입을 배정하지 않은 곳은 모형0과 배정 없음 안내를 표시합니다. 실제 관측0명이라는 뜻이 아니며 외부 승객은 포함하지 않습니다.</p>
+<p><strong>정원·통계는 전체 가중 흐름으로 계산하고, 지도 점은 그 뒤 줄여 표시합니다.</strong> 점 1개는 약 2명 상당의 표시 표본이며 점을 세어 실제 학생 수나 정확한 탑승 인원을 구하면 안 됩니다.</p>
+<div class="table-wrap" role="region" aria-label="지표 표" tabindex="0"><table><thead><tr><th scope="col">지표</th><th scope="col">분모와 의미</th><th scope="col">주의할 점</th></tr></thead><tbody>
+<tr><td>현재 대기량 / 빨간 만차 잔류</td><td>해당 승차지에서 기다리는 가중 흐름 / 그중 한 번 이상 못 탄 흐름</td><td>고유 실제 학생 수가 아님</td></tr>
+<tr><td>지도 그래프의 평균·90백분위 대기</td><td>그 정류장·도착 시간대의 <strong>탑승 완료 흐름</strong></td><td>줄을 떠난 흐름과 미탑승은 별도. 전후에 분모가 달라질 수 있음</td></tr>
+<tr><td>경로 변경량</td><td>그 승차지에서 줄을 떠난 사건의 가중치</td><td>한 흐름이 두 승차지에서 바꿀 수 있어 고유 인원 아님</td></tr>
+<tr><td>전후 비교의 누적 대기</td><td>동일한 최초 집단 전체의 모든 대기 구간 합 / 그 집단 가중치</td><td>떠나기 전 대기·다른 버스·환승 대기를 포함. 도보만 이동은 0분</td></tr>
+<tr><td>전후 비교의 총시간</td><td>수업 종료부터 목적지까지, <strong>양쪽에서 전체 가중치가 완주한 동일 최초 입자</strong></td><td>건물 이탈·보행·대기·차내 모두 포함. 미도착을 0으로 처리하지 않음</td></tr>
+<tr><td>23:10 제한 경과시간</td><td>전체 집단의 도착 또는 23:10까지 경과시간</td><td>미도착을 포함한 제한 지표이며 완주 총시간이 아님</td></tr>
+</tbody></table></div>
+<p>전후 비교는 최초 <strong>수업 종료 시간대</strong>를 고정합니다. 변경 뒤 정류장 도착 시간대로 집단을 다시 나누지 않습니다. ‘피크 최소 간격’은 배차 시나리오 이름이고 ‘15~19시 수업 종료 집단’과 구분해야 합니다.</p>
+<h2 id="section-8">8. 현재 v5 결과와 이전 v3·v4 비교</h2>
+<h3 id="subsection-7">현재 v5: 고정 수업 종료 집단</h3>
+<p><a href="#source-s14">S14 v5 계산 검산</a>에서 2개 배차 × 5요일을 다시 계산했습니다. 아래 표는 최초 수업 종료 11:20 이상·23:10 미만 집단을 고정합니다. 누적 대기는 줄을 떠나기 전·다른 노선·환승 대기와 도보만 이동한 0분을 포함한 전체 가중치 기준이고, 총시간은 수업 종료부터 목적지까지 완주한 흐름 기준입니다. 미탑승은 별도 표시합니다.</p>
+<div class="table-wrap" role="region" aria-label="고정 집단 표" tabindex="0"><table><thead><tr><th scope="col">고정 집단</th><th scope="col">셔틀 배차</th><th scope="col">가중 통행량</th><th scope="col">누적 대기 (분)</th><th scope="col">수업 종료→도착 (분)</th><th scope="col">미탑승 가중치</th></tr></thead><tbody>
+<tr><td>전체 목적지</td><td>피크 최소 간격</td><td>69,067.00</td><td>10.49</td><td>31.12</td><td>0.0000</td></tr>
+<tr><td>전체 목적지</td><td>기준</td><td>69,067.00</td><td>10.89</td><td>31.63</td><td>0.0000</td></tr>
+<tr><td>서울대입구행 전체</td><td>피크 최소 간격</td><td>31,002.90</td><td>13.34</td><td>31.86</td><td>0.0000</td></tr>
+<tr><td>서울대입구행 전체</td><td>기준</td><td>31,002.90</td><td>14.21</td><td>32.96</td><td>0.0000</td></tr>
+<tr><td>301·302동 출발 · 서울대입구행</td><td>피크 최소 간격</td><td>3,767.91</td><td>6.01</td><td>27.98</td><td>0.0000</td></tr>
+<tr><td>301·302동 출발 · 서울대입구행</td><td>기준</td><td>3,767.91</td><td>6.04</td><td>28.01</td><td>0.0000</td></tr>
+</tbody></table></div>
+<p>기준·피크 사이에도 완주 집단이 다를 수 있어 총시간 차이를 동일 완주 입자의 엄밀한 정책 효과로 단정하지 않습니다. 실제 학생을 관측한 평균이나 신뢰구간이 아닙니다. 아래 이전 버전 표와도 조건이 다릅니다.</p>
+<h3 id="subsection-8">보존된 이전 v3 → v4 결과: 시내 정원 무제한</h3>
+<p><a href="#source-s10">S10 전체 이동기록 재집계</a>에서 월~금, 수업 종료 11:20~23:10 집단을 합산한 값입니다. 아래 대기는 전체 집단, 총시간은 양쪽 공통 완주 집단입니다. 서울대입구행에는 최초 시내버스·도보 선택자도 포함합니다. ‘최초 셔틀’ 집단도 나중에 줄을 떠난 흐름을 그대로 포함합니다.</p>
+<div class="table-wrap" role="region" aria-label="고정 집단 표" tabindex="0"><table><thead><tr><th scope="col">고정 집단</th><th scope="col">배차</th><th scope="col">누적 대기 전 → 후 (분)</th><th scope="col">총시간 전 → 후 (분)</th></tr></thead><tbody>
+<tr><td>서울대입구행 전체</td><td>피크 최소 간격</td><td>5.12 → 3.66</td><td>20.78 → 19.71</td></tr>
+<tr><td>서울대입구행 전체</td><td>기준</td><td>5.64 → 3.73</td><td>21.30 → 19.89</td></tr>
+<tr><td>서울대입구행 · 최초 셔틀 집단</td><td>피크 최소 간격</td><td>9.05 → 4.23</td><td>23.94 → 20.43</td></tr>
+<tr><td>서울대입구행 · 최초 셔틀 집단</td><td>기준</td><td>10.76 → 4.47</td><td>25.66 → 21.01</td></tr>
+<tr><td>301·302동 출발 · 서울대입구행</td><td>피크 최소 간격</td><td>3.23 → 3.08</td><td>21.10 → 20.95</td></tr>
+<tr><td>301·302동 출발 · 서울대입구행</td><td>기준</td><td>3.25 → 3.07</td><td>21.12 → 20.96</td></tr>
+</tbody></table></div>
+<p>서울대입구행 전체 집단은 가중치 31,002.9029이며, 양쪽 공통 완주 비중은 99.9731%입니다. 변경 전 미도착 가중치 8.3417, 변경 후 0.0000를 별도로 남겼습니다. 미도착을 삭제하거나 0분으로 바꾸어 총시간 개선을 부풀리지 않았습니다.</p>
+<p>301·302동 집단의 총시간 개선은 전체 집단보다 작습니다. 많은 흐름이 최초부터 다른 수단을 선택하고, 시내버스 정원을 제한하지 않는 조건 등의 영향을 받습니다. 이 결과를 근거로 실제 윗공대의 하교 불편이 해결됐다고 결론 내릴 수는 없습니다.</p>
+<p>현재 지도는 대표 난수 반복 1개·공유 배차위상 1개의 예시입니다. <strong>2개 배차 × 5요일의 10개 실행은 독립적인 몬테카를로 10회 평균이 아닙니다.</strong> 이전 그래프 탭의 평균 유입·20개 출발위상·이전 속도 계산은 별도 조건입니다.</p>
+<h2 id="section-9">9. 경로 추천 사이트와 이번 변경의 범위</h2>
+<p>이번 v5 변경은 시뮬레이션 지도에 적용했습니다. <strong>별도 경로 추천 앱에 시내버스 정원 엔진이 자동 적용됐다는 뜻은 아닙니다.</strong> 아래는 앞서 연결한 v0.10 계열의 보존 구현 설명이며, 추천 앱의 독립적인 변경·실시간 가동 상태는 이번 문서에서 재검증하지 않았습니다.</p>
+<p><a href="https://snu-route-lab.vercel.app/" target="_blank" rel="noopener noreferrer">경로 추천 사이트</a>는 사용자가 선택한 출발지·목적지·시각에서 경로를 계산합니다. 위의 비중을 방문자 개인의 목적지로 무작위 배정하지 않습니다. 다만 v0.10의 자동 셔틀 줄 추정은 이 비중과 이동 50%를 포함한 <strong>집단 수요 참고 모형</strong>을 사용합니다. 아래는 v0.10 계열 코드·설명서 대조 기준입니다.</p>
+<div class="table-wrap" role="region" aria-label="항목 표" tabindex="0"><table><thead><tr><th scope="col">항목</th><th scope="col">시뮬레이션 지도</th><th scope="col">개인별 경로 추천</th></tr></thead><tbody>
+<tr><td>이동 대상</td><td>강좌 기반 가중 집단</td><td>사용자가 선택한 출발·목적지</td></tr>
+<tr><td>차량 도착</td><td>저장된 예시 운행 시계</td><td>유효한 관측 도착예정 우선, 없으면 시간표·배차 추정으로 표시</td></tr>
+<tr><td>차내시간</td><td>최고 40/65km/h 속도 곡선</td><td>같은 차량 ETA 차이, 통과시간 이력·구간 소통속도·저장 속도 등 근거에 따른 계산. 40/65를 일괄 적용하지 않음</td></tr>
+<tr><td>정문 공동노선</td><td>고정 난수 위상에서 먼저 오는 차량</td><td>탑승 가능한 관측 첫 차 우선. 미관측이면 노선별 독립 균등 잔여대기 가정으로 첫 차 대기 추정</td></tr>
+<tr><td>대기줄·여석</td><td>모형 내 상태</td><td>수업 기반 유입·차량 정원으로 자동 추정. 실제 줄·여석을 자동 측정한 값은 아니며 신선한 직접 입력을 선택 보정으로 사용</td></tr>
+<tr><td>재판단</td><td>모형 시간에 따라 재생</td><td>정류장 도착을 선택한 뒤 화면이 보이는 대기 상태에서 선택적으로 60초 재계산</td></tr>
+</tbody></table></div>
+<h3 id="subsection-9">v0.10의 수동 입력 없는 자동 줄 추정</h3>
+<p>최초 검색부터 행정관·순환·역순환의 43개 노선별 정차 위치에서 자동 줄·대기를 추정합니다. 보존된 수업 종료·보행·환승 도착 모형의 <strong>10회 평균 조건부 유입</strong>을 3,385개 요일·정류소·5분 셀로 집계하고, 이를 15초 균등 도착으로 복원합니다. 하차 방향 비중은 대표 반복의 경로 구성을 사용합니다. 앞 정류장 승차와 다음 정류장 하차가 같은 차량 여석에 미치는 영향을 반영하며, 검색 시점의 줄과 보행 후 도착 시점의 줄을 구분합니다. 실제 줄·승차·여석의 측정값은 아닙니다.</p>
+<p>과거 요일·시간별 상대 수요와 같은 방향·구간의 신선한 차량 혼잡 관측을 각각 계수 0.25로 유입 배율에 반영하고, 배율을 0.75~1.25로 제한합니다. <strong>계수와 배율 한계는 미보정 운영 가정</strong>이며 통계적으로 추정한 상관계수나 입증된 정확도 개선값이 아닙니다. 동일 차량의 반복 관측은 한 번 사용하며 다른 구간 또는 600초가 지난 값은 제외합니다. 90초 이후에는 관측 영향이 줄어들고, 미래 지정 검색에 현재 혼잡 관측을 쓰지 않습니다.</p>
+<p>기준 대기는 60명·역순환 25명 정원, 미관측 배경 점유 10% 유보, 8개 배차 위상의 평균입니다. 수요 75~125%·배경 점유 0~20%의 24가지 조건에서 줄·대기 범위를 함께 표시합니다. <strong>통계적 신뢰구간이 아닌 가정 변화 범위</strong>입니다. 일부 기준 위상에서 막차 전에 탈 수 없으면 탑승한 위상만 평균내어 ETA를 만들지 않습니다. 추정 줄이 0이어도 실제 다른 승객이 없다는 뜻은 아닙니다. 이 집계·배차 방식은 지도의 대표 반복 1개 재생과 구분합니다.</p>
+<p>자동 대기는 총시간에 한 번만 더하며 기존 시간대 평균 추가 대기를 중복 가산하지 않습니다. 기존 수집 스냅샷을 재사용하고 새 API 호출·예약 작업·저장 쓰기를 추가하지 않습니다. 휴강, 실제 줄 이탈·집단 경로 재선택, 시내버스 지연에서 전파되는 환승 지연, 실제 배경 승객은 아직 관측·모형화가 제한됩니다.</p>
+<h3 id="subsection-10">선택 입력과 대기 중 재판단</h3>
+<p>직접 입력한 줄·다음 차 여석·만차는 자동 추정의 선택 보정이며, 최초 차량 또는 고정 출발기회에 연결합니다. 해당 기회가 지나거나 첫 차량이 바뀌거나 90초가 경과하면 무효화하고, 다음 차량에 만차 표시나 오래된 줄 인원을 재사용하지 않습니다. 신선한 여석 자료가 제공되면 그 값을 우선하지만, 직접 입력에 따른 후속 여석을 모르면 60명·역순환 25명의 정원 상한을 쓰는 낙관적인 조건입니다. 후속 실제 여석과 유입은 미확인입니다.</p>
+<p>추천 변경은 120초 개선·180초 유지·최대 2회의 가정을 표시하고, 수락 후 이동 중 자동 비교를 멈춰 위치 갱신 또는 다음 정류장 도착 선택을 요구합니다. 이미 기다린 시간과 완료한 승차 준비시간을 다시 더하지 않습니다.</p>
+<p><strong>전체 평균 대기·총시간 감소를 개인 ETA에서 일괄 차감하지 않습니다.</strong> 과거 시간당 재차인원 합계도 개별 차량 혼잡등급·탑승 실패 확률·지연 분으로 직접 바꾸지 않습니다. 과거 수요는 수요 참고, 구간속도는 차내시간, 관측 혼잡은 해당 차량 근거로 구분합니다. 시뮬레이션 사이트를 열어도 교통 API를 호출하거나 새 시뮬레이션을 실행하지 않습니다.</p>
+<h2 id="section-10">10. 실제 사용 자료와 출처</h2>
+<p>아래 경로는 팀 프로젝트 안의 보존 파일을 찾기 위한 상대 경로입니다. 이 설명서가 원본 수강파일이나 외부 PDF 전체를 재배포하는 것은 아닙니다. <a href="methodology-evidence.json">근거·해시 JSON</a>에서 선택한 입력과 코드의 SHA-256, 검산 수치를 확인할 수 있습니다.</p>
+<h3 id="source-s1">S1 · 수업 시간·강의동·수강신청인원</h3>
+<p><strong>출처:</strong> 사용자 제공 2026-2 <code>강좌검색.xls</code>, <a href="https://sugang.snu.ac.kr/" target="_blank" rel="noopener noreferrer">서울대학교 수강신청</a>. <strong>기준:</strong> 2026-11-06 보존본. 원본 8,654행과 최종 입력 6,201사건을 대조했습니다. 원본은 <code>course_demand_2026-11-06/sources/courses_2026-2_20261106.xls</code>, 사용 입력은 <code>scenario_comparison_2026-11-07/simulation_outputs/input_snapshot/course_endings_current.json</code>, 품질 기록은 <code>outputs/course_quality.json</code>입니다. 개인 명단·출석·실제 목적지는 포함하지 않습니다.</p>
+<h3 id="source-s2">S2 · 건물·정류장 좌표</h3>
+<p><strong>출처:</strong> <a href="https://map.snu.ac.kr/web/main.action" target="_blank" rel="noopener noreferrer">서울대 공식 지도</a>. <strong>사용:</strong> 강의실 동 번호와 건물·셔틀 승차지의 대표 좌표 연결. 보존 파일은 <code>course_demand_2026-11-06/sources/campus_buildings.json</code>, <code>campus_bus_stops.json</code>입니다. 실내 층·출입구·실제 통행 가능성은 별도 확인이 필요합니다.</p>
+<h3 id="source-s3">S3 · 2026-2 공식 셔틀 운행계획</h3>
+<p><strong>출처:</strong> <a href="https://cse.snu.ac.kr/ko/community/notice/25464" target="_blank" rel="noopener noreferrer">컴퓨터공학부 공식 운행 안내와 첨부 시간표</a>. 게시일 2026-08-28, 운행기간 2026-09-01~12-21, 주말·공휴일 등 제외. 2026-11-08 안내와 첨부 PDF를 다시 확인했습니다. 보존본은 <code>operation_plans_2026-11-01/sources/O11_2.pdf</code>이며 <code>course_demand_2026-11-06/sources/shuttle_timetable_2026-2.pdf</code>에도 보존돼 있습니다. 공표된 시간·간격·막차·25인승 조건의 근거이며 현재 계약서·내부 배차표·실제 GPS는 아닙니다.</p>
+<h3 id="source-s4">S4 · 서울시 시내버스 노선 정보</h3>
+<p><strong>출처:</strong> <a href="https://m.bus.go.kr/" target="_blank" rel="noopener noreferrer">서울시 공식 모바일 버스정보</a>, 공식 노선 경로 조회의 저장 응답. 기존 5511·5513·5516·관악02-1·관악02-2에 정문 구간의 5515·5528·6515를 추가했습니다. 정문 5개 노선은 2026-11-07 확인한 <code>adaptive_model/route_sources/</code>, <code>route_verification.json</code>에 순서·방향·간격을 보존했습니다. 조회 경로는 <code>http://m.bus.go.kr/mBus/bus/getBusRouteList.bms</code>와 <code>getRouteAndPos.bms</code>입니다. 새 v5의 8개 노선 평일 첫차·막차·간격은 <a href="#source-s13">S13</a>에서 추가 확인했습니다. 간격 정보는 실제 출발시각이나 현재 차량 위치를 뜻하지 않습니다.</p>
+<h3 id="source-s5">S5 · 보행망·도로 도형·캠퍼스 경계</h3>
+<p><strong>출처:</strong> <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap 기여자</a>. 시내 차량의 도로 도형은 보존 <code>road_geometry.json</code>의 <strong>서울시 공식 getRoutePath</strong>를 사용하며, 새 3개 노선의 공통 정문 구간은 5513의 동일 순서 도형을 재사용합니다. 도형 출처를 OSM 보행망과 구분합니다. 보존 보행망 기준시각 필드는 2026-11-06 07:30:01 UTC입니다. <code>model_snapshot/app/data/walking_osm.json</code>, <code>model_snapshot/road_geometry.json</code>, 프로젝트 <code>app/data/roads_osm.json</code>·<code>campus_map_osm.json</code> 등을 사용합니다. 캠퍼스 경계는 저장된 relation 11917142입니다. 배경 타일과 Leaflet은 지도를 그리는 도구이며 GPS 관측 자료가 아닙니다. 도로 혼잡·법정 속도·모든 출입 가능성의 근거로 사용하지 않습니다.</p>
+<h3 id="source-s6">S6 · 과거 방향 비중의 참고 자료</h3>
+<p><strong>출처:</strong> 「서울대학교 관악캠퍼스 교통체계 마스터플랜 수립」 <a href="https://www.scribd.com/document/881211763/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA-2025-04-24-15-06-29" target="_blank" rel="noopener noreferrer">재게시 텍스트</a>, 본문 29~31쪽 표 2-7·2-8 판독 기록. 표지 2022-09, 자료 기준 2022-04로 기록했습니다. 보존 파일은 <code>scenario_comparison_2026-11-07/simulation_outputs/input_snapshot/historical_reported_shares.json</code>입니다. 재게시·총계 불일치·모집단 차이를 유보하고 사용자 요청에 따른 참고 시나리오에만 사용합니다. 총학생회 응답 자료가 아닙니다.</p>
+<h3 id="source-s7">S7 · 생활관 참고 인원</h3>
+<p><strong>출처:</strong> <a href="https://snudorm.snu.ac.kr/기관-소개/현황/" target="_blank" rel="noopener noreferrer">관악학생생활관 현황</a>. 2026-11-08 재확인한 표의 3,122·2,650·5,772를 참고합니다. 통계 기준일과 실거주·정원 정의는 명시되지 않았습니다. 보존한 채택값·유보는 <code>course_demand_2026-11-06/sources/residence_user_reference.json</code>에 있습니다.</p>
+<h3 id="source-s8">S8 · 전교 재학생 참고 분모</h3>
+<p><strong>출처:</strong> <a href="https://www.snu.ac.kr/about/downloads?bbsidx=165605&amp;md=v" target="_blank" rel="noopener noreferrer">2025 서울대학교 통계연보 게시 페이지</a>, 2025년판 203쪽에 대한 프로젝트 보존 기록. 분모는 2025-04-01 전교 재학생 29,613(계약학과 제외)입니다. 원본은 <code>current_shares_2026-11-06/sources/C02_2025서울대통계연보.pdf</code>입니다. 게시 페이지는 2026-11-08 재확인했으며, 현재 관악 수강생의 같은 모집단으로 간주하지 않습니다.</p>
+<h3 id="source-s9">S9 · 사용자가 채택한 조건과 모형 코드</h3>
+<p><strong>출처:</strong> 프로젝트 대화의 사용자 지정 조건, <code>scenario_comparison_2026-11-07/scenario_specs.json</code>, <code>capacity_model.py</code>, <code>speed_capacity_model.py</code>, <code>adaptive_capacity_model.py</code>. 60명·40/65km/h는 사용자 조건이고, 50%·분포·선택 비용·변경 기준 등은 구현 가정으로 구분합니다. 원래 v3는 경로 유지, v4는 줄 관찰 후 변경을 재생합니다. v5는 시내 차량·정원·평일 시계와 교내 정류장 간40km/h 분류 보완을 적용합니다.</p>
+<h3 id="source-s10">S10 · 전후 비교와 계산 검증</h3>
+<p><strong>출처:</strong> <code>adaptive_comparison_2026-11-07/reviewed_results.json</code>, <code>compare_full_trips.py</code>, <code>verification.json</code>, <code>independent_check.json</code>. 720개 요일·시간대 행과 120개 요일·기간 행을 재집계한 기록입니다. 월요일 피크 서울대입구 전체의 대기·총시간은 원시 이동기록에서 별도 집계해 대조했습니다. <code>adaptive_model/independent_verification.json</code>은 가중치·승하차·잔류·시간·속도와 변경 비활성 시 v3 재현을 확인합니다. 이는 계산 일관성 검증이며 현실 예측 정확도 검증은 아닙니다.</p>
+<h3 id="source-s11">S11 · 개인별 경로 추천의 현재·과거 근거</h3>
+<p><strong>출처:</strong> 해당 앱의 제공기관 관측 도착예정·차량 정보, 저장된 통과시간·구간속도·요일·시간대 수요, 공식 운행계획, 조건부 수업 유입 모형. 구현 근거는 프로젝트 <code>app/README.md</code>, <code>routing.py</code>, <code>adaptive.py</code>, <code>gate_service.py</code>, <code>historical_forecast.py</code>, <code>automatic_queue.py</code>, <code>prepare_auto_queue.py</code>, <code>data/auto_queue_inputs.json</code>입니다. 자동 줄 입력에는 6개 원본 해시와 집계만 담고 수업명·개별 기록은 배포하지 않습니다. 현재 도착정보와 완료된 과거 기록을 구분하며, 시간 지정 검색에 지금 차량 위치를 섞지 않습니다. 고정 시뮬레이션을 실제 줄에 맞춰 보정한 자료라는 뜻은 아닙니다.</p>
+<p>과거 요일·시간대 상대 수요의 출처는 <a href="https://t-data.seoul.go.kr/dataprovide/trafficdataviewopenapi.do?data_id=1025" target="_blank" rel="noopener noreferrer">서울교통 빅데이터 플랫폼 TAIMS의 제공 자료</a>이며 보존 모델의 단위는 시간당 구간 재차인원 합계입니다. 개별 차량의 현재 차내 인원과 다릅니다. 배포 초기 구간속도의 보존 근거에는 2026-11-06 하루의 제공기관 속도 스냅샷이 포함됩니다. 이를 장기간 요일별 실제 완주시간 평균으로 표시하지 않으며, 실제 혼잡·대기 예측의 정확도 개선이 검증됐다는 뜻도 아닙니다.</p>
+<h3 id="source-s12">S12 · 제조사 제원의 승객 참고 정원</h3>
+<p><strong>출처:</strong> 국내 제조사 공식 <a href="https://www.wjis.co.kr/kr/business/apollo1100.php" target="_blank" rel="noopener noreferrer">APOLLO1100 제원</a>, <a href="https://www.wjis.co.kr/kr/business/apollo900.php" target="_blank" rel="noopener noreferrer">APOLLO900 제원</a>. 2026-11-08 확인·보존했습니다. APOLLO1100은 좌석24+운전석1+입석26=총51이므로 승객50, APOLLO900은 좌석20+운전석1+입석4=총25이므로 승객24를 적용했습니다. 총정원에서 운전자를 제외했습니다. 각 노선의 실제 차종·차량별 법적 등록정원을 확인한 자료가 아닙니다. 일반·마을 버스의 최대 정원이 모두 같다는 주장도 아닙니다. 제조사 HTML과 <code>city_bus_model_2026-11-08/sources/manufacturer_sources.json</code>에 출처·해시·참고값과 미확인 상태를 보존했습니다.</p>
+<h3 id="source-s13">S13 · 공식 평일 시내버스 계획·정류장 순서</h3>
+<p><strong>출처:</strong> 서울시 <a href="https://m.bus.go.kr/" target="_blank" rel="noopener noreferrer">모바일 버스정보</a>, <code>http://m.bus.go.kr/mBus/bus/getBusRouteList.bms</code>·<code>getRouteAndPos.bms</code>. 2026-11-08 공개 응답을 보존했습니다. <code>city_bus_model_2026-11-08/sources/route_metadata.json</code>, <code>route_노선ID.json</code>에 평일 구분·첫차·막차·간격과 순번을 남겼습니다. 기존 노선의 저장 정류장 순번·ID가 새 응답과 모두 일치하는지 확인했습니다. 정확한 회차별 출발표·정류장별 첫차 통과기록·현재 계약이나 실차 계획표를 확보했다는 뜻은 아닙니다.</p>
+<h3 id="source-s14">S14 · 과거 20평일 구간 자료와 v5 독립 검산</h3>
+<p><strong>출처:</strong> <a href="https://t-data.seoul.go.kr/dataprovide/trafficdataviewopenapi.do?data_id=1025" target="_blank" rel="noopener noreferrer">서울교통 빅데이터 플랫폼 TAIMS</a>의 보존 구간 재차인원 자료. 2026-09-07~18·10-19~30의 평일 20일입니다. <code>tdata_calibration_2026-11-07/collected/날짜/target_routes.json</code>, <code>route_expansion_2026-11-07/cached_history_new_routes.json</code>을 재사용했으며 인증 API를 새로 호출하지 않았습니다. 지도에서 같은 노선·구간·방향·요일·시간대의 <strong>시간당 재차인원 합계의 날짜 평균</strong>을 별도 표시합니다. 보존 20평일·8개 노선·24시간의 구간 셀231,360개 중 재차합은183,397개가 있고47,963개는 결측입니다. 평균·최대·운행횟수는 각각231,360개 모두 결측이므로 실차 한 대의 점유·여석·차량별 탑승 실패 확률로 환산하지 않았습니다. 결측을0명으로 바꾸지 않습니다. 이 합계는 배경 승객이나 대기열 입력에 더하지 않습니다.</p>
+<p>구현은 <code>prepare_city.py</code>, <code>city_capacity_model.py</code>, 검산은 <code>verify_city.py</code>, <code>city_bus_model_2026-11-08/independent_verification.json</code>·<code>results_summary.json</code>입니다. 전체 원래 입자별 가중치 보존, 승하차·차내 인원·정원, 호환 FIFO, 전체 이동기록으로 복원한 대기열, 시간대별 분모와 누적 대기, 속도 상한을 대조합니다. 작은 공동 정류장 사례 24개에서는 최적화 전 예측 계산과 결과 일치도 확인했습니다. 이는 구현 일관성 검사이며 현장 대기시간 예측 정확도 검증은 아닙니다.</p>
+<h3 id="source-s15">S15 · 30분 차트 재집계</h3>
+<p><strong>출처:</strong> 보존된 v3·v4·v5의 전체 <code>audit-배차-요일.json.gz</code> 대기기록30개를 사용했습니다. 구현은 <code>aggregate_half_hour.py</code>, 검산은 <code>chart_aggregation_2026-11-08/verification.json</code>입니다. 기존 차량 시뮬레이션과 대기열·이동 기록은 변경하지 않았습니다. 결과는 <code>data/half_hour_v1/capacity_v3.json</code>·<code>capacity_v4.json</code>·<code>capacity_v5.json</code>입니다.</p>
+<p>각30분 구간에서 탑승 완료 흐름의 가중 평균·가중90백분위를 원래 대기시간으로 계산합니다. 도착량·만차 경험·경로 변경·미탑승도 같은 도착 집단으로 구분합니다. 평균 대기의 분모는 탑승 완료 흐름이며, 줄을 떠나기 전 시간을 포함한 전체 대기 노출은 별도 필드로 보존합니다. 옛 버전의23:10+1초 화면용 표지는 노출시간 집계에서23:10으로 제한합니다. 인접한30분 구간의 가중치와 탑승자 가중 평균을 합쳐 기존1시간 집계를 복원하는 검사를46,750개 셀에 적용했습니다.90백분위를 서로 평균하지 않습니다. 이전 참고표와 과거 시간당 재차합은30분 원기록이 없어 원자료 단위를 유지합니다.</p>
+<h2 id="section-11">11. 아직 확보·검증하지 못한 범위</h2>
+<ul>
+<li>총학생회 교통총조사의 실제 응답·방향별 결과표는 이 모형 입력으로 확보하지 못했습니다. 설문 문항을 확인한 것과 결과를 확보한 것은 다릅니다.</li>
+<li>개인별 실제 주소·목적지·수강명단 연결·출석·오늘의 마지막 수업·GPS는 확보하지 못했습니다.</li>
+<li>노선별 실제 투입 시내버스 차종·차량별 등록정원·정확한 회차별 시간표는 미확보입니다. 참고 정원·공식 평일 간격으로 계산한 조건부 시나리오입니다.</li>
+<li>현재 셔틀 계약서·세부 사업내역서·차량별 내부 배차·기사 근무표는 이 모형의 확정 운행 제약이나 현실 검증 근거로 사용하지 않았습니다.</li>
+<li>실제 정류장 도착량·차량별 승하차·차내 점유·탑승 실패·대기시간을 같은 날짜·시각·노선·방향으로 연결한 검증은 미완료입니다. 월간 시내버스 승차 합계나 인터뷰를 실제 셔틀 줄로 바꾸지 않았습니다.</li>
+<li>2026년 7월 공개 편람의 수강인원 0 스냅샷은 현재 이동량 가중치로 사용하지 않았습니다.</li>
+<li>요금·기상·피로·배경 승객·도로 정체·실제 차량 회전·정확한 첫차·막차 통과시각과 목적지 비중 변화의 현실 적합성은 추가 조사 대상입니다.</li>
+</ul>
+<p>현실과 비교하려면 수업 종료, 정류장 유입, 승차, 차내 점유, 대기열을 구분해 같은 조건의 관측과 대조해야 합니다. 코드 검사·공개 배포 성공을 실제 혼잡 예측의 검증으로 해석하지 않습니다.</p>
+<h2 id="section-12">12. 버전·근거 확인과 팀 공유</h2>
+<p>2026-11-07 v4에서 줄 관찰 후 경로 변경과 정문 5개 노선 공동 이용을 추가했고, 같은 날 전체 여정 기록으로 전후 비교를 재집계했습니다. 2026-11-08에는 기존 v3·v4 결과를 Vercel 정적 사이트로 배포하고, 두 사이트를 연결하는 설명서를 작성했습니다. 이어 v5에서 시내 8개 노선 차량·정원·공동 대기열·평일 운행 시계·저장 구간속도와 과거 구간 자료 비교를 추가하고 10개 조건을 다시 계산했습니다. 기존 v3·v4 데이터와 원문, 이전 설명서는 보존했습니다.</p>
+<div class="table-wrap" role="region" aria-label="확인 항목 표" tabindex="0"><table><thead><tr><th scope="col">확인 항목</th><th scope="col">보존 근거</th></tr></thead><tbody>
+<tr><td>문서의 선택 입력·코드 파일</td><td>41개 파일의 SHA-256을 근거 JSON에 기록</td></tr>
+<tr><td>종료 사건·수강인원·강의동</td><td>보존 입력에서 6,201 / 156,338 / 88 재계수</td></tr>
+<tr><td>전후 결과</td><td>요일별 원수치에서 집단 가중치·공통 완주 분모로 재집계</td></tr>
+<tr><td>기존 시뮬레이션의 정원·승하차·대기열</td><td>독립 검산 PASS 기록을 근거 파일로 연결</td></tr>
+<tr><td>v5 계산 검산</td><td>2개 배차 × 5요일, 전체 입자 질량·차량 점유·FIFO·대기열·분모 검사</td></tr>
+<tr><td>공개 배포</td><td>v3·v4 보존, v5 JSON 12개 추가. 배포 검사는 별도 릴리스 기록</td></tr>
+<tr><td>이번 문서 작성</td><td>v5 재계산 결과와 제조사·공식 평일 계획·역사 자료의 적용 범위 갱신</td></tr>
+</tbody></table></div>
+<p>기준 문서·수치가 바뀌면 원본 보존, 가정 변경, 재계산, 동일 분모 비교, 설명서 갱신을 구분해 기록합니다. 팀 발표에서는 ‘수업별 수강신청인원에 가정을 적용한 가중 통행 시뮬레이션’으로 소개하고, 실제 학생 위치나 실측 대기열이라고 표현하지 않습니다.</p>
+<p><a href="./">시뮬레이션으로 돌아가기</a> · <a href="https://snu-route-lab.vercel.app/" target="_blank" rel="noopener noreferrer">경로 추천 열기</a> · <a href="methodology.md" download="서울대_하교길_가정_자료_출처_2026-11-08.md">Markdown 내려받기</a> · <a href="methodology-evidence.json">근거·해시 JSON</a></p></article><footer><a href="#document">맨 위로 ↑</a><p>서울대 하교길 프로젝트 · 문서 기준 2026-11-08 · 지도 © OpenStreetMap 기여자</p></footer></main></div></body></html>

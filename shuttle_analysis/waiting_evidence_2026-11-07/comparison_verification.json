@@ -1,0 +1,61 @@
+{
+  "status": "PASS",
+  "dataset": "capacity_v3",
+  "campus_max_kmh": 40,
+  "external_target_kmh": 65,
+  "capacity_large": 60,
+  "capacity_reverse": 25,
+  "scenario_count": 2,
+  "weekday_count": 5,
+  "meaning": "Preserved representative route-choice run, two headway scenarios; not independent Monte Carlo replications or actual people.",
+  "audit_inputs": [
+    {
+      "path": "simulation_viewer_2026-11-07\\capacity_model\\speed_40_65\\audit-regular-mon.json.gz",
+      "sha256": "b1bbcc35cfa9fd6f8b6e3757e34db19d9db3fde58e608dcb9229d315f86dde84"
+    },
+    {
+      "path": "simulation_viewer_2026-11-07\\capacity_model\\speed_40_65\\audit-regular-tue.json.gz",
+      "sha256": "203cf6811e64b30bd396863782211627273c3bc4c8bd0f84ab1e004f561074a3"
+    },
+    {
+      "path": "simulation_viewer_2026-11-07\\capacity_model\\speed_40_65\\audit-regular-wed.json.gz",
+      "sha256": "60cf82aa64f693df8acdfda48cab95458b7e088a532436ad6c703929f1132526"
+    },
+    {
+      "path": "simulation_viewer_2026-11-07\\capacity_model\\speed_40_65\\audit-regular-thu.json.gz",
+      "sha256": "854d3e48cfc518b2c8045aaa25d6e286916b2704d34694d2a5f4186d24701bfd"
+    },
+    {
+      "path": "simulation_viewer_2026-11-07\\capacity_model\\speed_40_65\\audit-regular-fri.json.gz",
+      "sha256": "4c2639c2625da0656a8d9e204bd22a6b12ffc391a8feb589e85b3ff8bf778cdb"
+    },
+    {
+      "path": "simulation_viewer_2026-11-07\\capacity_model\\speed_40_65\\audit-peak-mon.json.gz",
+      "sha256": "dadb639e6180843b6bfd28ff7c5fd30fa8038d8b8b3ba0da662f05f9c4c0cfec"
+    },
+    {
+      "path": "simulation_viewer_2026-11-07\\capacity_model\\speed_40_65\\audit-peak-tue.json.gz",
+      "sha256": "fe64f8e3282861ca09d54ec4d3c7f97f29376d8354cb7a8d44cc81fe59202103"
+    },
+    {
+      "path": "simulation_viewer_2026-11-07\\capacity_model\\speed_40_65\\audit-peak-wed.json.gz",
+      "sha256": "a17b86f228af16c11794241047bab3b0e2c6ccc3ec5057d864eec3422587febe"
+    },
+    {
+      "path": "simulation_viewer_2026-11-07\\capacity_model\\speed_40_65\\audit-peak-thu.json.gz",
+      "sha256": "0ea37b587d300cb14f643ffb340e5652f831a17516ec5f0abb54cd15a2b4a1e2"
+    },
+    {
+      "path": "simulation_viewer_2026-11-07\\capacity_model\\speed_40_65\\audit-peak-fri.json.gz",
+      "sha256": "81a638ec9b20277c60f8390984c91366e2113480dbbf866149908db996a6dbfe"
+    }
+  ],
+  "hourly_rows": 780,
+  "weekday_window_rows": 120,
+  "pooled_window_rows": 24,
+  "public_hour_mean_comparisons": 410,
+  "max_public_hour_mean_difference": 3.552713678800501e-15,
+  "waiting_definition": "First ready arrival at this shuttle stop to actual boarding; excludes approach walk and onboard time. Served-only durations; unserved weight separate. One transfer can appear at more than one stop.",
+  "window_definition": "Wait arrival time in half-open interval; boarding may occur later. Pooled weekdays use passenger-equivalent weights, not arithmetic mean of weekday means.",
+  "source_comparison": "No same-date, same-route, same-direction, same-stop measured waiting-time sample acquired. These are scenario outputs, not validated error scores."
+}

@@ -1,0 +1,19 @@
+{
+  "schema": "user_reported_shuttle_capacity_correction_v1",
+  "source_observation_id": "20261110-1523-admin-snu-queue-wait-01",
+  "source": "latest_user_correction_in_project_chat",
+  "preferred_max_passengers": 44,
+  "confirmed_context_route": "행정관 → 서울대입구역",
+  "model_route_id": "shuttle-41841",
+  "superseded_user_reported_capacity": 46,
+  "existing_code_default_found": 60,
+  "existing_default_reference": "simulation_viewer_2026-11-07/walk_choice_model.py: vehicle cap and forecast fallback; capacity_model.py: capacity_large",
+  "old_code_default_is_current_vehicle_verified_capacity": false,
+  "correction_scope": "apply 44 to the reported administration-to-snu-station shuttle; check other shuttle vehicle types separately",
+  "do_not_blanket_change_city_bus_village_bus_or_reverse_minibus_capacity": true,
+  "preserve_previous_release_artifacts": true,
+  "separate_capacity_only_correction_from_new_behavior_prototype": true,
+  "fair_algorithm_comparison_requires_same_corrected_capacity_inputs": true,
+  "observation_count_must_not_be_reverted_to_83_or_69": true,
+  "note": "User-reported maximum, not an independently checked vehicle registration document. Do not additionally subtract a driver or add standing capacity without evidence."
+}

@@ -1,0 +1,20 @@
+{
+  "schema": "v12_followup_holdout_rule_v1",
+  "declared_at": "2026-11-12T11:10:36.933447+09:00",
+  "last_inspected_completed_live_date": "2026-11-11",
+  "new_completed_date_available_at_check": false,
+  "reason": "KST11/12 collection day is not complete; saved recording currently has no routes",
+  "current_day": "2026-11-12",
+  "current_day_recording_route_count": 0,
+  "first_candidate_date": "2026-11-12",
+  "earliest_review_after": "2026-11-13T00:00:00+09:00",
+  "rules": [
+    "No alarm, scheduled job, collector control or automatic download was created.",
+    "Freeze V12 code, fitted parameters, inputs, route mappings, support thresholds and error metrics before opening the held-out day labels.",
+    "Only a completed KST service day after11/11 may qualify; evaluate route/time coverage and documented collector failures before examining prediction errors.",
+    "If11/12 is incomplete or otherwise rejected for predeclared source quality reasons, record the reason and use the first subsequent completed qualifying day; never select a day by model score.",
+    "11/10 remains the existing segment fit date;11/11 is already explored date-split post-hoc evaluation, not pristine holdout.",
+    "After a held-out result is examined, do not tune to it and reuse it as untouched validation. Reserve a later date for the next iteration.",
+    "Seoul bus labels do not provide shuttle queue or per-person waiting-time truth; those outcomes remain separately NOT_EVALUABLE."
+  ]
+}

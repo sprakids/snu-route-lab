@@ -1,0 +1,1225 @@
+{
+  "status": "PASS_INTERNAL_INVARIANTS",
+  "case": {
+    "case": "repair-combined-regular-wed",
+    "mode": "combined",
+    "day": "수",
+    "scenario": "regular",
+    "seed": 0,
+    "operations": "v12_empirical"
+  },
+  "source_code_sha256": {
+    "artifacts.py": "6e62dfbe617557377b2feea01918670e050f960548bda5aab27491b24853e1f7",
+    "preferences.py": "ed370cac9616442f80792a6ae1ec966de313137d9026e2e4a1f0950b17b25bdd",
+    "hazard.py": "6a37635687d25e0210749e30598d0494f0c16e586d0fa095b0def9fe6b49cc18",
+    "capacity.py": "2fba2637b1a7b0149b4cd5d2b540cbca750b430975e89d2a1851eca8bb55deb2",
+    "physics.py": "b02afdd219ae47df56f4cd8288fe758ad43d5db26ada9adfcfe106841e4e4b15",
+    "fares.py": "6b4bd8c2a5e9a72d5cf75ff134c53af5057be60df769ae9ecf7d3502fa705de3",
+    "prepare.py": "163763b233634db975896dc82b78846f368b8187061e09a77557bab5c4ace389",
+    "policy.py": "d68eba13865d01cd6c90ca0250159c0ed35ffb72a16318638683017af9487334",
+    "metrics.py": "2161f7f48b9545d10e8d349f6d4c98efa2e0426dc133daaa5749fe3976de9814",
+    "engine.py": "9d5f694762ea2c8b5cd3a424d9896c7e7428586580ceb4db042e17157833de0c",
+    "operations.py": "6a8cbf12833b8bebdac838b8acc737e8b12a8e82b07c427ac6ba62e7d6cbf645",
+    "empirical_v12.py": "c0943dcc106736bd8bb6de4e1a3f0a479f830ad97a7f53adec076eb36952d8de",
+    "time_profiles.py": "c4d8f8cf9df7c367e6fd1b1e20a04d98d896cb12265e2ebfbf8a1ce40840ed52",
+    "run_case.py": "027c98db38c89c869384276b9dee514aa0bcca4f093aae714f4b03ead82eab7e"
+  },
+  "audit_sha256": "e2fcc3225860e0230821f4ca89ac3754e994121e5955b4615e748e01df26148b",
+  "parent_mass_max_error": 4.440892098500626e-16,
+  "checks": {
+    "passenger_legs": 398076,
+    "vehicle_segments": 38149,
+    "wait_visits": 131244,
+    "capacity_events": 21416,
+    "willing_fifo_events": 2978,
+    "queue_timeline_points": 110124
+  },
+  "cancelled_before_ready_weight": 2994.5295337253747,
+  "control_parity": null,
+  "scope": {
+    "all": {
+      "weight": 19079.0,
+      "metrics": {
+        "walk_seconds": {
+          "baseline": 11.608594442703955,
+          "prototype": 14.085621278402007
+        },
+        "wait_seconds": {
+          "baseline": 9.040049330086399,
+          "prototype": 4.9310641591086855
+        },
+        "ride_seconds": {
+          "baseline": 7.182056216572091,
+          "prototype": 6.720497439499957
+        },
+        "total_seconds": {
+          "baseline": 27.830699989362447,
+          "prototype": 25.73718287701065
+        },
+        "changes": {
+          "baseline": 1.021241949638205,
+          "prototype": 1.0784545125737768
+        },
+        "fare_won": {
+          "baseline": 0.0,
+          "prototype": 789.2884838763282
+        }
+      }
+    },
+    "snu": {
+      "weight": 8564.21134344759,
+      "metrics": {
+        "walk_seconds": {
+          "baseline": 10.12722288463076,
+          "prototype": 13.395466058277014
+        },
+        "wait_seconds": {
+          "baseline": 8.078144967377863,
+          "prototype": 5.974432864315008
+        },
+        "ride_seconds": {
+          "baseline": 7.12110639118537,
+          "prototype": 6.395649491177369
+        },
+        "total_seconds": {
+          "baseline": 25.326474243193996,
+          "prototype": 25.765548413769395
+        },
+        "changes": {
+          "baseline": 0.9799936554030722,
+          "prototype": 1.206374102094909
+        },
+        "fare_won": {
+          "baseline": 0.0,
+          "prototype": 987.7464071792355
+        }
+      }
+    },
+    "engineering_snu": {
+      "weight": 1164.8476563890401,
+      "metrics": {
+        "walk_seconds": {
+          "baseline": 4.829089506647686,
+          "prototype": 8.872168971865571
+        },
+        "wait_seconds": {
+          "baseline": 5.833867834288692,
+          "prototype": 5.1886109012967125
+        },
+        "ride_seconds": {
+          "baseline": 13.9993181138883,
+          "prototype": 12.111186065148253
+        },
+        "total_seconds": {
+          "baseline": 24.662275454824677,
+          "prototype": 26.17196593831054
+        },
+        "changes": {
+          "baseline": 0.5876537374039665,
+          "prototype": 1.0219683428814803
+        },
+        "fare_won": {
+          "baseline": 0.0,
+          "prototype": 1356.6597327427742
+        }
+      }
+    }
+  },
+  "stop_waits": [
+    {
+      "node": 0,
+      "stop": "서울대입구역",
+      "ars": "",
+      "episode_weight": 0.0,
+      "mean_wait_min": null,
+      "p90_wait_min": null,
+      "max_wait_min": 0.0,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 1,
+      "stop": "행정관",
+      "ars": "",
+      "episode_weight": 4316.412717400943,
+      "mean_wait_min": 3.567688102820093,
+      "p90_wait_min": 7.357555057571639,
+      "max_wait_min": 17.796308293732604,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 2,
+      "stop": "정문",
+      "ars": "",
+      "episode_weight": 17.246387691764298,
+      "mean_wait_min": 2.6042841092927382,
+      "p90_wait_min": 4.251388268791076,
+      "max_wait_min": 5.165116256412633,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 3,
+      "stop": "법과대",
+      "ars": "",
+      "episode_weight": 220.75057306762224,
+      "mean_wait_min": 1.5454626930772832,
+      "p90_wait_min": 2.244707685939405,
+      "max_wait_min": 5.875469870400411,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 4,
+      "stop": "자연대",
+      "ars": "",
+      "episode_weight": 125.18778371814726,
+      "mean_wait_min": 1.6164347212589272,
+      "p90_wait_min": 3.0862791816374133,
+      "max_wait_min": 5.639156006499737,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 5,
+      "stop": "농생대",
+      "ars": "",
+      "episode_weight": 290.4703410481699,
+      "mean_wait_min": 2.573142261144924,
+      "p90_wait_min": 4.701878817589992,
+      "max_wait_min": 9.803280879937423,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 6,
+      "stop": "38동",
+      "ars": "",
+      "episode_weight": 48.45207082779263,
+      "mean_wait_min": 2.020104575030759,
+      "p90_wait_min": 4.366765675110946,
+      "max_wait_min": 7.791177455992632,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 7,
+      "stop": "신소재공동연구소",
+      "ars": "",
+      "episode_weight": 21.438562429058578,
+      "mean_wait_min": 2.568791841654608,
+      "p90_wait_min": 4.923665789489072,
+      "max_wait_min": 5.812280801287246,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 8,
+      "stop": "302동",
+      "ars": "",
+      "episode_weight": 202.91302010778884,
+      "mean_wait_min": 2.2524022209285053,
+      "p90_wait_min": 4.517896805373918,
+      "max_wait_min": 6.311110638194805,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 9,
+      "stop": "301동",
+      "ars": "",
+      "episode_weight": 252.6118017394357,
+      "mean_wait_min": 2.4720604973342004,
+      "p90_wait_min": 4.758486332761701,
+      "max_wait_min": 9.4276013592862,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 10,
+      "stop": "유전공학연구소",
+      "ars": "",
+      "episode_weight": 88.8302967895461,
+      "mean_wait_min": 1.9627502624082114,
+      "p90_wait_min": 3.8333145245368843,
+      "max_wait_min": 6.09609077049378,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 11,
+      "stop": "교수회관",
+      "ars": "",
+      "episode_weight": 9.682167148406638,
+      "mean_wait_min": 1.9651069943541368,
+      "p90_wait_min": 3.0509470380044754,
+      "max_wait_min": 5.973427466505745,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 12,
+      "stop": "기숙사삼거리",
+      "ars": "",
+      "episode_weight": 190.23418449347943,
+      "mean_wait_min": 3.064818576857526,
+      "p90_wait_min": 4.620070808089562,
+      "max_wait_min": 8.761317726997246,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 13,
+      "stop": "국제대학원",
+      "ars": "",
+      "episode_weight": 27.358297126779295,
+      "mean_wait_min": 2.3891527575692404,
+      "p90_wait_min": 5.287361582693969,
+      "max_wait_min": 8.24134981220571,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 14,
+      "stop": "수의대",
+      "ars": "",
+      "episode_weight": 90.02312809466339,
+      "mean_wait_min": 2.1772773149891527,
+      "p90_wait_min": 4.346925494472331,
+      "max_wait_min": 7.178144934042696,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 15,
+      "stop": "경영대",
+      "ars": "",
+      "episode_weight": 90.85615634122624,
+      "mean_wait_min": 1.7139820583817125,
+      "p90_wait_min": 3.565817493245413,
+      "max_wait_min": 6.186217395613372,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 16,
+      "stop": "302동(제2공학관)",
+      "ars": "",
+      "episode_weight": 66.87754044820831,
+      "mean_wait_min": 3.360263705955899,
+      "p90_wait_min": 6.289216618375091,
+      "max_wait_min": 7.8961490260939176,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 17,
+      "stop": "301동(제1공학관)",
+      "ars": "",
+      "episode_weight": 95.23790989728455,
+      "mean_wait_min": 4.41517055782604,
+      "p90_wait_min": 7.559910125744864,
+      "max_wait_min": 15.433635338869257,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 18,
+      "stop": "에너지자원신기술연구소",
+      "ars": "",
+      "episode_weight": 16.950374242137993,
+      "mean_wait_min": 1.5439908090944714,
+      "p90_wait_min": 3.1115761640487714,
+      "max_wait_min": 4.35386274074796,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 19,
+      "stop": "38동",
+      "ars": "",
+      "episode_weight": 37.74042706278865,
+      "mean_wait_min": 2.1517584609492566,
+      "p90_wait_min": 5.411403852861743,
+      "max_wait_min": 12.235263876205742,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 20,
+      "stop": "농생대",
+      "ars": "",
+      "episode_weight": 113.21547772002069,
+      "mean_wait_min": 2.059209167915453,
+      "p90_wait_min": 4.095578539699393,
+      "max_wait_min": 15.069622716129137,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 21,
+      "stop": "자연대",
+      "ars": "",
+      "episode_weight": 168.13265965793548,
+      "mean_wait_min": 2.3949371345295605,
+      "p90_wait_min": 4.412643039154621,
+      "max_wait_min": 10.421566943599222,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 22,
+      "stop": "문화관",
+      "ars": "",
+      "episode_weight": 56.690433278481585,
+      "mean_wait_min": 3.81004438382848,
+      "p90_wait_min": 6.7133603532100095,
+      "max_wait_min": 12.193461753156347,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 23,
+      "stop": "법과대",
+      "ars": "",
+      "episode_weight": 33.41797369246462,
+      "mean_wait_min": 3.326311100359913,
+      "p90_wait_min": 8.033684971959882,
+      "max_wait_min": 12.841428083328841,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 24,
+      "stop": "정문",
+      "ars": "",
+      "episode_weight": 45.49894411177462,
+      "mean_wait_min": 3.2769272378385312,
+      "p90_wait_min": 7.598437020690956,
+      "max_wait_min": 12.470460095171196,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 25,
+      "stop": "경영대",
+      "ars": "",
+      "episode_weight": 82.99273486458802,
+      "mean_wait_min": 3.0130080883706647,
+      "p90_wait_min": 6.580999823655778,
+      "max_wait_min": 13.072838977406112,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 26,
+      "stop": "수의대",
+      "ars": "",
+      "episode_weight": 161.1664283065357,
+      "mean_wait_min": 2.6381205165114854,
+      "p90_wait_min": 5.59229061230629,
+      "max_wait_min": 13.472550986295877,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 27,
+      "stop": "국제대학원",
+      "ars": "",
+      "episode_weight": 25.7194651849702,
+      "mean_wait_min": 3.2025530357087666,
+      "p90_wait_min": 6.360278849509389,
+      "max_wait_min": 9.590753463756604,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 28,
+      "stop": "기숙사",
+      "ars": "",
+      "episode_weight": 35.0175972751193,
+      "mean_wait_min": 1.3282325184647454,
+      "p90_wait_min": 2.843968595696424,
+      "max_wait_min": 4.667359656369929,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 29,
+      "stop": "BK국제관",
+      "ars": "",
+      "episode_weight": 0.0,
+      "mean_wait_min": null,
+      "p90_wait_min": null,
+      "max_wait_min": 0.0,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 30,
+      "stop": "가족생활동",
+      "ars": "",
+      "episode_weight": 0.0,
+      "mean_wait_min": null,
+      "p90_wait_min": null,
+      "max_wait_min": 0.0,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 31,
+      "stop": "호암교수회관",
+      "ars": "",
+      "episode_weight": 0.0,
+      "mean_wait_min": null,
+      "p90_wait_min": null,
+      "max_wait_min": 0.0,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 32,
+      "stop": "가족생활동",
+      "ars": "",
+      "episode_weight": 0.0,
+      "mean_wait_min": null,
+      "p90_wait_min": null,
+      "max_wait_min": 0.0,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 33,
+      "stop": "외국인기숙사",
+      "ars": "",
+      "episode_weight": 0.6445022167340068,
+      "mean_wait_min": 2.568115432283781,
+      "p90_wait_min": 3.249649233274128,
+      "max_wait_min": 3.249649233274128,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 34,
+      "stop": "연구공원",
+      "ars": "",
+      "episode_weight": 0.5035288555701888,
+      "mean_wait_min": 1.399374964181091,
+      "p90_wait_min": 2.1082206963624532,
+      "max_wait_min": 2.1082206963624532,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 35,
+      "stop": "기숙사",
+      "ars": "",
+      "episode_weight": 0.6407844755909795,
+      "mean_wait_min": 2.5965503551993177,
+      "p90_wait_min": 5.669430724550451,
+      "max_wait_min": 5.669430724550451,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 36,
+      "stop": "기숙사삼거리",
+      "ars": "",
+      "episode_weight": 68.77602266687718,
+      "mean_wait_min": 1.7034503506574707,
+      "p90_wait_min": 3.4281640541212255,
+      "max_wait_min": 9.640752573965194,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 37,
+      "stop": "기초과학공동기원(교수회관)",
+      "ars": "",
+      "episode_weight": 20.382355870458646,
+      "mean_wait_min": 2.4891815193492044,
+      "p90_wait_min": 3.6903048223364747,
+      "max_wait_min": 5.560966345399842,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 38,
+      "stop": "유전공학연구소",
+      "ars": "",
+      "episode_weight": 88.08769197472218,
+      "mean_wait_min": 2.854439409932195,
+      "p90_wait_min": 5.557182643907436,
+      "max_wait_min": 8.109503817020716,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 39,
+      "stop": "에너지자원신기술연구소",
+      "ars": "",
+      "episode_weight": 0.5206059062811164,
+      "mean_wait_min": 4.619233995014911,
+      "p90_wait_min": 4.922276894115687,
+      "max_wait_min": 4.922276894115687,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 40,
+      "stop": "신소재공동연구소",
+      "ars": "",
+      "episode_weight": 0.0,
+      "mean_wait_min": null,
+      "p90_wait_min": null,
+      "max_wait_min": 0.0,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 41,
+      "stop": "302동(제2공학관)",
+      "ars": "",
+      "episode_weight": 69.08054176656647,
+      "mean_wait_min": 3.500109182262879,
+      "p90_wait_min": 6.907229161909102,
+      "max_wait_min": 11.794688094135685,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 42,
+      "stop": "행정관",
+      "ars": "",
+      "episode_weight": 2067.150678759754,
+      "mean_wait_min": 3.7782147446996754,
+      "p90_wait_min": 8.194215449592836,
+      "max_wait_min": 16.072409563955443,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 43,
+      "stop": "대학동(승차)",
+      "ars": "",
+      "episode_weight": 129.8171715112438,
+      "mean_wait_min": 2.004571723263451,
+      "p90_wait_min": 2.7235857386619804,
+      "max_wait_min": 4.733594008736085,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 44,
+      "stop": "대학동고시촌입구",
+      "ars": "21157",
+      "episode_weight": 0.0,
+      "mean_wait_min": null,
+      "p90_wait_min": null,
+      "max_wait_min": 0.0,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 45,
+      "stop": "서울산업정보학교.삼성교",
+      "ars": "21158",
+      "episode_weight": 15.318585617833389,
+      "mean_wait_min": 2.9322212098389477,
+      "p90_wait_min": 2.9322212098389477,
+      "max_wait_min": 2.9322212098389477,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 46,
+      "stop": "서울대정문",
+      "ars": "21269",
+      "episode_weight": 12.099169070803148,
+      "mean_wait_min": 2.847224273857769,
+      "p90_wait_min": 5.0055008725693675,
+      "max_wait_min": 7.000581586060313,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 47,
+      "stop": "법대.사회대입구",
+      "ars": "21270",
+      "episode_weight": 408.4068315859168,
+      "mean_wait_min": 2.0453134440948952,
+      "p90_wait_min": 4.531703401577761,
+      "max_wait_min": 9.807570443337076,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 48,
+      "stop": "자연대.행정관입구",
+      "ars": "21271",
+      "episode_weight": 351.30389597124224,
+      "mean_wait_min": 2.105776020534941,
+      "p90_wait_min": 5.080071999769279,
+      "max_wait_min": 11.458892975175452,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 49,
+      "stop": "농생대",
+      "ars": "21272",
+      "episode_weight": 124.94084967666977,
+      "mean_wait_min": 1.9775922172944163,
+      "p90_wait_min": 4.11802745026774,
+      "max_wait_min": 9.03467375691871,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 50,
+      "stop": "공대입구",
+      "ars": "21273",
+      "episode_weight": 83.2464749092117,
+      "mean_wait_min": 3.209785016896053,
+      "p90_wait_min": 6.151917775050606,
+      "max_wait_min": 9.550582147672442,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 51,
+      "stop": "신소재",
+      "ars": "21274",
+      "episode_weight": 424.9401390107055,
+      "mean_wait_min": 2.652742606805395,
+      "p90_wait_min": 4.869306781543613,
+      "max_wait_min": 8.654148197396717,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 52,
+      "stop": "건설환경종합연구소앞",
+      "ars": "21341",
+      "episode_weight": 61.22497463272212,
+      "mean_wait_min": 2.7199563686407116,
+      "p90_wait_min": 4.655642834351723,
+      "max_wait_min": 7.322098546516402,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 53,
+      "stop": "제2공학관",
+      "ars": "21275",
+      "episode_weight": 1182.607244800519,
+      "mean_wait_min": 2.240761332284243,
+      "p90_wait_min": 4.320693998523348,
+      "max_wait_min": 10.711678402604472,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 54,
+      "stop": "유회진학술정보관.제1공학관",
+      "ars": "21276",
+      "episode_weight": 1231.3084841058767,
+      "mean_wait_min": 1.9774816701951536,
+      "p90_wait_min": 4.379614054753135,
+      "max_wait_min": 11.048412858841766,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 55,
+      "stop": "에너지자원신기술연구소",
+      "ars": "21290",
+      "episode_weight": 369.7400360673712,
+      "mean_wait_min": 1.878136448006916,
+      "p90_wait_min": 4.077953752223888,
+      "max_wait_min": 8.638487517553465,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 56,
+      "stop": "공대입구",
+      "ars": "21292",
+      "episode_weight": 430.9349166370807,
+      "mean_wait_min": 2.00629978753202,
+      "p90_wait_min": 4.181439564627363,
+      "max_wait_min": 8.874028432042785,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 57,
+      "stop": "농생대",
+      "ars": "21293",
+      "episode_weight": 1266.9447202780989,
+      "mean_wait_min": 1.9772558917439518,
+      "p90_wait_min": 4.344710663857161,
+      "max_wait_min": 9.514664177744029,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 58,
+      "stop": "자연대.행정관입구",
+      "ars": "21294",
+      "episode_weight": 998.1761262484498,
+      "mean_wait_min": 2.200852306758283,
+      "p90_wait_min": 4.177329106166386,
+      "max_wait_min": 11.718717893500676,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 59,
+      "stop": "문화관입구",
+      "ars": "21297",
+      "episode_weight": 457.3493289060766,
+      "mean_wait_min": 2.184603361575269,
+      "p90_wait_min": 4.4995742698132135,
+      "max_wait_min": 9.257656947743575,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 60,
+      "stop": "법대.사회대입구",
+      "ars": "21298",
+      "episode_weight": 614.6554000687953,
+      "mean_wait_min": 2.5215010456514633,
+      "p90_wait_min": 5.560586114274581,
+      "max_wait_min": 10.435119965205377,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 61,
+      "stop": "서울대정문",
+      "ars": "21299",
+      "episode_weight": 93.93044426948983,
+      "mean_wait_min": 1.9393503934743164,
+      "p90_wait_min": 4.012113874649973,
+      "max_wait_min": 8.220201570530966,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 62,
+      "stop": "서울대학교",
+      "ars": "21128",
+      "episode_weight": 3524.840986285647,
+      "mean_wait_min": 3.0059335946391847,
+      "p90_wait_min": 6.668878913282,
+      "max_wait_min": 12.216877982904892,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 63,
+      "stop": "서울대학교.치과병원.동물병원",
+      "ars": "21373",
+      "episode_weight": 279.93329118298703,
+      "mean_wait_min": 3.0695792366684618,
+      "p90_wait_min": 6.186309423822847,
+      "max_wait_min": 10.877127600321788,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 64,
+      "stop": "서울여상.서울문영여중고앞",
+      "ars": "21129",
+      "episode_weight": 0.8229495324521157,
+      "mean_wait_min": 1.7544511237733482,
+      "p90_wait_min": 1.7544511237733482,
+      "max_wait_min": 1.7544511237733482,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 65,
+      "stop": "관악구청",
+      "ars": "21130",
+      "episode_weight": 0.0,
+      "mean_wait_min": null,
+      "p90_wait_min": null,
+      "max_wait_min": 0.0,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 66,
+      "stop": "서울대입구역2번출구",
+      "ars": "21252",
+      "episode_weight": 0.0,
+      "mean_wait_min": null,
+      "p90_wait_min": null,
+      "max_wait_min": 0.0,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 67,
+      "stop": "서울대입구역3번출구",
+      "ars": "21330",
+      "episode_weight": 0.0,
+      "mean_wait_min": null,
+      "p90_wait_min": null,
+      "max_wait_min": 0.0,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 68,
+      "stop": "경영대.행정대학원",
+      "ars": "21283",
+      "episode_weight": 287.09383291076506,
+      "mean_wait_min": 2.3297473811574774,
+      "p90_wait_min": 4.921724810701077,
+      "max_wait_min": 11.220517715001188,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 69,
+      "stop": "수의대입구.보건대학원앞",
+      "ars": "21284",
+      "episode_weight": 413.4898199536786,
+      "mean_wait_min": 2.3091443955499575,
+      "p90_wait_min": 4.775902688243392,
+      "max_wait_min": 9.680162897987126,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 70,
+      "stop": "국제대학원",
+      "ars": "21285",
+      "episode_weight": 96.69001162290847,
+      "mean_wait_min": 2.8245540318901714,
+      "p90_wait_min": 5.162559887962076,
+      "max_wait_min": 8.159522999604814,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 71,
+      "stop": "관악사삼거리",
+      "ars": "21286",
+      "episode_weight": 279.0025180401504,
+      "mean_wait_min": 1.6377517886450155,
+      "p90_wait_min": 3.227037568333738,
+      "max_wait_min": 7.167489115783246,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 72,
+      "stop": "공동기기원",
+      "ars": "21288",
+      "episode_weight": 232.33759045554012,
+      "mean_wait_min": 1.7050050006019446,
+      "p90_wait_min": 3.2508450602204295,
+      "max_wait_min": 7.105111939494358,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 73,
+      "stop": "유전공학연구소.반도체공동연구소",
+      "ars": "21289",
+      "episode_weight": 196.91881322932193,
+      "mean_wait_min": 2.1113570747125365,
+      "p90_wait_min": 3.709705136002109,
+      "max_wait_min": 6.038814211737917,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 74,
+      "stop": "제2공학관",
+      "ars": "21340",
+      "episode_weight": 89.86566806270356,
+      "mean_wait_min": 3.1151121735658296,
+      "p90_wait_min": 6.413952773411196,
+      "max_wait_min": 9.827941535673988,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 75,
+      "stop": "유전공학연구소.반도체공동연구소",
+      "ars": "21277",
+      "episode_weight": 352.6770700900475,
+      "mean_wait_min": 2.7814630995738394,
+      "p90_wait_min": 4.753172215068601,
+      "max_wait_min": 10.02958889233596,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 76,
+      "stop": "교수회관입구",
+      "ars": "21278",
+      "episode_weight": 71.22518174643088,
+      "mean_wait_min": 2.1718648850472038,
+      "p90_wait_min": 4.2973162913437895,
+      "max_wait_min": 7.635457115406947,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 77,
+      "stop": "관악사삼거리",
+      "ars": "21279",
+      "episode_weight": 1639.3621880700728,
+      "mean_wait_min": 2.2176102966203475,
+      "p90_wait_min": 4.963018139751269,
+      "max_wait_min": 14.046065083978343,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 78,
+      "stop": "국제대학원",
+      "ars": "21280",
+      "episode_weight": 314.4948827360436,
+      "mean_wait_min": 2.736311265071742,
+      "p90_wait_min": 5.274649874893172,
+      "max_wait_min": 10.880052548910923,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 79,
+      "stop": "수의대입구.보건대학원앞",
+      "ars": "21281",
+      "episode_weight": 624.2221591145901,
+      "mean_wait_min": 2.4367235578300224,
+      "p90_wait_min": 5.247604599559176,
+      "max_wait_min": 10.75022579244287,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 80,
+      "stop": "경영대.행정대학원",
+      "ars": "21282",
+      "episode_weight": 644.439499378063,
+      "mean_wait_min": 2.8350469624591286,
+      "p90_wait_min": 6.165165983831563,
+      "max_wait_min": 10.427105590993111,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 81,
+      "stop": "서울대학교",
+      "ars": "21127",
+      "episode_weight": 173.64584216219052,
+      "mean_wait_min": 0.9089872392498358,
+      "p90_wait_min": 1.4988236549665694,
+      "max_wait_min": 6.987874207469091,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 82,
+      "stop": "낙성대역",
+      "ars": "21785",
+      "episode_weight": 0.0,
+      "mean_wait_min": null,
+      "p90_wait_min": null,
+      "max_wait_min": 0.0,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 83,
+      "stop": "인헌초등학교",
+      "ars": "21819",
+      "episode_weight": 0.0,
+      "mean_wait_min": null,
+      "p90_wait_min": null,
+      "max_wait_min": 0.0,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 84,
+      "stop": "호암교수회관",
+      "ars": "21870",
+      "episode_weight": 0.0,
+      "mean_wait_min": null,
+      "p90_wait_min": null,
+      "max_wait_min": 0.0,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 85,
+      "stop": "가족생활동",
+      "ars": "21887",
+      "episode_weight": 0.4223145240266099,
+      "mean_wait_min": 2.292731206661726,
+      "p90_wait_min": 2.292731206661726,
+      "max_wait_min": 2.292731206661726,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 86,
+      "stop": "서울대후문.연구공원",
+      "ars": "21892",
+      "episode_weight": 13.822637397807085,
+      "mean_wait_min": 2.426159248729339,
+      "p90_wait_min": 4.852921003094162,
+      "max_wait_min": 6.471238740055439,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 87,
+      "stop": "학부생활관",
+      "ars": "21895",
+      "episode_weight": 24.90561646136056,
+      "mean_wait_min": 1.186636086355328,
+      "p90_wait_min": 1.7996027737419353,
+      "max_wait_min": 5.335195704858779,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 88,
+      "stop": "대학원생활관",
+      "ars": "21897",
+      "episode_weight": 817.29436879768,
+      "mean_wait_min": 3.8087667948280886,
+      "p90_wait_min": 6.3386421308399195,
+      "max_wait_min": 14.662485832172509,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 89,
+      "stop": "기숙사삼거리",
+      "ars": "21899",
+      "episode_weight": 13.307988479311039,
+      "mean_wait_min": 2.8367594701690546,
+      "p90_wait_min": 4.5620697807900195,
+      "max_wait_min": 5.874262721787333,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 90,
+      "stop": "건설환경종합연구소",
+      "ars": "21905",
+      "episode_weight": 22.623025809215147,
+      "mean_wait_min": 1.885893451845821,
+      "p90_wait_min": 2.542831049367184,
+      "max_wait_min": 4.56375829455501,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 91,
+      "stop": "노천강당",
+      "ars": "21915",
+      "episode_weight": 1356.4453279893203,
+      "mean_wait_min": 2.779368705380688,
+      "p90_wait_min": 5.171485657410085,
+      "max_wait_min": 14.509341184369623,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 92,
+      "stop": "대학원생활관",
+      "ars": "21564",
+      "episode_weight": 1008.5226054998366,
+      "mean_wait_min": 2.6005839895146776,
+      "p90_wait_min": 5.754704648884096,
+      "max_wait_min": 13.298468596448826,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 93,
+      "stop": "학부생활관",
+      "ars": "21574",
+      "episode_weight": 149.4972017402875,
+      "mean_wait_min": 1.9549537385781037,
+      "p90_wait_min": 3.610363788932712,
+      "max_wait_min": 8.592684348587985,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 94,
+      "stop": "BK국제관",
+      "ars": "21585",
+      "episode_weight": 75.10959448393282,
+      "mean_wait_min": 2.187787422854457,
+      "p90_wait_min": 2.7579255311015003,
+      "max_wait_min": 11.87197019684148,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 95,
+      "stop": "가족생활동",
+      "ars": "21595",
+      "episode_weight": 3.9456447633937244,
+      "mean_wait_min": 2.437387428073101,
+      "p90_wait_min": 6.51585000193057,
+      "max_wait_min": 6.51585000193057,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 96,
+      "stop": "서울융합과학교육원",
+      "ars": "21689",
+      "episode_weight": 33.59005290811529,
+      "mean_wait_min": 3.00406813878491,
+      "p90_wait_min": 4.425178469163317,
+      "max_wait_min": 4.972032987229735,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 97,
+      "stop": "인헌초등학교",
+      "ars": "21765",
+      "episode_weight": 0.0,
+      "mean_wait_min": null,
+      "p90_wait_min": null,
+      "max_wait_min": 0.0,
+      "over20_weight": 0.0
+    },
+    {
+      "node": 98,
+      "stop": "행정관",
+      "ars": "21917",
+      "episode_weight": 284.1180549471059,
+      "mean_wait_min": 2.721187655991414,
+      "p90_wait_min": 5.376604455338868,
+      "max_wait_min": 13.374322445325864,
+      "over20_weight": 0.0
+    }
+  ],
+  "change_distribution": {
+    "0": 8453.38138965548,
+    "1": 5358.99456658961,
+    "2": 2512.438531363347,
+    "3": 1544.4289727722007,
+    "4": 764.3312898553556,
+    "5": 260.7892954339962,
+    "6": 117.32511792957463,
+    "7": 47.764633786481234,
+    "8": 16.81550643820801,
+    "9": 2.7306961758638386
+  },
+  "maximum_continuous_wait_min": 17.796308293732604,
+  "over20_weight": 0.0,
+  "max_queue": 332.84135883426876,
+  "elapsed_seconds": 235.9287161999382,
+  "policy_report": {
+    "opportunity_counts": {
+      "arrival": 19520,
+      "far_cost_pruned": 107267,
+      "joint_boarding_walk": 10388,
+      "queue_recheck": 56325,
+      "joint_boarding_wait": 11849,
+      "service_missed_during_preparation": 7706,
+      "service_rejected_or_full": 41182
+    },
+    "voluntary_boarding_declines": 22237,
+    "initial_plan_changes": 0,
+    "generalized_cost_unit": "minute_equivalent_not_eta",
+    "max_route_changes": null,
+    "forced_abandonment": false,
+    "polling_controls_behavior": false,
+    "joint_board_wait_walk_choice": true,
+    "forecast_continuation_limitation": "Future pooled service remains first-boardable approximation; joint action set fixed at the actual boarding opportunity only.",
+    "alighting_scope": "inherited candidate alighting targets; new choices after alighting. Endogenous early alighting not implemented.",
+    "fare_scenario": "adult_card_new_chain_at_departure",
+    "fare_used_in_choice": false,
+    "empirical_evidence": {
+      "training_dates": [
+        "2026-11-10"
+      ],
+      "calls_are_model_queries_not_people": {
+        "missing_observed_grade_model_occupancy_scenario_fallback": 1146450,
+        "context_cache": 2962508,
+        "historical_ordinal_distribution_and_transition": 1819517
+      },
+      "missing_crowd_routes": [
+        "120900011",
+        "120900012"
+      ],
+      "ordinal_to_people_conversion": false,
+      "full_flag_to_seat_conversion": false,
+      "headway_reference_is_not_individual_wait": true,
+      "severe_grade_discomfort_mapping_is_uncalibrated_choice_scenario": true
+    }
+  },
+  "independent_empirical_validation": false,
+  "empirical_decision": "NOT_EVALUABLE",
+  "extended_diagnostics": {
+    "unserved_trip_weight": 0.0,
+    "finished_trip_quantiles": {
+      "walk_min": {
+        "mean": 14.085621278402007,
+        "p50": 10.031797725823587,
+        "p90": 33.72554193879939,
+        "p95": 38.352705938848764,
+        "p99": 50.175771540615706,
+        "maximum": 71.64877119805496
+      },
+      "cumulative_wait_min": {
+        "mean": 4.931064159108686,
+        "p50": 4.348917388781896,
+        "p90": 10.089765809322126,
+        "p95": 11.75896559827961,
+        "p99": 15.311301262113679,
+        "maximum": 27.925245964544228
+      },
+      "total_min": {
+        "mean": 25.73718287701065,
+        "p50": 22.414371048836014,
+        "p90": 43.62122956546615,
+        "p95": 49.384885940410456,
+        "p99": 65.6489432017194,
+        "maximum": 90.37742957733813
+      },
+      "changes": {
+        "mean": 1.0784545125737768,
+        "p50": 1,
+        "p90": 3,
+        "p95": 4,
+        "p99": 5,
+        "maximum": 9
+      }
+    },
+    "all_recorded_time_max_continuous_wait_min": 17.796308293732604,
+    "all_recorded_time_over20_episode_weight": 0.0,
+    "outside_display_window_max_continuous_wait_min": 14.198919859590266,
+    "outside_display_window_over20_episode_weight": 0.0,
+    "time_window_note": "Primary criterion uses episodes overlapping11:20-23:10. Additional all-recorded metrics expose earlier/later initialization trajectories. No exposure deleted.",
+    "unserved_quantile_note": "Finished-trip quantiles are explicitly conditional; unserved mass is separately reported, not silently included as completed."
+  },
+  "cumulative_wait_reconstruction_max_error_seconds": 0.0,
+  "source_directory": "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\261112132736\\runs\\repair-combined-regular-wed\\attempt_01",
+  "unserved_trip_weight": 0,
+  "late_finished_weight": 0
+}

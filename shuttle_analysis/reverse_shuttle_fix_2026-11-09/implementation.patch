@@ -1,0 +1,139 @@
+--- before/collector/worker.mjs
++++ collector/worker.mjs
+@@ -7,6 +7,7 @@
+ import {ROUTES,ROUTE_NAMES,LIMITS,START,END,kstDay,dayStart,schedule,chooseRoute,allowedReservation} from './schedule.mjs';
+ 
+ const names=ROUTE_NAMES;
++const shuttleCacheKeys=new Set(['41841','41946','41914','41843','41942','41842','41869','41868','41915','41916'].map(id=>'shuttle-v2-'+id));
+ const json=(x,status=200,extra={})=>new Response(JSON.stringify(x),{status,headers:{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store',...extra}});
+ const auth=(req,env)=>Boolean(env.BACKEND_TOKEN)&&req.headers.get('Authorization')==='Bearer '+env.BACKEND_TOKEN;
+ const finite=(v)=>Number.isFinite(Number(v));
+@@ -43,6 +44,7 @@
+     this.pendingCost={reads:0,writes:0,requests:0,aux_writes:0};this.lastUsageFlush=0;this.auxMode=false;
+     this.sql=meteredSql(this.sql,(reads,writes)=>{this.pendingCost.reads+=reads;this.pendingCost.writes+=writes;if(this.auxMode)this.pendingCost.aux_writes+=writes;});
+     this.jobs=[];this.jobDay='';this.running=false;
++    this.shuttleCache=null;this.shuttleCacheSavedAt=0;this.shuttleBudget=null;
+   }
+   get(k,fallback=null){
+     if(['latest','history_sizes'].includes(k)){
+@@ -82,6 +84,58 @@
+   auxExec(query,...args){
+     if(this.usage().aux_writes+12>9000)throw Error('auxiliary_write_budget_exhausted');
+     this.auxMode=true;try{return this.sql.exec(query,...args);}finally{this.auxMode=false;}
++  }
++  shuttleWriteAvailable(){
++    const u=this.usage();return u.writes+32<65000&&!u.throttled;
++  }
++  reserveShuttleCall(day,limit){
++    // Reserve a small block durably BEFORE calls. On eviction unused slots stay
++    // charged; a restart can waste reservations, but can never reset the cap.
++    if(!this.shuttleWriteAvailable())return false;
++    return this.ctx.storage.transactionSync(()=>{
++      let block=this.shuttleBudget;
++      if(!block||block.day!==day||block.next>=block.end){
++        const used=this.sql.exec('SELECT used FROM generic_calls WHERE day=? AND service=?',day,'busin_live').toArray()[0]?.used||0;
++        if(used>=limit)return false;
++        const end=Math.min(limit,used+32);
++        this.sql.exec('INSERT OR REPLACE INTO generic_calls VALUES(?,?,?)',day,'busin_live',end);
++        block={day,next:used,end};this.shuttleBudget=block;
++      }
++      if(block.next>=limit)return false;
++      block.next++;return true;
++    });
++  }
++  cachedShuttle(b,now){
++    // One globally shared DO cache, not one cache per Vercel instance. The ten
++    // ephemeral feeds do not need a SQLite lease + value write every 15 seconds.
++    if(!this.shuttleCache){
++      const saved=this.get('shuttle-cache-v1',{});this.shuttleCacheSavedAt=saved.at||0;
++      this.shuttleCache=new Map(Object.entries(saved.entries||{}).filter(([key])=>shuttleCacheKeys.has(key))
++        .map(([key,doc])=>[key,{...doc,owner:null,lease:0}]));
++      for(const doc of this.sql.exec('SELECT * FROM cache WHERE key IN ('+[...shuttleCacheKeys].map(()=>'?').join(',')+')',...shuttleCacheKeys)){
++        if(!this.shuttleCache.has(doc.key))this.shuttleCache.set(doc.key,{value:JSON.parse(doc.value||'null'),expires:doc.expires,owner:null,lease:0});
++      }
++    }
++    const doc=this.shuttleCache.get(b.key),value=doc?.value??null;
++    if(b.action==='read')return json(doc?{value,expires_at:doc.expires/1000}:{});
++    if(b.action==='claim'){
++      if(doc&&(doc.expires>now||doc.lease>now))return json({owned:false,value});
++      const owner=crypto.randomUUID();this.shuttleCache.set(b.key,{value,expires:doc?.expires||0,owner,lease:now+55000});
++      return json({owned:true,owner,value});
++    }
++    if(!b.owner||doc?.owner!==b.owner||doc.lease<=now)return json({saved:false},409);
++    if(b.action==='publish'){
++      this.shuttleCache.set(b.key,{value:b.value,expires:now+Math.min(120,Math.max(1,b.seconds||15))*1000,owner:null,lease:0});
++      // A single compact checkpoint per minute keeps last observations across
++      // restarts. It uses total-write headroom, independent of the auxiliary cap.
++      if(now-this.shuttleCacheSavedAt>=60000&&this.shuttleWriteAvailable()){
++        this.put('shuttle-cache-v1',{at:now,entries:Object.fromEntries([...this.shuttleCache].map(([key,d])=>[key,{value:d.value,expires:d.expires}]))});
++        this.shuttleCacheSavedAt=now;
++      }
++      return json({saved:true});
++    }
++    if(b.action==='release'){doc.owner=null;doc.lease=0;return json({saved:true});}
++    return json({saved:false},409);
+   }
+   policy(day=kstDay(Date.now())){return operatingPolicy(day,this.get('provider_approved_limit',1000));}
+   ledger(day){
+@@ -343,6 +397,7 @@
+     if(req.method==='POST'&&path==='/budget'){
+       const b=await req.json();if(this.usage().writes>=65000)return json({allowed:false,reason:'write_headroom_reserved_for_collector'});if(!['public_arrivals','busin_live'].includes(b.service))return json({allowed:false});
+       const day=kstDay(Date.now()),limit=Math.min(b.service==='busin_live'?6000:1200,Math.max(0,Number(b.limit)||0));
++      if(b.service==='busin_live')return json({allowed:this.reserveShuttleCall(day,limit),reservation_block_size:32});
+       const ok=this.ctx.storage.transactionSync(()=>{
+         const row=this.sql.exec('SELECT used FROM generic_calls WHERE day=? AND service=?',day,b.service).toArray()[0];
+         if((row?.used||0)>=limit)return false;
+@@ -351,6 +406,7 @@
+     }
+     if(req.method==='POST'&&path==='/cache'){
+       const b=await req.json(),now=Date.now();if(!/^[a-zA-Z0-9_-]{1,150}$/.test(b.key||''))return json({error:'invalid cache key'},400);
++      if(shuttleCacheKeys.has(b.key))return this.cachedShuttle(b,now);
+       const doc=this.sql.exec('SELECT * FROM cache WHERE key=?',b.key).toArray()[0];
+       if(b.action==='read')return json(doc?{value:JSON.parse(doc.value||'null'),expires_at:doc.expires/1000}:{});
+       if(b.action==='claim'){
+--- before/app/collector_client.py
++++ app/collector_client.py
+@@ -49,16 +49,19 @@
+         except PersistenceUnavailable:return {},None
+     def cached(self,key,seconds,producer):
+         try:claim=self.request('/cache',{'key':key,'action':'claim'})
+-        except PersistenceUnavailable:return None
++        except PersistenceUnavailable:
++            # A failed lease must not discard a readable last observation.
++            return self.read('cache-'+key)[0].get('value')
+         if not claim.get('owned'):return claim.get('value')
+         try:
+             value=producer()
+-            self.request('/cache',{'key':key,'action':'publish','owner':claim['owner'],'value':value,'seconds':seconds})
+-            return value
+         except Exception:
+             try:self.request('/cache',{'key':key,'action':'release','owner':claim['owner']})
+             except PersistenceUnavailable:pass
+             raise
++        try:self.request('/cache',{'key':key,'action':'publish','owner':claim['owner'],'value':value,'seconds':seconds})
++        except PersistenceUnavailable:pass  # This instance still has a valid source observation.
++        return value
+     def observations(self,candidates=None):
+         try:return (self.request('/observation-errors',{'keys':candidates}) if candidates is not None else self.request('/observations')).get('records',[])
+         except PersistenceUnavailable:return []
+--- before/app/shuttle_live.py
++++ app/shuttle_live.py
+@@ -55,6 +55,7 @@
+                 return self._refresh_direct()
+             value=self.transit.shared.cached(key,15,produce)
+             if value:self.state=value
++            else:self.state['error']='실시간 셔틀 위치를 갱신하고 있습니다.'
+             return self.status()
+         return self._refresh_direct()
+ 
+--- before/app/server.py
++++ app/server.py
+@@ -35,7 +35,7 @@
+ RUNTIME=Path(tempfile.gettempdir())/'snu-route-lab' if os.environ.get('VERCEL') else ROOT/'runtime'
+ RUNTIME.mkdir(exist_ok=True)
+ KST=timezone(timedelta(hours=9))
+-APP_VERSION='0.21.1'
++APP_VERSION='0.21.2'
+ from service_state import StoragePausedState, PersistenceUnavailable
+ # Blob is deliberately disconnected from the runtime, including status reads.
+ # Keep existing store contents and credentials intact for a later explicit migration.

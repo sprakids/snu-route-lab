@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "updated_at_utc": "2026-11-06T11:41:09.434159+00:00",
+  "research_thread_id": "01a15f4b-516c-79b1-9b9a-c31680e1acd7",
+  "implementation_thread_id": "01a1a1e8-54cf-7243-9ad9-0a31e6f31a06",
+  "requested_population": {
+    "academic_term": "2026-2",
+    "campus": "Gwanak",
+    "unit": "unique_students_taking_gwanak_courses"
+  },
+  "selected_dorm_scenario": {
+    "status": "user_selected_scenario",
+    "undergraduate_count": 3122,
+    "graduate_count": 2650,
+    "numerator": 5772,
+    "denominator": 29613,
+    "fraction": 0.1949143957045892,
+    "percent": 19.491439570458923,
+    "numerator_statistical_date": null,
+    "numerator_latest_status": "User selected this count as latest in the implementation chat; website statistical date not independently established.",
+    "denominator_date": "2025-04-01",
+    "denominator_scope": "University-wide enrolled students, excludes contract departments; not Gwanak course-takers.",
+    "observed_current_gwanak_residence_rate": false,
+    "eligible_for_sensitivity_analysis": true,
+    "source_url": "https://snudorm.snu.ac.kr/기관-소개/현황/",
+    "denominator_source_file": "shuttle_analysis/current_shares_2026-11-06/sources/C02_2025서울대통계연보.pdf",
+    "denominator_source_page": 203
+  },
+  "observed_current_destination_shares": {
+    "snu_station": null,
+    "nakseongdae": null,
+    "daehak_dong": null
+  },
+  "historical_direction_evidence": [
+    {
+      "id": "reported_2022_april_transport_masterplan",
+      "status": "historical_reported_values_from_repost_text_with_quality_issues",
+      "report_title": "서울대학교 관악캠퍼스 교통체계 마스터플랜 수립",
+      "cover_date_as_displayed": "2022-09",
+      "displayed_research_lead": "고승영",
+      "source_url": "https://www.scribd.com/document/881211763/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA-2025-04-24-15-06-29",
+      "source_location": "본문 29~31쪽, 표 2-7·2-8",
+      "data_reference_period": "2022-04 weekdays before Sillim Line opening",
+      "unit": "transit_trips_per_day",
+      "data_as_described": "Bus travel-card boardings/alightings at campus and main-gate stops plus campus-management shuttle data",
+      "population_is_students_only": false,
+      "homeward_only": false,
+      "daehak_only": false,
+      "issuer_hosted_original_pdf_acquired": false,
+      "numeric_reading_method": "Public web reader text of repost; live local HTML capture contains viewer shell, not numerical table text.",
+      "reported_rows": [
+        {
+          "corridor": "bongcheon_snu_station",
+          "label": "봉천동권 / 서울대입구역",
+          "reported_trips_per_day": 23276,
+          "reported_percent": 55.7
+        },
+        {
+          "corridor": "nakseongdae_area",
+          "label": "낙성대동권 / 낙성대역",
+          "reported_trips_per_day": 11388,
+          "reported_percent": 27.2
+        },
+        {
+          "corridor": "sillim_including_daehak",
+          "label": "신림동권 / 대학동 포함",
+          "reported_trips_per_day": 7141,
+          "reported_percent": 17.0
+        }
+      ],
+      "reported_total_trips_per_day": 41814,
+      "computed_row_total": 41805,
+      "computed_percent_total": 99.9,
+      "allocation_vector": null,
+      "eligible_for_default_calibration": false,
+      "quality_issues": [
+        "Displayed row sum 41805 differs from displayed total 41814 by 9; no correction assumed.",
+        "Displayed percentages sum to 99.9; not normalized.",
+        "Table 2-8 Nakseongdae shuttle count 957 equals table 2-7 Nakseongdae 660 plus Sadang 297; grouping needs original-table confirmation.",
+        "Cover date is 2022-09 while some body notes refer to October 2022; historical version provenance remains unresolved."
+      ]
+    }
+  ],
+  "survey_evidence": {
+    "2024": {
+      "questionnaire_available": true,
+      "responses_available": false,
+      "reference_term": "2024-spring",
+      "destination_question": 12,
+      "destination_question_multiple_response": true,
+      "daehak_dong_combined_with_gwanaksan": true,
+      "url": "https://docs.google.com/forms/d/e/1FAIpQLSdafiG0k6MP2CfAFOQEMFnKSfKKqVWXydFew2jcpEEMvPUMQg/viewform"
+    },
+    "2026_graduate": {
+      "questionnaire_available": true,
+      "responses_available": false,
+      "announced_end_date": "2026-12-14",
+      "population": "graduate_students_only"
+    }
+  },
+  "interpretation_rules": [
+    "Do not label the selected dorm scenario as a measured Gwanak course-taker rate.",
+    "Do not assign station-destination fractions from residential category counts.",
+    "Do not sum multiple survey selections as unique students or trips.",
+    "Class-end enrollment sums include repeat students and are not observed departures.",
+    "Do not exclude dorm residents from all on-campus bus/shuttle travel."
+  ],
+  "source_verification_file": "shuttle_analysis/current_shares_2026-11-06/verification.json"
+}

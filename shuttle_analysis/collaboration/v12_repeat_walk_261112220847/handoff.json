@@ -1,0 +1,191 @@
+{
+  "status": "PRIVATE_USER_REQUESTED_SCENARIO_COMPLETE",
+  "release_id": "261112220847",
+  "parent": "261112210916",
+  "created_at": "2026-11-12T13:51:31.523427+00:00",
+  "candidate": "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\261112220847",
+  "result": {
+    "release_id": "261112220847",
+    "parent": "261112210916",
+    "recommendation": "KEEP_PRIVATE_DO_NOT_PROMOTE",
+    "internal_ten_case_gate_passed": true,
+    "conditional_probability_formula": "1-(1-p_ref)**(2**n)",
+    "growth_factor": 2.0,
+    "growth_empirically_estimated": false,
+    "base_distance_and_cost_coefficients_unchanged": true,
+    "review_timing_unchanged": true,
+    "unlimited_changes": true,
+    "maximum_all_recorded_continuous_wait_min": 19.295697832027752,
+    "over20_episode_weight": 0.0,
+    "unserved_trip_weight": 0.0,
+    "mean_total_improved": 9,
+    "p99_total_improved": 10,
+    "max_total_improved": 5,
+    "maximum_total_journey_min": 100.68564962946972,
+    "parent_maximum_total_journey_min": 106.13838762079952,
+    "p99_delta_range": [
+      -2.1242807188696986,
+      -0.047891203768813284
+    ],
+    "mean_walk_delta_range": [
+      0.0028357969255061732,
+      0.06565752929789603
+    ],
+    "mean_change_count_delta_range": [
+      -0.009445189309019164,
+      0.0013768895733269337
+    ],
+    "mean_total_regressions": [
+      {
+        "day": "월",
+        "scenario": "regular",
+        "delta_min": 0.012301713222157673
+      }
+    ],
+    "primary_loss_before": 0.24215903256298624,
+    "primary_loss_after": 0.24215903256298643,
+    "old_field_errors_improved": 0,
+    "old_field_errors_worse": 0,
+    "named_40_reference_exceed_conditions": 0,
+    "target_trace": [
+      {
+        "model": "261112210916",
+        "uid": 1205536,
+        "parent_id": 75346,
+        "fragment_count": 1,
+        "mass": 0.19180217599830604,
+        "weighted_mean_total_min": 61.707677083425615,
+        "maximum_total_min": 61.707677083425615,
+        "fragments": [
+          {
+            "weight": 0.19180217599830604,
+            "duration_min": 61.707677083425615,
+            "leg_times": {
+              "walk": 44.31547004323135,
+              "queue": 15.45505590544999,
+              "ride": 1.937151134744272
+            },
+            "route_changes": 3,
+            "history": [
+              [
+                50231.30231397559,
+                "walk_transfer",
+                "도보→기숙사삼거리 · 교내 순환 셔틀 / 관악02-2"
+              ],
+              [
+                50686.680433218164,
+                "walk_transfer",
+                "도보→수의대입구.보건대학원앞 · 관악02-2"
+              ],
+              [
+                51252.92447801783,
+                "walk",
+                "목적지까지 도보"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "model": "261112220847",
+        "uid": 1205536,
+        "parent_id": 75346,
+        "fragment_count": 1,
+        "mass": 0.19180217599830604,
+        "weighted_mean_total_min": 61.707677083425615,
+        "maximum_total_min": 61.707677083425615,
+        "fragments": [
+          {
+            "weight": 0.19180217599830604,
+            "duration_min": 61.707677083425615,
+            "leg_times": {
+              "walk": 44.31547004323135,
+              "queue": 15.45505590544999,
+              "ride": 1.937151134744272
+            },
+            "route_changes": 3,
+            "history": [
+              [
+                50231.30231397559,
+                "walk_transfer",
+                "도보→기숙사삼거리 · 교내 순환 셔틀 / 관악02-2"
+              ],
+              [
+                50686.680433218164,
+                "walk_transfer",
+                "도보→수의대입구.보건대학원앞 · 관악02-2"
+              ],
+              [
+                51252.92447801783,
+                "walk",
+                "목적지까지 도보"
+              ]
+            ]
+          }
+        ]
+      }
+    ],
+    "recorded_probability_checks": 642513,
+    "independent_field_accuracy": "NOT_EVALUABLE",
+    "new_day_outcomes_opened": false,
+    "production_writes": false,
+    "report_sha256": "c9bd1353c3659359b27d5b302bb416a574a93599152adb54f0669f39920ec5a7"
+  },
+  "artifact_checks": {
+    "status": "PASS_RECONCILED_PRIVATE_CANDIDATE",
+    "release_id": "261112220847",
+    "cases": 10,
+    "numeric_checks": 595,
+    "field_rows": 56,
+    "stop_rows": 990,
+    "half_hour_rows": 11672,
+    "journey_rows": 40,
+    "class_end_rows": 40,
+    "physical_component_rows": 20,
+    "probability_law_rows": 45,
+    "probability_opportunity_rows": 144,
+    "recorded_probability_checks": 642513,
+    "no_release_timing_change": true,
+    "maximum_all_recorded_continuous_wait_min": 19.295697832027752,
+    "unit_tests_passed": 89,
+    "decline_cost_vectors_checked": 71502,
+    "local_links_checked": 20,
+    "runtime_frozen_hashes": 22,
+    "report_sha256": "c9bd1353c3659359b27d5b302bb416a574a93599152adb54f0669f39920ec5a7",
+    "peer_static_evidence_sha256": "7d406200505ca802d84e4049e97c3f2dd60e03ea4a067781a9a71ddf6ae3e53b",
+    "production_writes": false,
+    "independent_field_accuracy": "NOT_EVALUABLE"
+  },
+  "files": {
+    "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\261112220847\\RESULTS_FINAL.md": "c9bd1353c3659359b27d5b302bb416a574a93599152adb54f0669f39920ec5a7",
+    "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\261112220847\\release_recommendation_final.json": "3eef82f267d1ad06aa2ee3312e21a80baa4daf34b18f2e9fd1c5b2b678ccd87e",
+    "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\261112220847\\artifact_verification_final.json": "f045a8e105d4e9c81bc410a3bd135a6ffbebd11a4abee2b691ce00f2d308876a",
+    "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\261112220847\\final_verification.json": "3f26eb0d3e3591d8058d37e52aa28237b3be2176191e4b49495fab0781376acc",
+    "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\261112220847\\grid-validation.json": "3e7a4234626a9e236e06ad0b6a75da703d4849adb6414c292ffb436179722bcd",
+    "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\261112220847\\grid-diagnostics.json": "685381e60ba8715a7b2c7bc5b3d3d8bdd85fa462f952da2808e31fe346437a82",
+    "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\261112220847\\grid-probability-validation.json": "b18a8c3c02ec659d5bd2b29d3d81a87aa09ec1fd7c742cf97cade37515d989be",
+    "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\261112220847\\probability-law.csv": "4bae236e0d346f302eaa2122e8db540b55c6d7334476144614236965290274b1",
+    "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\261112220847\\grid-walking-by-change-count.csv": "f8d2505d2bbb68c5f43abf618f4a5940b990905df0e0ee95e6a895c57a351a41",
+    "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\261112220847\\grid-field-comparison.csv": "ae613ff886b103facb5e9f3440949670b48f1e9e618fbef6d89995a1d47b1269",
+    "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\261112220847\\grid-all-stops.csv": "71405429c53e8694defdbef542e5961e1b24afa27d59fcf38073f0f8baa1bd49",
+    "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\261112220847\\grid-half-hour-waits.csv": "c90fe57acf52be18aad8d385b10fd17211b431f596693d80a276983ad83ad460",
+    "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\261112220847\\grid-journey-comparison.csv": "604c8e4487c76685c6b922adfbcfe1d9d20ed573777548eda2756ae60953fa61",
+    "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\261112220847\\class-end-journey-comparison.csv": "9a366daae6183276475a3ed8afcf167c14e6c4d1af8a518b2f6918f04d06d5b5",
+    "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\261112220847\\mean-physical-components.csv": "f7490b9decaf9902469c2f94584ef502c9e21b53cb0ffd9efbf4e1f1eda8f86c",
+    "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\261112220847\\grid-trace-and-costs.json": "5e1b9c042faeb4116170f0b7283af4fa9d8cbe7930383d419c1e313785949c4e",
+    "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\261112220847\\OBSERVATION_USAGE.md": "edb5fbc8a804361aad1bc58fa911579672c1faac3d922b7deb961827567b7720",
+    "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\261112220847\\observation_usage_ledger.json": "eb9deae5af280d2dca766d6cd01ca6746c4e845e65960d3004d6bf7c176852a7",
+    "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\261112220847\\pilot-assessment.json": "45eaccbe9ee0f9fb3e431b942df293fc3bad2800b6f1b59f636eb8edb6c35b80",
+    "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\261112220847\\future_evaluation_plan.json": "a188de547b3aeca0eeb93876ea14381f12c1cd82e929441aa3d425d3adb6023d",
+    "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\261112220847\\boundary-tests.log": "b731094248b8efb2033ad3f18270af0b22259d2671580f3e0a76072568d9be6f",
+    "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\261112220847\\config.json": "3d884b8852137d058e2e350a09a1ffe35084e8419709fa80985e8ca4ae8a9d81",
+    "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\261112220847\\USER_DIRECTIVE.md": "f92eb5fb6d341e83deff361d32ef5272b4046e6a22c6db78d260e6e020f62a47"
+  },
+  "peer_static_review": {
+    "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\collaboration\\v12_repeat_walk_review_261112220847\\READ_ONLY_REVIEW.md": "ae3c550e742ebeb0d90bafd8d2406e7d2f6b4d24c5fed88fe75c88e045e32e46",
+    "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\collaboration\\v12_repeat_walk_review_261112220847\\evidence.json": "7d406200505ca802d84e4049e97c3f2dd60e03ea4a067781a9a71ddf6ae3e53b"
+  },
+  "production_model_preserved": "261110162302",
+  "authorized_receiver_thread": "01a1a1e8-54cf-7243-9ad9-0a31e6f31a06",
+  "production_writes": false
+}

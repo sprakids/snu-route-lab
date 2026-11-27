@@ -1,0 +1,698 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "installCommand": "",
+  "buildCommand": "",
+  "outputDirectory": "public",
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/data/:dataset/:file.json",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        },
+        {
+          "key": "Content-Encoding",
+          "value": "br"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/V261125170855/viewer-data/common.json",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        },
+        {
+          "key": "Content-Encoding",
+          "value": "gzip"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/V261125170855/viewer-data/regular-mon.json",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        },
+        {
+          "key": "Content-Encoding",
+          "value": "gzip"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/V261125170855/viewer-data/regular-tue.json",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        },
+        {
+          "key": "Content-Encoding",
+          "value": "gzip"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/V261125170855/viewer-data/regular-wed.json",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        },
+        {
+          "key": "Content-Encoding",
+          "value": "gzip"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/V261125170855/viewer-data/regular-thu.json",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        },
+        {
+          "key": "Content-Encoding",
+          "value": "gzip"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/V261125170855/viewer-data/regular-fri.json",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        },
+        {
+          "key": "Content-Encoding",
+          "value": "gzip"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/V261125170855/viewer-data/peak-mon.json",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        },
+        {
+          "key": "Content-Encoding",
+          "value": "gzip"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/V261125170855/viewer-data/peak-tue.json",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        },
+        {
+          "key": "Content-Encoding",
+          "value": "gzip"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/V261125170855/viewer-data/peak-wed.json",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        },
+        {
+          "key": "Content-Encoding",
+          "value": "gzip"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/V261125170855/viewer-data/peak-thu.json",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        },
+        {
+          "key": "Content-Encoding",
+          "value": "gzip"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/V261125170855/viewer-data/peak-fri.json",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        },
+        {
+          "key": "Content-Encoding",
+          "value": "gzip"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/V261125170855/map-stats.json",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        },
+        {
+          "key": "Content-Encoding",
+          "value": "gzip"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/V261125170855/station-access.json",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        },
+        {
+          "key": "Content-Encoding",
+          "value": "gzip"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/R261125170855/viewer-data/common.json",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        },
+        {
+          "key": "Content-Encoding",
+          "value": "gzip"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/R261125170855/viewer-data/regular-mon.json",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        },
+        {
+          "key": "Content-Encoding",
+          "value": "gzip"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/R261125170855/viewer-data/regular-tue.json",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        },
+        {
+          "key": "Content-Encoding",
+          "value": "gzip"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/R261125170855/viewer-data/regular-wed.json",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        },
+        {
+          "key": "Content-Encoding",
+          "value": "gzip"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/R261125170855/viewer-data/regular-thu.json",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        },
+        {
+          "key": "Content-Encoding",
+          "value": "gzip"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/R261125170855/viewer-data/regular-fri.json",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        },
+        {
+          "key": "Content-Encoding",
+          "value": "gzip"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/R261125170855/viewer-data/peak-mon.json",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        },
+        {
+          "key": "Content-Encoding",
+          "value": "gzip"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/R261125170855/viewer-data/peak-tue.json",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        },
+        {
+          "key": "Content-Encoding",
+          "value": "gzip"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/R261125170855/viewer-data/peak-wed.json",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        },
+        {
+          "key": "Content-Encoding",
+          "value": "gzip"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/R261125170855/viewer-data/peak-thu.json",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        },
+        {
+          "key": "Content-Encoding",
+          "value": "gzip"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/R261125170855/viewer-data/peak-fri.json",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        },
+        {
+          "key": "Content-Encoding",
+          "value": "gzip"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/R261125170855/map-stats.json",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        },
+        {
+          "key": "Content-Encoding",
+          "value": "gzip"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/R261125170855/station-access.json",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        },
+        {
+          "key": "Content-Encoding",
+          "value": "gzip"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/V261125170855/viewer-data/common.json",
+      "destination": "/V261125170855/viewer-data/common.json.gz"
+    },
+    {
+      "source": "/V261125170855/viewer-data/regular-mon.json",
+      "destination": "/V261125170855/viewer-data/regular-mon.json.gz"
+    },
+    {
+      "source": "/V261125170855/viewer-data/regular-tue.json",
+      "destination": "/V261125170855/viewer-data/regular-tue.json.gz"
+    },
+    {
+      "source": "/V261125170855/viewer-data/regular-wed.json",
+      "destination": "/V261125170855/viewer-data/regular-wed.json.gz"
+    },
+    {
+      "source": "/V261125170855/viewer-data/regular-thu.json",
+      "destination": "/V261125170855/viewer-data/regular-thu.json.gz"
+    },
+    {
+      "source": "/V261125170855/viewer-data/regular-fri.json",
+      "destination": "/V261125170855/viewer-data/regular-fri.json.gz"
+    },
+    {
+      "source": "/V261125170855/viewer-data/peak-mon.json",
+      "destination": "/V261125170855/viewer-data/peak-mon.json.gz"
+    },
+    {
+      "source": "/V261125170855/viewer-data/peak-tue.json",
+      "destination": "/V261125170855/viewer-data/peak-tue.json.gz"
+    },
+    {
+      "source": "/V261125170855/viewer-data/peak-wed.json",
+      "destination": "/V261125170855/viewer-data/peak-wed.json.gz"
+    },
+    {
+      "source": "/V261125170855/viewer-data/peak-thu.json",
+      "destination": "/V261125170855/viewer-data/peak-thu.json.gz"
+    },
+    {
+      "source": "/V261125170855/viewer-data/peak-fri.json",
+      "destination": "/V261125170855/viewer-data/peak-fri.json.gz"
+    },
+    {
+      "source": "/V261125170855/map-stats.json",
+      "destination": "/V261125170855/map-stats.json.gz"
+    },
+    {
+      "source": "/V261125170855/station-access.json",
+      "destination": "/V261125170855/station-access.json.gz"
+    },
+    {
+      "source": "/R261125170855/viewer-data/common.json",
+      "destination": "/R261125170855/viewer-data/common.json.gz"
+    },
+    {
+      "source": "/R261125170855/viewer-data/regular-mon.json",
+      "destination": "/R261125170855/viewer-data/regular-mon.json.gz"
+    },
+    {
+      "source": "/R261125170855/viewer-data/regular-tue.json",
+      "destination": "/R261125170855/viewer-data/regular-tue.json.gz"
+    },
+    {
+      "source": "/R261125170855/viewer-data/regular-wed.json",
+      "destination": "/R261125170855/viewer-data/regular-wed.json.gz"
+    },
+    {
+      "source": "/R261125170855/viewer-data/regular-thu.json",
+      "destination": "/R261125170855/viewer-data/regular-thu.json.gz"
+    },
+    {
+      "source": "/R261125170855/viewer-data/regular-fri.json",
+      "destination": "/R261125170855/viewer-data/regular-fri.json.gz"
+    },
+    {
+      "source": "/R261125170855/viewer-data/peak-mon.json",
+      "destination": "/R261125170855/viewer-data/peak-mon.json.gz"
+    },
+    {
+      "source": "/R261125170855/viewer-data/peak-tue.json",
+      "destination": "/R261125170855/viewer-data/peak-tue.json.gz"
+    },
+    {
+      "source": "/R261125170855/viewer-data/peak-wed.json",
+      "destination": "/R261125170855/viewer-data/peak-wed.json.gz"
+    },
+    {
+      "source": "/R261125170855/viewer-data/peak-thu.json",
+      "destination": "/R261125170855/viewer-data/peak-thu.json.gz"
+    },
+    {
+      "source": "/R261125170855/viewer-data/peak-fri.json",
+      "destination": "/R261125170855/viewer-data/peak-fri.json.gz"
+    },
+    {
+      "source": "/R261125170855/map-stats.json",
+      "destination": "/R261125170855/map-stats.json.gz"
+    },
+    {
+      "source": "/R261125170855/station-access.json",
+      "destination": "/R261125170855/station-access.json.gz"
+    },
+    {
+      "source": "/model-guide",
+      "destination": "/model-guide.html"
+    },
+    {
+      "source": "/data/capacity_v11/:file.json",
+      "destination": "https://snu-shuttle-v9-data.vercel.app/data/capacity_v11/:file.json"
+    },
+    {
+      "source": "/data/half_hour_v1/capacity_v11.json",
+      "destination": "https://snu-shuttle-v9-data.vercel.app/data/half_hour_v1/capacity_v11.json"
+    },
+    {
+      "source": "/data/capacity_review_v1/:file.json",
+      "destination": "https://snu-shuttle-v9-data.vercel.app/data/capacity_review_v1/:file.json"
+    },
+    {
+      "source": "/capacity-correction-waits.csv",
+      "destination": "https://snu-shuttle-v9-data.vercel.app/capacity-correction-waits.csv"
+    },
+    {
+      "source": "/routing-model/releases/261110162302.json",
+      "destination": "https://snu-shuttle-v9-data.vercel.app/routing-model/releases/261110162302.json"
+    },
+    {
+      "source": "/data/capacity_v9/:file.json",
+      "destination": "https://snu-shuttle-v9-data.vercel.app/data/capacity_v9/:file.json"
+    },
+    {
+      "source": "/data/half_hour_v1/capacity_v9.json",
+      "destination": "https://snu-shuttle-v9-data.vercel.app/data/half_hour_v1/capacity_v9.json"
+    },
+    {
+      "source": "/data/walk_review_v1/:file.json",
+      "destination": "https://snu-shuttle-v9-data.vercel.app/data/walk_review_v1/:file.json"
+    },
+    {
+      "source": "/routing-model/releases/261110150729.json",
+      "destination": "https://snu-shuttle-v9-data.vercel.app/routing-model/releases/261110150729.json"
+    },
+    {
+      "source": "/walk-choice-waits.csv",
+      "destination": "https://snu-shuttle-v9-data.vercel.app/walk-choice-waits.csv"
+    },
+    {
+      "source": "/data/:dataset/:file.json",
+      "destination": "/data/:dataset/:file.json.br"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/R261125170855",
+      "destination": "/V261125170855/",
+      "permanent": false
+    },
+    {
+      "source": "/R261125170855/",
+      "destination": "/V261125170855/",
+      "permanent": false
+    },
+    {
+      "source": "/R261125170855/index.html",
+      "destination": "/V261125170855/",
+      "permanent": false
+    },
+    {
+      "source": "/V12",
+      "destination": "/V261125170855/",
+      "permanent": false
+    },
+    {
+      "source": "/V12/",
+      "destination": "/V261125170855/",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "dataset",
+          "value": "(baseline_v5|empirical_speed_v1|gate_access_v1|walk_choices_v1|corrected_supply_v1)"
+        }
+      ],
+      "destination": "/v11.html",
+      "permanent": false
+    },
+    {
+      "source": "/index.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "dataset",
+          "value": "(baseline_v5|empirical_speed_v1|gate_access_v1|walk_choices_v1|corrected_supply_v1)"
+        }
+      ],
+      "destination": "/v11.html",
+      "permanent": false
+    },
+    {
+      "source": "/city.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "dataset",
+          "value": "(baseline_v5|empirical_speed_v1|gate_access_v1|walk_choices_v1|corrected_supply_v1)"
+        }
+      ],
+      "destination": "/v11.html",
+      "permanent": false
+    }
+  ]
+}

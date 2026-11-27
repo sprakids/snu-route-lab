@@ -1,0 +1,104 @@
+{
+  "status": "RARE_TAIL_REGRESSION_EXPOSED_NOT_CAUSAL_ISOLATION",
+  "new_case": {
+    "case": "release1p125-combined-regular-tue",
+    "mode": "combined",
+    "day": "화",
+    "scenario": "regular",
+    "seed": 0,
+    "operations": "v12_empirical"
+  },
+  "new_worst": {
+    "id": 1205536,
+    "parent_id": 75346,
+    "weight": 0.19180217599830604,
+    "duration_min": 101.47449089305276,
+    "leg_time_minutes": {
+      "walk": 73.27218509828757,
+      "queue_wait": 20.206528028440516,
+      "transfer_preparation": 0.0,
+      "ride": 7.995777766324681
+    },
+    "route_change_count": 7,
+    "history": [
+      [
+        50231.30231397559,
+        "walk_transfer",
+        "도보→기숙사삼거리 · 교내 순환 셔틀 / 관악02-2"
+      ],
+      [
+        50269.31117314806,
+        "walk_transfer",
+        "도보→대학원생활관 · 관악02-1"
+      ],
+      [
+        50822.119916592215,
+        "walk_transfer",
+        "도보→대학원생활관 · 관악02-2"
+      ],
+      [
+        51113.053527185744,
+        "walk_transfer",
+        "도보→관악사삼거리 · 5516 / 관악02-1"
+      ],
+      [
+        51964.09611145401,
+        "walk_transfer",
+        "도보→301동(제1공학관) · 교내 역순환 셔틀 / 관악02-1"
+      ],
+      [
+        52251.439841444604,
+        "walk_transfer",
+        "도보→제2공학관 · 5516 / 관악02-1"
+      ],
+      [
+        52567.92843630822,
+        "walk",
+        "목적지까지 도보"
+      ]
+    ],
+    "wait_stop_names": [
+      "관악사삼거리",
+      "기숙사삼거리",
+      "대학원생활관",
+      "대학원생활관",
+      "관악사삼거리",
+      "유회진학술정보관.제1공학관",
+      "301동(제1공학관)",
+      "제2공학관"
+    ]
+  },
+  "same_source_parent_before": [
+    {
+      "id": 1205536,
+      "parent_id": 75346,
+      "weight": 0.19180217599830604,
+      "duration_min": 27.460901413572962,
+      "leg_time_minutes": {
+        "walk": 9.656103859915795,
+        "queue_wait": 7.19535941152523,
+        "transfer_preparation": 0.0,
+        "ride": 10.609438142131937
+      },
+      "route_change_count": 1,
+      "history": [
+        [
+          50086.039902144585,
+          "walk_transfer",
+          "도보→대학원생활관 · 관악02-1"
+        ]
+      ],
+      "wait_stop_names": [
+        "관악사삼거리",
+        "대학원생활관"
+      ]
+    }
+  ],
+  "case_scenario_weight": 17683.5,
+  "new_worst_weight_share": 1.0846392173399272e-05,
+  "over90_trip_weight": 3.078874880857962,
+  "source_audit_sha256": "87e8f0d7af254cdcc33bede6c4582e4cceb4f2ff2c7d7a75d0ab9a80617c7500",
+  "parent_audit_sha256": "dc7593f0557189f406f9dd8544f44645e5754e5be571f6c63e2b1fc5e25307a7",
+  "correction_note": "Earlier tail_regression_diagnosis.json treated type2 as ride and omitted type3. This final file uses the engine schema0 walk/1 queue/2 preparation/3 ride and asserts the full duration sum. Earlier diagnostic is retained, not a model failure.",
+  "interpretation": "Same source parent, different individual timing, walking factor and endogenous random decision path. This is not alpha-only causal attribution. Unlimited changes allow rare long histories; first-boardable continuation remains approximate. Do not clip the trip or count its weight as a measured person."
+}

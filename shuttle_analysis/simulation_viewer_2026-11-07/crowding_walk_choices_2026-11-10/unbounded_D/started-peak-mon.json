@@ -1,0 +1,49 @@
+{
+  "status": "STARTED",
+  "model_sha256": "85caa9e0bf230117ac9fc631aa191c8cfdcfa22251dc9d50fef519c807d498cd",
+  "prepared_sha256": "6b6a0b27769c214f0de14c873a9ab5d1199ad6482622c35975689acf89481858",
+  "case": [
+    "peak",
+    "월"
+  ],
+  "started_at": "2026-11-10T14:04:50.529086+09:00",
+  "rule": {
+    "neighbor_walk_seconds": 1250,
+    "maximum_individual_transfer_walk_seconds": 1800,
+    "maximum_transfer_path_meters": 1500,
+    "diverse_route_targets": true,
+    "neighbor_stops": 6,
+    "options_per_stop": 2,
+    "minimum_gain_seconds": 120,
+    "maximum_changes": null,
+    "target_mean_changes": 1.0,
+    "repeat_change_probability_multiplier": 0.3,
+    "congestion_can_raise_change_probability": true,
+    "same_line_downstream_consideration_probability": 0.08,
+    "continuous_wait_review_limit_seconds": 1200,
+    "walking_willingness": {
+      "plateau_meters": 500,
+      "weight_at_1000_meters": 0.3,
+      "tail_decay_meters": 150,
+      "meaning": "relative consideration weight, user scenario, not measured mode share"
+    },
+    "named_stop_queue_tolerance_range": [
+      20.0,
+      35.0
+    ],
+    "review_threshold_is_forced_exit": false,
+    "same_stop_policy_pool_freeflow_slack_seconds": 300,
+    "terminal_walk_reserved_for_final_change": false,
+    "include_shuttle": true,
+    "soft_queue_reference_people": 40,
+    "soft_reference_stop_ids": [
+      "120000167",
+      "120000168",
+      "120000196",
+      "120000197"
+    ],
+    "reference_source": "user recollection, not counted observations",
+    "do_not_clip_queue_or_delete_demand": true,
+    "independent_empirical_validation": false
+  }
+}

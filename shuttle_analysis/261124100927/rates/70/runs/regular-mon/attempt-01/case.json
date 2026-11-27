@@ -1,0 +1,52 @@
+{
+  "model_id": "R261124100927",
+  "case": "regular-mon",
+  "day": "월",
+  "service": "regular",
+  "route_capacity": {
+    "id": "20261124-daehak-passenger-capacity",
+    "confirmation_date_kst": "2026-11-24",
+    "user_statement": "대학동행도 승객 44명",
+    "maximum_passengers_per_vehicle": 44,
+    "route": "행정관 → 대학동",
+    "model_route_id": "shuttle-daehak",
+    "source_type": "user-confirmed passenger capacity",
+    "document_context": "나라장터 입찰공고 20231243066-001, 과업지시서와 사업내역서 제3노선: 44인승 이상",
+    "applies_to_model_route_in_both_directions": true,
+    "return_direction_basis": "same vehicle on modeled round trip",
+    "linked_departure_event": "20261123-1659-admin-daehak-full-departure-queue-01",
+    "linked_event_reported_outcome": "만차 출발, 출발 후 줄 1명",
+    "exact_boardings_at_linked_stop": null,
+    "exact_preboarding_queue_at_linked_stop": null
+  },
+  "selection": {
+    "target": 0.7,
+    "eligible_mass": 1543.8866711769374,
+    "converted_mass": 1080.6162926495088,
+    "realized_fraction": 0.6999323932408408,
+    "destination_mass": 2587.342853440007,
+    "first_daehak_shuttle_fraction": 0.17905256657867608,
+    "walk_only_fraction": 0.4558028833486837
+  },
+  "flat_selection": {
+    "eligible_mass": 1538.327660681651,
+    "target": 0.7,
+    "realized_fraction": 0.6998237378703829,
+    "converted_mass": 1076.558213567635,
+    "destination_mass": 2587.342853440007,
+    "first_daehak_shuttle_fraction": 0.17847246123569185,
+    "walk_only_fraction": 0.4546653958504319
+  },
+  "sha256": {
+    "run.py": "e22b68a9c93738ac0521a63a551fedf4e9ce55c527c129963a35f3f79fdf8313",
+    "peak_departure.py": "b57557c8d5b9ba0362fa99d89fea246204098cb2570e598de48774d6133fc944",
+    "departure.py": "22cf62f5eb6173e1518b97b6732735c11f384c98182fec692f0be90c0e99934f",
+    "population.py": "07a083b929f2e90d5e8c98ab91c63f7813b3e75cab741effad650e4f67e2cde4",
+    "engine.py": "987c5280b19ad977039881dd5fb9856d054ba47cd7f5173b5f1085cbaf0802d3",
+    "candidate.py": "a1762d47ddf31be798feb5ed38183c96f1f6ee3b2de9491c85125c9f97ec472f",
+    "validate.py": "a5dbc939499810b56b6f8314a1dff45cc567f8dac9c5cf9b0ec4331f743ad63b",
+    "walk_catalog.json": "5dbb6f6b5e2916e3fdbc7060996fbe984012297a2949036f44db09d8ac76d83d",
+    "daehak_capacity.json": "0b35f4578e0f8c9b24c2ca3ca04b6d9d62611704ed56a97bfc39186f9cba68b7",
+    "course_endings_current.json": "1077b14303d111b7aa91f73bc435f3c1d3af64ab1bfae01d7f7a51a100873cf2"
+  }
+}

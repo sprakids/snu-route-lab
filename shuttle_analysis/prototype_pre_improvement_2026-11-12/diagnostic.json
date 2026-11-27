@@ -1,0 +1,309 @@
+{
+  "created_at": "2026-11-12T01:36:51.686609+00:00",
+  "analysis": "Pre-improvement issue diagnosis of saved R10",
+  "simulation_reruns": 0,
+  "model_writes": false,
+  "production_writes": false,
+  "sources": {
+    "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\prototype_review_261110193823\\review.json": "2c2439d71bb407c3b9c24c96268ec143ade17dae7b0bfbe8b646554050d4dafa",
+    "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\prototype_review_261110193823\\known_queue_diagnostic.json": "0294aa05af966fb763577e04e938ab0d27addc62af657128918f07ea89b4cbee",
+    "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\prototype_validation_261110194553\\validation.json": "562c37234195d5076584e6da8eaba120327ac1d8766053c5779f0ddbbf019cf8",
+    "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\prototype_validation_261110194553\\runs\\distribution_v8-combined-peak-wed\\attempt_01\\audit-peak-wed.json.gz": "1d440ace33e7e220d52cee47c1ede1b80f7c5429c7c4bad57bd80b76d1a10e7d"
+  },
+  "main_validation": {
+    "maximum_continuous_wait_min": 19.26227134372663,
+    "over20_episode_weight": 0.0,
+    "unserved_trip_weight": 0.0,
+    "empirical_status": "NOT_EVALUABLE"
+  },
+  "known_queue_diagnostics": [
+    {
+      "observation_id": "20261109-1653-admin-snu-queue-01",
+      "model": "V11",
+      "scenario": "regular",
+      "weekday": "mon",
+      "reported_minute": "16:53",
+      "node": 1,
+      "stop": "행정관",
+      "observed_low": 53,
+      "observed_high": 53,
+      "uniform_minute_mean": 42.73864801709103,
+      "uniform_minute_p10": 26.83937679701795,
+      "uniform_minute_p90": 59.86957848589152,
+      "minute_minimum": 23.173510697913077,
+      "minute_maximum": 64.88208927446352,
+      "expected_absolute_distance_to_count_or_interval": 13.158611749154456
+    },
+    {
+      "observation_id": "20261109-1655-culture-city-queue-01",
+      "model": "V11",
+      "scenario": "regular",
+      "weekday": "mon",
+      "reported_minute": "16:55",
+      "node": 59,
+      "stop": "문화관입구",
+      "observed_low": 5,
+      "observed_high": 5,
+      "uniform_minute_mean": 4.570142436009439,
+      "uniform_minute_p10": 3.609755903710417,
+      "uniform_minute_p90": 5.06862098396644,
+      "minute_minimum": 3.198281137484359,
+      "minute_maximum": 5.4987991486573184,
+      "expected_absolute_distance_to_count_or_interval": 0.531604081809451
+    },
+    {
+      "observation_id": "20261109-1703-snu-gate-queue-01",
+      "model": "V11",
+      "scenario": "regular",
+      "weekday": "mon",
+      "reported_minute": "17:03",
+      "node": 62,
+      "stop": "서울대학교",
+      "observed_low": 33,
+      "observed_high": 39,
+      "uniform_minute_mean": 37.91626411516945,
+      "uniform_minute_p10": 33.79704102593108,
+      "uniform_minute_p90": 41.44673099804277,
+      "minute_minimum": 30.299505513009592,
+      "minute_maximum": 44.81334272171051,
+      "expected_absolute_distance_to_count_or_interval": 1.1152128082807515
+    },
+    {
+      "observation_id": "20261109-1653-admin-snu-queue-01",
+      "model": "prototype_V8",
+      "scenario": "regular",
+      "weekday": "mon",
+      "reported_minute": "16:53",
+      "node": 1,
+      "stop": "행정관",
+      "observed_low": 53,
+      "observed_high": 53,
+      "uniform_minute_mean": 86.82314310982707,
+      "uniform_minute_p10": 61.87084212162801,
+      "uniform_minute_p90": 109.31201232764606,
+      "minute_minimum": 54.61392351727754,
+      "minute_maximum": 117.85011372683674,
+      "expected_absolute_distance_to_count_or_interval": 33.82314310982708
+    },
+    {
+      "observation_id": "20261109-1655-culture-city-queue-01",
+      "model": "prototype_V8",
+      "scenario": "regular",
+      "weekday": "mon",
+      "reported_minute": "16:55",
+      "node": 59,
+      "stop": "문화관입구",
+      "observed_low": 5,
+      "observed_high": 5,
+      "uniform_minute_mean": 0.12184937926780517,
+      "uniform_minute_p10": 0.07306749561843116,
+      "uniform_minute_p90": 0.5219490587741307,
+      "minute_minimum": 2.886579864025407e-14,
+      "minute_maximum": 0.5219490587741307,
+      "expected_absolute_distance_to_count_or_interval": 4.878150620732195
+    },
+    {
+      "observation_id": "20261109-1703-snu-gate-queue-01",
+      "model": "prototype_V8",
+      "scenario": "regular",
+      "weekday": "mon",
+      "reported_minute": "17:03",
+      "node": 62,
+      "stop": "서울대학교",
+      "observed_low": 33,
+      "observed_high": 39,
+      "uniform_minute_mean": 14.641177939282715,
+      "uniform_minute_p10": 12.684439954847596,
+      "uniform_minute_p90": 16.157037603149323,
+      "minute_minimum": 12.684439954847596,
+      "minute_maximum": 16.886470143277336,
+      "expected_absolute_distance_to_count_or_interval": 18.358822060717284
+    },
+    {
+      "observation_id": "20261110-1523-admin-snu-queue-wait-01",
+      "model": "V11",
+      "scenario": "regular",
+      "weekday": "tue",
+      "reported_minute": "15:23",
+      "node": 1,
+      "stop": "행정관",
+      "observed_low": 67,
+      "observed_high": 67,
+      "uniform_minute_mean": 89.43307221174506,
+      "uniform_minute_p10": 73.26121178670309,
+      "uniform_minute_p90": 103.74775128436106,
+      "minute_minimum": 66.37836115164902,
+      "minute_maximum": 108.29267711131251,
+      "expected_absolute_distance_to_count_or_interval": 22.433264422777384
+    },
+    {
+      "observation_id": "20261110-1523-admin-snu-queue-wait-01",
+      "model": "prototype_V8",
+      "scenario": "regular",
+      "weekday": "tue",
+      "reported_minute": "15:23",
+      "node": 1,
+      "stop": "행정관",
+      "observed_low": 67,
+      "observed_high": 67,
+      "uniform_minute_mean": 156.6246199821051,
+      "uniform_minute_p10": 125.53721049587767,
+      "uniform_minute_p90": 187.37064582057565,
+      "minute_minimum": 119.43055089711368,
+      "minute_maximum": 191.16743570893425,
+      "expected_absolute_distance_to_count_or_interval": 89.62461998210507
+    }
+  ],
+  "known_queue_reports_worse_than_v11": 4,
+  "known_reports_are_independent_holdout": false,
+  "named_reference40": {
+    "cells": 40,
+    "above40": 14,
+    "is_measured_hard_limit": false
+  },
+  "wed_peak_worst_all_recorded_departures": {
+    "synthetic_id": 3170705,
+    "parent_id": 198169,
+    "trip_weight": 0.6484740236133205,
+    "start": "10:48:32.63",
+    "finish": "13:49:22.19",
+    "total_min": 180.8261606568622,
+    "route_changes": 14,
+    "stop_wait_visits": 21,
+    "maximum_continuous_stop_wait_min": 9.398635439005739,
+    "walk_min": 56.92021474506607,
+    "cumulative_wait_min": 68.6518740602957,
+    "ride_min": 55.25407185150046,
+    "history": [
+      [
+        39405.691019797196,
+        "walk_transfer",
+        "도보→301동 · 교내 순환 셔틀 / 관악02-1"
+      ],
+      [
+        39630.82069712279,
+        "transit",
+        "5511 / 관악02-1"
+      ],
+      [
+        39790.795037521726,
+        "walk_transfer",
+        "도보→301동(제1공학관) · 교내 역순환 셔틀 / 관악02-1"
+      ],
+      [
+        41011.02555744971,
+        "walk_transfer",
+        "도보→관악사삼거리 · 5511 / 관악02-1"
+      ],
+      [
+        41899.93315346183,
+        "walk_transfer",
+        "도보→행정관 · 대학동 셔틀(시간표) / 관악02-2"
+      ],
+      [
+        43796.766347924844,
+        "walk_transfer",
+        "도보→문화관입구 · 5516 / 관악02-2"
+      ],
+      [
+        44196.73597483644,
+        "walk_transfer",
+        "도보→자연대.행정관입구 · 5513 / 관악02-1"
+      ],
+      [
+        44932.30226178737,
+        "walk_transfer",
+        "도보→38동 · 교내 역순환 셔틀 / 관악02-1"
+      ],
+      [
+        45162.95050407296,
+        "walk_transfer",
+        "도보→신소재공동연구소 · 교내 순환 셔틀 / 관악02-1"
+      ],
+      [
+        45626.39953729144,
+        "transit",
+        "교내 역순환 셔틀 / 관악02-1"
+      ],
+      [
+        46362.95050407296,
+        "transit",
+        "교내 순환 셔틀 / 관악02-1"
+      ],
+      [
+        46669.80417955852,
+        "transit",
+        "대학동 셔틀(시간표) / 관악02-2"
+      ],
+      [
+        47400.001,
+        "transit",
+        "5513 / 관악02-1"
+      ],
+      [
+        48442.33013007047,
+        "walk_transfer",
+        "도보→노천강당 · 관악02-1"
+      ]
+    ],
+    "scope": "Simulated weighted trip, not an observed student; station/hub destination, not individual home arrival."
+  },
+  "wed_peak_worst_departures_after_1500": {
+    "synthetic_id": 2558688,
+    "parent_id": 159918,
+    "trip_weight": 0.09133436952300288,
+    "start": "15:55:12.22",
+    "finish": "17:53:56.48",
+    "total_min": 118.73771113342202,
+    "route_changes": 7,
+    "stop_wait_visits": 10,
+    "maximum_continuous_stop_wait_min": 14.248225754553763,
+    "walk_min": 38.43858603489437,
+    "cumulative_wait_min": 41.21343435127043,
+    "ride_min": 39.085690747257225,
+    "history": [
+      [
+        57808.26329224493,
+        "walk_transfer",
+        "도보→302동 · 교내 순환 셔틀 / 관악02-1"
+      ],
+      [
+        58141.21924636706,
+        "transit",
+        "5516 / 관악02-1"
+      ],
+      [
+        58178.65264721876,
+        "walk_transfer",
+        "도보→301동(제1공학관) · 교내 역순환 셔틀 / 관악02-1"
+      ],
+      [
+        59252.90899004754,
+        "transit",
+        "관악02-1"
+      ],
+      [
+        59325.71800563503,
+        "walk_transfer",
+        "도보→행정관 · 대학동 셔틀(시간표) / 관악02-2"
+      ],
+      [
+        61245.5795943264,
+        "walk_transfer",
+        "도보→노천강당 · 관악02-1"
+      ],
+      [
+        61980.18924434134,
+        "walk_transfer",
+        "도보→대학원생활관 · 관악02-2"
+      ]
+    ],
+    "scope": "Simulated weighted trip, not an observed student; station/hub destination, not individual home arrival."
+  },
+  "wed_peak_over90_min": {
+    "trip_weight": 52.295726895216546,
+    "total_input_trip_weight": 19079.0,
+    "percentage": 0.27410098482738376
+  },
+  "interpretation": "Repeated changes and long journey tails are verified model outcomes. Their attribution to cost shape, random-choice redraws, information sharing or supply errors remains a hypothesis, not a completed causal test."
+}

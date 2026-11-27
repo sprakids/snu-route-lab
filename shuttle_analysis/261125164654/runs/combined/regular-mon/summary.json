@@ -1,0 +1,123 @@
+{
+  "model": "R261125164654",
+  "condition": "combined",
+  "day": "mon",
+  "service": "regular",
+  "daily": 18885.5,
+  "identity": "238f0c9f4c2169aeacc6bc930a7bd7f57ad06746668acaf3dfac98f85a883567",
+  "departure_identity": "9a107d455235b40e0e8b8d3359dcbd9c79598c826588067a808bd2d3bdcbc4b4",
+  "changed_sections": 1060,
+  "mapped_dwells": {
+    "shuttle-41841": 45,
+    "shuttle-daehak": 2
+  },
+  "source_day": 17,
+  "time_limited_departures": 29,
+  "max_continuous_wait": 18.85904319835172,
+  "over20_weight": 0.0,
+  "unserved": 0,
+  "capacity_violations": 0,
+  "checks": {
+    "legs": 316310,
+    "vehicle_segments": 33934,
+    "stationary_segments": 4505,
+    "planned_city_departures": 723,
+    "capacity_events": 22701,
+    "fifo_events": 450,
+    "terminal_fifo_tickets": 11460,
+    "hourly_cells": 1053,
+    "queue_samples": 47304
+  },
+  "observations": {
+    "20261109-1653-admin-snu-queue-01": {
+      "kind": "outside",
+      "stop": "admin_snu",
+      "minute": "16:53",
+      "observed": [
+        53,
+        53
+      ],
+      "matched": true,
+      "mean": 11.483117510300282,
+      "minimum": 6.701531,
+      "maximum": 16.106744,
+      "expected_abs_error": 41.51688248969972
+    },
+    "20261109-1655-culture-city-queue-01": {
+      "kind": "outside",
+      "stop": "city_120000195",
+      "minute": "16:55",
+      "observed": [
+        5,
+        5
+      ],
+      "matched": true,
+      "mean": 5.3381907954833245,
+      "minimum": 3.624844,
+      "maximum": 7.046528,
+      "expected_abs_error": 1.0630036153833704
+    },
+    "20261109-1703-snu-gate-queue-01": {
+      "kind": "outside",
+      "stop": "city_gate",
+      "minute": "17:03",
+      "observed": [
+        33,
+        39
+      ],
+      "matched": true,
+      "mean": 32.25511726425012,
+      "minimum": 24.821039,
+      "maximum": 35.82163,
+      "expected_abs_error": 1.7671976974167238
+    }
+  },
+  "windows": [],
+  "episodes": {
+    "12:20": {
+      "boarded_cohort": 10.90157523686632,
+      "next_departure_group": 10.90157523686632,
+      "boarded_mass": 10.90157523686632,
+      "outside_s": {
+        "minimum": 388.05362747819163,
+        "p10": 399.10764795254363,
+        "median": 415.68644725735794,
+        "p90": 423.01600122109085,
+        "maximum": 425.01600122109085,
+        "mean": 412.6576746495431
+      },
+      "onboard_s": {
+        "minimum": 152.0,
+        "p10": 154.0,
+        "median": 162.0,
+        "p90": 172.0,
+        "maximum": 174.0,
+        "mean": 162.83957406965956
+      },
+      "combined_s": {
+        "minimum": 540.0536274781916,
+        "p10": 553.1076479525436,
+        "median": 579.6864472573579,
+        "p90": 594.5782078917473,
+        "maximum": 598.0952372124739,
+        "mean": 575.4972487192026
+      },
+      "same_minute_boards_mass": 0.0,
+      "doors_opened_within_minute": 0
+    },
+    "16:59": [
+      {
+        "time": 61200.0,
+        "time_matched": false,
+        "vehicle": 417,
+        "capacity": 44,
+        "boarded": 38.59211234525343,
+        "departing_load": 38.59211234525337,
+        "compatible_left": 0.11961848133440034,
+        "event_physical_left": 0.11961848133442297,
+        "ledger_outside_after": 1.6711259486567875,
+        "map_outside_after": 1.671126
+      }
+    ]
+  }
+}

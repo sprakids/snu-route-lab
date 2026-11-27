@@ -1,0 +1,30 @@
+const fs = require('node:fs');
+const vm = require('node:vm');
+const path = require('node:path');
+const fragmentPath = 'C:/Users/김예준/.codex/visualizations/2026/10/21/01a15f4b-516c-79b1-9b9a-c31680e1acd7/shuttle-wait-by-weekday.html';
+const html = fs.readFileSync(fragmentPath, 'utf8');
+const configs = [...html.matchAll(/<script type="application\/json" data-viz-chart data-node="([^"]+)">([\s\S]*?)<\/script>/g)].map(x => ({ dataset: { node: x[1] }, textContent: x[2] }));
+if (configs.length !== 6) throw new Error('Expected six complete route configurations');
+let mounts = 0;
+const chart = { config: null };
+const select = { value: '', handlers: {}, addEventListener(name, fn) { this.handlers[name] = fn; } };
+const container = {};
+const root = { querySelector: s => s === '#shuttle-wait-route' ? select : s === '[data-viz-container]' ? container : null, querySelectorAll: s => s === '[data-viz-chart]' ? configs : [] };
+let code = html.match(/<script type="module">([\s\S]*?)<\/script>/)[1];
+code = code.replace(/^\s*import .*?;\s*$/gm, '');
+vm.runInNewContext(code, { document: { getElementById: id => id === 'shuttle-wait-grid' ? root : null }, mountChart(el, config) { if (el !== container) throw new Error('Wrong container'); mounts++; chart.config = config; return chart; } });
+if (select.value !== 'admin_snu' || chart.config.id !== 'wait-admin_snu') throw new Error('Incorrect initial view');
+const transitions = [];
+for (const element of configs) {
+  const key = element.dataset.node;
+  select.value = key;
+  select.handlers.change();
+  if (chart.config.id !== 'wait-' + key || chart.config.rows.length !== 35) throw new Error('Failed route selection');
+  const identities = new Set(chart.config.rows.map(x => x.weekday + '|' + x.hour));
+  if (identities.size !== 35) throw new Error('Duplicate heatmap cell');
+  transitions.push({ node: key, cells: 35, status: 'PASS' });
+}
+if (mounts !== 1) throw new Error('Controls should update the existing chart');
+const result = { status: 'PASS', chart_payloads: 6, route_transitions: transitions, mounts, validation_scope: 'Offline control wiring and configurations; actual browser rendering not inspected' };
+fs.writeFileSync(path.join(__dirname, 'outputs_v2', 'chart_validation.json'), JSON.stringify(result, null, 2));
+process.stdout.write(JSON.stringify(result));

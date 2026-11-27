@@ -1,0 +1,77 @@
+00:19:59 POST /api/plan
+00:20:00 POST /api/plan
+00:20:00 POST /api/plan
+00:20:00 POST /api/plan
+00:20:01 POST /api/plan
+00:20:01 POST /api/plan
+00:20:02 POST /api/plan
+00:20:02 POST /api/plan
+00:20:02 GET /api/bootstrap
+00:20:02 POST /api/refresh
+00:20:02 POST /api/plan
+00:20:02 POST /api/observations
+00:20:02 GET /api/observations
+00:20:02 GET /../server.py
+00:20:10 GET /api/observations
+00:20:10 POST /api/observations
+.......E..................................................................................................................E.....E.........................................................E...............................................
+======================================================================
+ERROR: test_reference_means_are_reproduced_as_display_only (test_adaptive.DecisionTests.test_reference_means_are_reproduced_as_display_only)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\�迹��\Documents\ChatGPT\���� �����ذ�\shuttle_analysis\weekday_operations_app_2026-11-10\app_candidate\test_adaptive.py", line 58, in test_reference_means_are_reproduced_as_display_only
+    x=build(target=Path(temp)/'reference.json')
+  File "C:\Users\�迹��\Documents\ChatGPT\���� �����ذ�\shuttle_analysis\weekday_operations_app_2026-11-10\app_candidate\prepare_adaptive_policy.py", line 9, in build
+    evidence={name:source.joinpath(name).read_bytes() for name in names}
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\�迹��\AppData\Local\Python\pythoncore-3.14-64\Lib\pathlib\__init__.py", line 777, in read_bytes
+    with self.open(mode='rb', buffering=0) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\�迹��\AppData\Local\Python\pythoncore-3.14-64\Lib\pathlib\__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\�迹��\\Documents\\ChatGPT\\���� �����ذ�\\shuttle_analysis\\weekday_operations_app_2026-11-10\\adaptive_comparison_2026-11-07\\��_���ǿ�_���.md'
+
+======================================================================
+ERROR: test_compact_export_matches_all_14245_frozen_weekday_values (test_historical_forecast.HistoricalForecastTests.test_compact_export_matches_all_14245_frozen_weekday_values)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\�迹��\Documents\ChatGPT\���� �����ذ�\shuttle_analysis\weekday_operations_app_2026-11-10\app_candidate\test_historical_forecast.py", line 26, in test_compact_export_matches_all_14245_frozen_weekday_values
+    module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
+                                                 ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "<frozen importlib._bootstrap_external>", line 755, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 892, in get_code
+  File "<frozen importlib._bootstrap_external>", line 950, in get_data
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\�迹��\\Documents\\ChatGPT\\���� �����ذ�\\shuttle_analysis\\weekday_operations_app_2026-11-10\\hybrid_prediction_2026-11-07\\predictor.py'
+
+======================================================================
+ERROR: test_model_validation (unittest.loader._FailedTest.test_model_validation)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_model_validation
+Traceback (most recent call last):
+  File "C:\Users\�迹��\AppData\Local\Python\pythoncore-3.14-64\Lib\unittest\loader.py", line 433, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "C:\Users\�迹��\AppData\Local\Python\pythoncore-3.14-64\Lib\unittest\loader.py", line 374, in _get_module_from_name
+    __import__(name)
+    ~~~~~~~~~~^^^^^^
+  File "C:\Users\�迹��\Documents\ChatGPT\���� �����ذ�\shuttle_analysis\weekday_operations_app_2026-11-10\app_candidate\test_model_validation.py", line 7, in <module>
+    from train_model import train,load
+ModuleNotFoundError: No module named 'train_model'
+
+
+======================================================================
+ERROR: test_future_route_uses_history_and_timetable_without_live_provider_calls (test_shuttle_timetable.ShuttleTimetableTests.test_future_route_uses_history_and_timetable_without_live_provider_calls)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\�迹��\Documents\ChatGPT\���� �����ذ�\shuttle_analysis\weekday_operations_app_2026-11-10\app_candidate\test_shuttle_timetable.py", line 61, in test_future_route_uses_history_and_timetable_without_live_provider_calls
+    result=app.plan({'origin_id':'snu-410','destination_id':'snu-station','departure_at':stamp('2026-11-09T16:00:00'),
+        'mode':'estimate','include_shuttle':True})
+  File "C:\Users\�迹��\Documents\ChatGPT\���� �����ذ�\shuttle_analysis\weekday_operations_app_2026-11-10\app_candidate\server.py", line 404, in plan
+    if not math.isfinite(departure) or not time.time()-120<=departure<=time.time()+7*86400:raise ValueError('��� �ð��� ������� 7�� �̳��� ������ �ּ���.')
+                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: ��� �ð��� ������� 7�� �̳��� ������ �ּ���.
+
+----------------------------------------------------------------------
+Ran 234 tests in 117.754s
+
+FAILED (errors=4)

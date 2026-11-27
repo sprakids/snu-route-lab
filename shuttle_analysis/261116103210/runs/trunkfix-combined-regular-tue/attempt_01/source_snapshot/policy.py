@@ -1,0 +1,349 @@
+"""Causal sequential decisions on top of shared physical vehicle/FIFO states."""
+from collections import Counter
+import math
+from preferences import Prediction,traits,cost,choose,uniform,walking_weight,is_terminal_walk
+from hazard import ReviewClock
+from fares import FareLedger,board,alight
+from artifacts import EPS,END
+
+def prospective_age_discomfort(pred,age,full,config):
+    """Extra seconds-equivalent before multiplying taste; never physical time."""
+    scale=config['waiting_discomfort_age_scale_seconds'];w=pred.first_wait
+    # Sum future age0 growth at every queue, plus only the CURRENT queue's age.
+    # Expanded polynomial avoids subtracting nearly equal cubic numbers.
+    return (pred.wait_cubed/3+age*w*(age+w))/(scale*scale)+config['waiting_discomfort_full_sensitivity']*full*w
+
+
+def cumulative_wait_discomfort(completed,future,config):
+    """G(A+W)-G(A); invariant to splitting a fixed wait over stops."""
+    a=max(0.,completed);w=max(0.,future)
+    quad=config.get('predicted_queue_curvature_coefficient',0.)*(2*a*w+w*w)/config.get('predicted_queue_curvature_scale_seconds',600.)
+    cube=(a*a*w+a*w*w+w**3/3)/config.get('waiting_discomfort_age_scale_seconds',600.)**2 if config.get('integrate_future_wait_discomfort') else 0.
+    return quad+cube
+
+
+def strategy_taste_key(stages,dest=None):
+    # Access geometry and execution labels never manufacture new independent tastes.
+    return (dest,signature(stages))
+
+
+def signature(stages):
+    return tuple(tuple(sorted((s['rid'],s['board'],s['alight'],s['next_walk'][0]) for s in st.get('pool',[st]))) for st in stages)
+
+def attach_policy(bundle,config,node_for,current_stage,legacy_forecast,waiting_before,schedule,vehicles,
+                  queues,qmass,premass,queue_versions,ri,walk_next,record_wait,push,decisions,behavior_decisions,committed=None):
+    from engine import first_boardable,scaled_stages,stage_choice
+    evidence=bundle.get('empirical_evidence')
+    paths=bundle['physical_paths'];nodes=bundle['prepared']['common']['nodes'];routes=bundle['prepared']['routes']
+
+    class Policy:
+        def __init__(self):
+            self.counts=Counter();self.boarding_choices=[];self.initial_choices=0;self.review_diagnostics=[];self.repeat_walk_stats={};self.focus_diagnostics=[]
+        def record_repeat_walk_choice(self,state,selected,phase):
+            if selected is None:return
+            d=selected.get('terminal_walk_rule')
+            if d is None:return
+            key=(phase,len(state['history']))
+            row=self.repeat_walk_stats.setdefault(key,{'phase':phase,'completed_changes':key[1],'decisions':0,
+              'decision_weight':0.,'walk_available_weight':0.,'unboosted_probability_weighted_sum':0.,
+              'reference_probability_weighted_sum':0.,'target_probability_weighted_sum':0.,'terminal_walk_selected_weight':0.})
+            weight=state['w'];row['decisions']+=1;row['decision_weight']+=weight
+            if d['walk_available']:row['walk_available_weight']+=weight
+            for name in ('unboosted_probability','reference_probability','target_probability'):
+                row[name+'_weighted_sum']+=weight*d[name]
+            if is_terminal_walk(selected):row['terminal_walk_selected_weight']+=weight
+
+        def complete_same_stop(self,state,stage,node):
+            # All entries share one physical stop, one arrival/ready clock and
+            # one FIFO ticket. Each boarded service carries its own continuation.
+            from engine import scaled_stages
+            tail=state['stages'][state['stage']+1:];pool=[];seen=set()
+            for source in stage.get('pool',[stage]):
+                entry=dict(source);entry.setdefault('continuation_stages',tail)
+                entry.pop('pool',None);key=(entry['rid'],entry['board'])
+                if key not in seen:pool.append(entry);seen.add(key)
+            for entry in scaled_stages(bundle.get('compatible_route_policies',{}).get(f"{node}|{state['dest']}",[]),state['factor']):
+                key=(entry['rid'],entry['board'])
+                if key not in seen and key not in state['used_services']:pool.append(entry);seen.add(key)
+            return {**stage,'pool':pool,'expanded_compatible_pool':True,'complete_physical_stop_policy':True}
+        def make_traits(self,uid):return traits(uid,config)
+        def invalidate_queue(self,node):queue_versions[node]+=1
+        def refresh_committed_services(self,state):
+            return committed.update_services(state,current_stage(state)) if committed is not None else False
+        def empty_ledger(self):return FareLedger()
+        def base_fare(self,rid):
+            if rid.startswith('shuttle'):return 0
+            name=routes[rid]['name']
+            return 1200 if name.startswith(('관악','동작','서초','금천')) else 1500
+        def alighted(self,state,rid,at):
+            state['fare_ledger']=alight(state['fare_ledger'],rid,at,self.base_fare(rid))
+        def boarded(self,state,rid,chosen,at,end):
+            charge,state['fare_ledger']=board(state['fare_ledger'],rid,at,self.base_fare(rid),paths[chosen['ride_path']]['meters'])
+            state['fare_paid']=state.get('fare_paid',0.)+charge;state['rides_taken']=state.get('rides_taken',0)+1
+        def predict(self,stages,now,state,access=0.,factor=1.,keep=False,override=None,access_path=None,exclude_vehicle=None):
+            cursor=now+access;walk=access;wait=ride=prep=fee=crowd=fatigue=0.;first_wait=wait_squared=wait_cubed=0.;chain=list(stages);count=0
+            contexts=[];load_projections=[]
+            ledger=state['fare_ledger']
+            if access_path is not None:fatigue+=paths[access_path]['stairs_meters']/(config['walking_kmh']/3.6)
+            while chain:
+                stage=chain[0];node=node_for(stage);projection=None
+                ready=max(cursor,state['ready_time']) if keep and count==0 else cursor+config['preparation_seconds']
+                prep+=ready-cursor
+                if count==0 and override is not None:
+                    when,vehicle,k,chosen=override;ready=when;prep=0.;choice=(when,vehicle['id'],k,chosen)
+                    if config.get('project_queue_load_for_crowding'):
+                        occupied_now=sum(s['w'] for target,s in vehicle['onboard'] if target>k)
+                        request=max(1.,state['w']) if config.get('forecast_person_requires_whole_seat') else state['w']
+                        projection={'capacity':vehicle['cap'],'free_after_known_ahead':max(0.,vehicle['cap']-occupied_now),
+                            'requested_marginal_mass':request,'projected_after_self':min(vehicle['cap'],occupied_now+request),
+                            'basis':'actual_current_simulated_onboard_at_boarding_opportunity','is_observed_occupancy':False}
+
+                else:
+                    view=waiting_before(node,state,keep and count==0)
+                    rows=schedule[node]
+                    if count==0 and exclude_vehicle is not None:rows=[r for r in rows if r[1]!=exclude_vehicle]
+                    whole=config.get('forecast_person_requires_whole_seat',False)
+                    request=max(1.,state['w']) if whole else state['w']
+                    pending=committed.forecast(node,now,ready,state.get('sid'),keep and count==0 and state.get('queued',False)) if committed is not None and config.get('forecast_committed_arrivals') else ()
+                    choice=first_boardable(rows,vehicles,ready,now,stage,request,view,indivisible=whole,project_load=config.get('project_queue_load_for_crowding',False),pending_arrivals=pending)
+                if choice is None:return None
+                when,vid,k,chosen=choice[:4];vehicle=vehicles[vid];info=ri[vehicle['rid']]
+                if len(choice)>4:projection=choice[4]
+                target=k+chosen['alight']-chosen['board'];duration=vehicle['times'][target]-when
+                if when<ready-EPS:return None
+                if count==0:first_wait=max(0.,when-ready)+max(0.,ready-cursor)
+                wait_squared+=max(0.,when-cursor)**2
+                wait_cubed+=max(0.,when-cursor)**3
+                wait+=max(0.,when-ready);ride+=duration;cursor=when+duration
+                occupied=sum(s['w'] for dest,s in vehicle['onboard'] if dest>k)
+                fraction=min(1.,(occupied+state['w'])/vehicle['cap'])
+                if projection is not None:fraction=min(1.,projection['projected_after_self']/vehicle['cap'])
+                exposure,context=evidence.context(vehicle['rid'],k,target,when,vehicle['times']) if evidence else (None,None)
+                crowd+=duration*fraction*fraction if exposure is None else exposure
+                if context is not None:contexts.append(context)
+                if projection is not None:
+                    load_projections.append({**projection,'route':vehicle['rid'],'vehicle':vid,'board_index':k,
+                        'time':when,'used_for_fallback_crowding_cost':exposure is None,
+                        'trajectory_scope':'boarding-entry-load proxy held over inherited ride; no numeric grade conversion'})
+                charge,ledger=board(ledger,vehicle['rid'],when,self.base_fare(vehicle['rid']),paths[chosen['ride_path']]['meters'])
+                fee+=charge;ledger=alight(ledger,vehicle['rid'],cursor,self.base_fare(vehicle['rid']))
+                last_walk=chosen['next_walk'][1]*factor;walk+=last_walk;cursor+=last_walk
+                fatigue+=paths[chosen['next_walk'][0]]['stairs_meters']/(config['walking_kmh']/3.6)
+                chain=chosen['continuation_stages'] if 'continuation_stages' in chosen else chain[1:];count+=1
+                assert count<=8,'Cyclic candidate chain, unrelated to the unlimited rerouting count'
+            assert abs((cursor-now)-(walk+wait+ride+prep))<1e-5
+            transfers=max(0,count-1+(1 if state.get('rides_taken',0)>0 and count else 0))
+            return Prediction(cursor,walk,wait,ride,prep,transfers,fee,crowd,fatigue,first_wait,wait_squared,wait_cubed,tuple(contexts),tuple(load_projections))
+        def generalized(self,pred,state,changing=False):
+            base=cost(pred,state['traits'],len(state['history']),changing,config['fare_in_choice'])
+            if config.get('waiting_burden_scope')=='whole_journey':
+                clock=pred.eta-(pred.walk+pred.wait+pred.ride+pred.prep)
+                age=max(0.,clock-state['stop_entry'])
+                completed=state.get('completed_wait_seconds',0.)+age
+                future=pred.wait+pred.prep
+                base+=state['traits'].wait*cumulative_wait_discomfort(completed,future,config)/60
+                # Failure experience applies to further waiting in this queue.
+                if not changing:base+=state['traits'].wait*config.get('waiting_discomfort_full_sensitivity',0.)*state['full_passes']*pred.first_wait/60
+                return base
+            base+=state['traits'].wait*config.get('predicted_queue_curvature_coefficient',0.)*pred.wait_squared/(60*config.get('predicted_queue_curvature_scale_seconds',600.))
+            # State-dependent dislike of MORE standing in the CURRENT queue.
+            # Elapsed waiting is never re-added to physical ETA or total time.
+            if config.get('integrate_future_wait_discomfort',False):
+                clock=pred.eta-(pred.walk+pred.wait+pred.ride+pred.prep)
+                age=0. if changing else max(0.,clock-state['stop_entry'])
+                full=0 if changing else state['full_passes']
+                base+=state['traits'].wait*prospective_age_discomfort(pred,age,full,config)/60
+            elif not changing and pred.wait>0:
+                clock=pred.eta-(pred.walk+pred.wait+pred.ride+pred.prep)
+                age=max(0.,clock-state['stop_entry'])
+                extra=config.get('waiting_discomfort_full_sensitivity',0.)*state['full_passes']+(age/config.get('waiting_discomfort_age_scale_seconds',600.))**2
+                base+=state['traits'].wait*pred.first_wait/60*extra
+            return base
+        def reschedule(self,state,at):
+            if not state['queued'] or state['done']:return
+            if not bundle['alternatives'].get(f"{state['node']}|{state['dest']}"):return
+            clock=state.get('hazard_clock')
+            if clock is None or clock.stop_entry!=state['stop_entry']:
+                clock=ReviewClock.start(at,state['stop_entry'],len(state['history']),state['full_passes'],state['plan'][0],state['traits'].response,config,state['review_ordinal'])
+                state['hazard_clock']=clock
+            else:clock.update(at,len(state['history']),state['full_passes'],config)
+            due=clock.due(config);state['check_version']+=1
+            if state['plan'][0] in config.get('diagnostic_uids',()) and len(self.focus_diagnostics)<2000:
+                self.focus_diagnostics.append({'event':'review_scheduled','time':at,'uid':state['plan'][0],'node':state['node'],'age':at-state['stop_entry'],'next_review':due if math.isfinite(due) else None,'changes':len(state['history']),'full_passes':state['full_passes']})
+            if due<=END:push(max(at+1e-6,due),2,'recheck',(state,state['check_version']))
+        def alternative_choices(self,state,at,current):
+            count=len(state['history']);identity=state['plan'][0];node=state['node']
+            candidates=[]
+            if current is not None:
+                candidates.append({'key':'stay','cost':self.generalized(current,state),'prediction':current,'option':None,'taste_key':strategy_taste_key(state['stages'][state['stage']:],state.get('dest'))})
+            stage=current_stage(state);old_lines={s['rid']:s['board'] for s in stage.get('pool',[stage])}
+            for option in bundle['alternatives'].get(f"{node}|{state['dest']}",[]):
+                chain=option['stages'];factor=state['factor'];access=option['walk'][1]*factor
+                first=node_for(chain[0]) if chain else None
+                if chain and first==node:continue
+                if access<=EPS:continue  # Same physical place belongs to one compatible boarding policy.
+                prior=walking_weight(option.get('walk_meters',paths[option['walk'][0]]['meters']))
+                # Stress relaxes distance aversion, while downstream/revisit
+                # actions keep their separate low consideration multipliers.
+                relief=math.exp(-.35*state['full_passes']-max(0.,at-state['stop_entry'])/1800)
+                prior=1-(1-prior)*relief if prior>0 else 0.
+                if chain:
+                    services=chain[0].get('pool',[chain[0]])
+                    # One action prior for walking downstream, never one draw per line.
+                    if all(s['rid'] in old_lines and s['board']>old_lines[s['rid']] for s in services):prior*=config['same_line_downstream_prior']
+                    if first in state['visited']:prior*=config['revisit_prior']
+                # Bound the minimum possible preference cost before forecasting.
+                lower=state['traits'].walk*access/60+state['traits'].change*(1+.5*count)
+                best_so_far=min((c['cost'] for c in candidates),default=math.inf)
+                if lower>best_so_far+12*config['choice_temperature_minutes'] and not (config.get('exponential_repeat_walk') and count>0 and not chain):
+                    self.counts['far_cost_pruned']+=1;continue
+                pred=self.predict(chain,at,state,access,factor,False,access_path=option['walk'][0])
+                if pred is None:continue
+                key=repr((first,option['walk'][0],signature(chain)))
+                candidates.append({'key':key,'cost':self.generalized(pred,state,True),'prediction':pred,'option':option,'prior':prior,'taste_key':strategy_taste_key(chain,state.get('dest'))})
+            # If a compatible superset at the same physical target exists, a
+            # one-stage subset with the same access geometry adds no new strategy.
+            supersets={}
+            for c in candidates:
+                op=c['option']
+                if op and len(op['stages'])==1:
+                    key=op['walk'][0];services=frozenset(signature(op['stages'])[0]);supersets.setdefault(key,[]).append((c,services))
+            redundant=set()
+            for group in supersets.values():
+                for c,s in group:
+                    if any(s<other for d,other in group):redundant.add(c['key'])
+            candidates=[c for c in candidates if c['key'] not in redundant]
+            return candidates
+        def maybe_switch(self,state,at,reason,forced=False):
+            assert not forced,'Prototype has no forced-abandonment mechanism'
+            count=len(state['history']);identity=state['plan'][0];node=state['node']
+            if reason=='arrival':
+                p=config['arrival_review_probability']*config['repeat_multiplier']**count
+                if uniform(config['seed'],identity,'arrival-review',state['visit'])>=p:return False
+            else:state['hazard_clock']=None
+            state['review_ordinal']+=1;self.counts[reason]+=1
+            current=self.predict(state['stages'][state['stage']:],at,state,keep=True)
+            candidates=self.alternative_choices(state,at,current)
+            selected=choose(candidates,identity,('reroute',state['visit'],state['review_ordinal']),config,
+                count,.5*state['traits'].change*count)
+            self.record_repeat_walk_choice(state,selected,'review')
+            if identity in config.get('diagnostic_uids',()) and len(self.focus_diagnostics)<2000:
+                self.focus_diagnostics.append({'event':'choice_review','time':at,'uid':identity,'node':node,'age':at-state['stop_entry'],
+                    'patience':state.get('student_patience_seconds'),'changes':count,'full_passes':state['full_passes'],
+                    'completed_wait':state.get('completed_wait_seconds'),'selected':selected['key'] if selected else None,
+                    'current':current.components() if current else None,
+                    'best_options':[{'key':str(c['key']),'cost':c['cost'],'prior':c.get('prior',1.),'prediction':c['prediction'].components()} for c in sorted(candidates,key=lambda x:x['cost'])[:4]]})
+            if at-state['stop_entry']>=600 and len(self.review_diagnostics)<20000:
+                self.review_diagnostics.append({'time':at,'uid':identity,'node':node,'age':at-state['stop_entry'],
+                    'changes':count,'full_passes':state['full_passes'],'current_eta':current.eta if current else None,
+                    'candidate_count':len(candidates),'selected':selected['key'] if selected else None,
+                    'best_costs':sorted([(str(c['key']),c['cost'],c['prediction'].eta) for c in candidates],key=lambda r:r[1])[:4]})
+            return self.commit_switch(state,at,reason,selected,current)
+        def commit_switch(self,state,at,reason,selected,current=None):
+            count=len(state['history']);identity=state['plan'][0];node=state['node'];stage=current_stage(state)
+            if selected is None or selected['option'] is None:return False
+            option=selected['option'];pred=selected['prediction'];first=node_for(option['stages'][0]) if option['stages'] else None
+            visible=qmass[node]+premass[node]
+            if state['queued']:
+                queues[node].remove(state);qmass[node]-=state['w'];state['queued']=False;queue_versions[node]+=1
+            if state.get('preparing'):premass[node]-=state['w'];state['preparing']=False
+            record_wait(state,at,'switched')
+            name=option.get('name',option['kind']);old_eta=current.eta if current else None
+            decisions.append([at,node,state['w'],identity,stage['rid'],option['kind'],name,old_eta,pred.eta,reason])
+            behavior_decisions.append({'time':at,'origin':node,'target':first,'uid':identity,'weight':state['w'],'kind':option['kind'],
+                'forced':False,'reason':reason,'visible_queue':visible,'continuous_wait_seconds':at-state['stop_entry'],
+                'full_passes':state['full_passes'],'change_count_before':count,'old_eta':old_eta,'new_eta':pred.eta,
+                'generalized_cost_minutes':selected['cost'],'physical_prediction':pred.components(),'terminal_walk_rule':selected.get('terminal_walk_rule'),
+                'old_services':state['entry_eligibility'],
+                'new_services':[(s['rid'],s['board']) for s in option['stages'][0].get('pool',[option['stages'][0]])] if option['stages'] else []})
+            state['history']=state['history']+[[at,option['kind'],name]];state['last_switch']=at
+            state['visited']=state['visited']|{node};state['check_version']+=1;state['hazard_clock']=None
+            state['stages']=scaled_stages(option['stages'],state['factor']);state['stage']=0
+            walk_next(state,at,option['walk'][0],option['walk'][1]*state['factor'],config['preparation_seconds'])
+            return True
+        def initial_choice(self,state,at):
+            plan=state['plan'];origin=tuple(bundle['prepared']['common']['paths'][plan[5][0]][0])
+            options=bundle['origin_catalog'].get(repr((plan[1],plan[2],origin)),[]);candidates=[]
+            factor=state['factor'] if config.get('restore_source_walking_variation') and config['physics']!='v9_frozen' else 1.
+            for option in options:
+                pred=self.predict(option['stages'],at,state,option['walk'][1]*factor,factor,access_path=option['walk'][0])
+                if pred is None:continue
+                prior=walking_weight(paths[option['walk'][0]]['meters'])
+                candidates.append({'key':option['key'],'cost':self.generalized(pred,state),'option':option,'prediction':pred,'prior':prior,'taste_key':strategy_taste_key(option['stages'],state.get('dest'))})
+            selected=choose(candidates,plan[0],('departure',),config)
+            if selected:
+                op=selected['option'];self.initial_choices+=int((plan[5][0],signature(plan[6]))!=(op['walk'][0],signature(op['stages'])))
+                # Departure, origin, destination and mass stay fixed. Initial
+                # choice is distinct from a later walking reroute count.
+                rows=scaled_stages(op['stages'],factor)
+                state['plan']=[*plan[:5],[op['walk'][0],op['walk'][1]*factor],rows];state['stages']=rows
+        def accept_boarding(self,state,chosen,vehicle,k,at,available):
+            if not config.get('joint_board_wait_walk_choice'):
+                return self.legacy_accept_boarding(state,chosen,vehicle,k,at,available)
+            state.pop('pending_boarding_walk',None)
+            chain=[chosen,*state['stages'][state['stage']+1:]]
+            if 'continuation_stages' in chosen:chain=[chosen,*chosen['continuation_stages']]
+            ride=self.predict(chain,at,state,keep=True,override=(at,vehicle,k,chosen))
+            future=self.predict(state['stages'][state['stage']:],at,state,keep=True,exclude_vehicle=vehicle['id'])
+            options=self.alternative_choices(state,at,future)
+            for option in options:
+                if option['option'] is None:option['key']='wait'
+            if ride is not None:
+                options.append({'key':'board','cost':self.generalized(ride,state),'option':None,'prediction':ride,
+                    'taste_key':strategy_taste_key(chain,state.get('dest'))})
+            selected=choose(options,state['plan'][0],('board',state['visit'],vehicle['id'],k),config,
+                len(state['history']),.5*state['traits'].change*len(state['history']))
+            self.record_repeat_walk_choice(state,selected,'boarding')
+            # No forecastable suffix: preserve physically feasible boarding rather than delete demand.
+            if selected is None or selected['key']=='board':return True
+            walking=selected['option'] is not None
+            if walking:state['pending_boarding_walk']=(selected,future)
+            self.boarding_choices.append({'time':at,'uid':state['plan'][0],'ticket':state['queue_ticket'],
+                'node':state['node'],'vehicle':vehicle['id'],'route':vehicle['rid'],'stop_index':k,'weight':state['w'],
+                'seats_available':available,'action':'voluntary_walk_instead' if walking else 'voluntary_continue_waiting',
+                'board_cost':self.generalized(ride,state) if ride else None,
+                'wait_cost':self.generalized(future,state) if future else None,
+                'selected_cost':selected['cost'],'joint_action_count':len(options),'selected_key':selected['key'],'terminal_walk_rule':selected.get('terminal_walk_rule'),
+                'board_prediction':ride.components() if ride else None,
+                'wait_prediction':future.components() if future else None,
+                'selected_prediction':selected['prediction'].components(),
+                'traits':state['traits'].record(),'completed_wait_seconds':state.get('completed_wait_seconds',0.),
+                'physical_stop_entry':state['stop_entry'],'full_passes':state['full_passes'],'change_count':len(state['history'])})
+            self.counts['joint_boarding_walk' if walking else 'joint_boarding_wait']+=1
+            return False
+        def apply_boarding_walk(self,state,at):
+            pending=state.pop('pending_boarding_walk',None)
+            if pending is None:return False
+            selected,current=pending
+            return self.commit_switch(state,at,'boarding_joint_choice',selected,current)
+        def legacy_accept_boarding(self,state,chosen,vehicle,k,at,available):
+            if 'pool' not in current_stage(state):return True
+            chain=[chosen,*state['stages'][state['stage']+1:]]
+            if 'continuation_stages' in chosen:chain=[chosen,*chosen['continuation_stages']]
+            ride=self.predict(chain,at,state,keep=True,override=(at,vehicle,k,chosen))
+            # Retain another same-time paired vehicle; exclude only the bus
+            # currently being considered, rather than advancing the clock.
+            future=self.predict(state['stages'][state['stage']:],at,state,keep=True,exclude_vehicle=vehicle['id'])
+            if ride is None or future is None:return True
+            options=[{'key':'board','cost':self.generalized(ride,state),'taste_key':strategy_taste_key(chain,state.get('dest'))}, {'key':'wait','cost':self.generalized(future,state),'taste_key':strategy_taste_key(state['stages'][state['stage']:],state.get('dest'))}]
+            selected=choose(options,state['plan'][0],('board',state['visit'],vehicle['id'],k),config)
+            accept=selected['key']=='board'
+            if not accept:
+                self.boarding_choices.append({'time':at,'uid':state['plan'][0],'ticket':state['queue_ticket'],
+                    'node':state['node'],'vehicle':vehicle['id'],'route':vehicle['rid'],'stop_index':k,'weight':state['w'],
+                    'seats_available':available,'action':'voluntary_continue_waiting','board_cost':options[0]['cost'],'wait_cost':options[1]['cost']})
+            return accept
+        def report(self):
+            return {'opportunity_counts':dict(self.counts),'voluntary_boarding_declines':len(self.boarding_choices),
+                    'focus_diagnostics':self.focus_diagnostics,'focus_diagnostic_cap':2000,
+                    'repeat_walk_choice_statistics':[self.repeat_walk_stats[k] for k in sorted(self.repeat_walk_stats)],
+                    'repeat_walk_probability_rule':'p_n=1-(1-p_reference)^growth^n; terminal walking only; conditional choice probability, review timing unchanged',
+                    'committed_approach_forecast':committed.report() if committed is not None else None,
+                    'initial_plan_changes':self.initial_choices,'generalized_cost_unit':'minute_equivalent_not_eta',
+                    'max_route_changes':None,'forced_abandonment':False,'polling_controls_behavior':False,'joint_board_wait_walk_choice':bool(config.get('joint_board_wait_walk_choice')),'project_queue_load_for_crowding':bool(config.get('project_queue_load_for_crowding')),
+                    'forecast_continuation_limitation':'Future pooled service remains first-boardable approximation; joint action set fixed at the actual boarding opportunity only.',
+                    'alighting_scope':'inherited candidate alighting targets; new choices after alighting. Endogenous early alighting not implemented.',
+                    'fare_scenario':config['fare_scenario'],'fare_used_in_choice':config['fare_in_choice'],
+                    'empirical_evidence':evidence.report() if evidence else None}
+    from behavioral_policy import configure
+    return configure(Policy(),bundle,config,node_for,current_stage,schedule,vehicles,queues,qmass,premass,push,behavior_decisions)

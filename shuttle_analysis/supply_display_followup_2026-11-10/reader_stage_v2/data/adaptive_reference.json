@@ -1,0 +1,89 @@
+{
+  "schema": "adaptive_reference_v1",
+  "policy": {
+    "recheck_seconds": 60,
+    "minimum_gain_seconds": 120,
+    "cooldown_seconds": 180,
+    "max_switches": 2,
+    "assumption": true,
+    "label": "경로 변경 시뮬레이션의 운영 가정 · 실측 적합 계수 아님"
+  },
+  "display_only": true,
+  "eta_adjustment_seconds": 0,
+  "observed_validation": false,
+  "source_sha256": {
+    "비교_정의와_결과.md": "90319f93d4b15577607879000ebd6ba2bb73102f087d8277f75542c3b4a07e5e",
+    "요일_시간대별_전후비교.csv": "0b886e36f2676a979806677949414402d4332b21d8bf483f8669f3de7463d722",
+    "reviewed_results.json": "7c940c07d9504fd9cf89b8367dd1254597f9ee3c3bcc9b519b4036790cdb9745",
+    "verification.json": "a72953b2c50e9dee9b1012539b0202fac701a28918ffd601a8e5b1cd9e8a9e41",
+    "independent_check.json": "3bf944c81ac7897d0b2c23b921830c4040d9582ff99f0e80b3703710ce3e8dd3"
+  },
+  "definitions": {
+    "wait": "최초 수업 종료 11:20~23:10 집단의 줄 이탈 전·시내버스·환승 누적 대기. 미완료는23:10절단.",
+    "total": "양쪽에서 완주한 동일 최초 가중 집단의 총시간. 현재 정류장 대기 인원이 아님.",
+    "restricted_total": "23:10절단 경과시간이며 완료 이동시간이 아님."
+  },
+  "summaries": [
+    {
+      "scenario": "peak",
+      "origin": "all",
+      "scope": "snu_all",
+      "weight": 31002.902922474696,
+      "wait_before": 5.124274073220033,
+      "total_before": 20.77906601235971,
+      "wait_after": 3.6592503728317594,
+      "total_after": 19.712365420906732
+    },
+    {
+      "scenario": "peak",
+      "origin": "all",
+      "scope": "snu_initial_shuttle",
+      "weight": 9414.505244455275,
+      "wait_before": 9.050134726310445,
+      "total_before": 23.943333884079028,
+      "wait_after": 4.225665847394834,
+      "total_after": 20.42841340985412
+    },
+    {
+      "scenario": "peak",
+      "origin": "301_302",
+      "scope": "snu_all",
+      "weight": 3767.9118411289414,
+      "wait_before": 3.227307265814425,
+      "total_before": 21.09788860764928,
+      "wait_after": 3.076402273597095,
+      "total_after": 20.95352160620691
+    },
+    {
+      "scenario": "regular",
+      "origin": "all",
+      "scope": "snu_all",
+      "weight": 31002.902922474696,
+      "wait_before": 5.644380495646923,
+      "total_before": 21.29931241353605,
+      "wait_after": 3.7332698720106228,
+      "total_after": 19.88977601222048
+    },
+    {
+      "scenario": "regular",
+      "origin": "all",
+      "scope": "snu_initial_shuttle",
+      "weight": 9414.505244455275,
+      "wait_before": 10.762896948558213,
+      "total_before": 25.657615043936403,
+      "wait_after": 4.469419426348336,
+      "total_after": 21.013004929489107
+    },
+    {
+      "scenario": "regular",
+      "origin": "301_302",
+      "scope": "snu_all",
+      "weight": 3767.9118411289414,
+      "wait_before": 3.249743926921565,
+      "total_before": 21.12032526875642,
+      "wait_after": 3.073049031432577,
+      "total_after": 20.95509942627538
+    }
+  ],
+  "note": "모형 비교 설명·검산용. 평균 절감·탑승자만의 평균은 경로 ETA에 차감하지 않습니다."
+}

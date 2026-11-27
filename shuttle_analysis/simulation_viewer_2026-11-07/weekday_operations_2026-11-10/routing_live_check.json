@@ -1,0 +1,197 @@
+{
+  "http_status": 200,
+  "model_id": "261110002926",
+  "latest_simulation": {
+    "city_operations": {
+      "revision": "weekday_transfer_operations_20261110_v1",
+      "schema": "snu_city_operations_v1",
+      "source_dates": [
+        "2026-11-09"
+      ],
+      "transfer_estimate": true
+    },
+    "gate_access_calibration": {
+      "algorithm_id": "provisional_initial_gate_access_v1",
+      "alpha": 0.75,
+      "candidate_only": true,
+      "gate_ars": "21128",
+      "independent_empirical_validation": false,
+      "independent_validation": false,
+      "model_id": "261109171256",
+      "new_demand_added": false,
+      "observation_second": "unknown; uniform within reported minute",
+      "observations_used_for_candidate_selection": [
+        "admin_snu_1653",
+        "culture_1655",
+        "snu_gate_1703"
+      ],
+      "observations_used_for_selection": 3,
+      "observed_mode_shares": false,
+      "probability_rule": "alpha * max(0, 1 - individual_gate_walk_seconds / 900)",
+      "source_sha256": "46243bdb22b769e3ed1fdbff270d0df74b8ffc55e91c80ab4594f1597288eb55",
+      "source_simulation": "capacity_v5",
+      "status": "active_default_user_authorized",
+      "timetable_speed_capacity_changed": false,
+      "walking_cutoff_seconds": 900
+    },
+    "independent_status": "PASS",
+    "personal_walking_kmh": 4.8,
+    "population_note": "기준집단 보행 분포 유지 · 개인4.8km/h 도착시각에서 줄을 조회",
+    "population_walking_replayed_at_4p8": false,
+    "preparation_added_again": false,
+    "ready_flows_include_boarding_prep": true,
+    "revision": "weekday_transfer_operations_20261110_v1",
+    "scenario": "regular",
+    "sensitivity_feedback_replayed": false,
+    "source_simulation": "capacity_v8",
+    "source_totals": [
+      {
+        "modeled_boarding_weight": {
+          "shuttle-41841": 2707.727408190405,
+          "shuttle-41842": 0,
+          "shuttle-41843": 0,
+          "shuttle-41868": 0,
+          "shuttle-41869": 0,
+          "shuttle-41914": 170.27786923535874,
+          "shuttle-41915": 0,
+          "shuttle-41916": 0,
+          "shuttle-41942": 0,
+          "shuttle-41946": 350.9249187643765
+        },
+        "ready_entry_weight": {
+          "shuttle-41841": 3806.6481710919825,
+          "shuttle-41914": 656.3033547553232,
+          "shuttle-41946": 483.4070242996571
+        },
+        "weekday": 0
+      },
+      {
+        "modeled_boarding_weight": {
+          "shuttle-41841": 2423.281275716614,
+          "shuttle-41842": 0,
+          "shuttle-41843": 0,
+          "shuttle-41868": 0,
+          "shuttle-41869": 0,
+          "shuttle-41914": 148.20994599097097,
+          "shuttle-41915": 0,
+          "shuttle-41916": 0,
+          "shuttle-41942": 0,
+          "shuttle-41946": 366.97826618027506
+        },
+        "ready_entry_weight": {
+          "shuttle-41841": 3406.56423109634,
+          "shuttle-41914": 561.5426693916115,
+          "shuttle-41946": 537.8813045646244
+        },
+        "weekday": 1
+      },
+      {
+        "modeled_boarding_weight": {
+          "shuttle-41841": 2585.34666670786,
+          "shuttle-41842": 0,
+          "shuttle-41843": 0,
+          "shuttle-41868": 0,
+          "shuttle-41869": 0,
+          "shuttle-41914": 147.12823181808054,
+          "shuttle-41915": 0,
+          "shuttle-41916": 0,
+          "shuttle-41942": 0,
+          "shuttle-41946": 342.57940868130015
+        },
+        "ready_entry_weight": {
+          "shuttle-41841": 3690.5068495455266,
+          "shuttle-41914": 640.0860729156921,
+          "shuttle-41946": 510.1924564874916
+        },
+        "weekday": 2
+      },
+      {
+        "modeled_boarding_weight": {
+          "shuttle-41841": 2237.5299386486067,
+          "shuttle-41842": 0,
+          "shuttle-41843": 0,
+          "shuttle-41868": 0,
+          "shuttle-41869": 0,
+          "shuttle-41914": 147.55084417818713,
+          "shuttle-41915": 0,
+          "shuttle-41916": 0,
+          "shuttle-41942": 0,
+          "shuttle-41946": 323.32359821578353
+        },
+        "ready_entry_weight": {
+          "shuttle-41841": 3105.0482728703455,
+          "shuttle-41914": 465.0422779683773,
+          "shuttle-41946": 433.1020682570932
+        },
+        "weekday": 3
+      },
+      {
+        "modeled_boarding_weight": {
+          "shuttle-41841": 912.2769635201272,
+          "shuttle-41842": 0,
+          "shuttle-41843": 0,
+          "shuttle-41868": 0,
+          "shuttle-41869": 0,
+          "shuttle-41914": 41.03544907231199,
+          "shuttle-41915": 0,
+          "shuttle-41916": 0,
+          "shuttle-41942": 0,
+          "shuttle-41946": 128.2151648533338
+        },
+        "ready_entry_weight": {
+          "shuttle-41841": 933.037735816079,
+          "shuttle-41914": 184.43796685197051,
+          "shuttle-41946": 170.78779137510566
+        },
+        "weekday": 4
+      }
+    ],
+    "weekday_operations": {
+      "revision": "weekday_transfer_operations_20261110_v1",
+      "source_dates": [
+        "2026-11-09"
+      ],
+      "transfer_estimate": true,
+      "weekdays": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  },
+  "city_operations": {
+    "available": true,
+    "model_id": "261110002926",
+    "revision": "weekday_transfer_operations_20261110_v1",
+    "source_dates": [
+      "2026-11-09"
+    ],
+    "transfer_estimate": true,
+    "observed_operations": false,
+    "weekdays": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "destination_dwell_included": true,
+    "coverage_start_seconds": 40800,
+    "coverage_end_seconds": 83400
+  },
+  "algorithm_id": "latest-v5-all-shuttle-clock-fifo-v4",
+  "sync": {
+    "enabled": true,
+    "source": "https://snu-shuttle-simulation.vercel.app/routing-model/latest.json",
+    "check_interval_seconds": 60,
+    "checked_at": 1794238803.9467282,
+    "next_check_at": 1794238863.9467282,
+    "status": "active",
+    "last_error": null,
+    "active_model_id": "261110002926",
+    "compatibility_sha256": "7ce2316538b6ff26743a5e60a36041c613465091e64563170497ad51b8ca89d2",
+    "payload_sha256": "6bada3eec9fa0c89386e3cbac2e3e7e90adfa2ce10f0c969c54cafd43c53fe8d"
+  }
+}

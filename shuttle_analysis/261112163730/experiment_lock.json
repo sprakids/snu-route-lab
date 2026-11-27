@@ -1,0 +1,99 @@
+{
+  "status": "REGISTERED_BEFORE_EXECUTION",
+  "release_id": "261112163730",
+  "version_family": "V12-empirical-refinement",
+  "pilot_cases": [
+    {
+      "case": "projection-combined-regular-mon",
+      "mode": "combined",
+      "day": "월",
+      "scenario": "regular",
+      "seed": 0,
+      "operations": "v12_empirical"
+    },
+    {
+      "case": "projection-combined-regular-tue",
+      "mode": "combined",
+      "day": "화",
+      "scenario": "regular",
+      "seed": 0,
+      "operations": "v12_empirical"
+    },
+    {
+      "case": "projection-combined-regular-wed",
+      "mode": "combined",
+      "day": "수",
+      "scenario": "regular",
+      "seed": 0,
+      "operations": "v12_empirical"
+    },
+    {
+      "case": "projection-combined-regular-thu",
+      "mode": "combined",
+      "day": "목",
+      "scenario": "regular",
+      "seed": 0,
+      "operations": "v12_empirical"
+    },
+    {
+      "case": "projection-combined-regular-fri",
+      "mode": "combined",
+      "day": "금",
+      "scenario": "regular",
+      "seed": 0,
+      "operations": "v12_empirical"
+    },
+    {
+      "case": "projection-combined-peak-mon",
+      "mode": "combined",
+      "day": "월",
+      "scenario": "peak",
+      "seed": 0,
+      "operations": "v12_empirical"
+    },
+    {
+      "case": "projection-combined-peak-tue",
+      "mode": "combined",
+      "day": "화",
+      "scenario": "peak",
+      "seed": 0,
+      "operations": "v12_empirical"
+    },
+    {
+      "case": "projection-combined-peak-wed",
+      "mode": "combined",
+      "day": "수",
+      "scenario": "peak",
+      "seed": 0,
+      "operations": "v12_empirical"
+    },
+    {
+      "case": "projection-combined-peak-thu",
+      "mode": "combined",
+      "day": "목",
+      "scenario": "peak",
+      "seed": 0,
+      "operations": "v12_empirical"
+    },
+    {
+      "case": "projection-combined-peak-fri",
+      "mode": "combined",
+      "day": "금",
+      "scenario": "peak",
+      "seed": 0,
+      "operations": "v12_empirical"
+    }
+  ],
+  "comparison_parent": "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\261112132736",
+  "selection_rule": "First Mon/Tue regular compare four known report constraints; if viable, all weekday/scenario cases. No numerical coefficient fit in this candidate.",
+  "gates": [
+    "same frozen demand, supply, walking physics and individual seed as parent",
+    "same-state first-boardable physical time unchanged; projected load matches its FIFO seat accounting",
+    "full capacity/FIFO/mass/time audit; no forced exits or20minute clipping",
+    "expose all-recorded waits and whole-journey tails",
+    "report every known queue constraint and mean walking/total-time regressions"
+  ],
+  "pristine_empirical_validation": false,
+  "new_day_outcomes_opened": false,
+  "production_replacement_allowed": false
+}

@@ -1,0 +1,50 @@
+{
+  "base_url": "https://snu-route-lab.vercel.app",
+  "anonymous": true,
+  "checked_at": 1793953961.4242134,
+  "results": [
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 7982,
+      "content_type": "text/html; charset=utf-8",
+      "expected_title": true
+    },
+    {
+      "path": "/api/health",
+      "status": 200,
+      "bytes": 56,
+      "content_type": "application/json; charset=utf-8",
+      "body": {
+        "ok": true,
+        "app": "snu-route-lab",
+        "version": "0.1.0"
+      }
+    },
+    {
+      "path": "/api/bootstrap",
+      "status": 200,
+      "bytes": 70905,
+      "content_type": "application/json; charset=utf-8",
+      "origins": 13,
+      "error": null,
+      "bus_key_configured": true
+    },
+    {
+      "path": "/app.js",
+      "status": 200,
+      "bytes": 22356,
+      "content_type": "application/javascript; charset=utf-8"
+    },
+    {
+      "path": "/map.js",
+      "status": 200,
+      "bytes": 7396,
+      "content_type": "application/javascript; charset=utf-8"
+    },
+    {
+      "path": "/vendor/leaflet/leaflet.js",
+      "status": 404
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "C:\Users\김예준\Documents\ChatGPT\공대 문제해결\shuttle_analysis\simulation_viewer_2026-11-07\verify_capacity_corrections.py", line 99, in <module>
+    p=argparse.ArgumentParser();p.add_argument('directory');p.add_argument('--paired',action='store_true');a=p.parse_args();verify(SIM/a.directory,a.paired)
+                                                                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\김예준\Documents\ChatGPT\공대 문제해결\shuttle_analysis\simulation_viewer_2026-11-07\verify_capacity_corrections.py", line 43, in verify
+    roster=expected_roster(bundle,scenario,paired)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\김예준\Documents\ChatGPT\공대 문제해결\shuttle_analysis\simulation_viewer_2026-11-07\verify_capacity_corrections.py", line 27, in expected_roster
+    for clock in clocks:assert batch[rid,clock]==(2 if paired and 54000<=clock<68400 else 1)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

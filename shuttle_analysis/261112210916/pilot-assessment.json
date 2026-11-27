@@ -1,0 +1,83 @@
+{
+  "status": "PILOT_REVIEW_BUDGET_FAILED",
+  "release_id": "261112210916",
+  "parent": "261112171315",
+  "invariants_pass": true,
+  "review_budgets_pass": false,
+  "primary_loss_before": 0.2600975835223413,
+  "primary_loss_after": 0.24215903256298624,
+  "field_comparisons": [
+    {
+      "id": "20261109-1653-admin-snu-queue-01",
+      "before_mean": 50.18198901456594,
+      "after_mean": 50.18198901456502,
+      "before_error": 11.360268336149716,
+      "after_error": 11.360268336149867
+    },
+    {
+      "id": "20261109-1655-culture-city-queue-01",
+      "before_mean": 1.811729109304733,
+      "after_mean": 1.811729109304724,
+      "before_error": 3.1882708906952666,
+      "after_error": 3.188270890695276
+    },
+    {
+      "id": "20261109-1703-snu-gate-queue-01",
+      "before_mean": 28.621191917463758,
+      "after_mean": 36.69109450658949,
+      "before_error": 4.700506265039535,
+      "after_error": 2.763142761429739
+    },
+    {
+      "id": "20261110-1523-admin-snu-queue-wait-01",
+      "before_mean": 96.17035591590019,
+      "after_mean": 96.17035591589898,
+      "before_error": 29.17035591590019,
+      "after_error": 29.17035591589898
+    }
+  ],
+  "travel_comparisons": [
+    {
+      "day": "월",
+      "mean_delta": -0.355861712434308,
+      "p99_delta": 0.8384326578355612,
+      "maximum_before": 92.2737086518778,
+      "maximum_after": 93.11616852520226
+    },
+    {
+      "day": "화",
+      "mean_delta": -0.22927394631868836,
+      "p99_delta": 1.0880588027734746,
+      "maximum_before": 101.47449089305276,
+      "maximum_after": 95.88878826253107
+    }
+  ],
+  "maximum_all_recorded_continuous_wait_min": 18.711189840308847,
+  "preference_and_physics_files_unchanged": [
+    "preferences.py",
+    "hazard.py",
+    "physics.py",
+    "prepare.py",
+    "capacity.py",
+    "operations.py"
+  ],
+  "policy_methods_unchanged": [
+    "generalized",
+    "alternative_choices",
+    "maybe_switch",
+    "commit_switch",
+    "initial_choice",
+    "legacy_accept_boarding"
+  ],
+  "config_changed_keys": [
+    "committed_arrivals_information",
+    "forecast_committed_arrivals",
+    "later_walking_preference",
+    "release_id",
+    "version_family"
+  ],
+  "parameter_fitting_this_round": false,
+  "inherited_alpha": 1.125,
+  "pristine_field_validation": false,
+  "production_writes": false
+}

@@ -1,0 +1,16 @@
+{
+  "status": "error",
+  "reason": "login_required",
+  "message": "The saved login is not valid or has expired.",
+  "hint": "Run `vercel login`. It prints a URL and a code. A person opens the URL to approve the login. Or set VERCEL_TOKEN or pass --token with a valid token, then retry. Create a token at https://vercel.com/account/tokens.",
+  "retryable": false,
+  "userActionRequired": true,
+  "next": [
+    {
+      "command": "vercel login --scope june-f3d1 --non-interactive",
+      "when": "To sign in again; a person approves it in a browser"
+    }
+  ],
+  "cliVersion": "65.12.1",
+  "invocationId": "7a983b3f-75f8-4d65-a5b7-e18751d4ed99"
+}

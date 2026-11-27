@@ -1,0 +1,91 @@
+{
+  "status": "PASS",
+  "snapshot_created_at": "2026-11-09T15:42:07.208638+09:00",
+  "scope": "supplied snapshot, not a fresh export of the continuing live collector",
+  "original_vehicle_rows": 45861,
+  "days": [
+    {
+      "day": "2026-11-07",
+      "rows": 2026,
+      "nonmissing": {
+        "lat": 2026,
+        "lon": 2026,
+        "id": 2026,
+        "route_id": 2026,
+        "section_order": 2026,
+        "provided_at": 2026,
+        "captured_at": 2026,
+        "at_stop": 2026,
+        "crowd_code": 2026
+      },
+      "valid_coordinate_range_rows": 2026
+    },
+    {
+      "day": "2026-11-08",
+      "rows": 22416,
+      "nonmissing": {
+        "lat": 22416,
+        "lon": 22416,
+        "id": 22416,
+        "route_id": 22416,
+        "section_order": 22416,
+        "provided_at": 22416,
+        "captured_at": 22416,
+        "at_stop": 22416,
+        "crowd_code": 22416
+      },
+      "valid_coordinate_range_rows": 22416
+    },
+    {
+      "day": "2026-11-09",
+      "rows": 21419,
+      "nonmissing": {
+        "lat": 21419,
+        "lon": 21419,
+        "id": 21419,
+        "route_id": 21419,
+        "section_order": 21419,
+        "provided_at": 21419,
+        "captured_at": 21419,
+        "at_stop": 21419,
+        "crowd_code": 21419
+      },
+      "valid_coordinate_range_rows": 21419
+    }
+  ],
+  "duplicate_provider_position_conflict_rows": 10,
+  "provider_keys_with_position_variants": 10,
+  "maximum_position_spread_from_first_capture_m": 83.0,
+  "position_selection_rule": "earliest captured position for each provider key, with variant count/spread preserved",
+  "paired_rows_with_coordinates": 27958,
+  "coordinate_endpoint_joins_verified": 55916,
+  "output": "paired_section_observations_with_positions.csv",
+  "output_sha256": "c5e643f59b809cf7bca4891c007d8eb9e8a99b61dd494d5f893b014d18c3b6b4",
+  "added_columns": [
+    "from_lat",
+    "from_lon",
+    "to_lat",
+    "to_lon",
+    "from_at_stop",
+    "to_at_stop",
+    "from_position_lag_seconds",
+    "to_position_lag_seconds",
+    "from_distance_to_reference_stop_m",
+    "to_distance_to_reference_stop_m",
+    "from_position_variant_count",
+    "to_position_variant_count",
+    "from_position_spread_m",
+    "to_position_spread_m"
+  ],
+  "source_comparison_unchanged": true,
+  "collector_modified": false,
+  "new_provider_calls": 0,
+  "source_definition_url": "https://www.data.go.kr/data/15000332/openapi.do",
+  "limitations": [
+    "Coordinates are provider positions, not independently ground-truthed GPS.",
+    "Broad coordinate range checks do not prove stop passage or positional accuracy.",
+    "Reference-stop distances are derived straight-line distances, not measured boarding locations.",
+    "Stored at_stop False does not retain a separate raw-field availability flag.",
+    "Grade changes indicate ordinal net occupancy signals, not passenger boardings or unmet queue demand."
+  ]
+}

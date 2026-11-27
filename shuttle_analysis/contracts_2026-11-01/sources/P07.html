@@ -1,0 +1,863 @@
+
+<!DOCTYPE html>
+
+
+<html lang="ko">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="Content-Security-Policy" content="default-src gap://ready file://* *; style-src 'self' http://* https://* 'unsafe-inline'; script-src 'self' http://* https://* 'unsafe-inline' 'unsafe-eval'">
+        <meta http-equiv="Content-Script-Type" content="text/javascript">
+        <meta http-equiv="Content-Style-Type" content="text/css">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+        <meta name=" apple-mobile-web-app-capable" content=" yes" />
+        <meta content="text/html; charset=UTF-8;  X-XSS-Protection : 1;mode=block" http-equiv="X-XSS-Protection" />
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-eval' 'unsafe-hashes' 'unsafe-inline' *.google-analytics.com *.googleapis.com *.doubleclick.net *.gstatic.com *.vworld.kr;">
+        <link rel="shortcut icon" href="/DAS/images/favicon.ico" type="image/x-icon"/>
+        <link rel="shortcut icon" href="/DAS/images/apple-touch-icon-precomposed.png" />
+        <link rel="apple-touch-icon-precomposed" href="/DAS/images/apple-touch-icon-precomposed.png" />
+        <title>서울대학교 역사기록관</title>
+        <link href="/DAS/include/css/html5_reset.css" rel="stylesheet" type="text/css">
+        <link href="/DAS/include/css/design.css" rel="stylesheet" type="text/css">
+        <link href="/DAS/include/css/responsive.css" rel="stylesheet" type="text/css">
+        <link href="/DAS/include/css/res.css" rel="stylesheet" type="text/css">
+        <link href="/DAS/include/css/print.css" rel="stylesheet" type="text/css" media="print">
+        <link href="/DAS/include/css/datepicker.css" rel="stylesheet" type="text/css">
+        <script src="/DAS/include/js/jquery-1.8.3.js" type="text/javascript"></script>
+        <script src="/DAS/include/js/jquery-ui.custom.js" type="text/javascript"></script>
+        <script src="/DAS/include/js/jquery-ui.custom.min.js" type="text/javascript"></script>
+        <script src="/DAS/include/js/common.js" type="text/javascript"></script>
+        <script src="/DAS/include/js/blockui-master/jquery.blockUI.js" type="text/javascript"></script>
+        <script src="/DAS/include/js/jQuery.dotdotdot-master/jquery.dotdotdot.js" type="text/javascript"></script>
+        <script type="text/javascript" src="/DAS/smart/SE/js/HuskyEZCreator.js" charset="utf-8"></script>
+        <script src="/DAS/include/js/jquery.form.js" type="text/javascript"></script>
+        <script src="/DAS/include/html/js/etcMenu.js" type="text/javascript"></script>
+        <!--[if lt IE 9]>
+        <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->          
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        
+          ga('create', 'UA-37397933-1', 'auto');
+          ga('send', 'pageview');
+        
+        </script>
+    </head>
+    <body class="new_style">
+        
+<a href="#LNB" class="skipnavi">사이트 메뉴 바로가기</a>
+<a href="#Container" class="skipnavi">본문 바로가기</a>
+<div id="TopBanner">
+    <a href="http://archives.snu.ac.kr:80/DAS/g.do?gidx=35684">
+        <div class="TopBannerInner">
+            <div class="B_logo"><img alt="서울대학교 로고" src="/DAS/images/icon_banner_simbol.png" /></div>
+            <div class="B_text"><table><tbody><tr><td>서울대학교 역사기록물 콘텐츠 &lt; 서울대학교 민주화의 길 2 &gt; <span class="site_link d-max-mm-none m"> http://archives.snu.ac.kr:80/DAS/g.do?gidx=35684 </span></td></tr></tbody></table></div>
+            <div class="B_close"><button type="button" class="topBannerCloseAction"><img alt="서울대학교 역사기록물 콘텐츠 추억속의 캠퍼스" src="/DAS/images/icon_banner_close.png" /></button></div>
+        </div>
+    </a>
+</div>
+<header>
+    
+
+
+<div id="GNB">
+    <h4 class="blind">홈 유형 선택</h4>
+    <div class="wrap">
+        <ul id="homeType">
+            <li id="UserPage" class="home"><a href="/DAS/H/" title="메인페이지"><span>메인페이지</span></a></li>
+            <li class="home_search"><button type="button" class="s-btn s-btn-ov topSearchAction" title="통합검색"><span class="blind">검색</span</button></li>
+            <li class="favorites"><a href="/DAS/H/H0/1/H0_1_02_P01.jsp" title="즐겨찾기"><span>즐겨찾기</span></a></li>
+            
+            <li id="AdminPage" class="admin"><a href="javascript:void(0);" title="시스템(DAS)"><span>시스템(DAS)</span></a></li>
+            
+        </ul>
+        <ul id="memberMenu">
+            <li class="name">
+                
+
+            </li>
+
+            <li class="logout"><a href="http://archives.snu.ac.kr/DAS/H/H0/1/H0_1_04_P01.jsp">로그인</a></li>
+
+            <li class="my_archive"><a href="#">기록 바구니</a></li>
+        </ul>
+    </div>
+</div>
+<div id="searchBar" style="display:none">
+    <div class="searchWrap fade">
+        <div class="searchWrap-dialog">
+            <div class="searchWrap-content">
+                <div class="searchWrap-body">
+                    <div class="searchWrap-inner">
+                        <div class="searchBox">
+                            <input type="search" name="p_sdata" class="search_input topSearchData" tabindex="1" placeholder="검색어를 입력하세요." autocomplete="off">
+                            <div class="fast_search">
+                                <ul class="auto-search-layer topAutoSearchLayer" style="display:none;">
+                                    <li><a href="#"><strong>검색</strong></a></li>
+                                    <li><a href="#"><strong>검색</strong>어 자동완성</a></li>
+                                    <li><a href="#">자동완성 되는 <strong>검색</strong>어</a></li>
+                                    <li><a href="#">서울대학교 역사기록관 <strong>검색</strong></a></li>
+                                    <li><a href="#">서울대학교 통합<strong>검색</strong>기능</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="searchWrap-footer">
+                    <button type="button" class="s-btn btn-default topSearchCloseAction" title="검색창 닫기"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <div id="LNB" class="wrap">
+        <h1><a href="/DAS/"><img src="/DAS/images/logo.png" alt="기록이 숨을 쉰다. 서울대학교 기록관 로고"><span>서울대학교 기록관</span></a></h1>
+        <nav>
+            <h3 class="blind">전체 메뉴</h3>
+            <button class="icon menuClose"><span>전체 메뉴 닫기</span></button>
+            <span id="MenuArea">
+                    
+<ul id="LNB_menu" class="userMenu">
+    <li class="work"><a href="/DAS/H/H1/1/H1_1_01_P01.do">검색</a>
+        <div class="subMenu">
+            <div class="wrap">
+                <a class="pre" href="#">이전메뉴</a>
+                <ul>
+                    <li><a href="/DAS/H/H1/1/H1_1_01_P01.do">기록물 보유현황</a></li>
+                    <li><a href="/DAS/H/H1/2/H1_2_01_P01.do">상세검색</a></li>
+                    <li><a href="/DAS/H/H1/3/H1_3_01_P01.do">이슈검색</a></li>
+                    <li><a href="/DAS/H/H1/4/H1_4_01_P01.do">전거검색</a></li>
+                    <li><a href="/DAS/H/H1/5/H1_5_01_P01.do">서고검색</a></li>
+                </ul>
+                <div>
+                    <img src="/DAS/images/menu_H1.png" alt="검색: 소장 기록물의 검색 결과를 제공합니다.">
+                </div>
+            </div>
+        </div>
+    </li>
+    <li class="management"><a href="/DAS/H/H3/1/H3_1_01_P01.jsp">기록 콘텐츠</a>
+        <div class="subMenu">
+            <div class="wrap">
+                <a class="pre" href="#">이전메뉴</a>
+                <ul>
+                    <li><a href="/DAS/H/H3/1/H3_1_01_P01.jsp">이용 안내</a></li>
+                    <li><a href="/DAS/H/H3/2/H3_2_01_P01.do">콘텐츠</a></li>
+                    <li><a href="/DAS/H/H3/3/H3_3_01_P01.do">컬렉션</a></li>
+                    <li><a href="/DAS/H/H3/4/H3_4_01_P01.do">캠퍼스 맵</a></li>
+                    <li><a href="/DAS/H/H3/5/H3_5_01_P01.do">기록물 등재</a></li>
+                </ul>
+                <div>
+                    <img src="/DAS/images/menu_H3.png" alt="기록 콘텐츠: 서울대 역사 콘텐츠를 제공합니다.">
+                </div>
+            </div>
+        </div>
+    </li>
+    <li class="menuScript"><a href="/DAS/H/H2/1/H2_1_01_P01.jsp">이용자 서비스</a>
+        <div class="subMenu">
+            <div class="wrap">
+                <a class="pre" href="#">이전메뉴</a>
+                <ul>
+                    <li><a href="/DAS/H/H2/1/H2_1_01_P01.jsp">서비스 소개</a></li>
+                    <li><a href="/DAS/H/H2/2/H2_2_01_P01.jsp">수수료 안내</a></li>
+                    <li><a href="/DAS/H/H2/3/H2_3_01_P01.do">오시는 길</a></li>
+                    <li><a href="/DAS/H/H2/4/H2_4_01_P01.do">기록물 신청 안내</a></li>
+                    <li><a href="/DAS/H/H2/5/H2_5_01_P01.do">간행물 등록</a></li>
+                    <li><a href="/DAS/H/H2/6/H2_6_01_P01.jsp">정보공개 안내</a></li>
+                    <li><a href="/DAS/H/H2/7/H2_7_01_P01.do">자료실</a></li>
+                    <li><a href="/DAS/H/H2/8/H2_8_01_P01.do">공지사항</a></li>
+                </ul>
+                <div>
+                    <img src="/DAS/images/menu_H2.png" alt="이용자 서비스: 기록물 이용 정보를 제공합니다.">
+                </div>
+            </div>
+        </div>
+    </li>
+    <li class="service"><a href="/DAS/H/H4/1/H4_1_01_P01.jsp">기관 안내</a>
+        <div class="subMenu">
+            <div class="wrap">
+                <a class="pre" href="#">이전메뉴</a>
+                <ul>
+                    <li><a href="/DAS/H/H4/1/H4_1_01_P01.jsp">인사말</a></li>
+                    <li><a href="/DAS/H/H4/2/H4_2_01_P01.jsp">연혁</a></li>
+                    <li><a href="/DAS/H/H4/3/H4_3_01_P01.jsp">규정</a></li>
+                    <li><a href="/DAS/H/H4/4/H4_4_01_P01.jsp">업무 소개</a></li>
+                    <li><a href="/DAS/H/H4/5/H4_5_01_P01.jsp">조직 및 연락처</a></li>
+                    
+                    <li><a href="/DAS/H/H4/7/H4_7_01_P01.do">기관 소식</a></li>
+                    <li><a href="/DAS/H/H4/8/H4_8_01_P01.jsp">관련 기관 안내</a></li>
+                </ul>
+                <div>
+                    <img src="/DAS/images/menu_H4.png" alt="역사기록관 안내: 역사기록관 역할 및 정보를 제공합니다.">
+                </div>
+            </div>
+        </div>
+    </li>
+    <li class="control"><a href="/DAS/H/H5/1/H5_1_01_P01.do">나의 기록들</a>
+        <div class="subMenu">
+            <div class="wrap">
+                <a class="pre" href="#">이전메뉴</a>
+                <ul>
+                    <li><a href="/DAS/H/H5/1/H5_1_01_P01.do">기록물 신청 조회</a></li>
+                    <li><a href="/DAS/H/H5/2/H5_2_01_P01.do">이용문의 목록</a></li>
+                    <li><a href="/DAS/H/H5/3/H5_3_01_P01.do">내 간행물 목록</a></li>
+                    <li><a href="/DAS/H/H5/4/H5_4_01_P01.do">내 기증 목록</a></li>
+                </ul>
+                <div>
+                    <img src="/DAS/images/menu_H5.png" alt="나의 기록들: 로그인한 사용자에게 제공됩니다.">
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
+                    </span>
+            
+<ul id="etcMenu">
+  <li class="facebook sns"><a href="http://www.facebook.com" target="_blank" rel="noopener noreferrer" class="icon" title="facebook(새창)"><span>facebook</span></a></li>
+  <li class="twitter sns"><a href="http://twitter.com" target="_blank" rel="noopener noreferrer" class="icon" title="twitter(새창)"><span>twitter</span></a></li>
+  <li class="youtube sns"><a href="http://www.youtube.com" class="icon" target="_blank" rel="noopener noreferrer" title="YouTube(새창)"><span>YouTube</span></a></li>
+  <li class="rss sns"><a href="/DAS/H/H0/1/H0_1_03_P01.do" class="icon" title="RSS(새창)"><span>RSS</span></a></li>
+  <li class="contact"><a href="javascript:void(0);" class="icon openPop" title="이용자 문의"><span>이용자 문의</span></a><div id="frameLayer"  class="modalayer fdLayer" style="padding:0; width: 600px; height: 600px; overflow-y:hidden;"></div></li>
+  <li class="all"><a href="#">전체 메뉴</a></li>
+</ul>
+        </nav>
+    </div>
+</header>	
+	    
+<!--sub navi / 현재 위치 [s]-->
+
+
+
+
+<div id="subNav">
+	<p class="wrap">
+		<a href="/DAS/" class="home icon"><span>Home</span></a>
+		
+				<span class="blind"> &gt; </span><a href="/DAS/H/H2/1/H2_1_01_P01.jsp">이용자 서비스</a><span class="blind"> &gt; </span>		
+			
+			         <strong>정보공개 안내</strong>
+			         <input type="hidden" class="inquiry" value="이용자 서비스 > 정보공개 안내" section="H" />
+			        
+		
+	</p>
+</div>
+<!--sub navi / 현재 위치 [e]-->
+<!--내용 [s]-->
+<div id="Container" class="wrap">
+    <section class="tabox openInfo">
+        <header>
+            <h3>정보공개 안내</h3>
+            <p class="btnarea bottom">
+                <button type="button" class="imgbtn guidePDF"><img src="/DAS/images/icon_pdf_gray.png" alt=""><span>가이드</span></button>
+                <button type="button" class="winopen imgbtn" title="새창이동" onclick="window.open('https://www.open.go.kr')"><img src="/DAS/images/icon_write.png" alt=""><span>정보공개신청</span></button>
+            </p>
+        </header>
+        <ul class="tab linetype">
+            <li class="up"><a href="#Info">정보공개 제도란</a></li>
+            <li><a href="#Procedures">불복구제 절차</a></li>
+            <li><a href="#Fee">수수료 정보</a></li>
+            <li><a href="#Format">관련법령 및 서식</a></li>
+        </ul>
+        <!--정보공개 제도란 [s]-->
+        <article id="Info" class="tabcontsarea phText">
+            <header>
+                <h4 class="tabtit">정보공개 제도란</h4>
+                <p class="summary">
+                    정보공개제도는 공공기관이 보유ㆍ관리하고 있는 정보를 국민의 청구에 의해 공개하거나 중요정보를 사전에 국민에게 제공함으로써,<br>
+                    국민의 알권리를 최대한 보장하고 국민의 국정 참여를 확대하는 한편 국정운영의 투명성을 제고하기 위한 제도입니다.
+                </p>
+            </header>
+            <div>
+                <h5>청구권자</h5>
+                <p>대한민국의 모든 국민(법인, 단체 포함)은 정보공개를 청구할 수 있습니다.<br>
+                    또한 국내에 일정한 주소를 두고 거주하거나 학술연구를 위하여 일시적으로 체류하는 외국인 또는 국내에 사무소를 두고 있는 외국 법인 또는 단체도 정보공개를 청구할 수 있습니다.</p>
+            </div>
+            <div>
+                <h5>대상정보</h5>
+                <p>공공기관이 직무상 작성 또는 취득하여 관리하고 있는 문서(전자문서를 포함)&middot;도면&middot;사진&middot;필름&middot;테이프&middot;슬라이드 및 그 밖에 이에 준하는 매체 등에 기록된 정보</p>
+            </div>
+            <div>
+                <h5>대상기관</h5>
+                <ul class="listicon">
+                    <li>국가기관
+                        <ul>
+                            <li>국회, 법원, 헌법재판소, 중앙선거관리위원회(해당기관에 직접청구)</li>
+                            <li>중앙행정기관(대통령 소속 기관과 국무총리 소속 기관을 포함) 및 그 소속 기관</li>
+                            <li>「행정기관 소속 위원회의 설치&middot;운영에 관한 법률」에 따른 위원회</li>
+                        </ul>
+                    </li>
+                    <li>지방자치단체 「공공기관의 운영에 관한 법률」 제2조에 따른 공공기관</li>
+                    <li>그 밖에 대통령령으로 정하는 기관</li>
+                </ul>
+            </div>
+            <div>
+                <h5>청구가능정보</h5>
+                <ul class="listicon">
+                    <li>공공기관이 직무상 작성 또는 취득하여 관리하고 있는 문서(전자문서 포함)&middot;도면&middot;사진&middot;필름&middot;테이프&middot;슬라이드 및 기타 이에 준하 는 매체 등에 기록된 사항</li>
+                    <li>공공기록물관리에 관한 법률 상 기록물과의 관계 "공공기관이 업무와 관련하여 생산 또는 접수한 문서&middot;도서&middot;대장&middot;카드&middot;도면&middot;시청각물&middot;전자문서 등 모든 형태의 기록정보자료"인<br />기록물은 정보공개청구 대상이 되며, 진정 및 질의 등 민원사항은 민원사무 처리에 관한 법률에 의거 민원으로 처리 될 수 있습니다. </li>
+                </ul>
+            </div>
+            <div>
+                <h5>처리절차</h5>
+                <ul class="procedures">
+                    <li><strong>1. 정보공개 청구<span>(청구인)</span></strong>
+                        <ul class="listicon">
+                            <li>청구방법: 당해 정보를 보유&middot;관리하고 있는 공공기관에 정보공개청구서를 제출 또는 구술로 청구</li>
+                            <li>제출방법: 직접제출, 우편&middot;모사전송, 정보통신망 이용 등</li>
+                            <li>구술방법: 청구인이 접수담당자의 면전에서 진술, 접수담당자가 정보공개구술 청구서 작성</li>
+                            <li>기재사항: 이름, 주민등록번호, 주소 및 연락처(전화번호, 전자우편주소), 공개청구 정보의 내용 및 공개방법</li>
+                        </ul>
+                    </li>
+                    <li><strong>2. 접수 및 이송<span>(접수처)</span></strong>
+                        <ul class="listicon">
+                            <li>정보공개청구서 접수시 정보공개처리대장에 기록, 청구인에게 접수증 교부</li>
+                            <li>처리부서 또는 소관기관에 청구서 이송</li>
+                        </ul>
+                    </li>
+                    <li><strong>3. 정보공개여부 결정<span>(처리부서)</span></strong>
+                        <ul class="listicon">
+                            <li>공개여부 결정 기간: 청구를 받은 날부터 10일 이내<br>
+                                <span>(10일 이내의 범위에서 연장가능, 연장사실과 연장사유를 청구인에게 문서로 통지)</span>
+                            </li>
+                            <li>공개 대상 정보가 제3자와 관련있는 경우 제3자에게 통지하고, 필요시 제3자의 의견 청취<br>
+                                <span>(제3자는 통지받은 날부터 3일 이내 자신과 관련된 정보에 대한 비공개요청 가능)</span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><strong>4. 정보공개여부 결정통지<span>(처리부서)</span></strong>
+                        <ul class="listicon">
+                            <li>정보(공개/비공개/부분공개) 결정통지서 통지
+                                <ul>
+                                    <li>공개결정시: 공개일시(공개결정일부터 10일 이내)·공개장소 등을 명시</li>
+                                    <li>비공개결정시: 비공개이유&middot;불복방법 및 불복절차 명시</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><strong>5. 정보공개 실시<span>(처리부서)</span></strong>
+                        <ul class="listicon">
+                            <li>정보공개방법
+                                <ul>
+                                    <li>필름&middot;테이프 등의 시청 또는 인화물&middot;복제물의 교부</li>
+                                    <li>비공개결정시: 비공개이유&middot;불복방법 및 불복절차 명시</li>
+                                    <li>정보통신망(정보공개포털) 등록, 전자우편을 통한 송부, 매체 수록 후 제공, 열람&middot;시청 또는 사본&middot;출력물의 교부</li>
+                                </ul>
+                            </li>
+                            <li>청구인의 확인
+                                <ul>
+                                    <li>정보공개시 본인 또는 대리인 확인이 필요한 경우</li>
+                                    <li>청구인의 신분증명서 또는 대리인의 신분증명서 및 관계서류</li>
+                                </ul>
+                            </li>
+                            <li>수수료 납부
+                                <ul>
+                                    <li>수수료 및 우편요금(우송으로 공개하는 경우)</li>
+                                    <li>납부방법: 수입인지(정부기관), 수입증지(지방자치단체), 현금(기타)</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h5>문의</h5>
+                <ul class="listicon">
+                    <li><strong>담당부서</strong>: 서울대학교 역사기록관</li>
+                    <li><strong>전화</strong>: <a href="tel:+82028808810" class="tel">02-880-8810</a></li>
+                    <!--<li><strong>팩스</strong>: 02-884-7149</li>-->
+                    <li><strong>이메일</strong>: <a href="mailto:archives@snu.ac.kr" class="mail" title="메일 보내기">archives@snu.ac.kr</a></li>
+                </ul>
+            </div>
+        </article>
+        <!--정보공개 제도란 [e]-->
+        <!--불복구제 절차 [s]-->
+        <article id="Procedures" class="tabcontsarea phText">
+            <header class="dotborder"><h4 class="tabtit">불복구제 절차</h4></header>
+            <div>
+                <h5>1. 이의신청 신청권자</h5>
+                <ul class="listicon">
+                    <li>공공기관의 비공개 또는 부분공개의 결정에 대하여 불복이 있는 청구인</li>
+                    <li>제3자의 비공개요청에도 불구하고 공공기관이 공개결정을 하는 경우의 제3자</li>
+                </ul>
+            </div>
+            <div>
+                <h5>2. 이의신청 신청방법</h5>
+                <ul class="listicon">
+                    <li>신청기간 : 정보공개여부의 결정통지를 받은 날 또는 비공개의 결정이 있는 것으로 보는 날부터 30일 이내<br>
+                        <span>(제3자의 경우는 공개통지를 받은 날부터 7일 이내)</span></li>
+                    <li>정보공개(비공개)결정 이의신청서를 작성하여 당해 공공기관에 제출</li>
+                </ul>
+            </div>
+            <div>
+                <h5>3. 이의신청 처리절차</h5>
+                <ul class="listicon">
+                    <li>이의신청을 받은 날부터 7일 이내에 이의신청에 대하여 결정하고, 청구인에게 문서로 통지</li>
+                    <li>기간을 연장(7일 이내)하는 경우에는 연장사유 및 기간을 청구인에게 통지</li>
+                    <li>이의신청을 각하&middot;기각하는 경우에는 결정이유&middot;불복방법 및 불복절차를 구체적으로 명시</li>
+                </ul>
+            </div>
+            <div>
+                <h5>4. 행정심판</h5>
+                <ul class="listicon">
+                    <li>심판청구
+                        <ul>
+                            <li>청구인이 정보공개와 관련한 공공기관의 결정에 대하여 불복이 있는 때에는 이의신청절차를 거치지 아니하고 청구할 수 있습니다.</li>
+                            <li>심판청구서는 피청구인인 행정청 또는 위원회에 제출하여야 합니다.</li>
+                            <li>다만, 국가기관이나 지방자치단체 외의 공공기관의 결정에 대한 감독행정기관은 관계 중앙행정기관의 장이나 지방자치단체의 장으로 하게 됩니다.</li>
+                        </ul>
+                    </li>
+                    <li>심판청구기간
+                        <ul>
+                            <li>정보공개와 관련한 공공기관의 결정이 있음을 안 날부터 "90일" 이내에 제기하여야 합니다.</li>
+                            <li>정당한 사유가 없는 한 공공기관의 결정이 있는 날부터 "180일"을 넘겨서는 아니됩니다.</li>
+                            <li>재결은 피청구인인 행정청 또는 위원회가 심판청구서를 받은 날부터 "60일" 이내에 하여야 하며, 부득이한 사정이 있는 때에는 1차에 한하여 "30일"의 범위 내에서 기간을 연장할 수 있습니다.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h5>5. 행정소송</h5>
+                <ul class="listicon">
+                    <li>소송제기
+                        <ul>
+                            <li>청구인이 정보공개와 관련한 공공기관의 결정에 대하여 불복이 있는 때에는 이의신청&middot;행정심판절차를 거치지 아니하고 행정소송법이 정하는 바에 따라 행정소송을 제기할 수 있습니다.</li>
+                        </ul>
+                    </li>
+                    <li>제소기간
+                        <ul>
+                            <li>공공기관의 결정이 있은 날 또는 행정심판을 거친 경우 재결서 정본의 송달을 받은 날부터 90일 이내에 제기하여야 합니다.</li>
+                            <li>공공기관의 결정이 있은 날 또는 재결이 있은 날부터 1년이 지나면 제기할 수 없습니다.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h5>6. 참고사이트</h5>
+                <ul class="listicon">
+                    <li>행정심판포털 권리누리 (<a href="http://www.simpan.go.kr/" target="_blank" rel="noopener noreferrer" title="새창이동" class="winopen">http://www.simpan.go.kr/</a>)</li>
+                    <li>대한민국정보공개 (<a href="https://www.open.go.kr/pa/info/openInst/openInstDetail.do" title="새창이동" target="_blank" rel="noopener noreferrer" class="winopen">https://www.open.go.kr/pa/info/openInst/openInstDetail.do</a>)</li>
+                </ul>
+            </div>
+            <div>
+                <h5>문의</h5>
+                <ul class="listicon">
+                    <li><strong>담당부서</strong>: 서울대학교 역사기록관</li>
+                    <li><strong>전화</strong>: <a href="tel:+82028808810" class="tel">02-880-8810</a></li>
+                    <!--<li><strong>팩스</strong>: 02-884-7149</li>-->
+                    <li><strong>이메일</strong>: <a href="mailto:archives@snu.ac.kr" class="mail" title="메일 보내기">archives@snu.ac.kr</a></li>
+                </ul>
+            </div>
+        </article>
+        <!--불복구제 절차 [e]-->
+        <!--수수료 정보 [s]-->
+        <article id="Fee" class="tabcontsarea">
+            <!--수수료 [s]-->
+            
+<style>
+@media screen and (max-width: 700px) {
+    table.feeGuide tbody tr:nth-of-type(1) td:nth-of-type(1):before { content: "문서·도면·사진 등: 열람·시청";}
+    table.feeGuide tbody tr:nth-of-type(1) td:nth-of-type(2):before { content: "문서·도면·사진 등: 사본(종이출력물)·인화물·복제물";}
+    table.feeGuide tbody tr:nth-of-type(2) td:nth-of-type(1):before { content: "필름·테이프 등: 열람·시청";}
+    table.feeGuide tbody tr:nth-of-type(2) td:nth-of-type(2):before { content: "필름·테이프 등: 사본(종이출력물)·인화물·복제물";}
+    table.feeGuide tbody tr:nth-of-type(3) td:nth-of-type(1):before { content: "마이크로필름·슬라이드 등: 열람·시청";}
+    table.feeGuide tbody tr:nth-of-type(3) td:nth-of-type(2):before { content: "마이크로필름·슬라이드 등: 사본(종이출력물)·인화물·복제물";}
+    table.feeGuide tbody tr:nth-of-type(4) td:nth-of-type(1):before { content: "전자파일: 열람·시청";}
+    table.feeGuide tbody tr:nth-of-type(4) td:nth-of-type(2):before { content: "전자파일: 사본(종이출력물)·인화물·복제물";}
+}
+</style>
+<table border="0" cellspacing="0" cellpadding="0" class="row rwd feeGuide">
+    <caption>
+        <h4 class="tabtit">수수료 정보</h4>
+    </caption>
+    <colgroup>
+        <col width="20%">
+        <col>
+        <col width="40%">
+    </colgroup>
+    <thead>
+        <tr>
+            <th scope="col" rowspan="2">공개대상</th>
+            <th scope="col" colspan="2">공개방법 및 수수료</th>
+        </tr>
+        <tr>
+            <th scope="col">열람&middot;시청</th>
+            <th scope="col">사본(종이출력물)&middot;인화물&middot;복제물</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">문서&middot;도면&middot;사진 등</th>
+            <td><dl>
+                    <dt>열람</dt>
+                    <dd>1일 1시간 이내: 무료<br><span>1시간 초과 시 30분마다 1,000원</span></dd>
+                </dl>
+            </td>
+            <td><dl>
+                    <dt>사본 (종이출력물)</dt>
+                    <dd>A3이상: 300원<br><span>1장 초과마다 100원</span></dd>
+                    <dd>B4이하: 250원<br><span>1장 초과마다 50원</span></dd>
+                </dl>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">필름&middot;테이프 등</th>
+            <td><dl>
+                    <dt>녹음테이프(오디오자료)의 청취</dt>
+                    <dd>1건이 1개 이상으로 이루어진 경우:<br><span>1개(60분 기준)마다 1,500원</span></dd>
+                    <dd>여러 건이 1개로 이루어진 경우:<br><span>1개(30분 기준)마다 700원</span></dd>
+                </dl>
+                <dl>
+                    <dt>녹화테이프(비디오자료)의 시청</dt>
+                    <dd>1편이 1롤 이상으로 이루어진 경우:<br><span>1개(60분 기준)마다 1,500원</span></dd>
+                    <dd>여러 편이 1롤로 이루어진 경우:<br><span>1개(30분 기준)마다 700원</span></dd>
+                </dl>
+                <dl>
+                    <dt>영화필름의 시청</dt>
+                    <dd>1편이 1캔 이상으로 이루어진 경우:<br><span>1캔(60분 기준)마다 3,500원</span></dd>
+                    <dd>여러 편이 1캔으로 이루어진 경우:<br><span>1편(30분 기준)마다 2,000원</span></dd>
+                </dl>
+                <dl>
+                    <dt>사진필름의 열람</dt>
+                    <dd>1장: 200원<br><span>1장 초과마다 50원</span></dd>
+                </dl>
+            </td>
+            <td><dl>
+                    <dt>녹음테이프(오디오자료)의 복제</dt>
+                    <dd>1건이 1개 이상으로 이루어진 경우:<br><span>1개마다 5,000원</span></dd>
+                    <dd>여러 건이 1개로 이루어진 경우:<br><span>1건마다 3,000원</span></dd>
+                    <dd class="example">매체비용은 별도</dd>
+                </dl>
+                <dl>
+                    <dt>녹화테이프(비디오자료)의 복제</dt>
+                    <dd>1편이 1롤 이상으로 이루어진 경우:<br><span>1롤마다 5,000원</span></dd>
+                    <dd>여러 편이 1롤로 이루어진 경우:<br><span>1편마다 3,000원</span></dd>
+                    <dd class="example">매체비용은 별도</dd>
+                </dl>
+                <dl>
+                    <dt>사진필름의 복제</dt>
+                    <dd>1컷마다 6,000원:<br><span>1캔(60분 기준)마다 3,500원</span></dd>
+                    <dd class="example">매체비용은 별도</dd>
+                </dl>
+                <dl>
+                    <dt>사진필름의 인화</dt>
+                    <dd>1컷마다 500원</dd>
+                    <dd>1장 초과마다:
+                        <ul>
+                            <li>3' × 5' 200원</li>
+                            <li>5' × 7' 300원</li>
+                            <li>8' × 10' 400원</li>
+                        </ul>
+                    </dd>
+                </dl>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">마이크로필름&middot;슬라이드 등</th>
+            <td>
+                <dl>
+                    <dt>마이크로필름의 열람</dt>
+                    <dd>1건(10컷 기준)1회: 500원<br><span>10컷 초과 시 1컷마다 100원</span></dd>
+                </dl>
+                <dl>
+                    <dt>슬라이드의 시청</dt>
+                    <dd>1컷마다 200원</dd>
+                </dl>
+            </td>
+            <td><dl>
+                    <dt>사본(종이출력물)</dt>
+                    <dd>A3이상: 300원<br><span>1장 초과마다 200원</span></dd>
+                    <dd>B4이하: 250원<br><span>1장 초과마다 150원</span></dd>
+                </dl>
+                <dl>
+                    <dt>마이크로필름의 복제</dt>
+                    <dd>1롤마다 1,000원</dd>
+                    <dd class="example">매체비용은 별도</dd>
+                </dl>
+                <dl>
+                    <dt>슬라이드의 복제</dt>
+                    <dd>1컷마다 3,000원</dd>
+                    <dd class="example">매체비용은 별도</dd>
+                </dl>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">전자파일</th>
+            <td><dl>
+                    <dt>전자파일(문서·도면·사진 등)의 열람</dt>
+                    <dd>1일 1시간 이내 : 무료<br><span>1시간 초과 시 30분마다 1,000원</span></dd>
+                </dl>
+                <dl>
+                    <dt>전자파일(오디오자료&middot;비디오자료)의 시청&middot;청취</dt>
+                    <dd>1편: 1,500원<br><span>30분 초과 시 10분마다 500원</span></dd>
+                </dl>
+            </td>
+            <td><dl>
+                    <dt>사본(종이출력물)</dt>
+                    <dd>A3이상: 300원<br><span>1장 초과마다 100원</span></dd>
+                    <dd>B4이하: 250원<br><span>1장 초과마다 50원</span></dd>
+                </dl>
+                <dl>
+                    <dt>전자파일(문서&middot;도면&middot;사진 등)의 복제</dt>
+                    <dd>무료<br/><br/>※ 매체비용은 별도</dd>
+
+                    <dt>전자파일로의 변환(문서&middot;도면&middot;사진 등)</dt>
+                    <dd>정보공개 처리를 위하여 전자파일로의 변환 작업이 필요한 경우에는 사본(종이출력물) 수수료의 1/2로 산정</span></dd>
+                    <dd>부분공개 처리를 위하여 지움 작업 및 전자파일로의 변환 작업이 필요한 경우에는 사본(종이출력물) 수수료와 동일하게 산정</span><br/><br/>※ 매체비용은 별도</dd>
+                </dl>
+                <dl>
+                    <dt>전자파일(오디오자료&middot;비디오자료)의 복제</dt>
+                    <dd>1건(700MB 기준)마다 5,000원</dd>
+                    <dd>700MB 초과 시 350MB마다 2,500원<br/><br/>※ 매체비용은 별도</dd>
+                </dl>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>
+    <span class="infotxt">비고</span><br>
+    <span class="infotxt">1. 정보통신망을 활용한 정보공개시스템 등을 통하여 공개하는 경우에는 전자파일 복제의 경우를 적용하여 수수료를 산정한다.</span><br>
+    <span class="infotxt">2. 해당 공공기관에서 사본, 출력물, 복제물을 만들 수 있는 전산장비 등이 없거나 도면 등이 A3 규격을 초과하여 이를 복사할 장비가 없어 외부업체에 대행시키는 경우에는 청구인과 협의를 통하여 그 비용을 수수료에 포함하여 산정할 수 있다.</span><br>
+    <span class="infotxt">3. 수수료 중 100원 단위 미만 금액은 계산하지 아니한다.</span>
+</p>
+            <!--수수료 [e]-->            
+        </article>
+        <!--수수료 정보 [e]-->
+        <!--관련법령 및 서식 [s]-->
+        <article id="Format" class="tabcontsarea phText">
+            <header><h4 class="tabtit">관련법령 및 서식</h4></header>
+            <table border="0" cellspacing="0" cellpadding="0">
+                <caption>
+                    <h5>관련 법령</h5>
+                </caption>
+                <colgroup>
+                    <col width="10%" class="m">
+                    <col>
+                    <col width="20%">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th scope="col" class="m">번호</th>
+                        <th scope="col">법령</th>
+                        <th scope="col">바로가기</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="num m">1</td>
+                        <td>공공기관의 정보공개에 관한 법률</td>
+                        <td><button type="button" class="btn_white" onclick="window.location = 'http://www.law.go.kr/lsInfoP.do?lsiSeq=195063&efYd=20170726#0000'">바로가기</button></td>
+                    </tr>
+                    <tr>
+                        <td class="num m">2</td>
+                        <td>공공기관의 정보공개에 관한 법률 시행령</td>
+                        <td><button type="button" class="btn_white" onclick="window.location = 'http://www.law.go.kr/lsInfoP.do?lsiSeq=195572&efYd=20170726#0000'">바로가기</button></td>
+                    </tr>
+                    <tr>
+                        <td class="num m">3</td>
+                        <td>공공기관의 정보공개에 관한 법률 시행규칙</td>
+                        <td><button type="button" class="btn_white" onclick="window.location = 'http://www.law.go.kr/lsInfoP.do?lsiSeq=200154&efYd=20171221#0000'">바로가기</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <table border="0" cellspacing="0" cellpadding="0">
+                <caption>
+                    <h5>서식</h5>
+                </caption>
+                <colgroup>
+                    <col width="10%" class="m">
+                    <col>
+                    <col width="20%">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th scope="col" class="m">번호</th>
+                        <th scope="col">법령</th>
+                        <th scope="col">다운로드</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="num m">1</td>
+                        <td>비공개대상정보 세부기준</td>
+                        <td><button type="button" class="btn_white" onclick="window.location = '/DAS/H/formatfile/format001.pdf'">다운로드</button></td>
+                    </tr>
+                    <tr>
+                        <td class="num m">2</td>
+                        <td>이의신청 처리대장</td>
+                        <td><button type="button" class="btn_white" onclick="window.location = '/DAS/H/formatfile/format002.hwp'">다운로드</button></td>
+                    </tr>
+                    <tr>
+                        <td class="num m">3</td>
+                        <td>이의신청 결정기간 연장통지서</td>
+                        <td><button type="button" class="btn_white" onclick="window.location = '/DAS/H/formatfile/format003.hwp'">다운로드</button></td>
+                    </tr>
+                    <tr>
+                        <td class="num m">4</td>
+                        <td>정보공개(비공개)결정 이의신청서</td>
+                        <td><button type="button" class="btn_white" onclick="window.location = '/DAS/H/formatfile/format004.hwp'">다운로드</button></td>
+                    </tr>
+                    <tr>
+                        <td class="num m">5</td>
+                        <td>정보공개 위임장</td>
+                        <td><button type="button" class="btn_white" onclick="window.location = '/DAS/H/formatfile/format005.hwp'">다운로드</button></td>
+                    </tr>
+                    <tr>
+                        <td class="num m">6</td>
+                        <td>정보(공개/부분공개/비공개)결정 통지서</td>
+                        <td><button type="button" class="btn_white" onclick="window.location = '/DAS/H/formatfile/format006.hwp'">다운로드</button></td>
+                    </tr>
+                    <tr>
+                        <td class="num m">7</td>
+                        <td>정보공개 처리대장</td>
+                        <td><button type="button" class="btn_white" onclick="window.location = '/DAS/H/formatfile/format007.hwp'">다운로드</button></td>
+                    </tr>
+                    <tr>
+                        <td class="num m">8</td>
+                        <td>공개여부 결정기간 연장통지서</td>
+                        <td><button type="button" class="btn_white" onclick="window.location = '/DAS/H/formatfile/format008.hwp'">다운로드</button></td>
+                    </tr>
+                    <tr>
+                        <td class="num m">9</td>
+                        <td>정보공개 구술 청구서</td>
+                        <td><button type="button" class="btn_white" onclick="window.location = '/DAS/H/formatfile/format009.hwp'">다운로드</button></td>
+                    </tr>
+                    <tr>
+                        <td class="num m">10</td>
+                        <td>정보공개 청구서</td>
+                        <td><button type="button" class="btn_white" onclick="window.location = '/DAS/H/formatfile/format010.hwp'">다운로드</button></td>
+                    </tr>
+                    <tr>
+                        <td class="num m">11</td>
+                        <td>제3자 의견서(비공개요청서)</td>
+                        <td><button type="button" class="btn_white" onclick="window.location = '/DAS/H/formatfile/format011.hwp'">다운로드</button></td>
+                    </tr>
+                    <tr>
+                        <td class="num m">12</td>
+                        <td>제3자 의견청취서</td>
+                        <td><button type="button" class="btn_white" onclick="window.location = '/DAS/H/formatfile/format012.hwp'">다운로드</button></td>
+                    </tr>
+                    <tr>
+                        <td class="num m">13</td>
+                        <td>의사결정 과정 및 내부검토 과정 종료 통지서</td>
+                        <td><button type="button" class="btn_white" onclick="window.location = '/DAS/H/formatfile/format013.hwp'">다운로드</button></td>
+                    </tr>
+                    <tr>
+                        <td class="num m">14</td>
+                        <td>이의신청(인용, 부분인용, 기각, 각하)</td>
+                        <td><button type="button" class="btn_white" onclick="window.location = '/DAS/H/formatfile/format014.hwp'">다운로드</button></td>
+                    </tr>
+                    <tr>
+                        <td class="num m">15</td>
+                        <td>정보 부존재 등 통지서</td>
+                        <td><button type="button" class="btn_white" onclick="window.location = '/DAS/H/formatfile/format015.hwp'">다운로드</button></td>
+                    </tr>
+                    <tr>
+                        <td class="num m">16</td>
+                        <td>정보공개 운영실태</td>
+                        <td><button type="button" class="btn_white" onclick="window.location = '/DAS/H/formatfile/format016.hwp'">다운로드</button></td>
+                    </tr>
+                    <tr>
+                        <td class="num m">17</td>
+                        <td>정보공개 청구사실 통지서</td>
+                        <td><button type="button" class="btn_white" onclick="window.location = '/DAS/H/formatfile/format017.hwp'">다운로드</button></td>
+                    </tr>
+                    <tr>
+                        <td class="num m">18</td>
+                        <td>제3자에 대한 정보공개 결정 통지서</td>
+                        <td><button type="button" class="btn_white" onclick="window.location = '/DAS/H/formatfile/format018.hwp'">다운로드</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+        <!--관련법령 및 서식 [e]-->
+    </section>
+    <div class="footerBtnArea">
+        <button type="button" class="winopen btn_blue" title="새창이동" onclick="window.open('http://www.open.go.kr')"><span>정보공개신청</span></button>
+    </div>
+</div>
+<!--내용 [e]-->
+<script>
+    $(function(){
+        var tabox = $(".tabox");
+        tabact(tabox);
+    });
+</script>
+	    
+<a href="#" class="pagetop" title="맨 위로"><img src="/DAS/images/btn_top.png" alt="맨 위로"></a>
+<footer>
+    <nav>
+        <div class="wrap">
+            <h3 class="blind">사이트 정책</h3>
+            <a href="/DAS/H/H0/1/H0_1_08_P01.jsp">개인 정보 처리 방침</a>
+            <a href="/DAS/H/H0/1/H0_1_09_P01.jsp">저작권 보호 정책</a>
+            <a href="/DAS/H/H0/1/H0_1_10_P01.jsp">이메일 무단 수집 거부</a>
+            <a href="/DAS/H/H2/1/H2_1_01_P01.jsp">이용 가이드</a>
+        </div>
+    </nav>
+    <ul>
+        <li class="facebook"><a href="http://www.facebook.com" target="_blank" rel="noopener noreferrer" title="새창열림" class="icon"><span>facebook</span></a></li>
+        <li class="twitter"><a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" title="새창열림" class="icon"><span>twitter</span></a></li>
+        <li class="rss"><a href="/DAS/H/H0/1/H0_1_03_P01.jsp" class="icon"><span>RSS</span></a></li>
+        <li class="youtube"><a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" title="새창열림" class="icon"><span>youtube</span></a></li>
+    </ul>
+    <div class="adress">
+        <h3 class="blind">연락처 및 QR코드</h3>
+        <img src="/DAS/images/logo_footer.png" alt="서울대학교 로고" >
+        <p>08826 서울시 관악구 관악로 1 서울대학교 75동(융합관) 1층 역사기록관<br>
+            Copyright(c) 2020 Seoul National University Archives All Rights Reserved.</p>
+        <div>
+            <ul>
+                <li title="문의전화">Tel: <a href="tel:+82028808810" class="tel m-tellephone">02-880-8810(8818,8819)</a></li>
+                <li title="이메일">E-mail: archives@snu.ac.kr
+                </li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+<div id="pageURL" class="modalayer" style="display:none;">
+    <button class="imgbtn modalclose" title="창닫기"><img src="/DAS/images/menu_btn.png" alt="창닫기"></button>
+    <p>
+        <label for="urlArea">URL 보기</label>
+        <input id="urlArea" type="url" class="maxfull">
+    </p>
+    <p class="info">'Ctrl + C'를 눌러 복사해 주세요.</p>
+    <p class="btnarea">
+        <!--button type="button" class="btn_blue" id="copyBtn">복사하기</button-->
+        <button class="btn_white modalclose">닫기</button>
+    </p>
+</div>
+
+<div id="test_div" class="modalayer" style="display:none;">    
+    <p class="info">
+        홈페이지 시험 운영 테스트 중입니다.<br>
+        자세한 사항은 서울대 역사기록관으로 문의 하시기 바랍니다.<br>
+              ☎ 02)880-8819 
+    </p>
+    <p class="btnarea">
+        <!--button type="button" class="btn_blue" id="copyBtn">복사하기</button-->
+        <button class="btn_white modalclose">닫기</button>
+    </p>
+</div>
+
+<div id="addcartMsg" class="modalayer">
+    <button class="imgbtn modalclose" title="창닫기"><img src="/DAS/images/menu_btn.png" alt="창닫기"></button>
+    <p>
+        <strong class="bookmark-title">전거 레코드</strong><br>기록 바구니에 추가되었습니다.
+    </p>
+    <p class="btnarea">
+        <button type="button" class="btn_blue" id="goCart">기록 바구니 이동</button>
+        <button class="btn_white modalclose">닫기</button>
+    </p>
+</div>
+	    <div class="loadingbox div-loading" aria-hidden="true">
+            <img src="/DAS/images/loading70.gif" alt="" class="div-loading-img">
+            <p>LOADING</p>
+            <span>- 잠시만 기다려 주세요 -</span>
+        </div>
+    </body>
+</html>

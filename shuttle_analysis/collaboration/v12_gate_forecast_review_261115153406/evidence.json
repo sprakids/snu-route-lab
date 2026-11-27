@@ -1,0 +1,945 @@
+{
+  "schema": "v12_gate_forecast_scoped_static_review_v1",
+  "generated_at_utc": "2026-11-15T06:46:19.445562+00:00",
+  "candidate": "261115153406",
+  "parent": "261115151942",
+  "provenance_status": "MATCH",
+  "scoped_logic_status": "GATE_POOL_AND_DECLARED_FORECAST_ABLATION_CONNECTED",
+  "failures": [],
+  "scope": {
+    "limited_to": [
+      "formal SNU gate absorption and five-service acceptance pool",
+      "unchanged temporary enroute window/restore boundary",
+      "subjective seat-history setting and declared case overrides",
+      "freeze and existing STARTED/group markers"
+    ],
+    "project_functions_executed": false,
+    "tests_executed": false,
+    "new_model_runs_started": false,
+    "new_date_raw_outcomes_opened": false,
+    "source_config_inputs_modified": false,
+    "production_actions": false,
+    "broader_policy_counterexample_search": false,
+    "model_accuracy_or_promotion_approved": false
+  },
+  "source_intake": {
+    "shuttle_analysis\\261115153406\\operations.py": "6a8cbf12833b8bebdac838b8acc737e8b12a8e82b07c427ac6ba62e7d6cbf645",
+    "shuttle_analysis\\261115153406\\config.json": "121d50e3c50866755dfc5afe4177f7bc5d120a0a25ba9a9faeab013f3c2dd584",
+    "shuttle_analysis\\261115153406\\run_case.py": "b0478cdfd4234187f3c17563943eaf4d793f85a14d3ac3bba000ba435b7919e4",
+    "shuttle_analysis\\261115153406\\walking_opportunities.py": "23bcdc81f5159c4a4e36237d28a14a84347cf3ba16ea2bfa8f283cbdc20619a1",
+    "shuttle_analysis\\261115153406\\experiment_lock.json": "ed0eee8dc16d8d000e74427f89ec8508b27cf8b393ae0a28f4f68708c1ce9d53",
+    "shuttle_analysis\\261115153406\\input_manifest.json": "d3829d8f5fcb395ac224835a3306f114f01b1021e274985f2fe88d12198eb86b",
+    "shuttle_analysis\\261115153406\\physics.py": "b02afdd219ae47df56f4cd8288fe758ad43d5db26ada9adfcfe106841e4e4b15",
+    "shuttle_analysis\\261115153406\\metrics.py": "2161f7f48b9545d10e8d349f6d4c98efa2e0426dc133daaa5749fe3976de9814",
+    "shuttle_analysis\\261115153406\\future_evaluation_plan.json": "b0c258fe014ea4798a4b05f8240a2cfe49ec6d010d2279ce6d22b732d68b4082",
+    "shuttle_analysis\\261115153406\\hazard.py": "6a37635687d25e0210749e30598d0494f0c16e586d0fa095b0def9fe6b49cc18",
+    "shuttle_analysis\\261115153406\\artifacts.py": "6e62dfbe617557377b2feea01918670e050f960548bda5aab27491b24853e1f7",
+    "shuttle_analysis\\261115153406\\fares.py": "6b4bd8c2a5e9a72d5cf75ff134c53af5057be60df769ae9ecf7d3502fa705de3",
+    "shuttle_analysis\\261115153406\\behavioral_policy.py": "1851ce14a5d69b5b98404262758cf2801d886e6060597d18eaf466330d271af8",
+    "shuttle_analysis\\261115153406\\capacity.py": "2fba2637b1a7b0149b4cd5d2b540cbca750b430975e89d2a1851eca8bb55deb2",
+    "shuttle_analysis\\261115153406\\empirical_v12.py": "c0943dcc106736bd8bb6de4e1a3f0a479f830ad97a7f53adec076eb36952d8de",
+    "shuttle_analysis\\261115153406\\prepare.py": "46d24b3b4d6707daf11e6614f59906c4f4adfea3d8163b9fb82fd3e863af1b68",
+    "shuttle_analysis\\261115153406\\policy.py": "a10ed2eb54f62dfe3ee5cc481b904eba91040e2540266bcc22aff6de1b53d966",
+    "shuttle_analysis\\261115153406\\preferences.py": "34fb12b6ab164b7e97f2c79ad512c97796649d7c1a7dbeebfae99aeac310442d",
+    "shuttle_analysis\\261115153406\\engine.py": "c09a2b7933c85e62241d004a870d8cf31699df2910ea9c1b7dca5b3d22dcc885",
+    "shuttle_analysis\\261115153406\\time_profiles.py": "c4d8f8cf9df7c367e6fd1b1e20a04d98d896cb12265e2ebfbf8a1ce40840ed52"
+  },
+  "runtime_sha256": {
+    "artifacts.py": "6e62dfbe617557377b2feea01918670e050f960548bda5aab27491b24853e1f7",
+    "preferences.py": "34fb12b6ab164b7e97f2c79ad512c97796649d7c1a7dbeebfae99aeac310442d",
+    "hazard.py": "6a37635687d25e0210749e30598d0494f0c16e586d0fa095b0def9fe6b49cc18",
+    "capacity.py": "2fba2637b1a7b0149b4cd5d2b540cbca750b430975e89d2a1851eca8bb55deb2",
+    "physics.py": "b02afdd219ae47df56f4cd8288fe758ad43d5db26ada9adfcfe106841e4e4b15",
+    "fares.py": "6b4bd8c2a5e9a72d5cf75ff134c53af5057be60df769ae9ecf7d3502fa705de3",
+    "prepare.py": "46d24b3b4d6707daf11e6614f59906c4f4adfea3d8163b9fb82fd3e863af1b68",
+    "policy.py": "a10ed2eb54f62dfe3ee5cc481b904eba91040e2540266bcc22aff6de1b53d966",
+    "metrics.py": "2161f7f48b9545d10e8d349f6d4c98efa2e0426dc133daaa5749fe3976de9814",
+    "engine.py": "c09a2b7933c85e62241d004a870d8cf31699df2910ea9c1b7dca5b3d22dcc885",
+    "operations.py": "6a8cbf12833b8bebdac838b8acc737e8b12a8e82b07c427ac6ba62e7d6cbf645",
+    "empirical_v12.py": "c0943dcc106736bd8bb6de4e1a3f0a479f830ad97a7f53adec076eb36952d8de",
+    "time_profiles.py": "c4d8f8cf9df7c367e6fd1b1e20a04d98d896cb12265e2ebfbf8a1ce40840ed52",
+    "behavioral_policy.py": "1851ce14a5d69b5b98404262758cf2801d886e6060597d18eaf466330d271af8",
+    "walking_opportunities.py": "23bcdc81f5159c4a4e36237d28a14a84347cf3ba16ea2bfa8f283cbdc20619a1",
+    "run_case.py": "b0478cdfd4234187f3c17563943eaf4d793f85a14d3ac3bba000ba435b7919e4"
+  },
+  "parent_runtime_comparison": {
+    "artifacts.py": {
+      "parent_sha256": "6e62dfbe617557377b2feea01918670e050f960548bda5aab27491b24853e1f7",
+      "candidate_sha256": "6e62dfbe617557377b2feea01918670e050f960548bda5aab27491b24853e1f7",
+      "changed": false
+    },
+    "preferences.py": {
+      "parent_sha256": "34fb12b6ab164b7e97f2c79ad512c97796649d7c1a7dbeebfae99aeac310442d",
+      "candidate_sha256": "34fb12b6ab164b7e97f2c79ad512c97796649d7c1a7dbeebfae99aeac310442d",
+      "changed": false
+    },
+    "hazard.py": {
+      "parent_sha256": "6a37635687d25e0210749e30598d0494f0c16e586d0fa095b0def9fe6b49cc18",
+      "candidate_sha256": "6a37635687d25e0210749e30598d0494f0c16e586d0fa095b0def9fe6b49cc18",
+      "changed": false
+    },
+    "capacity.py": {
+      "parent_sha256": "2fba2637b1a7b0149b4cd5d2b540cbca750b430975e89d2a1851eca8bb55deb2",
+      "candidate_sha256": "2fba2637b1a7b0149b4cd5d2b540cbca750b430975e89d2a1851eca8bb55deb2",
+      "changed": false
+    },
+    "physics.py": {
+      "parent_sha256": "b02afdd219ae47df56f4cd8288fe758ad43d5db26ada9adfcfe106841e4e4b15",
+      "candidate_sha256": "b02afdd219ae47df56f4cd8288fe758ad43d5db26ada9adfcfe106841e4e4b15",
+      "changed": false
+    },
+    "fares.py": {
+      "parent_sha256": "6b4bd8c2a5e9a72d5cf75ff134c53af5057be60df769ae9ecf7d3502fa705de3",
+      "candidate_sha256": "6b4bd8c2a5e9a72d5cf75ff134c53af5057be60df769ae9ecf7d3502fa705de3",
+      "changed": false
+    },
+    "prepare.py": {
+      "parent_sha256": "46d24b3b4d6707daf11e6614f59906c4f4adfea3d8163b9fb82fd3e863af1b68",
+      "candidate_sha256": "46d24b3b4d6707daf11e6614f59906c4f4adfea3d8163b9fb82fd3e863af1b68",
+      "changed": false
+    },
+    "policy.py": {
+      "parent_sha256": "a10ed2eb54f62dfe3ee5cc481b904eba91040e2540266bcc22aff6de1b53d966",
+      "candidate_sha256": "a10ed2eb54f62dfe3ee5cc481b904eba91040e2540266bcc22aff6de1b53d966",
+      "changed": false
+    },
+    "metrics.py": {
+      "parent_sha256": "2161f7f48b9545d10e8d349f6d4c98efa2e0426dc133daaa5749fe3976de9814",
+      "candidate_sha256": "2161f7f48b9545d10e8d349f6d4c98efa2e0426dc133daaa5749fe3976de9814",
+      "changed": false
+    },
+    "engine.py": {
+      "parent_sha256": "c09a2b7933c85e62241d004a870d8cf31699df2910ea9c1b7dca5b3d22dcc885",
+      "candidate_sha256": "c09a2b7933c85e62241d004a870d8cf31699df2910ea9c1b7dca5b3d22dcc885",
+      "changed": false
+    },
+    "operations.py": {
+      "parent_sha256": "6a8cbf12833b8bebdac838b8acc737e8b12a8e82b07c427ac6ba62e7d6cbf645",
+      "candidate_sha256": "6a8cbf12833b8bebdac838b8acc737e8b12a8e82b07c427ac6ba62e7d6cbf645",
+      "changed": false
+    },
+    "empirical_v12.py": {
+      "parent_sha256": "c0943dcc106736bd8bb6de4e1a3f0a479f830ad97a7f53adec076eb36952d8de",
+      "candidate_sha256": "c0943dcc106736bd8bb6de4e1a3f0a479f830ad97a7f53adec076eb36952d8de",
+      "changed": false
+    },
+    "time_profiles.py": {
+      "parent_sha256": "c4d8f8cf9df7c367e6fd1b1e20a04d98d896cb12265e2ebfbf8a1ce40840ed52",
+      "candidate_sha256": "c4d8f8cf9df7c367e6fd1b1e20a04d98d896cb12265e2ebfbf8a1ce40840ed52",
+      "changed": false
+    },
+    "behavioral_policy.py": {
+      "parent_sha256": "66f1d16b548eeeb232f1a81892041f7238b1b18b887c8c6f348e340642159aad",
+      "candidate_sha256": "1851ce14a5d69b5b98404262758cf2801d886e6060597d18eaf466330d271af8",
+      "changed": true
+    },
+    "walking_opportunities.py": {
+      "parent_sha256": "23bcdc81f5159c4a4e36237d28a14a84347cf3ba16ea2bfa8f283cbdc20619a1",
+      "candidate_sha256": "23bcdc81f5159c4a4e36237d28a14a84347cf3ba16ea2bfa8f283cbdc20619a1",
+      "changed": false
+    },
+    "run_case.py": {
+      "parent_sha256": "b0478cdfd4234187f3c17563943eaf4d793f85a14d3ac3bba000ba435b7919e4",
+      "candidate_sha256": "b0478cdfd4234187f3c17563943eaf4d793f85a14d3ac3bba000ba435b7919e4",
+      "changed": false
+    }
+  },
+  "parent_runtime_preserved": {
+    "artifacts.py": true,
+    "preferences.py": true,
+    "hazard.py": true,
+    "capacity.py": true,
+    "physics.py": true,
+    "fares.py": true,
+    "prepare.py": true,
+    "policy.py": true,
+    "metrics.py": true,
+    "engine.py": true,
+    "operations.py": true,
+    "empirical_v12.py": true,
+    "time_profiles.py": true,
+    "behavioral_policy.py": true,
+    "walking_opportunities.py": true,
+    "run_case.py": true
+  },
+  "scoped_source_checks": {
+    "gate_guards_present": true,
+    "same_destination_pool_source": true,
+    "enroute_complete_bypass": true,
+    "forecast_flag_only_changes_history_reference": true,
+    "coordinator_grid_excludes_ablation": true
+  },
+  "evaluation_freeze": {
+    "path": "shuttle_analysis\\261115153406\\future_evaluation_plan.json",
+    "sha256": "b0c258fe014ea4798a4b05f8240a2cfe49ec6d010d2279ce6d22b732d68b4082",
+    "checks": {
+      "artifacts.py": {
+        "expected_sha256": "6e62dfbe617557377b2feea01918670e050f960548bda5aab27491b24853e1f7",
+        "current_sha256": "6e62dfbe617557377b2feea01918670e050f960548bda5aab27491b24853e1f7",
+        "matches": true
+      },
+      "preferences.py": {
+        "expected_sha256": "34fb12b6ab164b7e97f2c79ad512c97796649d7c1a7dbeebfae99aeac310442d",
+        "current_sha256": "34fb12b6ab164b7e97f2c79ad512c97796649d7c1a7dbeebfae99aeac310442d",
+        "matches": true
+      },
+      "hazard.py": {
+        "expected_sha256": "6a37635687d25e0210749e30598d0494f0c16e586d0fa095b0def9fe6b49cc18",
+        "current_sha256": "6a37635687d25e0210749e30598d0494f0c16e586d0fa095b0def9fe6b49cc18",
+        "matches": true
+      },
+      "capacity.py": {
+        "expected_sha256": "2fba2637b1a7b0149b4cd5d2b540cbca750b430975e89d2a1851eca8bb55deb2",
+        "current_sha256": "2fba2637b1a7b0149b4cd5d2b540cbca750b430975e89d2a1851eca8bb55deb2",
+        "matches": true
+      },
+      "physics.py": {
+        "expected_sha256": "b02afdd219ae47df56f4cd8288fe758ad43d5db26ada9adfcfe106841e4e4b15",
+        "current_sha256": "b02afdd219ae47df56f4cd8288fe758ad43d5db26ada9adfcfe106841e4e4b15",
+        "matches": true
+      },
+      "fares.py": {
+        "expected_sha256": "6b4bd8c2a5e9a72d5cf75ff134c53af5057be60df769ae9ecf7d3502fa705de3",
+        "current_sha256": "6b4bd8c2a5e9a72d5cf75ff134c53af5057be60df769ae9ecf7d3502fa705de3",
+        "matches": true
+      },
+      "prepare.py": {
+        "expected_sha256": "46d24b3b4d6707daf11e6614f59906c4f4adfea3d8163b9fb82fd3e863af1b68",
+        "current_sha256": "46d24b3b4d6707daf11e6614f59906c4f4adfea3d8163b9fb82fd3e863af1b68",
+        "matches": true
+      },
+      "policy.py": {
+        "expected_sha256": "a10ed2eb54f62dfe3ee5cc481b904eba91040e2540266bcc22aff6de1b53d966",
+        "current_sha256": "a10ed2eb54f62dfe3ee5cc481b904eba91040e2540266bcc22aff6de1b53d966",
+        "matches": true
+      },
+      "metrics.py": {
+        "expected_sha256": "2161f7f48b9545d10e8d349f6d4c98efa2e0426dc133daaa5749fe3976de9814",
+        "current_sha256": "2161f7f48b9545d10e8d349f6d4c98efa2e0426dc133daaa5749fe3976de9814",
+        "matches": true
+      },
+      "engine.py": {
+        "expected_sha256": "c09a2b7933c85e62241d004a870d8cf31699df2910ea9c1b7dca5b3d22dcc885",
+        "current_sha256": "c09a2b7933c85e62241d004a870d8cf31699df2910ea9c1b7dca5b3d22dcc885",
+        "matches": true
+      },
+      "operations.py": {
+        "expected_sha256": "6a8cbf12833b8bebdac838b8acc737e8b12a8e82b07c427ac6ba62e7d6cbf645",
+        "current_sha256": "6a8cbf12833b8bebdac838b8acc737e8b12a8e82b07c427ac6ba62e7d6cbf645",
+        "matches": true
+      },
+      "empirical_v12.py": {
+        "expected_sha256": "c0943dcc106736bd8bb6de4e1a3f0a479f830ad97a7f53adec076eb36952d8de",
+        "current_sha256": "c0943dcc106736bd8bb6de4e1a3f0a479f830ad97a7f53adec076eb36952d8de",
+        "matches": true
+      },
+      "time_profiles.py": {
+        "expected_sha256": "c4d8f8cf9df7c367e6fd1b1e20a04d98d896cb12265e2ebfbf8a1ce40840ed52",
+        "current_sha256": "c4d8f8cf9df7c367e6fd1b1e20a04d98d896cb12265e2ebfbf8a1ce40840ed52",
+        "matches": true
+      },
+      "behavioral_policy.py": {
+        "expected_sha256": "1851ce14a5d69b5b98404262758cf2801d886e6060597d18eaf466330d271af8",
+        "current_sha256": "1851ce14a5d69b5b98404262758cf2801d886e6060597d18eaf466330d271af8",
+        "matches": true
+      },
+      "walking_opportunities.py": {
+        "expected_sha256": "23bcdc81f5159c4a4e36237d28a14a84347cf3ba16ea2bfa8f283cbdc20619a1",
+        "current_sha256": "23bcdc81f5159c4a4e36237d28a14a84347cf3ba16ea2bfa8f283cbdc20619a1",
+        "matches": true
+      },
+      "run_case.py": {
+        "expected_sha256": "b0478cdfd4234187f3c17563943eaf4d793f85a14d3ac3bba000ba435b7919e4",
+        "current_sha256": "b0478cdfd4234187f3c17563943eaf4d793f85a14d3ac3bba000ba435b7919e4",
+        "matches": true
+      },
+      "config.json": {
+        "expected_sha256": "121d50e3c50866755dfc5afe4177f7bc5d120a0a25ba9a9faeab013f3c2dd584",
+        "current_sha256": "121d50e3c50866755dfc5afe4177f7bc5d120a0a25ba9a9faeab013f3c2dd584",
+        "matches": true
+      },
+      "experiment_lock.json": {
+        "expected_sha256": "ed0eee8dc16d8d000e74427f89ec8508b27cf8b393ae0a28f4f68708c1ce9d53",
+        "current_sha256": "ed0eee8dc16d8d000e74427f89ec8508b27cf8b393ae0a28f4f68708c1ce9d53",
+        "matches": true
+      },
+      "analyze_followup.py": {
+        "expected_sha256": "587f63ce232e2ca1e9b05cddd28e7bb513061a0e0f6a9976487d86c19c7d8895",
+        "current_sha256": "587f63ce232e2ca1e9b05cddd28e7bb513061a0e0f6a9976487d86c19c7d8895",
+        "matches": true
+      },
+      "frozen/prepared_capacity44_pair.json.gz": {
+        "expected_sha256": "08d92c334000990d00c843a51efe9cdb49ca145291421f4cd39b56dbb8492852",
+        "current_sha256": "08d92c334000990d00c843a51efe9cdb49ca145291421f4cd39b56dbb8492852",
+        "matches": true
+      },
+      "frozen/empirical_evidence.json": {
+        "expected_sha256": "e8d6000713374a6d58134489a7e0c1e3a17db2614ac7f20f358c404d91d16209",
+        "current_sha256": "e8d6000713374a6d58134489a7e0c1e3a17db2614ac7f20f358c404d91d16209",
+        "matches": true
+      },
+      "frozen/operations_v12_empirical.json": {
+        "expected_sha256": "97fcd777c49691f4a1c216586ca301dcb8951ef3410492776e488d5f0fcc8205",
+        "current_sha256": "97fcd777c49691f4a1c216586ca301dcb8951ef3410492776e488d5f0fcc8205",
+        "matches": true
+      },
+      "frozen/class_release_map.json.gz": {
+        "expected_sha256": "9624fbb5029351997daecd60d2f2726e1d5543dc847be93be28a4466e4916c7b",
+        "current_sha256": "9624fbb5029351997daecd60d2f2726e1d5543dc847be93be28a4466e4916c7b",
+        "matches": true
+      },
+      "frozen/class_endings_source_20261106.json": {
+        "expected_sha256": "1077b14303d111b7aa91f73bc435f3c1d3af64ab1bfae01d7f7a51a100873cf2",
+        "current_sha256": "1077b14303d111b7aa91f73bc435f3c1d3af64ab1bfae01d7f7a51a100873cf2",
+        "matches": true
+      }
+    }
+  },
+  "frozen_input_checks": {
+    "frozen/baseline_verification.json": {
+      "expected_sha256": "3911c5230d677d0f49183889c4ea7cbde74b924253c24de68a525c328f434e60",
+      "current_sha256": "3911c5230d677d0f49183889c4ea7cbde74b924253c24de68a525c328f434e60",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "frozen/prepared.json.gz": {
+      "expected_sha256": "2b7284d40bab677b2f232e8444c522d3fa88995ac8d42342c9638adb7988ebf2",
+      "current_sha256": "2b7284d40bab677b2f232e8444c522d3fa88995ac8d42342c9638adb7988ebf2",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "frozen/supply.json": {
+      "expected_sha256": "519f74589a7b7efd243bdd1feeedcfea6cfe6ec3bf8d8c0b476d38152ee33b45",
+      "current_sha256": "519f74589a7b7efd243bdd1feeedcfea6cfe6ec3bf8d8c0b476d38152ee33b45",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "frozen/v9_engine.py": {
+      "expected_sha256": "bd645a47900570cd60031196dd298530c1e8f7270cacae0bc0911e249621d141",
+      "current_sha256": "bd645a47900570cd60031196dd298530c1e8f7270cacae0bc0911e249621d141",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "frozen/walking_osm.json": {
+      "expected_sha256": "7ee35e5b592e4578798d80c642eb8643c61c2c9304ab617e8149494f22bd0b15",
+      "current_sha256": "7ee35e5b592e4578798d80c642eb8643c61c2c9304ab617e8149494f22bd0b15",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "frozen/operations_observed_train_v1.json": {
+      "expected_sha256": "77ca2b48fcf2ce106c7fc9731f1135af425ec0bf00c87293ecd01a73586aa85d",
+      "current_sha256": "77ca2b48fcf2ce106c7fc9731f1135af425ec0bf00c87293ecd01a73586aa85d",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "frozen/peer_calibration_contract.json": {
+      "expected_sha256": "e4c8c28c9f75768c4fa749ad50e4159c8665364976b197bfd6fe0f69bf7e6541",
+      "current_sha256": "e4c8c28c9f75768c4fa749ad50e4159c8665364976b197bfd6fe0f69bf7e6541",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "frozen/peer_calibration_candidates.json": {
+      "expected_sha256": "e02e7f5b610a8afad5c00224df5285e06e219ba01f4924b556c9d0fed6291749",
+      "current_sha256": "e02e7f5b610a8afad5c00224df5285e06e219ba01f4924b556c9d0fed6291749",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "evidence/collected_data_review_2026-11-12/calibration_contract.json": {
+      "expected_sha256": "e4c8c28c9f75768c4fa749ad50e4159c8665364976b197bfd6fe0f69bf7e6541",
+      "current_sha256": "e4c8c28c9f75768c4fa749ad50e4159c8665364976b197bfd6fe0f69bf7e6541",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "evidence/collected_data_review_2026-11-12/calibration_candidates.json": {
+      "expected_sha256": "e02e7f5b610a8afad5c00224df5285e06e219ba01f4924b556c9d0fed6291749",
+      "current_sha256": "e02e7f5b610a8afad5c00224df5285e06e219ba01f4924b556c9d0fed6291749",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "evidence/collected_data_review_2026-11-12/headway_samples_stable_dates.json": {
+      "expected_sha256": "5341203827d0e8e5aa8101138e0be076c71ae2b528aa77ddf14cfd14c7b870bf",
+      "current_sha256": "5341203827d0e8e5aa8101138e0be076c71ae2b528aa77ddf14cfd14c7b870bf",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "evidence/collected_data_review_2026-11-12/adjacent_segment_samples_stable_dates.json": {
+      "expected_sha256": "00aa9481cdb0e96cc40bb75422ae7b5e986f5cc69f6eb4445e7342caceaada5e",
+      "current_sha256": "00aa9481cdb0e96cc40bb75422ae7b5e986f5cc69f6eb4445e7342caceaada5e",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "evidence/collected_data_review_2026-11-12/download_manifest.json": {
+      "expected_sha256": "ddf4f2678e05e1b417e94676bbd4077780f6228029b9abff5d1ae47526d7f3ff",
+      "current_sha256": "ddf4f2678e05e1b417e94676bbd4077780f6228029b9abff5d1ae47526d7f3ff",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "evidence/collected_data_review_2026-11-12/observed_intervals.json": {
+      "expected_sha256": "035de5531ed997340800264b569fc25eda1a1d35ef8c944ba182edd0e4d9067a",
+      "current_sha256": "035de5531ed997340800264b569fc25eda1a1d35ef8c944ba182edd0e4d9067a",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "evidence/collected_data_review_2026-11-12/analysis_summary.json": {
+      "expected_sha256": "46e14f462f05b59419155657c9d80c9f7a35db7a4a33655e4b75c2e69431832a",
+      "current_sha256": "46e14f462f05b59419155657c9d80c9f7a35db7a4a33655e4b75c2e69431832a",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "evidence/collected_data_review_2026-11-12/deduplicated_grade_passages.csv": {
+      "expected_sha256": "32c49f21aa2151c1e2519a4514be6c07346158c82d24d0b2e86087fdf978cdd4",
+      "current_sha256": "32c49f21aa2151c1e2519a4514be6c07346158c82d24d0b2e86087fdf978cdd4",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "evidence/collected_data_review_2026-11-12/provider_section_speeds.csv": {
+      "expected_sha256": "1d63f42329a4edd05cbdbb9281ad388e0b845aaea021fc2a3e2390daf9b06810",
+      "current_sha256": "1d63f42329a4edd05cbdbb9281ad388e0b845aaea021fc2a3e2390daf9b06810",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "evidence/collected_data_review_2026-11-12/grade_transitions.csv": {
+      "expected_sha256": "8741fcdb234271679f7e4cee43e2e09c019f615c8922dd8215604322259e5d03",
+      "current_sha256": "8741fcdb234271679f7e4cee43e2e09c019f615c8922dd8215604322259e5d03",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "evidence/collected_data_review_2026-11-12/raw/2026-11-07.jsons.gz": {
+      "expected_sha256": "ba6d8cbda1c6eea6d9a0ca417f2daded680edae8de810534dff0c8ee9fb616ef",
+      "current_sha256": "ba6d8cbda1c6eea6d9a0ca417f2daded680edae8de810534dff0c8ee9fb616ef",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "evidence/collected_data_review_2026-11-12/raw/2026-11-08.jsons.gz": {
+      "expected_sha256": "a14fd7c5fa650fb340d2560fc9958f2e32a2f6adfd8dd449ca9d0b916f9574fd",
+      "current_sha256": "a14fd7c5fa650fb340d2560fc9958f2e32a2f6adfd8dd449ca9d0b916f9574fd",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "evidence/collected_data_review_2026-11-12/raw/2026-11-09.jsons.gz": {
+      "expected_sha256": "6b0545020a896ac7118f3b741bedacf3ca6b4c84312df0db725b4af52eef3737",
+      "current_sha256": "6b0545020a896ac7118f3b741bedacf3ca6b4c84312df0db725b4af52eef3737",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "evidence/collected_data_review_2026-11-12/raw/2026-11-10.jsons.gz": {
+      "expected_sha256": "81c2b1851a55ede1c46daad3568cec5afe852f053c8a6a68484b9d247d06e63c",
+      "current_sha256": "81c2b1851a55ede1c46daad3568cec5afe852f053c8a6a68484b9d247d06e63c",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "evidence/collected_data_review_2026-11-12/raw/2026-11-11.jsons.gz": {
+      "expected_sha256": "900cd59c603e644d86607578c64b5727b69e8165974a599835bcddb04608551f",
+      "current_sha256": "900cd59c603e644d86607578c64b5727b69e8165974a599835bcddb04608551f",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "evidence/field_observations_2026-11-09/queue_admin_snu_1653.json": {
+      "expected_sha256": "60b1f4f017debaacad66c9fd391318b5760b30718e0001adffb4e7c9a33bba76",
+      "current_sha256": "60b1f4f017debaacad66c9fd391318b5760b30718e0001adffb4e7c9a33bba76",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "evidence/field_observations_2026-11-09/queue_culture_1655.json": {
+      "expected_sha256": "3c636feb5f47987416e20c76478f29edc68b77eb0c8c5c5d8daa8ed0dc8f2346",
+      "current_sha256": "3c636feb5f47987416e20c76478f29edc68b77eb0c8c5c5d8daa8ed0dc8f2346",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "evidence/field_observations_2026-11-09/queue_snu_gate_1703.json": {
+      "expected_sha256": "eee913fd29906d3a37d41d24e42375a00481d51b55caad9211df7970b595195e",
+      "current_sha256": "eee913fd29906d3a37d41d24e42375a00481d51b55caad9211df7970b595195e",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "evidence/field_observations_2026-11-09/observation_timing_correction.json": {
+      "expected_sha256": "625751aaee64f99addf697f33ea03c6d82901bec386ec17ca578925f9c37b0b0",
+      "current_sha256": "625751aaee64f99addf697f33ea03c6d82901bec386ec17ca578925f9c37b0b0",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "evidence/field_observations_2026-11-10/queue_admin_snu_1523.json": {
+      "expected_sha256": "2d46bc4bce8aed75bf9770660230b5e702e7ced40dd0b09b33e1cf639e7f005e",
+      "current_sha256": "2d46bc4bce8aed75bf9770660230b5e702e7ced40dd0b09b33e1cf639e7f005e",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "evidence/prototype_observation_bridge_2026-11-12/operations_observed_train_v1.json": {
+      "expected_sha256": "77ca2b48fcf2ce106c7fc9731f1135af425ec0bf00c87293ecd01a73586aa85d",
+      "current_sha256": "77ca2b48fcf2ce106c7fc9731f1135af425ec0bf00c87293ecd01a73586aa85d",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "evidence/prototype_observation_bridge_2026-11-12/segment_corrections.csv": {
+      "expected_sha256": "ae9c1219d3b5f2553edb55ecbd76ee2b1a4c9125e9bfe3aeb67a5e7a2acd61e1",
+      "current_sha256": "ae9c1219d3b5f2553edb55ecbd76ee2b1a4c9125e9bfe3aeb67a5e7a2acd61e1",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "evidence/prototype_observation_bridge_2026-11-12/assessment.json": {
+      "expected_sha256": "a0eb3690b6a75b558121d88b9867eea1a5db2b90e377f3926790eb92a20b4e06",
+      "current_sha256": "a0eb3690b6a75b558121d88b9867eea1a5db2b90e377f3926790eb92a20b4e06",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "evidence/prototype_observation_bridge_2026-11-12/peer_contract_reconciliation.json": {
+      "expected_sha256": "930e1585f88bac5da9ea0a71c308e019acd37206752eacda2a3d30fc57321042",
+      "current_sha256": "930e1585f88bac5da9ea0a71c308e019acd37206752eacda2a3d30fc57321042",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "evidence/prototype_observation_bridge_2026-11-12/stop_identity_reconciliation.json": {
+      "expected_sha256": "8a8ce09565cf3e2baa0f7f5f04fb4e62c682449be2ab0a38478efdd1a486a619",
+      "current_sha256": "8a8ce09565cf3e2baa0f7f5f04fb4e62c682449be2ab0a38478efdd1a486a619",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "evidence/collected_data_review_2026-11-12/v12_support/inventory.json": {
+      "expected_sha256": "79576a31a6ccda6485467aed0fa800a52500cb320fc88067ac1a2f32f6cd71bf",
+      "current_sha256": "79576a31a6ccda6485467aed0fa800a52500cb320fc88067ac1a2f32f6cd71bf",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "evidence/collected_data_review_2026-11-12/v12_support/full_flag_availability.json": {
+      "expected_sha256": "185a8aedce5b5cb6e6e5f997fde5ae3437a9df7b1c703d017845abf1537b2fb7",
+      "current_sha256": "185a8aedce5b5cb6e6e5f997fde5ae3437a9df7b1c703d017845abf1537b2fb7",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "evidence/collected_data_review_2026-11-12/v12_support/full_flags_by_day_route_section_slot.csv": {
+      "expected_sha256": "2891672a958bd3c65e19ea0b911d1ac4e1b8e7f44296092e0de12d010e2a28f8",
+      "current_sha256": "2891672a958bd3c65e19ea0b911d1ac4e1b8e7f44296092e0de12d010e2a28f8",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "evidence/collected_data_review_2026-11-12/v12_support/future_holdout_rule.json": {
+      "expected_sha256": "90f6ce054d458aa0b04c17bac413bbef68144203368cda4173aa7d93e03a214d",
+      "current_sha256": "90f6ce054d458aa0b04c17bac413bbef68144203368cda4173aa7d93e03a214d",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "evidence/collected_data_review_2026-11-12/v12_support/verification.json": {
+      "expected_sha256": "4c4e3b8b0c219b425e0fc0372f44093fc17df8f12d95471b54a6b2a78e631d21",
+      "current_sha256": "4c4e3b8b0c219b425e0fc0372f44093fc17df8f12d95471b54a6b2a78e631d21",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "evidence/seoul_boardings_2026-11-10/outputs/campus_hourly_monthly_202610.csv": {
+      "expected_sha256": "c104da439c7880ae1cc3ec8fce3e01bf575c5054e8207252d45619476885bb3d",
+      "current_sha256": "c104da439c7880ae1cc3ec8fce3e01bf575c5054e8207252d45619476885bb3d",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "evidence/seoul_boardings_2026-11-10/outputs/campus_hourly_monthly_202610_long.csv": {
+      "expected_sha256": "8b623c74cc379bc7dcc8f7d05480c2f0bfda3dd8765c5bd367e6aaefdd32c859",
+      "current_sha256": "8b623c74cc379bc7dcc8f7d05480c2f0bfda3dd8765c5bd367e6aaefdd32c859",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "evidence/seoul_boardings_2026-11-10/outputs/nearby_8_routes_hourly_monthly_202610.csv": {
+      "expected_sha256": "a52817974c51c8d65c112eeca711f0d7ae9630b15dc9b3a11685c578e824ea62",
+      "current_sha256": "a52817974c51c8d65c112eeca711f0d7ae9630b15dc9b3a11685c578e824ea62",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "evidence/seoul_boardings_2026-11-10/outputs/campus_daily_20261013_20261109_available.csv": {
+      "expected_sha256": "1bfb62fb2663b7e77ad159bb926415298936105514a9f3f164900746a820232c",
+      "current_sha256": "1bfb62fb2663b7e77ad159bb926415298936105514a9f3f164900746a820232c",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "evidence/seoul_boardings_2026-11-10/outputs/nearby_8_routes_daily_20261013_20261109_available.csv": {
+      "expected_sha256": "c90d01bf422ac2c8842c547047705b215c037e9aa553c638df23597e5331d208",
+      "current_sha256": "c90d01bf422ac2c8842c547047705b215c037e9aa553c638df23597e5331d208",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "frozen/historical_evidence_context.json": {
+      "expected_sha256": "79576a31a6ccda6485467aed0fa800a52500cb320fc88067ac1a2f32f6cd71bf",
+      "current_sha256": "79576a31a6ccda6485467aed0fa800a52500cb320fc88067ac1a2f32f6cd71bf",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "frozen/empirical_evidence.json": {
+      "expected_sha256": "e8d6000713374a6d58134489a7e0c1e3a17db2614ac7f20f358c404d91d16209",
+      "current_sha256": "e8d6000713374a6d58134489a7e0c1e3a17db2614ac7f20f358c404d91d16209",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "frozen/operations_v12_empirical.json": {
+      "expected_sha256": "97fcd777c49691f4a1c216586ca301dcb8951ef3410492776e488d5f0fcc8205",
+      "current_sha256": "97fcd777c49691f4a1c216586ca301dcb8951ef3410492776e488d5f0fcc8205",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "frozen/class_release_map.json.gz": {
+      "expected_sha256": "9624fbb5029351997daecd60d2f2726e1d5543dc847be93be28a4466e4916c7b",
+      "current_sha256": "9624fbb5029351997daecd60d2f2726e1d5543dc847be93be28a4466e4916c7b",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "frozen/class_endings_source_20261106.json": {
+      "expected_sha256": "1077b14303d111b7aa91f73bc435f3c1d3af64ab1bfae01d7f7a51a100873cf2",
+      "current_sha256": "1077b14303d111b7aa91f73bc435f3c1d3af64ab1bfae01d7f7a51a100873cf2",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "frozen/capacity44_reference_engine.py": {
+      "expected_sha256": "690babd48136beae59e2dd06fed4e3061599f1701587bcb4a45b11a6b7f6a7f4",
+      "current_sha256": "690babd48136beae59e2dd06fed4e3061599f1701587bcb4a45b11a6b7f6a7f4",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "frozen/capacity44_reference_policy.py": {
+      "expected_sha256": "4510adfa434d2091f0873286bfa424193029fe34d4835d47f0765b3c1e1a0470",
+      "current_sha256": "4510adfa434d2091f0873286bfa424193029fe34d4835d47f0765b3c1e1a0470",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "frozen/new_observation_at_amendment.json": {
+      "expected_sha256": "8c295ad33bc76f7a283c654b745141aa749775fba8288eec8f2cdabb097fe6a7",
+      "current_sha256": "8c295ad33bc76f7a283c654b745141aa749775fba8288eec8f2cdabb097fe6a7",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "frozen/prepared_capacity44.json.gz": {
+      "expected_sha256": "4fa82f2eb7dadebd63ed800e482ff0226357af6deafc38f1e965d9fa81714e4a",
+      "current_sha256": "4fa82f2eb7dadebd63ed800e482ff0226357af6deafc38f1e965d9fa81714e4a",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "frozen/v9_latest.json": {
+      "expected_sha256": "73c99f8ba0cd5221bc1c690f7eff0b965e1ae4bf71f488aa2e5e43dc7629e623",
+      "current_sha256": "73c99f8ba0cd5221bc1c690f7eff0b965e1ae4bf71f488aa2e5e43dc7629e623",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "frozen/pair_reference_engine.py": {
+      "expected_sha256": "987c5280b19ad977039881dd5fb9856d054ba47cd7f5173b5f1085cbaf0802d3",
+      "current_sha256": "987c5280b19ad977039881dd5fb9856d054ba47cd7f5173b5f1085cbaf0802d3",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "frozen/pair_reference_policy.py": {
+      "expected_sha256": "6ab50f4a2c96e8044784d5a83375f641a38bbe7542ccf5d89fc878dc288ba9cc",
+      "current_sha256": "6ab50f4a2c96e8044784d5a83375f641a38bbe7542ccf5d89fc878dc288ba9cc",
+      "matches": true,
+      "same_as_parent": true
+    },
+    "frozen/prepared_capacity44_pair.json.gz": {
+      "expected_sha256": "08d92c334000990d00c843a51efe9cdb49ca145291421f4cd39b56dbb8492852",
+      "current_sha256": "08d92c334000990d00c843a51efe9cdb49ca145291421f4cd39b56dbb8492852",
+      "matches": true,
+      "same_as_parent": true
+    }
+  },
+  "root_settings": {
+    "student_strategy": true,
+    "initial_assignment_policy": "preserve_source_mode_optimize_city_stop",
+    "learn_past_residual_seats": false,
+    "gate_is_final_fallback": true,
+    "forecast_committed_arrivals": true,
+    "shuttle_patience_median_seconds": 1200.0,
+    "city_patience_median_seconds": 1200.0,
+    "patience_log_sigma": 0.25,
+    "dorm_walk_patience_factor": 1.0,
+    "city_denial_trigger": 2,
+    "city_additional_pass_trigger": 2,
+    "gate_fallback_node": 62,
+    "far_terminal_walk_max_meters": 1000.0,
+    "enroute_boarding_window_seconds": 30.0,
+    "enroute_max_extra_meters": 80.0,
+    "enroute_max_lateral_meters": 30.0,
+    "preparation_seconds": 20,
+    "cohort_release_lag_scale": 1.125
+  },
+  "gate_pool": {
+    "node": {
+      "id": "city|120000029",
+      "route": "city",
+      "board": -1,
+      "stop_id": "120000029",
+      "ars": "21128",
+      "name": "서울대학교",
+      "label": "서울대학교 · 시내버스",
+      "lat": 37.466827,
+      "lon": 126.948727,
+      "city": true,
+      "services": [
+        {
+          "rid": "100100250",
+          "board": 20,
+          "route_name": "5511",
+          "seq": 21
+        },
+        {
+          "rid": "100100251",
+          "board": 8,
+          "route_name": "5513",
+          "seq": 9
+        },
+        {
+          "rid": "100100252",
+          "board": 0,
+          "route_name": "5515",
+          "seq": 7
+        },
+        {
+          "rid": "100100263",
+          "board": 0,
+          "route_name": "5528",
+          "seq": 30
+        },
+        {
+          "rid": "100100521",
+          "board": 0,
+          "route_name": "6515",
+          "seq": 70
+        }
+      ]
+    },
+    "services": [
+      {
+        "route": "100100250",
+        "name": "5511",
+        "board": 20,
+        "alight": 24,
+        "wait_path": 1783,
+        "final_walk_path": 1755,
+        "continuation_count": 0
+      },
+      {
+        "route": "100100251",
+        "name": "5513",
+        "board": 8,
+        "alight": 12,
+        "wait_path": 1783,
+        "final_walk_path": 1755,
+        "continuation_count": 0
+      },
+      {
+        "route": "100100252",
+        "name": "5515",
+        "board": 0,
+        "alight": 4,
+        "wait_path": 1783,
+        "final_walk_path": 1755,
+        "continuation_count": 0
+      },
+      {
+        "route": "100100263",
+        "name": "5528",
+        "board": 0,
+        "alight": 4,
+        "wait_path": 1783,
+        "final_walk_path": 1755,
+        "continuation_count": 0
+      },
+      {
+        "route": "100100521",
+        "name": "6515",
+        "board": 0,
+        "alight": 4,
+        "wait_path": 1783,
+        "final_walk_path": 1755,
+        "continuation_count": 0
+      }
+    ],
+    "source": "Existing frozen compatible_route_policies[62|snu], not a live bus query."
+  },
+  "declared_case_groups": {
+    "main_count": 10,
+    "main_ids": [
+      "strategy4-combined-regular-mon",
+      "strategy4-combined-regular-tue",
+      "strategy4-combined-regular-wed",
+      "strategy4-combined-regular-thu",
+      "strategy4-combined-regular-fri",
+      "strategy4-combined-peak-mon",
+      "strategy4-combined-peak-tue",
+      "strategy4-combined-peak-wed",
+      "strategy4-combined-peak-thu",
+      "strategy4-combined-peak-fri"
+    ],
+    "observations_ids": [
+      "strategy4-combined-regular-mon",
+      "strategy4-combined-regular-tue"
+    ],
+    "diagnostic_ids": [
+      "ablation-gate-only-mon"
+    ],
+    "diagnostic_excluded_from_grid": true,
+    "experimental_lock_sha256": "ed0eee8dc16d8d000e74427f89ec8508b27cf8b393ae0a28f4f68708c1ce9d53"
+  },
+  "coordinator": {
+    "path": "shuttle_analysis\\v12_student_strategy_20261115\\run_grid_four.py",
+    "sha256": "8b81ef749f9b7791d230f01a04ebee173b5b8da2e0f59e2de33b99b660dc99a7",
+    "group_markers": {
+      "observations-started.json": {
+        "sha256": "069686731e067c9a48f63212d5c842ef241d2f4479114a059cb5cc4a26db055e",
+        "runtime_matches": true,
+        "root_config_matches": true,
+        "coordinator_matches": true,
+        "cases_match_declared_group": true,
+        "declared_no_production_writes": true
+      },
+      "ablation-started.json": {
+        "sha256": "2fabce2e33f2237dfb0b7dad28a3601f3efe40439442fcaea4ae818715f4e4a0",
+        "runtime_matches": true,
+        "root_config_matches": true,
+        "coordinator_matches": true,
+        "cases_match_declared_group": true,
+        "declared_no_production_writes": true
+      }
+    }
+  },
+  "started_receipts_as_observed": [
+    {
+      "path": "shuttle_analysis\\261115153406\\runs\\ablation-gate-only-mon\\attempt_01\\started.json",
+      "sha256": "c8efc7231a98740879c086b3fd1a96622f703381a6785b27569fb3606c9649f5",
+      "case": {
+        "case": "ablation-gate-only-mon",
+        "mode": "combined",
+        "day": "월",
+        "scenario": "regular",
+        "seed": 0,
+        "operations": "v12_empirical",
+        "config_overrides": {
+          "learn_past_residual_seats": true
+        }
+      },
+      "declared_case_matches": true,
+      "runtime_matches": true,
+      "source_snapshots": {
+        "artifacts.py": true,
+        "preferences.py": true,
+        "hazard.py": true,
+        "capacity.py": true,
+        "physics.py": true,
+        "fares.py": true,
+        "prepare.py": true,
+        "policy.py": true,
+        "metrics.py": true,
+        "engine.py": true,
+        "operations.py": true,
+        "empirical_v12.py": true,
+        "time_profiles.py": true,
+        "behavioral_policy.py": true,
+        "walking_opportunities.py": true,
+        "run_case.py": true
+      },
+      "settings_match_root_plus_override": true,
+      "effective_forecast_flag": true,
+      "effective_gate_rule": true,
+      "experiment_lock_matches": true,
+      "input_manifest_matches": true,
+      "declared_no_production_writes": true
+    },
+    {
+      "path": "shuttle_analysis\\261115153406\\runs\\strategy4-combined-regular-mon\\attempt_01\\started.json",
+      "sha256": "2b36f47b11bdd8c15cfc254fd76e376700b04b83101105e74a3c6815e801ad0f",
+      "case": {
+        "case": "strategy4-combined-regular-mon",
+        "mode": "combined",
+        "day": "월",
+        "scenario": "regular",
+        "seed": 0,
+        "operations": "v12_empirical"
+      },
+      "declared_case_matches": true,
+      "runtime_matches": true,
+      "source_snapshots": {
+        "artifacts.py": true,
+        "preferences.py": true,
+        "hazard.py": true,
+        "capacity.py": true,
+        "physics.py": true,
+        "fares.py": true,
+        "prepare.py": true,
+        "policy.py": true,
+        "metrics.py": true,
+        "engine.py": true,
+        "operations.py": true,
+        "empirical_v12.py": true,
+        "time_profiles.py": true,
+        "behavioral_policy.py": true,
+        "walking_opportunities.py": true,
+        "run_case.py": true
+      },
+      "settings_match_root_plus_override": true,
+      "effective_forecast_flag": false,
+      "effective_gate_rule": true,
+      "experiment_lock_matches": true,
+      "input_manifest_matches": true,
+      "declared_no_production_writes": true
+    },
+    {
+      "path": "shuttle_analysis\\261115153406\\runs\\strategy4-combined-regular-tue\\attempt_01\\started.json",
+      "sha256": "ce8957e79d1a7d5d099325028a5a798801f683c62d047a4e03afbca325874fcc",
+      "case": {
+        "case": "strategy4-combined-regular-tue",
+        "mode": "combined",
+        "day": "화",
+        "scenario": "regular",
+        "seed": 0,
+        "operations": "v12_empirical"
+      },
+      "declared_case_matches": true,
+      "runtime_matches": true,
+      "source_snapshots": {
+        "artifacts.py": true,
+        "preferences.py": true,
+        "hazard.py": true,
+        "capacity.py": true,
+        "physics.py": true,
+        "fares.py": true,
+        "prepare.py": true,
+        "policy.py": true,
+        "metrics.py": true,
+        "engine.py": true,
+        "operations.py": true,
+        "empirical_v12.py": true,
+        "time_profiles.py": true,
+        "behavioral_policy.py": true,
+        "walking_opportunities.py": true,
+        "run_case.py": true
+      },
+      "settings_match_root_plus_override": true,
+      "effective_forecast_flag": false,
+      "effective_gate_rule": true,
+      "experiment_lock_matches": true,
+      "input_manifest_matches": true,
+      "declared_no_production_writes": true
+    }
+  ],
+  "monday_main_vs_diagnostic_effective_config_differences": {
+    "learn_past_residual_seats": {
+      "main": false,
+      "ablation": true
+    }
+  },
+  "forecast_interpretation": "Model-known onboard/FIFO/started approaches; not observed numeric occupancy. False disables the historical minimum-seat proxy; capacity, actual boarding and full_passes still use unchanged physical engine.",
+  "preflight_artifact": {
+    "sha256": "105b5e188fbf8d77d87f52c48a2c8d019cbe2aa734342dea74489301d829f0cd",
+    "record": {
+      "status": "PASS",
+      "catalog_groups": 367,
+      "candidate_leaf_endpoint_checks": 7489,
+      "wrong_destination_candidates": [],
+      "source_mass": 18885.5,
+      "prepared_packets": 70680,
+      "runtime_not_simulated": true,
+      "production_writes": false
+    }
+  },
+  "owner_report_not_independently_rerun": {
+    "new_strategy_enroute_tests": 55,
+    "legacy_strategy_off_component_tests": 89,
+    "reported_total": 144
+  },
+  "report": {
+    "path": "shuttle_analysis\\collaboration\\v12_gate_forecast_review_261115153406\\READ_ONLY_REVIEW.md",
+    "sha256": "749c12ab4b009ed1d34626b0351f8467f681fad9995e5024593db6adb3f4d42d"
+  },
+  "timing_authority_boundary": "Pre-outcome registration is the preserved declaration plus matching STARTED lock/config/source hashes, not an independent reconstruction of wall-clock chronology."
+}

@@ -1,0 +1,29 @@
+{
+  "schema": "user_reported_shuttle_batch_arrival_v1",
+  "source_observation_id": "20261110-1523-admin-snu-queue-wait-01",
+  "reported_arrival_minute": "15:23",
+  "arrival_time_precision": "minute",
+  "exact_arrival_second": null,
+  "reported_simultaneous_arrival": true,
+  "observed_vehicle_count": 2,
+  "both_vehicles_to_snu_station_confirmed_by_user": true,
+  "boarded_vehicle_from_this_batch": true,
+  "boarded_vehicle_order_reported": 2,
+  "later_different_vehicle_answer_superseded": true,
+  "per_vehicle_reported_max_passengers": 44,
+  "conditional_nominal_batch_max_passengers": 88,
+  "nominal_batch_capacity_conditions": "both vehicles use the reported 44-person capacity; this is not observed residual space",
+  "observed_residual_seats": null,
+  "both_empty_on_arrival": null,
+  "wait_context": "waited until boarding the second vehicle of the batch already arrived, not an observed wait for a later batch",
+  "boarding_service_start_times": null,
+  "first_vehicle_departure_time": null,
+  "dispatch_cycle_hypothesis": {
+    "batch_interval_seconds": 180,
+    "vehicles_per_batch": 2,
+    "source": "user conjecture after one simultaneous arrival observation",
+    "confirmed": false,
+    "consecutive_batch_arrival_or_departure_intervals_observed": null,
+    "not_equivalent_to_one_bus_every_90_seconds": true
+  }
+}

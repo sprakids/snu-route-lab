@@ -1,0 +1,38 @@
+{
+  "status": "ok",
+  "deployment": {
+    "id": "dpl_Cn7ezPkPqBjGwv6U8ZbyBdqt77Bv",
+    "url": "https://snu-route-lv5lo13kv-june-f3d1.vercel.app",
+    "productionUrl": null,
+    "inspectorUrl": "https://vercel.com/june-f3d1/snu-route-lab/Cn7ezPkPqBjGwv6U8ZbyBdqt77Bv",
+    "readyState": "READY",
+    "target": "production",
+    "environment": "production",
+    "deploymentApiUrl": "https://api.vercel.com/v13/deployments/dpl_Cn7ezPkPqBjGwv6U8ZbyBdqt77Bv",
+    "buildMachine": {
+      "cores": 2,
+      "memory": 8192,
+      "machine": "basic",
+      "selectionType": "fixed",
+      "selectionSource": "plan-default"
+    },
+    "deploymentProtection": [
+      "vercel_authentication"
+    ]
+  },
+  "message": "Deployment snu-route-lv5lo13kv-june-f3d1.vercel.app ready.",
+  "next": [
+    {
+      "command": "vercel curl https://snu-route-lv5lo13kv-june-f3d1.vercel.app",
+      "when": "Verify deployment, including when Deployment Protection is enabled"
+    },
+    {
+      "command": "vercel inspect snu-route-lv5lo13kv-june-f3d1.vercel.app --scope june-f3d1 --non-interactive",
+      "when": "Inspect deployment"
+    },
+    {
+      "command": "vercel deploy --prod --scope june-f3d1 --non-interactive",
+      "when": "Promote to production"
+    }
+  ]
+}

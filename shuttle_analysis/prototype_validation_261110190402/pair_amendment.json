@@ -1,0 +1,80 @@
+{
+  "reason": "New explicit user correction: reported administration/SNU shuttle maximum44; two vehicles arrived together AFTER joining, exact arrival unknown. Nonzero boarding/departure process possible. No behavior coefficients fitted to this report.",
+  "active_prepared": "frozen/prepared_capacity44_pair.json.gz",
+  "prepared_sha256": "08d92c334000990d00c843a51efe9cdb49ca145291421f4cd39b56dbb8492852",
+  "baseline": "v9 behavior engine with same44-capacity and two-vehicle peak-batch inputs; independent algorithm comparison uses this identical supply",
+  "old_control": "control-regular-fri attempt01 remains a 60-capacity transport parity check, not a fair corrected comparison",
+  "fair_pilot_attempt": 3,
+  "capacity_daytime": 44,
+  "night_legacy_assumption": 60,
+  "only_route": "shuttle-41841",
+  "observation_sha256_at_intake": "8c295ad33bc76f7a283c654b745141aa749775fba8288eec8f2cdabb097fe6a7",
+  "observation_use": "input correction and external diagnostic, not final untouched holdout or preference/hazard fitting",
+  "source_observation_not_independent_two_photos": true,
+  "do_not_infer_repeated_two_bus_supply": true,
+  "legacy_network_event_limitation": "arrival=boarding=departure; cannot separate 189s join-to-boarding into arrival waiting and boarding service, or the30s post-boarding interval. Dwell module is a separate micro scenario.",
+  "separate_authorized_correction_mutable_paths": [
+    "public/routing-model/latest.json",
+    "../app/queue_release.py",
+    "../app/data/auto_queue_inputs.json",
+    "../app/prepare_latest_queue.py",
+    "../app/prepare_shuttle_queue.py",
+    "../app/prepare_city_queue.py",
+    "../app/queue_readiness.py"
+  ],
+  "additional_frozen": [
+    {
+      "path": "frozen/pair_reference_engine.py",
+      "sha256": "987c5280b19ad977039881dd5fb9856d054ba47cd7f5173b5f1085cbaf0802d3"
+    },
+    {
+      "path": "frozen/pair_reference_policy.py",
+      "sha256": "6ab50f4a2c96e8044784d5a83375f641a38bbe7542ccf5d89fc878dc288ba9cc"
+    },
+    {
+      "path": "frozen/prepared_capacity44_pair.json.gz",
+      "sha256": "08d92c334000990d00c843a51efe9cdb49ca145291421f4cd39b56dbb8492852"
+    }
+  ],
+  "micro_batch_grid": {
+    "arrival_after_join_seconds": [
+      30,
+      60,
+      120
+    ],
+    "arrival_offsets_are_scenarios_not_measurements": true,
+    "door_delay_seconds": [
+      0,
+      30,
+      60
+    ],
+    "boarding_service_seconds": [
+      1,
+      2,
+      4,
+      6
+    ],
+    "allocation": [
+      "fill_first",
+      "next_available"
+    ],
+    "already_onboard_each": [
+      0,
+      10
+    ],
+    "post_last_boarding_clearance_scenario": 30,
+    "post_last_boarding_clearance_is_not_measured_total_dwell": true,
+    "fit_parameters_to_report": false
+  },
+  "pair_windows": [
+    {
+      "start_second": 54000,
+      "end_second": 68400,
+      "vehicles": 2
+    }
+  ],
+  "window_and_cadence_are_existing_planning_scenarios": true,
+  "source_evidence": "user repeated peak pair experiences and reported common testimony; exact interval/boundaries unknown",
+  "evidence_sha256": "1c311de93b737e8f6ff61f44b8ffc292026960ab62b17c16a3358d8309674ccd",
+  "new_field_case_use": "diagnostic_only_not_final_holdout; no taste or hazard tuning to67/189/219"
+}

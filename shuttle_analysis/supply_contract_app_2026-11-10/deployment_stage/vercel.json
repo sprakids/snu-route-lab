@@ -1,0 +1,27 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "buildCommand": "python build_static.py",
+  "installCommand": "echo No frontend build dependencies",
+  "outputDirectory": "public",
+  "regions": ["icn1"],
+  "functions": {
+    "api/index.py": {
+      "maxDuration": 60,
+      "excludeFiles": "{node_modules/**,runtime/**,test_*,verify_*,data/raw/**,data/shuttle_live/**,public/**}"
+    }
+  },
+  "rewrites": [
+    {"source": "/api/:path*", "destination": "/api/index?endpoint=:path*"}
+  ],
+  "headers": [
+    {"source": "/", "headers": [{"key": "Cache-Control", "value": "no-cache"}]},
+    {"source": "/index.html", "headers": [{"key": "Cache-Control", "value": "no-cache"}]},
+    {"source": "/privacy.html", "headers": [{"key": "Cache-Control", "value": "no-cache"}]},
+    {"source": "/accessibility.html", "headers": [{"key": "Cache-Control", "value": "no-cache"}]},
+    {"source": "/(.*)", "headers": [
+      {"key": "X-Content-Type-Options", "value": "nosniff"},
+      {"key": "Referrer-Policy", "value": "strict-origin-when-cross-origin"}
+    ]}
+  ]
+}

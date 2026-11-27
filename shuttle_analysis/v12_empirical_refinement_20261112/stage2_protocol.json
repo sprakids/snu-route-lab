@@ -1,0 +1,38 @@
+{
+  "status": "REGISTERED_BEFORE_STAGE2_EXECUTION",
+  "registered_local_time": "2026-11-12T17:05:46.853578+09:00",
+  "scope": "Exploratory retrospective calibration extension, after inspecting the initial grid; not an independent confirmatory test.",
+  "stage1_models": [
+    "261112164617",
+    "261112165437",
+    "261112165438"
+  ],
+  "reason": "Compressing the unmeasured release lag to 0.75 or 0.5 worsened both administrator-shuttle queue constraints. Test the opposite timing direction without changing demand quantities or shuttle clocks.",
+  "new_grid": [
+    1.0,
+    1.25,
+    1.5
+  ],
+  "new_runs": [
+    1.25,
+    1.5
+  ],
+  "primary_observation_ids": [
+    "20261109-1653-admin-snu-queue-01",
+    "20261109-1703-snu-gate-queue-01",
+    "20261110-1523-admin-snu-queue-wait-01"
+  ],
+  "secondary_observation_id": "20261109-1655-culture-city-queue-01",
+  "objective": "Mean of uniform-minute expected absolute distance to observed count/interval divided by observation midpoint, over the three direction-confirmed reports.",
+  "selection": "Prefer minimum primary loss among internally feasible candidates; retain alpha1 control and parent as references. Ties prefer closer to1. All weekday by regular/peak10 conditions required before recommendation. Report individual regressions and whole-journey tails.",
+  "constraints": [
+    "No demand thinning or capacity inflation",
+    "No pre-class-end departures",
+    "No queue clipping or forced20minute exits",
+    "Preserve all failed experiments",
+    "Production V11 unchanged"
+  ],
+  "identification_limit": "Effective release timing is confounded with unmeasured immediate trip share, mode/destination mixture and nominal shuttle phase. Alpha is not a measurement of actual building egress.",
+  "new_day_outcomes_opened": false,
+  "production_replacement_allowed": false
+}

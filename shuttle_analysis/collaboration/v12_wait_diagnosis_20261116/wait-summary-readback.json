@@ -1,0 +1,106 @@
+{
+  "existing_ten_case_over20_summary": {
+    "over20_episode_weight": 3646.0541651024464,
+    "over20_boarded": 3452.121718783421,
+    "over20_enroute_episode_weight": 0.0,
+    "within_personal_patience_episode_weight": 3561.41050016307,
+    "over20_switched": 193.932446319027,
+    "past_personal_patience_episode_weight": 84.64366493937902
+  },
+  "past_P_among_over20_by_group": {
+    "other|switched": 1.814965165246191,
+    "gate62|boarded": 82.53765703450335,
+    "other|boarded": 0.2910427396295362
+  },
+  "ratios": {
+    "within_P_given_over20": 0.9767848580666936,
+    "gate_given_past_P_and_over20": 0.975119131403585
+  },
+  "configured_patience_distribution_minutes": {
+    "median": 20.0,
+    "p95": 30.172945554017865,
+    "p99": 35.777501354582945
+  },
+  "two_existing_case_all_wait_rows": {
+    "direction-combined-regular-mon": {
+      "counts": {
+        "past_P_all_wait_row_weight": 27.500731172616995,
+        "past_P_switched": 2.4037544598087606,
+        "past_P_but_not_over20_weight": 26.5932485899939,
+        "past_P_boarded": 25.09697671280824,
+        "review_diag_rows": 2026,
+        "after_P_review_diag_rows": 45
+      },
+      "below20_P_crossing_examples": [
+        {
+          "uid": 3252864,
+          "node": 79,
+          "seconds": 735.6058161878027,
+          "P": 685.4156148336441,
+          "outcome": "switched",
+          "full_passes_seen": 2,
+          "weight": 0.9912801186355031
+        },
+        {
+          "uid": 3951664,
+          "node": 77,
+          "seconds": 601.2169731261965,
+          "P": 507.28164513931574,
+          "outcome": "boarded",
+          "full_passes_seen": 2,
+          "weight": 0.1309237892537457
+        },
+        {
+          "uid": 4017664,
+          "node": 79,
+          "seconds": 785.2142722215576,
+          "P": 635.9806626256069,
+          "outcome": "switched",
+          "full_passes_seen": 1,
+          "weight": 0.504991758550162
+        }
+      ],
+      "scope": "Existing weighted wait rows; not unique students; review diagnostics only begin at600s."
+    },
+    "direction-combined-regular-wed": {
+      "counts": {
+        "past_P_all_wait_row_weight": 94.41727778457172,
+        "past_P_switched": 1.0547944421475557,
+        "past_P_but_not_over20_weight": 56.44435321503229,
+        "past_P_boarded": 93.36248334242417,
+        "review_diag_rows": 1855,
+        "after_P_review_diag_rows": 93
+      },
+      "below20_P_crossing_examples": [
+        {
+          "uid": 4150497,
+          "node": 59,
+          "seconds": 795.0470867070835,
+          "P": 792.7197667103138,
+          "outcome": "switched",
+          "full_passes_seen": 2,
+          "weight": 0.551750254712214
+        },
+        {
+          "uid": 1060080,
+          "node": 79,
+          "seconds": 834.3563777206873,
+          "P": 709.2275659218915,
+          "outcome": "boarded",
+          "full_passes_seen": 1,
+          "weight": 0.4675849616205203
+        },
+        {
+          "uid": 3986288,
+          "node": 58,
+          "seconds": 911.3933138377906,
+          "P": 894.8832572380105,
+          "outcome": "switched",
+          "full_passes_seen": 3,
+          "weight": 0.054162624279642246
+        }
+      ],
+      "scope": "Existing weighted wait rows; not unique students; review diagnostics only begin at600s."
+    }
+  }
+}

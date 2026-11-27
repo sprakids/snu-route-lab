@@ -1,0 +1,9 @@
+ADAPTIVE regular 월 {"scenario": "regular", "weekday": "월", "input_weight": 18885.5, "final_weight": 18885.5, "finished_weight": 18793.480027413694, "unserved_trip_weight": 92.01997258630324, "full_particles": 67920, "render_dots": 8267, "capacity_checks": 5283, "capacity_violations": 0, "queue_min": 0.0, "max_queue": 313.1520050467852, "vehicles": 380, "boarding_events": 21453, "switch_event_weight": 0, "switched_trip_weight": 0, "gate_boarding_weight": 0, "forecast_calls": 0, "mean_finished_trip_minutes": 19.426594425431922}
+Traceback (most recent call last):
+  File "C:\Users\김예준\Documents\ChatGPT\공대 문제해결\shuttle_analysis\simulation_viewer_2026-11-07\verify_adaptive.py", line 82, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "C:\Users\김예준\Documents\ChatGPT\공대 문제해결\shuttle_analysis\simulation_viewer_2026-11-07\verify_adaptive.py", line 70, in main
+    assert abs(v-independently)<2e-5,(scenario,day,node,t,float(v),independently,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('regular', '금', 42, 41530, 0.336795, 0.051375582856689125, [(0.0003442995366640389, 41530.00034429954, 42000.0, 0.28541990475938406), (54.93602996160189, 41584.9360299616, 42000.0, 0.28541990475938406), (94.27127573616599, 41624.271275736166, 42000.0, 0.28541990475938406)])

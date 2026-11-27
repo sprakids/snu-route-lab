@@ -1,0 +1,144 @@
+{
+  "status": "verified",
+  "candidate": {
+    "queue_1659_minute": [
+      5.971728,
+      7.960201
+    ],
+    "queue_after_1700": 0.454644,
+    "capacity": 44,
+    "boarded": 7.50555712788189,
+    "onboard": 7.50555712788189,
+    "ready_left": 0.0,
+    "other_minute_ranges": {
+      "admin_snu_1653": [
+        0.0,
+        0.0
+      ],
+      "culture_1655": [
+        0.0,
+        0.0
+      ],
+      "gate_1703": [
+        20.790281,
+        36.081058
+      ]
+    }
+  },
+  "baseline": {
+    "queue_1659_minute": [
+      32.897498,
+      45.627226
+    ],
+    "queue_after_1700": 2.660114,
+    "capacity": 60,
+    "boarded": 42.96711246247765,
+    "onboard": 42.96711246247765,
+    "ready_left": 1.5698553568199713e-13,
+    "other_minute_ranges": {
+      "admin_snu_1653": [
+        0.0,
+        0.0
+      ],
+      "culture_1655": [
+        0.0,
+        0.0
+      ],
+      "gate_1703": [
+        18.030076,
+        31.290786
+      ]
+    }
+  },
+  "invariants": {
+    "input_weight": 6003.999999999999,
+    "final_weight": 6003.999999999999,
+    "capacity_violations": 0,
+    "unserved_trip_weight": 0
+  },
+  "converted_walk_trips_checked": 4031,
+  "core": {
+    "scenario": "peak",
+    "weekday": "금",
+    "status": "PASS",
+    "particle_mass_max_error": 2.220446049250313e-16,
+    "checks": {
+      "legs": 109168,
+      "vehicle_segments": 29589,
+      "planned_city_departures": 723,
+      "capacity_events": 22893,
+      "fifo_events": 85,
+      "hourly_cells": 962,
+      "queue_samples": 43216
+    },
+    "summaries": [
+      {
+        "scenario": "peak",
+        "weekday": "금",
+        "scope": "all",
+        "weight": 5728.151889112452,
+        "completed_weight": 5728.151889112452,
+        "unserved_weight": 0.0,
+        "mean_cumulative_wait_min": 4.159435598278264,
+        "mean_class_end_total_min_completed": 24.67275209681321,
+        "switched_trip_weight": 822.6522476990776
+      },
+      {
+        "scenario": "peak",
+        "weekday": "금",
+        "scope": "snu",
+        "weight": 2571.261773978071,
+        "completed_weight": 2571.261773978071,
+        "unserved_weight": 0.0,
+        "mean_cumulative_wait_min": 4.037276204462025,
+        "mean_class_end_total_min_completed": 21.799473212766067,
+        "switched_trip_weight": 313.31719549941397
+      },
+      {
+        "scenario": "peak",
+        "weekday": "금",
+        "scope": "engineering_snu",
+        "weight": 184.40211835044735,
+        "completed_weight": 184.40211835044735,
+        "unserved_weight": 0.0,
+        "mean_cumulative_wait_min": 2.8608672234936114,
+        "mean_class_end_total_min_completed": 24.569338745716376,
+        "switched_trip_weight": 0.4808621583889857
+      }
+    ]
+  },
+  "max_wait_min": 15.661812790855159,
+  "over20_weight": 0.0,
+  "v11_max_wait_min": 15.969094410059066,
+  "trip_limit_check": {
+    "limit": 30000,
+    "entered": 6003.999999999999,
+    "exit_accounted": 6003.999999999999
+  },
+  "model_id": "R261124101820",
+  "case": "peak-fri",
+  "selection": {
+    "target": 0.82,
+    "eligible_mass": 485.10639285717616,
+    "converted_mass": 403.9350145283226,
+    "realized_fraction": 0.8326730393084062,
+    "destination_mass": 822.557331924164,
+    "first_daehak_shuttle_fraction": 0.09868172731373476,
+    "walk_only_fraction": 0.5376416806998655
+  },
+  "capacity": 44,
+  "dorm_initial": {
+    "dorm_ug": {
+      "total": 964.9458250681625,
+      "before": 376.4370941661833,
+      "after": 460.9597524809995,
+      "additional": 84.52265831481621
+    },
+    "dorm_grad": {
+      "total": 205.320206742191,
+      "before": 115.60963621965458,
+      "after": 125.63140328983485,
+      "additional": 10.021767070180278
+    }
+  }
+}

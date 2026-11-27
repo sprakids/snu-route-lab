@@ -1,0 +1,90 @@
+{
+  "status": "PASS_TARGET_MASS_TIME_AND_DECLINE_COST_ARITHMETIC",
+  "traces": [
+    {
+      "model": "261112210916",
+      "uid": 1205536,
+      "parent_id": 75346,
+      "fragment_count": 1,
+      "mass": 0.19180217599830604,
+      "weighted_mean_total_min": 61.707677083425615,
+      "maximum_total_min": 61.707677083425615,
+      "fragments": [
+        {
+          "weight": 0.19180217599830604,
+          "duration_min": 61.707677083425615,
+          "leg_times": {
+            "walk": 44.31547004323135,
+            "queue": 15.45505590544999,
+            "ride": 1.937151134744272
+          },
+          "route_changes": 3,
+          "history": [
+            [
+              50231.30231397559,
+              "walk_transfer",
+              "도보→기숙사삼거리 · 교내 순환 셔틀 / 관악02-2"
+            ],
+            [
+              50686.680433218164,
+              "walk_transfer",
+              "도보→수의대입구.보건대학원앞 · 관악02-2"
+            ],
+            [
+              51252.92447801783,
+              "walk",
+              "목적지까지 도보"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "model": "261112220847",
+      "uid": 1205536,
+      "parent_id": 75346,
+      "fragment_count": 1,
+      "mass": 0.19180217599830604,
+      "weighted_mean_total_min": 61.707677083425615,
+      "maximum_total_min": 61.707677083425615,
+      "fragments": [
+        {
+          "weight": 0.19180217599830604,
+          "duration_min": 61.707677083425615,
+          "leg_times": {
+            "walk": 44.31547004323135,
+            "queue": 15.45505590544999,
+            "ride": 1.937151134744272
+          },
+          "route_changes": 3,
+          "history": [
+            [
+              50231.30231397559,
+              "walk_transfer",
+              "도보→기숙사삼거리 · 교내 순환 셔틀 / 관악02-2"
+            ],
+            [
+              50686.680433218164,
+              "walk_transfer",
+              "도보→수의대입구.보건대학원앞 · 관악02-2"
+            ],
+            [
+              51252.92447801783,
+              "walk",
+              "목적지까지 도보"
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "cost_vectors_checked": 71502,
+  "maximum_cost_error_minutes": 5.275069270282984e-11,
+  "maximum_physical_prediction_clock_error_seconds": 1.77351466845721e-11,
+  "cost_check_scope": "Tuesday regular declined opportunities only; other weekday/scenario physical ledgers audited separately",
+  "source_audits": {
+    "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\261112210916\\runs\\committed-combined-regular-tue\\attempt_01\\audit-regular-tue.json.gz": "fea26945d7757ea4af2aa5c294d5660b88dac411aef9fe0bebe42035d08db3ed",
+    "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\261112220847\\runs\\repeatwalk-combined-regular-tue\\attempt_01\\audit-regular-tue.json.gz": "d23fa50fe3462d1fa42a8e62ddc83f36443a2f15a238ad3c52e8cf208985b6f4"
+  },
+  "scope": "Existing weighted model traces, not actual people; not a causal estimate from one UID; cost arithmetic does not validate preference coefficients."
+}

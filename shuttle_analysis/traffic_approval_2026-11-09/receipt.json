@@ -1,0 +1,103 @@
+{
+  "applied_at": "2026-11-09T20:42:58.460200+09:00",
+  "provider_approved_limit": 15000,
+  "before": {
+    "enabled": true,
+    "configured": true,
+    "position_calls_today": 7967,
+    "position_calls_remaining": 1833,
+    "position_app_daily_limit": 9800,
+    "collection_policy": {
+      "id": "focused-eight-v3",
+      "cap": 9800,
+      "reserve": 712,
+      "peak_seconds": 16,
+      "other_seconds": 120,
+      "weekend": false,
+      "approved_limit": 10000,
+      "route_count": 8,
+      "higher_limit_verified": false,
+      "quota_mode": "existing_10000_eight_routes"
+    },
+    "next_scheduled_at": 1794224640,
+    "usage": {
+      "day": "2026-11-09",
+      "requests": 16568,
+      "reads": 109798,
+      "writes": 33014,
+      "aux_writes": 8989,
+      "stored_bytes": 9239989,
+      "ratio": 0.33014,
+      "warning": false,
+      "throttled": false,
+      "coordinator_bytes": 3858432,
+      "coordinator_storage_guard_bytes": 900000000,
+      "write_target": 70000,
+      "write_stop": 85000,
+      "scope": "application_sql_cursor_metrics_and_estimated_requests_not_account_total"
+    },
+    "errors": [],
+    "server_time": 1794224575.915
+  },
+  "after": {
+    "enabled": true,
+    "configured": true,
+    "position_calls_today": 7967,
+    "position_calls_remaining": 2433,
+    "position_app_daily_limit": 10400,
+    "collection_policy": {
+      "id": "focused-eight-v3",
+      "cap": 10400,
+      "reserve": 832,
+      "peak_seconds": 15,
+      "other_seconds": 120,
+      "weekend": false,
+      "approved_limit": 15000,
+      "route_count": 8,
+      "higher_limit_verified": true,
+      "quota_mode": "verified_operating_limit"
+    },
+    "next_scheduled_at": 1794224640,
+    "usage": {
+      "day": "2026-11-09",
+      "requests": 16570,
+      "reads": 109827,
+      "writes": 33020,
+      "aux_writes": 8989,
+      "stored_bytes": 9239989,
+      "ratio": 0.3302,
+      "warning": false,
+      "throttled": false,
+      "coordinator_bytes": 3858432,
+      "coordinator_storage_guard_bytes": 900000000,
+      "write_target": 70000,
+      "write_stop": 85000,
+      "scope": "application_sql_cursor_metrics_and_estimated_requests_not_account_total"
+    },
+    "errors": [],
+    "server_time": 1794224576.64
+  },
+  "confirmation_basis": "Specific 15000/day request reproduced in the official notification, followed by provider completion reply; numeric portal account field not independently inspected.",
+  "code_deployment_required": false,
+  "daily_counter_reset": false,
+  "platform_limits_raised": false,
+  "regular_weekday_requests": 9568,
+  "retry_reserve": 832,
+  "seoul_daily_margin": 4600,
+  "validation": {
+    "collector_tests": 27,
+    "passed": 27,
+    "failed": 0,
+    "position_calls_fixture": 10400,
+    "synthetic_core_sql_writes": 64190,
+    "synthetic_with_aux_writes": 73181,
+    "maintenance_margin": 10000,
+    "retention_projection_bytes": 1908935455,
+    "projection_excludes": [
+      "indexes",
+      "other_projects"
+    ],
+    "public_policy_verified": true,
+    "collection_continued_after_apply": true
+  }
+}

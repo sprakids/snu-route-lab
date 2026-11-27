@@ -1,0 +1,12 @@
+{
+  "issue": "The first PowerShell peak-rest loop used redirection on a statement without a grouped script block. It attempted to invoke *> after all four Python cases completed.",
+  "shell_exit_code": 1,
+  "model_cases": [
+    "peak-tue",
+    "peak-wed",
+    "peak-thu",
+    "peak-fri"
+  ],
+  "resolution": "Per-case Python PASS receipts and full audits retained. No duplicate model executions; independent full-run verification is required.",
+  "later_shell_loops": "Grouped script blocks use valid redirection."
+}

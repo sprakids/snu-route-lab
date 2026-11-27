@@ -1,0 +1,40 @@
+  Inspect         https://vercel.com/june-f3d1/snu-shuttle-simulation/G8dzqH5gPBkGheZpgYbZVvX1WihF
+▲ Production      https://snu-shuttle-simulation-jsrmwudwd-june-f3d1.vercel.app
+{
+  "status": "ok",
+  "deployment": {
+    "id": "dpl_G8dzqH5gPBkGheZpgYbZVvX1WihF",
+    "url": "https://snu-shuttle-simulation-jsrmwudwd-june-f3d1.vercel.app",
+    "productionUrl": null,
+    "inspectorUrl": "https://vercel.com/june-f3d1/snu-shuttle-simulation/G8dzqH5gPBkGheZpgYbZVvX1WihF",
+    "readyState": "READY",
+    "target": "production",
+    "environment": "production",
+    "deploymentApiUrl": "https://api.vercel.com/v13/deployments/dpl_G8dzqH5gPBkGheZpgYbZVvX1WihF",
+    "buildMachine": {
+      "cores": 2,
+      "memory": 8192,
+      "machine": "basic",
+      "selectionType": "fixed",
+      "selectionSource": "plan-default"
+    },
+    "deploymentProtection": [
+      "vercel_authentication"
+    ]
+  },
+  "message": "Deployment snu-shuttle-simulation-jsrmwudwd-june-f3d1.vercel.app ready.",
+  "next": [
+    {
+      "command": "vercel curl https://snu-shuttle-simulation-jsrmwudwd-june-f3d1.vercel.app",
+      "when": "Verify deployment, including when Deployment Protection is enabled"
+    },
+    {
+      "command": "vercel inspect snu-shuttle-simulation-jsrmwudwd-june-f3d1.vercel.app --scope june-f3d1",
+      "when": "Inspect deployment"
+    },
+    {
+      "command": "vercel deploy --prod --scope june-f3d1",
+      "when": "Promote to production"
+    }
+  ]
+}

@@ -1,0 +1,245 @@
+{
+  "model_id": "261109173153",
+  "automatic": true,
+  "calibrated": false,
+  "observed_queue": false,
+  "algorithm_id": "latest-v5-all-shuttle-clock-fifo-v3",
+  "release": {
+    "algorithm_id": "latest-v5-all-shuttle-clock-fifo-v3",
+    "compatibility_sha256": "7ce2316538b6ff26743a5e60a36041c613465091e64563170497ad51b8ca89d2",
+    "content_sha256": "57cc1bc6822b804598155fe91b78f59cd591cb6e0c0e2341366c3255409a4d06",
+    "model_id": "261109173153",
+    "published_at": "2026-11-09T17:31:53+09:00",
+    "source_simulation": "capacity_v7"
+  },
+  "travel_clock_model": "v5-campus_stop_corridors_20261108",
+  "boarding_algorithm": "frozen_v5_first_boardable_fifo",
+  "latest_simulation": {
+    "gate_access_calibration": {
+      "algorithm_id": "provisional_initial_gate_access_v1",
+      "alpha": 0.75,
+      "candidate_only": false,
+      "gate_ars": "21128",
+      "independent_empirical_validation": false,
+      "independent_validation": false,
+      "model_id": "261109171256",
+      "new_demand_added": false,
+      "observation_second": "unknown; uniform within reported minute",
+      "observations_used_for_candidate_selection": [
+        "admin_snu_1653",
+        "culture_1655",
+        "snu_gate_1703"
+      ],
+      "observations_used_for_selection": 3,
+      "observed_mode_shares": false,
+      "probability_rule": "alpha * max(0, 1 - individual_gate_walk_seconds / 900)",
+      "promotion_status": "active_default_user_authorized",
+      "source_sha256": "46243bdb22b769e3ed1fdbff270d0df74b8ffc55e91c80ab4594f1597288eb55",
+      "source_simulation": "capacity_v5",
+      "status": "active_default_user_authorized",
+      "timetable_speed_capacity_changed": false,
+      "walking_cutoff_seconds": 900.0
+    },
+    "independent_status": "PASS",
+    "personal_walking_kmh": 4.8,
+    "population_note": "v5 기준집단 보행 분포 유지 · 개인4.8km/h 도착시각에서 줄을 조회",
+    "population_walking_replayed_at_4p8": false,
+    "preparation_added_again": false,
+    "ready_flows_include_boarding_prep": true,
+    "revision": "campus_stop_corridors_20261108",
+    "scenario": "regular",
+    "sensitivity_feedback_replayed": false,
+    "source_simulation": "capacity_v7",
+    "source_totals": [
+      {
+        "modeled_boarding_weight": {
+          "shuttle-41841": 2352.666833381969,
+          "shuttle-41842": 0.0,
+          "shuttle-41843": 0.0,
+          "shuttle-41868": 0.0,
+          "shuttle-41869": 0.0,
+          "shuttle-41914": 158.5264945955988,
+          "shuttle-41915": 0.0,
+          "shuttle-41916": 0.0,
+          "shuttle-41942": 0.0,
+          "shuttle-41946": 379.48997001256566
+        },
+        "ready_entry_weight": {
+          "shuttle-41841": 3582.2937745264258,
+          "shuttle-41914": 647.6294792918748,
+          "shuttle-41946": 495.59445008782023
+        },
+        "weekday": 0
+      },
+      {
+        "modeled_boarding_weight": {
+          "shuttle-41841": 2260.5462898949954,
+          "shuttle-41842": 0.0,
+          "shuttle-41843": 0.0,
+          "shuttle-41868": 0.0,
+          "shuttle-41869": 0.0,
+          "shuttle-41914": 143.2308171432497,
+          "shuttle-41915": 0.0,
+          "shuttle-41916": 0.0,
+          "shuttle-41942": 0.0,
+          "shuttle-41946": 380.882824205527
+        },
+        "ready_entry_weight": {
+          "shuttle-41841": 3245.7235268143927,
+          "shuttle-41914": 552.1955259255849,
+          "shuttle-41946": 553.9779471625453
+        },
+        "weekday": 1
+      },
+      {
+        "modeled_boarding_weight": {
+          "shuttle-41841": 2370.017220454788,
+          "shuttle-41842": 0.0,
+          "shuttle-41843": 0.0,
+          "shuttle-41868": 0.0,
+          "shuttle-41869": 0.0,
+          "shuttle-41914": 146.87146616274833,
+          "shuttle-41915": 0.0,
+          "shuttle-41916": 0.0,
+          "shuttle-41942": 0.0,
+          "shuttle-41946": 367.07381474778555
+        },
+        "ready_entry_weight": {
+          "shuttle-41841": 3564.1348361964383,
+          "shuttle-41914": 634.0700682574018,
+          "shuttle-41946": 517.8250940511007
+        },
+        "weekday": 2
+      },
+      {
+        "modeled_boarding_weight": {
+          "shuttle-41841": 2043.9941721937544,
+          "shuttle-41842": 0.0,
+          "shuttle-41843": 0.0,
+          "shuttle-41868": 0.0,
+          "shuttle-41869": 0.0,
+          "shuttle-41914": 144.03137169942727,
+          "shuttle-41915": 0.0,
+          "shuttle-41916": 0.0,
+          "shuttle-41942": 0.0,
+          "shuttle-41946": 339.51862274086506
+        },
+        "ready_entry_weight": {
+          "shuttle-41841": 2935.522364591977,
+          "shuttle-41914": 460.4511365154055,
+          "shuttle-41946": 432.25789482370567
+        },
+        "weekday": 3
+      },
+      {
+        "modeled_boarding_weight": {
+          "shuttle-41841": 873.8040728779877,
+          "shuttle-41842": 0.0,
+          "shuttle-41843": 0.0,
+          "shuttle-41868": 0.0,
+          "shuttle-41869": 0.0,
+          "shuttle-41914": 38.02987575002816,
+          "shuttle-41915": 0.0,
+          "shuttle-41916": 0.0,
+          "shuttle-41942": 0.0,
+          "shuttle-41946": 123.55299052217975
+        },
+        "ready_entry_weight": {
+          "shuttle-41841": 878.4051089003335,
+          "shuttle-41914": 179.47577119465788,
+          "shuttle-41946": 172.04368443765458
+        },
+        "weekday": 4
+      }
+    ]
+  },
+  "city_wait": {
+    "available": true,
+    "route_count": 8,
+    "algorithm_id": "frozen_v5_city_compatible_fifo_v1",
+    "calibrated": false
+  },
+  "unit": "weighted_expected_trip_events",
+  "course_end_events": 6201,
+  "signal_coefficients": {
+    "historical_beta": 0.0,
+    "live_beta": 0.0,
+    "factor_bounds": [
+      0.75,
+      1.25
+    ]
+  },
+  "scope": "정규 학생 셔틀 10개 · 주간/야간 잔여 줄 공유 · 심야는 전날 운행일 기준",
+  "model_only": true,
+  "all_shuttle_extension": {
+    "frozen_source_unchanged": true,
+    "note": "동일 승차지의 v5 조건부 코호트와 경로 전환 유출 시각 재사용·새 도로 시계/FIFO 재계산. 수단선택 전체 재시뮬레이션 아님.",
+    "routing_feedback_replayed": false,
+    "shared_night_profiles": [
+      "shuttle-41915",
+      "shuttle-41942"
+    ],
+    "source_alias": "shuttle-daehak",
+    "source_switch_exits_replayed": true,
+    "source_totals": [
+      {
+        "conditional_ready_weight": 1716.9169165873666,
+        "source_modeled_boarding_weight": 1505.5429872685088,
+        "weekday": 0
+      },
+      {
+        "conditional_ready_weight": 1576.8085834289463,
+        "source_modeled_boarding_weight": 1381.5407985992454,
+        "weekday": 1
+      },
+      {
+        "conditional_ready_weight": 1740.7033413466422,
+        "source_modeled_boarding_weight": 1503.61969047865,
+        "weekday": 2
+      },
+      {
+        "conditional_ready_weight": 1508.4988361500232,
+        "source_modeled_boarding_weight": 1358.1405772985274,
+        "weekday": 3
+      },
+      {
+        "conditional_ready_weight": 532.4850827172002,
+        "source_modeled_boarding_weight": 532.4850827172002,
+        "weekday": 4
+      }
+    ],
+    "unavailable_cohorts": [
+      "morning_commuters",
+      "after_midnight"
+    ]
+  },
+  "note": "시간표·v5 수업/보행 유입·FIFO 정원 모형. 등교/심야 코호트가 없으면 배차위상 대기만 산출합니다. 범위는 가정 민감도이며 신뢰구간이 아닙니다.",
+  "limitations": [
+    "고유 학생·실제 줄 인원이 아님",
+    "즉시 이동50%·기숙사5772/29613·과거 목적지 비중은 참고 가정",
+    "배경 탑승자는 여석 유보0~20% 가정",
+    "휴강·실제 이탈·혼잡에 따른 집단 재선택·환승 지연 전파 미관측",
+    "최신v5기준집단의조건부유입·OD · 전체집단4.8km/h 재실행아님",
+    "원본v5의시내정원50/24·배경승객미포함은시나리오가정 · 실제정원아님",
+    "15초유입집계오차최대7.5초 · 준비20초재가산없음",
+    "24가지수요/여석민감도에서유입·OD고정 · 전체경로재선택피드백미재실행",
+    "셔틀 대기는 관측 혼잡·시내버스 신호 없이 시간표와 v5 코호트/FIFO 모형으로 계산",
+    "등교·심야 수요 코호트 부재 노선은 배차위상 모형만 사용·줄 인원과 탑승부담은 미산출",
+    "대학동은 동일 행정관/대학동 승차지 코호트 대응·도로/하차 지점 변경 후 전체 수단선택 피드백은 미재실행",
+    "원본 모형에서 경로 전환한 가중 인원은 전환시각에 줄에서 제거·새 배차조건에서 전환행동 자체를 다시 최적화한 것은 아님",
+    "정문 도보 접근은 사용자 보고3건을 참고한 보정이며 같은3건으로 독립 검증하지 않음",
+    "관측시각은 분내 균등 가정·정문33~39명 구간 유지·다른 날짜/요일 일반화 미검증"
+  ],
+  "sync": {
+    "enabled": true,
+    "source": "https://snu-shuttle-simulation.vercel.app/routing-model/latest.json",
+    "check_interval_seconds": 60,
+    "checked_at": 1794236442.760892,
+    "next_check_at": 1794236502.760892,
+    "status": "active",
+    "last_error": null,
+    "active_model_id": "261109173153",
+    "compatibility_sha256": "7ce2316538b6ff26743a5e60a36041c613465091e64563170497ad51b8ca89d2",
+    "payload_sha256": "e9dde3d712ff208f9bfe8a41c79de04da7e1cfc430ca549845182ee97f254865"
+  }
+}

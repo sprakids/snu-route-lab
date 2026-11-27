@@ -1,0 +1,407 @@
+{
+  "status": "PASS",
+  "date": "2026-11-09",
+  "source_files": [
+    {
+      "path": "sources/collector-2026-11-09.json.gz",
+      "source_endpoint": "/export?day=2026-11-09",
+      "bytes": 4291289,
+      "sha256": "6b0545020a896ac7118f3b741bedacf3ca6b4c84312df0db725b4af52eef3737",
+      "verified": true
+    },
+    {
+      "path": "sources/collector-snapshot.private.json",
+      "source_endpoint": "/snapshot",
+      "bytes": 67621,
+      "sha256": "b9032162cc0e3d02382b2a741229c5ded3bde9173d19ab36ab7c1a98f6e5b0bd",
+      "verified": true
+    },
+    {
+      "path": "sources/saved-manual-observations.private.json",
+      "source_endpoint": "/observations",
+      "bytes": 14,
+      "sha256": "1b8b4c0b6f6ad1d32565952720bc004eeb1f188f62045e4d5525ae2af8c78432",
+      "verified": true
+    },
+    {
+      "path": "sources/collector-aggregate.private.json",
+      "source_endpoint": "/aggregate?day=2026-11-09",
+      "bytes": 1124311,
+      "sha256": "8550f9928b7051cdcdb6cdf5e17c2c5fd2c4f8137e3c67feaa8a1a1704c1daad",
+      "verified": true
+    },
+    {
+      "path": "sources/route_stops.json",
+      "source_local": "collector/route_stops.json",
+      "bytes": 80391,
+      "sha256": "f9e0a7a893fd34f1c6284e6f1823ded165b83f5d158a81cf3317f4cde3f035a5",
+      "verified": true
+    },
+    {
+      "path": "sources/network.json",
+      "source_local": "app/data/network.json",
+      "bytes": 82876,
+      "sha256": "d1ca30630a101ee6164646106b0595440633c1f752d91b78e5dad3e438dc7d5c",
+      "verified": true
+    }
+  ],
+  "protected_files_verified": 55,
+  "protected_checks": [
+    {
+      "path": "city_bus_model_2026-11-08/prepared.json.gz",
+      "sha256": "46243bdb22b769e3ed1fdbff270d0df74b8ffc55e91c80ab4594f1597288eb55",
+      "verified": true
+    },
+    {
+      "path": "capacity_model.py",
+      "sha256": "40d304dc2ad9f1af86827d0d4183cd2b9c2918e26c82866d0a84cbc8cce00d7e",
+      "verified": true
+    },
+    {
+      "path": "city_capacity_model.py",
+      "sha256": "1de61c9761915d404a549655d509055a9b247ee2e498007ae2671096887341ad",
+      "verified": true
+    },
+    {
+      "path": "prepare_city.py",
+      "sha256": "4e681b9bb97782c4fc912ceb4b82834e1aeb719ce2ac00f0047f7a899550c72a",
+      "verified": true
+    },
+    {
+      "path": "verify_city.py",
+      "sha256": "188faf61900b051d86648ab5f1d1c3e806cd6c661c5054b75d0a42621ddb88d6",
+      "verified": true
+    },
+    {
+      "path": "public/data/capacity_v5/charts.json",
+      "sha256": "2476e106bff4dd1b57722aa5783ae53416aac48f9470cc310b6bd41ea9c48dbc",
+      "verified": true
+    },
+    {
+      "path": "public/data/capacity_v5/charts.json.gz",
+      "sha256": "2793e265cb3bedcc3fbb43077daa6938108f8241362853b066e333774a3f80c2",
+      "verified": true
+    },
+    {
+      "path": "public/data/capacity_v5/common.json",
+      "sha256": "d85257463799e68ff9ad35b4a5f2b81c9092b7033438ff96bf127d5297761c29",
+      "verified": true
+    },
+    {
+      "path": "public/data/capacity_v5/common.json.gz",
+      "sha256": "57bb953e88377eae9df7562e6aa362656d514f02cbedd49a0144cb524fa868a3",
+      "verified": true
+    },
+    {
+      "path": "public/data/capacity_v5/peak-fri.json",
+      "sha256": "c09e8e523e1ee9b95bdc8e0085abe57516e3d0122d6ff54b31bba802d7f38876",
+      "verified": true
+    },
+    {
+      "path": "public/data/capacity_v5/peak-fri.json.gz",
+      "sha256": "7f6944638d694221911d9e168d24810dd1554767be642244c4230922c787eadd",
+      "verified": true
+    },
+    {
+      "path": "public/data/capacity_v5/peak-mon.json",
+      "sha256": "bd61c49b35a914f63a3cf381253c785ada4646e88b86b3e189561b669bd26939",
+      "verified": true
+    },
+    {
+      "path": "public/data/capacity_v5/peak-mon.json.gz",
+      "sha256": "6e63a01bc8e4dfee4a7576fdfe937d4f65345642e980bd3eef00291cf1c3a753",
+      "verified": true
+    },
+    {
+      "path": "public/data/capacity_v5/peak-thu.json",
+      "sha256": "bf27ae9180d87b31a1fe13cff2950e0ee9865331e0904638f0e67bb5d27b7408",
+      "verified": true
+    },
+    {
+      "path": "public/data/capacity_v5/peak-thu.json.gz",
+      "sha256": "500c8cb6a95ab1a73f309bf0678ede11cc6ff3d9c54403b3ac4426025c66a069",
+      "verified": true
+    },
+    {
+      "path": "public/data/capacity_v5/peak-tue.json",
+      "sha256": "ba96955a51cbffc9b5559eef6121efafa89c23d8d2c18e9b0195eda73a96daef",
+      "verified": true
+    },
+    {
+      "path": "public/data/capacity_v5/peak-tue.json.gz",
+      "sha256": "13551bcff3ae343b89d0d7f2ee4cd1c7d0901256f1edca85a56e9e5e8c74d70f",
+      "verified": true
+    },
+    {
+      "path": "public/data/capacity_v5/peak-wed.json",
+      "sha256": "0837d1d7dfac56a73d3fb22bf0ed2292b2e023e6ecff4567e7cae4d96c0aa328",
+      "verified": true
+    },
+    {
+      "path": "public/data/capacity_v5/peak-wed.json.gz",
+      "sha256": "24dec0d525ccd14b0ae968619c6ab8b985968308376ba6fa8015a38d828a8cdf",
+      "verified": true
+    },
+    {
+      "path": "public/data/capacity_v5/regular-fri.json",
+      "sha256": "5b0501d1b0f0c06bb366a135867de1ac027440e374e3d7cfe334b166ef82061e",
+      "verified": true
+    },
+    {
+      "path": "public/data/capacity_v5/regular-fri.json.gz",
+      "sha256": "e169688b3177e97edd6e1376f91f41bf5ad1bf940bfec42007b90691a1d0f3f0",
+      "verified": true
+    },
+    {
+      "path": "public/data/capacity_v5/regular-mon.json",
+      "sha256": "dceca2b3040011211d067c09d90732ec0f6658452e428ffda73acf56fd3e6988",
+      "verified": true
+    },
+    {
+      "path": "public/data/capacity_v5/regular-mon.json.gz",
+      "sha256": "2cb4ac921eb992a459fe7831efdc793dfc6605ba1c4be53f2511290e72c14c07",
+      "verified": true
+    },
+    {
+      "path": "public/data/capacity_v5/regular-thu.json",
+      "sha256": "1988fdf1f37e2c66bb1900b2f5936126e46286fc76da3541e5b1435d2b737584",
+      "verified": true
+    },
+    {
+      "path": "public/data/capacity_v5/regular-thu.json.gz",
+      "sha256": "c59e9094bb663ad683b0de5875612eadebe2490920808e54bb938d830f3eb764",
+      "verified": true
+    },
+    {
+      "path": "public/data/capacity_v5/regular-tue.json",
+      "sha256": "d1669048cc805b55dcf5021367a6ab0ddf250eefec7f89a3038388ed9af79acc",
+      "verified": true
+    },
+    {
+      "path": "public/data/capacity_v5/regular-tue.json.gz",
+      "sha256": "c4f9c17647f5dbd6381a7dc2dfbc24e4f8d3a35b87420d8f0a1526fd6f612953",
+      "verified": true
+    },
+    {
+      "path": "public/data/capacity_v5/regular-wed.json",
+      "sha256": "e7e2ea335acd327fdfce0adc01546b13accc6dafeeebcb8ed0fc7f172666fac3",
+      "verified": true
+    },
+    {
+      "path": "public/data/capacity_v5/regular-wed.json.gz",
+      "sha256": "ee49bbc57774a8e962310bcdc4ccb80b7206610892b7132f8ae2a0aa17c8b6cb",
+      "verified": true
+    },
+    {
+      "path": "public/data/capacity_v6/charts.json",
+      "sha256": "07f1330303066d594e1604b5a0452dd4ec1961baf6bed0765832aac72fe6ff56",
+      "verified": true
+    },
+    {
+      "path": "public/data/capacity_v6/charts.json.gz",
+      "sha256": "995e6238dc8795da07006b8b83b80f5e934098a4915aea8f5266f8be3f51c727",
+      "verified": true
+    },
+    {
+      "path": "public/data/capacity_v6/common.json",
+      "sha256": "705c3aac2eeca5d9bdd06a557663a3cfe0b63e50084a9c62f8c9be2ad44687c6",
+      "verified": true
+    },
+    {
+      "path": "public/data/capacity_v6/common.json.gz",
+      "sha256": "7cf5c741633b309b339321efd4081681b2b952012588e6cf69b007f0bfd996d8",
+      "verified": true
+    },
+    {
+      "path": "public/data/capacity_v6/peak-fri.json",
+      "sha256": "a1b80a442fcec1e15eff779a37f7489674428462056caa4b2eb484306c74f956",
+      "verified": true
+    },
+    {
+      "path": "public/data/capacity_v6/peak-fri.json.gz",
+      "sha256": "cd211fbf3d4526f42dca3683a6d77d6149f4c1f5d79d201d6a4d9b50f9a8d0fd",
+      "verified": true
+    },
+    {
+      "path": "public/data/capacity_v6/peak-mon.json",
+      "sha256": "cdaac417a8b2d3019dbf882126e2fa24c12b5564a46f8cc3add3bdd92f796960",
+      "verified": true
+    },
+    {
+      "path": "public/data/capacity_v6/peak-mon.json.gz",
+      "sha256": "2786f4d9a856a899e8c2746894d241af1e4dc5450403ce89186d1c7da3b795d2",
+      "verified": true
+    },
+    {
+      "path": "public/data/capacity_v6/peak-thu.json",
+      "sha256": "c096077b6781d5d16e684c4e590de9792a6a2fe6bde587d7c2e9d14855afb966",
+      "verified": true
+    },
+    {
+      "path": "public/data/capacity_v6/peak-thu.json.gz",
+      "sha256": "89dbf2aad4c334c67ad901c57fe18a6ab41b46613838b0380e199ffb0c0b3ae5",
+      "verified": true
+    },
+    {
+      "path": "public/data/capacity_v6/peak-tue.json",
+      "sha256": "474156d048864d0438458aa8caa9203d5462ad4c150b8e0b1616cf83af6d6528",
+      "verified": true
+    },
+    {
+      "path": "public/data/capacity_v6/peak-tue.json.gz",
+      "sha256": "023dabc4ff90cf31f97f2530e45ee8513dccb522d49052d36198ba08822e6166",
+      "verified": true
+    },
+    {
+      "path": "public/data/capacity_v6/peak-wed.json",
+      "sha256": "8d534c12ce3be02586bf7c5f5a051cc8c176451f124e5f59e6bd9e19475d65a9",
+      "verified": true
+    },
+    {
+      "path": "public/data/capacity_v6/peak-wed.json.gz",
+      "sha256": "92c9f81770629d91f7d6339f0e64016307b8dbdbbb8c3bd8635933bdacd4672a",
+      "verified": true
+    },
+    {
+      "path": "public/data/capacity_v6/regular-fri.json",
+      "sha256": "fbf464eff873ecfb589dcc54a3707d351a1d97a24141cdd7bb3ca2aa125e66a7",
+      "verified": true
+    },
+    {
+      "path": "public/data/capacity_v6/regular-fri.json.gz",
+      "sha256": "17f8cdc002309abc2d42983663eec9a36d0a8db1d2899bd20226fdbb3258b9a5",
+      "verified": true
+    },
+    {
+      "path": "public/data/capacity_v6/regular-mon.json",
+      "sha256": "39ffd116ae0f424c84b422e6f4ff2ff57b3acea54e206bb391d9ed8d9e38137f",
+      "verified": true
+    },
+    {
+      "path": "public/data/capacity_v6/regular-mon.json.gz",
+      "sha256": "c40db62ec1d751a297fa374e9998c7605a2b017c3da99e2d1fe3c60dee7dbc98",
+      "verified": true
+    },
+    {
+      "path": "public/data/capacity_v6/regular-thu.json",
+      "sha256": "cb92b9cbf55106fee2c429af54448e6eeb02990cfd0bc1cc193f468ba0b201d1",
+      "verified": true
+    },
+    {
+      "path": "public/data/capacity_v6/regular-thu.json.gz",
+      "sha256": "f07944302def1462e9fade5eaa6a2f3d64ba459cdf6a7e9a7c7b5b2926e74e5d",
+      "verified": true
+    },
+    {
+      "path": "public/data/capacity_v6/regular-tue.json",
+      "sha256": "1066a5fed6c2029ab44e3e144e2f5247b51523ab66135da24849211d0b45accb",
+      "verified": true
+    },
+    {
+      "path": "public/data/capacity_v6/regular-tue.json.gz",
+      "sha256": "99342b5112a0fa1a4e451d634bd3940f97f055fd13ff0c668ed6c614f7ec7f2e",
+      "verified": true
+    },
+    {
+      "path": "public/data/capacity_v6/regular-wed.json",
+      "sha256": "ccaae21d898f82ba48060163004753beef42a75c94aa4b4c2c9cf130ed5f1d9a",
+      "verified": true
+    },
+    {
+      "path": "public/data/capacity_v6/regular-wed.json.gz",
+      "sha256": "6dcf7d0c4c69239149e81e60b2991ad595c3002260c27832c91ae4f6e6b2fe6f",
+      "verified": true
+    },
+    {
+      "path": "public/routing-model/releases/261109145951.json",
+      "sha256": "36467a659a35e927240f3216a80ecf4981a1bd758ef91c0fe38f0558e8e04575",
+      "verified": true
+    },
+    {
+      "path": "public/routing-model/releases/261109152540.json",
+      "sha256": "f63baef24b285d544755a0df4adb50706fa1efe7ef7e8189190667e47a1a133e",
+      "verified": true
+    }
+  ],
+  "pre_promotion_pointer_separately_reconciled": {
+    "previous_sha256": "1cf47b02a20716d497a9f8bb15d4b9623e2ef2c9f4e79e3f6495ab5365be7a08",
+    "current_model_id": "261109173153"
+  },
+  "model_asset_checks": [
+    {
+      "path": "data/capacity_v7/common.json",
+      "sha256": "724f10248d937e6ca6a104263ad3b415ab694c5af48d865233f81deee555a237",
+      "expected_from_release": "724f10248d937e6ca6a104263ad3b415ab694c5af48d865233f81deee555a237",
+      "verified": true
+    },
+    {
+      "path": "data/capacity_v7/regular-mon.json",
+      "sha256": "6de4846db18aea8534e0a621b29861bf55bae5140a8e80fb953fa2771c2d715a",
+      "expected_from_release": "6de4846db18aea8534e0a621b29861bf55bae5140a8e80fb953fa2771c2d715a",
+      "verified": true
+    },
+    {
+      "path": "data/capacity_v7/peak-mon.json",
+      "sha256": "78bd36ccc543e88867a56be40448b73daabfad9ea900bb33469ab9fcd11e0427",
+      "expected_from_release": "78bd36ccc543e88867a56be40448b73daabfad9ea900bb33469ab9fcd11e0427",
+      "verified": true
+    }
+  ],
+  "routing_release_unchanged": true,
+  "raw_rows_reconcile": true,
+  "provider_exclusions_reconcile": true,
+  "visits_reconcile": true,
+  "clean_rows_match_two_analyses": true,
+  "independent_mondays": 1,
+  "campus_entry_peak_counts": {
+    "n": 112,
+    "valid_n": 112,
+    "grade3": 104,
+    "grade4": 8,
+    "grade5": 0,
+    "grade6": 0
+  },
+  "review_only": true,
+  "model_modified": false,
+  "collector_modified": false,
+  "app_modified": false,
+  "new_deployment": false,
+  "new_upstream_bus_calls": false,
+  "public_model_endpoint_checks": [
+    {
+      "url": "https://snu-shuttle-simulation.vercel.app/routing-model/latest.json",
+      "model_id": "261109173153",
+      "response_keys": [
+        "algorithm_id",
+        "bytes",
+        "compatibility_sha256",
+        "content_sha256",
+        "generation_sha256",
+        "model_id",
+        "payload_path",
+        "published_at",
+        "schema",
+        "sha256",
+        "source_simulation"
+      ]
+    },
+    {
+      "url": "https://snu-route-lab.vercel.app/api/queue-model",
+      "model_id": "261109173153",
+      "response_keys": [
+        "model_id",
+        "automatic",
+        "calibrated",
+        "observed_queue",
+        "algorithm_id",
+        "release",
+        "travel_clock_model",
+        "boarding_algorithm",
+        "latest_simulation",
+        "city_wait",
+        "unit",
+        "course_end_events"
+      ]
+    }
+  ]
+}

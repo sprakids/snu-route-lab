@@ -1,0 +1,49 @@
+/* Liquid feedback uses existing navy/gold fills and never changes hit targets. */
+@media screen{
+  @keyframes page-enter{from{opacity:0}to{opacity:1}}
+  .motion-ready body.campus-route,.legal-page .legal-header,.legal-page .legal-content{animation:page-enter .28s ease backwards}
+  html:has(body.campus-route),body.campus-route{touch-action:pan-x pan-y;overscroll-behavior:none}
+  .campus-route #map,.campus-route #map .leaflet-container{touch-action:none}
+  :where(.liquid-control){position:relative;isolation:isolate}
+  .campus-route .liquid-control:not(.theme-toggle):not(.sheet-grip){background-image:linear-gradient(150deg,#ffffff24,#ffffff03 50%,#7ca1da0b)}
+  .liquid-ripple{position:absolute;inset:0;z-index:2;overflow:hidden;border-radius:inherit;pointer-events:none!important;contain:paint}
+  .liquid-ripple::after{content:'';position:absolute;left:var(--drop-x);top:var(--drop-y);width:var(--drop-size);height:var(--drop-size);border-radius:48% 52% 50% 50%;border:1.5px solid #ffffffb3;background:radial-gradient(ellipse at 44% 32%,#ffffff66 0%,#ffffff14 32%,#b3cdef47 51%,#ffffff4d 58%,#d2e3ff05 72%);box-shadow:inset 0 0 14px #ffffff59,0 0 12px #a6c8ff33;transform:translate(-50%,-50%) scale(.02);animation:liquid-drop 680ms cubic-bezier(.12,.65,.22,1) both}
+  [data-theme=dark] .liquid-ripple::after{border-color:#ffe8a5b3;background:radial-gradient(ellipse at 44% 32%,#fff5cf59,#e9c34e0f 32%,#ebcf7d33 51%,#ffe9a540 58%,#e9c34e00 72%);box-shadow:inset 0 0 14px #fff0b533,0 0 10px #e9c34e22}
+  @keyframes liquid-drop{0%{opacity:0;transform:translate(-50%,-50%) scale(.02,.015)}15%{opacity:.95}48%{opacity:.62;border-radius:53% 47% 49% 51%;transform:translate(-50%,-50%) scale(.65,.52)}100%{opacity:0;border-radius:50%;transform:translate(-50%,-50%) scale(1.25,1.08)}}
+  .motion-ready :where(body.campus-route,.campus-route header,.campus-route nav,.campus-route aside,.campus-route section,.campus-route article,.campus-route dialog,.campus-route div,.campus-route p,.campus-route span,.campus-route strong,.campus-route h1,.campus-route h2,.campus-route h3,.campus-route button,.campus-route a,.campus-route label,.campus-route input,.campus-route select,.campus-route summary,.campus-route small):not(:where(#map *, .liquid-ripple,.liquid-ripple *)){
+    transition:background-color .38s ease,color .32s ease,border-color .38s ease,box-shadow .3s ease;
+  }
+  .motion-ready .theme-track{transition:background-color .34s ease}
+  .motion-ready .theme-knob{transition:transform .36s cubic-bezier(.2,.8,.25,1.12),box-shadow .3s ease}
+  .motion-ready .leaflet-tile-pane{transition:filter .38s ease}
+  .motion-ready .liquid-control{transition:background-color .38s ease,color .32s ease,border-color .38s ease,box-shadow .3s ease,scale .24s cubic-bezier(.2,.8,.25,1.2)}
+  .liquid-control:active:not(.route-card){scale:.975}
+  .origin-search-popup:not([hidden]),details[open]>:not(summary){animation:small-enter .2s ease both}
+  @keyframes small-enter{from{opacity:0;translate:0 5px}to{opacity:1;translate:0 0}}
+  @supports(interpolate-size:allow-keywords){
+    details{interpolate-size:allow-keywords}
+    details::details-content{block-size:0;opacity:0;overflow:clip;transition:block-size .26s ease,opacity .22s ease,content-visibility .26s allow-discrete}
+    details[open]::details-content{block-size:auto;opacity:1}
+  }
+  @supports(backdrop-filter:blur(1px)){
+    .campus-route :is(.mobile-nav,.mobile-home-search>button){background-color:color-mix(in srgb,var(--campus-surface) 90%,transparent);-webkit-backdrop-filter:blur(14px) saturate(125%);backdrop-filter:blur(14px) saturate(125%)}
+  }
+  /* Native display/overlay transitions keep close events and focus synchronous. */
+  .motion-ready .campus-route dialog{opacity:0;transform:translateY(14px) scale(.987);transition:opacity .24s ease,transform .3s cubic-bezier(.2,.75,.25,1),background-color .38s ease,color .32s ease,border-color .38s ease,display .3s allow-discrete,overlay .3s allow-discrete}
+  .motion-ready .campus-route dialog[open]{opacity:1;transform:none}
+  .motion-ready .campus-route dialog:not([open]),.motion-ready .campus-route dialog:not([open])::backdrop{pointer-events:none}
+  .motion-ready .campus-route dialog::backdrop{background-color:#15233400;backdrop-filter:blur(0);transition:background-color .24s ease,backdrop-filter .24s ease,display .3s allow-discrete,overlay .3s allow-discrete}
+  .motion-ready .campus-route dialog[open]::backdrop{background-color:#15233466;backdrop-filter:blur(2px)}
+  @starting-style{
+    .motion-ready .campus-route dialog[open]{opacity:0;transform:translateY(14px) scale(.987)}
+    .motion-ready .campus-route dialog[open]::backdrop{background-color:#15233400;backdrop-filter:blur(0)}
+  }
+  @media(max-width:700px){
+    .motion-ready .campus-route .selected-panel{transition:height .36s cubic-bezier(.2,.75,.25,1),max-height .36s cubic-bezier(.2,.75,.25,1),background-color .38s ease,color .32s ease}
+    .campus-route :is(input[type=search],input[type=text],input[type=number],input[type=datetime-local],select){font-size:16px!important}
+  }
+  html[data-reduce-motion=true] .campus-route *,html[data-reduce-motion=true] .campus-route *::before,html[data-reduce-motion=true] .campus-route *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  html[data-reduce-motion=true] .liquid-control{scale:none!important}
+  html[data-reduce-motion=true] body.campus-route,html[data-reduce-motion=true] .legal-page *{animation:none!important}
+  @media(prefers-reduced-motion:reduce){body.campus-route,.campus-route *,.campus-route *::before,.campus-route *::after,.legal-page *{animation:none!important;transition:none!important;scroll-behavior:auto!important}.liquid-control{scale:none!important}}
+}

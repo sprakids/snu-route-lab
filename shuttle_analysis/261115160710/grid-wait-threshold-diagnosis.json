@@ -1,0 +1,2388 @@
+{
+  "cases": [
+    {
+      "case": {
+        "case": "direction-combined-regular-mon",
+        "mode": "combined",
+        "day": "월",
+        "scenario": "regular",
+        "seed": 0,
+        "operations": "v12_empirical"
+      },
+      "counts": {
+        "over20_episode_weight": 485.9195138431919,
+        "over20_boarded": 452.39561377809815,
+        "over20_enroute_episode_weight": 0.0,
+        "within_personal_patience_episode_weight": 485.01203126056873,
+        "over20_switched": 33.523900065093926,
+        "past_personal_patience_episode_weight": 0.9074825826230954
+      },
+      "maximum_raw_wait_visit": {
+        "uid": 4625936,
+        "node": 59,
+        "seconds": 2327.186929448122,
+        "personal_patience_seconds": 2604.7466632052506,
+        "outcome": "boarded",
+        "weight": 0.09498845162658942
+      },
+      "past_personal_patience_visits": [
+        {
+          "uid": 1795088,
+          "node": 60,
+          "arrival": 44780.664054593675,
+          "end": 45983.77422518682,
+          "wait_seconds": 1203.1101705931433,
+          "personal_patience_seconds": 1191.5481169211944,
+          "outcome": "switched",
+          "weight": 0.3744357263757023,
+          "full_passes": null
+        },
+        {
+          "uid": 1795089,
+          "node": 60,
+          "arrival": 44780.664054593675,
+          "end": 45983.77422518682,
+          "wait_seconds": 1203.1101705931433,
+          "personal_patience_seconds": 1032.2196249899562,
+          "outcome": "switched",
+          "weight": 0.5330468562473931,
+          "full_passes": null
+        }
+      ],
+      "opportunities": {
+        "enabled": true,
+        "window_seconds": 30.0,
+        "flow": {
+          "walking_calls": 188507,
+          "walking_opportunity_weight": 53075.85356322696,
+          "no_existing_path_join_weight": 50502.60016511197,
+          "walking_calls_with_geometry": 10803,
+          "walking_weight_with_geometry": 2573.2533981149945,
+          "no_allowed_timetable_window_weight": 2446.8264307388504,
+          "intercept_attempt_weight": 126.42696737614887,
+          "resumed_walking_weight": 52.735717653373875,
+          "opportunistic_boarded_weight": 73.69124972277515
+        },
+        "catalogue": {
+          "counts": {
+            "queries": 188507,
+            "distinct_queries": 2799,
+            "distinct_queries_with_geometry": 338,
+            "geometric_opportunities": 847,
+            "cache_hits": 185708
+          },
+          "known_walking_path_count": 3140,
+          "indexed_walking_path_count": 3082,
+          "platform_destination_count": 387,
+          "max_extra_meters": 80.0,
+          "max_lateral_meters": 30.0,
+          "coverage_scope": "Existing exact directed walking prefix/suffix and platform anchors only; missing joins leave the original walk unchanged.",
+          "coordinates_created": false,
+          "new_paths_created": false,
+          "thresholds_are_observed": false
+        },
+        "selection_scope": "Timetabled compatible arrivals inside a bounded platform window; actual seats and partial boarding use the existing physical FIFO.",
+        "coverage_scope": "Walking opportunity exposure is per leg/attempt, not unique students or observed demand."
+      }
+    },
+    {
+      "case": {
+        "case": "direction-combined-regular-tue",
+        "mode": "combined",
+        "day": "화",
+        "scenario": "regular",
+        "seed": 0,
+        "operations": "v12_empirical"
+      },
+      "counts": {
+        "over20_episode_weight": 377.55420210378577,
+        "over20_boarded": 360.02759418444913,
+        "over20_enroute_episode_weight": 0.0,
+        "within_personal_patience_episode_weight": 377.55420210378577,
+        "over20_switched": 17.526607919336616
+      },
+      "maximum_raw_wait_visit": {
+        "uid": 2644624,
+        "node": 26,
+        "seconds": 2350.2850581336825,
+        "personal_patience_seconds": 2385.0346986827403,
+        "outcome": "switched",
+        "weight": 0.2648696716167083
+      },
+      "past_personal_patience_visits": [],
+      "opportunities": {
+        "enabled": true,
+        "window_seconds": 30.0,
+        "flow": {
+          "walking_calls": 187052,
+          "walking_opportunity_weight": 49499.44286457534,
+          "no_existing_path_join_weight": 47171.06787647201,
+          "walking_calls_with_geometry": 10803,
+          "walking_weight_with_geometry": 2328.374988103574,
+          "no_allowed_timetable_window_weight": 2211.9903834604143,
+          "intercept_attempt_weight": 116.38460464313907,
+          "resumed_walking_weight": 37.39575904543971,
+          "opportunistic_boarded_weight": 78.9888455976996
+        },
+        "catalogue": {
+          "counts": {
+            "queries": 187052,
+            "distinct_queries": 2811,
+            "distinct_queries_with_geometry": 349,
+            "geometric_opportunities": 931,
+            "cache_hits": 184241
+          },
+          "known_walking_path_count": 3164,
+          "indexed_walking_path_count": 3106,
+          "platform_destination_count": 385,
+          "max_extra_meters": 80.0,
+          "max_lateral_meters": 30.0,
+          "coverage_scope": "Existing exact directed walking prefix/suffix and platform anchors only; missing joins leave the original walk unchanged.",
+          "coordinates_created": false,
+          "new_paths_created": false,
+          "thresholds_are_observed": false
+        },
+        "selection_scope": "Timetabled compatible arrivals inside a bounded platform window; actual seats and partial boarding use the existing physical FIFO.",
+        "coverage_scope": "Walking opportunity exposure is per leg/attempt, not unique students or observed demand."
+      }
+    },
+    {
+      "case": {
+        "case": "direction-combined-regular-wed",
+        "mode": "combined",
+        "day": "수",
+        "scenario": "regular",
+        "seed": 0,
+        "operations": "v12_empirical"
+      },
+      "counts": {
+        "over20_episode_weight": 555.8968423297439,
+        "over20_boarded": 526.6647085776151,
+        "over20_enroute_episode_weight": 0.0,
+        "within_personal_patience_episode_weight": 517.9239177602055,
+        "over20_switched": 29.232133752129226,
+        "past_personal_patience_episode_weight": 37.97292456953938
+      },
+      "maximum_raw_wait_visit": {
+        "uid": 3376896,
+        "node": 75,
+        "seconds": 2358.601218245167,
+        "personal_patience_seconds": 2399.2673579014286,
+        "outcome": "boarded",
+        "weight": 0.09133436952300289
+      },
+      "past_personal_patience_visits": [
+        {
+          "uid": 237697,
+          "node": 62,
+          "arrival": 45359.20071181412,
+          "end": 46660.62795922473,
+          "wait_seconds": 1301.427247410611,
+          "personal_patience_seconds": 1051.6101657518684,
+          "outcome": "boarded",
+          "weight": 0.23659033488950576,
+          "full_passes": null
+        },
+        {
+          "uid": 3632896,
+          "node": 62,
+          "arrival": 45360.76351948825,
+          "end": 46660.62795922473,
+          "wait_seconds": 1299.864439736477,
+          "personal_patience_seconds": 969.3112854657631,
+          "outcome": "boarded",
+          "weight": 0.4301781646908787,
+          "full_passes": null
+        },
+        {
+          "uid": 920416,
+          "node": 62,
+          "arrival": 45360.82758391496,
+          "end": 46660.62795922473,
+          "wait_seconds": 1299.8003753097728,
+          "personal_patience_seconds": 908.320630802002,
+          "outcome": "boarded",
+          "weight": 0.4862883600853411,
+          "full_passes": null
+        },
+        {
+          "uid": 3716656,
+          "node": 62,
+          "arrival": 45362.26478648133,
+          "end": 46660.62795922473,
+          "wait_seconds": 1298.3631727433967,
+          "personal_patience_seconds": 1276.6244767088435,
+          "outcome": "boarded",
+          "weight": 0.4862883600853411,
+          "full_passes": null
+        },
+        {
+          "uid": 2623696,
+          "node": 62,
+          "arrival": 45363.07382082509,
+          "end": 46660.62795922473,
+          "wait_seconds": 1297.5541383996388,
+          "personal_patience_seconds": 1081.667435126324,
+          "outcome": "boarded",
+          "weight": 0.22444078157784975,
+          "full_passes": null
+        },
+        {
+          "uid": 474848,
+          "node": 62,
+          "arrival": 45363.47955140066,
+          "end": 46660.62795922473,
+          "wait_seconds": 1297.1484078240683,
+          "personal_patience_seconds": 1213.6331209038765,
+          "outcome": "boarded",
+          "weight": 0.5236951570149828,
+          "full_passes": null
+        },
+        {
+          "uid": 474849,
+          "node": 62,
+          "arrival": 45363.47955140066,
+          "end": 46660.62795922473,
+          "wait_seconds": 1297.1484078240683,
+          "personal_patience_seconds": 988.4144785478393,
+          "outcome": "boarded",
+          "weight": 0.5236951570149828,
+          "full_passes": null
+        },
+        {
+          "uid": 1652336,
+          "node": 62,
+          "arrival": 45367.20610207664,
+          "end": 46660.62795922473,
+          "wait_seconds": 1293.4218571480887,
+          "personal_patience_seconds": 1108.5538190869484,
+          "outcome": "boarded",
+          "weight": 0.6546189462687284,
+          "full_passes": null
+        },
+        {
+          "uid": 1722144,
+          "node": 62,
+          "arrival": 45372.39597589503,
+          "end": 46660.62795922473,
+          "wait_seconds": 1288.2319833297006,
+          "personal_patience_seconds": 964.4386121316824,
+          "outcome": "boarded",
+          "weight": 0.7855427355224741,
+          "full_passes": null
+        },
+        {
+          "uid": 1722145,
+          "node": 62,
+          "arrival": 45372.39597589503,
+          "end": 46660.62795922473,
+          "wait_seconds": 1288.2319833297006,
+          "personal_patience_seconds": 743.8847381256753,
+          "outcome": "boarded",
+          "weight": 0.7855427355224741,
+          "full_passes": null
+        },
+        {
+          "uid": 1722146,
+          "node": 62,
+          "arrival": 45372.39597589503,
+          "end": 46660.62795922473,
+          "wait_seconds": 1288.2319833297006,
+          "personal_patience_seconds": 597.9659484280783,
+          "outcome": "boarded",
+          "weight": 0.7855427355224741,
+          "full_passes": null
+        },
+        {
+          "uid": 1722147,
+          "node": 62,
+          "arrival": 45372.39597589503,
+          "end": 46660.62795922473,
+          "wait_seconds": 1288.2319833297006,
+          "personal_patience_seconds": 1102.2697962197453,
+          "outcome": "boarded",
+          "weight": 0.785542735522474,
+          "full_passes": null
+        },
+        {
+          "uid": 2990128,
+          "node": 62,
+          "arrival": 45372.98089131939,
+          "end": 46660.62795922473,
+          "wait_seconds": 1287.6470679053382,
+          "personal_patience_seconds": 1016.674117858505,
+          "outcome": "boarded",
+          "weight": 0.7668393370576533,
+          "full_passes": null
+        },
+        {
+          "uid": 1581552,
+          "node": 62,
+          "arrival": 45374.03795362835,
+          "end": 46660.62795922473,
+          "wait_seconds": 1286.5900055963793,
+          "personal_patience_seconds": 1260.2100012092085,
+          "outcome": "boarded",
+          "weight": 0.4675849616205203,
+          "full_passes": null
+        },
+        {
+          "uid": 637809,
+          "node": 62,
+          "arrival": 45374.23083928477,
+          "end": 46660.62795922473,
+          "wait_seconds": 1286.3971199399602,
+          "personal_patience_seconds": 967.053337748361,
+          "outcome": "boarded",
+          "weight": 0.504991758550162,
+          "full_passes": null
+        },
+        {
+          "uid": 2939408,
+          "node": 62,
+          "arrival": 45376.1607822932,
+          "end": 46660.62795922473,
+          "wait_seconds": 1284.4671769315319,
+          "personal_patience_seconds": 982.4241595195194,
+          "outcome": "boarded",
+          "weight": 0.01870339846482081,
+          "full_passes": null
+        },
+        {
+          "uid": 237664,
+          "node": 62,
+          "arrival": 45377.907357576405,
+          "end": 46660.62795922473,
+          "wait_seconds": 1282.720601648325,
+          "personal_patience_seconds": 1204.1670757746874,
+          "outcome": "boarded",
+          "weight": 0.5798053524094452,
+          "full_passes": null
+        },
+        {
+          "uid": 1722240,
+          "node": 62,
+          "arrival": 45380.94754829356,
+          "end": 46660.62795922473,
+          "wait_seconds": 1279.6804109311706,
+          "personal_patience_seconds": 881.7734809654605,
+          "outcome": "boarded",
+          "weight": 0.7855427355224741,
+          "full_passes": null
+        },
+        {
+          "uid": 2939504,
+          "node": 62,
+          "arrival": 45384.02003000883,
+          "end": 46660.62795922473,
+          "wait_seconds": 1276.6079292158975,
+          "personal_patience_seconds": 957.337109377653,
+          "outcome": "boarded",
+          "weight": 0.01870339846482081,
+          "full_passes": null
+        },
+        {
+          "uid": 4150624,
+          "node": 62,
+          "arrival": 45384.93533961415,
+          "end": 46660.62795922473,
+          "wait_seconds": 1275.6926196105778,
+          "personal_patience_seconds": 1237.4001670948387,
+          "outcome": "boarded",
+          "weight": 0.551750254712214,
+          "full_passes": null
+        },
+        {
+          "uid": 772176,
+          "node": 62,
+          "arrival": 45385.737901911714,
+          "end": 46660.62795922473,
+          "wait_seconds": 1274.8900573130159,
+          "personal_patience_seconds": 1112.7296360525017,
+          "outcome": "boarded",
+          "weight": 0.3553645708315954,
+          "full_passes": null
+        },
+        {
+          "uid": 4453216,
+          "node": 62,
+          "arrival": 45385.74953998426,
+          "end": 46660.62795922473,
+          "wait_seconds": 1274.878419240471,
+          "personal_patience_seconds": 1173.9628745289626,
+          "outcome": "boarded",
+          "weight": 0.6546189462687284,
+          "full_passes": null
+        },
+        {
+          "uid": 3403232,
+          "node": 62,
+          "arrival": 45388.24407648562,
+          "end": 46660.62795922473,
+          "wait_seconds": 1272.3838827391082,
+          "personal_patience_seconds": 796.4498432282826,
+          "outcome": "boarded",
+          "weight": 0.8603563293817574,
+          "full_passes": null
+        },
+        {
+          "uid": 4453184,
+          "node": 62,
+          "arrival": 45391.12152063976,
+          "end": 46660.62795922473,
+          "wait_seconds": 1269.5064385849691,
+          "personal_patience_seconds": 1087.628443404328,
+          "outcome": "boarded",
+          "weight": 0.6546189462687284,
+          "full_passes": null
+        },
+        {
+          "uid": 2807376,
+          "node": 62,
+          "arrival": 45392.81772009178,
+          "end": 46660.62795922473,
+          "wait_seconds": 1267.8102391329521,
+          "personal_patience_seconds": 927.6561621093476,
+          "outcome": "boarded",
+          "weight": 0.3366611723667746,
+          "full_passes": null
+        },
+        {
+          "uid": 2701280,
+          "node": 62,
+          "arrival": 45396.56193749977,
+          "end": 46660.62795922473,
+          "wait_seconds": 1264.0660217249606,
+          "personal_patience_seconds": 1083.7451175431545,
+          "outcome": "boarded",
+          "weight": 0.5985087508742659,
+          "full_passes": null
+        },
+        {
+          "uid": 2715952,
+          "node": 62,
+          "arrival": 45397.21953549258,
+          "end": 46660.62795922473,
+          "wait_seconds": 1263.4084237321513,
+          "personal_patience_seconds": 999.0560911848169,
+          "outcome": "boarded",
+          "weight": 0.8790597278465783,
+          "full_passes": null
+        },
+        {
+          "uid": 2715954,
+          "node": 62,
+          "arrival": 45397.21953549258,
+          "end": 46660.62795922473,
+          "wait_seconds": 1263.4084237321513,
+          "personal_patience_seconds": 1086.5399152562352,
+          "outcome": "boarded",
+          "weight": 0.8790597278465782,
+          "full_passes": null
+        },
+        {
+          "uid": 285184,
+          "node": 62,
+          "arrival": 45398.3348268908,
+          "end": 46660.62795922473,
+          "wait_seconds": 1262.293132333929,
+          "personal_patience_seconds": 1156.3172314436065,
+          "outcome": "boarded",
+          "weight": 0.3740679692964163,
+          "full_passes": null
+        },
+        {
+          "uid": 1722131,
+          "node": 62,
+          "arrival": 45401.56012601609,
+          "end": 46660.62795922473,
+          "wait_seconds": 1259.067833208639,
+          "personal_patience_seconds": 736.1272600329753,
+          "outcome": "boarded",
+          "weight": 0.785542735522474,
+          "full_passes": null
+        },
+        {
+          "uid": 2939376,
+          "node": 62,
+          "arrival": 45402.58333073696,
+          "end": 46660.62795922473,
+          "wait_seconds": 1258.044628487769,
+          "personal_patience_seconds": 1238.2087852958516,
+          "outcome": "boarded",
+          "weight": 0.01870339846482081,
+          "full_passes": null
+        },
+        {
+          "uid": 3403392,
+          "node": 62,
+          "arrival": 45404.782440529416,
+          "end": 46660.62795922473,
+          "wait_seconds": 1255.8455186953142,
+          "personal_patience_seconds": 789.5064223293613,
+          "outcome": "boarded",
+          "weight": 0.8603563293817574,
+          "full_passes": null
+        },
+        {
+          "uid": 772064,
+          "node": 62,
+          "arrival": 45405.62867923691,
+          "end": 46660.62795922473,
+          "wait_seconds": 1254.9992799878237,
+          "personal_patience_seconds": 1019.323663294603,
+          "outcome": "boarded",
+          "weight": 0.3553645708315954,
+          "full_passes": null
+        },
+        {
+          "uid": 237520,
+          "node": 62,
+          "arrival": 45406.194517714444,
+          "end": 46660.62795922473,
+          "wait_seconds": 1254.4334415102858,
+          "personal_patience_seconds": 1165.7865681581884,
+          "outcome": "boarded",
+          "weight": 0.5798053524094452,
+          "full_passes": null
+        },
+        {
+          "uid": 2267440,
+          "node": 62,
+          "arrival": 45408.05492053899,
+          "end": 46660.62795922473,
+          "wait_seconds": 1252.5730386857394,
+          "personal_patience_seconds": 794.4655931592476,
+          "outcome": "boarded",
+          "weight": 0.5798053524094452,
+          "full_passes": null
+        },
+        {
+          "uid": 1679969,
+          "node": 62,
+          "arrival": 45411.40178909281,
+          "end": 46660.62795922473,
+          "wait_seconds": 1249.2261701319221,
+          "personal_patience_seconds": 1192.883954957404,
+          "outcome": "boarded",
+          "weight": 0.6733223447335492,
+          "full_passes": null
+        },
+        {
+          "uid": 1722083,
+          "node": 62,
+          "arrival": 45418.32052327673,
+          "end": 46660.62795922473,
+          "wait_seconds": 1242.3074359480015,
+          "personal_patience_seconds": 1036.9227634540757,
+          "outcome": "boarded",
+          "weight": 0.785542735522474,
+          "full_passes": null
+        },
+        {
+          "uid": 1679984,
+          "node": 62,
+          "arrival": 45421.19135685514,
+          "end": 46660.62795922473,
+          "wait_seconds": 1239.4366023695911,
+          "personal_patience_seconds": 787.4023474810576,
+          "outcome": "boarded",
+          "weight": 0.6733223447335492,
+          "full_passes": null
+        },
+        {
+          "uid": 237617,
+          "node": 62,
+          "arrival": 45421.66487301243,
+          "end": 46660.62795922473,
+          "wait_seconds": 1238.9630862123013,
+          "personal_patience_seconds": 1054.3184072130605,
+          "outcome": "boarded",
+          "weight": 0.5798053524094452,
+          "full_passes": null
+        },
+        {
+          "uid": 328272,
+          "node": 62,
+          "arrival": 45422.74123065357,
+          "end": 46660.62795922473,
+          "wait_seconds": 1237.8867285711603,
+          "personal_patience_seconds": 1138.1817896991847,
+          "outcome": "boarded",
+          "weight": 0.5423985554798035,
+          "full_passes": null
+        },
+        {
+          "uid": 2175968,
+          "node": 62,
+          "arrival": 45432.599823904806,
+          "end": 46660.62795922473,
+          "wait_seconds": 1228.0281353199243,
+          "personal_patience_seconds": 1135.4927992432613,
+          "outcome": "boarded",
+          "weight": 0.645267247036318,
+          "full_passes": null
+        },
+        {
+          "uid": 1023200,
+          "node": 62,
+          "arrival": 45433.87997856603,
+          "end": 46660.62795922473,
+          "wait_seconds": 1226.7479806586998,
+          "personal_patience_seconds": 739.8625794164883,
+          "outcome": "boarded",
+          "weight": 0.5236951570149828,
+          "full_passes": null
+        },
+        {
+          "uid": 2311905,
+          "node": 62,
+          "arrival": 45435.601337618486,
+          "end": 46660.62795922473,
+          "wait_seconds": 1225.0266216062446,
+          "personal_patience_seconds": 1051.7932266441817,
+          "outcome": "boarded",
+          "weight": 0.5704536531770348,
+          "full_passes": null
+        },
+        {
+          "uid": 2267424,
+          "node": 62,
+          "arrival": 45439.490402733405,
+          "end": 46660.62795922473,
+          "wait_seconds": 1221.137556491325,
+          "personal_patience_seconds": 1140.9991946324103,
+          "outcome": "boarded",
+          "weight": 0.5798053524094452,
+          "full_passes": null
+        },
+        {
+          "uid": 1023360,
+          "node": 62,
+          "arrival": 45440.19956415419,
+          "end": 46660.62795922473,
+          "wait_seconds": 1220.428395070543,
+          "personal_patience_seconds": 853.6520987058725,
+          "outcome": "boarded",
+          "weight": 0.5236951570149828,
+          "full_passes": null
+        },
+        {
+          "uid": 2715889,
+          "node": 62,
+          "arrival": 45444.61570683601,
+          "end": 46660.62795922473,
+          "wait_seconds": 1216.0122523887185,
+          "personal_patience_seconds": 1059.573535935641,
+          "outcome": "boarded",
+          "weight": 0.8790597278465783,
+          "full_passes": null
+        },
+        {
+          "uid": 474912,
+          "node": 62,
+          "arrival": 45451.847301816546,
+          "end": 46660.62795922473,
+          "wait_seconds": 1208.7806574081842,
+          "personal_patience_seconds": 919.6074060629097,
+          "outcome": "boarded",
+          "weight": 0.5236951570149828,
+          "full_passes": null
+        },
+        {
+          "uid": 2361152,
+          "node": 62,
+          "arrival": 45453.332543334276,
+          "end": 46660.62795922473,
+          "wait_seconds": 1207.295415890454,
+          "personal_patience_seconds": 1156.9088553582644,
+          "outcome": "boarded",
+          "weight": 0.39277136776123706,
+          "full_passes": null
+        },
+        {
+          "uid": 1892592,
+          "node": 62,
+          "arrival": 45456.03514431027,
+          "end": 46660.62795922473,
+          "wait_seconds": 1204.5928149144602,
+          "personal_patience_seconds": 938.0457049278115,
+          "outcome": "boarded",
+          "weight": 0.5236951570149828,
+          "full_passes": null
+        },
+        {
+          "uid": 2176096,
+          "node": 62,
+          "arrival": 45459.43732752584,
+          "end": 46660.62795922473,
+          "wait_seconds": 1201.1906316988898,
+          "personal_patience_seconds": 815.6584960040072,
+          "outcome": "boarded",
+          "weight": 0.645267247036318,
+          "full_passes": null
+        },
+        {
+          "uid": 2176097,
+          "node": 62,
+          "arrival": 45459.43732752584,
+          "end": 46660.62795922473,
+          "wait_seconds": 1201.1906316988898,
+          "personal_patience_seconds": 770.6318034172511,
+          "outcome": "boarded",
+          "weight": 0.645267247036318,
+          "full_passes": null
+        },
+        {
+          "uid": 237585,
+          "node": 62,
+          "arrival": 45461.449618744504,
+          "end": 46774.12078317949,
+          "wait_seconds": 1312.6711644349853,
+          "personal_patience_seconds": 1010.508721763523,
+          "outcome": "boarded",
+          "weight": 0.44586351370096644,
+          "full_passes": null
+        },
+        {
+          "uid": 3279696,
+          "node": 62,
+          "arrival": 45464.010780110526,
+          "end": 46774.12078317949,
+          "wait_seconds": 1310.1100030689631,
+          "personal_patience_seconds": 871.9443636963064,
+          "outcome": "boarded",
+          "weight": 0.39277136776123706,
+          "full_passes": null
+        },
+        {
+          "uid": 4156736,
+          "node": 62,
+          "arrival": 45472.59452371194,
+          "end": 46774.12078317949,
+          "wait_seconds": 1301.5262594675514,
+          "personal_patience_seconds": 1187.6969624894755,
+          "outcome": "boarded",
+          "weight": 0.5423985554798035,
+          "full_passes": null
+        },
+        {
+          "uid": 2311952,
+          "node": 62,
+          "arrival": 45481.16746349023,
+          "end": 46774.12078317949,
+          "wait_seconds": 1292.953319689259,
+          "personal_patience_seconds": 1260.3485057517094,
+          "outcome": "boarded",
+          "weight": 0.5704536531770348,
+          "full_passes": null
+        },
+        {
+          "uid": 2311953,
+          "node": 62,
+          "arrival": 45481.16746349023,
+          "end": 46774.12078317949,
+          "wait_seconds": 1292.953319689259,
+          "personal_patience_seconds": 1220.1988018437605,
+          "outcome": "boarded",
+          "weight": 0.5704536531770348,
+          "full_passes": null
+        },
+        {
+          "uid": 2715985,
+          "node": 62,
+          "arrival": 45501.333074851544,
+          "end": 46774.12078317949,
+          "wait_seconds": 1272.7877083279454,
+          "personal_patience_seconds": 1172.3837412421951,
+          "outcome": "boarded",
+          "weight": 0.8790597278465783,
+          "full_passes": null
+        },
+        {
+          "uid": 920368,
+          "node": 62,
+          "arrival": 45507.052444328656,
+          "end": 46774.12078317949,
+          "wait_seconds": 1267.0683388508332,
+          "personal_patience_seconds": 676.5531101899901,
+          "outcome": "boarded",
+          "weight": 0.4862883600853411,
+          "full_passes": null
+        },
+        {
+          "uid": 2312065,
+          "node": 62,
+          "arrival": 45511.792286732765,
+          "end": 46774.12078317949,
+          "wait_seconds": 1262.3284964467239,
+          "personal_patience_seconds": 1147.066915135336,
+          "outcome": "boarded",
+          "weight": 0.5704536531770348,
+          "full_passes": null
+        },
+        {
+          "uid": 1679857,
+          "node": 62,
+          "arrival": 45514.630155568746,
+          "end": 46774.12078317949,
+          "wait_seconds": 1259.490627610743,
+          "personal_patience_seconds": 1209.730198672959,
+          "outcome": "boarded",
+          "weight": 0.6733223447335492,
+          "full_passes": null
+        },
+        {
+          "uid": 1679872,
+          "node": 62,
+          "arrival": 45521.038977021686,
+          "end": 46774.12078317949,
+          "wait_seconds": 1253.081806157803,
+          "personal_patience_seconds": 640.5071250008086,
+          "outcome": "boarded",
+          "weight": 0.6733223447335492,
+          "full_passes": null
+        },
+        {
+          "uid": 1679873,
+          "node": 62,
+          "arrival": 45521.038977021686,
+          "end": 46774.12078317949,
+          "wait_seconds": 1253.081806157803,
+          "personal_patience_seconds": 1136.6214047039696,
+          "outcome": "boarded",
+          "weight": 0.6733223447335492,
+          "full_passes": null
+        },
+        {
+          "uid": 348880,
+          "node": 62,
+          "arrival": 45524.37762936686,
+          "end": 46774.12078317949,
+          "wait_seconds": 1249.7431538126257,
+          "personal_patience_seconds": 1095.8128152088088,
+          "outcome": "boarded",
+          "weight": 0.2805509769723122,
+          "full_passes": null
+        },
+        {
+          "uid": 474944,
+          "node": 62,
+          "arrival": 45526.46568031757,
+          "end": 46774.12078317949,
+          "wait_seconds": 1247.6551028619215,
+          "personal_patience_seconds": 901.8692359697724,
+          "outcome": "boarded",
+          "weight": 0.5236951570149828,
+          "full_passes": null
+        },
+        {
+          "uid": 474945,
+          "node": 62,
+          "arrival": 45526.46568031757,
+          "end": 46774.12078317949,
+          "wait_seconds": 1247.6551028619215,
+          "personal_patience_seconds": 875.0880617930159,
+          "outcome": "boarded",
+          "weight": 0.5236951570149828,
+          "full_passes": null
+        },
+        {
+          "uid": 2312048,
+          "node": 62,
+          "arrival": 45541.0701464558,
+          "end": 46774.12078317949,
+          "wait_seconds": 1233.0506367236885,
+          "personal_patience_seconds": 925.6985223266647,
+          "outcome": "boarded",
+          "weight": 0.5704536531770348,
+          "full_passes": null
+        },
+        {
+          "uid": 2312049,
+          "node": 62,
+          "arrival": 45541.0701464558,
+          "end": 46774.12078317949,
+          "wait_seconds": 1233.0506367236885,
+          "personal_patience_seconds": 794.0751865872094,
+          "outcome": "boarded",
+          "weight": 0.5704536531770348,
+          "full_passes": null
+        },
+        {
+          "uid": 3695872,
+          "node": 79,
+          "arrival": 50056.99620828787,
+          "end": 51554.38623607761,
+          "wait_seconds": 1497.390027789741,
+          "personal_patience_seconds": 1391.3407744337692,
+          "outcome": "boarded",
+          "weight": 0.031353407911014486,
+          "full_passes": null
+        },
+        {
+          "uid": 3900544,
+          "node": 42,
+          "arrival": 61179.597160604135,
+          "end": 62400.0,
+          "wait_seconds": 1220.4028393958652,
+          "personal_patience_seconds": 815.5409140534889,
+          "outcome": "boarded",
+          "weight": 0.11416796190375361,
+          "full_passes": null
+        }
+      ],
+      "opportunities": {
+        "enabled": true,
+        "window_seconds": 30.0,
+        "flow": {
+          "walking_calls": 194349,
+          "walking_opportunity_weight": 54645.83280291687,
+          "no_existing_path_join_weight": 51824.72539322636,
+          "walking_calls_with_geometry": 11236,
+          "walking_weight_with_geometry": 2821.107409690387,
+          "no_allowed_timetable_window_weight": 2662.0426268825513,
+          "intercept_attempt_weight": 159.06478280783165,
+          "resumed_walking_weight": 69.71182610023635,
+          "opportunistic_boarded_weight": 89.35295670759373
+        },
+        "catalogue": {
+          "counts": {
+            "queries": 194349,
+            "distinct_queries": 2831,
+            "distinct_queries_with_geometry": 344,
+            "geometric_opportunities": 863,
+            "cache_hits": 191518
+          },
+          "known_walking_path_count": 3166,
+          "indexed_walking_path_count": 3108,
+          "platform_destination_count": 385,
+          "max_extra_meters": 80.0,
+          "max_lateral_meters": 30.0,
+          "coverage_scope": "Existing exact directed walking prefix/suffix and platform anchors only; missing joins leave the original walk unchanged.",
+          "coordinates_created": false,
+          "new_paths_created": false,
+          "thresholds_are_observed": false
+        },
+        "selection_scope": "Timetabled compatible arrivals inside a bounded platform window; actual seats and partial boarding use the existing physical FIFO.",
+        "coverage_scope": "Walking opportunity exposure is per leg/attempt, not unique students or observed demand."
+      }
+    },
+    {
+      "case": {
+        "case": "direction-combined-regular-thu",
+        "mode": "combined",
+        "day": "목",
+        "scenario": "regular",
+        "seed": 0,
+        "operations": "v12_empirical"
+      },
+      "counts": {
+        "over20_episode_weight": 371.9272431400854,
+        "over20_boarded": 362.6926117023464,
+        "over20_enroute_episode_weight": 0.0,
+        "within_personal_patience_episode_weight": 368.48581782255843,
+        "over20_switched": 9.234631437738967,
+        "past_personal_patience_episode_weight": 3.4414253175270293
+      },
+      "maximum_raw_wait_visit": {
+        "uid": 1954816,
+        "node": 52,
+        "seconds": 2135.8083463844087,
+        "personal_patience_seconds": 2332.6180807794526,
+        "outcome": "boarded",
+        "weight": 0.5611019539446244
+      },
+      "past_personal_patience_visits": [
+        {
+          "uid": 727680,
+          "node": 62,
+          "arrival": 46108.82219972466,
+          "end": 47338.90538777431,
+          "wait_seconds": 1230.0831880496553,
+          "personal_patience_seconds": 1177.2607191387124,
+          "outcome": "boarded",
+          "weight": 0.5236951570149828,
+          "full_passes": null
+        },
+        {
+          "uid": 300512,
+          "node": 62,
+          "arrival": 46111.39938740522,
+          "end": 47494.12078317949,
+          "wait_seconds": 1382.7213957742715,
+          "personal_patience_seconds": 1158.9294341944935,
+          "outcome": "boarded",
+          "weight": 0.2805509769723122,
+          "full_passes": null
+        },
+        {
+          "uid": 1902576,
+          "node": 62,
+          "arrival": 46119.82421521009,
+          "end": 47494.12078317949,
+          "wait_seconds": 1374.2965679694025,
+          "personal_patience_seconds": 1331.4197175116706,
+          "outcome": "boarded",
+          "weight": 0.5798053524094452,
+          "full_passes": null
+        },
+        {
+          "uid": 2943952,
+          "node": 62,
+          "arrival": 46122.16642586398,
+          "end": 47494.12078317949,
+          "wait_seconds": 1371.9543573155097,
+          "personal_patience_seconds": 886.5086932855261,
+          "outcome": "boarded",
+          "weight": 0.1309237892537457,
+          "full_passes": null
+        },
+        {
+          "uid": 4716512,
+          "node": 62,
+          "arrival": 46145.55194374991,
+          "end": 47494.12078317949,
+          "wait_seconds": 1348.5688394295794,
+          "personal_patience_seconds": 1069.3201472330957,
+          "outcome": "boarded",
+          "weight": 0.7107291416631908,
+          "full_passes": null
+        },
+        {
+          "uid": 3626880,
+          "node": 62,
+          "arrival": 46155.42647173897,
+          "end": 47494.12078317949,
+          "wait_seconds": 1338.6943114405221,
+          "personal_patience_seconds": 961.301981339876,
+          "outcome": "boarded",
+          "weight": 0.31795777390195384,
+          "full_passes": null
+        },
+        {
+          "uid": 1997056,
+          "node": 62,
+          "arrival": 46160.408890500155,
+          "end": 47494.12078317949,
+          "wait_seconds": 1333.7118926793337,
+          "personal_patience_seconds": 837.5633344825252,
+          "outcome": "boarded",
+          "weight": 0.22444078157784975,
+          "full_passes": null
+        },
+        {
+          "uid": 1040224,
+          "node": 62,
+          "arrival": 46203.50292553359,
+          "end": 47494.12078317949,
+          "wait_seconds": 1290.6178576458988,
+          "personal_patience_seconds": 1177.9150053624983,
+          "outcome": "boarded",
+          "weight": 0.4488815631556995,
+          "full_passes": null
+        },
+        {
+          "uid": 4274976,
+          "node": 62,
+          "arrival": 46204.79920702103,
+          "end": 47494.12078317949,
+          "wait_seconds": 1289.321576158458,
+          "personal_patience_seconds": 866.078582491619,
+          "outcome": "boarded",
+          "weight": 0.22444078157784975,
+          "full_passes": null
+        }
+      ],
+      "opportunities": {
+        "enabled": true,
+        "window_seconds": 30.0,
+        "flow": {
+          "walking_calls": 174106,
+          "walking_opportunity_weight": 45984.991865941054,
+          "no_existing_path_join_weight": 43995.03199914575,
+          "walking_calls_with_geometry": 9566,
+          "walking_weight_with_geometry": 1989.9598667943335,
+          "no_allowed_timetable_window_weight": 1880.8580471649507,
+          "intercept_attempt_weight": 109.10181962937456,
+          "opportunistic_boarded_weight": 47.131997094348804,
+          "resumed_walking_weight": 61.969822535025976
+        },
+        "catalogue": {
+          "counts": {
+            "queries": 174106,
+            "distinct_queries": 2650,
+            "distinct_queries_with_geometry": 322,
+            "geometric_opportunities": 827,
+            "cache_hits": 171456
+          },
+          "known_walking_path_count": 3116,
+          "indexed_walking_path_count": 3058,
+          "platform_destination_count": 383,
+          "max_extra_meters": 80.0,
+          "max_lateral_meters": 30.0,
+          "coverage_scope": "Existing exact directed walking prefix/suffix and platform anchors only; missing joins leave the original walk unchanged.",
+          "coordinates_created": false,
+          "new_paths_created": false,
+          "thresholds_are_observed": false
+        },
+        "selection_scope": "Timetabled compatible arrivals inside a bounded platform window; actual seats and partial boarding use the existing physical FIFO.",
+        "coverage_scope": "Walking opportunity exposure is per leg/attempt, not unique students or observed demand."
+      }
+    },
+    {
+      "case": {
+        "case": "direction-combined-regular-fri",
+        "mode": "combined",
+        "day": "금",
+        "scenario": "regular",
+        "seed": 0,
+        "operations": "v12_empirical"
+      },
+      "counts": {
+        "over20_episode_weight": 24.489111331724732,
+        "over20_boarded": 21.220722577759556,
+        "over20_enroute_episode_weight": 0.0,
+        "within_personal_patience_episode_weight": 24.489111331724732,
+        "over20_switched": 3.2683887539651852
+      },
+      "maximum_raw_wait_visit": {
+        "uid": 2521904,
+        "node": 60,
+        "seconds": 1766.2115696717592,
+        "personal_patience_seconds": 1848.100173514102,
+        "outcome": "boarded",
+        "weight": 0.21006904990290662
+      },
+      "past_personal_patience_visits": [],
+      "opportunities": {
+        "enabled": true,
+        "window_seconds": 30.0,
+        "flow": {
+          "walking_calls": 71281,
+          "walking_opportunity_weight": 14952.50262301687,
+          "walking_calls_with_geometry": 3086,
+          "walking_weight_with_geometry": 472.33159099988046,
+          "no_allowed_timetable_window_weight": 456.97868505979955,
+          "no_existing_path_join_weight": 14480.171032016955,
+          "intercept_attempt_weight": 15.352905940080493,
+          "opportunistic_boarded_weight": 15.063595760688253,
+          "resumed_walking_weight": 0.2893101793922379
+        },
+        "catalogue": {
+          "counts": {
+            "queries": 71281,
+            "distinct_queries": 1686,
+            "distinct_queries_with_geometry": 192,
+            "geometric_opportunities": 503,
+            "cache_hits": 69595
+          },
+          "known_walking_path_count": 2920,
+          "indexed_walking_path_count": 2862,
+          "platform_destination_count": 383,
+          "max_extra_meters": 80.0,
+          "max_lateral_meters": 30.0,
+          "coverage_scope": "Existing exact directed walking prefix/suffix and platform anchors only; missing joins leave the original walk unchanged.",
+          "coordinates_created": false,
+          "new_paths_created": false,
+          "thresholds_are_observed": false
+        },
+        "selection_scope": "Timetabled compatible arrivals inside a bounded platform window; actual seats and partial boarding use the existing physical FIFO.",
+        "coverage_scope": "Walking opportunity exposure is per leg/attempt, not unique students or observed demand."
+      }
+    },
+    {
+      "case": {
+        "case": "direction-combined-peak-mon",
+        "mode": "combined",
+        "day": "월",
+        "scenario": "peak",
+        "seed": 0,
+        "operations": "v12_empirical"
+      },
+      "counts": {
+        "over20_episode_weight": 493.82387060472496,
+        "over20_boarded": 456.1202832796836,
+        "over20_enroute_episode_weight": 0.0,
+        "within_personal_patience_episode_weight": 492.9163880221018,
+        "over20_switched": 37.70358732504153,
+        "past_personal_patience_episode_weight": 0.9074825826230954
+      },
+      "maximum_raw_wait_visit": {
+        "uid": 3043857,
+        "node": 1,
+        "seconds": 1939.5675088603748,
+        "personal_patience_seconds": 2033.0664649492576,
+        "outcome": "boarded",
+        "weight": 0.17283187731340832
+      },
+      "past_personal_patience_visits": [
+        {
+          "uid": 1795088,
+          "node": 60,
+          "arrival": 44780.664054593675,
+          "end": 45983.77422518682,
+          "wait_seconds": 1203.1101705931433,
+          "personal_patience_seconds": 1191.5481169211944,
+          "outcome": "switched",
+          "weight": 0.3744357263757023,
+          "full_passes": null
+        },
+        {
+          "uid": 1795089,
+          "node": 60,
+          "arrival": 44780.664054593675,
+          "end": 45983.77422518682,
+          "wait_seconds": 1203.1101705931433,
+          "personal_patience_seconds": 1032.2196249899562,
+          "outcome": "switched",
+          "weight": 0.5330468562473931,
+          "full_passes": null
+        }
+      ],
+      "opportunities": {
+        "enabled": true,
+        "window_seconds": 30.0,
+        "flow": {
+          "walking_calls": 188509,
+          "walking_opportunity_weight": 53039.62561314909,
+          "no_existing_path_join_weight": 50503.777078443716,
+          "walking_calls_with_geometry": 10637,
+          "walking_weight_with_geometry": 2535.848534705086,
+          "no_allowed_timetable_window_weight": 2412.823394898588,
+          "intercept_attempt_weight": 123.02513980650652,
+          "resumed_walking_weight": 51.47601525900304,
+          "opportunistic_boarded_weight": 71.5491245475036
+        },
+        "catalogue": {
+          "counts": {
+            "queries": 188509,
+            "distinct_queries": 2797,
+            "distinct_queries_with_geometry": 338,
+            "geometric_opportunities": 845,
+            "cache_hits": 185712
+          },
+          "known_walking_path_count": 3140,
+          "indexed_walking_path_count": 3082,
+          "platform_destination_count": 387,
+          "max_extra_meters": 80.0,
+          "max_lateral_meters": 30.0,
+          "coverage_scope": "Existing exact directed walking prefix/suffix and platform anchors only; missing joins leave the original walk unchanged.",
+          "coordinates_created": false,
+          "new_paths_created": false,
+          "thresholds_are_observed": false
+        },
+        "selection_scope": "Timetabled compatible arrivals inside a bounded platform window; actual seats and partial boarding use the existing physical FIFO.",
+        "coverage_scope": "Walking opportunity exposure is per leg/attempt, not unique students or observed demand."
+      }
+    },
+    {
+      "case": {
+        "case": "direction-combined-peak-tue",
+        "mode": "combined",
+        "day": "화",
+        "scenario": "peak",
+        "seed": 0,
+        "operations": "v12_empirical"
+      },
+      "counts": {
+        "over20_episode_weight": 385.5143796858859,
+        "over20_boarded": 363.66699867733195,
+        "over20_enroute_episode_weight": 0.0,
+        "within_personal_patience_episode_weight": 385.5143796858859,
+        "over20_switched": 21.847381008553995
+      },
+      "maximum_raw_wait_visit": {
+        "uid": 2644624,
+        "node": 26,
+        "seconds": 2350.2840591336862,
+        "personal_patience_seconds": 2385.0346986827403,
+        "outcome": "switched",
+        "weight": 0.2648696716167083
+      },
+      "past_personal_patience_visits": [],
+      "opportunities": {
+        "enabled": true,
+        "window_seconds": 30.0,
+        "flow": {
+          "walking_calls": 186469,
+          "walking_opportunity_weight": 49355.691169822465,
+          "no_existing_path_join_weight": 47029.18884458174,
+          "walking_calls_with_geometry": 10735,
+          "walking_weight_with_geometry": 2326.5023252408846,
+          "no_allowed_timetable_window_weight": 2220.3050031340413,
+          "intercept_attempt_weight": 106.19732210682923,
+          "resumed_walking_weight": 40.00288810743657,
+          "opportunistic_boarded_weight": 66.19443399939283
+        },
+        "catalogue": {
+          "counts": {
+            "queries": 186469,
+            "distinct_queries": 2810,
+            "distinct_queries_with_geometry": 349,
+            "geometric_opportunities": 932,
+            "cache_hits": 183659
+          },
+          "known_walking_path_count": 3164,
+          "indexed_walking_path_count": 3106,
+          "platform_destination_count": 385,
+          "max_extra_meters": 80.0,
+          "max_lateral_meters": 30.0,
+          "coverage_scope": "Existing exact directed walking prefix/suffix and platform anchors only; missing joins leave the original walk unchanged.",
+          "coordinates_created": false,
+          "new_paths_created": false,
+          "thresholds_are_observed": false
+        },
+        "selection_scope": "Timetabled compatible arrivals inside a bounded platform window; actual seats and partial boarding use the existing physical FIFO.",
+        "coverage_scope": "Walking opportunity exposure is per leg/attempt, not unique students or observed demand."
+      }
+    },
+    {
+      "case": {
+        "case": "direction-combined-peak-wed",
+        "mode": "combined",
+        "day": "수",
+        "scenario": "peak",
+        "seed": 0,
+        "operations": "v12_empirical"
+      },
+      "counts": {
+        "over20_episode_weight": 554.9883249708288,
+        "over20_boarded": 526.4825213123436,
+        "over20_enroute_episode_weight": 0.0,
+        "within_personal_patience_episode_weight": 517.0154004012904,
+        "over20_switched": 28.505803658485867,
+        "past_personal_patience_episode_weight": 37.97292456953938
+      },
+      "maximum_raw_wait_visit": {
+        "uid": 3376896,
+        "node": 75,
+        "seconds": 2358.601218245167,
+        "personal_patience_seconds": 2399.2673579014286,
+        "outcome": "boarded",
+        "weight": 0.09133436952300289
+      },
+      "past_personal_patience_visits": [
+        {
+          "uid": 237697,
+          "node": 62,
+          "arrival": 45359.20071181412,
+          "end": 46660.62795922473,
+          "wait_seconds": 1301.427247410611,
+          "personal_patience_seconds": 1051.6101657518684,
+          "outcome": "boarded",
+          "weight": 0.23659033488950576,
+          "full_passes": null
+        },
+        {
+          "uid": 3632896,
+          "node": 62,
+          "arrival": 45360.76351948825,
+          "end": 46660.62795922473,
+          "wait_seconds": 1299.864439736477,
+          "personal_patience_seconds": 969.3112854657631,
+          "outcome": "boarded",
+          "weight": 0.4301781646908787,
+          "full_passes": null
+        },
+        {
+          "uid": 920416,
+          "node": 62,
+          "arrival": 45360.82758391496,
+          "end": 46660.62795922473,
+          "wait_seconds": 1299.8003753097728,
+          "personal_patience_seconds": 908.320630802002,
+          "outcome": "boarded",
+          "weight": 0.4862883600853411,
+          "full_passes": null
+        },
+        {
+          "uid": 3716656,
+          "node": 62,
+          "arrival": 45362.26478648133,
+          "end": 46660.62795922473,
+          "wait_seconds": 1298.3631727433967,
+          "personal_patience_seconds": 1276.6244767088435,
+          "outcome": "boarded",
+          "weight": 0.4862883600853411,
+          "full_passes": null
+        },
+        {
+          "uid": 2623696,
+          "node": 62,
+          "arrival": 45363.07382082509,
+          "end": 46660.62795922473,
+          "wait_seconds": 1297.5541383996388,
+          "personal_patience_seconds": 1081.667435126324,
+          "outcome": "boarded",
+          "weight": 0.22444078157784975,
+          "full_passes": null
+        },
+        {
+          "uid": 474848,
+          "node": 62,
+          "arrival": 45363.47955140066,
+          "end": 46660.62795922473,
+          "wait_seconds": 1297.1484078240683,
+          "personal_patience_seconds": 1213.6331209038765,
+          "outcome": "boarded",
+          "weight": 0.5236951570149828,
+          "full_passes": null
+        },
+        {
+          "uid": 474849,
+          "node": 62,
+          "arrival": 45363.47955140066,
+          "end": 46660.62795922473,
+          "wait_seconds": 1297.1484078240683,
+          "personal_patience_seconds": 988.4144785478393,
+          "outcome": "boarded",
+          "weight": 0.5236951570149828,
+          "full_passes": null
+        },
+        {
+          "uid": 1652336,
+          "node": 62,
+          "arrival": 45367.20610207664,
+          "end": 46660.62795922473,
+          "wait_seconds": 1293.4218571480887,
+          "personal_patience_seconds": 1108.5538190869484,
+          "outcome": "boarded",
+          "weight": 0.6546189462687284,
+          "full_passes": null
+        },
+        {
+          "uid": 1722144,
+          "node": 62,
+          "arrival": 45372.39597589503,
+          "end": 46660.62795922473,
+          "wait_seconds": 1288.2319833297006,
+          "personal_patience_seconds": 964.4386121316824,
+          "outcome": "boarded",
+          "weight": 0.7855427355224741,
+          "full_passes": null
+        },
+        {
+          "uid": 1722145,
+          "node": 62,
+          "arrival": 45372.39597589503,
+          "end": 46660.62795922473,
+          "wait_seconds": 1288.2319833297006,
+          "personal_patience_seconds": 743.8847381256753,
+          "outcome": "boarded",
+          "weight": 0.7855427355224741,
+          "full_passes": null
+        },
+        {
+          "uid": 1722146,
+          "node": 62,
+          "arrival": 45372.39597589503,
+          "end": 46660.62795922473,
+          "wait_seconds": 1288.2319833297006,
+          "personal_patience_seconds": 597.9659484280783,
+          "outcome": "boarded",
+          "weight": 0.7855427355224741,
+          "full_passes": null
+        },
+        {
+          "uid": 1722147,
+          "node": 62,
+          "arrival": 45372.39597589503,
+          "end": 46660.62795922473,
+          "wait_seconds": 1288.2319833297006,
+          "personal_patience_seconds": 1102.2697962197453,
+          "outcome": "boarded",
+          "weight": 0.785542735522474,
+          "full_passes": null
+        },
+        {
+          "uid": 2990128,
+          "node": 62,
+          "arrival": 45372.98089131939,
+          "end": 46660.62795922473,
+          "wait_seconds": 1287.6470679053382,
+          "personal_patience_seconds": 1016.674117858505,
+          "outcome": "boarded",
+          "weight": 0.7668393370576533,
+          "full_passes": null
+        },
+        {
+          "uid": 1581552,
+          "node": 62,
+          "arrival": 45374.03795362835,
+          "end": 46660.62795922473,
+          "wait_seconds": 1286.5900055963793,
+          "personal_patience_seconds": 1260.2100012092085,
+          "outcome": "boarded",
+          "weight": 0.4675849616205203,
+          "full_passes": null
+        },
+        {
+          "uid": 637809,
+          "node": 62,
+          "arrival": 45374.23083928477,
+          "end": 46660.62795922473,
+          "wait_seconds": 1286.3971199399602,
+          "personal_patience_seconds": 967.053337748361,
+          "outcome": "boarded",
+          "weight": 0.504991758550162,
+          "full_passes": null
+        },
+        {
+          "uid": 2939408,
+          "node": 62,
+          "arrival": 45376.1607822932,
+          "end": 46660.62795922473,
+          "wait_seconds": 1284.4671769315319,
+          "personal_patience_seconds": 982.4241595195194,
+          "outcome": "boarded",
+          "weight": 0.01870339846482081,
+          "full_passes": null
+        },
+        {
+          "uid": 237664,
+          "node": 62,
+          "arrival": 45377.907357576405,
+          "end": 46660.62795922473,
+          "wait_seconds": 1282.720601648325,
+          "personal_patience_seconds": 1204.1670757746874,
+          "outcome": "boarded",
+          "weight": 0.5798053524094452,
+          "full_passes": null
+        },
+        {
+          "uid": 1722240,
+          "node": 62,
+          "arrival": 45380.94754829356,
+          "end": 46660.62795922473,
+          "wait_seconds": 1279.6804109311706,
+          "personal_patience_seconds": 881.7734809654605,
+          "outcome": "boarded",
+          "weight": 0.7855427355224741,
+          "full_passes": null
+        },
+        {
+          "uid": 2939504,
+          "node": 62,
+          "arrival": 45384.02003000883,
+          "end": 46660.62795922473,
+          "wait_seconds": 1276.6079292158975,
+          "personal_patience_seconds": 957.337109377653,
+          "outcome": "boarded",
+          "weight": 0.01870339846482081,
+          "full_passes": null
+        },
+        {
+          "uid": 4150624,
+          "node": 62,
+          "arrival": 45384.93533961415,
+          "end": 46660.62795922473,
+          "wait_seconds": 1275.6926196105778,
+          "personal_patience_seconds": 1237.4001670948387,
+          "outcome": "boarded",
+          "weight": 0.551750254712214,
+          "full_passes": null
+        },
+        {
+          "uid": 772176,
+          "node": 62,
+          "arrival": 45385.737901911714,
+          "end": 46660.62795922473,
+          "wait_seconds": 1274.8900573130159,
+          "personal_patience_seconds": 1112.7296360525017,
+          "outcome": "boarded",
+          "weight": 0.3553645708315954,
+          "full_passes": null
+        },
+        {
+          "uid": 4453216,
+          "node": 62,
+          "arrival": 45385.74953998426,
+          "end": 46660.62795922473,
+          "wait_seconds": 1274.878419240471,
+          "personal_patience_seconds": 1173.9628745289626,
+          "outcome": "boarded",
+          "weight": 0.6546189462687284,
+          "full_passes": null
+        },
+        {
+          "uid": 3403232,
+          "node": 62,
+          "arrival": 45388.24407648562,
+          "end": 46660.62795922473,
+          "wait_seconds": 1272.3838827391082,
+          "personal_patience_seconds": 796.4498432282826,
+          "outcome": "boarded",
+          "weight": 0.8603563293817574,
+          "full_passes": null
+        },
+        {
+          "uid": 4453184,
+          "node": 62,
+          "arrival": 45391.12152063976,
+          "end": 46660.62795922473,
+          "wait_seconds": 1269.5064385849691,
+          "personal_patience_seconds": 1087.628443404328,
+          "outcome": "boarded",
+          "weight": 0.6546189462687284,
+          "full_passes": null
+        },
+        {
+          "uid": 2807376,
+          "node": 62,
+          "arrival": 45392.81772009178,
+          "end": 46660.62795922473,
+          "wait_seconds": 1267.8102391329521,
+          "personal_patience_seconds": 927.6561621093476,
+          "outcome": "boarded",
+          "weight": 0.3366611723667746,
+          "full_passes": null
+        },
+        {
+          "uid": 2701280,
+          "node": 62,
+          "arrival": 45396.56193749977,
+          "end": 46660.62795922473,
+          "wait_seconds": 1264.0660217249606,
+          "personal_patience_seconds": 1083.7451175431545,
+          "outcome": "boarded",
+          "weight": 0.5985087508742659,
+          "full_passes": null
+        },
+        {
+          "uid": 2715952,
+          "node": 62,
+          "arrival": 45397.21953549258,
+          "end": 46660.62795922473,
+          "wait_seconds": 1263.4084237321513,
+          "personal_patience_seconds": 999.0560911848169,
+          "outcome": "boarded",
+          "weight": 0.8790597278465783,
+          "full_passes": null
+        },
+        {
+          "uid": 2715954,
+          "node": 62,
+          "arrival": 45397.21953549258,
+          "end": 46660.62795922473,
+          "wait_seconds": 1263.4084237321513,
+          "personal_patience_seconds": 1086.5399152562352,
+          "outcome": "boarded",
+          "weight": 0.8790597278465782,
+          "full_passes": null
+        },
+        {
+          "uid": 285184,
+          "node": 62,
+          "arrival": 45398.3348268908,
+          "end": 46660.62795922473,
+          "wait_seconds": 1262.293132333929,
+          "personal_patience_seconds": 1156.3172314436065,
+          "outcome": "boarded",
+          "weight": 0.3740679692964163,
+          "full_passes": null
+        },
+        {
+          "uid": 1722131,
+          "node": 62,
+          "arrival": 45401.56012601609,
+          "end": 46660.62795922473,
+          "wait_seconds": 1259.067833208639,
+          "personal_patience_seconds": 736.1272600329753,
+          "outcome": "boarded",
+          "weight": 0.785542735522474,
+          "full_passes": null
+        },
+        {
+          "uid": 2939376,
+          "node": 62,
+          "arrival": 45402.58333073696,
+          "end": 46660.62795922473,
+          "wait_seconds": 1258.044628487769,
+          "personal_patience_seconds": 1238.2087852958516,
+          "outcome": "boarded",
+          "weight": 0.01870339846482081,
+          "full_passes": null
+        },
+        {
+          "uid": 3403392,
+          "node": 62,
+          "arrival": 45404.782440529416,
+          "end": 46660.62795922473,
+          "wait_seconds": 1255.8455186953142,
+          "personal_patience_seconds": 789.5064223293613,
+          "outcome": "boarded",
+          "weight": 0.8603563293817574,
+          "full_passes": null
+        },
+        {
+          "uid": 772064,
+          "node": 62,
+          "arrival": 45405.62867923691,
+          "end": 46660.62795922473,
+          "wait_seconds": 1254.9992799878237,
+          "personal_patience_seconds": 1019.323663294603,
+          "outcome": "boarded",
+          "weight": 0.3553645708315954,
+          "full_passes": null
+        },
+        {
+          "uid": 237520,
+          "node": 62,
+          "arrival": 45406.194517714444,
+          "end": 46660.62795922473,
+          "wait_seconds": 1254.4334415102858,
+          "personal_patience_seconds": 1165.7865681581884,
+          "outcome": "boarded",
+          "weight": 0.5798053524094452,
+          "full_passes": null
+        },
+        {
+          "uid": 2267440,
+          "node": 62,
+          "arrival": 45408.05492053899,
+          "end": 46660.62795922473,
+          "wait_seconds": 1252.5730386857394,
+          "personal_patience_seconds": 794.4655931592476,
+          "outcome": "boarded",
+          "weight": 0.5798053524094452,
+          "full_passes": null
+        },
+        {
+          "uid": 1679969,
+          "node": 62,
+          "arrival": 45411.40178909281,
+          "end": 46660.62795922473,
+          "wait_seconds": 1249.2261701319221,
+          "personal_patience_seconds": 1192.883954957404,
+          "outcome": "boarded",
+          "weight": 0.6733223447335492,
+          "full_passes": null
+        },
+        {
+          "uid": 1722083,
+          "node": 62,
+          "arrival": 45418.32052327673,
+          "end": 46660.62795922473,
+          "wait_seconds": 1242.3074359480015,
+          "personal_patience_seconds": 1036.9227634540757,
+          "outcome": "boarded",
+          "weight": 0.785542735522474,
+          "full_passes": null
+        },
+        {
+          "uid": 1679984,
+          "node": 62,
+          "arrival": 45421.19135685514,
+          "end": 46660.62795922473,
+          "wait_seconds": 1239.4366023695911,
+          "personal_patience_seconds": 787.4023474810576,
+          "outcome": "boarded",
+          "weight": 0.6733223447335492,
+          "full_passes": null
+        },
+        {
+          "uid": 237617,
+          "node": 62,
+          "arrival": 45421.66487301243,
+          "end": 46660.62795922473,
+          "wait_seconds": 1238.9630862123013,
+          "personal_patience_seconds": 1054.3184072130605,
+          "outcome": "boarded",
+          "weight": 0.5798053524094452,
+          "full_passes": null
+        },
+        {
+          "uid": 328272,
+          "node": 62,
+          "arrival": 45422.74123065357,
+          "end": 46660.62795922473,
+          "wait_seconds": 1237.8867285711603,
+          "personal_patience_seconds": 1138.1817896991847,
+          "outcome": "boarded",
+          "weight": 0.5423985554798035,
+          "full_passes": null
+        },
+        {
+          "uid": 2175968,
+          "node": 62,
+          "arrival": 45432.599823904806,
+          "end": 46660.62795922473,
+          "wait_seconds": 1228.0281353199243,
+          "personal_patience_seconds": 1135.4927992432613,
+          "outcome": "boarded",
+          "weight": 0.645267247036318,
+          "full_passes": null
+        },
+        {
+          "uid": 1023200,
+          "node": 62,
+          "arrival": 45433.87997856603,
+          "end": 46660.62795922473,
+          "wait_seconds": 1226.7479806586998,
+          "personal_patience_seconds": 739.8625794164883,
+          "outcome": "boarded",
+          "weight": 0.5236951570149828,
+          "full_passes": null
+        },
+        {
+          "uid": 2311905,
+          "node": 62,
+          "arrival": 45435.601337618486,
+          "end": 46660.62795922473,
+          "wait_seconds": 1225.0266216062446,
+          "personal_patience_seconds": 1051.7932266441817,
+          "outcome": "boarded",
+          "weight": 0.5704536531770348,
+          "full_passes": null
+        },
+        {
+          "uid": 2267424,
+          "node": 62,
+          "arrival": 45439.490402733405,
+          "end": 46660.62795922473,
+          "wait_seconds": 1221.137556491325,
+          "personal_patience_seconds": 1140.9991946324103,
+          "outcome": "boarded",
+          "weight": 0.5798053524094452,
+          "full_passes": null
+        },
+        {
+          "uid": 1023360,
+          "node": 62,
+          "arrival": 45440.19956415419,
+          "end": 46660.62795922473,
+          "wait_seconds": 1220.428395070543,
+          "personal_patience_seconds": 853.6520987058725,
+          "outcome": "boarded",
+          "weight": 0.5236951570149828,
+          "full_passes": null
+        },
+        {
+          "uid": 2715889,
+          "node": 62,
+          "arrival": 45444.61570683601,
+          "end": 46660.62795922473,
+          "wait_seconds": 1216.0122523887185,
+          "personal_patience_seconds": 1059.573535935641,
+          "outcome": "boarded",
+          "weight": 0.8790597278465783,
+          "full_passes": null
+        },
+        {
+          "uid": 474912,
+          "node": 62,
+          "arrival": 45451.847301816546,
+          "end": 46660.62795922473,
+          "wait_seconds": 1208.7806574081842,
+          "personal_patience_seconds": 919.6074060629097,
+          "outcome": "boarded",
+          "weight": 0.5236951570149828,
+          "full_passes": null
+        },
+        {
+          "uid": 2361152,
+          "node": 62,
+          "arrival": 45453.332543334276,
+          "end": 46660.62795922473,
+          "wait_seconds": 1207.295415890454,
+          "personal_patience_seconds": 1156.9088553582644,
+          "outcome": "boarded",
+          "weight": 0.39277136776123706,
+          "full_passes": null
+        },
+        {
+          "uid": 1892592,
+          "node": 62,
+          "arrival": 45456.03514431027,
+          "end": 46660.62795922473,
+          "wait_seconds": 1204.5928149144602,
+          "personal_patience_seconds": 938.0457049278115,
+          "outcome": "boarded",
+          "weight": 0.5236951570149828,
+          "full_passes": null
+        },
+        {
+          "uid": 2176096,
+          "node": 62,
+          "arrival": 45459.43732752584,
+          "end": 46660.62795922473,
+          "wait_seconds": 1201.1906316988898,
+          "personal_patience_seconds": 815.6584960040072,
+          "outcome": "boarded",
+          "weight": 0.645267247036318,
+          "full_passes": null
+        },
+        {
+          "uid": 2176097,
+          "node": 62,
+          "arrival": 45459.43732752584,
+          "end": 46660.62795922473,
+          "wait_seconds": 1201.1906316988898,
+          "personal_patience_seconds": 770.6318034172511,
+          "outcome": "boarded",
+          "weight": 0.645267247036318,
+          "full_passes": null
+        },
+        {
+          "uid": 237585,
+          "node": 62,
+          "arrival": 45461.449618744504,
+          "end": 46774.12078317949,
+          "wait_seconds": 1312.6711644349853,
+          "personal_patience_seconds": 1010.508721763523,
+          "outcome": "boarded",
+          "weight": 0.44586351370096644,
+          "full_passes": null
+        },
+        {
+          "uid": 3279696,
+          "node": 62,
+          "arrival": 45464.010780110526,
+          "end": 46774.12078317949,
+          "wait_seconds": 1310.1100030689631,
+          "personal_patience_seconds": 871.9443636963064,
+          "outcome": "boarded",
+          "weight": 0.39277136776123706,
+          "full_passes": null
+        },
+        {
+          "uid": 4156736,
+          "node": 62,
+          "arrival": 45472.59452371194,
+          "end": 46774.12078317949,
+          "wait_seconds": 1301.5262594675514,
+          "personal_patience_seconds": 1187.6969624894755,
+          "outcome": "boarded",
+          "weight": 0.5423985554798035,
+          "full_passes": null
+        },
+        {
+          "uid": 2311952,
+          "node": 62,
+          "arrival": 45481.16746349023,
+          "end": 46774.12078317949,
+          "wait_seconds": 1292.953319689259,
+          "personal_patience_seconds": 1260.3485057517094,
+          "outcome": "boarded",
+          "weight": 0.5704536531770348,
+          "full_passes": null
+        },
+        {
+          "uid": 2311953,
+          "node": 62,
+          "arrival": 45481.16746349023,
+          "end": 46774.12078317949,
+          "wait_seconds": 1292.953319689259,
+          "personal_patience_seconds": 1220.1988018437605,
+          "outcome": "boarded",
+          "weight": 0.5704536531770348,
+          "full_passes": null
+        },
+        {
+          "uid": 2715985,
+          "node": 62,
+          "arrival": 45501.333074851544,
+          "end": 46774.12078317949,
+          "wait_seconds": 1272.7877083279454,
+          "personal_patience_seconds": 1172.3837412421951,
+          "outcome": "boarded",
+          "weight": 0.8790597278465783,
+          "full_passes": null
+        },
+        {
+          "uid": 920368,
+          "node": 62,
+          "arrival": 45507.052444328656,
+          "end": 46774.12078317949,
+          "wait_seconds": 1267.0683388508332,
+          "personal_patience_seconds": 676.5531101899901,
+          "outcome": "boarded",
+          "weight": 0.4862883600853411,
+          "full_passes": null
+        },
+        {
+          "uid": 2312065,
+          "node": 62,
+          "arrival": 45511.792286732765,
+          "end": 46774.12078317949,
+          "wait_seconds": 1262.3284964467239,
+          "personal_patience_seconds": 1147.066915135336,
+          "outcome": "boarded",
+          "weight": 0.5704536531770348,
+          "full_passes": null
+        },
+        {
+          "uid": 1679857,
+          "node": 62,
+          "arrival": 45514.630155568746,
+          "end": 46774.12078317949,
+          "wait_seconds": 1259.490627610743,
+          "personal_patience_seconds": 1209.730198672959,
+          "outcome": "boarded",
+          "weight": 0.6733223447335492,
+          "full_passes": null
+        },
+        {
+          "uid": 1679872,
+          "node": 62,
+          "arrival": 45521.038977021686,
+          "end": 46774.12078317949,
+          "wait_seconds": 1253.081806157803,
+          "personal_patience_seconds": 640.5071250008086,
+          "outcome": "boarded",
+          "weight": 0.6733223447335492,
+          "full_passes": null
+        },
+        {
+          "uid": 1679873,
+          "node": 62,
+          "arrival": 45521.038977021686,
+          "end": 46774.12078317949,
+          "wait_seconds": 1253.081806157803,
+          "personal_patience_seconds": 1136.6214047039696,
+          "outcome": "boarded",
+          "weight": 0.6733223447335492,
+          "full_passes": null
+        },
+        {
+          "uid": 348880,
+          "node": 62,
+          "arrival": 45524.37762936686,
+          "end": 46774.12078317949,
+          "wait_seconds": 1249.7431538126257,
+          "personal_patience_seconds": 1095.8128152088088,
+          "outcome": "boarded",
+          "weight": 0.2805509769723122,
+          "full_passes": null
+        },
+        {
+          "uid": 474944,
+          "node": 62,
+          "arrival": 45526.46568031757,
+          "end": 46774.12078317949,
+          "wait_seconds": 1247.6551028619215,
+          "personal_patience_seconds": 901.8692359697724,
+          "outcome": "boarded",
+          "weight": 0.5236951570149828,
+          "full_passes": null
+        },
+        {
+          "uid": 474945,
+          "node": 62,
+          "arrival": 45526.46568031757,
+          "end": 46774.12078317949,
+          "wait_seconds": 1247.6551028619215,
+          "personal_patience_seconds": 875.0880617930159,
+          "outcome": "boarded",
+          "weight": 0.5236951570149828,
+          "full_passes": null
+        },
+        {
+          "uid": 2312048,
+          "node": 62,
+          "arrival": 45541.0701464558,
+          "end": 46774.12078317949,
+          "wait_seconds": 1233.0506367236885,
+          "personal_patience_seconds": 925.6985223266647,
+          "outcome": "boarded",
+          "weight": 0.5704536531770348,
+          "full_passes": null
+        },
+        {
+          "uid": 2312049,
+          "node": 62,
+          "arrival": 45541.0701464558,
+          "end": 46774.12078317949,
+          "wait_seconds": 1233.0506367236885,
+          "personal_patience_seconds": 794.0751865872094,
+          "outcome": "boarded",
+          "weight": 0.5704536531770348,
+          "full_passes": null
+        },
+        {
+          "uid": 3695872,
+          "node": 79,
+          "arrival": 50056.99620828787,
+          "end": 51554.38623607761,
+          "wait_seconds": 1497.390027789741,
+          "personal_patience_seconds": 1391.3407744337692,
+          "outcome": "boarded",
+          "weight": 0.031353407911014486,
+          "full_passes": null
+        },
+        {
+          "uid": 3900544,
+          "node": 42,
+          "arrival": 61179.597160604135,
+          "end": 62400.0,
+          "wait_seconds": 1220.4028393958652,
+          "personal_patience_seconds": 815.5409140534889,
+          "outcome": "boarded",
+          "weight": 0.11416796190375361,
+          "full_passes": null
+        }
+      ],
+      "opportunities": {
+        "enabled": true,
+        "window_seconds": 30.0,
+        "flow": {
+          "walking_calls": 194262,
+          "walking_opportunity_weight": 54606.74827529178,
+          "no_existing_path_join_weight": 51790.57983976063,
+          "walking_calls_with_geometry": 11236,
+          "walking_weight_with_geometry": 2816.168435531087,
+          "no_allowed_timetable_window_weight": 2646.6563387924625,
+          "intercept_attempt_weight": 169.51209673862004,
+          "resumed_walking_weight": 79.8651042137262,
+          "opportunistic_boarded_weight": 89.64699252489213
+        },
+        "catalogue": {
+          "counts": {
+            "queries": 194262,
+            "distinct_queries": 2828,
+            "distinct_queries_with_geometry": 346,
+            "geometric_opportunities": 868,
+            "cache_hits": 191434
+          },
+          "known_walking_path_count": 3166,
+          "indexed_walking_path_count": 3108,
+          "platform_destination_count": 385,
+          "max_extra_meters": 80.0,
+          "max_lateral_meters": 30.0,
+          "coverage_scope": "Existing exact directed walking prefix/suffix and platform anchors only; missing joins leave the original walk unchanged.",
+          "coordinates_created": false,
+          "new_paths_created": false,
+          "thresholds_are_observed": false
+        },
+        "selection_scope": "Timetabled compatible arrivals inside a bounded platform window; actual seats and partial boarding use the existing physical FIFO.",
+        "coverage_scope": "Walking opportunity exposure is per leg/attempt, not unique students or observed demand."
+      }
+    },
+    {
+      "case": {
+        "case": "direction-combined-peak-thu",
+        "mode": "combined",
+        "day": "목",
+        "scenario": "peak",
+        "seed": 0,
+        "operations": "v12_empirical"
+      },
+      "counts": {
+        "over20_episode_weight": 371.42247806703926,
+        "over20_boarded": 361.4782930883213,
+        "over20_enroute_episode_weight": 0.0,
+        "within_personal_patience_episode_weight": 367.9810527495123,
+        "over20_switched": 9.944184978717923,
+        "past_personal_patience_episode_weight": 3.4414253175270293
+      },
+      "maximum_raw_wait_visit": {
+        "uid": 1954816,
+        "node": 52,
+        "seconds": 2135.8083463844087,
+        "personal_patience_seconds": 2332.6180807794526,
+        "outcome": "boarded",
+        "weight": 0.5611019539446244
+      },
+      "past_personal_patience_visits": [
+        {
+          "uid": 727680,
+          "node": 62,
+          "arrival": 46108.82219972466,
+          "end": 47338.90538777431,
+          "wait_seconds": 1230.0831880496553,
+          "personal_patience_seconds": 1177.2607191387124,
+          "outcome": "boarded",
+          "weight": 0.5236951570149828,
+          "full_passes": null
+        },
+        {
+          "uid": 300512,
+          "node": 62,
+          "arrival": 46111.39938740522,
+          "end": 47494.12078317949,
+          "wait_seconds": 1382.7213957742715,
+          "personal_patience_seconds": 1158.9294341944935,
+          "outcome": "boarded",
+          "weight": 0.2805509769723122,
+          "full_passes": null
+        },
+        {
+          "uid": 1902576,
+          "node": 62,
+          "arrival": 46119.82421521009,
+          "end": 47494.12078317949,
+          "wait_seconds": 1374.2965679694025,
+          "personal_patience_seconds": 1331.4197175116706,
+          "outcome": "boarded",
+          "weight": 0.5798053524094452,
+          "full_passes": null
+        },
+        {
+          "uid": 2943952,
+          "node": 62,
+          "arrival": 46122.16642586398,
+          "end": 47494.12078317949,
+          "wait_seconds": 1371.9543573155097,
+          "personal_patience_seconds": 886.5086932855261,
+          "outcome": "boarded",
+          "weight": 0.1309237892537457,
+          "full_passes": null
+        },
+        {
+          "uid": 4716512,
+          "node": 62,
+          "arrival": 46145.55194374991,
+          "end": 47494.12078317949,
+          "wait_seconds": 1348.5688394295794,
+          "personal_patience_seconds": 1069.3201472330957,
+          "outcome": "boarded",
+          "weight": 0.7107291416631908,
+          "full_passes": null
+        },
+        {
+          "uid": 3626880,
+          "node": 62,
+          "arrival": 46155.42647173897,
+          "end": 47494.12078317949,
+          "wait_seconds": 1338.6943114405221,
+          "personal_patience_seconds": 961.301981339876,
+          "outcome": "boarded",
+          "weight": 0.31795777390195384,
+          "full_passes": null
+        },
+        {
+          "uid": 1997056,
+          "node": 62,
+          "arrival": 46160.408890500155,
+          "end": 47494.12078317949,
+          "wait_seconds": 1333.7118926793337,
+          "personal_patience_seconds": 837.5633344825252,
+          "outcome": "boarded",
+          "weight": 0.22444078157784975,
+          "full_passes": null
+        },
+        {
+          "uid": 1040224,
+          "node": 62,
+          "arrival": 46203.50292553359,
+          "end": 47494.12078317949,
+          "wait_seconds": 1290.6178576458988,
+          "personal_patience_seconds": 1177.9150053624983,
+          "outcome": "boarded",
+          "weight": 0.4488815631556995,
+          "full_passes": null
+        },
+        {
+          "uid": 4274976,
+          "node": 62,
+          "arrival": 46204.79920702103,
+          "end": 47494.12078317949,
+          "wait_seconds": 1289.321576158458,
+          "personal_patience_seconds": 866.078582491619,
+          "outcome": "boarded",
+          "weight": 0.22444078157784975,
+          "full_passes": null
+        }
+      ],
+      "opportunities": {
+        "enabled": true,
+        "window_seconds": 30.0,
+        "flow": {
+          "walking_calls": 173866,
+          "walking_opportunity_weight": 45930.129322862675,
+          "no_existing_path_join_weight": 43911.608493163156,
+          "walking_calls_with_geometry": 9707,
+          "walking_weight_with_geometry": 2018.5208296985304,
+          "no_allowed_timetable_window_weight": 1905.7759536427516,
+          "intercept_attempt_weight": 112.74487605577349,
+          "opportunistic_boarded_weight": 49.395063169237325,
+          "resumed_walking_weight": 63.349812886536405
+        },
+        "catalogue": {
+          "counts": {
+            "queries": 173866,
+            "distinct_queries": 2669,
+            "distinct_queries_with_geometry": 328,
+            "geometric_opportunities": 836,
+            "cache_hits": 171197
+          },
+          "known_walking_path_count": 3116,
+          "indexed_walking_path_count": 3058,
+          "platform_destination_count": 383,
+          "max_extra_meters": 80.0,
+          "max_lateral_meters": 30.0,
+          "coverage_scope": "Existing exact directed walking prefix/suffix and platform anchors only; missing joins leave the original walk unchanged.",
+          "coordinates_created": false,
+          "new_paths_created": false,
+          "thresholds_are_observed": false
+        },
+        "selection_scope": "Timetabled compatible arrivals inside a bounded platform window; actual seats and partial boarding use the existing physical FIFO.",
+        "coverage_scope": "Walking opportunity exposure is per leg/attempt, not unique students or observed demand."
+      }
+    },
+    {
+      "case": {
+        "case": "direction-combined-peak-fri",
+        "mode": "combined",
+        "day": "금",
+        "scenario": "peak",
+        "seed": 0,
+        "operations": "v12_empirical"
+      },
+      "counts": {
+        "over20_episode_weight": 24.51819902543608,
+        "over20_boarded": 21.372371605472313,
+        "over20_enroute_episode_weight": 0.0,
+        "within_personal_patience_episode_weight": 24.51819902543608,
+        "over20_switched": 3.145827419963779
+      },
+      "maximum_raw_wait_visit": {
+        "uid": 2521904,
+        "node": 60,
+        "seconds": 1766.2115696717592,
+        "personal_patience_seconds": 1848.100173514102,
+        "outcome": "boarded",
+        "weight": 0.21006904990290662
+      },
+      "past_personal_patience_visits": [],
+      "opportunities": {
+        "enabled": true,
+        "window_seconds": 30.0,
+        "flow": {
+          "walking_calls": 71412,
+          "walking_opportunity_weight": 14976.974278544301,
+          "walking_calls_with_geometry": 3061,
+          "walking_weight_with_geometry": 466.7132700272006,
+          "no_allowed_timetable_window_weight": 450.8142294609526,
+          "no_existing_path_join_weight": 14510.261008517116,
+          "intercept_attempt_weight": 15.899040566247539,
+          "opportunistic_boarded_weight": 15.609730386855299,
+          "resumed_walking_weight": 0.2893101793922379
+        },
+        "catalogue": {
+          "counts": {
+            "queries": 71412,
+            "distinct_queries": 1686,
+            "distinct_queries_with_geometry": 190,
+            "geometric_opportunities": 501,
+            "cache_hits": 69726
+          },
+          "known_walking_path_count": 2920,
+          "indexed_walking_path_count": 2862,
+          "platform_destination_count": 383,
+          "max_extra_meters": 80.0,
+          "max_lateral_meters": 30.0,
+          "coverage_scope": "Existing exact directed walking prefix/suffix and platform anchors only; missing joins leave the original walk unchanged.",
+          "coordinates_created": false,
+          "new_paths_created": false,
+          "thresholds_are_observed": false
+        },
+        "selection_scope": "Timetabled compatible arrivals inside a bounded platform window; actual seats and partial boarding use the existing physical FIFO.",
+        "coverage_scope": "Walking opportunity exposure is per leg/attempt, not unique students or observed demand."
+      }
+    }
+  ],
+  "scope": "Weighted queue visits, not unique students; departure threshold is elapsed plus forecast, not forced exit. The integrated same-stop audit remains controlling for continuous20min totals.",
+  "new_outcomes_opened": false
+}

@@ -1,0 +1,211 @@
+{
+  "status": "PASS_RESULT_INTEGRITY",
+  "hash_checks": 1495,
+  "runtime_modules": 19,
+  "fixed_payloads": 77,
+  "future_source_hashes": 35,
+  "actual_single_attempt_cases": 11,
+  "main_cases": 10,
+  "diagnostic_cases": 1,
+  "unit_tests": {
+    "enabled-final.log": 163,
+    "legacy-final.log": 89
+  },
+  "loyalty_guards": 5,
+  "initial_profile_checks": [
+    {
+      "case": "ablation-old-initial-anchor-tue",
+      "initial_mode_mass_unchanged": true,
+      "patience_draws_unchanged": true
+    },
+    {
+      "case": "anchor-combined-peak-fri",
+      "initial_mode_mass_unchanged": true,
+      "patience_draws_unchanged": true
+    },
+    {
+      "case": "anchor-combined-peak-mon",
+      "initial_mode_mass_unchanged": true,
+      "patience_draws_unchanged": true
+    },
+    {
+      "case": "anchor-combined-peak-thu",
+      "initial_mode_mass_unchanged": true,
+      "patience_draws_unchanged": true
+    },
+    {
+      "case": "anchor-combined-peak-tue",
+      "initial_mode_mass_unchanged": true,
+      "patience_draws_unchanged": true
+    },
+    {
+      "case": "anchor-combined-peak-wed",
+      "initial_mode_mass_unchanged": true,
+      "patience_draws_unchanged": true
+    },
+    {
+      "case": "anchor-combined-regular-fri",
+      "initial_mode_mass_unchanged": true,
+      "patience_draws_unchanged": true
+    },
+    {
+      "case": "anchor-combined-regular-mon",
+      "initial_mode_mass_unchanged": true,
+      "patience_draws_unchanged": true
+    },
+    {
+      "case": "anchor-combined-regular-thu",
+      "initial_mode_mass_unchanged": true,
+      "patience_draws_unchanged": true
+    },
+    {
+      "case": "anchor-combined-regular-tue",
+      "initial_mode_mass_unchanged": true,
+      "patience_draws_unchanged": true
+    },
+    {
+      "case": "anchor-combined-regular-wed",
+      "initial_mode_mass_unchanged": true,
+      "patience_draws_unchanged": true
+    }
+  ],
+  "disabled_parent_metric_errors": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "existing_numeric_parameters_unchanged": {
+    "walking_kmh": 4.8,
+    "stairs_time_factor": 3.0,
+    "preparation_seconds": 20,
+    "walk_coefficient_median": 2.0,
+    "wait_coefficient_median": 1.0,
+    "trait_log_sigma": 0.25,
+    "transfer_penalty_minutes": 3.0,
+    "change_penalty_minutes": 1.5,
+    "crowd_penalty_coefficient": 0.5,
+    "fatigue_coefficient": 0.25,
+    "value_of_time_won_hour": 10000,
+    "choice_temperature_minutes": 2.0,
+    "review_base_rate_per_second": 0.0033333333333333335,
+    "review_age_scale_seconds": 600,
+    "review_full_bus_multiplier": 0.8,
+    "repeat_multiplier": 0.3,
+    "arrival_review_probability": 0.25,
+    "same_line_downstream_prior": 0.08,
+    "revisit_prior": 0.05,
+    "max_synthetic_packet_weight": 1.0,
+    "seed": 0,
+    "seat_history_count": 3,
+    "seat_history_seconds": 1800,
+    "review_full_stress_rate_per_second": 0.006666666666666667,
+    "review_age_stress_rate_per_second": 0.0033333333333333335,
+    "review_full_saturation": 0.4,
+    "review_age_stress_power": 3,
+    "seat_forecast_horizon_seconds": 1800,
+    "waiting_discomfort_age_scale_seconds": 600,
+    "waiting_discomfort_full_sensitivity": 0.5,
+    "predicted_queue_curvature_scale_seconds": 600,
+    "predicted_queue_curvature_coefficient": 1.0,
+    "cohort_release_lag_scale": 1.125,
+    "repeat_walk_growth_factor": 2.0,
+    "repeat_walk_numeric_epsilon": 1e-12,
+    "shuttle_patience_median_seconds": 1200.0,
+    "city_patience_median_seconds": 1200.0,
+    "patience_log_sigma": 0.1,
+    "dorm_walk_patience_factor": 1.0,
+    "city_denial_trigger": 2,
+    "city_additional_pass_trigger": 2,
+    "far_terminal_walk_max_meters": 1000.0,
+    "gate_fallback_node": 62,
+    "enroute_boarding_window_seconds": 30.0,
+    "enroute_max_extra_meters": 80.0,
+    "enroute_max_lateral_meters": 30.0
+  },
+  "public_readback": [
+    {
+      "name": "lab_latest",
+      "url": "https://snu-shuttle-simulation.vercel.app/routing-model/latest.json",
+      "status": 200,
+      "bytes": 515,
+      "sha256": "ca0b1b487879586a6ca5ed79511e9bd3128f423a95eb18f471d06b4885d55dbc",
+      "model_id": "261110162302",
+      "check": "PASS"
+    },
+    {
+      "name": "lab_payload",
+      "url": "https://snu-shuttle-simulation.vercel.app/routing-model/releases/261110162302.json",
+      "status": 200,
+      "bytes": 2891149,
+      "sha256": "f39be2fbe61185f198ac27da9b8b57565cccfb80824e0a4f8f65f68915cbd130",
+      "expected_payload_match": true,
+      "check": "PASS"
+    },
+    {
+      "name": "data_payload",
+      "url": "https://snu-shuttle-v9-data.vercel.app/routing-model/releases/261110162302.json",
+      "status": 200,
+      "bytes": 2891149,
+      "sha256": "f39be2fbe61185f198ac27da9b8b57565cccfb80824e0a4f8f65f68915cbd130",
+      "expected_payload_match": true,
+      "check": "PASS"
+    },
+    {
+      "name": "route_api",
+      "url": "https://snu-route-lab.vercel.app/api/queue-model",
+      "status": 200,
+      "bytes": 11539,
+      "sha256": "c061f9e6a467463b9040feb0e5691877bb579cfaf5dbd6fd8daa3cf6c89938c9",
+      "model_id": "261110162302",
+      "sync_status": "active",
+      "payload_sha256": "f39be2fbe61185f198ac27da9b8b57565cccfb80824e0a4f8f65f68915cbd130",
+      "check": "PASS"
+    },
+    {
+      "name": "index.html",
+      "url": "https://snu-shuttle-simulation.vercel.app/index.html",
+      "status": 200,
+      "bytes": 15642,
+      "sha256": "e38c97d99244b472f48ad6cf396b2c6a92545e3ea7b9e5a95f2c89e62dcb635c",
+      "local_public_asset_match": true,
+      "check": "PASS"
+    },
+    {
+      "name": "viewer-v5.js",
+      "url": "https://snu-shuttle-simulation.vercel.app/viewer-v5.js",
+      "status": 200,
+      "bytes": 44014,
+      "sha256": "e6aba4ec548226c4320705a6620d1f8f2fa51b3568ca7b6ebbf07e5d71d9d672",
+      "local_public_asset_match": true,
+      "check": "PASS"
+    },
+    {
+      "name": "mobile-lab.js",
+      "url": "https://snu-shuttle-simulation.vercel.app/mobile-lab.js",
+      "status": 200,
+      "bytes": 9827,
+      "sha256": "b27df1d598e6e47da7aa3f56bee278e6523b418ecfb96f73a7ea4bbaaed19056",
+      "local_public_asset_match": true,
+      "check": "PASS"
+    },
+    {
+      "name": "mobile-lab.css",
+      "url": "https://snu-shuttle-simulation.vercel.app/mobile-lab.css",
+      "status": 200,
+      "bytes": 13011,
+      "sha256": "d32de037da953b0c61a488f014a6e8b9110c7d46dcf6426063e9d6cd7cce4c1a",
+      "local_public_asset_match": true,
+      "check": "PASS"
+    }
+  ],
+  "public_readback_all_passed": true,
+  "expected_public_model": "261110162302",
+  "checked_at": "2026-11-16T07:51:20.246154+00:00",
+  "new_date_accuracy": "NOT_EVALUATED",
+  "production_writes": false
+}

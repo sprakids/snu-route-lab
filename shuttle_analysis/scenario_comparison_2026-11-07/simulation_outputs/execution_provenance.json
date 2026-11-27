@@ -1,0 +1,76 @@
+{
+  "status": "complete",
+  "started_at_utc": "2026-11-07T04:30:39.001538+00:00",
+  "started_at_kst": "2026-11-07T13:30:39.001538+09:00",
+  "specs_sha256": "91dae50b3781f0d4e40e27541136a861cec24d3983f9b2c0a364c9c4a5593f78",
+  "runner_sha256": "361637d46234f6f109f308420201914b5cf6f83dbc7422fd008d8a288b58cfe2",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "numpy": "2.3.5",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "writes_restricted_to": "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\scenario_comparison_2026-11-07\\simulation_outputs",
+  "live_api_calls": 0,
+  "scenario_status": "historical reference assumptions, not measured destination shares",
+  "finished_at_utc": "2026-11-07T04:34:14.847231+00:00",
+  "finished_at_kst": "2026-11-07T13:34:14.847231+09:00",
+  "elapsed_seconds": 215.85,
+  "seed": 20261106,
+  "replications": 10,
+  "particles_per_cohort_destination": 12,
+  "scenario_count": 10,
+  "weekday_ending_events": 6201,
+  "buildings": 88,
+  "enrollment_event_sum": 156338,
+  "scenario_bin_rows": 249130,
+  "original_files_verified_unchanged": 122,
+  "original_xls_verified_unchanged": true,
+  "equal_baseline_reproduced": true,
+  "equal_baseline_max_absolute_error": 4.999831153540413e-07,
+  "conditional_mode_checks": 200,
+  "scenario_mode_checks": 500,
+  "input_day": {
+    "월": 37771,
+    "금": 12008,
+    "화": 35367,
+    "수": 38158,
+    "목": 33034
+  },
+  "destination_coordinates": {
+    "dorm_ug": [
+      37.46306,
+      126.95872
+    ],
+    "dorm_grad": [
+      37.46149,
+      126.9581
+    ],
+    "snu": [
+      37.4801109505,
+      126.9527297656
+    ],
+    "nak": [
+      37.4770791769,
+      126.9619751956
+    ],
+    "daehak": [
+      37.470538,
+      126.938381
+    ]
+  },
+  "schema_notes": {
+    "expected_trip_events": "Mean expected stop-arrival boarding-demand weights, not actual boardings or congestion.",
+    "conditional_trip_events": "All enrollment events select this destination and move immediately; no scenario probabilities applied.",
+    "boarding_stage": "1 = initial boarding stop arrival; 2 = transfer stop arrival.",
+    "direction": "Preserved provider route-direction label; not a standardized compass direction.",
+    "time_window": "680 <= bin_minute < 1390; conditional bins additionally retain outside-window events.",
+    "replicate_peaks": "Maximum within each independent replication; differs from peak of mean bins.",
+    "mode_checks": "Whole modeled day including arrivals before collection window; first-boarding link checks include all times."
+  },
+  "assumptions": {
+    "source": "Unmodified preserved 2026-11-06 engine and archived route/walking data.",
+    "historical_vector": "55.7/99.9, 27.2/99.9, 17.0/99.9. Historical Sillim represented by Daehak point.",
+    "dorm_residence": "User-selected scenario; current Gwanak actual residence rate remains unknown.",
+    "crowding_feedback": false,
+    "capacity_model": false,
+    "background_passengers": false
+  }
+}

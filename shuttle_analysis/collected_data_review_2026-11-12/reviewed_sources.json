@@ -1,0 +1,518 @@
+{
+  "schemaVersion": 1,
+  "items": [
+    {
+      "id": "observed-bus-intervals",
+      "title": "시내버스 통과 간격과 이동시간",
+      "queries": [
+        {
+          "id": "headways-17",
+          "source": {
+            "label": "정류소 통과 간격",
+            "files": [
+              {
+                "label": "headway_samples_stable_dates.json"
+              },
+              {
+                "label": "headway_candidates_17.csv"
+              }
+            ],
+            "metricDefinitions": [
+              {
+                "label": "정류소 통과 간격",
+                "definition": "통과 간격은 같은 정류장에서 서로 다른 차량을 검출한 시각의 차이입니다. 차고지 출발간격이나 승객의 대기시간이 아닙니다."
+              }
+            ],
+            "filters": [
+              "한국시간 17시대",
+              "정류장 중심 60m 이내",
+              "stopFlag=true",
+              "직전 제공시각과의 차이 120초 이내",
+              "통과 간격 15~3600초"
+            ],
+            "caveats": [
+              "검출 사이에 빠진 차량이 있으면 통과 간격이 실제보다 길어질 수 있습니다.",
+              "안정된 검출기 기준으로 확보된 날짜는 이틀뿐이며 같은 차량의 여러 구간은 독립 표본이 아닙니다."
+            ],
+            "evidenceFlow": [
+              {
+                "kind": "validation",
+                "title": "저장 통계 대조",
+                "detail": "11월 10~11일의 노선별 16개 일자·노선 조합에서 원본 재구성 통과 간격 수가 저장 통계와 모두 일치했습니다."
+              }
+            ]
+          },
+          "reportingPeriod": "2026-11-10~2026-11-11",
+          "columns": [
+            "name",
+            "stop",
+            "n",
+            "mean_seconds",
+            "median_seconds",
+            "p90_seconds"
+          ],
+          "rows": [
+            {
+              "name": "5511",
+              "stop": "문화관입구",
+              "n": 11,
+              "mean_seconds": 642.3636363636364,
+              "median_seconds": 563,
+              "p90_seconds": 873
+            },
+            {
+              "name": "5513",
+              "stop": "경영대.행정대학원",
+              "n": 8,
+              "mean_seconds": 784.125,
+              "median_seconds": 788,
+              "p90_seconds": 868
+            },
+            {
+              "name": "5515",
+              "stop": "서울대학교",
+              "n": 14,
+              "mean_seconds": 491.5,
+              "median_seconds": 487,
+              "p90_seconds": 557
+            },
+            {
+              "name": "5516",
+              "stop": "문화관입구",
+              "n": 10,
+              "mean_seconds": 760.5,
+              "median_seconds": 642,
+              "p90_seconds": 1119
+            },
+            {
+              "name": "5528",
+              "stop": "서울대학교",
+              "n": 10,
+              "mean_seconds": 756.3,
+              "median_seconds": 730,
+              "p90_seconds": 933
+            },
+            {
+              "name": "6515",
+              "stop": "서울대학교",
+              "n": 12,
+              "mean_seconds": 570.3333333333334,
+              "median_seconds": 557,
+              "p90_seconds": 728
+            },
+            {
+              "name": "관악02-1",
+              "stop": "학부생활관",
+              "n": 28,
+              "mean_seconds": 254.14285714285714,
+              "median_seconds": 242,
+              "p90_seconds": 365
+            },
+            {
+              "name": "관악02-2",
+              "stop": "학부생활관",
+              "n": 12,
+              "mean_seconds": 691.1666666666666,
+              "median_seconds": 578,
+              "p90_seconds": 949
+            }
+          ],
+          "preview": {
+            "kind": "aggregate",
+            "note": "17시대에 선택한 정류장 또는 구간의 집계입니다."
+          },
+          "methods": [
+            {
+              "language": "python",
+              "code": "import math, statistics\n\ndef q(values, p):\n    a = sorted(values)\n    return a[max(0, math.ceil(len(a)*p)-1)] if a else None\n\ndef summary(values, headway=False):\n    if not values:return {'n':0}\n    mean = statistics.mean(values)\n    result = {'n':len(values),'mean_seconds':mean,'median_seconds':q(values,.5),\n            'p10_seconds':q(values,.1),'p90_seconds':q(values,.9),\n            'min_seconds':min(values),'max_seconds':max(values),\n            'cv':statistics.pstdev(values)/mean if mean else None}\n    if headway:result['random_arrival_wait_seconds']=sum(x*x for x in values)/(2*sum(values)) if sum(values) else None\n    return result"
+            }
+          ]
+        },
+        {
+          "id": "rides-17",
+          "source": {
+            "label": "정류소 검출 사이 이동시간",
+            "files": [
+              {
+                "label": "observed_intervals.json"
+              },
+              {
+                "label": "ride_candidates_17.csv"
+              }
+            ],
+            "metricDefinitions": [
+              {
+                "label": "정류소 검출 사이 이동시간",
+                "definition": "이동시간은 같은 차량의 두 정류장 검출 시각 사이 경과시간입니다. 정차와 신호 지연을 포함할 수 있습니다."
+              }
+            ],
+            "filters": [
+              "한국시간 17시대",
+              "정류장 순번 차이 1~12",
+              "두 검출 간 경과시간 0초 초과 1800초 이하"
+            ],
+            "caveats": [
+              "검출 사이에 빠진 차량이 있으면 통과 간격이 실제보다 길어질 수 있습니다.",
+              "안정된 검출기 기준으로 확보된 날짜는 이틀뿐이며 같은 차량의 여러 구간은 독립 표본이 아닙니다."
+            ],
+            "evidenceFlow": [
+              {
+                "kind": "validation",
+                "title": "저장 통계 대조",
+                "detail": "11월 10~11일의 노선별 16개 일자·노선 조합에서 원본 재구성 통과 간격 수가 저장 통계와 모두 일치했습니다."
+              }
+            ]
+          },
+          "reportingPeriod": "2026-11-10~2026-11-11",
+          "columns": [
+            "name",
+            "from_stop",
+            "to_stop",
+            "n",
+            "median_seconds",
+            "p90_seconds"
+          ],
+          "rows": [
+            {
+              "name": "5511",
+              "from_stop": "문화관입구",
+              "to_stop": "서울대입구역2번출구",
+              "n": 11,
+              "median_seconds": 631,
+              "p90_seconds": 699
+            },
+            {
+              "name": "5513",
+              "from_stop": "경영대.행정대학원",
+              "to_stop": "서울대입구역2번출구",
+              "n": 8,
+              "median_seconds": 512,
+              "p90_seconds": 660
+            },
+            {
+              "name": "5515",
+              "from_stop": "서울대학교",
+              "to_stop": "서울대입구역2번출구",
+              "n": 14,
+              "median_seconds": 452,
+              "p90_seconds": 581
+            },
+            {
+              "name": "5516",
+              "from_stop": "문화관입구",
+              "to_stop": "서울대벤처타운역1번출구",
+              "n": 10,
+              "median_seconds": 622,
+              "p90_seconds": 668
+            },
+            {
+              "name": "5528",
+              "from_stop": "서울대학교",
+              "to_stop": "서울대입구역2번출구",
+              "n": 10,
+              "median_seconds": 420,
+              "p90_seconds": 504
+            },
+            {
+              "name": "6515",
+              "from_stop": "서울대학교",
+              "to_stop": "서울대입구역2번출구",
+              "n": 12,
+              "median_seconds": 408,
+              "p90_seconds": 540
+            },
+            {
+              "name": "관악02-1",
+              "from_stop": "학부생활관",
+              "to_stop": "낙성대역",
+              "n": 0,
+              "median_seconds": null,
+              "p90_seconds": null
+            },
+            {
+              "name": "관악02-2",
+              "from_stop": "학부생활관",
+              "to_stop": "낙성대역",
+              "n": 0,
+              "median_seconds": null,
+              "p90_seconds": null
+            }
+          ],
+          "preview": {
+            "kind": "aggregate",
+            "note": "17시대에 선택한 정류장 또는 구간의 집계입니다."
+          },
+          "methods": [
+            {
+              "language": "python",
+              "code": "import math, statistics\n\ndef q(values, p):\n    a = sorted(values)\n    return a[max(0, math.ceil(len(a)*p)-1)] if a else None\n\ndef summary(values, headway=False):\n    if not values:return {'n':0}\n    mean = statistics.mean(values)\n    result = {'n':len(values),'mean_seconds':mean,'median_seconds':q(values,.5),\n            'p10_seconds':q(values,.1),'p90_seconds':q(values,.9),\n            'min_seconds':min(values),'max_seconds':max(values),\n            'cv':statistics.pstdev(values)/mean if mean else None}\n    if headway:result['random_arrival_wait_seconds']=sum(x*x for x in values)/(2*sum(values)) if sum(values) else None\n    return result"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "observed-bus-congestion",
+      "title": "교내 하교 방향의 혼잡 변화",
+      "queries": [
+        {
+          "id": "campus-congestion-cells",
+          "source": {
+            "label": "저장된 혼잡등급 통과 관측",
+            "files": [
+              {
+                "label": "grades_by_route_section_hour_weekdays.csv"
+              },
+              {
+                "label": "calibration_candidates.json"
+              }
+            ],
+            "links": [
+              {
+                "label": "서울시 버스위치정보 API 항목 정의",
+                "url": "https://www.data.go.kr/data/15000332/openapi.do"
+              }
+            ],
+            "metricDefinitions": [
+              {
+                "label": "혼잡 관측 비율",
+                "definition": "혼잡 관측 비율은 유효 혼잡등급 통과 관측 중 등급 5·6이 차지하는 비율입니다."
+              }
+            ],
+            "filters": [
+              "5511 순번 12~21",
+              "5513 순번 1~9",
+              "5516 순번 12~17",
+              "유효 등급 3·4·5·6",
+              "정보 없음 0 제외"
+            ],
+            "caveats": [
+              "시간대별 갱신 밀도가 달라 혼잡 비율 비교는 초기 경향입니다.",
+              "등급 변화는 승차·하차 인원이나 남은 정원으로 환산하지 않습니다.",
+              "관악02-1·02-2의 유효 혼잡등급은 0건으로, 여유하다는 뜻이 아닙니다."
+            ]
+          },
+          "reportingPeriod": "2026-11-09~2026-11-11; 15:00~19:00와 그 외 수집 시간 비교",
+          "columns": [
+            "name",
+            "period",
+            "n",
+            "congested",
+            "congested_fraction"
+          ],
+          "rows": [
+            {
+              "name": "5511",
+              "period": "15:00-19:00",
+              "n": 727,
+              "congested": 116,
+              "congested_fraction": 0.15955983493810177
+            },
+            {
+              "name": "5511",
+              "period": "other_collection_hours",
+              "n": 869,
+              "congested": 28,
+              "congested_fraction": 0.03222094361334868
+            },
+            {
+              "name": "5513",
+              "period": "15:00-19:00",
+              "n": 512,
+              "congested": 50,
+              "congested_fraction": 0.09765625
+            },
+            {
+              "name": "5513",
+              "period": "other_collection_hours",
+              "n": 602,
+              "congested": 6,
+              "congested_fraction": 0.009966777408637873
+            },
+            {
+              "name": "5516",
+              "period": "15:00-19:00",
+              "n": 443,
+              "congested": 34,
+              "congested_fraction": 0.07674943566591422
+            },
+            {
+              "name": "5516",
+              "period": "other_collection_hours",
+              "n": 476,
+              "congested": 5,
+              "congested_fraction": 0.01050420168067227
+            }
+          ],
+          "preview": {
+            "kind": "aggregate",
+            "note": "교내 하교 방향 3개 노선의 시간대별 집계입니다."
+          },
+          "methods": [
+            {
+              "language": "calculation",
+              "code": "혼잡 관측 비율 = (등급 5 관측 수 + 등급 6 관측 수) / 등급 3~6 관측 수"
+            }
+          ]
+        },
+        {
+          "id": "paired-grade-movements",
+          "source": {
+            "label": "동일 차량·추정 회차의 구간 전후 비교",
+            "files": [
+              {
+                "label": "calibration_candidates.json"
+              },
+              {
+                "label": "calibration_candidates.py"
+              }
+            ],
+            "metricDefinitions": [
+              {
+                "label": "혼잡등급 전이",
+                "definition": "혼잡등급 전이는 같은 차량·추정 회차에서 두 구간의 등급을 연결해 비교한 변화입니다."
+              }
+            ],
+            "filters": [
+              "첫 구간 관측시각 15시 이상 19시 미만",
+              "두 관측시각 차이 0초 초과 30분 이하"
+            ],
+            "caveats": [
+              "API 구간 순번의 변화이며 특정 정류장에서 탄 인원이나 내린 인원을 직접 측정한 결과가 아닙니다."
+            ]
+          },
+          "reportingPeriod": "2026-11-09~2026-11-11",
+          "columns": [
+            "name",
+            "from_stop",
+            "to_stop",
+            "n",
+            "rise",
+            "same",
+            "fall"
+          ],
+          "rows": [
+            {
+              "name": "5511",
+              "from_stop": "공대입구",
+              "to_stop": "문화관입구",
+              "n": 69,
+              "rise": 54,
+              "same": 15,
+              "fall": 0
+            },
+            {
+              "name": "5511",
+              "from_stop": "문화관입구",
+              "to_stop": "서울대정문",
+              "n": 68,
+              "rise": 5,
+              "same": 62,
+              "fall": 1
+            },
+            {
+              "name": "5511",
+              "from_stop": "서울대정문",
+              "to_stop": "서울대입구역2번출구",
+              "n": 68,
+              "rise": 1,
+              "same": 36,
+              "fall": 31
+            },
+            {
+              "name": "5513",
+              "from_stop": "경영대.행정대학원",
+              "to_stop": "서울대학교",
+              "n": 60,
+              "rise": 22,
+              "same": 38,
+              "fall": 0
+            },
+            {
+              "name": "5513",
+              "from_stop": "서울대학교",
+              "to_stop": "서울대입구역2번출구",
+              "n": 60,
+              "rise": 3,
+              "same": 29,
+              "fall": 28
+            },
+            {
+              "name": "5516",
+              "from_stop": "공대입구",
+              "to_stop": "문화관입구",
+              "n": 74,
+              "rise": 41,
+              "same": 33,
+              "fall": 0
+            },
+            {
+              "name": "5516",
+              "from_stop": "문화관입구",
+              "to_stop": "서울대정문",
+              "n": 74,
+              "rise": 11,
+              "same": 62,
+              "fall": 1
+            },
+            {
+              "name": "5516",
+              "from_stop": "서울대정문",
+              "to_stop": "서울대벤처타운역1번출구",
+              "n": 74,
+              "rise": 8,
+              "same": 45,
+              "fall": 21
+            }
+          ],
+          "preview": {
+            "kind": "aggregate",
+            "note": "유효 등급을 양쪽 구간에서 확인한 동일 차량·회차만 연결했습니다."
+          }
+        }
+      ]
+    },
+    {
+      "id": "shuttle-history-gap",
+      "title": "셔틀 배차간격의 실측 범위",
+      "queries": [
+        {
+          "id": "shuttle-storage-contract",
+          "source": {
+            "label": "현재 셔틀 수집·저장 코드와 현장 관측",
+            "files": [
+              {
+                "label": "shuttle_live.py"
+              },
+              {
+                "label": "worker.mjs"
+              },
+              {
+                "label": "queue_admin_snu_1523.json"
+              }
+            ],
+            "metricDefinitions": [
+              {
+                "label": "셔틀 배차 이력",
+                "definition": "셔틀의 최신 위치 캐시는 덮어써지며 연속 운행 이력을 보존하는 자료가 아닙니다."
+              }
+            ],
+            "caveats": [
+              "BUSIN 도식 좌표는 GPS가 아니고 공급자 제공시각도 없습니다.",
+              "11월 10일 개인 대기 189초는 실제 배차간격이나 67명 전원의 대기시간이 아닙니다.",
+              "44명 정원과 피크 2대 운행은 사용자 보고이며 실제 배차간격 분포는 아직 식별되지 않았습니다."
+            ],
+            "evidenceFlow": [
+              {
+                "kind": "validation",
+                "title": "운행 이력 저장 경로 확인",
+                "detail": "최신 셔틀 상태는 shuttle-cache-v1에 덮어쓰며, 날짜별 원본과 route_stats에는 8개 시내버스 노선만 저장합니다."
+              }
+            ]
+          },
+          "summary": "셔틀의 실제 배차간격 분포와 교통량별 완료 주행시간은 현재 축적 자료에서 계산할 수 없습니다."
+        }
+      ]
+    }
+  ]
+}

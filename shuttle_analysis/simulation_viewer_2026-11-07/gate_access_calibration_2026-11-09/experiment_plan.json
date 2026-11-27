@@ -1,0 +1,45 @@
+{
+  "status": "predeclared_screening",
+  "alphas": [
+    0.25,
+    0.5,
+    0.75
+  ],
+  "cutoff_seconds": 900.0,
+  "selection_scenario": "peak",
+  "selection_day": "월",
+  "observations": [
+    {
+      "id": "admin_snu_1653",
+      "stop": "admin_snu",
+      "minute": 1013,
+      "people_interval": [
+        53,
+        53
+      ]
+    },
+    {
+      "id": "culture_1655",
+      "stop": "city_120000195",
+      "minute": 1015,
+      "people_interval": [
+        5,
+        5
+      ]
+    },
+    {
+      "id": "snu_gate_1703",
+      "stop": "city_gate",
+      "minute": 1023,
+      "people_interval": [
+        33,
+        39
+      ]
+    }
+  ],
+  "timing_model": "uniform within minute; no selected best-fitting second",
+  "primary_metric": "mean of per-observation expected absolute interval distance divided by max(5, interval midpoint)",
+  "tie_breaker": "smaller alpha",
+  "originals_and_current_default_preserved": true,
+  "independent_validation": false
+}

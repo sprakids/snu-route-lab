@@ -1,0 +1,55 @@
+// Logic/gesture regressions. Actual animation frames are captured separately.
+import fs from 'node:fs/promises';
+import vm from 'node:vm';
+import assert from 'node:assert/strict';
+import {JSDOM} from 'jsdom';
+const html=await fs.readFile(new URL('./static/index.html',import.meta.url),'utf8');
+const dom=new JSDOM(html,{url:'https://snu-route-lab.vercel.app/',pretendToBeVisual:true,runScripts:'outside-only'});
+const w=dom.window,d=w.document,checks=[];let systemReduced=false,mediaChange;const animations=[];
+w.matchMedia=()=>({get matches(){return systemReduced;},addEventListener:(_,fn)=>mediaChange=fn});
+w.fetch=()=>{throw Error('Motion must not make requests');};
+w.Element.prototype.getBoundingClientRect=function(){return {left:0,top:0,width:220,height:55};};
+w.Element.prototype.animate=function(frames,options){let reject;const animation={el:this,frames,options,cancelled:false,finished:new Promise((ok,fail)=>{reject=fail;}),cancel(){this.cancelled=true;reject(new Error('cancelled'));}};animations.push(animation);return animation;};
+new vm.Script(await fs.readFile(new URL('./static/motion.js',import.meta.url),'utf8')).runInContext(dom.getInternalVMContext());
+if(d.readyState==='loading')d.dispatchEvent(new w.Event('DOMContentLoaded'));
+await new Promise(r=>w.requestAnimationFrame(r));
+const check=(name,f)=>{f();checks.push(name);};
+const fire=(el,type,props={})=>{const event=new w.Event(type,{bubbles:true,cancelable:true});for(const [key,value]of Object.entries(props))Object.defineProperty(event,key,{value});el.dispatchEvent(event);return event;};
+const button=d.querySelector('#mobile-home'),map=d.querySelector('#map');
+check('motion starts without a network request or changed viewport state',()=>{assert(d.documentElement.classList.contains('motion-ready'));assert(button.classList.contains('liquid-control'));assert.equal(d.body.dataset.mobileView,'home');});
+for(const pointerType of ['mouse','touch','pen']){
+ const e=fire(button,'pointerdown',{button:0,pointerId:1,pointerType,clientX:40,clientY:20});
+ check(pointerType+' press creates an aria-hidden water layer without consuming input',()=>{assert(!e.defaultPrevented);assert.equal(button.querySelectorAll('.liquid-ripple').length,1);assert.equal(button.querySelector('.liquid-ripple').getAttribute('aria-hidden'),'true');});
+}
+fire(button,'pointermove',{pointerId:1,clientX:40,clientY:80});
+check('dragging scroll content removes decoration without cancelling the drag',()=>assert.equal(button.querySelector('.liquid-ripple'),null));
+let clicked=0;button.addEventListener('click',()=>clicked++);fire(button,'click',{detail:0});
+check('keyboard activation still executes the original action exactly once',()=>assert.equal(clicked,1));
+const fresh=d.createElement('button');fresh.textContent='새 경로';d.querySelector('#results').append(fresh);await Promise.resolve();
+check('newly rendered controls acquire the shared effect',()=>assert(fresh.classList.contains('liquid-control')));
+fire(fresh,'click',{detail:0});check('keyboard activation receives centered liquid feedback',()=>assert(fresh.querySelector('.liquid-ripple')));
+fresh.disabled=true;fire(fresh,'pointerdown',{button:0,pointerId:2,clientX:1,clientY:1});check('disabled control does not create a second effect',()=>assert.equal(fresh.querySelectorAll('.liquid-ripple').length,1));
+fire(map,'pointerdown',{button:0,pointerId:3,clientX:1,clientY:1});check('map gestures do not create decorative map markers',()=>assert.equal(map.querySelector('.liquid-ripple'),null));
+const ordinary=fire(button,'wheel',{ctrlKey:false,metaKey:false});const zoom=fire(button,'wheel',{ctrlKey:true,metaKey:false});
+check('normal scrolling is preserved while page pinch/wheel zoom is blocked',()=>{assert(!ordinary.defaultPrevented);assert(zoom.defaultPrevented);});
+let sdkSawUncancelled=false;map.addEventListener('wheel',event=>sdkSawUncancelled=!event.defaultPrevented,{once:true});
+const mapWheel=fire(map,'wheel',{ctrlKey:true,metaKey:false});
+check('map SDK receives the zoom gesture before browser page zoom is blocked',()=>{assert(sdkSawUncancelled);assert(mapWheel.defaultPrevented);});
+for(const modifier of ['ctrlKey','metaKey'])for(const key of ['+','=','-'])check(modifier+' '+key+' cannot zoom the page',()=>assert(fire(button,'keydown',{[modifier]:true,altKey:false,key}).defaultPrevented));
+check('copy and reset-to-default zoom shortcuts remain available',()=>{assert(!fire(button,'keydown',{ctrlKey:true,key:'c'}).defaultPrevented);assert(!fire(button,'keydown',{ctrlKey:true,key:'0'}).defaultPrevented);});
+check('outside pinch is blocked but map pinch and single-finger scrolling are passed through',()=>{
+ assert(fire(button,'touchmove',{touches:[{target:button},{target:button}]}).defaultPrevented);
+ assert(!fire(map,'touchmove',{touches:[{target:map},{target:map}]}).defaultPrevented);
+ assert(!fire(button,'touchmove',{touches:[{target:button}]}).defaultPrevented);
+});
+w.RouteMotion.view('home','results');w.RouteMotion.view('results','detail');
+check('view animations preserve synchronous view state and use only transform/opacity',()=>{assert(animations.length>0);assert.equal(d.body.dataset.mobileView,'home');for(const a of animations)for(const frame of a.frames)assert(Object.keys(frame).every(k=>['opacity','transform'].includes(k)));});
+w.RouteMotion.view('detail','results');w.RouteMotion.view('detail','results');
+check('rapid navigation cancels an earlier animation on the same surface',()=>assert(animations.some(a=>a.cancelled)));
+d.documentElement.dataset.reduceMotion='true';await Promise.resolve();
+check('turning on reduced motion clears every active water layer',()=>assert.equal(d.querySelectorAll('.liquid-ripple').length,0));
+const count=animations.length;fire(button,'pointerdown',{button:0,pointerId:5,clientX:40,clientY:20});w.RouteMotion.view('home','detail');
+check('app reduced-motion setting skips feedback and view animation',()=>{assert.equal(d.querySelectorAll('.liquid-ripple').length,0);assert.equal(animations.length,count);});
+d.documentElement.dataset.reduceMotion='false';systemReduced=true;mediaChange();fire(button,'click',{detail:0});w.RouteMotion.list();
+check('OS reduced-motion setting also skips motion',()=>{assert.equal(d.querySelectorAll('.liquid-ripple').length,0);assert.equal(animations.length,count);});
+dom.window.close();console.log(JSON.stringify({suite:'liquid feedback and zoom separation',passed:checks.length,checks,real_browser_gestures:false},null,2));

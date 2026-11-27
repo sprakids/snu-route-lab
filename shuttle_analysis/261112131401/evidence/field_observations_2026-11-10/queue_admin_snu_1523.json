@@ -1,0 +1,203 @@
+{
+  "schema": "user_reported_queue_and_wait_observation_v3",
+  "observation_id": "20261110-1523-admin-snu-queue-wait-01",
+  "source": "user_report_and_corrections_in_project_chat",
+  "timezone": "Asia/Seoul",
+  "observation_date": "2026-11-10",
+  "date_inferred_from_client_date_and_reported_tuesday": true,
+  "weekday_reported": "Tuesday",
+  "location_reported": "행정관 셔틀 승차장",
+  "route": "행정관 → 서울대입구역 셔틀",
+  "route_confirmed_by_user": true,
+  "model_route_id": "shuttle-41841",
+  "stop_id": "snu-410",
+  "simulation_stop_key": "admin_snu",
+  "reported_queue_join_time": "15:23",
+  "reported_time_event": "joined_the_queue",
+  "time_precision": "minute",
+  "exact_join_second": null,
+  "queue_join_window_start": "2026-11-10T15:23:00+09:00",
+  "queue_join_window_end_exclusive": "2026-11-10T15:24:00+09:00",
+  "people": {
+    "preferred_reported_outside_queue_count_including_observer": 67,
+    "reported_count_scope": "outside_vehicle_queue_including_observer_at_queue_join",
+    "scope_confirmed_by_user": true,
+    "includes_observer": true,
+    "includes_people_already_onboard": false,
+    "derived_people_ahead": 66,
+    "people_behind_observer": null,
+    "counting_method_details": null,
+    "count_error": null,
+    "independently_verified_by_photo_count": false,
+    "correction_was_reported_together_with_capacity_correction": true,
+    "statistical_independence_from_capacity_assumption": "not_established"
+  },
+  "durations": {
+    "reported_pure_queue_wait_seconds": 189,
+    "queue_wait_start_event": "joined_the_queue",
+    "queue_wait_end_event": "boarding",
+    "queue_wait_end_event_interpretation": "user confirmed boarding the second of a simultaneous pair; latest arrival recollection is after 15:24 rather than 15:23",
+    "reported_seconds_from_end_of_queue_wait_to_departure": 30,
+    "derived_seconds_from_queue_join_to_departure": 219,
+    "reported_duration_precision_seconds": 1,
+    "measurement_error_seconds": null,
+    "includes_walk_to_stop": false,
+    "includes_model_preparation_time": "not_separately_measured_do_not_automatically_subtract_20_seconds",
+    "post_boarding_interval_is_full_vehicle_dwell_time": false,
+    "observed_individual_wait_sample_count": 1,
+    "same_wait_for_all_67_people": "not_observed",
+    "wait_for_a_later_arrival_batch_observed": null,
+    "vehicle_arrival_wait_component_seconds": null,
+    "post_arrival_queue_wait_component_seconds": null
+  },
+  "derived_time_windows": {
+    "basis": "minute-precision queue join plus user-reported relative durations; not exact observed clock times",
+    "boarding_window_start": "2026-11-10T15:26:09+09:00",
+    "boarding_window_end_exclusive": "2026-11-10T15:27:09+09:00",
+    "departure_window_start": "2026-11-10T15:26:39+09:00",
+    "departure_window_end_exclusive": "2026-11-10T15:27:39+09:00"
+  },
+  "vehicle": {
+    "preferred_user_reported_max_passengers": 44,
+    "capacity_scope": "observed_administration_to_snu_station_shuttle",
+    "source": "latest_user_correction",
+    "independently_verified_vehicle_registration_capacity": false,
+    "bus_present_at_queue_join": null,
+    "observed_vehicle_arrival_time": null,
+    "observed_buses_passed_before_boarding": null,
+    "observed_denied_boardings": null,
+    "observed_vehicle_onboard_count": null,
+    "observed_vehicle_identifier": null,
+    "reported_vehicle_arrival_minute": null
+  },
+  "revision_history": [
+    {
+      "sequence": 1,
+      "original_text": "화 15:23 행정관 실측  나까지 83명이고, 순수 셔틀 줄 대기는 3분 9초, 출발은 그로부터 30초후",
+      "reported_count": 83,
+      "status": "superseded_by_user"
+    },
+    {
+      "sequence": 2,
+      "original_text": "행정관 → 서울대입구역",
+      "status": "route_confirmation"
+    },
+    {
+      "sequence": 3,
+      "original_text": "줄에서기시작한 순간. 근데ㅜ여기서 하나의 오류가 드러났어. 셔틀 수용인원은 최대 46명이야",
+      "reported_capacity": 46,
+      "status": "join_time_confirmation_and_capacity_later_superseded"
+    },
+    {
+      "sequence": 4,
+      "original_text": "그니까 실측도 사실 69명인거지",
+      "reported_count": 69,
+      "status": "superseded_by_user"
+    },
+    {
+      "sequence": 5,
+      "original_text": "아니다 버스 정원은 44명이다. 따라서 67명이야. 대기인원은. 그리고 버스 밖 대기줄에 나 포함 67명",
+      "reported_capacity": 44,
+      "reported_count": 67,
+      "status": "current_authoritative_user_report_and_outside_queue_scope_confirmation"
+    },
+    {
+      "original_text": "그리고 내가 셔틀을 기다린 15:23에는 셔틀 두 대가 동시에 왔어. 기존의 3분 배차마다 2대씩 오나봐",
+      "status": "simultaneous_arrival_report_and_unconfirmed_batch_cycle_hypothesis",
+      "sequence": 6
+    },
+    {
+      "original_text": "둘 다 서울대입구역행",
+      "status": "confirmed_destinations_of_two_vehicles",
+      "sequence": 7
+    },
+    {
+      "original_text": "그 뒤에 온 다른 버스에 탔음",
+      "status": "superseded_by_later_explicit_user_correction",
+      "sequence": 8
+    },
+    {
+      "original_text": "15:23에 동시에 온 두 대는 모두 서울대입구역행이었나요? 둘 다 서울대입구역행 / 3분 9초 뒤에 타신 버스는 15:23에 도착한 그 두 대 중 하나였나요? 두 대중 두 번째",
+      "status": "current_authoritative_same_batch_second_vehicle_confirmation",
+      "sequence": 9
+    },
+    {
+      "sequence": 10,
+      "original_text": "아니야. 15:23에 버스가 오진 않았어. 아마 15:24이후에 온 것 같아",
+      "status": "current_authoritative_arrival_timing_correction; 15:23 arrival superseded; after 15:24 remains approximate recollection"
+    },
+    {
+      "sequence": 11,
+      "original_text": "그리고 아마 피크 하교 시간대에는 행정관-설입 셔틀이 한 번에 두 대씩 온다고 들었어. 이건 내가 여러번 경험했고, 셔틀을 타는 사람들의 공통적인 증언이야.",
+      "status": "additional_repeated_user_experience_and_informal_rider_testimony; strengthens_peak_batch_size_two_prior_not_exact_headway"
+    }
+  ],
+  "photos": [
+    {
+      "path": "C:\\Users\\김예준\\.codex\\codex-remote-attachments\\01a1a1e8-54cf-7243-9ad9-0a31e6f31a06\\FBB87E03-5F44-4FC7-B397-C1F95AB07DEE\\1-사진-1.jpg",
+      "bytes": 2064700,
+      "sha256": "748416f756bcff6aaebb376de328f40f61ca716a1078e303dd362f250bb40b92"
+    },
+    {
+      "path": "C:\\Users\\김예준\\.codex\\codex-remote-attachments\\01a1a1e8-54cf-7243-9ad9-0a31e6f31a06\\FBB87E03-5F44-4FC7-B397-C1F95AB07DEE\\2-사진-2.jpg",
+      "bytes": 2881768,
+      "sha256": "936021748a12acfe548c6c3def25f387d8b11bb0e91febcb0e0bbe0945a14591"
+    }
+  ],
+  "photo_interpretation": "two context photos of one reported episode; not two independent waiting-time observations; no automatic person count",
+  "model_use": {
+    "intake_action": "register_latest_user_report_without_parameter_changes",
+    "baseline_reference_model_id": "261110150729",
+    "baseline_was_released_before_reported_queue_join_window": true,
+    "baseline_evaluation_role": "new_external_diagnostic_case_for_frozen_v9",
+    "prototype_evaluation_role": "eligibility_requires_version_and_data_use_audit; if used for tuning it cannot remain final_holdout",
+    "usage_tracking": "model owner must record every calibration, selection, and evaluation use in a separate ledger",
+    "do_not_select_best_second_inside_reported_minute": true,
+    "do_not_infer_boarding_failure_count_from_queue_and_capacity_alone": true,
+    "do_not_infer_headway_from_one_person_wait": true,
+    "separate_vehicle_arrival_boarding_departure_required": true,
+    "do_not_treat_189_seconds_as_next_bus_headway_wait": true,
+    "do_not_treat_189_seconds_as_only_boarding_progression": true,
+    "arrival_at_15_23_superseded": true
+  },
+  "arrival_batch": {
+    "reported_arrival_minute": null,
+    "arrival_time_precision": "approximate_recollection_after_15_24_not_exact_measurement",
+    "exact_arrival_second": null,
+    "reported_simultaneous_arrival": true,
+    "observed_vehicle_count": 2,
+    "both_vehicles_to_snu_station_confirmed_by_user": true,
+    "boarded_vehicle_from_this_batch": true,
+    "boarded_vehicle_order_reported": 2,
+    "later_different_vehicle_answer_superseded": true,
+    "per_vehicle_reported_max_passengers": 44,
+    "conditional_nominal_batch_max_passengers": 88,
+    "nominal_batch_capacity_conditions": "both vehicles use the reported 44-person capacity; this is not observed residual space",
+    "observed_residual_seats": null,
+    "both_empty_on_arrival": null,
+    "wait_context": "queue_join_to_boarding_wait; vehicle arrival and boarding progression components were not separately timed",
+    "boarding_service_start_times": null,
+    "first_vehicle_departure_time": null,
+    "dispatch_cycle_hypothesis": {
+      "batch_interval_seconds": 180,
+      "vehicles_per_batch": 2,
+      "source": "user initial conjecture plus repeated peak two-vehicle experience and informal rider testimony",
+      "confirmed": false,
+      "consecutive_batch_arrival_or_departure_intervals_observed": null,
+      "not_equivalent_to_one_bus_every_90_seconds": true,
+      "recurring_peak_two_vehicle_operation_supported_by_user_reports": true,
+      "periodic_180_seconds_still_unverified": true,
+      "evidence_record": "peak_pair_operation_evidence.json"
+    },
+    "reported_not_arriving_at_15_23": true,
+    "current_user_recollection": "아마 15:24 이후",
+    "arrival_after_15_24_is_estimate_not_hard_timestamp": true,
+    "confirmed_arrival_window_start": null,
+    "confirmed_arrival_window_end": null,
+    "arrival_wait_seconds": null,
+    "post_arrival_wait_until_boarding_seconds": null,
+    "reported_join_minute_is_not_arrival_minute": true,
+    "joined_before_batch_arrival_user_sequence": true,
+    "do_not_assert_batch_already_present_at_join": true
+  }
+}

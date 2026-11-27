@@ -1,0 +1,23 @@
+{
+  "diagnostic_only_after_holdout_opening": true,
+  "frozen_metric_issue": "Frozen comparison used probability>=0.5 for candidate but expected grade>=2 for baseline; these are different classifiers.",
+  "common_threshold": 1.5,
+  "metrics": {
+    "candidate": {
+      "miss_rate_at_common_mean_threshold_1_5": 0.7475247524752475,
+      "positive_labels": 202
+    },
+    "baseline": {
+      "miss_rate_at_common_mean_threshold_1_5": 1.0,
+      "positive_labels": 202
+    },
+    "persistence": {
+      "miss_rate_at_common_mean_threshold_1_5": 0.7326732673267327,
+      "positive_labels": 202
+    }
+  },
+  "independent_binary_gate_comparable": false,
+  "revised_binary_gate_requires_new_untouched_day": true,
+  "operating_adoption": false,
+  "frozen_source_and_results_modified": false
+}

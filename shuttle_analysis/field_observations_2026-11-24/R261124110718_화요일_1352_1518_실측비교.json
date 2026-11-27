@@ -1,0 +1,205 @@
+{
+  "model": "R261124110718",
+  "date": "2026-11-24",
+  "weekday": "화요일",
+  "stop": "행정관 셔틀 승차장",
+  "unit": "수강인원 가중 모의 인원",
+  "method": "KST 반개구간 [해당 분 00초, 다음 분 00초). 같은 시각의 마지막 상태 사용. 대기 원장과 지도 자료를 각각 집계함.",
+  "source_observation_file": "admin_shuttle_counts_1352_1518.json",
+  "cases": {
+    "peak": {
+      "metrics": {
+        "13:52": {
+          "queue_min": 11.786279,
+          "queue_max": 28.3441,
+          "queue_time_mean": 20.17695402353331,
+          "observed_queue": 26,
+          "audit_range": [
+            11.786278934298002,
+            28.34409982425537
+          ],
+          "positive_duration_map_spans": 39,
+          "nearby_snu_departure_seconds": [
+            49800.0,
+            50400.0
+          ]
+        },
+        "15:18": {
+          "queue_min": 0.0,
+          "queue_max": 0.0,
+          "queue_time_mean": 0.0,
+          "observed_queue": 6,
+          "audit_range": [
+            0.0,
+            0.0
+          ],
+          "positive_duration_map_spans": 1,
+          "nearby_snu_departure_seconds": [
+            55080.0,
+            55260.0
+          ]
+        },
+        "daehak_15:18": {
+          "observed_onboard_before_departure": 17,
+          "minute_departure_events": [],
+          "active_route_vehicle_legs": [],
+          "present_vehicle_onboard_range": null,
+          "prior_departure": {
+            "time": 54600.0,
+            "node": 42,
+            "vehicle": 454,
+            "capacity": 44,
+            "before": 0.0,
+            "off": 0.0,
+            "boarded": 10.3637910886137,
+            "onboard": 10.3637910886137,
+            "compatible_left": 0.0,
+            "new_denied": 0.0,
+            "physical_queue_left": 6.648154249333516e-14,
+            "route": "shuttle-daehak",
+            "stop_index": 0
+          },
+          "next_departure": {
+            "time": 55200.0,
+            "node": 42,
+            "vehicle": 455,
+            "capacity": 44,
+            "before": 0.0,
+            "off": 0.0,
+            "boarded": 0.84067986224127,
+            "onboard": 0.84067986224127,
+            "compatible_left": 0.0,
+            "new_denied": 0.0,
+            "physical_queue_left": 6.63358257213531e-14,
+            "route": "shuttle-daehak",
+            "stop_index": 0
+          },
+          "prior_vehicle_render_end": 55065.99955854612,
+          "next_vehicle_render_start": 55200.0,
+          "explanation": "행정관에서 승차와 첫 운행구간 시작이 같은 시각에 처리된다. 해당 분 정차·출발 대기 차량의 차내 인원은 기록되지 않는다.",
+          "departure_demand_comparison": {
+            "source_observation_id": "20261124-1518-admin-daehak-onboard",
+            "known_people_waiting_for_departure": 17,
+            "observation_interpretation": "차내에서 출발을 기다리던 승객을 모형 대기열과 비교. 차 밖 대기는 미관측으로 전체 대기수요의 하한. 같은 관측 1건.",
+            "model_queue_node": 42,
+            "model_queue_min": 0.6753,
+            "model_queue_max": 0.84068,
+            "observed_lower_bound_minus_model_range": [
+              16.15932,
+              16.3247
+            ],
+            "interval_start_seconds": 55080,
+            "interval_end_exclusive_seconds": 55140
+          }
+        }
+      },
+      "source_files": [
+        {
+          "path": "261124110718\\viewer-data\\peak-tue.json.gz",
+          "sha256": "0083fcd90656c78155d4859ce267f24e88ecb70effd68de905d6a379ec6e2884"
+        },
+        {
+          "path": "261124110718\\runs\\peak-tue\\attempt-01\\audit-peak-tue.json.gz",
+          "sha256": "a760cf1da1bc9e33eea4b51bbe558bff52736e7cbed09515a7dbac6200ac6e08"
+        }
+      ]
+    },
+    "regular": {
+      "metrics": {
+        "13:52": {
+          "queue_min": 11.786279,
+          "queue_max": 28.3441,
+          "queue_time_mean": 20.17695402353331,
+          "observed_queue": 26,
+          "audit_range": [
+            11.786278934298002,
+            28.34409982425537
+          ],
+          "positive_duration_map_spans": 39,
+          "nearby_snu_departure_seconds": [
+            49800.0,
+            50400.0
+          ]
+        },
+        "15:18": {
+          "queue_min": 0.0,
+          "queue_max": 0.0,
+          "queue_time_mean": 0.0,
+          "observed_queue": 6,
+          "audit_range": [
+            0.0,
+            0.0
+          ],
+          "positive_duration_map_spans": 1,
+          "nearby_snu_departure_seconds": [
+            54960.0,
+            55200.0
+          ]
+        },
+        "daehak_15:18": {
+          "observed_onboard_before_departure": 17,
+          "minute_departure_events": [],
+          "active_route_vehicle_legs": [],
+          "present_vehicle_onboard_range": null,
+          "prior_departure": {
+            "time": 54600.0,
+            "node": 42,
+            "vehicle": 406,
+            "capacity": 44,
+            "before": 0.0,
+            "off": 0.0,
+            "boarded": 10.3637910886137,
+            "onboard": 10.3637910886137,
+            "compatible_left": 0.0,
+            "new_denied": 0.0,
+            "physical_queue_left": 6.637052019087264e-14,
+            "route": "shuttle-daehak",
+            "stop_index": 0
+          },
+          "next_departure": {
+            "time": 55200.0,
+            "node": 42,
+            "vehicle": 407,
+            "capacity": 44,
+            "before": 0.0,
+            "off": 0.0,
+            "boarded": 0.84067986224127,
+            "onboard": 0.84067986224127,
+            "compatible_left": 0.0,
+            "new_denied": 0.0,
+            "physical_queue_left": 6.639133687258436e-14,
+            "route": "shuttle-daehak",
+            "stop_index": 0
+          },
+          "prior_vehicle_render_end": 55065.99955854612,
+          "next_vehicle_render_start": 55200.0,
+          "explanation": "행정관에서 승차와 첫 운행구간 시작이 같은 시각에 처리된다. 해당 분 정차·출발 대기 차량의 차내 인원은 기록되지 않는다.",
+          "departure_demand_comparison": {
+            "source_observation_id": "20261124-1518-admin-daehak-onboard",
+            "known_people_waiting_for_departure": 17,
+            "observation_interpretation": "차내에서 출발을 기다리던 승객을 모형 대기열과 비교. 차 밖 대기는 미관측으로 전체 대기수요의 하한. 같은 관측 1건.",
+            "model_queue_node": 42,
+            "model_queue_min": 0.84068,
+            "model_queue_max": 0.84068,
+            "observed_lower_bound_minus_model_range": [
+              16.15932,
+              16.15932
+            ],
+            "interval_start_seconds": 55080,
+            "interval_end_exclusive_seconds": 55140
+          }
+        }
+      },
+      "source_files": [
+        {
+          "path": "261124110718\\viewer-data\\regular-tue.json.gz",
+          "sha256": "50a04f3c2caa985ad69964017be1e5a363dfce37720b43c40b4f2c3e2fa08773"
+        },
+        {
+          "path": "261124110718\\runs\\regular-tue\\attempt-01\\audit-regular-tue.json.gz",
+          "sha256": "12433c02ae29bd7d7b7479e75188152219320fd5bdca10ed437a2238fdcfd761"
+        }
+      ]
+    }
+  }
+}

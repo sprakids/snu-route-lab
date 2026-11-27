@@ -1,0 +1,58 @@
+{
+  "scope": "Post-hoc comparison of fixed-model flows; not an isolated causal ablation or empirical validation",
+  "boundary_convention": "Queue state arrival<=t<end; flows in (16:30,17:04], including zero-length visits on both sides. v1 kept: its interval used a different endpoint convention from its separate conservation check.",
+  "analysis_script_sha256": "b5c469e32846b928602246eec67d03ba4b7ffa7f9b1696f8c42b834d2dbe7383",
+  "cases": [
+    {
+      "model": "261115160710",
+      "audit_path": "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\261115160710\\runs\\direction-combined-regular-mon\\attempt_01\\audit-regular-mon.json.gz",
+      "audit_sha256": "9e04f71c84088edf28a7bcc68c799fc126fc8dcd379e6db1d0bbdb729b353f18",
+      "node": 62,
+      "window_seconds": [
+        59400,
+        61440
+      ],
+      "minute_mean_17_03": 4.292298601230161,
+      "flow": {
+        "minute_mean_from_wait_records": 4.292298601229154,
+        "arrivals": 40.10008630857578,
+        "exits": 35.36812649697613,
+        "exit_boarded": 35.36812649697613,
+        "queue_at_end": 4.7319598115996655
+      },
+      "arrival_original_mode_cohort": {
+        "city": 40.10008630857578
+      },
+      "arrivals_without_prior_changes": 39.95045912085722,
+      "arrivals_after_changes": 0.14962718771856648,
+      "mass_balance_error": 0.0
+    },
+    {
+      "model": "261116010854",
+      "audit_path": "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\261116010854\\runs\\queuefit-combined-regular-mon\\attempt_01\\audit-regular-mon.json.gz",
+      "audit_sha256": "3d95166ffbee7d1c7115bbff35fffec23bd813dee5d20a7abbff4cc4cb8a8620",
+      "node": 62,
+      "window_seconds": [
+        59400,
+        61440
+      ],
+      "minute_mean_17_03": 13.376720552680082,
+      "flow": {
+        "minute_mean_from_wait_records": 13.376720552679615,
+        "queue_at_start": 0.7200808408956013,
+        "exits": 25.82315881376259,
+        "exit_boarded": 25.82315881376259,
+        "arrivals": 39.35195036998295,
+        "queue_at_end": 14.24887239711599
+      },
+      "arrival_original_mode_cohort": {
+        "city": 39.35195036998295
+      },
+      "arrivals_without_prior_changes": 39.35195036998295,
+      "arrivals_after_changes": 0.0,
+      "mass_balance_error": -3.552713678800501e-15
+    }
+  ],
+  "parameters_changed": false,
+  "production_writes": false
+}

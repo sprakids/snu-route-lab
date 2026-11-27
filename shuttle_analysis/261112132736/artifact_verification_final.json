@@ -1,0 +1,110 @@
+{
+  "status": "PASS_ARTIFACT_CONSISTENCY",
+  "release_id": "261112132736",
+  "case_count": 10,
+  "same_seed_reference_check": "PASS",
+  "maximum_continuous_wait_minutes": 17.796308293732604,
+  "maximum_total_journey_minutes": 95.66304100803924,
+  "improved_case_counts_vs_V12": {
+    "mean_total": 8,
+    "p99_total": 10,
+    "max_total": 10
+  },
+  "mean_total_regressions": [
+    {
+      "day": "금",
+      "scenario": "regular",
+      "mean_minutes_before": 19.10214743469065,
+      "mean_minutes_after": 19.45495994206403,
+      "increase_minutes": 0.352812507373379
+    },
+    {
+      "day": "금",
+      "scenario": "peak",
+      "mean_minutes_before": 18.914008443405205,
+      "mean_minutes_after": 19.376676260119197,
+      "increase_minutes": 0.46266781671399215
+    }
+  ],
+  "mean_walking_increases": [
+    {
+      "day": "월",
+      "scenario": "regular",
+      "increase_minutes": 1.3679500127922992
+    },
+    {
+      "day": "화",
+      "scenario": "regular",
+      "increase_minutes": 1.3280799872352933
+    },
+    {
+      "day": "수",
+      "scenario": "regular",
+      "increase_minutes": 1.3111966317389872
+    },
+    {
+      "day": "목",
+      "scenario": "regular",
+      "increase_minutes": 1.1657072183160864
+    },
+    {
+      "day": "금",
+      "scenario": "regular",
+      "increase_minutes": 1.155496084392749
+    },
+    {
+      "day": "월",
+      "scenario": "peak",
+      "increase_minutes": 1.2261111929140522
+    },
+    {
+      "day": "화",
+      "scenario": "peak",
+      "increase_minutes": 1.1763272460541376
+    },
+    {
+      "day": "수",
+      "scenario": "peak",
+      "increase_minutes": 1.1900122182303772
+    },
+    {
+      "day": "목",
+      "scenario": "peak",
+      "increase_minutes": 1.322315510609414
+    },
+    {
+      "day": "금",
+      "scenario": "peak",
+      "increase_minutes": 1.1112572963509253
+    }
+  ],
+  "csv_rows": {
+    "grid-all-stops.csv": 990,
+    "grid-half-hour-waits.csv": 11461,
+    "grid-field-comparison.csv": 32,
+    "grid-journey-comparison.csv": 40,
+    "origin-assignment-comparison.csv": 8
+  },
+  "local_document_links_checked": 26,
+  "preserved_initial_access_path_fragment_checks": 618829,
+  "artifact_sha256": {
+    "RESULTS_FINAL.md": "4c9e2b316f7c683df526e8f5242f42894ec825b9c4af5fb6c4d5bb8dbd4c50af",
+    "README.md": "62e9790cf1feb03803a91b95dd04893a6a20cd6a7f4f08caa56e605795247839",
+    "release_recommendation_final.json": "90daf528b3768972189a2c9019bd00740c4b9cdde0268c38cb60e7dd459a7f54",
+    "grid-validation.json": "827109178d7f5f060e1a8a7487ca392fc11531d696d585f961b903868f4d14b7",
+    "grid-diagnostics.json": "0a58b0ce60db07355650f2533b463250b10684878714f5bdf952ab3b3b6e1412",
+    "final_verification.json": "8e49d654218a27ce3ad5e4134fb15a8998b999a0fb7adbd5f82c91c79c1d1e52",
+    "future_evaluation_plan.json": "ce30fcb6847fe202e965f28dacbc25da734e62e977e260f6ace392ac4d157013",
+    "protocol_clarification.json": "07c042f8107f81d8196688ab4bf3587eb602b0aacf548ebda012542d067cd237",
+    "ORIGIN_CONTRAST.md": "bc50a5673682f2544b57af428b68bdf4a937216976e1809560ca79bff378dc9e",
+    "boundary-tests.log": "0a07cc66c40d4e9647b6e4ebdc53999ebd87dfa587d2074ca001a8b5869b3180",
+    "grid-all-stops.csv": "b838aade34f2bbf2ded49f026bc6596e9a4f5fee5d813f0983bac5ea3823c8fa",
+    "grid-half-hour-waits.csv": "8f8524faab306d193421cf9cc51058de5fd48dd182f81c236160c60b7b6aac8a",
+    "grid-field-comparison.csv": "98ba8b7a9f21586be27d49bf85ea67dd8aa0da494c98d8ae02effe4831bdd400",
+    "grid-journey-comparison.csv": "fac3f33cc1d3f7e7049401d4250e19856897761ce408b0a09b308e11d7b2f29d",
+    "origin-assignment-comparison.csv": "772d1f45a03998a6cf7b244490c59e11a598f66bfd79256f35a3455764339bd2"
+  },
+  "known_remaining_constraints": "See release_recommendation_final.json: old field errors, named40-reference peaks and first-boardable prediction approximation",
+  "empirical_validation": "NOT_EVALUABLE",
+  "production_replacement_allowed": false
+}

@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "checks": [
+    "initial_shuttle_stays_loyal_below_personal_threshold",
+    "long_forecast_releases_eligibility_without_forced_exit",
+    "released_eligibility_survives_lower_wait_forecast",
+    "continued_wait_is_a_valid_choice_after_release",
+    "single_positive_release_assignment_is_guarded_by_eligibility_context"
+  ],
+  "scope": "Initial loyalty and allowed-review guard checks; does not reconstruct every unexported first-release timestamp",
+  "production_writes": false
+}

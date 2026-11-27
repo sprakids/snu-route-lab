@@ -1,0 +1,19 @@
+CITY_PROGRESS {"scenario": "regular", "weekday": "\ubaa9", "clock_seconds": 40800.0, "queue_weight": 133.3296199164799, "queued_states": 526}
+CITY_PROGRESS {"scenario": "regular", "weekday": "\ubaa9", "clock_seconds": 43200.0, "queue_weight": 168.55261292779215, "queued_states": 660}
+CITY_PROGRESS {"scenario": "regular", "weekday": "\ubaa9", "clock_seconds": 50400.0, "queue_weight": 620.2639951995177, "queued_states": 1713}
+CITY_PROGRESS {"scenario": "regular", "weekday": "\ubaa9", "clock_seconds": 57600.0, "queue_weight": 401.84936481233365, "queued_states": 1512}
+CITY_PROGRESS {"scenario": "regular", "weekday": "\ubaa9", "clock_seconds": 64800.0, "queue_weight": 306.6197051568897, "queued_states": 974}
+CITY_PROGRESS {"scenario": "regular", "weekday": "\ubaa9", "clock_seconds": 72000.0, "queue_weight": 31.290575519846225, "queued_states": 254}
+CITY_PROGRESS {"scenario": "regular", "weekday": "\ubaa9", "clock_seconds": 79200.0, "queue_weight": 31.226373319103185, "queued_states": 442}
+ADAPTIVE regular 목 {"scenario": "regular", "weekday": "목", "input_weight": 16517.0, "final_weight": 16517.0, "finished_weight": 16517.0, "unserved_trip_weight": 0, "full_particles": 63128, "render_dots": 7863, "capacity_checks": 43938, "capacity_violations": 0, "queue_min": 0.0, "max_queue": 154.45092202192868, "vehicles": 1459, "boarding_events": 53652, "switch_event_weight": 14283.200190455927, "switched_trip_weight": 6665.49603331538, "gate_boarding_weight": 1556.340262045387, "forecast_calls": 1753163, "mean_finished_trip_minutes": 26.64059947947972}
+CITY_DONE regular 목 {"scenario": "regular", "weekday": "\ubaa9", "input_weight": 16517.0, "final_weight": 16517.0, "finished_weight": 16517.0, "unserved_trip_weight": 0, "full_particles": 63128, "render_dots": 7863, "capacity_checks": 43938, "capacity_violations": 0, "queue_min": 0.0, "max_queue": 154.45092202192868, "vehicles": 1459, "boarding_events": 53652, "switch_event_weight": 14283.200190455927, "switched_trip_weight": 6665.49603331538, "gate_boarding_weight": 1556.340262045387, "forecast_calls": 1753163, "mean_finished_trip_minutes": 26.64059947947972, "city_vehicle_runs": 1019, "city_speed_revision": "campus_stop_corridors_20261108", "city_boarding_weight": 10138.574393744117, "city_denied_weight": 8872.35851893944, "city_unserved_weight": 0, "city_route_count": 8, "city_capacity_applied": true, "external_background_passengers_included": false, "actual_route_vehicle_capacities_verified": false, "walk_choice_behavior": true, "forced_reconsideration_weight": 0.0, "maximum_route_changes": null, "target_mean_route_changes": 1.0, "realized_mean_route_changes": 0.8647575340834248, "late_arrival_weight": 0}
+Traceback (most recent call last):
+  File "C:\Users\김예준\Documents\ChatGPT\공대 문제해결\shuttle_analysis\sillim_r320_experiment_2026-11-24\experiment.py", line 273, in <module>
+    run_experiment()
+  File "C:\Users\김예준\Documents\ChatGPT\공대 문제해결\shuttle_analysis\sillim_r320_experiment_2026-11-24\experiment.py", line 269, in run_experiment
+    save(OUTPUT/'independent_checks.json',core.check(b,SERVICE,DAY,'thu'))
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\김예준\Documents\ChatGPT\공대 문제해결\shuttle_analysis\simulation_viewer_2026-11-07\verify_walk_choice_core.py", line 102, in check
+    classends={p[0]:events[(p[0]-1)//48]['end_minute']*60 for p in plans}
+                    ~~~~~~^^^^^^^^^^^^^^
+IndexError: list index out of range

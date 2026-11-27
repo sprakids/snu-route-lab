@@ -1,0 +1,105 @@
+{
+  "status": "REGISTERED_BEFORE_EXECUTION",
+  "release_id": "261115153406",
+  "pilot_cases": [
+    {
+      "case": "strategy4-combined-regular-mon",
+      "mode": "combined",
+      "day": "월",
+      "scenario": "regular",
+      "seed": 0,
+      "operations": "v12_empirical"
+    },
+    {
+      "case": "strategy4-combined-regular-tue",
+      "mode": "combined",
+      "day": "화",
+      "scenario": "regular",
+      "seed": 0,
+      "operations": "v12_empirical"
+    },
+    {
+      "case": "strategy4-combined-regular-wed",
+      "mode": "combined",
+      "day": "수",
+      "scenario": "regular",
+      "seed": 0,
+      "operations": "v12_empirical"
+    },
+    {
+      "case": "strategy4-combined-regular-thu",
+      "mode": "combined",
+      "day": "목",
+      "scenario": "regular",
+      "seed": 0,
+      "operations": "v12_empirical"
+    },
+    {
+      "case": "strategy4-combined-regular-fri",
+      "mode": "combined",
+      "day": "금",
+      "scenario": "regular",
+      "seed": 0,
+      "operations": "v12_empirical"
+    },
+    {
+      "case": "strategy4-combined-peak-mon",
+      "mode": "combined",
+      "day": "월",
+      "scenario": "peak",
+      "seed": 0,
+      "operations": "v12_empirical"
+    },
+    {
+      "case": "strategy4-combined-peak-tue",
+      "mode": "combined",
+      "day": "화",
+      "scenario": "peak",
+      "seed": 0,
+      "operations": "v12_empirical"
+    },
+    {
+      "case": "strategy4-combined-peak-wed",
+      "mode": "combined",
+      "day": "수",
+      "scenario": "peak",
+      "seed": 0,
+      "operations": "v12_empirical"
+    },
+    {
+      "case": "strategy4-combined-peak-thu",
+      "mode": "combined",
+      "day": "목",
+      "scenario": "peak",
+      "seed": 0,
+      "operations": "v12_empirical"
+    },
+    {
+      "case": "strategy4-combined-peak-fri",
+      "mode": "combined",
+      "day": "금",
+      "scenario": "peak",
+      "seed": 0,
+      "operations": "v12_empirical"
+    },
+    {
+      "case": "ablation-gate-only-mon",
+      "mode": "combined",
+      "day": "월",
+      "scenario": "regular",
+      "seed": 0,
+      "operations": "v12_empirical",
+      "config_overrides": {
+        "learn_past_residual_seats": true
+      }
+    }
+  ],
+  "comparison_parent": "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\261112220847",
+  "change_scope": "Initial mode loyalty, earliest boardable city stop, heterogeneous patience, two-denial plus remaining queue trigger, no stop return, accessible destination walk, gate fallback, legal enroute boarding.",
+  "selection_rule": "Fixed final user-shaped scenario before outcomes; gate-only/history-enabled Monday ablation is diagnostic, not parameter tuning. Main Mon/Tue pilot then10main conditions if behavior and physics pass; all20min/patience/unserved diagnostics disclosed.",
+  "new_day_outcomes_opened": false,
+  "pristine_empirical_validation": false,
+  "production_replacement_allowed": false,
+  "implementation_parent": "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\261115151942",
+  "refinement_reason": "Observed SNU last-resort gate departure led back into campus and59min waits. Gate becomes final waiting strategy. Separately disclose/sensitivity-test the old hard zero future-seat proxy; no actual supply or load changed."
+}

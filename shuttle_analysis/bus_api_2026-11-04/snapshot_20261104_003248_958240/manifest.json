@@ -1,0 +1,137 @@
+{
+  "started_at_kst": "2026-11-04T00:32:48.958240+09:00",
+  "mode": "one_snapshot_no_scheduler",
+  "requested_routes": [
+    "관악02-1",
+    "관악02-2"
+  ],
+  "position_provider": "서울특별시 버스위치정보조회 OpenAPI",
+  "route_and_stop_provider": "서울시 공식 모바일 버스정보 웹사이트의 조회 인터페이스",
+  "interpretation": "Vehicle congestion, not stop queue size or exact passenger count. All route vehicles, not a campus-boundary filter.",
+  "requests": [
+    {
+      "endpoint": "http://m.bus.go.kr/mBus/bus/getBusRouteList.bms",
+      "method": "POST",
+      "params": {
+        "strSrch": "%EA%B4%80%EC%95%8502"
+      },
+      "requested_at_kst": "2026-11-04T00:32:48.958761+09:00",
+      "http_status": 200,
+      "content_type": "application/x-json;charset=UTF-8",
+      "received_at_kst": "2026-11-04T00:32:49.059602+09:00",
+      "response_sha256_before_redaction": "6bd93756f70068380716f46036d50388bdab0ac91512ce5a96f580b7eb5f4dfa",
+      "credential_redacted_from_response": false,
+      "response_file": "search_관악02.json"
+    },
+    {
+      "endpoint": "http://m.bus.go.kr/mBus/bus/getRouteAndPos.bms",
+      "method": "POST",
+      "params": {
+        "busRouteId": "120900011"
+      },
+      "requested_at_kst": "2026-11-04T00:32:49.066522+09:00",
+      "http_status": 200,
+      "content_type": "application/x-json;charset=UTF-8",
+      "received_at_kst": "2026-11-04T00:32:49.103410+09:00",
+      "response_sha256_before_redaction": "bb956434c0878c1400648fd2b78e7e12d0ef93374e234e0747b60824bab206c0",
+      "credential_redacted_from_response": false,
+      "response_file": "stops_관악02-1.json"
+    },
+    {
+      "endpoint": "http://ws.bus.go.kr/api/rest/buspos/getBusPosByRtid",
+      "method": "GET",
+      "params": {
+        "busRouteId": "120900011",
+        "resultType": "json"
+      },
+      "requested_at_kst": "2026-11-04T00:32:49.104556+09:00",
+      "http_status": 200,
+      "content_type": "application/json;charset=utf-8",
+      "received_at_kst": "2026-11-04T00:32:49.148459+09:00",
+      "response_sha256_before_redaction": "9ccf8bfe5458ffd0dabd297fcabfcb793bb5ca6dd33c5318a5d30203571a556c",
+      "credential_redacted_from_response": false,
+      "response_file": "positions_관악02-1.json",
+      "api_header": {
+        "headerMsg": "결과가 없습니다.",
+        "headerCd": "4",
+        "itemCount": 0
+      }
+    },
+    {
+      "endpoint": "http://m.bus.go.kr/mBus/bus/getRouteAndPos.bms",
+      "method": "POST",
+      "params": {
+        "busRouteId": "120900012"
+      },
+      "requested_at_kst": "2026-11-04T00:32:49.066827+09:00",
+      "http_status": 200,
+      "content_type": "application/x-json;charset=UTF-8",
+      "received_at_kst": "2026-11-04T00:32:49.103762+09:00",
+      "response_sha256_before_redaction": "a90bc332ce36a17d45b0a1a2d39b7f88fef4bebea11f731c2b9c51576d396c88",
+      "credential_redacted_from_response": false,
+      "response_file": "stops_관악02-2.json"
+    },
+    {
+      "endpoint": "http://ws.bus.go.kr/api/rest/buspos/getBusPosByRtid",
+      "method": "GET",
+      "params": {
+        "busRouteId": "120900012",
+        "resultType": "json"
+      },
+      "requested_at_kst": "2026-11-04T00:32:49.105099+09:00",
+      "http_status": 200,
+      "content_type": "application/json;charset=utf-8",
+      "received_at_kst": "2026-11-04T00:32:49.148568+09:00",
+      "response_sha256_before_redaction": "fe384462f007d308ec6ec89142388384ef614c1447910170dbbdb0a916007a0c",
+      "credential_redacted_from_response": false,
+      "response_file": "positions_관악02-2.json",
+      "api_header": {
+        "headerMsg": "결과가 없습니다.",
+        "headerCd": "4",
+        "itemCount": 0
+      }
+    }
+  ],
+  "unresolved_routes": [],
+  "route_summaries": [
+    {
+      "route_name": "관악02-1",
+      "route_id": "120900011",
+      "api_success": false,
+      "query_accepted": true,
+      "service_status": "no_results",
+      "http_status": 200,
+      "api_header": {
+        "headerMsg": "결과가 없습니다.",
+        "headerCd": "4",
+        "itemCount": 0
+      },
+      "stop_count": 39,
+      "vehicle_record_count": 0,
+      "running_record_count": 0,
+      "congestion_counts": {},
+      "captured_at_kst": "2026-11-04T00:32:49.148459+09:00"
+    },
+    {
+      "route_name": "관악02-2",
+      "route_id": "120900012",
+      "api_success": false,
+      "query_accepted": true,
+      "service_status": "no_results",
+      "http_status": 200,
+      "api_header": {
+        "headerMsg": "결과가 없습니다.",
+        "headerCd": "4",
+        "itemCount": 0
+      },
+      "stop_count": 34,
+      "vehicle_record_count": 0,
+      "running_record_count": 0,
+      "congestion_counts": {},
+      "captured_at_kst": "2026-11-04T00:32:49.148568+09:00"
+    }
+  ],
+  "finished_at_kst": "2026-11-04T00:32:49.150552+09:00",
+  "complete": true,
+  "vehicle_record_count": 0
+}

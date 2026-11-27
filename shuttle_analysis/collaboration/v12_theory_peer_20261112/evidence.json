@@ -1,0 +1,330 @@
+{
+  "scope": "old frozen Tuesday V12 audit; algebra and isolated decision functions only; no new simulator run/new-day outcome/source edits",
+  "reviewed_at": "2026-11-12T13:16:55.641520+09:00",
+  "source_sha256": {
+    "261112111627\\preferences.py": "a9fb89e256c83d035155852f118e8624bbeb6076f04a232f1fa0600759a6011d",
+    "261112111627\\policy.py": "5708c7f1ac865762dfef082cef2ff168d4cd08902fe0575307eef56b487cc40f",
+    "261112111627\\engine.py": "fc92cf876588d2a67a9f3a5efbb27f5f0ab0767238866ae4f6e1982c0f6e3901",
+    "261112111627\\hazard.py": "6a37635687d25e0210749e30598d0494f0c16e586d0fa095b0def9fe6b49cc18",
+    "261112111627\\config.json": "6651948a92014b86de073b3ba986210cbf3c4fd34a7f016c5635d28f413714ab",
+    "261112111627\\runs\\v12_empirical-combined-regular-tue\\attempt_01\\audit-regular-tue.json.gz": "05a982f905433a352c4d5115c865f3efd1d896b28b30a4a7a62460292496831a",
+    "261112111627\\runs\\v12_empirical-combined-regular-tue\\attempt_01\\result.json": "b7b20419ed032f7776d7fd57cdac734726bbd16ffe9dcc8b256f81e530f1c95b"
+  },
+  "source_unchanged": true,
+  "effective_config": {
+    "behavior": "sequential",
+    "boarding_choice": true,
+    "origin_choice": true,
+    "choice_temperature_minutes": 2.0,
+    "integrate_future_wait_discomfort": true,
+    "waiting_discomfort_age_scale_seconds": 600,
+    "repeat_multiplier": 0.3
+  },
+  "noise_check": {
+    "fixed_person_traits": {
+      "walk": 1.9700831532638352,
+      "wait": 0.6763528346416241,
+      "vot": 13453.163525703283,
+      "transfer": 2.1072453572109566,
+      "change": 1.204503263420996,
+      "crowd": 0.49475313633046664,
+      "response": 0.7844322816658689,
+      "fatigue": 0.19830431186287717
+    },
+    "same_event_repeated": [
+      "stay",
+      "stay",
+      "stay",
+      "stay",
+      "stay",
+      "stay",
+      "stay",
+      "stay",
+      "stay",
+      "stay"
+    ],
+    "different_events_same_costs": [
+      "stay",
+      "stay",
+      "stay",
+      "stay",
+      "switch",
+      "stay",
+      "stay",
+      "stay",
+      "switch",
+      "switch",
+      "stay",
+      "stay",
+      "stay",
+      "switch",
+      "stay",
+      "stay",
+      "switch",
+      "switch",
+      "switch",
+      "stay"
+    ],
+    "illustrative_stay_cost": 10.0,
+    "illustrative_switch_cost": 12.0,
+    "one_review_switch_probability": 0.2689414213699951,
+    "ten_independent_same_cost_reviews_any_switch_probability": 0.9563964572058713,
+    "is_empirical_behavior_estimate": false
+  },
+  "age_reset_algebra": {
+    "current_local_age_seconds": 900.0,
+    "remaining_wait_seconds": 300.0,
+    "extra_cost_if_stay_minutes_at_wait_coefficient1": 15.416666666666666,
+    "extra_cost_if_age_reset_minutes_at_wait_coefficient1": 0.4166666666666667,
+    "cost_drop_minutes": 15.0,
+    "physical_wait_added_or_deleted": 0,
+    "hypothetical_two_minute_walk_plus_first_change_cost_minutes": 5.5,
+    "is_empirical_behavior_estimate": false
+  },
+  "two_stage_algebra": {
+    "cost_minutes": {
+      "board": 12.0,
+      "wait": 10.0,
+      "walk": 11.0
+    },
+    "flat_joint_logit_probabilities": {
+      "board": 0.1863237232258476,
+      "wait": 0.5064803910556541,
+      "walk": 0.3071958857184984
+    },
+    "board_wait_then_wait_walk_probabilities": {
+      "board": 0.26894142136999516,
+      "wait": 0.45505423392341116,
+      "walk": 0.2760043447065936
+    },
+    "need_inclusive_value_or_same_joint_action_set_for_equivalent_static_RUM": true,
+    "actual_boarding_early_return_when_future_none": true,
+    "is_claim_all_sequential_models_are_invalid": false
+  },
+  "old_audit": {
+    "decision_record_unit": "weighted simulated lineage events; not independent people",
+    "voluntary_boarding_decline_records": 23971,
+    "declines_when_deterministic_board_cost_lower": 2686,
+    "decline_then_same_uid_node_switch_within_10ms_records": 7981,
+    "paired_count_is_not_unique_people_or_causal_attribution": true,
+    "paired_first_examples": [
+      {
+        "uid": 2747584,
+        "node": 77,
+        "decline_at": 32308.152410823608,
+        "switch_at": 32308.15341082361,
+        "delay_seconds": 0.0010000000002037268,
+        "weight": 0.11873468037990373,
+        "available": 47.347844666163475,
+        "board_cost": 38.554191716750424,
+        "wait_cost": 37.055007024133104,
+        "new_kind": "walk_transfer",
+        "new_eta": 33265.41648896301
+      },
+      {
+        "uid": 2747488,
+        "node": 78,
+        "decline_at": 32380.819686108036,
+        "switch_at": 32380.820686108036,
+        "delay_seconds": 0.0010000000002037268,
+        "weight": 0.24314418004267055,
+        "available": 47.347844666163475,
+        "board_cost": 19.412937445312323,
+        "wait_cost": 17.33551685854542,
+        "new_kind": "walk_transfer",
+        "new_eta": 33093.80001977316
+      },
+      {
+        "uid": 2747280,
+        "node": 76,
+        "decline_at": 32453.283770744943,
+        "switch_at": 32453.284770744944,
+        "delay_seconds": 0.0010000000002037268,
+        "weight": 0.10557863100665248,
+        "available": 47.9150615005645,
+        "board_cost": 12.61826391131464,
+        "wait_cost": 14.380375789201569,
+        "new_kind": "walk_transfer",
+        "new_eta": 32903.532737955706
+      },
+      {
+        "uid": 2747296,
+        "node": 77,
+        "decline_at": 32530.605261244997,
+        "switch_at": 32530.606261244997,
+        "delay_seconds": 0.0010000000002037268,
+        "weight": 0.10557863100665248,
+        "available": 47.90582379056191,
+        "board_cost": 991.9798849993884,
+        "wait_cost": 9.870663545183906,
+        "new_kind": "walk",
+        "new_eta": 32805.37138437308
+      },
+      {
+        "uid": 2457232,
+        "node": 69,
+        "decline_at": 36122.06547086918,
+        "switch_at": 36122.06647086918,
+        "delay_seconds": 0.000999999996565748,
+        "weight": 0.48407215847191526,
+        "available": 50.0,
+        "board_cost": 18.230581224541076,
+        "wait_cost": 18.95512764805402,
+        "new_kind": "walk_transfer",
+        "new_eta": 37702.87417374876
+      },
+      {
+        "uid": 4163392,
+        "node": 57,
+        "decline_at": 38984.53371948808,
+        "switch_at": 38984.534719488074,
+        "delay_seconds": 0.000999999996565748,
+        "weight": 0.4060716577178942,
+        "available": 49.12883129304971,
+        "board_cost": 25.740468789207718,
+        "wait_cost": 24.959265300605864,
+        "new_kind": "walk_transfer",
+        "new_eta": 39758.51887483927
+      },
+      {
+        "uid": 138304,
+        "node": 55,
+        "decline_at": 39001.29950778394,
+        "switch_at": 39001.30050778393,
+        "delay_seconds": 0.000999999996565748,
+        "weight": 0.5441360213419781,
+        "available": 44.42855774932059,
+        "board_cost": 18.00847820510999,
+        "wait_cost": 16.444122013803934,
+        "new_kind": "walk_transfer",
+        "new_eta": 39758.51887483927
+      },
+      {
+        "uid": 4060033,
+        "node": 53,
+        "decline_at": 39026.666729019984,
+        "switch_at": 39026.66772901998,
+        "delay_seconds": 0.000999999996565748,
+        "weight": 0.8603563293817573,
+        "available": 20.073974332705713,
+        "board_cost": 26.545891067163474,
+        "wait_cost": 25.962576128118148,
+        "new_kind": "walk_transfer",
+        "new_eta": 40092.08597410038
+      }
+    ],
+    "worst_lineage": {
+      "uid": 2975008,
+      "weight": 0.4749387215196149,
+      "parent_id": 185938,
+      "start": 55154.5242586646,
+      "finish": 64974.85014158992,
+      "total_minutes": 163.6720980487554,
+      "changes": 11,
+      "history": [
+        [
+          55557.67334798154,
+          "walk_transfer",
+          "도보→농생대 · 교내 역순환 셔틀 / 관악02-1"
+        ],
+        [
+          56008.03465241746,
+          "walk_transfer",
+          "도보→공대입구 · 5516 / 관악02-2"
+        ],
+        [
+          56454.51994558741,
+          "walk_transfer",
+          "도보→행정관 · 대학동 셔틀(시간표) / 관악02-2"
+        ],
+        [
+          57600.001,
+          "walk_transfer",
+          "도보→자연대.행정관입구 · 5516 / 관악02-1"
+        ],
+        [
+          57835.317668309115,
+          "walk_transfer",
+          "도보→자연대 · 교내 역순환 셔틀 / 관악02-1"
+        ],
+        [
+          58446.543457492684,
+          "transit",
+          "대학동 셔틀(시간표) / 관악02-2"
+        ],
+        [
+          58800.001,
+          "transit",
+          "교내 역순환 셔틀 / 관악02-1"
+        ],
+        [
+          59596.952211693955,
+          "transit",
+          "5513 / 관악02-1"
+        ],
+        [
+          61065.11315379987,
+          "walk_transfer",
+          "도보→기숙사삼거리 · 교내 순환 셔틀 / 관악02-2"
+        ],
+        [
+          61429.31217314806,
+          "walk_transfer",
+          "도보→대학원생활관 · 관악02-1"
+        ],
+        [
+          62141.00706771553,
+          "walk_transfer",
+          "도보→관악사삼거리 · 5516 / 관악02-1"
+        ]
+      ],
+      "minutes_by_leg_kind": {
+        "0": 33.67666806941646,
+        "1": 87.90988873425728,
+        "3": 42.08554124508167
+      },
+      "maximum_continuous_wait_minutes": 11.023104906486454,
+      "same_uid_voluntary_decline_records": 9,
+      "slower_predicted_eta_switch_records": 3,
+      "slower_predicted_eta_switch_examples": [
+        {
+          "time": 56454.51994558741,
+          "origin": 56,
+          "target": 42,
+          "reason": "service_rejected_or_full",
+          "old_eta": 59574.27015801218,
+          "new_eta": 60007.288035626945,
+          "change_count_before": 2,
+          "continuous_wait_seconds": 265.46781400479085
+        },
+        {
+          "time": 58446.543457492684,
+          "origin": 21,
+          "target": 42,
+          "reason": "queue_recheck",
+          "old_eta": 61638.757017888754,
+          "new_eta": 61690.46406316418,
+          "change_count_before": 5,
+          "continuous_wait_seconds": 555.2906604693271
+        },
+        {
+          "time": 62141.00706771553,
+          "origin": 92,
+          "target": 71,
+          "reason": "queue_recheck",
+          "old_eta": 63525.20645377266,
+          "new_eta": 64478.35484027845,
+          "change_count_before": 10,
+          "continuous_wait_seconds": 563.747597816131
+        }
+      ],
+      "physical_time_reconciles": true
+    }
+  },
+  "not_established": [
+    "fraction of total V12 tail error causally attributable to each mechanism",
+    "which mechanism explains observed queue-count mismatch",
+    "empirical SNU parameter estimates",
+    "post-fix performance"
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "status": "IMPLEMENTED_AND_LOCALLY_VERIFIED_DEPLOYMENT_AUTH_REQUIRED",
+  "checked_at": "2026-11-10T15:55:35.637593+09:00",
+  "tests": {
+    "total": 83,
+    "failed": 0,
+    "groups": [
+      {
+        "names": [
+          "test_shuttle_supply",
+          "test_queue_model_sync_before_5_new_upgrade_tests"
+        ],
+        "count": 22,
+        "seconds": 16.4
+      },
+      {
+        "names": [
+          "test_automatic_queue",
+          "test_queue_readiness",
+          "test_all_shuttles",
+          "test_city_operations"
+        ],
+        "count": 49,
+        "seconds": 11.411
+      },
+      {
+        "names": [
+          "5_new_supply_sync_tests",
+          "test_shuttle_timetable"
+        ],
+        "count": 12,
+        "seconds": 9.012
+      }
+    ]
+  },
+  "files": {
+    "automatic_queue.py": "8f371d75c21d6a569bd88e443d379b19c5c1f79c999b7fbbdc36dab4945cce96",
+    "queue_release.py": "d9f015d1f2874e67931c29cc2870bd45829a0b694d7d370378e2dc48defbc571",
+    "queue_model_sync.py": "e00db06aa19dc4c4d08c6b351ea631180939dfaa5b68835aa62686e369798d06",
+    "prepare_latest_queue.py": "d908de9d8cc55969fd1aa876cd8285093d35f472ffed29ed598e27a5a8a681c1",
+    "prepare_shuttle_queue.py": "46bf341880b3f9c25e1ce2b2889043e96ac8dda79265675649c85289a103c2bc",
+    "test_queue_model_sync.py": "f53727040709f439a71abdbed2500cc2921052feacabcb81c19730a33dbc940c",
+    "shuttle_supply.py": "d44b4624b109adb9a2b46ce60045d65cf017541bef6e317928969a09cb4b4f58",
+    "test_shuttle_supply.py": "0a53a3d8d75f153c01be211b9675676d53c67d170b6b31a3dab7b70547244f08"
+  },
+  "capacity_periods_contract": {
+    "start_second": 75600,
+    "capacity": 60,
+    "basis": "original_terminal_dispatch_service_day_seconds"
+  },
+  "pair_scenario": {
+    "start_second": 54000,
+    "end_second": 68400,
+    "vehicles": 2,
+    "window_is_assumed_not_measured": true,
+    "vehicle_capacity": 44,
+    "source_headways_unchanged": true
+  },
+  "compatibilities": {
+    "scalar_legacy": "7ce2316538b6ff26743a5e60a36041c613465091e64563170497ad51b8ca89d2",
+    "44_single": "d55ae84edbee58b42c8d2d641fa50075e157a197fa159e93e10caab9aa1d0c2d",
+    "44_pair": "7697fd385ae668473eb5f67b869bb2fe6c2e4b31acc987d837ec0731ab41cb1b"
+  },
+  "reader_info_capability": "original_terminal_dispatch_capacity_and_batches_v1",
+  "app_seed_preserved": true,
+  "app_seed_sha256": "f63baef24b285d544755a0df4adb50706fa1efe7ef7e8189190667e47a1a133e",
+  "protected_assets_preserved": 86,
+  "shuttle_clock_preserved": true,
+  "personal_adaptive_policy_changed": false,
+  "ui_changed": false,
+  "production_deployed": false,
+  "latest_pointer_changed": false,
+  "source_model_promotion_performed": false,
+  "deployment_block": {
+    "mcp": "403 team scope authorization expired",
+    "cli": "login_required at deploy --dry; saved login expired",
+    "source_uploaded": false,
+    "team_reauthorization_attempts": [
+      {
+        "selector": "known_team_id",
+        "error": "404 Team not found"
+      },
+      {
+        "selector": "known_team_slug",
+        "error": "404 Team not found"
+      }
+    ],
+    "consent_url_generated": false
+  },
+  "last_verified_public_model": "261110150729",
+  "public_reader_support_present": false,
+  "independent_predictive_accuracy_validated": false
+}

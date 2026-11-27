@@ -1,0 +1,36 @@
+{
+  "status": "PASS_FROZEN_CODE_AND_FORECAST_REVIEW_WITH_LIMITATIONS",
+  "source_hashes_reviewed": {
+    "common.py": "5fbbfed8eee0bbc20451b26dd5687d1e552e2a33c4e83e23aeb4b69a8044f2c9",
+    "train_and_freeze.py": "3ebbc89d61b2a1bda9b85798b797113086fa2c8cf058deef7cdfe1b8c161fbd7",
+    "experiment_plan.json": "690b99ccf0a13189181053cc403307f6892c1ecdeced803733be4f2a6fef40d0",
+    "selection_frozen.json": "cd9a0a2f5ccc3e28ad7e588f02561d343b29340dbd2aa58fcddf80c42ccd5066",
+    "frozen_models.json": "e185ea0740ceac1fcac29bf82586c0a78e755c894accea056ab1afeb4d31d921",
+    "frozen_test_predictions.csv": "e3e8f8dc40dc60700145e7ed5f2553f7bb8458485e352c5d9d6291f6913708bb"
+  },
+  "test_observation_files_read": false,
+  "keys_read": false,
+  "api_calls": 0,
+  "model_or_hyperparameters_changed": false,
+  "training_main_executed": false,
+  "quadratic_reference_examples": [
+    "orthogonal box optimum",
+    "inactive components",
+    "ridge collinearity",
+    "zero features"
+  ],
+  "lag_12_uses_11_hour_synthetic_check": true,
+  "class_centering_uses_valid_target_rows_synthetic_check": true,
+  "nonzero_background_mean_counterexample_confirmed": true,
+  "frozen_forecast_rows": 17094,
+  "frozen_forecast_dates": 6,
+  "forecasts_and_model_match_selection_receipt_hashes": true,
+  "class_centering_max_abs_final_primary": 6.821210263296962e-14,
+  "lag_centering_max_abs_final_primary": 6.821210263296962e-14,
+  "background_mean_max_abs_final_primary": 4.973799150320701e-14,
+  "selection_within_each_family_reproduced": true,
+  "all_tuning_candidates_same_observation_count_and_sum": true,
+  "common_py_hash_present_in_original_freeze_receipt": false,
+  "point_in_time_operational_forecast_validated": false,
+  "test_performance_reviewed": false
+}

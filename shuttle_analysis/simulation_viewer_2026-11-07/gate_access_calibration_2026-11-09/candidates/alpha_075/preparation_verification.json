@@ -1,0 +1,43 @@
+{
+  "status": "PASS",
+  "metadata": {
+    "model_id": "261109171256",
+    "algorithm_id": "provisional_initial_gate_access_v1",
+    "alpha": 0.75,
+    "walking_cutoff_seconds": 900.0,
+    "probability_rule": "alpha * max(0, 1 - individual_gate_walk_seconds / 900)",
+    "gate_ars": "21128",
+    "source_simulation": "capacity_v5",
+    "source_sha256": "46243bdb22b769e3ed1fdbff270d0df74b8ffc55e91c80ab4594f1597288eb55",
+    "observations_used_for_candidate_selection": [
+      "admin_snu_1653",
+      "culture_1655",
+      "snu_gate_1703"
+    ],
+    "observation_second": "unknown; uniform within reported minute",
+    "independent_validation": false,
+    "observed_mode_shares": false,
+    "new_demand_added": false,
+    "timetable_speed_capacity_changed": false,
+    "candidate_only": true
+  },
+  "eligible_particles": 36136,
+  "rerouted_particles": 6034,
+  "total_weight_by_day": {
+    "월": 18885.5,
+    "금": 6004.0,
+    "화": 17683.5,
+    "수": 19079.0,
+    "목": 16517.0
+  },
+  "rerouted_weight_by_day": {
+    "월": 707.1006823610218,
+    "금": 361.985573888143,
+    "화": 634.2135385436181,
+    "수": 770.8605677276004,
+    "목": 570.5097633724353
+  },
+  "demand_mass_max_error": 4.18367562815547e-09,
+  "same_ids_weights_origins_destinations_departures": true,
+  "same_vehicle_supply_and_speed": true
+}

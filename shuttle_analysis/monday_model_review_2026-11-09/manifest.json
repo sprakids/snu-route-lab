@@ -1,0 +1,44 @@
+{
+  "created_at_kst": "2026-11-09T23:45:26.732251+09:00",
+  "date": "2026-11-09",
+  "scope": "read-only snapshot of retained Monday records; no upstream collection triggered",
+  "files": [
+    {
+      "path": "sources/collector-2026-11-09.json.gz",
+      "source_endpoint": "/export?day=2026-11-09",
+      "bytes": 4291289,
+      "sha256": "6b0545020a896ac7118f3b741bedacf3ca6b4c84312df0db725b4af52eef3737"
+    },
+    {
+      "path": "sources/collector-snapshot.private.json",
+      "source_endpoint": "/snapshot",
+      "bytes": 67621,
+      "sha256": "b9032162cc0e3d02382b2a741229c5ded3bde9173d19ab36ab7c1a98f6e5b0bd"
+    },
+    {
+      "path": "sources/saved-manual-observations.private.json",
+      "source_endpoint": "/observations",
+      "bytes": 14,
+      "sha256": "1b8b4c0b6f6ad1d32565952720bc004eeb1f188f62045e4d5525ae2af8c78432"
+    },
+    {
+      "path": "sources/collector-aggregate.private.json",
+      "source_endpoint": "/aggregate?day=2026-11-09",
+      "bytes": 1124311,
+      "sha256": "8550f9928b7051cdcdb6cdf5e17c2c5fd2c4f8137e3c67feaa8a1a1704c1daad"
+    },
+    {
+      "path": "sources/route_stops.json",
+      "source_local": "collector/route_stops.json",
+      "bytes": 80391,
+      "sha256": "f9e0a7a893fd34f1c6284e6f1823ded165b83f5d158a81cf3317f4cde3f035a5"
+    },
+    {
+      "path": "sources/network.json",
+      "source_local": "app/data/network.json",
+      "bytes": 82876,
+      "sha256": "d1ca30630a101ee6164646106b0595440633c1f752d91b78e5dad3e438dc7d5c"
+    }
+  ],
+  "not_for_public_static_deployment": true
+}

@@ -1,0 +1,86 @@
+..................................E.EE.................................................
+======================================================================
+ERROR: test_cancelled_before_ready_keeps_visit_not_ready_entry (test_prototype.IntegrationTests.test_cancelled_before_ready_keeps_visit_not_ready_entry)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\김예준\Documents\ChatGPT\공대 문제해결\shuttle_analysis\261112220847\test_prototype.py", line 207, in test_cancelled_before_ready_keeps_visit_not_ready_entry
+    with patch('policy.choose',side_effect=pick):data,audit=self.run_case(b)
+                                                            ^^^^^^^^^^^^^^^^
+  File "C:\Users\김예준\Documents\ChatGPT\공대 문제해결\shuttle_analysis\261112220847\test_prototype.py", line 147, in run_case
+    with contextlib.redirect_stdout(io.StringIO()):data=engine.simulate(bundle,'월','regular')
+                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\김예준\Documents\ChatGPT\공대 문제해결\shuttle_analysis\261112220847\engine.py", line 547, in simulate
+    if maybe_switch(state,t,'arrival'):continue
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\김예준\Documents\ChatGPT\공대 문제해결\shuttle_analysis\261112220847\policy.py", line 222, in maybe_switch
+    selected=choose(candidates,identity,('reroute',state['visit'],state['review_ordinal']),config,
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\김예준\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\unittest\mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\김예준\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\unittest\mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\김예준\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\unittest\mock.py", line 1204, in _execute_mock_call
+    result = effect(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: IntegrationTests.test_cancelled_before_ready_keeps_visit_not_ready_entry.<locals>.pick() got an unexpected keyword argument 'completed_changes'
+
+======================================================================
+ERROR: test_full_service_triggers_real_alternative_choice_without_time_cutoff (test_prototype.IntegrationTests.test_full_service_triggers_real_alternative_choice_without_time_cutoff)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\김예준\Documents\ChatGPT\공대 문제해결\shuttle_analysis\261112220847\test_prototype.py", line 170, in test_full_service_triggers_real_alternative_choice_without_time_cutoff
+    with patch('policy.choose',side_effect=pick):data,audit=self.run_case(b)
+                                                            ^^^^^^^^^^^^^^^^
+  File "C:\Users\김예준\Documents\ChatGPT\공대 문제해결\shuttle_analysis\261112220847\test_prototype.py", line 147, in run_case
+    with contextlib.redirect_stdout(io.StringIO()):data=engine.simulate(bundle,'월','regular')
+                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\김예준\Documents\ChatGPT\공대 문제해결\shuttle_analysis\261112220847\engine.py", line 556, in simulate
+    if not maybe_switch(state,t,reason):reschedule(state,t)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\김예준\Documents\ChatGPT\공대 문제해결\shuttle_analysis\261112220847\policy.py", line 222, in maybe_switch
+    selected=choose(candidates,identity,('reroute',state['visit'],state['review_ordinal']),config,
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\김예준\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\unittest\mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\김예준\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\unittest\mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\김예준\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\unittest\mock.py", line 1204, in _execute_mock_call
+    result = effect(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: IntegrationTests.test_full_service_triggers_real_alternative_choice_without_time_cutoff.<locals>.pick() got an unexpected keyword argument 'completed_changes'
+
+======================================================================
+ERROR: test_missed_preparation_service_triggers_review_without_changing_ready_clock (test_prototype.IntegrationTests.test_missed_preparation_service_triggers_review_without_changing_ready_clock)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\김예준\Documents\ChatGPT\공대 문제해결\shuttle_analysis\261112220847\test_prototype.py", line 181, in test_missed_preparation_service_triggers_review_without_changing_ready_clock
+    with patch('policy.choose',side_effect=pick):data,audit=self.run_case(b)
+                                                            ^^^^^^^^^^^^^^^^
+  File "C:\Users\김예준\Documents\ChatGPT\공대 문제해결\shuttle_analysis\261112220847\test_prototype.py", line 147, in run_case
+    with contextlib.redirect_stdout(io.StringIO()):data=engine.simulate(bundle,'월','regular')
+                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\김예준\Documents\ChatGPT\공대 문제해결\shuttle_analysis\261112220847\engine.py", line 556, in simulate
+    if not maybe_switch(state,t,reason):reschedule(state,t)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\김예준\Documents\ChatGPT\공대 문제해결\shuttle_analysis\261112220847\policy.py", line 222, in maybe_switch
+    selected=choose(candidates,identity,('reroute',state['visit'],state['review_ordinal']),config,
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\김예준\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\unittest\mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\김예준\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\unittest\mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\김예준\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\unittest\mock.py", line 1204, in _execute_mock_call
+    result = effect(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: IntegrationTests.test_missed_preparation_service_triggers_review_without_changing_ready_clock.<locals>.pick() got an unexpected keyword argument 'completed_changes'
+
+----------------------------------------------------------------------
+Ran 87 tests in 10.549s
+
+FAILED (errors=3)

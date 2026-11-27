@@ -1,0 +1,1069 @@
+{
+  "model": "v7 alpha_075 saved peak runs",
+  "nodes": {
+    "46": {
+      "id": "city|120000167",
+      "route": "city",
+      "board": -1,
+      "stop_id": "120000167",
+      "ars": "21269",
+      "name": "서울대정문",
+      "label": "서울대정문 · 시내버스",
+      "lat": 37.465733,
+      "lon": 126.94839,
+      "city": true,
+      "services": [
+        {
+          "rid": "100100250",
+          "board": 4,
+          "route_name": "5511",
+          "seq": 5
+        },
+        {
+          "rid": "100100251",
+          "board": 36,
+          "route_name": "5513",
+          "seq": 37
+        },
+        {
+          "rid": "100100253",
+          "board": 56,
+          "route_name": "5516",
+          "seq": 57
+        }
+      ]
+    },
+    "47": {
+      "id": "city|120000168",
+      "route": "city",
+      "board": -1,
+      "stop_id": "120000168",
+      "ars": "21270",
+      "name": "법대.사회대입구",
+      "label": "법대.사회대입구 · 시내버스",
+      "lat": 37.462798,
+      "lon": 126.948992,
+      "city": true,
+      "services": [
+        {
+          "rid": "100100250",
+          "board": 5,
+          "route_name": "5511",
+          "seq": 6
+        },
+        {
+          "rid": "100100251",
+          "board": 37,
+          "route_name": "5513",
+          "seq": 38
+        },
+        {
+          "rid": "100100253",
+          "board": 57,
+          "route_name": "5516",
+          "seq": 58
+        },
+        {
+          "rid": "120900012",
+          "board": 16,
+          "route_name": "관악02-2",
+          "seq": 17
+        }
+      ]
+    },
+    "60": {
+      "id": "city|120000196",
+      "route": "city",
+      "board": -1,
+      "stop_id": "120000196",
+      "ars": "21298",
+      "name": "법대.사회대입구",
+      "label": "법대.사회대입구 · 시내버스",
+      "lat": 37.46326,
+      "lon": 126.949075,
+      "city": true,
+      "services": [
+        {
+          "rid": "100100250",
+          "board": 18,
+          "route_name": "5511",
+          "seq": 19
+        },
+        {
+          "rid": "100100253",
+          "board": 15,
+          "route_name": "5516",
+          "seq": 16
+        },
+        {
+          "rid": "120900012",
+          "board": 18,
+          "route_name": "관악02-2",
+          "seq": 19
+        }
+      ]
+    },
+    "61": {
+      "id": "city|120000197",
+      "route": "city",
+      "board": -1,
+      "stop_id": "120000197",
+      "ars": "21299",
+      "name": "서울대정문",
+      "label": "서울대정문 · 시내버스",
+      "lat": 37.465375,
+      "lon": 126.948633,
+      "city": true,
+      "services": [
+        {
+          "rid": "100100250",
+          "board": 19,
+          "route_name": "5511",
+          "seq": 20
+        }
+      ]
+    }
+  },
+  "unit": "weighted trip-event mass, not observed people",
+  "details": [
+    {
+      "weekday": "월",
+      "node": 46,
+      "ars": "21269",
+      "name": "서울대정문",
+      "maximum_queue": 0.10275116571337825,
+      "first_peak_time": "21:00:21.559",
+      "first_peak_second": 75621.55894387756,
+      "seconds_over_40": 0.0,
+      "peak_waited_seconds_mean": 0.0,
+      "boarded_episode_wait_p95_seconds": 40.4712449349754,
+      "peak_switch_exhausted": 0.0,
+      "peak_compatible_full_2plus": 0.0,
+      "peak_walk_now_faster_by_2min": 0.0,
+      "causes_overlapping": {
+        "still_preparing": 0.10275116571337825,
+        "no_compatible_service_since_ready": 0.10275116571337825,
+        "no_switch_yet": 0.10275116571337825
+      },
+      "peak_eligibility": {
+        "(('100100251', 36),)": 0.10275116571337825
+      },
+      "peak_destination": {
+        "daehak": 0.10275116571337825
+      },
+      "peak_building": {
+        "15-1": 0.10275116571337825
+      },
+      "peak_sources": {
+        "walk_access": 0.10275116571337825
+      }
+    },
+    {
+      "weekday": "월",
+      "node": 47,
+      "ars": "21270",
+      "name": "법대.사회대입구",
+      "maximum_queue": 2.5687791428344564,
+      "first_peak_time": "22:01:20.288",
+      "first_peak_second": 79280.28836004905,
+      "seconds_over_40": 0.0,
+      "peak_waited_seconds_mean": 115.99457629450244,
+      "boarded_episode_wait_p95_seconds": 421.0788633889024,
+      "peak_switch_exhausted": 0.0,
+      "peak_compatible_full_2plus": 0.0,
+      "peak_walk_now_faster_by_2min": 0.0,
+      "causes_overlapping": {
+        "still_preparing": 0.3539206819016362,
+        "no_compatible_service_since_ready": 2.5687791428344564,
+        "no_switch_yet": 1.8495209828408086
+      },
+      "peak_eligibility": {
+        "(('100100253', 57),)": 1.198763599989413,
+        "(('100100251', 37),)": 0.9533024818963426,
+        "(('100100250', 5),)": 0.4167130609487007
+      },
+      "peak_destination": {
+        "daehak": 2.5687791428344564
+      },
+      "peak_building": {
+        "15": 1.0617620457049086,
+        "15-1": 1.1930552018942253,
+        "17": 0.12558475809412897,
+        "500": 0.18837713714119347
+      },
+      "peak_sources": {
+        "same_stop_rejoin": 0.7192581599936477,
+        "walk_access": 1.8495209828408086
+      }
+    },
+    {
+      "weekday": "월",
+      "node": 60,
+      "ars": "21298",
+      "name": "법대.사회대입구",
+      "maximum_queue": 127.03399339467106,
+      "first_peak_time": "11:23:30.437",
+      "first_peak_second": 41010.43682109274,
+      "seconds_over_40": 9565.347983565967,
+      "peak_waited_seconds_mean": 803.8157131905423,
+      "boarded_episode_wait_p95_seconds": 3442.9278604371066,
+      "peak_switch_exhausted": 91.42370813980828,
+      "peak_compatible_full_2plus": 84.98571151183593,
+      "peak_walk_now_faster_by_2min": 16.870395595676626,
+      "causes_overlapping": {
+        "passed_by_compatible_full_1plus": 100.28421840693892,
+        "passed_by_compatible_full_2plus": 84.98571151183593,
+        "waited_over_10min_at_peak": 77.42284957939391,
+        "no_compatible_service_since_ready": 26.74977498773214,
+        "still_preparing": 26.38443750964013,
+        "no_switch_yet": 27.420088777360068,
+        "switch_budget_exhausted": 91.42370813980828,
+        "walking_now_2min_faster_than_realized": 16.870395595676626
+      },
+      "peak_eligibility": {
+        "(('120900012', 18),)": 18.3009111836991,
+        "(('100100250', 18),)": 108.73308221097193
+      },
+      "peak_destination": {
+        "dorm": 1.4956412191747617,
+        "nak": 17.536198948416548,
+        "snu": 108.00215322707973
+      },
+      "peak_building": {
+        "26": 0.1393618823969951,
+        "200": 3.0414203586627857,
+        "24": 3.0538328065680918,
+        "500": 3.6534458934671674,
+        "25": 12.720460000066929,
+        "33": 6.740812258920859,
+        "43-1": 21.4794260373229,
+        "43-2": 3.3655707804856823,
+        "28": 8.98451491964054,
+        "36": 1.1900331087850082,
+        "15-1": 16.411610944852253,
+        "83": 0.897763126311399,
+        "3": 3.3853151221325675,
+        "43": 6.359155478039076,
+        "13": 1.9451534403413644,
+        "74": 11.970175017485317,
+        "6": 3.815493286823446,
+        "56": 2.2257044173136764,
+        "10": 1.2344242986781735,
+        "35": 0.8229495324521159,
+        "8": 3.254391332878822,
+        "5": 3.086060746695434,
+        "9": 0.4488815631556995,
+        "2": 0.6920257431983701,
+        "14": 4.021230669936475,
+        "302": 0.7294325401280117,
+        "39": 0.9351699232410406,
+        "222": 0.29925437543713296,
+        "12": 0.1309237892537457
+      },
+      "peak_sources": {
+        "walk_access": 19.946440881667762,
+        "after_ride_100100253": 90.96678226448509,
+        "after_ride_100100250": 15.389841264625982,
+        "same_stop_rejoin": 0.7309289838922095
+      }
+    },
+    {
+      "weekday": "월",
+      "node": 61,
+      "ars": "21299",
+      "name": "서울대정문",
+      "maximum_queue": 93.74724900921584,
+      "first_peak_time": "13:12:23.548",
+      "first_peak_second": 47543.54839687425,
+      "seconds_over_40": 8586.069187532332,
+      "peak_waited_seconds_mean": 1256.952243844429,
+      "boarded_episode_wait_p95_seconds": 6198.981692711895,
+      "peak_switch_exhausted": 63.990142051685964,
+      "peak_compatible_full_2plus": 78.87804722968328,
+      "peak_walk_now_faster_by_2min": 93.74724900921585,
+      "causes_overlapping": {
+        "passed_by_compatible_full_1plus": 88.90306880682722,
+        "passed_by_compatible_full_2plus": 78.87804722968328,
+        "waited_over_10min_at_peak": 78.87804722968328,
+        "waited_over_30min_at_peak": 0.01870339846482081,
+        "still_preparing": 4.844180202388591,
+        "no_compatible_service_since_ready": 4.844180202388591,
+        "walking_now_2min_faster_than_realized": 93.74724900921585,
+        "switch_budget_exhausted": 63.990142051685964
+      },
+      "peak_eligibility": {
+        "(('100100250', 19),)": 93.74724900921585
+      },
+      "peak_destination": {
+        "snu": 93.74724900921585
+      },
+      "peak_building": {
+        "3": 9.819284194030926,
+        "5": 14.476430411771313,
+        "8": 8.678376887676857,
+        "2": 3.9651204745420134,
+        "62": 11.970175017485316,
+        "6": 4.357891842303249,
+        "11": 1.8703398464820813,
+        "10-1": 1.969672742340164,
+        "38": 0.9164665247762198,
+        "9": 0.29925437543713296,
+        "4": 0.8229495324521158,
+        "1": 2.4875519958211676,
+        "24": 2.7493995743286592,
+        "18": 2.506255394285989,
+        "43-1": 6.471375868828002,
+        "39": 0.3366611723667746,
+        "19": 0.18703398464820814,
+        "83": 1.9451534403413646,
+        "12": 0.1683305861833873,
+        "14": 1.3653480879319193,
+        "43": 0.504991758550162,
+        "52": 0.2805509769723122,
+        "35": 0.4862883600853411,
+        "13": 0.31795777390195384,
+        "56": 0.6546189462687284,
+        "26": 3.1421709420898964,
+        "28": 2.281814612708139,
+        "101": 5.162137976290544,
+        "50": 2.244407815778498,
+        "16": 0.20573738311302892,
+        "74": 1.103500509424428
+      },
+      "peak_sources": {
+        "after_ride_100100253": 93.74724900921585
+      }
+    },
+    {
+      "weekday": "화",
+      "node": 46,
+      "ars": "21269",
+      "name": "서울대정문",
+      "maximum_queue": 0.0,
+      "first_peak_time": "11:20:00.000",
+      "first_peak_second": 40800,
+      "seconds_over_40": 0.0,
+      "peak_waited_seconds_mean": 0.0,
+      "boarded_episode_wait_p95_seconds": null,
+      "peak_switch_exhausted": 0.0,
+      "peak_compatible_full_2plus": 0.0,
+      "peak_walk_now_faster_by_2min": 0.0,
+      "causes_overlapping": {},
+      "peak_eligibility": {},
+      "peak_destination": {},
+      "peak_building": {},
+      "peak_sources": {}
+    },
+    {
+      "weekday": "화",
+      "node": 47,
+      "ars": "21270",
+      "name": "법대.사회대입구",
+      "maximum_queue": 1.6268934571284888,
+      "first_peak_time": "22:01:24.875",
+      "first_peak_second": 79284.87504232253,
+      "seconds_over_40": 0.0,
+      "peak_waited_seconds_mean": 127.8947676152303,
+      "boarded_episode_wait_p95_seconds": 359.61717366539233,
+      "peak_switch_exhausted": 0.0,
+      "peak_compatible_full_2plus": 0.0,
+      "peak_walk_now_faster_by_2min": 0.0,
+      "causes_overlapping": {
+        "no_compatible_service_since_ready": 1.6268934571284892,
+        "still_preparing": 0.011416796190375361,
+        "no_switch_yet": 1.5013086990343603
+      },
+      "peak_eligibility": {
+        "(('100100251', 37),)": 0.7820505390407123,
+        "(('120900012', 16),)": 0.011416796190375361,
+        "(('100100250', 5),)": 0.4909222361861405,
+        "(('100100253', 57),)": 0.34250388571126084
+      },
+      "peak_destination": {
+        "daehak": 1.6268934571284892
+      },
+      "peak_building": {
+        "15-1": 0.9989696666578441,
+        "84": 0.10845956380856593,
+        "500": 0.21691912761713186,
+        "24": 0.028541990475938403,
+        "17": 0.27400310856900867
+      },
+      "peak_sources": {
+        "walk_access": 1.5013086990343603,
+        "same_stop_rejoin": 0.12558475809412897
+      }
+    },
+    {
+      "weekday": "화",
+      "node": 60,
+      "ars": "21298",
+      "name": "법대.사회대입구",
+      "maximum_queue": 130.9172885021582,
+      "first_peak_time": "14:14:30.321",
+      "first_peak_second": 51270.32134376234,
+      "seconds_over_40": 11258.145009608896,
+      "peak_waited_seconds_mean": 465.26847066450114,
+      "boarded_episode_wait_p95_seconds": 2663.8665887204043,
+      "peak_switch_exhausted": 85.0298938894319,
+      "peak_compatible_full_2plus": 31.186523419377227,
+      "peak_walk_now_faster_by_2min": 103.15112241458358,
+      "causes_overlapping": {
+        "still_preparing": 49.96259320307036,
+        "no_compatible_service_since_ready": 49.96259320307036,
+        "passed_by_compatible_full_1plus": 80.95469529908793,
+        "passed_by_compatible_full_2plus": 31.186523419377227,
+        "waited_over_10min_at_peak": 31.20522681784205,
+        "no_switch_yet": 4.833434982444699,
+        "switch_budget_exhausted": 85.0298938894319,
+        "walking_now_2min_faster_than_realized": 103.15112241458358
+      },
+      "peak_eligibility": {
+        "(('100100250', 18),)": 130.91728850215836
+      },
+      "peak_destination": {
+        "snu": 130.91728850215836
+      },
+      "peak_building": {
+        "8": 3.647162700640058,
+        "1": 8.846707473860242,
+        "3": 10.286869155651445,
+        "2": 5.798053524094451,
+        "4": 1.8329330495524399,
+        "6": 6.901554033518878,
+        "83": 3.1501291206108273,
+        "16": 0.9351699232410406,
+        "24": 9.108555052367736,
+        "500": 7.032477822772627,
+        "50": 0.8229495324521157,
+        "75": 1.0099835171003237,
+        "43": 12.306836189852092,
+        "43-1": 19.956526161963808,
+        "200": 1.3092378925374568,
+        "26": 13.017565331515287,
+        "28": 6.213772758677053,
+        "34": 0.3553645708315954,
+        "33": 1.2905344940726362,
+        "43-2": 1.1970175017485318,
+        "56": 6.658409853476208,
+        "11": 1.2905344940726362,
+        "5": 4.694553014670024,
+        "25-1": 0.09351699232410407,
+        "9": 2.0947806280599313,
+        "14": 1.0660937124947862
+      },
+      "peak_sources": {
+        "walk_access": 4.440663614683463,
+        "same_stop_rejoin": 0.4675849616205203,
+        "after_ride_100100253": 125.99033652738954,
+        "after_ride_120900012": 0.01870339846482081
+      }
+    },
+    {
+      "weekday": "화",
+      "node": 61,
+      "ars": "21299",
+      "name": "서울대정문",
+      "maximum_queue": 106.37785887650394,
+      "first_peak_time": "12:56:59.309",
+      "first_peak_second": 46619.30919783182,
+      "seconds_over_40": 6734.786773102154,
+      "peak_waited_seconds_mean": 479.48586907482365,
+      "boarded_episode_wait_p95_seconds": 3499.7355031683837,
+      "peak_switch_exhausted": 62.8060120448683,
+      "peak_compatible_full_2plus": 54.6571462177404,
+      "peak_walk_now_faster_by_2min": 103.72197629449937,
+      "causes_overlapping": {
+        "still_preparing": 0.8603563293817574,
+        "no_compatible_service_since_ready": 47.47504120724919,
+        "passed_by_compatible_full_1plus": 58.90281766925474,
+        "passed_by_compatible_full_2plus": 54.6571462177404,
+        "waited_over_10min_at_peak": 54.6571462177404,
+        "waited_over_30min_at_peak": 2.207001018848856,
+        "no_switch_yet": 6.377858876503897,
+        "walking_now_2min_faster_than_realized": 103.72197629449937,
+        "switch_budget_exhausted": 62.8060120448683
+      },
+      "peak_eligibility": {
+        "(('100100250', 19),)": 106.37785887650395
+      },
+      "peak_destination": {
+        "snu": 106.37785887650395
+      },
+      "peak_building": {
+        "58": 5.554909344051781,
+        "83": 2.805509769723122,
+        "2": 4.881586999318231,
+        "15-1": 0.9351699232410405,
+        "500": 13.279412910022767,
+        "24": 9.65095360784754,
+        "11": 3.834196685288267,
+        "25": 0.5985087508742659,
+        "3": 13.877921660897037,
+        "34": 1.7394160572283353,
+        "14": 4.039934068401296,
+        "18": 4.1334510607254,
+        "13": 3.1795777390195386,
+        "56": 1.1596107048188904,
+        "8": 9.295589037015946,
+        "5": 5.031214187036798,
+        "33": 4.264374849979145,
+        "10": 0.4675849616205203,
+        "12": 0.6546189462687284,
+        "1": 0.29925437543713296,
+        "6": 5.386578757868394,
+        "75-1": 0.4488815631556995,
+        "43-1": 3.366611723667746,
+        "16": 0.5611019539446244,
+        "35": 0.31795777390195384,
+        "10-1": 0.9725767201706822,
+        "39": 0.7107291416631909,
+        "38": 0.4675849616205203,
+        "200": 0.4301781646908787,
+        "4": 0.1309237892537457,
+        "84": 3.9019386877507154
+      },
+      "peak_sources": {
+        "walk_access": 5.554909344051781,
+        "after_ride_100100253": 100.82294953245216
+      }
+    },
+    {
+      "weekday": "수",
+      "node": 46,
+      "ars": "21269",
+      "name": "서울대정문",
+      "maximum_queue": 0.0,
+      "first_peak_time": "11:20:00.000",
+      "first_peak_second": 40800,
+      "seconds_over_40": 0.0,
+      "peak_waited_seconds_mean": 0.0,
+      "boarded_episode_wait_p95_seconds": null,
+      "peak_switch_exhausted": 0.0,
+      "peak_compatible_full_2plus": 0.0,
+      "peak_walk_now_faster_by_2min": 0.0,
+      "causes_overlapping": {},
+      "peak_eligibility": {},
+      "peak_destination": {},
+      "peak_building": {},
+      "peak_sources": {}
+    },
+    {
+      "weekday": "수",
+      "node": 47,
+      "ars": "21270",
+      "name": "법대.사회대입구",
+      "maximum_queue": 2.9341166209264675,
+      "first_peak_time": "22:01:36.827",
+      "first_peak_second": 79296.82693480633,
+      "seconds_over_40": 0.0,
+      "peak_waited_seconds_mean": 110.39230133992181,
+      "boarded_episode_wait_p95_seconds": 456.6053230448597,
+      "peak_switch_exhausted": 0.0,
+      "peak_compatible_full_2plus": 0.0,
+      "peak_walk_now_faster_by_2min": 0.0,
+      "causes_overlapping": {
+        "no_compatible_service_since_ready": 2.934116620926468,
+        "still_preparing": 0.08562597142781521,
+        "no_switch_yet": 2.6258631237863335
+      },
+      "peak_eligibility": {
+        "(('100100251', 37),)": 0.5080474304717035,
+        "(('100100250', 5),)": 1.3072231637979788,
+        "(('100100253', 57),)": 1.1188460266567855
+      },
+      "peak_destination": {
+        "daehak": 2.934116620926468
+      },
+      "peak_building": {
+        "15-1": 0.981844472372281,
+        "500": 0.12558475809412897,
+        "24": 0.022833592380750722,
+        "17": 0.4224214590438884,
+        "84": 1.3814323390354188
+      },
+      "peak_sources": {
+        "same_stop_rejoin": 0.3082534971401347,
+        "walk_access": 2.6258631237863335
+      }
+    },
+    {
+      "weekday": "수",
+      "node": 60,
+      "ars": "21298",
+      "name": "법대.사회대입구",
+      "maximum_queue": 112.34810588118229,
+      "first_peak_time": "14:14:29.987",
+      "first_peak_second": 51269.98660429875,
+      "seconds_over_40": 12784.45743340526,
+      "peak_waited_seconds_mean": 609.2692775144611,
+      "boarded_episode_wait_p95_seconds": 2664.7039363507647,
+      "peak_switch_exhausted": 64.67635189135038,
+      "peak_compatible_full_2plus": 43.4892442843005,
+      "peak_walk_now_faster_by_2min": 92.60963866307786,
+      "causes_overlapping": {
+        "passed_by_compatible_full_1plus": 89.67958694181965,
+        "passed_by_compatible_full_2plus": 43.4892442843005,
+        "waited_over_10min_at_peak": 44.51793119986564,
+        "still_preparing": 22.668518939362816,
+        "no_compatible_service_since_ready": 22.668518939362816,
+        "no_switch_yet": 15.92095733916471,
+        "walking_now_2min_faster_than_realized": 92.60963866307786,
+        "switch_budget_exhausted": 64.67635189135038
+      },
+      "peak_eligibility": {
+        "(('120900012', 18),)": 8.731278386075257,
+        "(('100100250', 18),)": 103.6168274951072
+      },
+      "peak_destination": {
+        "nak": 7.911013637485111,
+        "dorm": 0.8202647485901462,
+        "snu": 103.6168274951072
+      },
+      "peak_building": {
+        "500": 11.943661103611964,
+        "28": 19.580995289687415,
+        "24": 3.8589648051455363,
+        "33": 1.0586727949710424,
+        "25": 5.1693909997526655,
+        "43-1": 14.164315351213842,
+        "26": 4.483140812274131,
+        "83": 6.714520048870672,
+        "2": 8.603563293817572,
+        "3": 5.087324382431261,
+        "8": 4.5075190300218155,
+        "1": 5.779350125629632,
+        "50": 2.356628206567422,
+        "35": 0.1683305861833873,
+        "43": 5.236951570149827,
+        "56": 5.74194332869999,
+        "200": 1.2718310956078154,
+        "43-2": 1.4214582833263816,
+        "14": 1.0286869155651446,
+        "9": 2.2257044173136764,
+        "5": 1.7581194556931565,
+        "6": 0.18703398464820814
+      },
+      "peak_sources": {
+        "walk_access": 13.0987066110787,
+        "after_ride_100100250": 4.292715367581136,
+        "after_ride_100100253": 93.9279969869575,
+        "after_ride_120900012": 1.0286869155651446
+      }
+    },
+    {
+      "weekday": "수",
+      "node": 61,
+      "ars": "21299",
+      "name": "서울대정문",
+      "maximum_queue": 101.89611483634378,
+      "first_peak_time": "12:58:48.679",
+      "first_peak_second": 46728.67864430032,
+      "seconds_over_40": 3497.308090908402,
+      "peak_waited_seconds_mean": 659.0160100141039,
+      "boarded_episode_wait_p95_seconds": 3498.2823856370014,
+      "peak_switch_exhausted": 71.61531272179887,
+      "peak_compatible_full_2plus": 57.94894434754882,
+      "peak_walk_now_faster_by_2min": 100.86742792077864,
+      "causes_overlapping": {
+        "still_preparing": 1.0286869155651446,
+        "no_compatible_service_since_ready": 43.94717048879492,
+        "passed_by_compatible_full_1plus": 57.94894434754882,
+        "passed_by_compatible_full_2plus": 57.94894434754882,
+        "waited_over_10min_at_peak": 57.94894434754882,
+        "waited_over_30min_at_peak": 5.8541637194889145,
+        "no_switch_yet": 8.884114270789883,
+        "walking_now_2min_faster_than_realized": 100.86742792077864,
+        "switch_budget_exhausted": 71.61531272179887
+      },
+      "peak_eligibility": {
+        "(('100100250', 19),)": 101.89611483634377
+      },
+      "peak_destination": {
+        "snu": 101.89611483634377
+      },
+      "peak_building": {
+        "58": 6.134714696461226,
+        "222": 1.5336786741153066,
+        "24": 7.4626559874635054,
+        "83": 1.870339846482081,
+        "2": 3.011247152836151,
+        "1": 1.5710854710449482,
+        "13": 3.1608743405547175,
+        "5": 7.967647746013666,
+        "500": 3.983823873006833,
+        "3": 5.760646727164811,
+        "18": 1.8703398464820813,
+        "62": 1.9638568388061854,
+        "52": 0.2805509769723122,
+        "43-1": 4.526222428486637,
+        "8": 10.36168274951073,
+        "6": 1.514975275650486,
+        "14": 16.589914438296063,
+        "15-1": 2.2444078157784975,
+        "43-2": 0.3366611723667746,
+        "36": 5.218248171685006,
+        "4": 0.7855427355224741,
+        "43": 2.019967034200648,
+        "12": 0.1683305861833873,
+        "28": 1.0473903140299656,
+        "84": 8.921521067719528,
+        "34": 0.897763126311399,
+        "10-1": 0.504991758550162,
+        "19": 0.18703398464820814
+      },
+      "peak_sources": {
+        "walk_access": 6.134714696461226,
+        "after_ride_shuttle-41946": 1.5336786741153066,
+        "after_ride_100100253": 94.22772146576726
+      }
+    },
+    {
+      "weekday": "목",
+      "node": 46,
+      "ars": "21269",
+      "name": "서울대정문",
+      "maximum_queue": 0.0,
+      "first_peak_time": "11:20:00.000",
+      "first_peak_second": 40800,
+      "seconds_over_40": 0.0,
+      "peak_waited_seconds_mean": 0.0,
+      "boarded_episode_wait_p95_seconds": null,
+      "peak_switch_exhausted": 0.0,
+      "peak_compatible_full_2plus": 0.0,
+      "peak_walk_now_faster_by_2min": 0.0,
+      "causes_overlapping": {},
+      "peak_eligibility": {},
+      "peak_destination": {},
+      "peak_building": {},
+      "peak_sources": {}
+    },
+    {
+      "weekday": "목",
+      "node": 47,
+      "ars": "21270",
+      "name": "법대.사회대입구",
+      "maximum_queue": 1.5948221547451622,
+      "first_peak_time": "22:01:04.528",
+      "first_peak_second": 79264.52802258231,
+      "seconds_over_40": 0.0,
+      "peak_waited_seconds_mean": 150.62866773908908,
+      "boarded_episode_wait_p95_seconds": 530.6681752391014,
+      "peak_switch_exhausted": 0.0,
+      "peak_compatible_full_2plus": 0.0,
+      "peak_walk_now_faster_by_2min": 0.0,
+      "causes_overlapping": {
+        "still_preparing": 0.14665369452118515,
+        "no_compatible_service_since_ready": 1.5948221547451615,
+        "no_switch_yet": 1.5719885623644108
+      },
+      "peak_eligibility": {
+        "(('120900012', 16),)": 0.1791394271386167,
+        "(('100100251', 37),)": 0.6393405866610202,
+        "(('100100250', 5),)": 0.22833592380750722,
+        "(('100100253', 57),)": 0.5480062171380173
+      },
+      "peak_destination": {
+        "daehak": 1.5298506895102986,
+        "dorm": 0.06497146523486307
+      },
+      "peak_building": {
+        "17": 0.45667184761501445,
+        "500": 0.19055622332899205,
+        "15-1": 0.947594083801155
+      },
+      "peak_sources": {
+        "walk_access": 1.5719885623644108,
+        "same_stop_rejoin": 0.022833592380750722
+      }
+    },
+    {
+      "weekday": "목",
+      "node": 60,
+      "ars": "21298",
+      "name": "법대.사회대입구",
+      "maximum_queue": 123.13316398659839,
+      "first_peak_time": "12:46:05.531",
+      "first_peak_second": 45965.53101126244,
+      "seconds_over_40": 9032.511649309956,
+      "peak_waited_seconds_mean": 487.78066981496846,
+      "boarded_episode_wait_p95_seconds": 3202.704681030111,
+      "peak_switch_exhausted": 45.275689388608505,
+      "peak_compatible_full_2plus": 30.964265260600477,
+      "peak_walk_now_faster_by_2min": 100.26110207563453,
+      "causes_overlapping": {
+        "no_compatible_service_since_ready": 56.72674364923123,
+        "passed_by_compatible_full_1plus": 66.40642033736698,
+        "still_preparing": 6.0737355732796905,
+        "passed_by_compatible_full_2plus": 30.964265260600477,
+        "waited_over_10min_at_peak": 50.39870713586647,
+        "no_switch_yet": 33.49130593971542,
+        "switch_budget_exhausted": 45.275689388608505,
+        "walking_now_2min_faster_than_realized": 100.26110207563453
+      },
+      "peak_eligibility": {
+        "(('100100250', 18),)": 99.6676637254213,
+        "(('100100253', 15),)": 2.3379248081025734,
+        "(('120900012', 18),)": 21.12757545307434
+      },
+      "peak_destination": {
+        "snu": 102.00558853352385,
+        "nak": 21.12757545307434
+      },
+      "peak_building": {
+        "6": 3.46012871599185,
+        "56": 4.15215445919022,
+        "5": 4.1521544591902195,
+        "4": 2.30051801117296,
+        "2": 3.5536457083159543,
+        "12": 2.319221409637781,
+        "8": 3.721976294499342,
+        "3": 10.767341612202792,
+        "18": 1.1596107048188904,
+        "43-1": 12.804789935817693,
+        "33": 4.08391052383552,
+        "43-2": 10.11615447379301,
+        "38": 0.45667184761501445,
+        "75-1": 1.544893997431734,
+        "28": 11.079329126512796,
+        "24": 0.5236951570149828,
+        "11": 0.7668393370576533,
+        "1": 4.002527271471655,
+        "15-1": 7.061322022559484,
+        "101": 2.674585980469376,
+        "84": 15.243269748828963,
+        "83": 1.9825602372710063,
+        "39": 2.4314418004267058,
+        "200": 1.1409073063540693,
+        "500": 0.9351699232410406,
+        "26": 8.678376887676857,
+        "25": 0.6733223447335492,
+        "14": 1.3466446894670985
+      },
+      "peak_sources": {
+        "walk_access": 26.961737989128828,
+        "after_ride_100100250": 21.12757545307434,
+        "after_ride_100100253": 57.20080840895597,
+        "after_ride_120900012": 15.505117327336457,
+        "same_stop_rejoin": 2.337924808102574
+      }
+    },
+    {
+      "weekday": "목",
+      "node": 61,
+      "ars": "21299",
+      "name": "서울대정문",
+      "maximum_queue": 74.1963817099441,
+      "first_peak_time": "13:03:21.684",
+      "first_peak_second": 47001.684287573255,
+      "seconds_over_40": 4136.299886095076,
+      "peak_waited_seconds_mean": 872.2016986289241,
+      "boarded_episode_wait_p95_seconds": 3916.8857453165183,
+      "peak_switch_exhausted": 48.666242805463725,
+      "peak_compatible_full_2plus": 55.03121418703681,
+      "peak_walk_now_faster_by_2min": 74.19638170994413,
+      "causes_overlapping": {
+        "passed_by_compatible_full_1plus": 59.40780942780485,
+        "passed_by_compatible_full_2plus": 55.03121418703681,
+        "waited_over_10min_at_peak": 53.64716270064007,
+        "waited_over_30min_at_peak": 2.581068988145272,
+        "still_preparing": 14.788572282139295,
+        "no_compatible_service_since_ready": 14.788572282139295,
+        "no_switch_yet": 3.647162700640058,
+        "walking_now_2min_faster_than_realized": 74.19638170994413,
+        "switch_budget_exhausted": 48.666242805463725
+      },
+      "peak_eligibility": {
+        "(('100100250', 19),)": 74.19638170994413
+      },
+      "peak_destination": {
+        "snu": 74.19638170994413
+      },
+      "peak_building": {
+        "58": 2.07607722959511,
+        "220": 0.39277136776123706,
+        "140": 0.11222039078892487,
+        "1": 2.693289378934197,
+        "15-1": 0.09351699232410407,
+        "3": 22.12612038388302,
+        "13": 1.9077466434117232,
+        "5": 10.342979351045908,
+        "24": 4.283078248443966,
+        "2": 3.890306880682729,
+        "6": 6.995071025842983,
+        "83": 4.6010360223459195,
+        "4": 1.4775684787208445,
+        "61": 0.5611019539446244,
+        "8": 6.527486064222465,
+        "10": 0.4675849616205203,
+        "18": 0.5798053524094452,
+        "43-1": 0.4488815631556995,
+        "56": 0.8416529309169366,
+        "12": 0.7481359385928326,
+        "16": 1.0099835171003237,
+        "11": 0.22444078157784975,
+        "28": 1.2718310956078154,
+        "33": 0.5236951570149828
+      },
+      "peak_sources": {
+        "walk_access": 2.07607722959511,
+        "after_ride_shuttle-41946": 0.504991758550162,
+        "after_ride_100100253": 71.61531272179886
+      }
+    },
+    {
+      "weekday": "금",
+      "node": 46,
+      "ars": "21269",
+      "name": "서울대정문",
+      "maximum_queue": 0.0,
+      "first_peak_time": "11:20:00.000",
+      "first_peak_second": 40800,
+      "seconds_over_40": 0.0,
+      "peak_waited_seconds_mean": 0.0,
+      "boarded_episode_wait_p95_seconds": null,
+      "peak_switch_exhausted": 0.0,
+      "peak_compatible_full_2plus": 0.0,
+      "peak_walk_now_faster_by_2min": 0.0,
+      "causes_overlapping": {},
+      "peak_eligibility": {},
+      "peak_destination": {},
+      "peak_building": {},
+      "peak_sources": {}
+    },
+    {
+      "weekday": "금",
+      "node": 47,
+      "ars": "21270",
+      "name": "법대.사회대입구",
+      "maximum_queue": 1.1071952815950385,
+      "first_peak_time": "17:56:32.069",
+      "first_peak_second": 64592.06934203899,
+      "seconds_over_40": 0.0,
+      "peak_waited_seconds_mean": 7.992877398513473,
+      "boarded_episode_wait_p95_seconds": 358.5734618205315,
+      "peak_switch_exhausted": 0.0,
+      "peak_compatible_full_2plus": 0.0,
+      "peak_walk_now_faster_by_2min": 0.0,
+      "causes_overlapping": {
+        "still_preparing": 1.1071952815950385,
+        "no_compatible_service_since_ready": 1.1071952815950385,
+        "no_switch_yet": 1.1071952815950385
+      },
+      "peak_eligibility": {
+        "(('100100251', 37),)": 1.0503452495145333,
+        "(('120900012', 16),)": 0.05685003208050519
+      },
+      "peak_destination": {
+        "daehak": 1.0503452495145333,
+        "dorm": 0.05685003208050519
+      },
+      "peak_building": {
+        "101": 1.0503452495145333,
+        "16": 0.05685003208050519
+      },
+      "peak_sources": {
+        "walk_access": 1.1071952815950385
+      }
+    },
+    {
+      "weekday": "금",
+      "node": 60,
+      "ars": "21298",
+      "name": "법대.사회대입구",
+      "maximum_queue": 45.67037870359465,
+      "first_peak_time": "18:01:40.938",
+      "first_peak_second": 64900.93812976373,
+      "seconds_over_40": 160.46583089162596,
+      "peak_waited_seconds_mean": 261.0669535977106,
+      "boarded_episode_wait_p95_seconds": 798.2656164005602,
+      "peak_switch_exhausted": 0.0,
+      "peak_compatible_full_2plus": 0.0,
+      "peak_walk_now_faster_by_2min": 0.0,
+      "causes_overlapping": {
+        "no_compatible_service_since_ready": 45.67037870359469,
+        "still_preparing": 0.018266873904600574,
+        "no_switch_yet": 45.67037870359469
+      },
+      "peak_eligibility": {
+        "(('100100250', 18),)": 22.649815540898004,
+        "(('120900012', 18),)": 23.02056316269668
+      },
+      "peak_destination": {
+        "snu": 22.649815540898004,
+        "nak": 22.322119911421904,
+        "dorm": 0.6984432512747779
+      },
+      "peak_building": {
+        "101": 37.89313609526859,
+        "16": 5.165751216214693,
+        "15-1": 1.1596107048188904,
+        "51": 1.1596107048188904,
+        "200": 0.2922699824736092
+      },
+      "peak_sources": {
+        "walk_access": 45.59731120797629,
+        "after_ride_100100253": 0.0730674956184023
+      }
+    },
+    {
+      "weekday": "금",
+      "node": 61,
+      "ars": "21299",
+      "name": "서울대정문",
+      "maximum_queue": 4.694553014670023,
+      "first_peak_time": "12:02:19.579",
+      "first_peak_second": 43339.57908483275,
+      "seconds_over_40": 0.0,
+      "peak_waited_seconds_mean": 8.99647859150817,
+      "boarded_episode_wait_p95_seconds": 1054.4139932760954,
+      "peak_switch_exhausted": 0.0,
+      "peak_compatible_full_2plus": 0.0,
+      "peak_walk_now_faster_by_2min": 0.0,
+      "causes_overlapping": {
+        "still_preparing": 4.694553014670023,
+        "no_compatible_service_since_ready": 4.694553014670023,
+        "no_switch_yet": 4.694553014670023
+      },
+      "peak_eligibility": {
+        "(('100100250', 19),)": 4.694553014670023
+      },
+      "peak_destination": {
+        "snu": 4.694553014670023
+      },
+      "peak_building": {
+        "57-1": 1.8516364480172602,
+        "140": 2.842916566652763
+      },
+      "peak_sources": {
+        "after_ride_shuttle-41946": 4.694553014670023
+      }
+    }
+  ],
+  "sources": {
+    "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\simulation_viewer_2026-11-07\\gate_access_calibration_2026-11-09\\candidates\\alpha_075\\prepared.json.gz": "7e08ef3a3e4f3be3d5c46372bf60f18010536f8be897fa46bf5fb1539b6793e7",
+    "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\simulation_viewer_2026-11-07\\gate_access_calibration_2026-11-09\\candidates\\alpha_075\\audit-peak-mon.json.gz": "6de313d3f0ea79b315db640db3a9770d59de0bf7d0b08e0ac749d09aa0fa9666",
+    "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\simulation_viewer_2026-11-07\\gate_access_calibration_2026-11-09\\candidates\\alpha_075\\audit-peak-tue.json.gz": "6297dd0b96450ad2d507f3f6757474386fbc185506a97bdb08b6156097919255",
+    "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\simulation_viewer_2026-11-07\\gate_access_calibration_2026-11-09\\candidates\\alpha_075\\audit-peak-wed.json.gz": "86f30056312aa9a116d2ec4ad92bd10f2eedb2983e69b4670366a3ae9dae44b6",
+    "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\simulation_viewer_2026-11-07\\gate_access_calibration_2026-11-09\\candidates\\alpha_075\\audit-peak-thu.json.gz": "6374d9bdf9abcc802b48a08a8976a888c174c8cbce40677b842c348856401bac",
+    "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\simulation_viewer_2026-11-07\\gate_access_calibration_2026-11-09\\candidates\\alpha_075\\audit-peak-fri.json.gz": "64dd66579be1a1836efb1254bcb377bf85cb7e2e5619158777d3ea3d7de53ff6"
+  },
+  "checks": {
+    "source_hashes_unchanged": true,
+    "peak_queue_reconstructed_from_final_weighted_trajectories": true,
+    "vehicle_flow_balance": true,
+    "excluded_21128": true,
+    "simulator_imports": 0,
+    "new_simulation_runs": 0,
+    "model_edits": 0,
+    "deployments": 0
+  },
+  "limitations": [
+    "Causes overlap; do not add their weights.",
+    "Refusals reconstructed within each active waiting episode only.",
+    "Switch exhaustion is a state at the maximum queue, not causal proof.",
+    "Direct walk comparison is hindsight against completed trip, not a deployable foresight forecast.",
+    "Rejected alternative forecasts are not in saved audits; absence of a switch does not prove its exact reason.",
+    "40-person threshold is an unverified user recollection, not field ground truth or a cap."
+  ]
+}

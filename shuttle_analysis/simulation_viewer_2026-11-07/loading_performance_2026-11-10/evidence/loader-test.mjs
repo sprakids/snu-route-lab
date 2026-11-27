@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';
+import {createJsonLoader} from 'file:///C:/Users/김예준/Documents/ChatGPT/공대%20문제해결/shuttle_analysis/simulation_viewer_2026-11-07/public/json-loader.js';
+let calls=[];
+const load=createJsonLoader(2,async url=>{calls.push(url);return {ok:true,json:async()=>({url})};});
+const p=load('a');assert.equal(load('a'),p);assert.deepEqual(await p,{url:'a'});await load('b');await load('a');await load('c');await load('b');
+assert.deepEqual(calls,['a','b','c','b']);
+let failures=0;const retry=createJsonLoader(2,async()=>({ok:++failures>1,status:503,json:async()=>42}));
+await assert.rejects(retry('a'),/503/);assert.equal(await retry('a'),42);
+let resolve;const pending=createJsonLoader(1,()=>new Promise(r=>{resolve=r}));const x=pending('x');await Promise.resolve();const y=pending('y');assert.equal(pending('x'),x);
+console.log('PASS: pending sharing, LRU hit/eviction, failure retry, in-flight protection');

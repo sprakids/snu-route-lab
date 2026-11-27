@@ -1,0 +1,58 @@
+{
+  "status": "STARTED",
+  "model_sha256": "bd645a47900570cd60031196dd298530c1e8f7270cacae0bc0911e249621d141",
+  "prepared_sha256": "60f21873ff2a9b6846b91975b95668f6f0e8fbc7c2e7251fde0c073a27422220",
+  "case": [
+    "regular",
+    "화"
+  ],
+  "started_at": "2026-11-10T14:34:58.469835+09:00",
+  "rule": {
+    "neighbor_walk_seconds": 1250,
+    "maximum_individual_transfer_walk_seconds": 1800,
+    "maximum_transfer_path_meters": 1500,
+    "diverse_route_targets": true,
+    "neighbor_stops": 6,
+    "options_per_stop": 2,
+    "minimum_gain_seconds": 120,
+    "maximum_changes": null,
+    "target_mean_changes": 1.0,
+    "repeat_change_probability_multiplier": 0.3,
+    "congestion_can_raise_change_probability": true,
+    "same_line_downstream_consideration_probability": 0.08,
+    "downstream_probability_applies_to_action_not_each_line": true,
+    "previously_left_queue_reconsideration_probability": 0.05,
+    "full_bus_stress_is_personally_experienced": true,
+    "continuous_wait_review_limit_seconds": 1200,
+    "walking_willingness": {
+      "plateau_meters": 500,
+      "weight_at_1000_meters": 0.3,
+      "tail_decay_meters": 150,
+      "meaning": "relative consideration weight, user scenario, not measured mode share"
+    },
+    "named_stop_queue_tolerance_range": [
+      20.0,
+      35.0
+    ],
+    "review_threshold_is_forced_exit": false,
+    "same_stop_policy_scope": "single-stage alternatives to the same final destination",
+    "normal_reconsideration_trigger": {
+      "queue_capacity_fraction": 0.6,
+      "minimum_queue_threshold": 12,
+      "wait_seconds": 300,
+      "personally_experienced_full_bus": true
+    },
+    "terminal_walk_reserved_for_final_change": false,
+    "include_shuttle": true,
+    "soft_queue_reference_people": 40,
+    "soft_reference_stop_ids": [
+      "120000167",
+      "120000168",
+      "120000196",
+      "120000197"
+    ],
+    "reference_source": "user recollection, not counted observations",
+    "do_not_clip_queue_or_delete_demand": true,
+    "independent_empirical_validation": false
+  }
+}

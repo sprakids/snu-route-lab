@@ -1,0 +1,241 @@
+{
+  "label": "Enrollment-weighted conditional scenarios; no observed passenger or queue counts",
+  "seed": 20261106,
+  "replications": 10,
+  "weighted_particles_per_cohort_destination": 12,
+  "eligible_weekday_ending_events": 6201,
+  "eligible_weekday_enrollment_event_sum": 156338,
+  "building_count": 88,
+  "destinations": {
+    "dorm_ug": [
+      37.46306,
+      126.95872
+    ],
+    "dorm_grad": [
+      37.46149,
+      126.9581
+    ],
+    "snu": [
+      37.4801109505,
+      126.9527297656
+    ],
+    "nak": [
+      37.4770791769,
+      126.9619751956
+    ],
+    "daehak": [
+      37.470538,
+      126.938381
+    ]
+  },
+  "reference_scenario": "reference_dorm19p49_depart50",
+  "reference_dorm_share": 0.1949143957045892,
+  "residence_input": {
+    "source": "User-supplied figures in this conversation, latest correction takes precedence",
+    "enrolled_students_reference": 29613,
+    "enrolled_students_source_date": "2025-04-01",
+    "enrolled_students_source_scope": "University-wide; excludes contract departments; not unique 2026-2 Gwanak course takers",
+    "enrolled_students_source": "https://www.snu.ac.kr/about/downloads?bbsidx=165605&md=v ; 2025 Statistical Yearbook p203",
+    "undergraduate_dorm_residents": 3122,
+    "graduate_dorm_residents": 2650,
+    "dorm_residents_latest": 5772,
+    "superseded_residents_do_not_use": 6511,
+    "capacity_rate_not_residence_rate": 0.227,
+    "limits": [
+      "Dorm website reference date and capacity versus actual residence definition are unstated; latest user-selected figure is 5772.",
+      "Dates and campus/degree scope of denominator and numerator have not been reconciled.",
+      "Use 5772/29613 as a conditional scenario, not a verified Gwanak student residence rate.",
+      "3122/5772 and 2650/5772 are resident composition, not degree-specific residence rates.",
+      "Course enrollment events cannot replace unique degree-level student denominators."
+    ]
+  },
+  "walking_graph_sha256": "7ee35e5b592e4578798d80c642eb8643c61c2c9304ab617e8149494f22bd0b15",
+  "unreachable_building_destination_pairs": [],
+  "assumptions": {
+    "immediate_trip_shares": [
+      0.25,
+      0.5,
+      0.75
+    ],
+    "dorm_shares": [
+      0.1,
+      0.2,
+      0.3
+    ],
+    "destination_mix": "Off-campus equal thirds, plus 60/20/20 sensitivity in each direction",
+    "walking_speed_mps": "Triangular(0.9, 1.2, 1.5); mapped stairs originally at 0.7 m/s",
+    "indoor_egress_seconds": "Triangular(60,180,480), not actual room exit observations",
+    "route_choice": "Minimum sampled travel time + 120 sec/transfer + Gumbel(scale 90 sec)",
+    "bus_phase": "Uniform phase by route and ending cohort; not synchronized real departures",
+    "ride_time": "existing segment distance / 5 m/s + 15 sec per stop",
+    "shuttle_service": "2026-2 timetable windows and headway midpoints; fixed administration night / reverse-302 departures",
+    "dorm_targets": "919 undergraduate / 900 graduate representative buildings, no individual dorm identity"
+  },
+  "conditional_boarding_lag_minutes": {
+    "p10": 5.56,
+    "median": 9.07,
+    "p90": 13.63
+  },
+  "repeatability_not_accuracy": [
+    {
+      "weekday": "월",
+      "replications": 10,
+      "peak_locations_and_times": [
+        {
+          "stop_id": "snu-410",
+          "time": "15:25",
+          "replications": 6
+        },
+        {
+          "stop_id": "snu-410",
+          "time": "12:25",
+          "replications": 2
+        },
+        {
+          "stop_id": "snu-410",
+          "time": "13:55",
+          "replications": 2
+        }
+      ]
+    },
+    {
+      "weekday": "화",
+      "replications": 10,
+      "peak_locations_and_times": [
+        {
+          "stop_id": "snu-410",
+          "time": "16:55",
+          "replications": 10
+        }
+      ]
+    },
+    {
+      "weekday": "수",
+      "replications": 10,
+      "peak_locations_and_times": [
+        {
+          "stop_id": "snu-410",
+          "time": "12:25",
+          "replications": 9
+        },
+        {
+          "stop_id": "snu-410",
+          "time": "15:25",
+          "replications": 1
+        }
+      ]
+    },
+    {
+      "weekday": "목",
+      "replications": 10,
+      "peak_locations_and_times": [
+        {
+          "stop_id": "snu-410",
+          "time": "15:25",
+          "replications": 7
+        },
+        {
+          "stop_id": "snu-410",
+          "time": "16:55",
+          "replications": 3
+        }
+      ]
+    },
+    {
+      "weekday": "금",
+      "replications": 10,
+      "peak_locations_and_times": [
+        {
+          "stop_id": "snu-410",
+          "time": "16:55",
+          "replications": 10
+        }
+      ]
+    }
+  ],
+  "polling": [
+    {
+      "weekday": "월",
+      "peak_windows": [
+        "12:20–12:25",
+        "12:25–12:30",
+        "15:20–15:25",
+        "15:25–15:30",
+        "16:50–16:55",
+        "16:55–17:00"
+      ],
+      "full_refreshes": 189,
+      "planned_api_calls": 945,
+      "within_950_retry_reserve": 5,
+      "peak_boarding_event_share": 0.3968
+    },
+    {
+      "weekday": "화",
+      "peak_windows": [
+        "12:20–12:25",
+        "12:25–12:30",
+        "13:55–14:00",
+        "15:20–15:25",
+        "16:50–16:55",
+        "16:55–17:00"
+      ],
+      "full_refreshes": 189,
+      "planned_api_calls": 945,
+      "within_950_retry_reserve": 5,
+      "peak_boarding_event_share": 0.4186
+    },
+    {
+      "weekday": "수",
+      "peak_windows": [
+        "12:20–12:25",
+        "12:25–12:30",
+        "13:55–14:00",
+        "15:20–15:25",
+        "16:50–16:55",
+        "16:55–17:00"
+      ],
+      "full_refreshes": 189,
+      "planned_api_calls": 945,
+      "within_950_retry_reserve": 5,
+      "peak_boarding_event_share": 0.3863
+    },
+    {
+      "weekday": "목",
+      "peak_windows": [
+        "12:20–12:25",
+        "12:25–12:30",
+        "15:20–15:25",
+        "15:25–15:30",
+        "16:50–16:55",
+        "16:55–17:00"
+      ],
+      "full_refreshes": 189,
+      "planned_api_calls": 945,
+      "within_950_retry_reserve": 5,
+      "peak_boarding_event_share": 0.4278
+    },
+    {
+      "weekday": "금",
+      "peak_windows": [
+        "11:55–12:00",
+        "12:00–12:05",
+        "12:55–13:00",
+        "13:00–13:05",
+        "16:55–17:00",
+        "17:00–17:05"
+      ],
+      "full_refreshes": 189,
+      "planned_api_calls": 945,
+      "within_950_retry_reserve": 5,
+      "peak_boarding_event_share": 0.4247
+    }
+  ],
+  "limits": [
+    "Not unique people; individual last-class, attendance, residence and destination are unavailable.",
+    "No background passengers, capacity, live GPS or calibrated queue-length model.",
+    "OSM walking access, representative building pins and elevations require field validation.",
+    "Unknown/timetable-less/crosslisted/remote/ambiguous-subgroup rows excluded from main analysis.",
+    "Polling schedule is an offline proposal; no production scheduler/database was changed."
+  ],
+  "elapsed_seconds": 281.1
+}

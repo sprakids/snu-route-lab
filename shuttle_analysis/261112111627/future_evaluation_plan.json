@@ -1,0 +1,55 @@
+{
+  "schema": "v12_future_evaluation_preregistration",
+  "declared_at": "2026-11-12T11:30:45.855158+09:00",
+  "release_id": "261112111627",
+  "version_family": "V12",
+  "new_outcome_raw_opened": false,
+  "training_dates": [
+    "2026-11-10"
+  ],
+  "already_explored_retrospective_dates": [
+    "2026-11-11"
+  ],
+  "first_eligible_completed_date": "2026-11-12",
+  "earliest_evaluation_at": "2026-11-13T00:00:00+09:00",
+  "frozen_sha256": {
+    "artifacts.py": "6e62dfbe617557377b2feea01918670e050f960548bda5aab27491b24853e1f7",
+    "preferences.py": "a9fb89e256c83d035155852f118e8624bbeb6076f04a232f1fa0600759a6011d",
+    "hazard.py": "6a37635687d25e0210749e30598d0494f0c16e586d0fa095b0def9fe6b49cc18",
+    "capacity.py": "2fba2637b1a7b0149b4cd5d2b540cbca750b430975e89d2a1851eca8bb55deb2",
+    "physics.py": "b02afdd219ae47df56f4cd8288fe758ad43d5db26ada9adfcfe106841e4e4b15",
+    "fares.py": "6b4bd8c2a5e9a72d5cf75ff134c53af5057be60df769ae9ecf7d3502fa705de3",
+    "prepare.py": "163763b233634db975896dc82b78846f368b8187061e09a77557bab5c4ace389",
+    "policy.py": "5708c7f1ac865762dfef082cef2ff168d4cd08902fe0575307eef56b487cc40f",
+    "metrics.py": "2161f7f48b9545d10e8d349f6d4c98efa2e0426dc133daaa5749fe3976de9814",
+    "engine.py": "fc92cf876588d2a67a9f3a5efbb27f5f0ab0767238866ae4f6e1982c0f6e3901",
+    "operations.py": "6a8cbf12833b8bebdac838b8acc737e8b12a8e82b07c427ac6ba62e7d6cbf645",
+    "empirical_v12.py": "c0943dcc106736bd8bb6de4e1a3f0a479f830ad97a7f53adec076eb36952d8de",
+    "time_profiles.py": "c4d8f8cf9df7c367e6fd1b1e20a04d98d896cb12265e2ebfbf8a1ce40840ed52",
+    "run_case.py": "5ea7202da4ea6191716116985b2215f89904c35840004dde5bc169a3a92657ce",
+    "config.json": "6651948a92014b86de073b3ba986210cbf3c4fd34a7f016c5635d28f413714ab",
+    "input_manifest.json": "a30619f5a21654014715d8ac087b24698b613eb7f0342d6e64cd708f4f746420",
+    "frozen/operations_v12_empirical.json": "97fcd777c49691f4a1c216586ca301dcb8951ef3410492776e488d5f0fcc8205",
+    "frozen/empirical_evidence.json": "e8d6000713374a6d58134489a7e0c1e3a17db2614ac7f20f358c404d91d16209"
+  },
+  "selection_rule": "First service day after11/11 with a completed saved archive. Reject only missing/unreadable/wrong-date source, record reason. Never choose by model score. Retain partial-route days and label coverage rather than removing unfavorable results.",
+  "source_quality_rules": [
+    "Verify export completion, provider/capture timestamps, saved route identifiers, stop sequence mapping and checksums before computing errors.",
+    "Report route fetch-attempt coverage in every15minute peak bin independently of active vehicle counts; API-error/missing bins lower coverage, not automatically mean no buses.",
+    "Deduplicate identical route/vehicle/provider-time keys and preserve same-vehicle/day dependence.",
+    "Keep existing detected-stop60m/previous-provider120sec interval definition and report exclusions for >1800sec travel, <15sec/>3600sec passage gaps; no new outcome-based filters.",
+    "If fewer routes/cells are available, show denominators and all usable rows; do not search for a different higher-scoring day."
+  ],
+  "primary_metrics": [
+    "Adjacent detected-stop time MAE/bias and mapped/unsupported counts vs preserved R10",
+    "Stop-passage headway median MAE vs official nominal, plus distribution diagnostics and truncation counts",
+    "Ordinal grade multiclass Brier and paired transition Brier vs carrying last known grade",
+    "Full-flag availability as separate known/unknown binary scope, never seats",
+    "Only when aligned new observations exist: minute-window physical queue error, individual wait, cumulative wait and station/hub total time"
+  ],
+  "queue_and_individual_truth_missing_action": "NOT_EVALUABLE; city labels cannot supply shuttle queue or personal-wait truth",
+  "after_evaluation_rule": "Mark date consumed; never refit and call that same date pristine. Reserve a later completed date for the next candidate.",
+  "scheduled_job_or_alarm_created": false,
+  "automatic_download_created": false,
+  "production_promotion_allowed": false
+}

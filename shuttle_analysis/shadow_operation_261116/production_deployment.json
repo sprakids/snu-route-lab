@@ -1,0 +1,107 @@
+{
+  "verified_at": "2026-11-16T22:20:00.194767+09:00",
+  "production_deployed": true,
+  "public_url": "https://snu-route-lab.vercel.app/",
+  "vercel": {
+    "team": "june-f3d1",
+    "project_id": "prj_wojxJw0bjO4w5ZrrzHq32rBGBiuE",
+    "deployment_id": "dpl_BmAKPKssZkJUYGUuU8q6DQsUhDBE",
+    "staged_and_promoted_same_build": true
+  },
+  "cloudflare": {
+    "worker": "snu-route-collector",
+    "version_id": "d8e0e291-5308-4ea2-8901-863835fcc9f0",
+    "account_id": "da0a8006016706a86257d162837dc4a8"
+  },
+  "models": {
+    "operating": "V11",
+    "queue_release": {
+      "algorithm_id": "latest-v5-all-shuttle-clock-fifo-v3",
+      "compatibility_sha256": "d55ae84edbee58b42c8d2d641fa50075e157a197fa159e93e10caab9aa1d0c2d",
+      "content_sha256": "d141ebffb2798ef04d3e57bb63426c2f27b322c9c362a4391d001d1cf2567ffc",
+      "model_id": "261110162302",
+      "published_at": "2026-11-10T16:23:02+09:00",
+      "source_simulation": "capacity_v11"
+    },
+    "shadow": "R261116185534",
+    "automatic_promotion": false,
+    "live_comparison_counts": [
+      {
+        "state": "complete",
+        "n": 2
+      }
+    ],
+    "new_R_provider_requests_in_verified_archives": 0,
+    "independent_accuracy_validation": false
+  },
+  "shuttle": {
+    "enabled": true,
+    "status": "collecting",
+    "errors_in_latest_batch": 0,
+    "routes": 10,
+    "successful_route_polls": 20,
+    "peak_core_seconds": 30,
+    "other_seconds": 120,
+    "provider_daily_cap": 6000,
+    "minimum_correction_support": {
+      "completed_previous_dates": 2,
+      "bounded_completed_samples": 5
+    },
+    "empirical_correction_enabled_for_V11": false,
+    "raw_retention_days": 30,
+    "aggregate_retention_days": 365
+  },
+  "city_preservation": {
+    "enabled": true,
+    "routes": 8,
+    "daily_call_cap": 10400,
+    "calls_before": 6593,
+    "calls_after": 6617,
+    "counter_not_reset": true,
+    "city_control_modified": false
+  },
+  "storage": {
+    "day": "2026-11-16",
+    "requests": 2173,
+    "reads": 42225,
+    "writes": 18829,
+    "aux_writes": 80,
+    "stored_bytes": 45425528,
+    "ratio": 0.18829,
+    "warning": false,
+    "throttled": false,
+    "coordinator_bytes": 19492864,
+    "coordinator_storage_guard_bytes": 900000000,
+    "write_target": 70000,
+    "write_stop": 85000,
+    "scope": "application_sql_cursor_metrics_and_estimated_requests_not_account_total"
+  },
+  "validation": {
+    "runtime_hashes_match_tested_sources": true,
+    "staged_api_passed": true,
+    "staged_bridge_auth_and_route_allowlist_passed": true,
+    "duplicate_claim_blocked": true,
+    "raw_archive_exports_verified": true,
+    "precise_user_coordinates_or_signed_ticket_in_comparison_archive": false,
+    "browser_search_rendered_and_comparison_automatically_saved": true,
+    "desktop_browser": "existing SNU Chrome",
+    "mobile_browser_runtime_retested": false,
+    "browser_console_read": false
+  },
+  "rollback": {
+    "prior_collector_version_id": "4b77d7e0-bc53-4bb3-a82b-3efcf17ed902",
+    "shuttle_control_endpoint": "/shuttle/control",
+    "shuttle_control_body": {
+      "enabled": false
+    }
+  },
+  "evidence": [
+    "staged_app_check.json",
+    "staged_bridge_check.json",
+    "staged_paired_prediction.json",
+    "staged_persisted_check.json",
+    "staged_static_check.json",
+    "production_activation.json",
+    "production_archive_check.json"
+  ]
+}

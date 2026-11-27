@@ -1,0 +1,146 @@
+{
+  "created_at": "2026-11-12T01:53:55.360908+00:00",
+  "candidate": "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\prototype_observed_261112104829",
+  "detected_interval_mae_before_seconds": 34.81819151749043,
+  "detected_interval_mae_after_seconds": 28.959843622100074,
+  "relative_reduction_percent": 16.825537571207573,
+  "date_split_check_interval_n": 5623,
+  "unmapped_intervals": 5052,
+  "changed_profile_cells": 678,
+  "private_pilot_status": "PASS_TWO_PRIVATE_CONDITIONS",
+  "private_pilot_cases": 2,
+  "maximum_continuous_wait_min": 17.021100474868458,
+  "over20_episode_weight": 0.0,
+  "unserved_trip_weight": 0.0,
+  "queue_empirical_accuracy": "NOT_EVALUABLE",
+  "pristine_holdout": false,
+  "production_replacement_allowed": false,
+  "issues": [
+    {
+      "issue": "시내버스 시간대별 구간시간",
+      "status": "별도 후보에 연결하고 날짜 분리 사후점검",
+      "evidence": "678개의 지원되는 구간×시간 셀만 갱신; 출발시계/정원/수요/행동 보존"
+    },
+    {
+      "issue": "학습·점검 자료 혼용",
+      "status": "학습일과 점검일을 코드로 분리",
+      "evidence": "11/10만 학습; 11/11의 관측값 변경이 학습값에 영향을 주지 않는 검사 통과. 이미 기술적 탐색에 쓴 11/11은 최종 미사용 검증일이 아님"
+    },
+    {
+      "issue": "셔틀 실제 배차간격·묶음 운행 빈도",
+      "status": "현 자료로 식별 불가",
+      "evidence": "BUSIN 연속 운행 이력 없음; 도식 좌표를 GPS로 해석하지 않음"
+    },
+    {
+      "issue": "시내버스 교외 재차 인원·등급별 인원",
+      "status": "수치 보정 보류",
+      "evidence": "순서형 등급만으로 인원/여석/순수 승하차수 식별 불가"
+    },
+    {
+      "issue": "관악02 혼잡도",
+      "status": "결측 유지",
+      "evidence": "유효 등급 부재를 0명/여유로 치환하지 않음"
+    },
+    {
+      "issue": "반복 왕복·긴 여정·미래 정보 공유·승차 선택",
+      "status": "이번 입력 보정과 분리하여 미해결로 유지",
+      "evidence": "R10 행동 엔진과 비용식은 그대로; 시간 보정이 해결했다고 주장하지 않음"
+    },
+    {
+      "issue": "실제 승하차 체류와 준비시간",
+      "status": "현 자료로 분리 불가",
+      "evidence": "검출간 시간에 체류가 포함될 수 있어 일괄 정차 가산 금지"
+    },
+    {
+      "issue": "실측 줄 길이와 개인 대기 정확도",
+      "status": "NOT_EVALUABLE",
+      "evidence": "새 날짜의 정렬된 줄/개인 대기 정답 없음; 버스 검출시간 오차와 구분"
+    }
+  ],
+  "pilot_comparison": [
+    {
+      "scenario": "regular",
+      "scope": "all",
+      "input_trip_weight": 19079.0,
+      "r10_max_stop_wait_min": 17.021100474868458,
+      "candidate_max_stop_wait_min": 17.021100474868458,
+      "candidate_over20_weight": 0.0,
+      "candidate_unserved_weight": 0,
+      "r10_walk_min": 11.886957627168563,
+      "candidate_walk_min": 11.800407244217395,
+      "r10_wait_min": 5.707201851375978,
+      "candidate_wait_min": 5.660002479426638,
+      "r10_ride_min": 7.982044852409863,
+      "candidate_ride_min": 8.31184037464545,
+      "r10_total_min": 25.576204330954404,
+      "candidate_total_min": 25.772250098289483,
+      "r10_changes": 1.0901752904767368,
+      "candidate_changes": 1.0649492058009042
+    },
+    {
+      "scenario": "regular",
+      "scope": "engineering_snu",
+      "input_trip_weight": 1164.8476563890401,
+      "r10_max_stop_wait_min": 17.021100474868458,
+      "candidate_max_stop_wait_min": 17.021100474868458,
+      "candidate_over20_weight": 0.0,
+      "candidate_unserved_weight": 0,
+      "r10_walk_min": 5.805370094056639,
+      "candidate_walk_min": 5.742930220117618,
+      "r10_wait_min": 5.3508878652617415,
+      "candidate_wait_min": 5.487928523375785,
+      "r10_ride_min": 13.36999695330378,
+      "candidate_ride_min": 13.830816897915165,
+      "r10_total_min": 24.52625491262216,
+      "candidate_total_min": 25.061675641408566,
+      "r10_changes": 0.8009194902837221,
+      "candidate_changes": 0.8135433857030975
+    },
+    {
+      "scenario": "peak",
+      "scope": "all",
+      "input_trip_weight": 19079.0,
+      "r10_max_stop_wait_min": 18.3600558071242,
+      "candidate_max_stop_wait_min": 16.612657778956056,
+      "candidate_over20_weight": 0.0,
+      "candidate_unserved_weight": 0,
+      "r10_walk_min": 11.716398833562886,
+      "candidate_walk_min": 11.780501998438258,
+      "r10_wait_min": 5.603379089682649,
+      "candidate_wait_min": 5.508577035518801,
+      "r10_ride_min": 8.05111789705941,
+      "candidate_ride_min": 8.168893367940045,
+      "r10_total_min": 25.370895820304945,
+      "candidate_total_min": 25.457972401897102,
+      "r10_changes": 1.046957320071416,
+      "candidate_changes": 1.04742642992887
+    },
+    {
+      "scenario": "peak",
+      "scope": "engineering_snu",
+      "input_trip_weight": 1164.8476563890401,
+      "r10_max_stop_wait_min": 18.3600558071242,
+      "candidate_max_stop_wait_min": 16.612657778956056,
+      "candidate_over20_weight": 0.0,
+      "candidate_unserved_weight": 0,
+      "r10_walk_min": 5.368597540174381,
+      "candidate_walk_min": 5.386037480168133,
+      "r10_wait_min": 5.206028979738428,
+      "candidate_wait_min": 5.115766765317617,
+      "r10_ride_min": 13.309058492942283,
+      "candidate_ride_min": 13.679133100228578,
+      "r10_total_min": 23.883685012855093,
+      "candidate_total_min": 24.180937345714327,
+      "r10_changes": 0.7794680846668374,
+      "candidate_changes": 0.7658151562849986
+    }
+  ],
+  "source_sha256": {
+    "assessment": "a0eb3690b6a75b558121d88b9867eea1a5db2b90e377f3926790eb92a20b4e06",
+    "peer_contract_reconciliation": "930e1585f88bac5da9ea0a71c308e019acd37206752eacda2a3d30fc57321042",
+    "pilot_validation": "f529f383b2be13ff340cfa7109ab9141531544bab66f05cd5980754ff39648cf",
+    "operations": "77ca2b48fcf2ce106c7fc9731f1135af425ec0bf00c87293ecd01a73586aa85d"
+  },
+  "production_local_latest_sha256": "ca0b1b487879586a6ca5ed79511e9bd3128f423a95eb18f471d06b4885d55dbc",
+  "production_model_id": "261110162302"
+}

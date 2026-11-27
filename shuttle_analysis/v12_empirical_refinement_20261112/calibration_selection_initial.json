@@ -1,0 +1,299 @@
+{
+  "status": "PILOT_SELECTION_ONLY_FULL_GRID_REQUIRED",
+  "stage": "initial",
+  "scored_at": "2026-11-12T08:07:49.531458+00:00",
+  "criterion": "mean E_uniform-minute[d(Q,[L,U])]/midpoint over three direction-confirmed reports",
+  "scores": [
+    {
+      "model": "261112164617",
+      "alpha": 1.0,
+      "primary_normalized_loss": 0.3825528093435661,
+      "pilot_internally_feasible": true,
+      "components": [
+        {
+          "observation_id": "20261109-1653-admin-snu-queue-01",
+          "date": "2026-11-09",
+          "monday_date_inferred": true,
+          "reported_minute": "16:53",
+          "stop": "행정관",
+          "direction_confirmed": true,
+          "observed_interval": [
+            53,
+            53
+          ],
+          "midpoint_denominator": 53.0,
+          "uniform_minute_mean": 63.12041958296906,
+          "minute_minimum": 39.96916251932385,
+          "minute_maximum": 87.90597278465961,
+          "expected_absolute_interval_error": 13.390073539696415,
+          "normalized_component": 0.25264289697540404,
+          "primary": true
+        },
+        {
+          "observation_id": "20261109-1655-culture-city-queue-01",
+          "date": "2026-11-09",
+          "monday_date_inferred": true,
+          "reported_minute": "16:55",
+          "stop": "문화관입구",
+          "direction_confirmed": false,
+          "observed_interval": [
+            5,
+            5
+          ],
+          "midpoint_denominator": 5.0,
+          "uniform_minute_mean": 1.594635394569381,
+          "minute_minimum": 0.6359155478039191,
+          "minute_maximum": 3.4601287159918614,
+          "expected_absolute_interval_error": 3.405364605430619,
+          "normalized_component": 0.6810729210861238,
+          "primary": false
+        },
+        {
+          "observation_id": "20261109-1703-snu-gate-queue-01",
+          "date": "2026-11-09",
+          "monday_date_inferred": true,
+          "reported_minute": "17:03",
+          "stop": "서울대학교",
+          "direction_confirmed": true,
+          "observed_interval": [
+            33,
+            39
+          ],
+          "midpoint_denominator": 36.0,
+          "uniform_minute_mean": 29.25887181681621,
+          "minute_minimum": 19.74767154577409,
+          "minute_maximum": 38.641221228320575,
+          "expected_absolute_interval_error": 4.5000692681366425,
+          "normalized_component": 0.12500192411490674,
+          "primary": true
+        },
+        {
+          "observation_id": "20261110-1523-admin-snu-queue-wait-01",
+          "date": "2026-11-10",
+          "monday_date_inferred": false,
+          "reported_minute": "15:23",
+          "stop": "행정관",
+          "direction_confirmed": true,
+          "observed_interval": [
+            67,
+            67
+          ],
+          "midpoint_denominator": 67.0,
+          "uniform_minute_mean": 118.59091166500598,
+          "minute_minimum": 90.28130438969052,
+          "minute_maximum": 150.99253580649898,
+          "expected_absolute_interval_error": 51.59091166500597,
+          "normalized_component": 0.7700136069403876,
+          "primary": true
+        }
+      ],
+      "max_continuous_wait_min": 17.10439359034511,
+      "full10_conditions_checked": false
+    },
+    {
+      "model": "261112165437",
+      "alpha": 0.75,
+      "primary_normalized_loss": 0.900345309543742,
+      "pilot_internally_feasible": true,
+      "components": [
+        {
+          "observation_id": "20261109-1653-admin-snu-queue-01",
+          "date": "2026-11-09",
+          "monday_date_inferred": true,
+          "reported_minute": "16:53",
+          "stop": "행정관",
+          "direction_confirmed": true,
+          "observed_interval": [
+            53,
+            53
+          ],
+          "midpoint_denominator": 53.0,
+          "uniform_minute_mean": 97.92302385423747,
+          "minute_minimum": 59.77606149356835,
+          "minute_maximum": 131.16693343378935,
+          "expected_absolute_interval_error": 44.92302385423748,
+          "normalized_component": 0.8476042236648581,
+          "primary": true
+        },
+        {
+          "observation_id": "20261109-1655-culture-city-queue-01",
+          "date": "2026-11-09",
+          "monday_date_inferred": true,
+          "reported_minute": "16:55",
+          "stop": "문화관입구",
+          "direction_confirmed": false,
+          "observed_interval": [
+            5,
+            5
+          ],
+          "midpoint_denominator": 5.0,
+          "uniform_minute_mean": 1.6145056495291574,
+          "minute_minimum": 0.41147476622601054,
+          "minute_maximum": 4.1521544591901725,
+          "expected_absolute_interval_error": 3.3854943504708426,
+          "normalized_component": 0.6770988700941685,
+          "primary": false
+        },
+        {
+          "observation_id": "20261109-1703-snu-gate-queue-01",
+          "date": "2026-11-09",
+          "monday_date_inferred": true,
+          "reported_minute": "17:03",
+          "stop": "서울대학교",
+          "direction_confirmed": true,
+          "observed_interval": [
+            33,
+            39
+          ],
+          "midpoint_denominator": 36.0,
+          "uniform_minute_mean": 30.208939373061206,
+          "minute_minimum": 19.79562208977297,
+          "minute_maximum": 40.60315288188612,
+          "expected_absolute_interval_error": 4.32168274242589,
+          "normalized_component": 0.1200467428451636,
+          "primary": true
+        },
+        {
+          "observation_id": "20261110-1523-admin-snu-queue-wait-01",
+          "date": "2026-11-10",
+          "monday_date_inferred": false,
+          "reported_minute": "15:23",
+          "stop": "행정관",
+          "direction_confirmed": true,
+          "observed_interval": [
+            67,
+            67
+          ],
+          "midpoint_denominator": 67.0,
+          "uniform_minute_mean": 183.13679246212072,
+          "minute_minimum": 145.92391482253225,
+          "minute_maximum": 222.99126819682675,
+          "expected_absolute_interval_error": 116.13679246212071,
+          "normalized_component": 1.7333849621212045,
+          "primary": true
+        }
+      ],
+      "max_continuous_wait_min": 18.717633073705777,
+      "full10_conditions_checked": false
+    },
+    {
+      "model": "261112165438",
+      "alpha": 0.5,
+      "primary_normalized_loss": 1.3056705924403949,
+      "pilot_internally_feasible": true,
+      "components": [
+        {
+          "observation_id": "20261109-1653-admin-snu-queue-01",
+          "date": "2026-11-09",
+          "monday_date_inferred": true,
+          "reported_minute": "16:53",
+          "stop": "행정관",
+          "direction_confirmed": true,
+          "observed_interval": [
+            53,
+            53
+          ],
+          "midpoint_denominator": 53.0,
+          "uniform_minute_mean": 116.1659023856994,
+          "minute_minimum": 84.81679480488752,
+          "minute_maximum": 147.94076462365777,
+          "expected_absolute_interval_error": 63.16590238569939,
+          "normalized_component": 1.19180947897546,
+          "primary": true
+        },
+        {
+          "observation_id": "20261109-1655-culture-city-queue-01",
+          "date": "2026-11-09",
+          "monday_date_inferred": true,
+          "reported_minute": "16:55",
+          "stop": "문화관입구",
+          "direction_confirmed": false,
+          "observed_interval": [
+            5,
+            5
+          ],
+          "midpoint_denominator": 5.0,
+          "uniform_minute_mean": 2.973934374959398,
+          "minute_minimum": 1.5336786741153126,
+          "minute_maximum": 3.927713677612376,
+          "expected_absolute_interval_error": 2.026065625040602,
+          "normalized_component": 0.4052131250081204,
+          "primary": false
+        },
+        {
+          "observation_id": "20261109-1703-snu-gate-queue-01",
+          "date": "2026-11-09",
+          "monday_date_inferred": true,
+          "reported_minute": "17:03",
+          "stop": "서울대학교",
+          "direction_confirmed": true,
+          "observed_interval": [
+            33,
+            39
+          ],
+          "midpoint_denominator": 36.0,
+          "uniform_minute_mean": 34.69995153163055,
+          "minute_minimum": 23.344958517173875,
+          "minute_maximum": 43.95922085848388,
+          "expected_absolute_interval_error": 2.8819952594525398,
+          "normalized_component": 0.08005542387368166,
+          "primary": true
+        },
+        {
+          "observation_id": "20261110-1523-admin-snu-queue-wait-01",
+          "date": "2026-11-10",
+          "monday_date_inferred": false,
+          "reported_minute": "15:23",
+          "stop": "행정관",
+          "direction_confirmed": true,
+          "observed_interval": [
+            67,
+            67
+          ],
+          "midpoint_denominator": 67.0,
+          "uniform_minute_mean": 244.2248405896269,
+          "minute_minimum": 216.85655350036598,
+          "minute_maximum": 269.5720820734636,
+          "expected_absolute_interval_error": 177.2248405896269,
+          "normalized_component": 2.645146874472043,
+          "primary": true
+        }
+      ],
+      "max_continuous_wait_min": 18.948714661718988,
+      "full10_conditions_checked": false
+    }
+  ],
+  "ranking": [
+    "261112164617",
+    "261112165437",
+    "261112165438"
+  ],
+  "selected_for_full_grid": "261112164617",
+  "parent_model": "261112132736",
+  "parent_primary_normalized_loss": 0.39592711580504175,
+  "alpha_only_control_model": "261112164617",
+  "reused_queue_reports_not_independent_holdout": true,
+  "stage2_grid_expanded_after_initial_results": false,
+  "new_day_outcomes_opened": false,
+  "source_sha256": {
+    "261112164617": {
+      "observations-field-comparison.csv": "d3929b6adb8c70f96b8dcb5b52c48c6c100471eb480d7cf92165eb709effb362",
+      "observations-diagnostics.json": "7f2dc227b8a5ca4d5d96cb2012a46d0bdcd43d04f75ad0733391875ea19402ba",
+      "observations-validation.json": "16734e0a503cc24cef79be5272babeb6844cf6fa1ab3250f9a8ee60e9ff15904",
+      "experiment_lock.json": "62eaa7bf10bf7eb3cd12221bb541ead4587393af7afd863e26b6a814a781ca2b"
+    },
+    "261112165437": {
+      "observations-field-comparison.csv": "c9cdd5c28e68f8b7279ffae3f47f20e32d8d5cf768d21c27e396da2ebdaeb1ce",
+      "observations-diagnostics.json": "df8b370045f77ffe62d16cfbd4de3a2388e7c4074b64c8b4cc571abb3c6fab85",
+      "observations-validation.json": "049ea27ba0e58f5328700c560b0552e486f77537a438fedbc77da005847a9ea0",
+      "experiment_lock.json": "3757571b57fe7e94f7982a379407132aa2213b169c41518878cdc106a25c93d3"
+    },
+    "261112165438": {
+      "observations-field-comparison.csv": "f9d9a50a3d121fd149f70b50c38a79dc7237bb79f5d3a805f9af4211d8c4a69f",
+      "observations-diagnostics.json": "ea7e0261175af95780fd14957b030d2bb963a30624f3c276effcf3e735defffc",
+      "observations-validation.json": "1d930250dd9ffc610de8f33901c664fe3eab97c062936fa80af42920fa0ee87e",
+      "experiment_lock.json": "e8bb16307e45feee9ad7900572d5ec824f64883611050094bfa0bd7157c4ade9"
+    }
+  },
+  "production_replacement_allowed": false
+}

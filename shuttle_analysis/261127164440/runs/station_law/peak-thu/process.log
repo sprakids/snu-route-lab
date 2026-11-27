@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "C:\Users\김예준\Documents\ChatGPT\공대 문제해결\shuttle_analysis\261127164440\run.py", line 196, in <module>
+    core.run(args.day,args.service,args.policy)
+  File "C:\Users\김예준\Documents\ChatGPT\공대 문제해결\shuttle_analysis\261127160713\experiment.py", line 201, in run
+    data = E.simulate(bundle,weekday,service)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\김예준\Documents\ChatGPT\공대 문제해결\shuttle_analysis\261125170855\berth_engine.py", line 520, in simulate
+    if maybe_switch(state,t,'arrival'):continue
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\김예준\Documents\ChatGPT\공대 문제해결\shuttle_analysis\261125170855\berth_engine.py", line 316, in maybe_switch
+    old,old_walk_extra=forecast(state['stages'][state['stage']:],t,1.,t,state,True,ready,state['w'])
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\김예준\Documents\ChatGPT\공대 문제해결\shuttle_analysis\261125170855\berth_engine.py", line 300, in forecast
+    perceived_extra+=duration*bundle['grade_excess_ratio'][path]
+                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+KeyError: 1857

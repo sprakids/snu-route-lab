@@ -1,0 +1,1026 @@
+{
+  "departure_kst": "2026-11-09T17:45:44+09:00",
+  "origin": "행정관 셔틀승차장",
+  "destination": "서울대입구역 2번 출구 앞 대표 정류소",
+  "preset": "fast",
+  "weights": {
+    "time": 75,
+    "crowd": 5,
+    "walk": 15,
+    "transfers": 5
+  },
+  "walking_kmh": 4.8,
+  "observation_bundle_sha256": "2a9ca267b6983778120e4417183e33b7489d4007df78164babbcb4434d5c4398",
+  "model_payload_sha256": {
+    "old": "f63baef24b285d544755a0df4adb50706fa1efe7ef7e8189190667e47a1a133e",
+    "new": "e9dde3d712ff208f9bfe8a41c79de04da7e1cfc430ca549845182ee97f254865"
+  },
+  "model_settings_equal_excluding_id": true,
+  "seoul_position_calls_triggered": 0,
+  "provider_calls_triggered": 0,
+  "frozen_position_vehicle_records": 90,
+  "arrival_cache_entries_read": 16,
+  "arrival_cache_entries_found": 16,
+  "source_age_seconds": 23.999000072479248,
+  "repeat_old_model_exact": true,
+  "results": {
+    "old": {
+      "model_id": "261109152540",
+      "recommended": {
+        "id": "route-5",
+        "strategy": "shuttle_wait",
+        "route_names": [
+          "행정관 셔틀"
+        ],
+        "total_seconds": 400,
+        "walk_seconds": 82,
+        "wait_seconds": 116,
+        "ride_seconds": 182,
+        "boarding_seconds": 20,
+        "walk_m": 110,
+        "score": 2.38,
+        "boardings": [
+          {
+            "route_id": "shuttle-41841",
+            "name": "행정관 셔틀",
+            "stop": "행정관",
+            "stop_id": "snu-410",
+            "to": "서울대입구역",
+            "departure_at": 1794214080.0,
+            "ready_at": 1794213964.0,
+            "arrival_source": "shuttle_auto_queue_estimate",
+            "queue": {
+              "model_id": "261109152540",
+              "source": "timetable_v5_fifo_only",
+              "observed_queue": false,
+              "calibrated": false,
+              "algorithm_id": "latest-v5-all-shuttle-clock-fifo-v3",
+              "latest_simulation": {
+                "independent_status": "PASS",
+                "personal_walking_kmh": 4.8,
+                "population_note": "v5 기준집단 보행 분포 유지 · 개인4.8km/h 도착시각에서 줄을 조회",
+                "population_walking_replayed_at_4p8": false,
+                "preparation_added_again": false,
+                "ready_flows_include_boarding_prep": true,
+                "revision": "campus_stop_corridors_20261108",
+                "scenario": "regular",
+                "sensitivity_feedback_replayed": false
+              },
+              "expected_load_ratio": 0.1185,
+              "model_only": true,
+              "cohort_available": true,
+              "profile_route_id": "shuttle-41841",
+              "inflow_source": "latest_audited_v5_regular",
+              "estimated_at": 1794213944,
+              "queue_reference_at": 1794213944,
+              "future_query": false,
+              "arrival_time": 1794213964.0,
+              "queue_now": 0.42,
+              "queue_at_arrival": 0.11,
+              "queue_range": [
+                0.0,
+                0.96
+              ],
+              "queue_now_range": [
+                0.0,
+                3.16
+              ],
+              "expected_wait_seconds": 116,
+              "wait_scenario_range_seconds": [
+                11,
+                221
+              ],
+              "some_scenarios_unserved": false,
+              "range_kind": "assumption_sensitivity_not_confidence_interval",
+              "mean_skipped_departures": 0,
+              "capacity_assumption": 60,
+              "historical_signal": {
+                "available": false,
+                "percentile": null,
+                "route_count": 0,
+                "source": "model_only_no_city_pressure",
+                "unit": "not_used"
+              },
+              "live_signal": {
+                "available": false,
+                "vehicles": 0,
+                "newest_observed_at": null,
+                "oldest_age_seconds": null,
+                "source": "unavailable"
+              },
+              "current_demand_multiplier": 1.0,
+              "live_arrival_conditioned": false,
+              "coefficients_calibrated": false,
+              "unit": "weighted_expected_trip_events",
+              "clock_observed_at": null,
+              "crowd_observations_used": false,
+              "label": "시간표·v5 수업/보행 유입·FIFO 모형 대기 추정 · 실측 아님",
+              "limitations": [
+                "고유 학생·실제 줄 인원이 아님",
+                "즉시 이동50%·기숙사5772/29613·과거 목적지 비중은 참고 가정",
+                "배경 탑승자는 여석 유보0~20% 가정",
+                "휴강·실제 이탈·혼잡에 따른 집단 재선택·환승 지연 전파 미관측",
+                "최신v5기준집단의조건부유입·OD · 전체집단4.8km/h 재실행아님",
+                "원본v5의시내정원50/24·배경승객미포함은시나리오가정 · 실제정원아님",
+                "15초유입집계오차최대7.5초 · 준비20초재가산없음",
+                "24가지수요/여석민감도에서유입·OD고정 · 전체경로재선택피드백미재실행",
+                "셔틀 대기는 관측 혼잡·시내버스 신호 없이 시간표와 v5 코호트/FIFO 모형으로 계산",
+                "등교·심야 수요 코호트 부재 노선은 배차위상 모형만 사용·줄 인원과 탑승부담은 미산출",
+                "대학동은 동일 행정관/대학동 승차지 코호트 대응·도로/하차 지점 변경 후 전체 수단선택 피드백은 미재실행",
+                "원본 모형에서 경로 전환한 가중 인원은 전환시각에 줄에서 제거·새 배차조건에서 전환행동 자체를 다시 최적화한 것은 아님"
+              ]
+            },
+            "city_wait": null
+          }
+        ]
+      },
+      "fastest": {
+        "id": "route-5",
+        "strategy": "shuttle_wait",
+        "route_names": [
+          "행정관 셔틀"
+        ],
+        "total_seconds": 400,
+        "walk_seconds": 82,
+        "wait_seconds": 116,
+        "ride_seconds": 182,
+        "boarding_seconds": 20,
+        "walk_m": 110,
+        "score": 2.38,
+        "boardings": [
+          {
+            "route_id": "shuttle-41841",
+            "name": "행정관 셔틀",
+            "stop": "행정관",
+            "stop_id": "snu-410",
+            "to": "서울대입구역",
+            "departure_at": 1794214080.0,
+            "ready_at": 1794213964.0,
+            "arrival_source": "shuttle_auto_queue_estimate",
+            "queue": {
+              "model_id": "261109152540",
+              "source": "timetable_v5_fifo_only",
+              "observed_queue": false,
+              "calibrated": false,
+              "algorithm_id": "latest-v5-all-shuttle-clock-fifo-v3",
+              "latest_simulation": {
+                "independent_status": "PASS",
+                "personal_walking_kmh": 4.8,
+                "population_note": "v5 기준집단 보행 분포 유지 · 개인4.8km/h 도착시각에서 줄을 조회",
+                "population_walking_replayed_at_4p8": false,
+                "preparation_added_again": false,
+                "ready_flows_include_boarding_prep": true,
+                "revision": "campus_stop_corridors_20261108",
+                "scenario": "regular",
+                "sensitivity_feedback_replayed": false
+              },
+              "expected_load_ratio": 0.1185,
+              "model_only": true,
+              "cohort_available": true,
+              "profile_route_id": "shuttle-41841",
+              "inflow_source": "latest_audited_v5_regular",
+              "estimated_at": 1794213944,
+              "queue_reference_at": 1794213944,
+              "future_query": false,
+              "arrival_time": 1794213964.0,
+              "queue_now": 0.42,
+              "queue_at_arrival": 0.11,
+              "queue_range": [
+                0.0,
+                0.96
+              ],
+              "queue_now_range": [
+                0.0,
+                3.16
+              ],
+              "expected_wait_seconds": 116,
+              "wait_scenario_range_seconds": [
+                11,
+                221
+              ],
+              "some_scenarios_unserved": false,
+              "range_kind": "assumption_sensitivity_not_confidence_interval",
+              "mean_skipped_departures": 0,
+              "capacity_assumption": 60,
+              "historical_signal": {
+                "available": false,
+                "percentile": null,
+                "route_count": 0,
+                "source": "model_only_no_city_pressure",
+                "unit": "not_used"
+              },
+              "live_signal": {
+                "available": false,
+                "vehicles": 0,
+                "newest_observed_at": null,
+                "oldest_age_seconds": null,
+                "source": "unavailable"
+              },
+              "current_demand_multiplier": 1.0,
+              "live_arrival_conditioned": false,
+              "coefficients_calibrated": false,
+              "unit": "weighted_expected_trip_events",
+              "clock_observed_at": null,
+              "crowd_observations_used": false,
+              "label": "시간표·v5 수업/보행 유입·FIFO 모형 대기 추정 · 실측 아님",
+              "limitations": [
+                "고유 학생·실제 줄 인원이 아님",
+                "즉시 이동50%·기숙사5772/29613·과거 목적지 비중은 참고 가정",
+                "배경 탑승자는 여석 유보0~20% 가정",
+                "휴강·실제 이탈·혼잡에 따른 집단 재선택·환승 지연 전파 미관측",
+                "최신v5기준집단의조건부유입·OD · 전체집단4.8km/h 재실행아님",
+                "원본v5의시내정원50/24·배경승객미포함은시나리오가정 · 실제정원아님",
+                "15초유입집계오차최대7.5초 · 준비20초재가산없음",
+                "24가지수요/여석민감도에서유입·OD고정 · 전체경로재선택피드백미재실행",
+                "셔틀 대기는 관측 혼잡·시내버스 신호 없이 시간표와 v5 코호트/FIFO 모형으로 계산",
+                "등교·심야 수요 코호트 부재 노선은 배차위상 모형만 사용·줄 인원과 탑승부담은 미산출",
+                "대학동은 동일 행정관/대학동 승차지 코호트 대응·도로/하차 지점 변경 후 전체 수단선택 피드백은 미재실행",
+                "원본 모형에서 경로 전환한 가중 인원은 전환시각에 줄에서 제거·새 배차조건에서 전환행동 자체를 다시 최적화한 것은 아님"
+              ]
+            },
+            "city_wait": null
+          }
+        ]
+      },
+      "strategies": {
+        "shuttle_wait": {
+          "id": "route-5",
+          "strategy": "shuttle_wait",
+          "route_names": [
+            "행정관 셔틀"
+          ],
+          "total_seconds": 400,
+          "walk_seconds": 82,
+          "wait_seconds": 116,
+          "ride_seconds": 182,
+          "boarding_seconds": 20,
+          "walk_m": 110,
+          "score": 2.38,
+          "boardings": [
+            {
+              "route_id": "shuttle-41841",
+              "name": "행정관 셔틀",
+              "stop": "행정관",
+              "stop_id": "snu-410",
+              "to": "서울대입구역",
+              "departure_at": 1794214080.0,
+              "ready_at": 1794213964.0,
+              "arrival_source": "shuttle_auto_queue_estimate",
+              "queue": {
+                "model_id": "261109152540",
+                "source": "timetable_v5_fifo_only",
+                "observed_queue": false,
+                "calibrated": false,
+                "algorithm_id": "latest-v5-all-shuttle-clock-fifo-v3",
+                "latest_simulation": {
+                  "independent_status": "PASS",
+                  "personal_walking_kmh": 4.8,
+                  "population_note": "v5 기준집단 보행 분포 유지 · 개인4.8km/h 도착시각에서 줄을 조회",
+                  "population_walking_replayed_at_4p8": false,
+                  "preparation_added_again": false,
+                  "ready_flows_include_boarding_prep": true,
+                  "revision": "campus_stop_corridors_20261108",
+                  "scenario": "regular",
+                  "sensitivity_feedback_replayed": false
+                },
+                "expected_load_ratio": 0.1185,
+                "model_only": true,
+                "cohort_available": true,
+                "profile_route_id": "shuttle-41841",
+                "inflow_source": "latest_audited_v5_regular",
+                "estimated_at": 1794213944,
+                "queue_reference_at": 1794213944,
+                "future_query": false,
+                "arrival_time": 1794213964.0,
+                "queue_now": 0.42,
+                "queue_at_arrival": 0.11,
+                "queue_range": [
+                  0.0,
+                  0.96
+                ],
+                "queue_now_range": [
+                  0.0,
+                  3.16
+                ],
+                "expected_wait_seconds": 116,
+                "wait_scenario_range_seconds": [
+                  11,
+                  221
+                ],
+                "some_scenarios_unserved": false,
+                "range_kind": "assumption_sensitivity_not_confidence_interval",
+                "mean_skipped_departures": 0,
+                "capacity_assumption": 60,
+                "historical_signal": {
+                  "available": false,
+                  "percentile": null,
+                  "route_count": 0,
+                  "source": "model_only_no_city_pressure",
+                  "unit": "not_used"
+                },
+                "live_signal": {
+                  "available": false,
+                  "vehicles": 0,
+                  "newest_observed_at": null,
+                  "oldest_age_seconds": null,
+                  "source": "unavailable"
+                },
+                "current_demand_multiplier": 1.0,
+                "live_arrival_conditioned": false,
+                "coefficients_calibrated": false,
+                "unit": "weighted_expected_trip_events",
+                "clock_observed_at": null,
+                "crowd_observations_used": false,
+                "label": "시간표·v5 수업/보행 유입·FIFO 모형 대기 추정 · 실측 아님",
+                "limitations": [
+                  "고유 학생·실제 줄 인원이 아님",
+                  "즉시 이동50%·기숙사5772/29613·과거 목적지 비중은 참고 가정",
+                  "배경 탑승자는 여석 유보0~20% 가정",
+                  "휴강·실제 이탈·혼잡에 따른 집단 재선택·환승 지연 전파 미관측",
+                  "최신v5기준집단의조건부유입·OD · 전체집단4.8km/h 재실행아님",
+                  "원본v5의시내정원50/24·배경승객미포함은시나리오가정 · 실제정원아님",
+                  "15초유입집계오차최대7.5초 · 준비20초재가산없음",
+                  "24가지수요/여석민감도에서유입·OD고정 · 전체경로재선택피드백미재실행",
+                  "셔틀 대기는 관측 혼잡·시내버스 신호 없이 시간표와 v5 코호트/FIFO 모형으로 계산",
+                  "등교·심야 수요 코호트 부재 노선은 배차위상 모형만 사용·줄 인원과 탑승부담은 미산출",
+                  "대학동은 동일 행정관/대학동 승차지 코호트 대응·도로/하차 지점 변경 후 전체 수단선택 피드백은 미재실행",
+                  "원본 모형에서 경로 전환한 가중 인원은 전환시각에 줄에서 제거·새 배차조건에서 전환행동 자체를 다시 최적화한 것은 아님"
+                ]
+              },
+              "city_wait": null
+            }
+          ]
+        },
+        "other_city": {
+          "id": "route-17",
+          "strategy": "other_city",
+          "route_names": [
+            "5511"
+          ],
+          "total_seconds": 727,
+          "walk_seconds": 146,
+          "wait_seconds": 163,
+          "ride_seconds": 398,
+          "boarding_seconds": 20,
+          "walk_m": 195,
+          "score": 7.42,
+          "boardings": [
+            {
+              "route_id": "100100250",
+              "name": "5511",
+              "stop": "문화관입구",
+              "stop_id": "120000195",
+              "to": "서울대입구역2번출구",
+              "departure_at": 1794214273,
+              "ready_at": 1794214110.0,
+              "arrival_source": "service_history_estimate",
+              "queue": null,
+              "city_wait": {
+                "model_id": "261109152540",
+                "algorithm_id": "conditional_fifo_and_binary_full_risk_v1",
+                "simulation": {
+                  "available": true,
+                  "minute": 1065,
+                  "reference_headway_seconds": 420.0,
+                  "extra_wait_seconds": 0.0,
+                  "expected_skipped_services": 0.0,
+                  "modeled_compatible_queue_weight": 0.0,
+                  "censored_phases": 0,
+                  "unit": "conditional_virtual_unit_fifo_probe_not_observed_queue",
+                  "algorithm_id": "frozen_v5_city_compatible_fifo_v1",
+                  "external_background_passengers_included": false
+                },
+                "empirical_full_risk": {
+                  "available": false,
+                  "reason": "no_prior_binary_labels"
+                },
+                "base_departure_at": 1794214273,
+                "expected_boarding_at": 1794214273,
+                "extra_wait_seconds": 0,
+                "headway_seconds": 420,
+                "observed_queue": false,
+                "calibrated": false,
+                "grade_to_seats_conversion": false,
+                "base_conditional_after_known_services": true,
+                "policy": "maximum_of_overlapping_capacity_delay_estimates",
+                "queue_state_is_conditional": true
+              }
+            }
+          ]
+        },
+        "walk_to_gate": {
+          "id": "route-0",
+          "strategy": "walk_to_gate",
+          "route_names": [
+            "5515"
+          ],
+          "total_seconds": 1164,
+          "walk_seconds": 580,
+          "wait_seconds": 309,
+          "ride_seconds": 255,
+          "boarding_seconds": 20,
+          "walk_m": 773,
+          "score": 16.84,
+          "boardings": [
+            {
+              "route_id": "100100252",
+              "name": "5515",
+              "stop": "서울대학교",
+              "stop_id": "120000029",
+              "to": "서울대입구역2번출구",
+              "departure_at": 1794214853,
+              "ready_at": 1794214544.0,
+              "arrival_source": "service_history_estimate",
+              "queue": null,
+              "city_wait": {
+                "model_id": "261109152540",
+                "algorithm_id": "conditional_fifo_and_binary_full_risk_v1",
+                "simulation": {
+                  "available": true,
+                  "minute": 1075,
+                  "reference_headway_seconds": 540.0,
+                  "extra_wait_seconds": 0.0,
+                  "expected_skipped_services": 0.0,
+                  "modeled_compatible_queue_weight": 0.0,
+                  "censored_phases": 0,
+                  "unit": "conditional_virtual_unit_fifo_probe_not_observed_queue",
+                  "algorithm_id": "frozen_v5_city_compatible_fifo_v1",
+                  "external_background_passengers_included": false
+                },
+                "empirical_full_risk": {
+                  "available": false,
+                  "reason": "no_prior_binary_labels"
+                },
+                "base_departure_at": 1794214853,
+                "expected_boarding_at": 1794214853,
+                "extra_wait_seconds": 0,
+                "headway_seconds": 540,
+                "observed_queue": false,
+                "calibrated": false,
+                "grade_to_seats_conversion": false,
+                "base_conditional_after_known_services": true,
+                "policy": "maximum_of_overlapping_capacity_delay_estimates",
+                "queue_state_is_conditional": true
+              }
+            }
+          ]
+        },
+        "walk_only": {
+          "id": "walk-only",
+          "strategy": "walk_only",
+          "route_names": [],
+          "total_seconds": 1810,
+          "walk_seconds": 1810,
+          "wait_seconds": 0,
+          "ride_seconds": 0,
+          "boarding_seconds": 0,
+          "walk_m": 2413,
+          "score": 33.53,
+          "boardings": []
+        }
+      },
+      "candidate_count": 40
+    },
+    "new": {
+      "model_id": "261109173153",
+      "recommended": {
+        "id": "route-5",
+        "strategy": "shuttle_wait",
+        "route_names": [
+          "행정관 셔틀"
+        ],
+        "total_seconds": 400,
+        "walk_seconds": 82,
+        "wait_seconds": 116,
+        "ride_seconds": 182,
+        "boarding_seconds": 20,
+        "walk_m": 110,
+        "score": 2.31,
+        "boardings": [
+          {
+            "route_id": "shuttle-41841",
+            "name": "행정관 셔틀",
+            "stop": "행정관",
+            "stop_id": "snu-410",
+            "to": "서울대입구역",
+            "departure_at": 1794214080.0,
+            "ready_at": 1794213964.0,
+            "arrival_source": "shuttle_auto_queue_estimate",
+            "queue": {
+              "model_id": "261109173153",
+              "source": "timetable_v5_fifo_only",
+              "observed_queue": false,
+              "calibrated": false,
+              "algorithm_id": "latest-v5-all-shuttle-clock-fifo-v3",
+              "latest_simulation": {
+                "gate_access_calibration": {
+                  "algorithm_id": "provisional_initial_gate_access_v1",
+                  "alpha": 0.75,
+                  "candidate_only": false,
+                  "gate_ars": "21128",
+                  "independent_empirical_validation": false,
+                  "independent_validation": false,
+                  "model_id": "261109171256",
+                  "new_demand_added": false,
+                  "observation_second": "unknown; uniform within reported minute",
+                  "observations_used_for_candidate_selection": [
+                    "admin_snu_1653",
+                    "culture_1655",
+                    "snu_gate_1703"
+                  ],
+                  "observations_used_for_selection": 3,
+                  "observed_mode_shares": false,
+                  "probability_rule": "alpha * max(0, 1 - individual_gate_walk_seconds / 900)",
+                  "promotion_status": "active_default_user_authorized",
+                  "source_sha256": "46243bdb22b769e3ed1fdbff270d0df74b8ffc55e91c80ab4594f1597288eb55",
+                  "source_simulation": "capacity_v5",
+                  "status": "active_default_user_authorized",
+                  "timetable_speed_capacity_changed": false,
+                  "walking_cutoff_seconds": 900.0
+                },
+                "independent_status": "PASS",
+                "personal_walking_kmh": 4.8,
+                "population_note": "v5 기준집단 보행 분포 유지 · 개인4.8km/h 도착시각에서 줄을 조회",
+                "population_walking_replayed_at_4p8": false,
+                "preparation_added_again": false,
+                "ready_flows_include_boarding_prep": true,
+                "revision": "campus_stop_corridors_20261108",
+                "scenario": "regular",
+                "sensitivity_feedback_replayed": false,
+                "source_simulation": "capacity_v7"
+              },
+              "expected_load_ratio": 0.1167,
+              "model_only": true,
+              "cohort_available": true,
+              "profile_route_id": "shuttle-41841",
+              "inflow_source": "latest_audited_v5_regular",
+              "estimated_at": 1794213944,
+              "queue_reference_at": 1794213944,
+              "future_query": false,
+              "arrival_time": 1794213964.0,
+              "queue_now": 0.0,
+              "queue_at_arrival": 0.0,
+              "queue_range": [
+                0.0,
+                0.0
+              ],
+              "queue_now_range": [
+                0.0,
+                0.0
+              ],
+              "expected_wait_seconds": 116,
+              "wait_scenario_range_seconds": [
+                11,
+                221
+              ],
+              "some_scenarios_unserved": false,
+              "range_kind": "assumption_sensitivity_not_confidence_interval",
+              "mean_skipped_departures": 0,
+              "capacity_assumption": 60,
+              "historical_signal": {
+                "available": false,
+                "percentile": null,
+                "route_count": 0,
+                "source": "model_only_no_city_pressure",
+                "unit": "not_used"
+              },
+              "live_signal": {
+                "available": false,
+                "vehicles": 0,
+                "newest_observed_at": null,
+                "oldest_age_seconds": null,
+                "source": "unavailable"
+              },
+              "current_demand_multiplier": 1.0,
+              "live_arrival_conditioned": false,
+              "coefficients_calibrated": false,
+              "unit": "weighted_expected_trip_events",
+              "clock_observed_at": null,
+              "crowd_observations_used": false,
+              "label": "시간표·v5 수업/보행 유입·FIFO 모형 대기 추정 · 실측 아님",
+              "limitations": [
+                "고유 학생·실제 줄 인원이 아님",
+                "즉시 이동50%·기숙사5772/29613·과거 목적지 비중은 참고 가정",
+                "배경 탑승자는 여석 유보0~20% 가정",
+                "휴강·실제 이탈·혼잡에 따른 집단 재선택·환승 지연 전파 미관측",
+                "최신v5기준집단의조건부유입·OD · 전체집단4.8km/h 재실행아님",
+                "원본v5의시내정원50/24·배경승객미포함은시나리오가정 · 실제정원아님",
+                "15초유입집계오차최대7.5초 · 준비20초재가산없음",
+                "24가지수요/여석민감도에서유입·OD고정 · 전체경로재선택피드백미재실행",
+                "셔틀 대기는 관측 혼잡·시내버스 신호 없이 시간표와 v5 코호트/FIFO 모형으로 계산",
+                "등교·심야 수요 코호트 부재 노선은 배차위상 모형만 사용·줄 인원과 탑승부담은 미산출",
+                "대학동은 동일 행정관/대학동 승차지 코호트 대응·도로/하차 지점 변경 후 전체 수단선택 피드백은 미재실행",
+                "원본 모형에서 경로 전환한 가중 인원은 전환시각에 줄에서 제거·새 배차조건에서 전환행동 자체를 다시 최적화한 것은 아님",
+                "정문 도보 접근은 사용자 보고3건을 참고한 보정이며 같은3건으로 독립 검증하지 않음",
+                "관측시각은 분내 균등 가정·정문33~39명 구간 유지·다른 날짜/요일 일반화 미검증"
+              ]
+            },
+            "city_wait": null
+          }
+        ]
+      },
+      "fastest": {
+        "id": "route-5",
+        "strategy": "shuttle_wait",
+        "route_names": [
+          "행정관 셔틀"
+        ],
+        "total_seconds": 400,
+        "walk_seconds": 82,
+        "wait_seconds": 116,
+        "ride_seconds": 182,
+        "boarding_seconds": 20,
+        "walk_m": 110,
+        "score": 2.31,
+        "boardings": [
+          {
+            "route_id": "shuttle-41841",
+            "name": "행정관 셔틀",
+            "stop": "행정관",
+            "stop_id": "snu-410",
+            "to": "서울대입구역",
+            "departure_at": 1794214080.0,
+            "ready_at": 1794213964.0,
+            "arrival_source": "shuttle_auto_queue_estimate",
+            "queue": {
+              "model_id": "261109173153",
+              "source": "timetable_v5_fifo_only",
+              "observed_queue": false,
+              "calibrated": false,
+              "algorithm_id": "latest-v5-all-shuttle-clock-fifo-v3",
+              "latest_simulation": {
+                "gate_access_calibration": {
+                  "algorithm_id": "provisional_initial_gate_access_v1",
+                  "alpha": 0.75,
+                  "candidate_only": false,
+                  "gate_ars": "21128",
+                  "independent_empirical_validation": false,
+                  "independent_validation": false,
+                  "model_id": "261109171256",
+                  "new_demand_added": false,
+                  "observation_second": "unknown; uniform within reported minute",
+                  "observations_used_for_candidate_selection": [
+                    "admin_snu_1653",
+                    "culture_1655",
+                    "snu_gate_1703"
+                  ],
+                  "observations_used_for_selection": 3,
+                  "observed_mode_shares": false,
+                  "probability_rule": "alpha * max(0, 1 - individual_gate_walk_seconds / 900)",
+                  "promotion_status": "active_default_user_authorized",
+                  "source_sha256": "46243bdb22b769e3ed1fdbff270d0df74b8ffc55e91c80ab4594f1597288eb55",
+                  "source_simulation": "capacity_v5",
+                  "status": "active_default_user_authorized",
+                  "timetable_speed_capacity_changed": false,
+                  "walking_cutoff_seconds": 900.0
+                },
+                "independent_status": "PASS",
+                "personal_walking_kmh": 4.8,
+                "population_note": "v5 기준집단 보행 분포 유지 · 개인4.8km/h 도착시각에서 줄을 조회",
+                "population_walking_replayed_at_4p8": false,
+                "preparation_added_again": false,
+                "ready_flows_include_boarding_prep": true,
+                "revision": "campus_stop_corridors_20261108",
+                "scenario": "regular",
+                "sensitivity_feedback_replayed": false,
+                "source_simulation": "capacity_v7"
+              },
+              "expected_load_ratio": 0.1167,
+              "model_only": true,
+              "cohort_available": true,
+              "profile_route_id": "shuttle-41841",
+              "inflow_source": "latest_audited_v5_regular",
+              "estimated_at": 1794213944,
+              "queue_reference_at": 1794213944,
+              "future_query": false,
+              "arrival_time": 1794213964.0,
+              "queue_now": 0.0,
+              "queue_at_arrival": 0.0,
+              "queue_range": [
+                0.0,
+                0.0
+              ],
+              "queue_now_range": [
+                0.0,
+                0.0
+              ],
+              "expected_wait_seconds": 116,
+              "wait_scenario_range_seconds": [
+                11,
+                221
+              ],
+              "some_scenarios_unserved": false,
+              "range_kind": "assumption_sensitivity_not_confidence_interval",
+              "mean_skipped_departures": 0,
+              "capacity_assumption": 60,
+              "historical_signal": {
+                "available": false,
+                "percentile": null,
+                "route_count": 0,
+                "source": "model_only_no_city_pressure",
+                "unit": "not_used"
+              },
+              "live_signal": {
+                "available": false,
+                "vehicles": 0,
+                "newest_observed_at": null,
+                "oldest_age_seconds": null,
+                "source": "unavailable"
+              },
+              "current_demand_multiplier": 1.0,
+              "live_arrival_conditioned": false,
+              "coefficients_calibrated": false,
+              "unit": "weighted_expected_trip_events",
+              "clock_observed_at": null,
+              "crowd_observations_used": false,
+              "label": "시간표·v5 수업/보행 유입·FIFO 모형 대기 추정 · 실측 아님",
+              "limitations": [
+                "고유 학생·실제 줄 인원이 아님",
+                "즉시 이동50%·기숙사5772/29613·과거 목적지 비중은 참고 가정",
+                "배경 탑승자는 여석 유보0~20% 가정",
+                "휴강·실제 이탈·혼잡에 따른 집단 재선택·환승 지연 전파 미관측",
+                "최신v5기준집단의조건부유입·OD · 전체집단4.8km/h 재실행아님",
+                "원본v5의시내정원50/24·배경승객미포함은시나리오가정 · 실제정원아님",
+                "15초유입집계오차최대7.5초 · 준비20초재가산없음",
+                "24가지수요/여석민감도에서유입·OD고정 · 전체경로재선택피드백미재실행",
+                "셔틀 대기는 관측 혼잡·시내버스 신호 없이 시간표와 v5 코호트/FIFO 모형으로 계산",
+                "등교·심야 수요 코호트 부재 노선은 배차위상 모형만 사용·줄 인원과 탑승부담은 미산출",
+                "대학동은 동일 행정관/대학동 승차지 코호트 대응·도로/하차 지점 변경 후 전체 수단선택 피드백은 미재실행",
+                "원본 모형에서 경로 전환한 가중 인원은 전환시각에 줄에서 제거·새 배차조건에서 전환행동 자체를 다시 최적화한 것은 아님",
+                "정문 도보 접근은 사용자 보고3건을 참고한 보정이며 같은3건으로 독립 검증하지 않음",
+                "관측시각은 분내 균등 가정·정문33~39명 구간 유지·다른 날짜/요일 일반화 미검증"
+              ]
+            },
+            "city_wait": null
+          }
+        ]
+      },
+      "strategies": {
+        "shuttle_wait": {
+          "id": "route-5",
+          "strategy": "shuttle_wait",
+          "route_names": [
+            "행정관 셔틀"
+          ],
+          "total_seconds": 400,
+          "walk_seconds": 82,
+          "wait_seconds": 116,
+          "ride_seconds": 182,
+          "boarding_seconds": 20,
+          "walk_m": 110,
+          "score": 2.31,
+          "boardings": [
+            {
+              "route_id": "shuttle-41841",
+              "name": "행정관 셔틀",
+              "stop": "행정관",
+              "stop_id": "snu-410",
+              "to": "서울대입구역",
+              "departure_at": 1794214080.0,
+              "ready_at": 1794213964.0,
+              "arrival_source": "shuttle_auto_queue_estimate",
+              "queue": {
+                "model_id": "261109173153",
+                "source": "timetable_v5_fifo_only",
+                "observed_queue": false,
+                "calibrated": false,
+                "algorithm_id": "latest-v5-all-shuttle-clock-fifo-v3",
+                "latest_simulation": {
+                  "gate_access_calibration": {
+                    "algorithm_id": "provisional_initial_gate_access_v1",
+                    "alpha": 0.75,
+                    "candidate_only": false,
+                    "gate_ars": "21128",
+                    "independent_empirical_validation": false,
+                    "independent_validation": false,
+                    "model_id": "261109171256",
+                    "new_demand_added": false,
+                    "observation_second": "unknown; uniform within reported minute",
+                    "observations_used_for_candidate_selection": [
+                      "admin_snu_1653",
+                      "culture_1655",
+                      "snu_gate_1703"
+                    ],
+                    "observations_used_for_selection": 3,
+                    "observed_mode_shares": false,
+                    "probability_rule": "alpha * max(0, 1 - individual_gate_walk_seconds / 900)",
+                    "promotion_status": "active_default_user_authorized",
+                    "source_sha256": "46243bdb22b769e3ed1fdbff270d0df74b8ffc55e91c80ab4594f1597288eb55",
+                    "source_simulation": "capacity_v5",
+                    "status": "active_default_user_authorized",
+                    "timetable_speed_capacity_changed": false,
+                    "walking_cutoff_seconds": 900.0
+                  },
+                  "independent_status": "PASS",
+                  "personal_walking_kmh": 4.8,
+                  "population_note": "v5 기준집단 보행 분포 유지 · 개인4.8km/h 도착시각에서 줄을 조회",
+                  "population_walking_replayed_at_4p8": false,
+                  "preparation_added_again": false,
+                  "ready_flows_include_boarding_prep": true,
+                  "revision": "campus_stop_corridors_20261108",
+                  "scenario": "regular",
+                  "sensitivity_feedback_replayed": false,
+                  "source_simulation": "capacity_v7"
+                },
+                "expected_load_ratio": 0.1167,
+                "model_only": true,
+                "cohort_available": true,
+                "profile_route_id": "shuttle-41841",
+                "inflow_source": "latest_audited_v5_regular",
+                "estimated_at": 1794213944,
+                "queue_reference_at": 1794213944,
+                "future_query": false,
+                "arrival_time": 1794213964.0,
+                "queue_now": 0.0,
+                "queue_at_arrival": 0.0,
+                "queue_range": [
+                  0.0,
+                  0.0
+                ],
+                "queue_now_range": [
+                  0.0,
+                  0.0
+                ],
+                "expected_wait_seconds": 116,
+                "wait_scenario_range_seconds": [
+                  11,
+                  221
+                ],
+                "some_scenarios_unserved": false,
+                "range_kind": "assumption_sensitivity_not_confidence_interval",
+                "mean_skipped_departures": 0,
+                "capacity_assumption": 60,
+                "historical_signal": {
+                  "available": false,
+                  "percentile": null,
+                  "route_count": 0,
+                  "source": "model_only_no_city_pressure",
+                  "unit": "not_used"
+                },
+                "live_signal": {
+                  "available": false,
+                  "vehicles": 0,
+                  "newest_observed_at": null,
+                  "oldest_age_seconds": null,
+                  "source": "unavailable"
+                },
+                "current_demand_multiplier": 1.0,
+                "live_arrival_conditioned": false,
+                "coefficients_calibrated": false,
+                "unit": "weighted_expected_trip_events",
+                "clock_observed_at": null,
+                "crowd_observations_used": false,
+                "label": "시간표·v5 수업/보행 유입·FIFO 모형 대기 추정 · 실측 아님",
+                "limitations": [
+                  "고유 학생·실제 줄 인원이 아님",
+                  "즉시 이동50%·기숙사5772/29613·과거 목적지 비중은 참고 가정",
+                  "배경 탑승자는 여석 유보0~20% 가정",
+                  "휴강·실제 이탈·혼잡에 따른 집단 재선택·환승 지연 전파 미관측",
+                  "최신v5기준집단의조건부유입·OD · 전체집단4.8km/h 재실행아님",
+                  "원본v5의시내정원50/24·배경승객미포함은시나리오가정 · 실제정원아님",
+                  "15초유입집계오차최대7.5초 · 준비20초재가산없음",
+                  "24가지수요/여석민감도에서유입·OD고정 · 전체경로재선택피드백미재실행",
+                  "셔틀 대기는 관측 혼잡·시내버스 신호 없이 시간표와 v5 코호트/FIFO 모형으로 계산",
+                  "등교·심야 수요 코호트 부재 노선은 배차위상 모형만 사용·줄 인원과 탑승부담은 미산출",
+                  "대학동은 동일 행정관/대학동 승차지 코호트 대응·도로/하차 지점 변경 후 전체 수단선택 피드백은 미재실행",
+                  "원본 모형에서 경로 전환한 가중 인원은 전환시각에 줄에서 제거·새 배차조건에서 전환행동 자체를 다시 최적화한 것은 아님",
+                  "정문 도보 접근은 사용자 보고3건을 참고한 보정이며 같은3건으로 독립 검증하지 않음",
+                  "관측시각은 분내 균등 가정·정문33~39명 구간 유지·다른 날짜/요일 일반화 미검증"
+                ]
+              },
+              "city_wait": null
+            }
+          ]
+        },
+        "other_city": {
+          "id": "route-17",
+          "strategy": "other_city",
+          "route_names": [
+            "5511"
+          ],
+          "total_seconds": 727,
+          "walk_seconds": 146,
+          "wait_seconds": 163,
+          "ride_seconds": 398,
+          "boarding_seconds": 20,
+          "walk_m": 195,
+          "score": 7.35,
+          "boardings": [
+            {
+              "route_id": "100100250",
+              "name": "5511",
+              "stop": "문화관입구",
+              "stop_id": "120000195",
+              "to": "서울대입구역2번출구",
+              "departure_at": 1794214273,
+              "ready_at": 1794214110.0,
+              "arrival_source": "service_history_estimate",
+              "queue": null,
+              "city_wait": {
+                "model_id": "261109173153",
+                "algorithm_id": "conditional_fifo_and_binary_full_risk_v1",
+                "simulation": {
+                  "available": true,
+                  "minute": 1065,
+                  "reference_headway_seconds": 420.0,
+                  "extra_wait_seconds": 0.0,
+                  "expected_skipped_services": 0.0,
+                  "modeled_compatible_queue_weight": 0.0,
+                  "censored_phases": 0,
+                  "unit": "conditional_virtual_unit_fifo_probe_not_observed_queue",
+                  "algorithm_id": "frozen_v5_city_compatible_fifo_v1",
+                  "external_background_passengers_included": false
+                },
+                "empirical_full_risk": {
+                  "available": false,
+                  "reason": "no_prior_binary_labels"
+                },
+                "base_departure_at": 1794214273,
+                "expected_boarding_at": 1794214273,
+                "extra_wait_seconds": 0,
+                "headway_seconds": 420,
+                "observed_queue": false,
+                "calibrated": false,
+                "grade_to_seats_conversion": false,
+                "base_conditional_after_known_services": true,
+                "policy": "maximum_of_overlapping_capacity_delay_estimates",
+                "queue_state_is_conditional": true
+              }
+            }
+          ]
+        },
+        "walk_to_gate": {
+          "id": "route-0",
+          "strategy": "walk_to_gate",
+          "route_names": [
+            "5515"
+          ],
+          "total_seconds": 1164,
+          "walk_seconds": 580,
+          "wait_seconds": 309,
+          "ride_seconds": 255,
+          "boarding_seconds": 20,
+          "walk_m": 773,
+          "score": 16.78,
+          "boardings": [
+            {
+              "route_id": "100100252",
+              "name": "5515",
+              "stop": "서울대학교",
+              "stop_id": "120000029",
+              "to": "서울대입구역2번출구",
+              "departure_at": 1794214853,
+              "ready_at": 1794214544.0,
+              "arrival_source": "service_history_estimate",
+              "queue": null,
+              "city_wait": {
+                "model_id": "261109173153",
+                "algorithm_id": "conditional_fifo_and_binary_full_risk_v1",
+                "simulation": {
+                  "available": true,
+                  "minute": 1075,
+                  "reference_headway_seconds": 540.0,
+                  "extra_wait_seconds": 0.0,
+                  "expected_skipped_services": 0,
+                  "modeled_compatible_queue_weight": 0.52993,
+                  "censored_phases": 0,
+                  "unit": "conditional_virtual_unit_fifo_probe_not_observed_queue",
+                  "algorithm_id": "frozen_v5_city_compatible_fifo_v1",
+                  "external_background_passengers_included": false
+                },
+                "empirical_full_risk": {
+                  "available": false,
+                  "reason": "no_prior_binary_labels"
+                },
+                "base_departure_at": 1794214853,
+                "expected_boarding_at": 1794214853,
+                "extra_wait_seconds": 0,
+                "headway_seconds": 540,
+                "observed_queue": false,
+                "calibrated": false,
+                "grade_to_seats_conversion": false,
+                "base_conditional_after_known_services": true,
+                "policy": "maximum_of_overlapping_capacity_delay_estimates",
+                "queue_state_is_conditional": true
+              }
+            }
+          ]
+        },
+        "walk_only": {
+          "id": "walk-only",
+          "strategy": "walk_only",
+          "route_names": [],
+          "total_seconds": 1810,
+          "walk_seconds": 1810,
+          "wait_seconds": 0,
+          "ride_seconds": 0,
+          "boarding_seconds": 0,
+          "walk_m": 2413,
+          "score": 33.53,
+          "boardings": []
+        }
+      },
+      "candidate_count": 40
+    }
+  }
+}

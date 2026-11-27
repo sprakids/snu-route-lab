@@ -1,0 +1,85 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "installCommand": "",
+  "buildCommand": "",
+  "outputDirectory": "public",
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/data/:dataset/:file.json",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        },
+        {
+          "key": "Content-Encoding",
+          "value": "br"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/data/capacity_v11/:file.json",
+      "destination": "https://snu-shuttle-v9-data.vercel.app/data/capacity_v11/:file.json"
+    },
+    {
+      "source": "/data/half_hour_v1/capacity_v11.json",
+      "destination": "https://snu-shuttle-v9-data.vercel.app/data/half_hour_v1/capacity_v11.json"
+    },
+    {
+      "source": "/data/capacity_review_v1/:file.json",
+      "destination": "https://snu-shuttle-v9-data.vercel.app/data/capacity_review_v1/:file.json"
+    },
+    {
+      "source": "/capacity-correction-waits.csv",
+      "destination": "https://snu-shuttle-v9-data.vercel.app/capacity-correction-waits.csv"
+    },
+    {
+      "source": "/routing-model/releases/261110162302.json",
+      "destination": "https://snu-shuttle-v9-data.vercel.app/routing-model/releases/261110162302.json"
+    },
+    {
+      "source": "/data/capacity_v9/:file.json",
+      "destination": "https://snu-shuttle-v9-data.vercel.app/data/capacity_v9/:file.json"
+    },
+    {
+      "source": "/data/half_hour_v1/capacity_v9.json",
+      "destination": "https://snu-shuttle-v9-data.vercel.app/data/half_hour_v1/capacity_v9.json"
+    },
+    {
+      "source": "/data/walk_review_v1/:file.json",
+      "destination": "https://snu-shuttle-v9-data.vercel.app/data/walk_review_v1/:file.json"
+    },
+    {
+      "source": "/routing-model/releases/261110150729.json",
+      "destination": "https://snu-shuttle-v9-data.vercel.app/routing-model/releases/261110150729.json"
+    },
+    {
+      "source": "/walk-choice-waits.csv",
+      "destination": "https://snu-shuttle-v9-data.vercel.app/walk-choice-waits.csv"
+    },
+    {
+      "source": "/data/:dataset/:file.json",
+      "destination": "/data/:dataset/:file.json.br"
+    }
+  ]
+}

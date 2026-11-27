@@ -1,0 +1,346 @@
+{
+  "source": "shuttle_analysis\\261115153406\\runs\\ablation-gate-only-mon\\attempt_01\\audit-regular-mon.json.gz",
+  "scope": "Post-hoc diagnostics, not new tuning or independent evidence",
+  "cases": [
+    {
+      "wait": {
+        "node": 60,
+        "arrival": 44780.664054593675,
+        "ready": 44800.664054593675,
+        "end": 45983.77422518682,
+        "weight": 0.3744357263757023,
+        "id": 1795088,
+        "ticket": 22996,
+        "eligibility": [
+          [
+            "100100250",
+            18
+          ]
+        ],
+        "outcome": "switched",
+        "vehicle": null,
+        "physical_stop_entry": 44780.664054593675,
+        "realized_change_count": 0,
+        "full_passes_seen": 3,
+        "parent_id": 112193,
+        "enroute_intercept": false,
+        "stop_arrival_at": 44780.664054593675,
+        "ready_at": 44800.664054593675,
+        "boarding_at": null,
+        "leave_at": 45983.77422518682
+      },
+      "personal_patience_seconds": 1191.5481169211944,
+      "history": [
+        [
+          45983.77422518682,
+          "walk_transfer",
+          "도보→대학동(승차) · 대학동 셔틀(시간표) / 행정관 셔틀"
+        ],
+        [
+          47276.794523450604,
+          "gate_pool",
+          "서울대학교 21128 · 먼저 오는 5개 노선"
+        ]
+      ],
+      "student_stop_history": [
+        59,
+        60,
+        43,
+        1,
+        62
+      ],
+      "unserved": false,
+      "decisions": [
+        {
+          "time": 45983.77422518682,
+          "origin": 60,
+          "target": 43,
+          "uid": 1795088,
+          "weight": 0.3744357263757023,
+          "kind": "walk_transfer",
+          "forced": false,
+          "reason": "service_rejected_or_full",
+          "visible_queue": 3.88132293852944,
+          "continuous_wait_seconds": 1203.1101705931433,
+          "full_passes": 3,
+          "change_count_before": 0,
+          "old_eta": 48514.110426645384,
+          "new_eta": 47665.215489703274,
+          "generalized_cost_minutes": 110.4658170585087,
+          "physical_prediction": {
+            "eta": 47665.215489703274,
+            "walk": 1043.8781369725389,
+            "wait": 265.7617749990095,
+            "ride": 331.80135254490597,
+            "prep": 40.0,
+            "transfers": 2,
+            "fare": 0.0,
+            "crowd_exposure": 35.96936863189255,
+            "fatigue": 0.0,
+            "first_wait": 182.55629844961368,
+            "wait_squared": 48506.39155538815,
+            "wait_cubed": 7954226.183429205,
+            "empirical_context": [
+              {
+                "crowd_source": "not_a_city_observed_route"
+              },
+              {
+                "crowd_source": "not_a_city_observed_route"
+              }
+            ],
+            "boarding_load_projections": [
+              {
+                "capacity": 60,
+                "known_retained_onboard": 0,
+                "known_ahead_boarded_here": 17.300643579959257,
+                "unidentified_reserved_capacity": 0.0,
+                "free_before_known_ahead": 60,
+                "free_after_known_ahead": 42.69935642004074,
+                "requested_marginal_mass": 1.0,
+                "projected_after_self": 18.300643579959257,
+                "quota_implied_load_upper_proxy": 18.300643579959257,
+                "basis": "known_retained_plus_this_vehicle_FIFO_boardings_plus_marginal_person; reservation excluded from crowd cost",
+                "is_observed_occupancy": false,
+                "committed_candidate_count": 90,
+                "committed_candidate_mass": 41.30798614058288,
+                "forecast_information_time": 45983.77422518682,
+                "ego_ready_time": 46953.66551030133,
+                "pending_mass_scope": "candidate approaches ready before ego, not observed people or all boardings on this vehicle",
+                "route": "shuttle-daehak",
+                "vehicle": 393,
+                "board_index": 2,
+                "time": 47116.22180875095,
+                "used_for_fallback_crowding_cost": true,
+                "trajectory_scope": "boarding-entry-load proxy held over inherited ride; no numeric grade conversion"
+              },
+              {
+                "capacity": 44,
+                "known_retained_onboard": 0,
+                "known_ahead_boarded_here": 14.30905698652748,
+                "unidentified_reserved_capacity": 0.0,
+                "free_before_known_ahead": 44,
+                "free_after_known_ahead": 29.69094301347252,
+                "requested_marginal_mass": 1.0,
+                "projected_after_self": 15.30905698652748,
+                "quota_implied_load_upper_proxy": 15.30905698652748,
+                "basis": "known_retained_plus_this_vehicle_FIFO_boardings_plus_marginal_person; reservation excluded from crowd cost",
+                "is_observed_occupancy": false,
+                "committed_candidate_count": 57,
+                "committed_candidate_mass": 21.94999529212116,
+                "forecast_information_time": 45983.77422518682,
+                "ego_ready_time": 47296.794523450604,
+                "pending_mass_scope": "candidate approaches ready before ego, not observed people or all boardings on this vehicle",
+                "route": "shuttle-41841",
+                "vehicle": 62,
+                "board_index": 1,
+                "time": 47400.0,
+                "used_for_fallback_crowding_cost": true,
+                "trajectory_scope": "boarding-entry-load proxy held over inherited ride; no numeric grade conversion"
+              }
+            ]
+          },
+          "terminal_walk_rule": {
+            "completed_changes": 0,
+            "growth_factor": 2.0,
+            "walk_available": false,
+            "unboosted_probability": 0.0,
+            "reference_probability": 0.0,
+            "target_probability": 0.0,
+            "logit_shift": 0.0,
+            "numeric_saturation": false
+          },
+          "old_services": [
+            [
+              "100100250",
+              18
+            ]
+          ],
+          "new_services": [
+            [
+              "shuttle-daehak",
+              2
+            ]
+          ],
+          "student_mode_before": "city",
+          "student_preferred_mode": "city",
+          "student_patience_seconds": 1191.5481169211944,
+          "student_visited_before": [
+            59
+          ],
+          "student_predicted_additional_passes": 4,
+          "student_expected_queue_wait_seconds": 3304.804941521179
+        }
+      ]
+    },
+    {
+      "wait": {
+        "node": 60,
+        "arrival": 44780.664054593675,
+        "ready": 44800.664054593675,
+        "end": 45983.77422518682,
+        "weight": 0.5330468562473931,
+        "id": 1795089,
+        "ticket": 22997,
+        "eligibility": [
+          [
+            "100100250",
+            18
+          ]
+        ],
+        "outcome": "switched",
+        "vehicle": null,
+        "physical_stop_entry": 44780.664054593675,
+        "realized_change_count": 0,
+        "full_passes_seen": 3,
+        "parent_id": 112193,
+        "enroute_intercept": false,
+        "stop_arrival_at": 44780.664054593675,
+        "ready_at": 44800.664054593675,
+        "boarding_at": null,
+        "leave_at": 45983.77422518682
+      },
+      "personal_patience_seconds": 1032.2196249899562,
+      "history": [
+        [
+          45983.77422518682,
+          "walk_transfer",
+          "도보→대학동(승차) · 대학동 셔틀(시간표) / 행정관 셔틀"
+        ],
+        [
+          47276.794523450604,
+          "gate_pool",
+          "서울대학교 21128 · 먼저 오는 5개 노선"
+        ]
+      ],
+      "student_stop_history": [
+        59,
+        60,
+        43,
+        1,
+        62
+      ],
+      "unserved": false,
+      "decisions": [
+        {
+          "time": 45983.77422518682,
+          "origin": 60,
+          "target": 43,
+          "uid": 1795089,
+          "weight": 0.5330468562473931,
+          "kind": "walk_transfer",
+          "forced": false,
+          "reason": "service_rejected_or_full",
+          "visible_queue": 3.5068872121537376,
+          "continuous_wait_seconds": 1203.1101705931433,
+          "full_passes": 3,
+          "change_count_before": 0,
+          "old_eta": 48514.110426645384,
+          "new_eta": 47665.215489703274,
+          "generalized_cost_minutes": 96.19995299124471,
+          "physical_prediction": {
+            "eta": 47665.215489703274,
+            "walk": 1043.8781369725389,
+            "wait": 265.7617749990095,
+            "ride": 331.80135254490597,
+            "prep": 40.0,
+            "transfers": 2,
+            "fare": 0.0,
+            "crowd_exposure": 35.96936863189255,
+            "fatigue": 0.0,
+            "first_wait": 182.55629844961368,
+            "wait_squared": 48506.39155538815,
+            "wait_cubed": 7954226.183429205,
+            "empirical_context": [
+              {
+                "crowd_source": "not_a_city_observed_route"
+              },
+              {
+                "crowd_source": "not_a_city_observed_route"
+              }
+            ],
+            "boarding_load_projections": [
+              {
+                "capacity": 60,
+                "known_retained_onboard": 0,
+                "known_ahead_boarded_here": 17.300643579959257,
+                "unidentified_reserved_capacity": 0.0,
+                "free_before_known_ahead": 60,
+                "free_after_known_ahead": 42.69935642004074,
+                "requested_marginal_mass": 1.0,
+                "projected_after_self": 18.300643579959257,
+                "quota_implied_load_upper_proxy": 18.300643579959257,
+                "basis": "known_retained_plus_this_vehicle_FIFO_boardings_plus_marginal_person; reservation excluded from crowd cost",
+                "is_observed_occupancy": false,
+                "committed_candidate_count": 90,
+                "committed_candidate_mass": 41.30798614058288,
+                "forecast_information_time": 45983.77422518682,
+                "ego_ready_time": 46953.66551030133,
+                "pending_mass_scope": "candidate approaches ready before ego, not observed people or all boardings on this vehicle",
+                "route": "shuttle-daehak",
+                "vehicle": 393,
+                "board_index": 2,
+                "time": 47116.22180875095,
+                "used_for_fallback_crowding_cost": true,
+                "trajectory_scope": "boarding-entry-load proxy held over inherited ride; no numeric grade conversion"
+              },
+              {
+                "capacity": 44,
+                "known_retained_onboard": 0,
+                "known_ahead_boarded_here": 14.30905698652748,
+                "unidentified_reserved_capacity": 0.0,
+                "free_before_known_ahead": 44,
+                "free_after_known_ahead": 29.69094301347252,
+                "requested_marginal_mass": 1.0,
+                "projected_after_self": 15.30905698652748,
+                "quota_implied_load_upper_proxy": 15.30905698652748,
+                "basis": "known_retained_plus_this_vehicle_FIFO_boardings_plus_marginal_person; reservation excluded from crowd cost",
+                "is_observed_occupancy": false,
+                "committed_candidate_count": 57,
+                "committed_candidate_mass": 21.94999529212116,
+                "forecast_information_time": 45983.77422518682,
+                "ego_ready_time": 47296.794523450604,
+                "pending_mass_scope": "candidate approaches ready before ego, not observed people or all boardings on this vehicle",
+                "route": "shuttle-41841",
+                "vehicle": 62,
+                "board_index": 1,
+                "time": 47400.0,
+                "used_for_fallback_crowding_cost": true,
+                "trajectory_scope": "boarding-entry-load proxy held over inherited ride; no numeric grade conversion"
+              }
+            ]
+          },
+          "terminal_walk_rule": {
+            "completed_changes": 0,
+            "growth_factor": 2.0,
+            "walk_available": false,
+            "unboosted_probability": 0.0,
+            "reference_probability": 0.0,
+            "target_probability": 0.0,
+            "logit_shift": 0.0,
+            "numeric_saturation": false
+          },
+          "old_services": [
+            [
+              "100100250",
+              18
+            ]
+          ],
+          "new_services": [
+            [
+              "shuttle-daehak",
+              2
+            ]
+          ],
+          "student_mode_before": "city",
+          "student_preferred_mode": "city",
+          "student_patience_seconds": 1032.2196249899562,
+          "student_visited_before": [
+            59
+          ],
+          "student_predicted_additional_passes": 4,
+          "student_expected_queue_wait_seconds": 3304.804941521179
+        }
+      ]
+    }
+  ]
+}

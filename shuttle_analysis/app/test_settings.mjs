@@ -1,0 +1,75 @@
+// Persistence, focus, integration and unavailable-storage regressions.
+import fs from 'node:fs/promises';
+import vm from 'node:vm';
+import assert from 'node:assert/strict';
+import {JSDOM} from 'jsdom';
+const root=new URL('./',import.meta.url),fixture=JSON.parse(await fs.readFile(new URL('runtime/ui_fixtures_v2.json',root),'utf8'));
+const html=await fs.readFile(new URL('static/index.html',root),'utf8');
+const source=Object.fromEntries(await Promise.all(['campus-theme.js','settings.js','app.js'].map(async name=>[name,(await fs.readFile(new URL('static/'+name,root),'utf8')).replace(/^import[^\n]+\n/,'')])));
+const checks=[];const check=(name,fn)=>{fn();checks.push(name);};
+const key='snu-route-preferences-v1',theme='snu-homebound-theme-v1';
+async function boot({stored={},url='https://snu-route-lab.vercel.app/',width=390,denied=false}={}){
+  const dom=new JSDOM(html,{url,runScripts:'outside-only',pretendToBeVisual:true}),w=dom.window,d=w.document,requests=[],geo=[];
+  Object.defineProperty(w,'innerWidth',{value:width,writable:true});w.setInterval=()=>0;
+  const mediaListeners={};w.matchMedia=q=>({matches:false,addEventListener:(_,fn)=>{mediaListeners[q]=fn;}});
+  for(const [k,v] of Object.entries(stored))w.localStorage.setItem(k,v);
+  if(denied)w.Storage.prototype.setItem=function(){throw new Error('Storage denied');};
+  w.HTMLDialogElement.prototype.showModal=function(){this.setAttribute('open','');this.querySelector('button')?.focus();};
+  w.HTMLDialogElement.prototype.close=function(){this.removeAttribute('open');this.dispatchEvent(new w.Event('close'));};
+  Object.defineProperty(w.navigator,'geolocation',{value:{getCurrentPosition:(ok,fail)=>{geo.push(1);fail({code:1});}}});
+  w.RouteMap=class{constructor(){this.provider='osm';}async initialize(){return 'osm';}showRoute(){}showVehicles(){}showShuttle(){}showUserLocation(){}resize(){}fit(){}clearRoute(){}home(){}};
+  w.fetch=async(path,options={})=>{const body=options.body?JSON.parse(options.body):null;requests.push({path,body});let data;
+    if(path==='/api/bootstrap')data=fixture.bootstrap;
+    else if(path==='/api/status'||path==='/api/refresh')data=fixture.positions;
+    else if(path==='/api/shuttle')data=fixture.shuttle;
+    else if(path==='/api/plan')data=fixture.plans[body.destination_id]||fixture.plans['snu-station'];
+    else if(path==='/api/arrivals')data={stops:[]};else throw Error(path);
+    return {ok:true,json:async()=>structuredClone(data)};};
+  const run=code=>new vm.Script(code).runInContext(dom.getInternalVMContext());
+  run(source['campus-theme.js']);run(source['settings.js']);run(source['app.js']);
+  if(d.readyState==='loading')d.dispatchEvent(new w.Event('DOMContentLoaded'));
+  for(let i=0;i<300&&!d.querySelector('#origin option[value]');i++)await new Promise(r=>setTimeout(r,10));
+  return {dom,w,d,run,requests,geo,mediaListeners};
+}
+const first=await boot(),{w,d,requests}=first;
+check('four map navigation items include settings',()=>assert.deepEqual([...d.querySelectorAll('.mobile-nav button')].map(b=>b.id),['mobile-home','mobile-directions','mobile-shuttle','mobile-settings']));
+const plans=()=>requests.filter(r=>r.path==='/api/plan');let before=plans().length;
+d.querySelector('#mobile-settings').focus();d.querySelector('#mobile-settings').click();
+check('settings opens as a labelled dialog without route or location requests',()=>{assert(d.querySelector('#settings-dialog').open);assert.equal(d.querySelector('#settings-dialog').getAttribute('aria-labelledby'),'settings-title');assert.equal(plans().length,before);assert.equal(d.querySelector('#mobile-settings').getAttribute('aria-current'),'page');});
+d.querySelector('[data-default-preset="comfort"]').click();d.querySelector('#settings-include-shuttle').checked=false;
+d.querySelector('#settings-preferences-form').dispatchEvent(new w.Event('submit',{cancelable:true}));
+check('saving a default updates next-search inputs without triggering a query',()=>{const saved=JSON.parse(w.localStorage.getItem(key));assert.equal(saved.preset,'comfort');assert.equal(saved.weights.crowd,45);assert.equal(d.querySelector('[data-weight="crowd"]').value,'45');assert.equal(d.querySelector('#include-shuttle').checked,false);assert.equal(plans().length,before);assert.match(d.querySelector('#settings-status').textContent,/저장했습니다/);});
+d.querySelector('input[data-theme-choice][value=dark]').click();
+check('dark mode synchronizes root, setting and existing header toggle',()=>{assert.equal(d.documentElement.dataset.theme,'dark');assert.equal(w.localStorage.getItem(theme),'dark');assert.equal(d.querySelector('[data-theme-toggle]').getAttribute('aria-checked'),'true');});
+d.querySelector('[data-theme-toggle]').click();
+check('header theme changes synchronize back into settings',()=>assert.equal(d.querySelector('input[data-theme-choice]:checked').value,'light'));
+d.querySelector('input[data-theme-choice][value=dark]').click();
+for(const id of ['settings-large-text','settings-reduce-motion'])d.querySelector('#'+id).click();
+check('large text and reduced motion persist independently of route weights',()=>{const saved=JSON.parse(w.localStorage.getItem(key));assert(saved.largeText&&saved.reduceMotion);assert.equal(saved.weights.crowd,45);assert.equal(d.documentElement.dataset.largeText,'true');assert.equal(d.documentElement.dataset.reduceMotion,'true');});
+const saved=Object.fromEntries([key,theme].map(k=>[k,w.localStorage.getItem(k)]));
+d.querySelector('#settings-close').click();
+check('closing settings restores focus and navigation without replanning',()=>{assert.equal(d.activeElement.id,'mobile-settings');assert.equal(d.querySelector('#mobile-home').getAttribute('aria-current'),'page');assert.equal(plans().length,before);});
+const reopened=await boot({stored:saved});
+check('a new page load uses saved route, shuttle, theme and access defaults',()=>{assert.equal(reopened.d.querySelector('[data-weight=crowd]').value,'45');assert.equal(reopened.d.querySelector('#include-shuttle').checked,false);assert.equal(reopened.d.documentElement.dataset.theme,'dark');assert.equal(reopened.d.documentElement.dataset.largeText,'true');});
+d.querySelector('#mobile-settings').click();
+for(const field of ['time','crowd','walk','transfers']){const input=d.querySelector('#default-weight-'+field);input.value='0';input.dispatchEvent(new w.Event('input'));}
+d.querySelector('#settings-preferences-form').dispatchEvent(new w.Event('submit',{cancelable:true}));
+check('all-zero preferences cannot replace a valid saved preference',()=>{assert.equal(JSON.parse(w.localStorage.getItem(key)).weights.crowd,45);assert.match(d.querySelector('#settings-status').textContent,/한 가지 이상/);});
+w.localStorage.setItem('unrelated-setting','keep');d.querySelector('#settings-reset').click();
+check('reset clears only this app settings and restores live UI defaults',()=>{assert.equal(w.localStorage.getItem('unrelated-setting'),'keep');assert.equal(w.localStorage.getItem(key),null);assert.equal(w.localStorage.getItem(theme),null);assert.equal(d.querySelector('[data-weight=time]').value,'75');assert.equal(d.documentElement.dataset.largeText,'false');assert.equal(d.querySelector('input[data-theme-choice]:checked').value,'system');assert.equal(plans().length,before);});
+const corrupt=await boot({stored:{[key]:'{"preset":"custom","weights":{"time":0,"crowd":0,"walk":0,"transfers":0},"origin":{"lat":37.46}}'}});
+check('invalid saved weights are ignored',()=>assert.equal(corrupt.d.querySelector('[data-weight=time]').value,'75'));
+const poisoned=await boot({stored:{[key]:'{"preset":"custom","weights":{"time":50,"crowd":20,"walk":20,"transfers":10},"lat":37.46,"email":"should-not-save"}'}});
+poisoned.d.querySelector('#mobile-settings').click();poisoned.d.querySelector('#settings-preferences-form').dispatchEvent(new poisoned.w.Event('submit',{cancelable:true}));
+check('stored settings use a whitelist and never retain injected personal fields',()=>{const value=JSON.parse(poisoned.w.localStorage.getItem(key));assert.equal(value.lat,undefined);assert.equal(value.email,undefined);assert.equal(value.weights.time,50);});
+const unavailable=await boot({denied:true});unavailable.d.querySelector('#mobile-settings').click();unavailable.d.querySelector('[data-default-preset=walk]').click();unavailable.d.querySelector('#settings-preferences-form').dispatchEvent(new unavailable.w.Event('submit',{cancelable:true}));
+check('storage denial leaves the app usable and reports that saving did not persist',()=>{assert.match(unavailable.d.querySelector('#settings-status').textContent,/저장할 수 없어/);assert.equal(unavailable.d.querySelector('[data-weight=walk]').value,'70');});
+const deep=await boot({url:'https://snu-route-lab.vercel.app/?settings=1',width:1280});
+check('policy return links open settings without querying a route, location or leaving a loading placeholder',()=>{assert(deep.d.querySelector('#settings-dialog').open);assert.equal(deep.requests.filter(r=>r.path==='/api/plan').length,0);assert.equal(deep.geo.length,0);assert.equal(deep.d.querySelector('#results .skeleton'),null);});
+check('policy and accessibility links and operator contact are reachable in settings',()=>{assert.equal(d.querySelector('a[href="/privacy.html"]').textContent.trim().startsWith('개인정보 처리방침'),true);assert(d.querySelector('a[href="/accessibility.html"]'));assert(d.querySelector('a[href="mailto:sprakids@snu.ac.kr"]'));});
+for(const page of ['privacy','accessibility']){
+ const text=await fs.readFile(new URL('static/'+page+'.html',root),'utf8');
+ check(page+' page exposes approved operator contact and settings return',()=>{assert.match(text,/김예준/);assert.match(text,/2026학년도 2학기 서울대학교 산업공학과 산업공학의 이해 7조/);assert.match(text,/mailto:sprakids@snu.ac.kr/);assert.match(text,/href="\/\?settings=1"/);});
+}
+for(const env of [first,reopened,corrupt,poisoned,unavailable,deep])env.dom.window.close();
+console.log(JSON.stringify({suite:'settings persistence and app integration',passed:checks.length,checks,visual_browser_test:false,network_writes:false},null,2));

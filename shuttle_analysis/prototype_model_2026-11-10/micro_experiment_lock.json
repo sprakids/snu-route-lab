@@ -1,0 +1,46 @@
+{
+  "status": "PREREGISTERED_BEFORE_MICRO_EXECUTION",
+  "event": "20261110-1523-admin-snu-queue-wait-01",
+  "arrival_seconds_after_join": [
+    30,
+    60,
+    120
+  ],
+  "door_delay_seconds": [
+    0,
+    30,
+    60
+  ],
+  "seconds_per_boarder": [
+    1,
+    2,
+    4,
+    6
+  ],
+  "clearance_after_last_boarder_seconds": [
+    0,
+    15,
+    30
+  ],
+  "already_onboard_per_vehicle": [
+    0,
+    10,
+    20
+  ],
+  "allocation": [
+    "fill_first",
+    "next_available"
+  ],
+  "observer_ready_delay_seconds": [
+    0,
+    20
+  ],
+  "outside_people_including_observer": 67,
+  "capacity_per_vehicle": 44,
+  "vehicles": 2,
+  "constant_scenario_queue": "66 ahead present and ready when observer joins; no further arrivals, no alighting",
+  "event_uncertainty": "join minute unknown second, actual vehicle arrival/door opening/residual seats not measured",
+  "not_estimated_from_event": true,
+  "post_boarding30_is_not_clearance_parameter": true,
+  "amends_original_micro_grid": "Adds separately named ready/clearance/onboard hypotheses before execution; no coefficient selection or ranking"
+}

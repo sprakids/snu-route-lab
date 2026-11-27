@@ -1,0 +1,89 @@
+{
+  "created_at": "2026-11-09T15:42:07.208638+09:00",
+  "timezone": "Asia/Seoul",
+  "snapshot_only": true,
+  "live_collection_continues": true,
+  "scope": "retained prior dates reported by collector history plus current partial date",
+  "dates": [
+    "2026-11-07",
+    "2026-11-08",
+    "2026-11-09"
+  ],
+  "files": [
+    {
+      "path": "collector-2026-11-07.json.gz",
+      "day": "2026-11-07",
+      "bytes": 152823,
+      "sha256": "ba6d8cbda1c6eea6d9a0ca417f2daded680edae8de810534dff0c8ee9fb616ef",
+      "archive_records": 105,
+      "vehicle_observation_rows_not_independent_samples": 2026,
+      "recorded_at_min": 1794048334.698,
+      "recorded_at_max": 1794060600.003
+    },
+    {
+      "path": "collector-2026-11-08.json.gz",
+      "day": "2026-11-08",
+      "bytes": 1262072,
+      "sha256": "a14fd7c5fa650fb340d2560fc9958f2e32a2f6adfd8dd449ca9d0b916f9574fd",
+      "archive_records": 356,
+      "vehicle_observation_rows_not_independent_samples": 22416,
+      "recorded_at_min": 1794104400.002,
+      "recorded_at_max": 1794147000.002
+    },
+    {
+      "path": "collector-2026-11-09.json.gz",
+      "day": "2026-11-09",
+      "bytes": 989997,
+      "sha256": "3e41548c3d944be778e99661647c65da54c773b25cccb869ac55fa72924eda00",
+      "archive_records": 239,
+      "vehicle_observation_rows_not_independent_samples": 21419,
+      "recorded_at_min": 1794190800.003,
+      "recorded_at_max": 1794206504.01
+    },
+    {
+      "path": "route_stops.json",
+      "source": "collector\\route_stops.json",
+      "sha256": "f9e0a7a893fd34f1c6284e6f1823ded165b83f5d158a81cf3317f4cde3f035a5",
+      "bytes": 80391
+    },
+    {
+      "path": "network.json",
+      "source": "app\\data\\network.json",
+      "sha256": "d1ca30630a101ee6164646106b0595440633c1f752d91b78e5dad3e438dc7d5c",
+      "bytes": 82876
+    },
+    {
+      "path": "5515-stops.json",
+      "source": "route_expansion_2026-11-07\\sources\\5515-stops.json",
+      "sha256": "97f873eb570aa619e40602d69789a99ca01e30d63d4677a762eec77aa5833f03",
+      "bytes": 15016
+    },
+    {
+      "path": "5528-stops.json",
+      "source": "route_expansion_2026-11-07\\sources\\5528-stops.json",
+      "sha256": "ef6af4c1db2ee472549bd4c5084aa3ecd7934d5e64565a6c8d422241d668228e",
+      "bytes": 36868
+    },
+    {
+      "path": "6515-stops.json",
+      "source": "route_expansion_2026-11-07\\sources\\6515-stops.json",
+      "sha256": "a6833430fc44c330554ac512930c5ca625aff591bd69702026cf0eb5a4b265b7",
+      "bytes": 51651
+    }
+  ],
+  "private_data_not_for_public_static_deployment": true,
+  "model_id": "261109152540",
+  "model_path": "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\simulation_viewer_2026-11-07\\public\\routing-model\\releases\\261109152540.json",
+  "prior_history_paths": [
+    "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\app\\data\\weekday_history.json",
+    "C:\\Users\\김예준\\Documents\\ChatGPT\\공대 문제해결\\shuttle_analysis\\app\\data\\weekday_history_extension.json"
+  ],
+  "notes": [
+    "Vehicle observations are not independent trips, riders or stop queue counts.",
+    "Grades 3/4/5/6 are ordinal labels; 0 means unavailable. Village routes may provide full flags without crowd grades.",
+    "Full flag absence is not a negative label. full_known exists only since the 2026-11-09 collection update.",
+    "Keep route direction, repeated stops, source timestamps and sample gaps separate; do not attribute multi-stop gaps to a single stop.",
+    "Original simulator capacities 50/24 and class shares are scenarios, not observed occupancy.",
+    "Do not tune and validate on the same dates; current short weekend/partial-weekday sample cannot establish general weekday accuracy."
+  ]
+}

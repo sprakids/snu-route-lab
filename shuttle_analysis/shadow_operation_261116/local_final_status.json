@@ -1,0 +1,3579 @@
+{
+  "shuttle": {
+    "enabled": false,
+    "at": 1794824760.226,
+    "status": "collecting",
+    "routes": 10,
+    "errors": 0,
+    "next_scheduled_at": null,
+    "peak_core_seconds": 30,
+    "other_seconds": 120,
+    "provider_daily_cap": 6000,
+    "recording": {
+      "day": "2026-11-16",
+      "raw_retention_days": 30,
+      "aggregate_retention_days": 365,
+      "position_kind": "schematic_stop_area_or_interval",
+      "routes": [
+        {
+          "route": "41841",
+          "polls": 5,
+          "last_poll": 1794824760.209,
+          "detected_arrivals": 0,
+          "detected_departures": 0,
+          "headway_intervals": 0,
+          "completed_trip_segments": 0,
+          "bytes": 129
+        },
+        {
+          "route": "41842",
+          "polls": 5,
+          "last_poll": 1794824760.209,
+          "detected_arrivals": 0,
+          "detected_departures": 0,
+          "headway_intervals": 0,
+          "completed_trip_segments": 0,
+          "bytes": 129
+        },
+        {
+          "route": "41843",
+          "polls": 5,
+          "last_poll": 1794824760.209,
+          "detected_arrivals": 0,
+          "detected_departures": 0,
+          "headway_intervals": 0,
+          "completed_trip_segments": 0,
+          "bytes": 129
+        },
+        {
+          "route": "41868",
+          "polls": 5,
+          "last_poll": 1794824760.209,
+          "detected_arrivals": 0,
+          "detected_departures": 0,
+          "headway_intervals": 0,
+          "completed_trip_segments": 0,
+          "bytes": 129
+        },
+        {
+          "route": "41869",
+          "polls": 5,
+          "last_poll": 1794824760.209,
+          "detected_arrivals": 0,
+          "detected_departures": 0,
+          "headway_intervals": 0,
+          "completed_trip_segments": 0,
+          "bytes": 129
+        },
+        {
+          "route": "41914",
+          "polls": 5,
+          "last_poll": 1794824760.209,
+          "detected_arrivals": 0,
+          "detected_departures": 0,
+          "headway_intervals": 0,
+          "completed_trip_segments": 0,
+          "bytes": 129
+        },
+        {
+          "route": "41915",
+          "polls": 5,
+          "last_poll": 1794824760.209,
+          "detected_arrivals": 0,
+          "detected_departures": 0,
+          "headway_intervals": 0,
+          "completed_trip_segments": 0,
+          "bytes": 129
+        },
+        {
+          "route": "41916",
+          "polls": 5,
+          "last_poll": 1794824760.209,
+          "detected_arrivals": 0,
+          "detected_departures": 0,
+          "headway_intervals": 0,
+          "completed_trip_segments": 0,
+          "bytes": 129
+        },
+        {
+          "route": "41942",
+          "polls": 5,
+          "last_poll": 1794824760.209,
+          "detected_arrivals": 0,
+          "detected_departures": 0,
+          "headway_intervals": 0,
+          "completed_trip_segments": 0,
+          "bytes": 129
+        },
+        {
+          "route": "41946",
+          "polls": 5,
+          "last_poll": 1794824760.209,
+          "detected_arrivals": 4,
+          "detected_departures": 4,
+          "headway_intervals": 0,
+          "completed_trip_segments": 10,
+          "bytes": 4522
+        }
+      ]
+    }
+  },
+  "shadow": {
+    "day": "2026-11-16",
+    "counts": [
+      {
+        "state": "complete",
+        "n": 2
+      }
+    ],
+    "latest": {
+      "status": "complete",
+      "comparison_id": "e4061399788c417fa4abd2683a44ce51",
+      "created_at": 1794824324.6801336,
+      "asof": 1794824321.8282695,
+      "departure_at": 1794824321.694,
+      "mode": "live",
+      "operating_model": "V11",
+      "operating_queue_id": "261110162302",
+      "candidate_model": "R261116185534",
+      "transport_source_model": "R261116170142",
+      "automatic_promotion": false,
+      "same_observation_snapshot": true,
+      "new_provider_requests": 0,
+      "baseline": {
+        "calculation_ms": 524.9,
+        "candidates": [
+          {
+            "candidate_id": "route-5",
+            "comparison_key": "1f9df87e574dd30ba20f70fe",
+            "legs": [
+              {
+                "arrival_source": "shuttle_auto_queue_estimate",
+                "crowd_estimate": 0.402,
+                "crowd_risk": 1.1520000000000001,
+                "departure_at": 1794824774.694,
+                "from_seq": 2,
+                "queue_at_arrival": 0.5,
+                "ready_at": 1794824341.694,
+                "ride_seconds": 182,
+                "ride_source": "shuttle_simulation_road_prior",
+                "route_id": "shuttle-41841",
+                "station_id": "snu-410",
+                "to_seq": 3,
+                "wait_seconds": 433
+              }
+            ],
+            "rank": 1,
+            "ride_seconds": 182,
+            "route_ids": [
+              "shuttle-41841"
+            ],
+            "score": 2.57,
+            "total_seconds": 717,
+            "wait_seconds": 433,
+            "walk_seconds": 82
+          },
+          {
+            "candidate_id": "route-17",
+            "comparison_key": "91608365789258c1a5ffecd5",
+            "legs": [
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.306,
+                "crowd_risk": 0.8277287317279403,
+                "departure_at": 1794824697.694,
+                "from_seq": 18,
+                "queue_at_arrival": null,
+                "ready_at": 1794824487.694,
+                "ride_seconds": 501,
+                "ride_source": "historical_section_speed",
+                "route_id": "100100250",
+                "station_id": "120000195",
+                "to_seq": 25,
+                "wait_seconds": 210
+              }
+            ],
+            "rank": 2,
+            "ride_seconds": 501,
+            "route_ids": [
+              "100100250"
+            ],
+            "score": 3.67,
+            "total_seconds": 877,
+            "wait_seconds": 210,
+            "walk_seconds": 146
+          },
+          {
+            "candidate_id": "gate-first",
+            "comparison_key": "437a5ceda935622c6cdef07e",
+            "legs": [
+              {
+                "arrival_source": "pooled_headway_estimate",
+                "crowd_estimate": 0.361,
+                "crowd_risk": 1.0436557924266598,
+                "departure_at": 1794825011.694,
+                "from_seq": 7,
+                "queue_at_arrival": null,
+                "ready_at": 1794824921.694,
+                "ride_seconds": 306,
+                "ride_source": "common_line_weighted_prior",
+                "route_id": "100100252",
+                "station_id": "120000029",
+                "to_seq": 11,
+                "wait_seconds": 90
+              }
+            ],
+            "rank": 3,
+            "ride_seconds": 306,
+            "route_ids": [
+              "100100252"
+            ],
+            "score": 8.69,
+            "total_seconds": 996,
+            "wait_seconds": 90,
+            "walk_seconds": 580
+          },
+          {
+            "candidate_id": "route-2",
+            "comparison_key": "099b725d34d648716c6f9b31",
+            "legs": [
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.306,
+                "crowd_risk": 0.8277165480115112,
+                "departure_at": 1794825131.694,
+                "from_seq": 21,
+                "queue_at_arrival": null,
+                "ready_at": 1794824921.694,
+                "ride_seconds": 361,
+                "ride_source": "historical_section_speed",
+                "route_id": "100100250",
+                "station_id": "120000029",
+                "to_seq": 25,
+                "wait_seconds": 210
+              }
+            ],
+            "rank": 4,
+            "ride_seconds": 361,
+            "route_ids": [
+              "100100250"
+            ],
+            "score": 9.58,
+            "total_seconds": 1171,
+            "wait_seconds": 210,
+            "walk_seconds": 580
+          },
+          {
+            "candidate_id": "route-0",
+            "comparison_key": "9599ffb9d98a8a8d7f16e0e7",
+            "legs": [
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.431,
+                "crowd_risk": 1.1958887347874188,
+                "departure_at": 1794825191.694,
+                "from_seq": 7,
+                "queue_at_arrival": null,
+                "ready_at": 1794824921.694,
+                "ride_seconds": 255,
+                "ride_source": "v5_simulation",
+                "route_id": "100100252",
+                "station_id": "120000029",
+                "to_seq": 11,
+                "wait_seconds": 270
+              }
+            ],
+            "rank": 5,
+            "ride_seconds": 255,
+            "route_ids": [
+              "100100252"
+            ],
+            "score": 9.97,
+            "total_seconds": 1125,
+            "wait_seconds": 270,
+            "walk_seconds": 580
+          },
+          {
+            "candidate_id": "route-310",
+            "comparison_key": "7aad0bfb28e05be11e50b2e3",
+            "legs": [
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.306,
+                "crowd_risk": 0.8277287317279403,
+                "departure_at": 1794824697.694,
+                "from_seq": 7,
+                "queue_at_arrival": null,
+                "ready_at": 1794824487.694,
+                "ride_seconds": 1338,
+                "ride_source": "historical_section_speed",
+                "route_id": "100100250",
+                "station_id": "120000169",
+                "to_seq": 25,
+                "wait_seconds": 210
+              }
+            ],
+            "rank": 6,
+            "ride_seconds": 1338,
+            "route_ids": [
+              "100100250"
+            ],
+            "score": 9.97,
+            "total_seconds": 1714,
+            "wait_seconds": 210,
+            "walk_seconds": 146
+          },
+          {
+            "candidate_id": "route-1",
+            "comparison_key": "0f694e294bc171f71d64c4ef",
+            "legs": [
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.369,
+                "crowd_risk": 1.10928853576474,
+                "departure_at": 1794825221.694,
+                "from_seq": 70,
+                "queue_at_arrival": null,
+                "ready_at": 1794824921.694,
+                "ride_seconds": 255,
+                "ride_source": "v5_simulation",
+                "route_id": "100100521",
+                "station_id": "120000029",
+                "to_seq": 74,
+                "wait_seconds": 300
+              }
+            ],
+            "rank": 7,
+            "ride_seconds": 255,
+            "route_ids": [
+              "100100521"
+            ],
+            "score": 10.02,
+            "total_seconds": 1155,
+            "wait_seconds": 300,
+            "walk_seconds": 580
+          },
+          {
+            "candidate_id": "route-3",
+            "comparison_key": "6da855ea2f3efc37ac682e60",
+            "legs": [
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.325,
+                "crowd_risk": 1.0552698561664016,
+                "departure_at": 1794825281.694,
+                "from_seq": 30,
+                "queue_at_arrival": null,
+                "ready_at": 1794824921.694,
+                "ride_seconds": 255,
+                "ride_source": "v5_simulation",
+                "route_id": "100100263",
+                "station_id": "120000029",
+                "to_seq": 34,
+                "wait_seconds": 360
+              }
+            ],
+            "rank": 8,
+            "ride_seconds": 255,
+            "route_ids": [
+              "100100263"
+            ],
+            "score": 10.36,
+            "total_seconds": 1215,
+            "wait_seconds": 360,
+            "walk_seconds": 580
+          },
+          {
+            "candidate_id": "route-4",
+            "comparison_key": "cd9f39f10cf86b24eca4d0de",
+            "legs": [
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.385,
+                "crowd_risk": 1.1272829010430296,
+                "departure_at": 1794825191.694,
+                "from_seq": 9,
+                "queue_at_arrival": null,
+                "ready_at": 1794824921.694,
+                "ride_seconds": 361,
+                "ride_source": "historical_section_speed",
+                "route_id": "100100251",
+                "station_id": "120000029",
+                "to_seq": 13,
+                "wait_seconds": 270
+              }
+            ],
+            "rank": 9,
+            "ride_seconds": 361,
+            "route_ids": [
+              "100100251"
+            ],
+            "score": 10.63,
+            "total_seconds": 1231,
+            "wait_seconds": 270,
+            "walk_seconds": 580
+          },
+          {
+            "candidate_id": "route-35",
+            "comparison_key": "5166ac0aaa8b29a42b0fb4ee",
+            "legs": [
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.306,
+                "crowd_risk": 0.8277287317279403,
+                "departure_at": 1794824697.694,
+                "from_seq": 18,
+                "queue_at_arrival": null,
+                "ready_at": 1794824487.694,
+                "ride_seconds": 140,
+                "ride_source": "historical_section_speed",
+                "route_id": "100100250",
+                "station_id": "120000195",
+                "to_seq": 21,
+                "wait_seconds": 210
+              },
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.431,
+                "crowd_risk": 1.1958887347874188,
+                "departure_at": 1794825127.694,
+                "from_seq": 7,
+                "queue_at_arrival": null,
+                "ready_at": 1794824857.694,
+                "ride_seconds": 255,
+                "ride_source": "v5_simulation",
+                "route_id": "100100252",
+                "station_id": "120000029",
+                "to_seq": 11,
+                "wait_seconds": 270
+              }
+            ],
+            "rank": 10,
+            "ride_seconds": 395,
+            "route_ids": [
+              "100100250",
+              "100100252"
+            ],
+            "score": 10.79,
+            "total_seconds": 1061,
+            "wait_seconds": 480,
+            "walk_seconds": 146
+          },
+          {
+            "candidate_id": "route-52",
+            "comparison_key": "909543ee10ffb950fd705247",
+            "legs": [
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.306,
+                "crowd_risk": 0.8277287317279403,
+                "departure_at": 1794824697.694,
+                "from_seq": 18,
+                "queue_at_arrival": null,
+                "ready_at": 1794824487.694,
+                "ride_seconds": 140,
+                "ride_source": "historical_section_speed",
+                "route_id": "100100250",
+                "station_id": "120000195",
+                "to_seq": 21,
+                "wait_seconds": 210
+              },
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.369,
+                "crowd_risk": 1.10928853576474,
+                "departure_at": 1794825157.694,
+                "from_seq": 70,
+                "queue_at_arrival": null,
+                "ready_at": 1794824857.694,
+                "ride_seconds": 255,
+                "ride_source": "v5_simulation",
+                "route_id": "100100521",
+                "station_id": "120000029",
+                "to_seq": 74,
+                "wait_seconds": 300
+              }
+            ],
+            "rank": 11,
+            "ride_seconds": 395,
+            "route_ids": [
+              "100100250",
+              "100100521"
+            ],
+            "score": 10.84,
+            "total_seconds": 1091,
+            "wait_seconds": 510,
+            "walk_seconds": 146
+          },
+          {
+            "candidate_id": "route-91",
+            "comparison_key": "61fc90fa9b570972aa4c0d8c",
+            "legs": [
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.293,
+                "crowd_risk": 0.8195485728226644,
+                "departure_at": 1794824757.694,
+                "from_seq": 15,
+                "queue_at_arrival": null,
+                "ready_at": 1794824487.694,
+                "ride_seconds": 44,
+                "ride_source": "historical_section_speed",
+                "route_id": "100100253",
+                "station_id": "120000195",
+                "to_seq": 16,
+                "wait_seconds": 270
+              },
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.306,
+                "crowd_risk": 0.8277165480115112,
+                "departure_at": 1794825031.694,
+                "from_seq": 19,
+                "queue_at_arrival": null,
+                "ready_at": 1794824821.694,
+                "ride_seconds": 457,
+                "ride_source": "historical_section_speed",
+                "route_id": "100100250",
+                "station_id": "120000196",
+                "to_seq": 25,
+                "wait_seconds": 210
+              }
+            ],
+            "rank": 12,
+            "ride_seconds": 501,
+            "route_ids": [
+              "100100253",
+              "100100250"
+            ],
+            "score": 10.85,
+            "total_seconds": 1167,
+            "wait_seconds": 480,
+            "walk_seconds": 146
+          },
+          {
+            "candidate_id": "route-92",
+            "comparison_key": "b6fbde470200f09558be408e",
+            "legs": [
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.293,
+                "crowd_risk": 0.8195485728226644,
+                "departure_at": 1794824757.694,
+                "from_seq": 15,
+                "queue_at_arrival": null,
+                "ready_at": 1794824487.694,
+                "ride_seconds": 92,
+                "ride_source": "historical_section_speed",
+                "route_id": "100100253",
+                "station_id": "120000195",
+                "to_seq": 17,
+                "wait_seconds": 270
+              },
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.306,
+                "crowd_risk": 0.8277165480115112,
+                "departure_at": 1794825079.694,
+                "from_seq": 20,
+                "queue_at_arrival": null,
+                "ready_at": 1794824869.694,
+                "ride_seconds": 409,
+                "ride_source": "historical_section_speed",
+                "route_id": "100100250",
+                "station_id": "120000197",
+                "to_seq": 25,
+                "wait_seconds": 210
+              }
+            ],
+            "rank": 13,
+            "ride_seconds": 501,
+            "route_ids": [
+              "100100253",
+              "100100250"
+            ],
+            "score": 10.85,
+            "total_seconds": 1167,
+            "wait_seconds": 480,
+            "walk_seconds": 146
+          },
+          {
+            "candidate_id": "route-53",
+            "comparison_key": "eb0dcf8248c66c80dcde9b56",
+            "legs": [
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.306,
+                "crowd_risk": 0.8277287317279403,
+                "departure_at": 1794824697.694,
+                "from_seq": 18,
+                "queue_at_arrival": null,
+                "ready_at": 1794824487.694,
+                "ride_seconds": 242,
+                "ride_source": "historical_section_speed",
+                "route_id": "100100250",
+                "station_id": "120000195",
+                "to_seq": 22,
+                "wait_seconds": 210
+              },
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.431,
+                "crowd_risk": 1.1958887347874188,
+                "departure_at": 1794825229.694,
+                "from_seq": 8,
+                "queue_at_arrival": null,
+                "ready_at": 1794824959.694,
+                "ride_seconds": 184,
+                "ride_source": "v5_simulation",
+                "route_id": "100100252",
+                "station_id": "120000665",
+                "to_seq": 11,
+                "wait_seconds": 270
+              }
+            ],
+            "rank": 14,
+            "ride_seconds": 426,
+            "route_ids": [
+              "100100250",
+              "100100252"
+            ],
+            "score": 11.02,
+            "total_seconds": 1092,
+            "wait_seconds": 480,
+            "walk_seconds": 146
+          },
+          {
+            "candidate_id": "route-63",
+            "comparison_key": "7d3e999b70ef4cc887553fef",
+            "legs": [
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.306,
+                "crowd_risk": 0.8277287317279403,
+                "departure_at": 1794824697.694,
+                "from_seq": 18,
+                "queue_at_arrival": null,
+                "ready_at": 1794824487.694,
+                "ride_seconds": 242,
+                "ride_source": "historical_section_speed",
+                "route_id": "100100250",
+                "station_id": "120000195",
+                "to_seq": 22,
+                "wait_seconds": 210
+              },
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.369,
+                "crowd_risk": 1.10928853576474,
+                "departure_at": 1794825259.694,
+                "from_seq": 71,
+                "queue_at_arrival": null,
+                "ready_at": 1794824959.694,
+                "ride_seconds": 184,
+                "ride_source": "v5_simulation",
+                "route_id": "100100521",
+                "station_id": "120000665",
+                "to_seq": 74,
+                "wait_seconds": 300
+              }
+            ],
+            "rank": 15,
+            "ride_seconds": 426,
+            "route_ids": [
+              "100100250",
+              "100100521"
+            ],
+            "score": 11.07,
+            "total_seconds": 1122,
+            "wait_seconds": 510,
+            "walk_seconds": 146
+          },
+          {
+            "candidate_id": "route-76",
+            "comparison_key": "5a8d13c1da7f217330b375db",
+            "legs": [
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.306,
+                "crowd_risk": 0.8277287317279403,
+                "departure_at": 1794824697.694,
+                "from_seq": 18,
+                "queue_at_arrival": null,
+                "ready_at": 1794824487.694,
+                "ride_seconds": 140,
+                "ride_source": "historical_section_speed",
+                "route_id": "100100250",
+                "station_id": "120000195",
+                "to_seq": 21,
+                "wait_seconds": 210
+              },
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.325,
+                "crowd_risk": 1.0552698561664016,
+                "departure_at": 1794825217.694,
+                "from_seq": 30,
+                "queue_at_arrival": null,
+                "ready_at": 1794824857.694,
+                "ride_seconds": 255,
+                "ride_source": "v5_simulation",
+                "route_id": "100100263",
+                "station_id": "120000029",
+                "to_seq": 34,
+                "wait_seconds": 360
+              }
+            ],
+            "rank": 16,
+            "ride_seconds": 395,
+            "route_ids": [
+              "100100250",
+              "100100263"
+            ],
+            "score": 11.18,
+            "total_seconds": 1151,
+            "wait_seconds": 570,
+            "walk_seconds": 146
+          },
+          {
+            "candidate_id": "route-103",
+            "comparison_key": "85967d19f5527b51058d66ba",
+            "legs": [
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.293,
+                "crowd_risk": 0.8195485728226644,
+                "departure_at": 1794824760.694,
+                "from_seq": 14,
+                "queue_at_arrival": null,
+                "ready_at": 1794824490.694,
+                "ride_seconds": 41,
+                "ride_source": "historical_section_speed",
+                "route_id": "100100253",
+                "station_id": "120000192",
+                "to_seq": 15,
+                "wait_seconds": 270
+              },
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.306,
+                "crowd_risk": 0.8277165480115112,
+                "departure_at": 1794825031.694,
+                "from_seq": 18,
+                "queue_at_arrival": null,
+                "ready_at": 1794824821.694,
+                "ride_seconds": 501,
+                "ride_source": "historical_section_speed",
+                "route_id": "100100250",
+                "station_id": "120000195",
+                "to_seq": 25,
+                "wait_seconds": 210
+              }
+            ],
+            "rank": 17,
+            "ride_seconds": 542,
+            "route_ids": [
+              "100100253",
+              "100100250"
+            ],
+            "score": 11.2,
+            "total_seconds": 1211,
+            "wait_seconds": 480,
+            "walk_seconds": 149
+          },
+          {
+            "candidate_id": "route-104",
+            "comparison_key": "11e2cea978e7115927122900",
+            "legs": [
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.293,
+                "crowd_risk": 0.8195485728226644,
+                "departure_at": 1794824760.694,
+                "from_seq": 14,
+                "queue_at_arrival": null,
+                "ready_at": 1794824490.694,
+                "ride_seconds": 85,
+                "ride_source": "historical_section_speed",
+                "route_id": "100100253",
+                "station_id": "120000192",
+                "to_seq": 16,
+                "wait_seconds": 270
+              },
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.306,
+                "crowd_risk": 0.8277165480115112,
+                "departure_at": 1794825075.694,
+                "from_seq": 19,
+                "queue_at_arrival": null,
+                "ready_at": 1794824865.694,
+                "ride_seconds": 457,
+                "ride_source": "historical_section_speed",
+                "route_id": "100100250",
+                "station_id": "120000196",
+                "to_seq": 25,
+                "wait_seconds": 210
+              }
+            ],
+            "rank": 18,
+            "ride_seconds": 542,
+            "route_ids": [
+              "100100253",
+              "100100250"
+            ],
+            "score": 11.2,
+            "total_seconds": 1211,
+            "wait_seconds": 480,
+            "walk_seconds": 149
+          },
+          {
+            "candidate_id": "route-105",
+            "comparison_key": "7b22ad6bfc187481808abc80",
+            "legs": [
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.293,
+                "crowd_risk": 0.8195485728226644,
+                "departure_at": 1794824760.694,
+                "from_seq": 14,
+                "queue_at_arrival": null,
+                "ready_at": 1794824490.694,
+                "ride_seconds": 133,
+                "ride_source": "historical_section_speed",
+                "route_id": "100100253",
+                "station_id": "120000192",
+                "to_seq": 17,
+                "wait_seconds": 270
+              },
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.306,
+                "crowd_risk": 0.8277165480115112,
+                "departure_at": 1794825123.694,
+                "from_seq": 20,
+                "queue_at_arrival": null,
+                "ready_at": 1794824913.694,
+                "ride_seconds": 409,
+                "ride_source": "historical_section_speed",
+                "route_id": "100100250",
+                "station_id": "120000197",
+                "to_seq": 25,
+                "wait_seconds": 210
+              }
+            ],
+            "rank": 19,
+            "ride_seconds": 542,
+            "route_ids": [
+              "100100253",
+              "100100250"
+            ],
+            "score": 11.2,
+            "total_seconds": 1211,
+            "wait_seconds": 480,
+            "walk_seconds": 149
+          },
+          {
+            "candidate_id": "route-61",
+            "comparison_key": "54938bd37ce704d8c607a669",
+            "legs": [
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.306,
+                "crowd_risk": 0.8277287317279403,
+                "departure_at": 1794824697.694,
+                "from_seq": 18,
+                "queue_at_arrival": null,
+                "ready_at": 1794824487.694,
+                "ride_seconds": 341,
+                "ride_source": "historical_section_speed",
+                "route_id": "100100250",
+                "station_id": "120000195",
+                "to_seq": 23,
+                "wait_seconds": 210
+              },
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.431,
+                "crowd_risk": 1.1958887347874188,
+                "departure_at": 1794825328.694,
+                "from_seq": 9,
+                "queue_at_arrival": null,
+                "ready_at": 1794825058.694,
+                "ride_seconds": 111,
+                "ride_source": "v5_simulation",
+                "route_id": "100100252",
+                "station_id": "120000030",
+                "to_seq": 11,
+                "wait_seconds": 270
+              }
+            ],
+            "rank": 20,
+            "ride_seconds": 452,
+            "route_ids": [
+              "100100250",
+              "100100252"
+            ],
+            "score": 11.22,
+            "total_seconds": 1118,
+            "wait_seconds": 480,
+            "walk_seconds": 146
+          },
+          {
+            "candidate_id": "route-62",
+            "comparison_key": "1dff780c0a5139e36e62d896",
+            "legs": [
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.306,
+                "crowd_risk": 0.8277287317279403,
+                "departure_at": 1794824697.694,
+                "from_seq": 18,
+                "queue_at_arrival": null,
+                "ready_at": 1794824487.694,
+                "ride_seconds": 404,
+                "ride_source": "historical_section_speed",
+                "route_id": "100100250",
+                "station_id": "120000195",
+                "to_seq": 24,
+                "wait_seconds": 210
+              },
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.431,
+                "crowd_risk": 1.1958887347874188,
+                "departure_at": 1794825391.694,
+                "from_seq": 10,
+                "queue_at_arrival": null,
+                "ready_at": 1794825121.694,
+                "ride_seconds": 48,
+                "ride_source": "v5_simulation",
+                "route_id": "100100252",
+                "station_id": "120000031",
+                "to_seq": 11,
+                "wait_seconds": 270
+              }
+            ],
+            "rank": 21,
+            "ride_seconds": 452,
+            "route_ids": [
+              "100100250",
+              "100100252"
+            ],
+            "score": 11.22,
+            "total_seconds": 1118,
+            "wait_seconds": 480,
+            "walk_seconds": 146
+          },
+          {
+            "candidate_id": "route-72",
+            "comparison_key": "941b4f838883d53ac218e40e",
+            "legs": [
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.306,
+                "crowd_risk": 0.8277287317279403,
+                "departure_at": 1794824697.694,
+                "from_seq": 18,
+                "queue_at_arrival": null,
+                "ready_at": 1794824487.694,
+                "ride_seconds": 341,
+                "ride_source": "historical_section_speed",
+                "route_id": "100100250",
+                "station_id": "120000195",
+                "to_seq": 23,
+                "wait_seconds": 210
+              },
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.369,
+                "crowd_risk": 1.10928853576474,
+                "departure_at": 1794825358.694,
+                "from_seq": 72,
+                "queue_at_arrival": null,
+                "ready_at": 1794825058.694,
+                "ride_seconds": 111,
+                "ride_source": "v5_simulation",
+                "route_id": "100100521",
+                "station_id": "120000030",
+                "to_seq": 74,
+                "wait_seconds": 300
+              }
+            ],
+            "rank": 22,
+            "ride_seconds": 452,
+            "route_ids": [
+              "100100250",
+              "100100521"
+            ],
+            "score": 11.27,
+            "total_seconds": 1148,
+            "wait_seconds": 510,
+            "walk_seconds": 146
+          },
+          {
+            "candidate_id": "route-73",
+            "comparison_key": "7415877dce2368f765527158",
+            "legs": [
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.306,
+                "crowd_risk": 0.8277287317279403,
+                "departure_at": 1794824697.694,
+                "from_seq": 18,
+                "queue_at_arrival": null,
+                "ready_at": 1794824487.694,
+                "ride_seconds": 404,
+                "ride_source": "historical_section_speed",
+                "route_id": "100100250",
+                "station_id": "120000195",
+                "to_seq": 24,
+                "wait_seconds": 210
+              },
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.369,
+                "crowd_risk": 1.10928853576474,
+                "departure_at": 1794825421.694,
+                "from_seq": 73,
+                "queue_at_arrival": null,
+                "ready_at": 1794825121.694,
+                "ride_seconds": 48,
+                "ride_source": "v5_simulation",
+                "route_id": "100100521",
+                "station_id": "120000031",
+                "to_seq": 74,
+                "wait_seconds": 300
+              }
+            ],
+            "rank": 23,
+            "ride_seconds": 452,
+            "route_ids": [
+              "100100250",
+              "100100521"
+            ],
+            "score": 11.27,
+            "total_seconds": 1148,
+            "wait_seconds": 510,
+            "walk_seconds": 146
+          },
+          {
+            "candidate_id": "route-96",
+            "comparison_key": "d789b9ed0d179f83af0539b7",
+            "legs": [
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.306,
+                "crowd_risk": 0.8277287317279403,
+                "departure_at": 1794824697.694,
+                "from_seq": 18,
+                "queue_at_arrival": null,
+                "ready_at": 1794824487.694,
+                "ride_seconds": 242,
+                "ride_source": "historical_section_speed",
+                "route_id": "100100250",
+                "station_id": "120000195",
+                "to_seq": 22,
+                "wait_seconds": 210
+              },
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.325,
+                "crowd_risk": 1.0552698561664016,
+                "departure_at": 1794825319.694,
+                "from_seq": 31,
+                "queue_at_arrival": null,
+                "ready_at": 1794824959.694,
+                "ride_seconds": 184,
+                "ride_source": "v5_simulation",
+                "route_id": "100100263",
+                "station_id": "120000665",
+                "to_seq": 34,
+                "wait_seconds": 360
+              }
+            ],
+            "rank": 24,
+            "ride_seconds": 426,
+            "route_ids": [
+              "100100250",
+              "100100263"
+            ],
+            "score": 11.42,
+            "total_seconds": 1182,
+            "wait_seconds": 570,
+            "walk_seconds": 146
+          },
+          {
+            "candidate_id": "route-18",
+            "comparison_key": "4b93c845d6d4f627592c0668",
+            "legs": [
+              {
+                "arrival_source": "shuttle_auto_queue_estimate",
+                "crowd_estimate": 0.402,
+                "crowd_risk": 1.1520000000000001,
+                "departure_at": 1794824774.694,
+                "from_seq": 2,
+                "queue_at_arrival": 0.5,
+                "ready_at": 1794824341.694,
+                "ride_seconds": 182,
+                "ride_source": "shuttle_simulation_road_prior",
+                "route_id": "shuttle-41841",
+                "station_id": "snu-410",
+                "to_seq": 3,
+                "wait_seconds": 433
+              },
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.369,
+                "crowd_risk": 1.10928853576474,
+                "departure_at": 1794825358.694,
+                "from_seq": 74,
+                "queue_at_arrival": null,
+                "ready_at": 1794825058.694,
+                "ride_seconds": 57,
+                "ride_source": "distance_assumption",
+                "route_id": "100100521",
+                "station_id": "120000150",
+                "to_seq": 75,
+                "wait_seconds": 300
+              }
+            ],
+            "rank": 25,
+            "ride_seconds": 239,
+            "route_ids": [
+              "shuttle-41841",
+              "100100521"
+            ],
+            "score": 13.68,
+            "total_seconds": 1298,
+            "wait_seconds": 733,
+            "walk_seconds": 286
+          },
+          {
+            "candidate_id": "route-150",
+            "comparison_key": "47d27a8d9ba45086d51c4cc8",
+            "legs": [
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 1.235,
+                "crowd_risk": 2.5,
+                "departure_at": 1794824736.694,
+                "from_seq": 18,
+                "queue_at_arrival": null,
+                "ready_at": 1794824436.694,
+                "ride_seconds": 243,
+                "ride_source": "historical_section_speed",
+                "route_id": "120900012",
+                "station_id": "120000678",
+                "to_seq": 19,
+                "wait_seconds": 300
+              },
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.306,
+                "crowd_risk": 0.8277165480115112,
+                "departure_at": 1794825209.694,
+                "from_seq": 19,
+                "queue_at_arrival": null,
+                "ready_at": 1794824999.694,
+                "ride_seconds": 457,
+                "ride_source": "historical_section_speed",
+                "route_id": "100100250",
+                "station_id": "120000196",
+                "to_seq": 25,
+                "wait_seconds": 210
+              }
+            ],
+            "rank": 26,
+            "ride_seconds": 700,
+            "route_ids": [
+              "120900012",
+              "100100250"
+            ],
+            "score": 15.09,
+            "total_seconds": 1345,
+            "wait_seconds": 510,
+            "walk_seconds": 95
+          },
+          {
+            "candidate_id": "route-59",
+            "comparison_key": "b9c12b7d10ebad75c44e5f5b",
+            "legs": [
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.386,
+                "crowd_risk": 1.1284986550862013,
+                "departure_at": 1794824863.694,
+                "from_seq": 38,
+                "queue_at_arrival": null,
+                "ready_at": 1794824593.694,
+                "ride_seconds": 52,
+                "ride_source": "historical_section_speed",
+                "route_id": "100100251",
+                "station_id": "120000168",
+                "to_seq": 39,
+                "wait_seconds": 270
+              },
+              {
+                "arrival_source": "shuttle_auto_queue_estimate",
+                "crowd_estimate": 0.368,
+                "crowd_risk": 1.1181,
+                "departure_at": 1794825562.694,
+                "from_seq": 2,
+                "queue_at_arrival": 0,
+                "ready_at": 1794825081.694,
+                "ride_seconds": 182,
+                "ride_source": "shuttle_simulation_road_prior",
+                "route_id": "shuttle-41841",
+                "station_id": "snu-410",
+                "to_seq": 3,
+                "wait_seconds": 481
+              }
+            ],
+            "rank": 27,
+            "ride_seconds": 234,
+            "route_ids": [
+              "100100251",
+              "shuttle-41841"
+            ],
+            "score": 16.85,
+            "total_seconds": 1505,
+            "wait_seconds": 751,
+            "walk_seconds": 480
+          },
+          {
+            "candidate_id": "route-167",
+            "comparison_key": "661b5ed585736710557c9ad5",
+            "legs": [
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.431,
+                "crowd_risk": 1.1958887347874188,
+                "departure_at": 1794825191.694,
+                "from_seq": 7,
+                "queue_at_arrival": null,
+                "ready_at": 1794824921.694,
+                "ride_seconds": 144,
+                "ride_source": "v5_simulation",
+                "route_id": "100100252",
+                "station_id": "120000029",
+                "to_seq": 9,
+                "wait_seconds": 270
+              },
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.306,
+                "crowd_risk": 0.8276531611139135,
+                "departure_at": 1794825565.694,
+                "from_seq": 23,
+                "queue_at_arrival": null,
+                "ready_at": 1794825355.694,
+                "ride_seconds": 160,
+                "ride_source": "historical_section_speed",
+                "route_id": "100100250",
+                "station_id": "120000030",
+                "to_seq": 25,
+                "wait_seconds": 210
+              }
+            ],
+            "rank": 28,
+            "ride_seconds": 304,
+            "route_ids": [
+              "100100252",
+              "100100250"
+            ],
+            "score": 17.07,
+            "total_seconds": 1404,
+            "wait_seconds": 480,
+            "walk_seconds": 580
+          },
+          {
+            "candidate_id": "route-183",
+            "comparison_key": "f29bc8e51eb33ea30f6ea275",
+            "legs": [
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.369,
+                "crowd_risk": 1.10928853576474,
+                "departure_at": 1794825221.694,
+                "from_seq": 70,
+                "queue_at_arrival": null,
+                "ready_at": 1794824921.694,
+                "ride_seconds": 144,
+                "ride_source": "v5_simulation",
+                "route_id": "100100521",
+                "station_id": "120000029",
+                "to_seq": 72,
+                "wait_seconds": 300
+              },
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.306,
+                "crowd_risk": 0.8276531611139135,
+                "departure_at": 1794825595.694,
+                "from_seq": 23,
+                "queue_at_arrival": null,
+                "ready_at": 1794825385.694,
+                "ride_seconds": 160,
+                "ride_source": "historical_section_speed",
+                "route_id": "100100250",
+                "station_id": "120000030",
+                "to_seq": 25,
+                "wait_seconds": 210
+              }
+            ],
+            "rank": 29,
+            "ride_seconds": 304,
+            "route_ids": [
+              "100100521",
+              "100100250"
+            ],
+            "score": 17.12,
+            "total_seconds": 1434,
+            "wait_seconds": 510,
+            "walk_seconds": 580
+          },
+          {
+            "candidate_id": "route-209",
+            "comparison_key": "603e8f33148e1ac7660b6cdd",
+            "legs": [
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.325,
+                "crowd_risk": 1.0552698561664016,
+                "departure_at": 1794825281.694,
+                "from_seq": 30,
+                "queue_at_arrival": null,
+                "ready_at": 1794824921.694,
+                "ride_seconds": 144,
+                "ride_source": "v5_simulation",
+                "route_id": "100100263",
+                "station_id": "120000029",
+                "to_seq": 32,
+                "wait_seconds": 360
+              },
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.306,
+                "crowd_risk": 0.8276531611139135,
+                "departure_at": 1794825655.694,
+                "from_seq": 23,
+                "queue_at_arrival": null,
+                "ready_at": 1794825445.694,
+                "ride_seconds": 160,
+                "ride_source": "historical_section_speed",
+                "route_id": "100100250",
+                "station_id": "120000030",
+                "to_seq": 25,
+                "wait_seconds": 210
+              }
+            ],
+            "rank": 30,
+            "ride_seconds": 304,
+            "route_ids": [
+              "100100263",
+              "100100250"
+            ],
+            "score": 17.47,
+            "total_seconds": 1494,
+            "wait_seconds": 570,
+            "walk_seconds": 580
+          },
+          {
+            "candidate_id": "route-102",
+            "comparison_key": "db25ceda3a170309451fc1e8",
+            "legs": [
+              {
+                "arrival_source": "shuttle_auto_queue_estimate",
+                "crowd_estimate": 0.35,
+                "crowd_risk": 1.1000999999999999,
+                "departure_at": 1794825282.694,
+                "from_seq": 2,
+                "queue_at_arrival": 0,
+                "ready_at": 1794824569.694,
+                "ride_seconds": 49,
+                "ride_source": "shuttle_simulation_road_prior",
+                "route_id": "shuttle-41946",
+                "station_id": "snu-201",
+                "to_seq": 3,
+                "wait_seconds": 713
+              },
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.306,
+                "crowd_risk": 0.8276531611139135,
+                "departure_at": 1794825611.694,
+                "from_seq": 17,
+                "queue_at_arrival": null,
+                "ready_at": 1794825401.694,
+                "ride_seconds": 542,
+                "ride_source": "historical_section_speed",
+                "route_id": "100100250",
+                "station_id": "120000192",
+                "to_seq": 25,
+                "wait_seconds": 210
+              }
+            ],
+            "rank": 31,
+            "ride_seconds": 591,
+            "route_ids": [
+              "shuttle-41946",
+              "100100250"
+            ],
+            "score": 17.53,
+            "total_seconds": 1832,
+            "wait_seconds": 923,
+            "walk_seconds": 278
+          },
+          {
+            "candidate_id": "route-263",
+            "comparison_key": "ccad287ad0ad2a15eb31dcd8",
+            "legs": [
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 1.343,
+                "crowd_risk": 2.5,
+                "departure_at": 1794824952.694,
+                "from_seq": 26,
+                "queue_at_arrival": null,
+                "ready_at": 1794824802.694,
+                "ride_seconds": 74,
+                "ride_source": "historical_section_speed",
+                "route_id": "120900011",
+                "station_id": "120900172",
+                "to_seq": 27,
+                "wait_seconds": 150
+              },
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.385,
+                "crowd_risk": 1.1269792699480514,
+                "departure_at": 1794825316.694,
+                "from_seq": 5,
+                "queue_at_arrival": null,
+                "ready_at": 1794825046.694,
+                "ride_seconds": 624,
+                "ride_source": "historical_section_speed",
+                "route_id": "100100251",
+                "station_id": "120000177",
+                "to_seq": 13,
+                "wait_seconds": 270
+              }
+            ],
+            "rank": 32,
+            "ride_seconds": 698,
+            "route_ids": [
+              "120900011",
+              "100100251"
+            ],
+            "score": 20.28,
+            "total_seconds": 1619,
+            "wait_seconds": 420,
+            "walk_seconds": 461
+          },
+          {
+            "candidate_id": "walk-only",
+            "comparison_key": "4a54de7d59dd7337012e7b96",
+            "legs": [],
+            "rank": 33,
+            "ride_seconds": 0,
+            "route_ids": [],
+            "score": 23.23,
+            "total_seconds": 1810,
+            "wait_seconds": 0,
+            "walk_seconds": 1810
+          },
+          {
+            "candidate_id": "route-937",
+            "comparison_key": "e9d0a2fa6860dc1f80ec669d",
+            "legs": [
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.369,
+                "crowd_risk": 1.10928853576474,
+                "departure_at": 1794825336.694,
+                "from_seq": 42,
+                "queue_at_arrival": null,
+                "ready_at": 1794825036.694,
+                "ride_seconds": 3312,
+                "ride_source": "mixed_section_speed",
+                "route_id": "100100521",
+                "station_id": "120000670",
+                "to_seq": 74,
+                "wait_seconds": 300
+              }
+            ],
+            "rank": 34,
+            "ride_seconds": 3312,
+            "route_ids": [
+              "100100521"
+            ],
+            "score": 34.88,
+            "total_seconds": 4327,
+            "wait_seconds": 300,
+            "walk_seconds": 695
+          },
+          {
+            "candidate_id": "route-934",
+            "comparison_key": "ae62cb9f1af303464089d1c7",
+            "legs": [
+              {
+                "arrival_source": "shuttle_auto_queue_estimate",
+                "crowd_estimate": 0.402,
+                "crowd_risk": 1.1520000000000001,
+                "departure_at": 1794824774.694,
+                "from_seq": 2,
+                "queue_at_arrival": 0.5,
+                "ready_at": 1794824341.694,
+                "ride_seconds": 182,
+                "ride_source": "shuttle_simulation_road_prior",
+                "route_id": "shuttle-41841",
+                "station_id": "snu-410",
+                "to_seq": 3,
+                "wait_seconds": 433
+              },
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.369,
+                "crowd_risk": 1.10928853576474,
+                "departure_at": 1794825328.694,
+                "from_seq": 38,
+                "queue_at_arrival": null,
+                "ready_at": 1794825028.694,
+                "ride_seconds": 3594,
+                "ride_source": "mixed_section_speed",
+                "route_id": "100100521",
+                "station_id": "120000038",
+                "to_seq": 74,
+                "wait_seconds": 300
+              }
+            ],
+            "rank": 35,
+            "ride_seconds": 3776,
+            "route_ids": [
+              "shuttle-41841",
+              "100100521"
+            ],
+            "score": 36.55,
+            "total_seconds": 4601,
+            "wait_seconds": 733,
+            "walk_seconds": 52
+          },
+          {
+            "candidate_id": "route-953",
+            "comparison_key": "5157b98fa925fd424c47e800",
+            "legs": [
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.431,
+                "crowd_risk": 1.1958887347874188,
+                "departure_at": 1794825306.694,
+                "from_seq": 25,
+                "queue_at_arrival": null,
+                "ready_at": 1794825036.694,
+                "ride_seconds": 117,
+                "ride_source": "distance_assumption",
+                "route_id": "100100252",
+                "station_id": "120000670",
+                "to_seq": 26,
+                "wait_seconds": 270
+              },
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.369,
+                "crowd_risk": 1.10928853576474,
+                "departure_at": 1794825743.694,
+                "from_seq": 43,
+                "queue_at_arrival": null,
+                "ready_at": 1794825443.694,
+                "ride_seconds": 3195,
+                "ride_source": "mixed_section_speed",
+                "route_id": "100100521",
+                "station_id": "120000041",
+                "to_seq": 74,
+                "wait_seconds": 300
+              }
+            ],
+            "rank": 36,
+            "ride_seconds": 3312,
+            "route_ids": [
+              "100100252",
+              "100100521"
+            ],
+            "score": 42.24,
+            "total_seconds": 4617,
+            "wait_seconds": 570,
+            "walk_seconds": 695
+          },
+          {
+            "candidate_id": "route-955",
+            "comparison_key": "13a4cf9b5e9b654f4c623fe7",
+            "legs": [
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.325,
+                "crowd_risk": 1.0552698561664016,
+                "departure_at": 1794825396.694,
+                "from_seq": 53,
+                "queue_at_arrival": null,
+                "ready_at": 1794825036.694,
+                "ride_seconds": 117,
+                "ride_source": "distance_assumption",
+                "route_id": "100100263",
+                "station_id": "120000670",
+                "to_seq": 54,
+                "wait_seconds": 360
+              },
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.369,
+                "crowd_risk": 1.10928853576474,
+                "departure_at": 1794825833.694,
+                "from_seq": 43,
+                "queue_at_arrival": null,
+                "ready_at": 1794825533.694,
+                "ride_seconds": 3195,
+                "ride_source": "mixed_section_speed",
+                "route_id": "100100521",
+                "station_id": "120000041",
+                "to_seq": 74,
+                "wait_seconds": 300
+              }
+            ],
+            "rank": 37,
+            "ride_seconds": 3312,
+            "route_ids": [
+              "100100263",
+              "100100521"
+            ],
+            "score": 42.74,
+            "total_seconds": 4707,
+            "wait_seconds": 660,
+            "walk_seconds": 695
+          },
+          {
+            "candidate_id": "route-6",
+            "comparison_key": "6ac7b20bfccf979cc0005c01",
+            "legs": [
+              {
+                "arrival_source": "shuttle_auto_queue_estimate",
+                "crowd_estimate": 0.375,
+                "crowd_risk": 1.1247,
+                "departure_at": 1794830999.694,
+                "from_seq": 1,
+                "queue_at_arrival": 0.5,
+                "ready_at": 1794824341.694,
+                "ride_seconds": 182,
+                "ride_source": "shuttle_extended_simulation",
+                "route_id": "shuttle-41915",
+                "station_id": "snu-410",
+                "to_seq": 2,
+                "wait_seconds": 6658
+              }
+            ],
+            "rank": 38,
+            "ride_seconds": 182,
+            "route_ids": [
+              "shuttle-41915"
+            ],
+            "score": 49.38,
+            "total_seconds": 6942,
+            "wait_seconds": 6658,
+            "walk_seconds": 82
+          },
+          {
+            "candidate_id": "route-11",
+            "comparison_key": "07f82cb80f8768e69b3c600b",
+            "legs": [
+              {
+                "arrival_source": "shuttle_auto_queue_estimate",
+                "crowd_estimate": 0.35,
+                "crowd_risk": 1.1000999999999999,
+                "departure_at": 1794830999.694,
+                "from_seq": 1,
+                "queue_at_arrival": 0,
+                "ready_at": 1794824341.694,
+                "ride_seconds": 159,
+                "ride_source": "shuttle_extended_simulation",
+                "route_id": "shuttle-41942",
+                "station_id": "snu-410",
+                "to_seq": 2,
+                "wait_seconds": 6658
+              },
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.432,
+                "crowd_risk": 1.1979445027513445,
+                "departure_at": 1794831540.694,
+                "from_seq": 4,
+                "queue_at_arrival": null,
+                "ready_at": 1794831270.694,
+                "ride_seconds": 471,
+                "ride_source": "mixed_section_speed",
+                "route_id": "100100252",
+                "station_id": "120000056",
+                "to_seq": 11,
+                "wait_seconds": 270
+              }
+            ],
+            "rank": 39,
+            "ride_seconds": 630,
+            "route_ids": [
+              "shuttle-41942",
+              "100100252"
+            ],
+            "score": 60.23,
+            "total_seconds": 7690,
+            "wait_seconds": 6928,
+            "walk_seconds": 92
+          },
+          {
+            "candidate_id": "route-19",
+            "comparison_key": "1edf9bb0bd949071144f385e",
+            "legs": [
+              {
+                "arrival_source": "shuttle_auto_queue_estimate",
+                "crowd_estimate": 0.375,
+                "crowd_risk": 1.1247,
+                "departure_at": 1794830999.694,
+                "from_seq": 1,
+                "queue_at_arrival": 0.5,
+                "ready_at": 1794824341.694,
+                "ride_seconds": 182,
+                "ride_source": "shuttle_extended_simulation",
+                "route_id": "shuttle-41915",
+                "station_id": "snu-410",
+                "to_seq": 2,
+                "wait_seconds": 6658
+              },
+              {
+                "arrival_source": "service_history_estimate",
+                "crowd_estimate": 0.362,
+                "crowd_risk": 1.0984213325889818,
+                "departure_at": 1794831583.694,
+                "from_seq": 74,
+                "queue_at_arrival": null,
+                "ready_at": 1794831283.694,
+                "ride_seconds": 57,
+                "ride_source": "distance_assumption",
+                "route_id": "100100521",
+                "station_id": "120000150",
+                "to_seq": 75,
+                "wait_seconds": 300
+              }
+            ],
+            "rank": 40,
+            "ride_seconds": 239,
+            "route_ids": [
+              "shuttle-41915",
+              "100100521"
+            ],
+            "score": 60.49,
+            "total_seconds": 7523,
+            "wait_seconds": 6958,
+            "walk_seconds": 286
+          }
+        ],
+        "model_id": "261110162302",
+        "recommended_candidate_id": "route-5"
+      },
+      "candidate": {
+        "model_id": "261110162302",
+        "candidates": [
+          {
+            "candidate_id": "route-5",
+            "comparison_key": "1f9df87e574dd30ba20f70fe",
+            "rank": 1,
+            "route_ids": [
+              "shuttle-41841"
+            ],
+            "total_seconds": 717,
+            "walk_seconds": 82,
+            "wait_seconds": 433,
+            "ride_seconds": 182,
+            "score": 2.57,
+            "legs": [
+              {
+                "route_id": "shuttle-41841",
+                "from_seq": 2,
+                "to_seq": 3,
+                "station_id": "snu-410",
+                "ready_at": 1794824341.694,
+                "departure_at": 1794824774.694,
+                "wait_seconds": 433,
+                "ride_seconds": 182,
+                "crowd_estimate": 0.402,
+                "crowd_risk": 1.1520000000000001,
+                "arrival_source": "shuttle_auto_queue_estimate",
+                "ride_source": "shuttle_simulation_road_prior",
+                "queue_at_arrival": 0.5
+              }
+            ]
+          },
+          {
+            "candidate_id": "gate-first",
+            "comparison_key": "437a5ceda935622c6cdef07e",
+            "rank": 2,
+            "route_ids": [
+              "100100250"
+            ],
+            "total_seconds": 1367,
+            "walk_seconds": 580,
+            "wait_seconds": 245,
+            "ride_seconds": 522,
+            "score": 12.18,
+            "legs": [
+              {
+                "route_id": "100100250",
+                "from_seq": 21,
+                "to_seq": 25,
+                "station_id": "120000029",
+                "ready_at": 1794824921.694,
+                "departure_at": 1794825166.694,
+                "wait_seconds": 245,
+                "ride_seconds": 522,
+                "crowd_estimate": 0.8734445258194077,
+                "crowd_risk": 1.3240965541239322,
+                "arrival_source": "empirical_joint_gate_estimate",
+                "ride_source": "joint_gate_first_route_weighted_travel",
+                "queue_at_arrival": null
+              }
+            ]
+          },
+          {
+            "candidate_id": "route-26",
+            "comparison_key": "91608365789258c1a5ffecd5",
+            "rank": 3,
+            "route_ids": [
+              "100100250"
+            ],
+            "total_seconds": 1722,
+            "walk_seconds": 146,
+            "wait_seconds": 906,
+            "ride_seconds": 650,
+            "score": 12.57,
+            "legs": [
+              {
+                "route_id": "100100250",
+                "from_seq": 18,
+                "to_seq": 25,
+                "station_id": "120000195",
+                "ready_at": 1794824487.694,
+                "departure_at": 1794825393.694,
+                "wait_seconds": 906,
+                "ride_seconds": 650,
+                "crowd_estimate": 2,
+                "crowd_risk": 2,
+                "arrival_source": "service_history_estimate",
+                "ride_source": "observed_directed_stop_passage_time",
+                "queue_at_arrival": null
+              }
+            ]
+          },
+          {
+            "candidate_id": "route-4",
+            "comparison_key": "6da855ea2f3efc37ac682e60",
+            "rank": 4,
+            "route_ids": [
+              "100100263"
+            ],
+            "total_seconds": 1812,
+            "walk_seconds": 580,
+            "wait_seconds": 691,
+            "ride_seconds": 521,
+            "score": 14.58,
+            "legs": [
+              {
+                "route_id": "100100263",
+                "from_seq": 30,
+                "to_seq": 34,
+                "station_id": "120000029",
+                "ready_at": 1794824921.694,
+                "departure_at": 1794825612.694,
+                "wait_seconds": 691,
+                "ride_seconds": 521,
+                "crowd_estimate": 0,
+                "crowd_risk": 0.806351896176672,
+                "arrival_source": "service_history_estimate",
+                "ride_source": "observed_directed_stop_passage_time",
+                "queue_at_arrival": null
+              }
+            ]
+          },
+          {
+            "candidate_id": "route-262",
+            "comparison_key": "7aad0bfb28e05be11e50b2e3",
+            "rank": 5,
+            "route_ids": [
+              "100100250"
+            ],
+            "total_seconds": 2442,
+            "walk_seconds": 146,
+            "wait_seconds": 938,
+            "ride_seconds": 1338,
+            "score": 15.41,
+            "legs": [
+              {
+                "route_id": "100100250",
+                "from_seq": 7,
+                "to_seq": 25,
+                "station_id": "120000169",
+                "ready_at": 1794824487.694,
+                "departure_at": 1794825425.694,
+                "wait_seconds": 938,
+                "ride_seconds": 1338,
+                "crowd_estimate": 0,
+                "crowd_risk": 0.6349437788735739,
+                "arrival_source": "service_history_estimate",
+                "ride_source": "historical_section_speed",
+                "queue_at_arrival": null
+              }
+            ]
+          },
+          {
+            "candidate_id": "route-3",
+            "comparison_key": "9599ffb9d98a8a8d7f16e0e7",
+            "rank": 6,
+            "route_ids": [
+              "100100252"
+            ],
+            "total_seconds": 1995,
+            "walk_seconds": 580,
+            "wait_seconds": 834,
+            "ride_seconds": 561,
+            "score": 15.73,
+            "legs": [
+              {
+                "route_id": "100100252",
+                "from_seq": 7,
+                "to_seq": 11,
+                "station_id": "120000029",
+                "ready_at": 1794824921.694,
+                "departure_at": 1794825755.694,
+                "wait_seconds": 834,
+                "ride_seconds": 561,
+                "crowd_estimate": 0,
+                "crowd_risk": 0.6754636977833086,
+                "arrival_source": "service_history_estimate",
+                "ride_source": "observed_directed_stop_passage_time",
+                "queue_at_arrival": null
+              }
+            ]
+          },
+          {
+            "candidate_id": "route-1",
+            "comparison_key": "cd9f39f10cf86b24eca4d0de",
+            "rank": 7,
+            "route_ids": [
+              "100100251"
+            ],
+            "total_seconds": 1702,
+            "walk_seconds": 580,
+            "wait_seconds": 558,
+            "ride_seconds": 544,
+            "score": 16.12,
+            "legs": [
+              {
+                "route_id": "100100251",
+                "from_seq": 9,
+                "to_seq": 13,
+                "station_id": "120000029",
+                "ready_at": 1794824921.694,
+                "departure_at": 1794825479.694,
+                "wait_seconds": 558,
+                "ride_seconds": 544,
+                "crowd_estimate": 2,
+                "crowd_risk": 2,
+                "arrival_source": "service_history_estimate",
+                "ride_source": "observed_directed_stop_passage_time",
+                "queue_at_arrival": null
+              }
+            ]
+          },
+          {
+            "candidate_id": "route-0",
+            "comparison_key": "099b725d34d648716c6f9b31",
+            "rank": 8,
+            "route_ids": [
+              "100100250"
+            ],
+            "total_seconds": 1770,
+            "walk_seconds": 580,
+            "wait_seconds": 690,
+            "ride_seconds": 480,
+            "score": 16.64,
+            "legs": [
+              {
+                "route_id": "100100250",
+                "from_seq": 21,
+                "to_seq": 25,
+                "station_id": "120000029",
+                "ready_at": 1794824921.694,
+                "departure_at": 1794825611.694,
+                "wait_seconds": 690,
+                "ride_seconds": 480,
+                "crowd_estimate": 2,
+                "crowd_risk": 2,
+                "arrival_source": "service_history_estimate",
+                "ride_source": "observed_directed_stop_passage_time",
+                "queue_at_arrival": null
+              }
+            ]
+          },
+          {
+            "candidate_id": "route-18",
+            "comparison_key": "4b93c845d6d4f627592c0668",
+            "rank": 9,
+            "route_ids": [
+              "shuttle-41841",
+              "100100521"
+            ],
+            "total_seconds": 1705,
+            "walk_seconds": 286,
+            "wait_seconds": 1089,
+            "ride_seconds": 290,
+            "score": 16.94,
+            "legs": [
+              {
+                "route_id": "shuttle-41841",
+                "from_seq": 2,
+                "to_seq": 3,
+                "station_id": "snu-410",
+                "ready_at": 1794824341.694,
+                "departure_at": 1794824774.694,
+                "wait_seconds": 433,
+                "ride_seconds": 182,
+                "crowd_estimate": 0.402,
+                "crowd_risk": 1.1520000000000001,
+                "arrival_source": "shuttle_auto_queue_estimate",
+                "ride_source": "shuttle_simulation_road_prior",
+                "queue_at_arrival": 0.5
+              },
+              {
+                "route_id": "100100521",
+                "from_seq": 74,
+                "to_seq": 75,
+                "station_id": "120000150",
+                "ready_at": 1794825058.694,
+                "departure_at": 1794825714.694,
+                "wait_seconds": 656,
+                "ride_seconds": 108,
+                "crowd_estimate": 0,
+                "crowd_risk": 0.7054624676524657,
+                "arrival_source": "service_history_estimate",
+                "ride_source": "observed_directed_stop_passage_time",
+                "queue_at_arrival": null
+              }
+            ]
+          },
+          {
+            "candidate_id": "route-2",
+            "comparison_key": "0f694e294bc171f71d64c4ef",
+            "rank": 10,
+            "route_ids": [
+              "100100521"
+            ],
+            "total_seconds": 2169,
+            "walk_seconds": 580,
+            "wait_seconds": 1051,
+            "ride_seconds": 518,
+            "score": 17.73,
+            "legs": [
+              {
+                "route_id": "100100521",
+                "from_seq": 70,
+                "to_seq": 74,
+                "station_id": "120000029",
+                "ready_at": 1794824921.694,
+                "departure_at": 1794825972.694,
+                "wait_seconds": 1051,
+                "ride_seconds": 518,
+                "crowd_estimate": 0,
+                "crowd_risk": 1.0003748427961672,
+                "arrival_source": "service_history_estimate",
+                "ride_source": "observed_directed_stop_passage_time",
+                "queue_at_arrival": null
+              }
+            ]
+          },
+          {
+            "candidate_id": "route-31",
+            "comparison_key": "804941a364571a19b3b708be",
+            "rank": 11,
+            "route_ids": [
+              "shuttle-41841",
+              "100100263"
+            ],
+            "total_seconds": 1873,
+            "walk_seconds": 286,
+            "wait_seconds": 1246,
+            "ride_seconds": 301,
+            "score": 18.24,
+            "legs": [
+              {
+                "route_id": "shuttle-41841",
+                "from_seq": 2,
+                "to_seq": 3,
+                "station_id": "snu-410",
+                "ready_at": 1794824341.694,
+                "departure_at": 1794824774.694,
+                "wait_seconds": 433,
+                "ride_seconds": 182,
+                "crowd_estimate": 0.402,
+                "crowd_risk": 1.1520000000000001,
+                "arrival_source": "shuttle_auto_queue_estimate",
+                "ride_source": "shuttle_simulation_road_prior",
+                "queue_at_arrival": 0.5
+              },
+              {
+                "route_id": "100100263",
+                "from_seq": 34,
+                "to_seq": 35,
+                "station_id": "120000150",
+                "ready_at": 1794825058.694,
+                "departure_at": 1794825871.694,
+                "wait_seconds": 813,
+                "ride_seconds": 119,
+                "crowd_estimate": 0,
+                "crowd_risk": 0.8873231578233587,
+                "arrival_source": "service_history_estimate",
+                "ride_source": "observed_directed_stop_passage_time",
+                "queue_at_arrival": null
+              }
+            ]
+          },
+          {
+            "candidate_id": "route-41",
+            "comparison_key": "b9c12b7d10ebad75c44e5f5b",
+            "rank": 12,
+            "route_ids": [
+              "100100251",
+              "shuttle-41841"
+            ],
+            "total_seconds": 1730,
+            "walk_seconds": 480,
+            "wait_seconds": 980,
+            "ride_seconds": 230,
+            "score": 18.9,
+            "legs": [
+              {
+                "route_id": "100100251",
+                "from_seq": 38,
+                "to_seq": 39,
+                "station_id": "120000168",
+                "ready_at": 1794824593.694,
+                "departure_at": 1794825079.694,
+                "wait_seconds": 486,
+                "ride_seconds": 48,
+                "crowd_estimate": 1,
+                "crowd_risk": 1.2034784125250653,
+                "arrival_source": "service_history_estimate",
+                "ride_source": "observed_directed_stop_passage_time",
+                "queue_at_arrival": null
+              },
+              {
+                "route_id": "shuttle-41841",
+                "from_seq": 2,
+                "to_seq": 3,
+                "station_id": "snu-410",
+                "ready_at": 1794825293.694,
+                "departure_at": 1794825787.694,
+                "wait_seconds": 494,
+                "ride_seconds": 182,
+                "crowd_estimate": 0.368,
+                "crowd_risk": 1.1181,
+                "arrival_source": "shuttle_auto_queue_estimate",
+                "ride_source": "shuttle_simulation_road_prior",
+                "queue_at_arrival": 0
+              }
+            ]
+          },
+          {
+            "candidate_id": "route-10",
+            "comparison_key": "7b5ca98bfd4af9e349ff032a",
+            "rank": 13,
+            "route_ids": [
+              "shuttle-41946",
+              "shuttle-41841"
+            ],
+            "total_seconds": 1842,
+            "walk_seconds": 435,
+            "wait_seconds": 1136,
+            "ride_seconds": 231,
+            "score": 19.21,
+            "legs": [
+              {
+                "route_id": "shuttle-41946",
+                "from_seq": 2,
+                "to_seq": 3,
+                "station_id": "snu-201",
+                "ready_at": 1794824569.694,
+                "departure_at": 1794825282.694,
+                "wait_seconds": 713,
+                "ride_seconds": 49,
+                "crowd_estimate": 0.35,
+                "crowd_risk": 1.1000999999999999,
+                "arrival_source": "shuttle_auto_queue_estimate",
+                "ride_source": "shuttle_simulation_road_prior",
+                "queue_at_arrival": 0
+              },
+              {
+                "route_id": "shuttle-41841",
+                "from_seq": 2,
+                "to_seq": 3,
+                "station_id": "snu-410",
+                "ready_at": 1794825476.694,
+                "departure_at": 1794825899.694,
+                "wait_seconds": 423,
+                "ride_seconds": 182,
+                "crowd_estimate": 0.368,
+                "crowd_risk": 1.1181,
+                "arrival_source": "shuttle_auto_queue_estimate",
+                "ride_source": "shuttle_simulation_road_prior",
+                "queue_at_arrival": 0
+              }
+            ]
+          },
+          {
+            "candidate_id": "route-22",
+            "comparison_key": "0f6321aca9f0db7b4d6a9770",
+            "rank": 14,
+            "route_ids": [
+              "100100253",
+              "shuttle-41841"
+            ],
+            "total_seconds": 1842,
+            "walk_seconds": 377,
+            "wait_seconds": 1184,
+            "ride_seconds": 241,
+            "score": 19.34,
+            "legs": [
+              {
+                "route_id": "100100253",
+                "from_seq": 14,
+                "to_seq": 15,
+                "station_id": "120000192",
+                "ready_at": 1794824490.694,
+                "departure_at": 1794825278.694,
+                "wait_seconds": 788,
+                "ride_seconds": 59,
+                "crowd_estimate": 1,
+                "crowd_risk": 1.4347817701285541,
+                "arrival_source": "service_history_estimate",
+                "ride_source": "observed_directed_stop_passage_time",
+                "queue_at_arrival": null
+              },
+              {
+                "route_id": "shuttle-41841",
+                "from_seq": 2,
+                "to_seq": 3,
+                "station_id": "snu-410",
+                "ready_at": 1794825503.694,
+                "departure_at": 1794825899.694,
+                "wait_seconds": 396,
+                "ride_seconds": 182,
+                "crowd_estimate": 0.368,
+                "crowd_risk": 1.1181,
+                "arrival_source": "shuttle_auto_queue_estimate",
+                "ride_source": "shuttle_simulation_road_prior",
+                "queue_at_arrival": 0
+              }
+            ]
+          },
+          {
+            "candidate_id": "route-410",
+            "comparison_key": "c3d76d3352beb23516ea5e72",
+            "rank": 15,
+            "route_ids": [
+              "100100253",
+              "100100251"
+            ],
+            "total_seconds": 2215,
+            "walk_seconds": 146,
+            "wait_seconds": 718,
+            "ride_seconds": 1311,
+            "score": 19.59,
+            "legs": [
+              {
+                "route_id": "100100253",
+                "from_seq": 59,
+                "to_seq": 64,
+                "station_id": "120000169",
+                "ready_at": 1794824487.694,
+                "departure_at": 1794824935.694,
+                "wait_seconds": 448,
+                "ride_seconds": 356,
+                "crowd_estimate": 0,
+                "crowd_risk": 0.625818225038036,
+                "arrival_source": "service_history_estimate",
+                "ride_source": "observed_directed_stop_passage_time",
+                "queue_at_arrival": null
+              },
+              {
+                "route_id": "100100251",
+                "from_seq": 1,
+                "to_seq": 13,
+                "station_id": "120000173",
+                "ready_at": 1794825311.694,
+                "departure_at": 1794825581.694,
+                "wait_seconds": 270,
+                "ride_seconds": 955,
+                "crowd_estimate": 0,
+                "crowd_risk": 1.103594267701646,
+                "arrival_source": "service_history_estimate",
+                "ride_source": "historical_section_speed",
+                "queue_at_arrival": null
+              }
+            ]
+          },
+          {
+            "candidate_id": "route-77",
+            "comparison_key": "941b4f838883d53ac218e40e",
+            "rank": 16,
+            "route_ids": [
+              "100100250",
+              "100100521"
+            ],
+            "total_seconds": 2051,
+            "walk_seconds": 146,
+            "wait_seconds": 1275,
+            "ride_seconds": 590,
+            "score": 20.12,
+            "legs": [
+              {
+                "route_id": "100100250",
+                "from_seq": 18,
+                "to_seq": 23,
+                "station_id": "120000195",
+                "ready_at": 1794824487.694,
+                "departure_at": 1794825393.694,
+                "wait_seconds": 906,
+                "ride_seconds": 360,
+                "crowd_estimate": 2,
+                "crowd_risk": 2,
+                "arrival_source": "service_history_estimate",
+                "ride_source": "observed_directed_stop_passage_time",
+                "queue_at_arrival": null
+              },
+              {
+                "route_id": "100100521",
+                "from_seq": 72,
+                "to_seq": 74,
+                "station_id": "120000030",
+                "ready_at": 1794825773.694,
+                "departure_at": 1794826142.694,
+                "wait_seconds": 369,
+                "ride_seconds": 230,
+                "crowd_estimate": 2,
+                "crowd_risk": 2,
+                "arrival_source": "service_history_estimate",
+                "ride_source": "observed_directed_stop_passage_time",
+                "queue_at_arrival": null
+              }
+            ]
+          },
+          {
+            "candidate_id": "route-381",
+            "comparison_key": "dca9050989a51b21696a5eb6",
+            "rank": 17,
+            "route_ids": [
+              "100100253",
+              "100100250"
+            ],
+            "total_seconds": 2381,
+            "walk_seconds": 146,
+            "wait_seconds": 862,
+            "ride_seconds": 1333,
+            "score": 20.26,
+            "legs": [
+              {
+                "route_id": "100100253",
+                "from_seq": 59,
+                "to_seq": 61,
+                "station_id": "120000169",
+                "ready_at": 1794824487.694,
+                "departure_at": 1794824935.694,
+                "wait_seconds": 448,
+                "ride_seconds": 128,
+                "crowd_estimate": 0,
+                "crowd_risk": 0.625818225038036,
+                "arrival_source": "service_history_estimate",
+                "ride_source": "observed_directed_stop_passage_time",
+                "queue_at_arrival": null
+              },
+              {
+                "route_id": "100100250",
+                "from_seq": 9,
+                "to_seq": 25,
+                "station_id": "120000171",
+                "ready_at": 1794825083.694,
+                "departure_at": 1794825497.694,
+                "wait_seconds": 414,
+                "ride_seconds": 1205,
+                "crowd_estimate": 0,
+                "crowd_risk": 0.7975550568743327,
+                "arrival_source": "service_history_estimate",
+                "ride_source": "historical_section_speed",
+                "queue_at_arrival": null
+              }
+            ]
+          },
+          {
+            "candidate_id": "route-81",
+            "comparison_key": "54938bd37ce704d8c607a669",
+            "rank": 18,
+            "route_ids": [
+              "100100250",
+              "100100252"
+            ],
+            "total_seconds": 2106,
+            "walk_seconds": 146,
+            "wait_seconds": 1281,
+            "ride_seconds": 639,
+            "score": 20.54,
+            "legs": [
+              {
+                "route_id": "100100250",
+                "from_seq": 18,
+                "to_seq": 23,
+                "station_id": "120000195",
+                "ready_at": 1794824487.694,
+                "departure_at": 1794825393.694,
+                "wait_seconds": 906,
+                "ride_seconds": 360,
+                "crowd_estimate": 2,
+                "crowd_risk": 2,
+                "arrival_source": "service_history_estimate",
+                "ride_source": "observed_directed_stop_passage_time",
+                "queue_at_arrival": null
+              },
+              {
+                "route_id": "100100252",
+                "from_seq": 9,
+                "to_seq": 11,
+                "station_id": "120000030",
+                "ready_at": 1794825773.694,
+                "departure_at": 1794826148.694,
+                "wait_seconds": 375,
+                "ride_seconds": 279,
+                "crowd_estimate": 1,
+                "crowd_risk": 1.1886384852642577,
+                "arrival_source": "service_history_estimate",
+                "ride_source": "observed_directed_stop_passage_time",
+                "queue_at_arrival": null
+              }
+            ]
+          },
+          {
+            "candidate_id": "route-372",
+            "comparison_key": "05ca98d3296cc276c2deb78f",
+            "rank": 19,
+            "route_ids": [
+              "100100252"
+            ],
+            "total_seconds": 2529,
+            "walk_seconds": 682,
+            "wait_seconds": 834,
+            "ride_seconds": 993,
+            "score": 20.73,
+            "legs": [
+              {
+                "route_id": "100100252",
+                "from_seq": 7,
+                "to_seq": 21,
+                "station_id": "120000029",
+                "ready_at": 1794824921.694,
+                "departure_at": 1794825755.694,
+                "wait_seconds": 834,
+                "ride_seconds": 993,
+                "crowd_estimate": 0,
+                "crowd_risk": 0.6754636977833086,
+                "arrival_source": "service_history_estimate",
+                "ride_source": "mixed_section_speed",
+                "queue_at_arrival": null
+              }
+            ]
+          },
+          {
+            "candidate_id": "route-418",
+            "comparison_key": "c7546407edd2cc28035d7e0f",
+            "rank": 20,
+            "route_ids": [
+              "100100253",
+              "100100251"
+            ],
+            "total_seconds": 2364,
+            "walk_seconds": 146,
+            "wait_seconds": 849,
+            "ride_seconds": 1329,
+            "score": 20.74,
+            "legs": [
+              {
+                "route_id": "100100253",
+                "from_seq": 59,
+                "to_seq": 65,
+                "station_id": "120000169",
+                "ready_at": 1794824487.694,
+                "departure_at": 1794824935.694,
+                "wait_seconds": 448,
+                "ride_seconds": 420,
+                "crowd_estimate": 0,
+                "crowd_risk": 0.625818225038036,
+                "arrival_source": "service_history_estimate",
+                "ride_source": "observed_directed_stop_passage_time",
+                "queue_at_arrival": null
+              },
+              {
+                "route_id": "100100251",
+                "from_seq": 2,
+                "to_seq": 13,
+                "station_id": "120000174",
+                "ready_at": 1794825375.694,
+                "departure_at": 1794825776.694,
+                "wait_seconds": 401,
+                "ride_seconds": 909,
+                "crowd_estimate": 0,
+                "crowd_risk": 1.103594267701646,
+                "arrival_source": "service_history_estimate",
+                "ride_source": "observed_directed_stop_passage_time",
+                "queue_at_arrival": null
+              }
+            ]
+          },
+          {
+            "candidate_id": "route-202",
+            "comparison_key": "9251275d272edc022ac840e4",
+            "rank": 21,
+            "route_ids": [
+              "100100521"
+            ],
+            "total_seconds": 2353,
+            "walk_seconds": 784,
+            "wait_seconds": 1051,
+            "ride_seconds": 498,
+            "score": 20.89,
+            "legs": [
+              {
+                "route_id": "100100521",
+                "from_seq": 70,
+                "to_seq": 75,
+                "station_id": "120000029",
+                "ready_at": 1794824921.694,
+                "departure_at": 1794825972.694,
+                "wait_seconds": 1051,
+                "ride_seconds": 498,
+                "crowd_estimate": 0,
+                "crowd_risk": 1.0003748427961672,
+                "arrival_source": "service_history_estimate",
+                "ride_source": "observed_directed_stop_passage_time",
+                "queue_at_arrival": null
+              }
+            ]
+          },
+          {
+            "candidate_id": "route-106",
+            "comparison_key": "f5bd6973d72b7fe1ba4d4082",
+            "rank": 22,
+            "route_ids": [
+              "shuttle-41841",
+              "100100252"
+            ],
+            "total_seconds": 1848,
+            "walk_seconds": 575,
+            "wait_seconds": 849,
+            "ride_seconds": 384,
+            "score": 21.03,
+            "legs": [
+              {
+                "route_id": "shuttle-41841",
+                "from_seq": 2,
+                "to_seq": 3,
+                "station_id": "snu-410",
+                "ready_at": 1794824341.694,
+                "departure_at": 1794824774.694,
+                "wait_seconds": 433,
+                "ride_seconds": 182,
+                "crowd_estimate": 0.402,
+                "crowd_risk": 1.1520000000000001,
+                "arrival_source": "shuttle_auto_queue_estimate",
+                "ride_source": "shuttle_simulation_road_prior",
+                "queue_at_arrival": 0.5
+              },
+              {
+                "route_id": "100100252",
+                "from_seq": 21,
+                "to_seq": 22,
+                "station_id": "120000228",
+                "ready_at": 1794825106.694,
+                "departure_at": 1794825522.694,
+                "wait_seconds": 416,
+                "ride_seconds": 202,
+                "crowd_estimate": 1,
+                "crowd_risk": 1.4145405357968737,
+                "arrival_source": "service_history_estimate",
+                "ride_source": "observed_directed_stop_passage_time",
+                "queue_at_arrival": null
+              }
+            ]
+          },
+          {
+            "candidate_id": "route-48",
+            "comparison_key": "71cf438cd33628676cec71fc",
+            "rank": 23,
+            "route_ids": [
+              "120900012",
+              "shuttle-41841"
+            ],
+            "total_seconds": 1730,
+            "walk_seconds": 429,
+            "wait_seconds": 967,
+            "ride_seconds": 294,
+            "score": 21.05,
+            "legs": [
+              {
+                "route_id": "120900012",
+                "from_seq": 17,
+                "to_seq": 18,
+                "station_id": "120000168",
+                "ready_at": 1794824593.694,
+                "departure_at": 1794825145.694,
+                "wait_seconds": 552,
+                "ride_seconds": 112,
+                "crowd_estimate": 1.235,
+                "crowd_risk": 2.5,
+                "arrival_source": "service_history_estimate",
+                "ride_source": "observed_directed_stop_passage_time",
+                "queue_at_arrival": null
+              },
+              {
+                "route_id": "shuttle-41841",
+                "from_seq": 2,
+                "to_seq": 3,
+                "station_id": "snu-410",
+                "ready_at": 1794825372.694,
+                "departure_at": 1794825787.694,
+                "wait_seconds": 415,
+                "ride_seconds": 182,
+                "crowd_estimate": 0.368,
+                "crowd_risk": 1.1181,
+                "arrival_source": "shuttle_auto_queue_estimate",
+                "ride_source": "shuttle_simulation_road_prior",
+                "queue_at_arrival": 0
+              }
+            ]
+          },
+          {
+            "candidate_id": "route-428",
+            "comparison_key": "284832bc86efd8c2419e2571",
+            "rank": 24,
+            "route_ids": [
+              "100100253",
+              "100100251"
+            ],
+            "total_seconds": 2379,
+            "walk_seconds": 146,
+            "wait_seconds": 849,
+            "ride_seconds": 1344,
+            "score": 21.08,
+            "legs": [
+              {
+                "route_id": "100100253",
+                "from_seq": 59,
+                "to_seq": 67,
+                "station_id": "120000169",
+                "ready_at": 1794824487.694,
+                "departure_at": 1794824935.694,
+                "wait_seconds": 448,
+                "ride_seconds": 529,
+                "crowd_estimate": 0,
+                "crowd_risk": 0.625818225038036,
+                "arrival_source": "service_history_estimate",
+                "ride_source": "observed_directed_stop_passage_time",
+                "queue_at_arrival": null
+              },
+              {
+                "route_id": "100100251",
+                "from_seq": 4,
+                "to_seq": 13,
+                "station_id": "120000176",
+                "ready_at": 1794825484.694,
+                "departure_at": 1794825885.694,
+                "wait_seconds": 401,
+                "ride_seconds": 815,
+                "crowd_estimate": 1,
+                "crowd_risk": 1.2150785412809382,
+                "arrival_source": "service_history_estimate",
+                "ride_source": "observed_directed_stop_passage_time",
+                "queue_at_arrival": null
+              }
+            ]
+          },
+          {
+            "candidate_id": "route-70",
+            "comparison_key": "48e297907e97ecfab8487520",
+            "rank": 25,
+            "route_ids": [
+              "shuttle-41841",
+              "100100263"
+            ],
+            "total_seconds": 2061,
+            "walk_seconds": 497,
+            "wait_seconds": 1244,
+            "ride_seconds": 280,
+            "score": 21.49,
+            "legs": [
+              {
+                "route_id": "shuttle-41841",
+                "from_seq": 2,
+                "to_seq": 3,
+                "station_id": "snu-410",
+                "ready_at": 1794824341.694,
+                "departure_at": 1794824774.694,
+                "wait_seconds": 433,
+                "ride_seconds": 182,
+                "crowd_estimate": 0.402,
+                "crowd_risk": 1.1520000000000001,
+                "arrival_source": "shuttle_auto_queue_estimate",
+                "ride_source": "shuttle_simulation_road_prior",
+                "queue_at_arrival": 0.5
+              },
+              {
+                "route_id": "100100263",
+                "from_seq": 49,
+                "to_seq": 50,
+                "station_id": "120000038",
+                "ready_at": 1794825028.694,
+                "departure_at": 1794825839.694,
+                "wait_seconds": 811,
+                "ride_seconds": 98,
+                "crowd_estimate": 1,
+                "crowd_risk": 1.074061661805264,
+                "arrival_source": "service_history_estimate",
+                "ride_source": "observed_directed_stop_passage_time",
+                "queue_at_arrival": null
+              }
+            ]
+          },
+          {
+            "candidate_id": "route-389",
+            "comparison_key": "073e367b3257e91a6dd775d4",
+            "rank": 26,
+            "route_ids": [
+              "100100253",
+              "100100250"
+            ],
+            "total_seconds": 2608,
+            "walk_seconds": 146,
+            "wait_seconds": 1081,
+            "ride_seconds": 1341,
+            "score": 21.67,
+            "legs": [
+              {
+                "route_id": "100100253",
+                "from_seq": 59,
+                "to_seq": 62,
+                "station_id": "120000169",
+                "ready_at": 1794824487.694,
+                "departure_at": 1794824935.694,
+                "wait_seconds": 448,
+                "ride_seconds": 175,
+                "crowd_estimate": 0,
+                "crowd_risk": 0.625818225038036,
+                "arrival_source": "service_history_estimate",
+                "ride_source": "observed_directed_stop_passage_time",
+                "queue_at_arrival": null
+              },
+              {
+                "route_id": "100100250",
+                "from_seq": 10,
+                "to_seq": 25,
+                "station_id": "120000172",
+                "ready_at": 1794825130.694,
+                "departure_at": 1794825763.694,
+                "wait_seconds": 633,
+                "ride_seconds": 1166,
+                "crowd_estimate": 0,
+                "crowd_risk": 0.5541346134878653,
+                "arrival_source": "service_history_estimate",
+                "ride_source": "historical_section_speed",
+                "queue_at_arrival": null
+              }
+            ]
+          },
+          {
+            "candidate_id": "route-258",
+            "comparison_key": "d920a1ad4177cf6c978c1b71",
+            "rank": 27,
+            "route_ids": [
+              "shuttle-41946",
+              "100100251"
+            ],
+            "total_seconds": 2531,
+            "walk_seconds": 135,
+            "wait_seconds": 1162,
+            "ride_seconds": 1194,
+            "score": 21.94,
+            "legs": [
+              {
+                "route_id": "shuttle-41946",
+                "from_seq": 3,
+                "to_seq": 7,
+                "station_id": "snu-401",
+                "ready_at": 1794824466.694,
+                "departure_at": 1794825358.694,
+                "wait_seconds": 892,
+                "ride_seconds": 239,
+                "crowd_estimate": 0.35,
+                "crowd_risk": 1.1000999999999999,
+                "arrival_source": "shuttle_auto_queue_estimate",
+                "ride_source": "shuttle_simulation_road_prior",
+                "queue_at_arrival": 0
+              },
+              {
+                "route_id": "100100251",
+                "from_seq": 1,
+                "to_seq": 13,
+                "station_id": "120000173",
+                "ready_at": 1794825627.694,
+                "departure_at": 1794825897.694,
+                "wait_seconds": 270,
+                "ride_seconds": 955,
+                "crowd_estimate": 0,
+                "crowd_risk": 1.103594267701646,
+                "arrival_source": "service_history_estimate",
+                "ride_source": "historical_section_speed",
+                "queue_at_arrival": null
+              }
+            ]
+          },
+          {
+            "candidate_id": "route-217",
+            "comparison_key": "af4584c16b8208cd899cb54a",
+            "rank": 28,
+            "route_ids": [
+              "shuttle-41841",
+              "100100521"
+            ],
+            "total_seconds": 2348,
+            "walk_seconds": 309,
+            "wait_seconds": 1089,
+            "ride_seconds": 910,
+            "score": 22.11,
+            "legs": [
+              {
+                "route_id": "shuttle-41841",
+                "from_seq": 2,
+                "to_seq": 3,
+                "station_id": "snu-410",
+                "ready_at": 1794824341.694,
+                "departure_at": 1794824774.694,
+                "wait_seconds": 433,
+                "ride_seconds": 182,
+                "crowd_estimate": 0.402,
+                "crowd_risk": 1.1520000000000001,
+                "arrival_source": "shuttle_auto_queue_estimate",
+                "ride_source": "shuttle_simulation_road_prior",
+                "queue_at_arrival": 0.5
+              },
+              {
+                "route_id": "100100521",
+                "from_seq": 74,
+                "to_seq": 78,
+                "station_id": "120000150",
+                "ready_at": 1794825058.694,
+                "departure_at": 1794825714.694,
+                "wait_seconds": 656,
+                "ride_seconds": 728,
+                "crowd_estimate": 0,
+                "crowd_risk": 0.7054624676524657,
+                "arrival_source": "service_history_estimate",
+                "ride_source": "observed_directed_stop_passage_time",
+                "queue_at_arrival": null
+              }
+            ]
+          },
+          {
+            "candidate_id": "walk-only",
+            "comparison_key": "4a54de7d59dd7337012e7b96",
+            "rank": 29,
+            "route_ids": [],
+            "total_seconds": 1810,
+            "walk_seconds": 1810,
+            "wait_seconds": 0,
+            "ride_seconds": 0,
+            "score": 23.45,
+            "legs": []
+          },
+          {
+            "candidate_id": "route-235",
+            "comparison_key": "5de7a0ca8155fa1b192b1623",
+            "rank": 30,
+            "route_ids": [
+              "100100263",
+              "100100521"
+            ],
+            "total_seconds": 2090,
+            "walk_seconds": 580,
+            "wait_seconds": 1060,
+            "ride_seconds": 410,
+            "score": 24.12,
+            "legs": [
+              {
+                "route_id": "100100263",
+                "from_seq": 30,
+                "to_seq": 32,
+                "station_id": "120000029",
+                "ready_at": 1794824921.694,
+                "departure_at": 1794825612.694,
+                "wait_seconds": 691,
+                "ride_seconds": 180,
+                "crowd_estimate": 0,
+                "crowd_risk": 0.806351896176672,
+                "arrival_source": "service_history_estimate",
+                "ride_source": "observed_directed_stop_passage_time",
+                "queue_at_arrival": null
+              },
+              {
+                "route_id": "100100521",
+                "from_seq": 72,
+                "to_seq": 74,
+                "station_id": "120000030",
+                "ready_at": 1794825812.694,
+                "departure_at": 1794826181.694,
+                "wait_seconds": 369,
+                "ride_seconds": 230,
+                "crowd_estimate": 2,
+                "crowd_risk": 2,
+                "arrival_source": "service_history_estimate",
+                "ride_source": "observed_directed_stop_passage_time",
+                "queue_at_arrival": null
+              }
+            ]
+          },
+          {
+            "candidate_id": "route-216",
+            "comparison_key": "3b448c79f95f6c115d2319b9",
+            "rank": 31,
+            "route_ids": [
+              "100100252",
+              "100100521"
+            ],
+            "total_seconds": 2281,
+            "walk_seconds": 580,
+            "wait_seconds": 1203,
+            "ride_seconds": 458,
+            "score": 25.59,
+            "legs": [
+              {
+                "route_id": "100100252",
+                "from_seq": 7,
+                "to_seq": 9,
+                "station_id": "120000029",
+                "ready_at": 1794824921.694,
+                "departure_at": 1794825755.694,
+                "wait_seconds": 834,
+                "ride_seconds": 228,
+                "crowd_estimate": 0,
+                "crowd_risk": 0.6754636977833086,
+                "arrival_source": "service_history_estimate",
+                "ride_source": "observed_directed_stop_passage_time",
+                "queue_at_arrival": null
+              },
+              {
+                "route_id": "100100521",
+                "from_seq": 72,
+                "to_seq": 74,
+                "station_id": "120000030",
+                "ready_at": 1794826003.694,
+                "departure_at": 1794826372.694,
+                "wait_seconds": 369,
+                "ride_seconds": 230,
+                "crowd_estimate": 2,
+                "crowd_risk": 2,
+                "arrival_source": "service_history_estimate",
+                "ride_source": "observed_directed_stop_passage_time",
+                "queue_at_arrival": null
+              }
+            ]
+          },
+          {
+            "candidate_id": "route-219",
+            "comparison_key": "78c24f877faf82b94aa0fcc0",
+            "rank": 32,
+            "route_ids": [
+              "100100521",
+              "100100252"
+            ],
+            "total_seconds": 2681,
+            "walk_seconds": 580,
+            "wait_seconds": 1601,
+            "ride_seconds": 460,
+            "score": 27.06,
+            "legs": [
+              {
+                "route_id": "100100521",
+                "from_seq": 70,
+                "to_seq": 72,
+                "station_id": "120000029",
+                "ready_at": 1794824921.694,
+                "departure_at": 1794825972.694,
+                "wait_seconds": 1051,
+                "ride_seconds": 181,
+                "crowd_estimate": 0,
+                "crowd_risk": 1.0003748427961672,
+                "arrival_source": "service_history_estimate",
+                "ride_source": "observed_directed_stop_passage_time",
+                "queue_at_arrival": null
+              },
+              {
+                "route_id": "100100252",
+                "from_seq": 9,
+                "to_seq": 11,
+                "station_id": "120000030",
+                "ready_at": 1794826173.694,
+                "departure_at": 1794826723.694,
+                "wait_seconds": 550,
+                "ride_seconds": 279,
+                "crowd_estimate": 1,
+                "crowd_risk": 1.1886384852642577,
+                "arrival_source": "service_history_estimate",
+                "ride_source": "observed_directed_stop_passage_time",
+                "queue_at_arrival": null
+              }
+            ]
+          },
+          {
+            "candidate_id": "route-512",
+            "comparison_key": "5d4a0ba76c246a360dc99d9c",
+            "rank": 33,
+            "route_ids": [
+              "120900011",
+              "100100251"
+            ],
+            "total_seconds": 2861,
+            "walk_seconds": 461,
+            "wait_seconds": 999,
+            "ride_seconds": 1361,
+            "score": 30.06,
+            "legs": [
+              {
+                "route_id": "120900011",
+                "from_seq": 15,
+                "to_seq": 22,
+                "station_id": "120900172",
+                "ready_at": 1794824802.694,
+                "departure_at": 1794825531.694,
+                "wait_seconds": 729,
+                "ride_seconds": 406,
+                "crowd_estimate": 1.344,
+                "crowd_risk": 2.5,
+                "arrival_source": "service_history_estimate",
+                "ride_source": "observed_directed_stop_passage_time",
+                "queue_at_arrival": null
+              },
+              {
+                "route_id": "100100251",
+                "from_seq": 1,
+                "to_seq": 13,
+                "station_id": "120000173",
+                "ready_at": 1794825957.694,
+                "departure_at": 1794826227.694,
+                "wait_seconds": 270,
+                "ride_seconds": 955,
+                "crowd_estimate": 0,
+                "crowd_risk": 1.103594267701646,
+                "arrival_source": "service_history_estimate",
+                "ride_source": "historical_section_speed",
+                "queue_at_arrival": null
+              }
+            ]
+          },
+          {
+            "candidate_id": "route-928",
+            "comparison_key": "ae62cb9f1af303464089d1c7",
+            "rank": 34,
+            "route_ids": [
+              "shuttle-41841",
+              "100100521"
+            ],
+            "total_seconds": 4740,
+            "walk_seconds": 52,
+            "wait_seconds": 872,
+            "ride_seconds": 3776,
+            "score": 38.39,
+            "legs": [
+              {
+                "route_id": "shuttle-41841",
+                "from_seq": 2,
+                "to_seq": 3,
+                "station_id": "snu-410",
+                "ready_at": 1794824341.694,
+                "departure_at": 1794824774.694,
+                "wait_seconds": 433,
+                "ride_seconds": 182,
+                "crowd_estimate": 0.402,
+                "crowd_risk": 1.1520000000000001,
+                "arrival_source": "shuttle_auto_queue_estimate",
+                "ride_source": "shuttle_simulation_road_prior",
+                "queue_at_arrival": 0.5
+              },
+              {
+                "route_id": "100100521",
+                "from_seq": 38,
+                "to_seq": 74,
+                "station_id": "120000038",
+                "ready_at": 1794825028.694,
+                "departure_at": 1794825467.694,
+                "wait_seconds": 439,
+                "ride_seconds": 3594,
+                "crowd_estimate": 0,
+                "crowd_risk": 0.9632356322048248,
+                "arrival_source": "service_history_estimate",
+                "ride_source": "mixed_section_speed",
+                "queue_at_arrival": null
+              }
+            ]
+          },
+          {
+            "candidate_id": "route-931",
+            "comparison_key": "e9d0a2fa6860dc1f80ec669d",
+            "rank": 35,
+            "route_ids": [
+              "100100521"
+            ],
+            "total_seconds": 5067,
+            "walk_seconds": 695,
+            "wait_seconds": 1040,
+            "ride_seconds": 3312,
+            "score": 43.1,
+            "legs": [
+              {
+                "route_id": "100100521",
+                "from_seq": 42,
+                "to_seq": 74,
+                "station_id": "120000670",
+                "ready_at": 1794825036.694,
+                "departure_at": 1794826076.694,
+                "wait_seconds": 1040,
+                "ride_seconds": 3312,
+                "crowd_estimate": 2,
+                "crowd_risk": 2,
+                "arrival_source": "service_history_estimate",
+                "ride_source": "mixed_section_speed",
+                "queue_at_arrival": null
+              }
+            ]
+          },
+          {
+            "candidate_id": "route-6",
+            "comparison_key": "6ac7b20bfccf979cc0005c01",
+            "rank": 36,
+            "route_ids": [
+              "shuttle-41915"
+            ],
+            "total_seconds": 6942,
+            "walk_seconds": 82,
+            "wait_seconds": 6658,
+            "ride_seconds": 182,
+            "score": 50.62,
+            "legs": [
+              {
+                "route_id": "shuttle-41915",
+                "from_seq": 1,
+                "to_seq": 2,
+                "station_id": "snu-410",
+                "ready_at": 1794824341.694,
+                "departure_at": 1794830999.694,
+                "wait_seconds": 6658,
+                "ride_seconds": 182,
+                "crowd_estimate": 0.375,
+                "crowd_risk": 1.1247,
+                "arrival_source": "shuttle_auto_queue_estimate",
+                "ride_source": "shuttle_extended_simulation",
+                "queue_at_arrival": 0.5
+              }
+            ]
+          },
+          {
+            "candidate_id": "route-951",
+            "comparison_key": "5157b98fa925fd424c47e800",
+            "rank": 37,
+            "route_ids": [
+              "100100252",
+              "100100521"
+            ],
+            "total_seconds": 5821,
+            "walk_seconds": 695,
+            "wait_seconds": 1717,
+            "ride_seconds": 3369,
+            "score": 53.93,
+            "legs": [
+              {
+                "route_id": "100100252",
+                "from_seq": 25,
+                "to_seq": 26,
+                "station_id": "120000670",
+                "ready_at": 1794825036.694,
+                "departure_at": 1794825799.694,
+                "wait_seconds": 763,
+                "ride_seconds": 174,
+                "crowd_estimate": 2,
+                "crowd_risk": 2,
+                "arrival_source": "service_history_estimate",
+                "ride_source": "observed_directed_stop_passage_time",
+                "queue_at_arrival": null
+              },
+              {
+                "route_id": "100100521",
+                "from_seq": 43,
+                "to_seq": 74,
+                "station_id": "120000041",
+                "ready_at": 1794825993.694,
+                "departure_at": 1794826947.694,
+                "wait_seconds": 954,
+                "ride_seconds": 3195,
+                "crowd_estimate": 1,
+                "crowd_risk": 1.4974041668898255,
+                "arrival_source": "service_history_estimate",
+                "ride_source": "mixed_section_speed",
+                "queue_at_arrival": null
+              }
+            ]
+          },
+          {
+            "candidate_id": "route-955",
+            "comparison_key": "13a4cf9b5e9b654f4c623fe7",
+            "rank": 38,
+            "route_ids": [
+              "100100263",
+              "100100521"
+            ],
+            "total_seconds": 6292,
+            "walk_seconds": 695,
+            "wait_seconds": 2242,
+            "ride_seconds": 3315,
+            "score": 56.56,
+            "legs": [
+              {
+                "route_id": "100100263",
+                "from_seq": 53,
+                "to_seq": 54,
+                "station_id": "120000670",
+                "ready_at": 1794825036.694,
+                "departure_at": 1794826290.694,
+                "wait_seconds": 1254,
+                "ride_seconds": 120,
+                "crowd_estimate": 1,
+                "crowd_risk": 1.4795433828489482,
+                "arrival_source": "service_history_estimate",
+                "ride_source": "observed_directed_stop_passage_time",
+                "queue_at_arrival": null
+              },
+              {
+                "route_id": "100100521",
+                "from_seq": 43,
+                "to_seq": 74,
+                "station_id": "120000041",
+                "ready_at": 1794826430.694,
+                "departure_at": 1794827418.694,
+                "wait_seconds": 988,
+                "ride_seconds": 3195,
+                "crowd_estimate": 1,
+                "crowd_risk": 1.4974041668898255,
+                "arrival_source": "service_history_estimate",
+                "ride_source": "mixed_section_speed",
+                "queue_at_arrival": null
+              }
+            ]
+          },
+          {
+            "candidate_id": "route-147",
+            "comparison_key": "37d08b14dd664c8b80db2cb3",
+            "rank": 39,
+            "route_ids": [
+              "shuttle-41942",
+              "100100521"
+            ],
+            "total_seconds": 8201,
+            "walk_seconds": 92,
+            "wait_seconds": 7248,
+            "ride_seconds": 821,
+            "score": 65.38,
+            "legs": [
+              {
+                "route_id": "shuttle-41942",
+                "from_seq": 1,
+                "to_seq": 2,
+                "station_id": "snu-410",
+                "ready_at": 1794824341.694,
+                "departure_at": 1794830999.694,
+                "wait_seconds": 6658,
+                "ride_seconds": 159,
+                "crowd_estimate": 0.35,
+                "crowd_risk": 1.1000999999999999,
+                "arrival_source": "shuttle_auto_queue_estimate",
+                "ride_source": "shuttle_extended_simulation",
+                "queue_at_arrival": 0
+              },
+              {
+                "route_id": "100100521",
+                "from_seq": 67,
+                "to_seq": 74,
+                "station_id": "120000056",
+                "ready_at": 1794831270.694,
+                "departure_at": 1794831860.694,
+                "wait_seconds": 590,
+                "ride_seconds": 662,
+                "crowd_estimate": 0,
+                "crowd_risk": 0.6653215700525807,
+                "arrival_source": "service_history_estimate",
+                "ride_source": "observed_directed_stop_passage_time",
+                "queue_at_arrival": null
+              }
+            ]
+          },
+          {
+            "candidate_id": "route-107",
+            "comparison_key": "87a148d9b9ff1c2afcf414e4",
+            "rank": 40,
+            "route_ids": [
+              "shuttle-41915",
+              "100100252"
+            ],
+            "total_seconds": 8097,
+            "walk_seconds": 575,
+            "wait_seconds": 7096,
+            "ride_seconds": 386,
+            "score": 68.74,
+            "legs": [
+              {
+                "route_id": "shuttle-41915",
+                "from_seq": 1,
+                "to_seq": 2,
+                "station_id": "snu-410",
+                "ready_at": 1794824341.694,
+                "departure_at": 1794830999.694,
+                "wait_seconds": 6658,
+                "ride_seconds": 182,
+                "crowd_estimate": 0.375,
+                "crowd_risk": 1.1247,
+                "arrival_source": "shuttle_auto_queue_estimate",
+                "ride_source": "shuttle_extended_simulation",
+                "queue_at_arrival": 0.5
+              },
+              {
+                "route_id": "100100252",
+                "from_seq": 21,
+                "to_seq": 22,
+                "station_id": "120000228",
+                "ready_at": 1794831331.694,
+                "departure_at": 1794831769.694,
+                "wait_seconds": 438,
+                "ride_seconds": 204,
+                "crowd_estimate": 1,
+                "crowd_risk": 1.1064506709473787,
+                "arrival_source": "service_history_estimate",
+                "ride_source": "observed_directed_stop_passage_time",
+                "queue_at_arrival": null
+              }
+            ]
+          }
+        ],
+        "recommended_candidate_id": "route-5",
+        "calculation_ms": 1598.8
+      },
+      "matched_candidate_deltas": [
+        {
+          "V11_candidate_id": "route-5",
+          "R_candidate_id": "route-5",
+          "comparison_key": "1f9df87e574dd30ba20f70fe",
+          "total_seconds": 0,
+          "wait_seconds": 0,
+          "ride_seconds": 0,
+          "rank": 0
+        },
+        {
+          "V11_candidate_id": "route-1",
+          "R_candidate_id": "route-2",
+          "comparison_key": "0f694e294bc171f71d64c4ef",
+          "total_seconds": 1014,
+          "wait_seconds": 751,
+          "ride_seconds": 263,
+          "rank": 3
+        },
+        {
+          "V11_candidate_id": "route-955",
+          "R_candidate_id": "route-955",
+          "comparison_key": "13a4cf9b5e9b654f4c623fe7",
+          "total_seconds": 1585,
+          "wait_seconds": 1582,
+          "ride_seconds": 3,
+          "rank": 1
+        },
+        {
+          "V11_candidate_id": "route-0",
+          "R_candidate_id": "route-3",
+          "comparison_key": "9599ffb9d98a8a8d7f16e0e7",
+          "total_seconds": 870,
+          "wait_seconds": 564,
+          "ride_seconds": 306,
+          "rank": 1
+        },
+        {
+          "V11_candidate_id": "route-61",
+          "R_candidate_id": "route-81",
+          "comparison_key": "54938bd37ce704d8c607a669",
+          "total_seconds": 988,
+          "wait_seconds": 801,
+          "ride_seconds": 187,
+          "rank": -2
+        },
+        {
+          "V11_candidate_id": "route-17",
+          "R_candidate_id": "route-26",
+          "comparison_key": "91608365789258c1a5ffecd5",
+          "total_seconds": 845,
+          "wait_seconds": 696,
+          "ride_seconds": 149,
+          "rank": 1
+        },
+        {
+          "V11_candidate_id": "route-953",
+          "R_candidate_id": "route-951",
+          "comparison_key": "5157b98fa925fd424c47e800",
+          "total_seconds": 1204,
+          "wait_seconds": 1147,
+          "ride_seconds": 57,
+          "rank": 1
+        },
+        {
+          "V11_candidate_id": "gate-first",
+          "R_candidate_id": "gate-first",
+          "comparison_key": "437a5ceda935622c6cdef07e",
+          "total_seconds": 371,
+          "wait_seconds": 155,
+          "ride_seconds": 216,
+          "rank": -1
+        },
+        {
+          "V11_candidate_id": "route-310",
+          "R_candidate_id": "route-262",
+          "comparison_key": "7aad0bfb28e05be11e50b2e3",
+          "total_seconds": 728,
+          "wait_seconds": 728,
+          "ride_seconds": 0,
+          "rank": -1
+        },
+        {
+          "V11_candidate_id": "route-3",
+          "R_candidate_id": "route-4",
+          "comparison_key": "6da855ea2f3efc37ac682e60",
+          "total_seconds": 597,
+          "wait_seconds": 331,
+          "ride_seconds": 266,
+          "rank": -4
+        },
+        {
+          "V11_candidate_id": "route-934",
+          "R_candidate_id": "route-928",
+          "comparison_key": "ae62cb9f1af303464089d1c7",
+          "total_seconds": 139,
+          "wait_seconds": 139,
+          "ride_seconds": 0,
+          "rank": -1
+        },
+        {
+          "V11_candidate_id": "route-937",
+          "R_candidate_id": "route-931",
+          "comparison_key": "e9d0a2fa6860dc1f80ec669d",
+          "total_seconds": 740,
+          "wait_seconds": 740,
+          "ride_seconds": 0,
+          "rank": 1
+        },
+        {
+          "V11_candidate_id": "route-72",
+          "R_candidate_id": "route-77",
+          "comparison_key": "941b4f838883d53ac218e40e",
+          "total_seconds": 903,
+          "wait_seconds": 765,
+          "ride_seconds": 138,
+          "rank": -6
+        },
+        {
+          "V11_candidate_id": "route-4",
+          "R_candidate_id": "route-1",
+          "comparison_key": "cd9f39f10cf86b24eca4d0de",
+          "total_seconds": 471,
+          "wait_seconds": 288,
+          "ride_seconds": 183,
+          "rank": -2
+        },
+        {
+          "V11_candidate_id": "route-2",
+          "R_candidate_id": "route-0",
+          "comparison_key": "099b725d34d648716c6f9b31",
+          "total_seconds": 599,
+          "wait_seconds": 480,
+          "ride_seconds": 119,
+          "rank": 4
+        },
+        {
+          "V11_candidate_id": "route-6",
+          "R_candidate_id": "route-6",
+          "comparison_key": "6ac7b20bfccf979cc0005c01",
+          "total_seconds": 0,
+          "wait_seconds": 0,
+          "ride_seconds": 0,
+          "rank": -2
+        },
+        {
+          "V11_candidate_id": "route-18",
+          "R_candidate_id": "route-18",
+          "comparison_key": "4b93c845d6d4f627592c0668",
+          "total_seconds": 407,
+          "wait_seconds": 356,
+          "ride_seconds": 51,
+          "rank": -16
+        },
+        {
+          "V11_candidate_id": "route-59",
+          "R_candidate_id": "route-41",
+          "comparison_key": "b9c12b7d10ebad75c44e5f5b",
+          "total_seconds": 225,
+          "wait_seconds": 229,
+          "ride_seconds": -4,
+          "rank": -15
+        },
+        {
+          "V11_candidate_id": "walk-only",
+          "R_candidate_id": "walk-only",
+          "comparison_key": "4a54de7d59dd7337012e7b96",
+          "total_seconds": 0,
+          "wait_seconds": 0,
+          "ride_seconds": 0,
+          "rank": -4
+        }
+      ],
+      "unmatched_V11": 21,
+      "unmatched_R": 21,
+      "shuttle_profile_before_date": "2026-11-16",
+      "shuttle_corrections": [],
+      "accuracy_validation": false,
+      "comparison_kind": "paired_predictions_not_independent_actual_outcomes"
+    },
+    "aggregate": {
+      "comparisons": 2,
+      "matched_routes": 38,
+      "delta_wait_seconds_sum": 19367,
+      "delta_total_seconds_sum": 23235,
+      "accuracy_validation": false,
+      "automatic_promotion": false
+    },
+    "daily_cap": 500,
+    "automatic_promotion": false,
+    "operating_model": "V11",
+    "raw_retention_days": 30,
+    "aggregate_retention_days": 365
+  }
+}

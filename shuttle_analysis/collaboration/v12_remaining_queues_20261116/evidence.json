@@ -1,0 +1,54 @@
+{
+  "at_utc": "2026-11-16T01:33:24.032146+00:00",
+  "primary_candidate": "261116010854",
+  "status": "EXISTING_LEDGER_AND_STATIC_REVIEW_COMPLETE",
+  "project_functions_executed": false,
+  "model_or_test_runs": 0,
+  "independent_readback_aggregation_performed": true,
+  "raw_simulation_cases_read": [
+    "queuefit-combined-regular-mon",
+    "queuefit-combined-regular-tue"
+  ],
+  "new_observed_or_holdout_dates_opened": false,
+  "source_config_frozen_or_production_written": false,
+  "original_guard_count": 92,
+  "original_guard_matches": true,
+  "supplement_candidate": "261116102200",
+  "supplement_guard_count": 83,
+  "supplement_guard_matches": true,
+  "tue_law60_nak_prior_ride_weight": 42.99108773447745,
+  "tue_law47_nak_prior_ride_weight": 34.25952200807838,
+  "confirmed": [
+    "Mixed destination queues and distinct boarding eligibility.",
+    "Most peak Nak demand at law60 arrives after an earlier city ride.",
+    "Locked policies plus current-node/zero-access exclusions block same-stop reconsideration.",
+    "Stored gate access and5route gate completion exist.",
+    "Original gate-first source cohorts are substantially reassigned at first queue.",
+    "Source direct-city plan94963 becomes city-access plus commuter shuttle without history or flex release."
+  ],
+  "hypotheses": [
+    "Dynamic same-stop policy comparison can reduce some narrow-pool waiting.",
+    "Early boarding objective and inherited transfer choices concentrate demand at law.",
+    "Source mode proxy and gate calibration interact with initial optimization."
+  ],
+  "not_identified": [
+    "Measured student destination or modal shares.",
+    "Actual route-specific passenger capacities or onboard counts.",
+    "Exact causal contribution of any one mechanism to40person recollection or gate observed error.",
+    "Effects or empirical accuracy of the new same-stop or proposed trunk changes."
+  ],
+  "endpoint_scope": "Only stored alternatives from nodes47/60 for snu/nak; endpoint continuity is not legal crossing or travel-time validation.",
+  "endpoint_check_count": 44,
+  "endpoint_max_gap_m": 0.060293091227271875,
+  "artifact_sha256": {
+    "catalog-and-source-mode-findings.json": "ca99ba25429009ee4d5e2e1e1841a4093e1a4abc4d338ce519407cad0e854917",
+    "DIAGNOSIS.md": "7f3ef813e87ef8becca84351313d6a883c8ffb4e2b83d14d638ac26f574401ff",
+    "initial-mode-and-law-access.json": "04613f03fa14cb3936a7ee5f1ee5ef843b9066249a542cefbebbcd779d6d81e5",
+    "intake.json": "749b6064f1cd2cbab0d10db871a21e85054edc2ed5f41344482ea5f3e429ffbb",
+    "law-and-gate-peak-composition.json": "1918aa21ae0a30c2eb3a7f984d4f7baae81216a13e435b0046d86109a4a81732",
+    "supplementary-static-review.json": "cd36b5be467b36c4593fb4339e5b2534300c39c98bdd86a1c34c316c69860006",
+    "trunk-preference-example.json": "8cdd6ce4bd538b558ec37622352a7aa9e782e0afe4e6b821d8cb8ba991bfb163",
+    "verified-peak-transfers.json": "387ad18d3eb879575c1c25b80cd420be3dfef46470f280a07a900fe4838c1314"
+  },
+  "no_operating_replacement_recommended": true
+}

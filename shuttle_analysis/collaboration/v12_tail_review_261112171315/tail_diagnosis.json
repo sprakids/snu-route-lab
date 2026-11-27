@@ -1,0 +1,659 @@
+{
+  "status": "READ_ONLY_SINGLE_LINEAGE_DIAGNOSTIC_NOT_CAUSAL_ISOLATION",
+  "summaries": {
+    "new": {
+      "duration_min": 101.47449089305276,
+      "walk_min": 73.27218509828757,
+      "stop_dwell_including_preparation_min": 20.206528028440516,
+      "ride_min": 7.995777766324681,
+      "preparation_within_stop_dwell_min": 2.6666666666666665,
+      "after_ready_wait_min": 17.53986136177385,
+      "maximum_continuous_stop_dwell_min": 6.259143344836897,
+      "walking_meters": 4821.270340386429,
+      "route_changes": 7,
+      "weight": 0.19180217599830604,
+      "walk_factor": 1.1981303250972382,
+      "walk_checks": [
+        {
+          "path": 246,
+          "meters": 481.9101222822549,
+          "actual_seconds": 496.9918042738791,
+          "base_seconds": 414.80613073836264,
+          "factor": 1.1981303250972382
+        },
+        {
+          "path": 4321,
+          "meters": 9.087985569914615,
+          "actual_seconds": 8.166443329020694,
+          "base_seconds": 6.815989177435961,
+          "factor": 1.1981303250972382
+        },
+        {
+          "path": 3551,
+          "meters": 197.2630623351236,
+          "actual_seconds": 177.26014275394118,
+          "base_seconds": 147.94729675134272,
+          "factor": 1.1981303250972382
+        },
+        {
+          "path": 4550,
+          "meters": 92.91535640272777,
+          "actual_seconds": 83.49352962999546,
+          "base_seconds": 69.68651730204584,
+          "factor": 1.1981303250972382
+        },
+        {
+          "path": 4499,
+          "meters": 191.39866441860408,
+          "actual_seconds": 171.99040801727824,
+          "base_seconds": 143.54899831395312,
+          "factor": 1.1981303250972382
+        },
+        {
+          "path": 2110,
+          "meters": 19.861309700624794,
+          "actual_seconds": 17.84732808634726,
+          "base_seconds": 14.895982275468596,
+          "factor": 1.1981303250972382
+        },
+        {
+          "path": 4023,
+          "meters": 70.41068744999995,
+          "actual_seconds": 63.27088488359004,
+          "base_seconds": 52.80801558749997,
+          "factor": 1.1981303250972382
+        },
+        {
+          "path": 3605,
+          "meters": 292.48373007406593,
+          "actual_seconds": 262.8252199494673,
+          "base_seconds": 219.36279755554946,
+          "factor": 1.1981303250972382
+        },
+        {
+          "path": 3101,
+          "meters": 3465.9394221531134,
+          "actual_seconds": 3114.4853449737348,
+          "base_seconds": 2599.4545666148356,
+          "factor": 1.1981303250972382
+        }
+      ]
+    },
+    "previous": {
+      "duration_min": 27.460901413572962,
+      "walk_min": 9.656103859915795,
+      "stop_dwell_including_preparation_min": 7.19535941152523,
+      "ride_min": 10.609438142131937,
+      "preparation_within_stop_dwell_min": 0.6666666666666666,
+      "after_ready_wait_min": 6.528692744858563,
+      "maximum_continuous_stop_dwell_min": 5.733231039181313,
+      "walking_meters": 701.3235900910357,
+      "route_changes": 1,
+      "weight": 0.19180217599830604,
+      "walk_factor": 1.0,
+      "walk_checks": [
+        {
+          "path": 246,
+          "meters": 481.9101222822549,
+          "actual_seconds": 414.8061307383614,
+          "base_seconds": 414.80613073836264,
+          "factor": 1.0
+        },
+        {
+          "path": 4322,
+          "meters": 197.9878067623747,
+          "actual_seconds": 148.49085507178097,
+          "base_seconds": 148.49085507178103,
+          "factor": 1.0
+        },
+        {
+          "path": 1773,
+          "meters": 21.425661046406212,
+          "actual_seconds": 16.06924578480539,
+          "base_seconds": 16.06924578480466,
+          "factor": 1.0
+        }
+      ]
+    }
+  },
+  "duration_differences": {
+    "duration_min": 74.0135894794798,
+    "walk_min": 63.61608123837177,
+    "stop_dwell_including_preparation_min": 13.011168616915286,
+    "ride_min": -2.613660375807256
+  },
+  "selected_cost_reconstruction": [
+    {
+      "case": "new",
+      "time": 50231.30231397559,
+      "origin": 77,
+      "target": 12,
+      "reason": "service_rejected_or_full",
+      "past_wait_seconds": 140.36618200292287,
+      "physical_future_walk_min": 1.3738669828664256,
+      "physical_future_wait_prep_min": 4.651997516385503,
+      "base_generalized_cost_min": 28.05594397793449,
+      "extra_cumulative_wait_burden_min": 5.036148449620007,
+      "selected_generalized_cost_min": 33.09209242755434,
+      "prediction_eta": 51485.19030332866,
+      "old_eta": 52091.31235732685
+    },
+    {
+      "case": "new",
+      "time": 50269.31117314806,
+      "origin": 12,
+      "target": 92,
+      "reason": "boarding_joint_choice",
+      "past_wait_seconds": 170.20859784637287,
+      "physical_future_walk_min": 3.275219890502654,
+      "physical_future_wait_prep_min": 2.199221727754048,
+      "base_generalized_cost_min": 26.384919696258482,
+      "extra_cumulative_wait_burden_min": 1.927561573376095,
+      "selected_generalized_cost_min": 28.312481269634507,
+      "prediction_eta": 51234.34395877137,
+      "old_eta": 52091.31235732685
+    },
+    {
+      "case": "new",
+      "time": 50822.119916592215,
+      "origin": 92,
+      "target": 88,
+      "reason": "queue_recheck",
+      "past_wait_seconds": 545.7571985365867,
+      "physical_future_walk_min": 1.712443005103499,
+      "physical_future_wait_prep_min": 3.4573180160589496,
+      "base_generalized_cost_min": 38.23341866889134,
+      "extra_cumulative_wait_burden_min": 10.71688624742624,
+      "selected_generalized_cost_min": 48.95030491631758,
+      "prediction_eta": 52697.434411866896,
+      "old_eta": 52091.31235732685
+    },
+    {
+      "case": "new",
+      "time": 51113.053527185744,
+      "origin": 88,
+      "target": 71,
+      "reason": "service_rejected_or_full",
+      "past_wait_seconds": 753.1972795001202,
+      "physical_future_walk_min": 3.3128779579987,
+      "physical_future_wait_prep_min": 1.4132336197654998,
+      "base_generalized_cost_min": 45.14737907522959,
+      "extra_cumulative_wait_burden_min": 5.77515952458923,
+      "selected_generalized_cost_min": 50.92253859981874,
+      "prediction_eta": 53082.948675266205,
+      "old_eta": 53303.55646557834
+    },
+    {
+      "case": "new",
+      "time": 51964.09611145401,
+      "origin": 54,
+      "target": 17,
+      "reason": "boarding_joint_choice",
+      "past_wait_seconds": 934.6554616852809,
+      "physical_future_walk_min": 1.5233690528564379,
+      "physical_future_wait_prep_min": 6.328796443026537,
+      "base_generalized_cost_min": 42.26978402909855,
+      "extra_cumulative_wait_burden_min": 42.75976457483692,
+      "selected_generalized_cost_min": 85.02954860393548,
+      "prediction_eta": 53699.17752708503,
+      "old_eta": 53391.06310157595
+    },
+    {
+      "case": "new",
+      "time": 52251.439841444604,
+      "origin": 17,
+      "target": 53,
+      "reason": "boarding_joint_choice",
+      "past_wait_seconds": 1158.7283067922835,
+      "physical_future_walk_min": 4.848266127698037,
+      "physical_future_wait_prep_min": 2.2517374870078735,
+      "base_generalized_cost_min": 43.83286091397551,
+      "extra_cumulative_wait_burden_min": 17.246174438116814,
+      "selected_generalized_cost_min": 61.07903535209216,
+      "prediction_eta": 53699.17752708503,
+      "old_eta": 54908.561940548956
+    },
+    {
+      "case": "new",
+      "time": 52567.92843630822,
+      "origin": 53,
+      "target": null,
+      "reason": "boarding_joint_choice",
+      "past_wait_seconds": 1212.391681706431,
+      "physical_future_walk_min": 51.90808908289556,
+      "physical_future_wait_prep_min": 0.0,
+      "base_generalized_cost_min": 139.1973900594651,
+      "extra_cumulative_wait_burden_min": 0.0,
+      "selected_generalized_cost_min": 139.1973900594651,
+      "prediction_eta": 55682.41378128195,
+      "old_eta": 55936.5040713221
+    },
+    {
+      "case": "previous",
+      "time": 50086.039902144585,
+      "origin": 77,
+      "target": 92,
+      "reason": "queue_recheck",
+      "past_wait_seconds": 87.727702340635,
+      "physical_future_walk_min": 2.742668347609761,
+      "physical_future_wait_prep_min": 0.7367437951060614,
+      "base_generalized_cost_min": 21.116529785607415,
+      "extra_cumulative_wait_burden_min": 0.2730021296331003,
+      "selected_generalized_cost_min": 21.389531915240514,
+      "prediction_eta": 50924.95475179235,
+      "old_eta": 52088.128552435446
+    }
+  ],
+  "forecast_targets_and_realized_flows": [
+    {
+      "decision_time": 50231.30231397559,
+      "target_time": 50269.31117314806,
+      "node": 12,
+      "vehicle": 268,
+      "route": "shuttle-41946",
+      "board_index": 10,
+      "predicted_known_entry_load": 34.114904242962446,
+      "reserved_capacity_proxy": 0.0,
+      "realized_simulated_event": [
+        50269.31117314806,
+        12,
+        268,
+        60,
+        11.014722388785303,
+        8.210387877493542,
+        5.6106165936983485,
+        8.41495110499011,
+        0.0,
+        0.0,
+        0.6359155478038871,
+        "shuttle-41946",
+        10
+      ],
+      "same_clock_as_forecast": true,
+      "eligible_ready_queue_at_prediction": 30.310569731670682,
+      "eligible_ready_queue_before_vehicle": 39.7991362031163,
+      "eligible_becoming_ready_before_vehicle": 9.488566471445612,
+      "eligible_exiting_before_vehicle": 0,
+      "flow_identity_residual": 7.105427357601002e-15,
+      "lineage_outcome": "voluntary_decline",
+      "is_measured_real_world_data": false
+    },
+    {
+      "decision_time": 50269.31117314806,
+      "target_time": 50578.524619567244,
+      "node": 92,
+      "vehicle": 1152,
+      "route": "120900011",
+      "board_index": 27,
+      "predicted_known_entry_load": 17.003103397187093,
+      "reserved_capacity_proxy": 2.3198929858842714,
+      "realized_simulated_event": [
+        50578.524619567244,
+        92,
+        1152,
+        24,
+        24.0,
+        9.266555229122346,
+        9.266555229122343,
+        23.999999999999996,
+        91.93102906244305,
+        91.93102906244305,
+        92.50643559043785,
+        "120900011",
+        27
+      ],
+      "same_clock_as_forecast": true,
+      "eligible_ready_queue_at_prediction": 13.051647940109092,
+      "eligible_ready_queue_before_vehicle": 101.7729908195603,
+      "eligible_becoming_ready_before_vehicle": 107.68445014637776,
+      "eligible_exiting_before_vehicle": 18.96310726692654,
+      "flow_identity_residual": 0.0,
+      "lineage_outcome": "target_vehicle_filled_before_this_lineage_boarded",
+      "is_measured_real_world_data": false
+    },
+    {
+      "decision_time": 50822.119916592215,
+      "target_time": 51113.05252718575,
+      "node": 88,
+      "vehicle": 1311,
+      "route": "120900012",
+      "board_index": 12,
+      "predicted_known_entry_load": 7.6948092860361115,
+      "reserved_capacity_proxy": 0.07481359385928243,
+      "realized_simulated_event": [
+        51113.05252718575,
+        88,
+        1311,
+        24,
+        0.0,
+        0.0,
+        24.00000000000002,
+        24.00000000000002,
+        33.314640316539794,
+        33.314640316539794,
+        33.31464031653968,
+        "120900012",
+        12
+      ],
+      "same_clock_as_forecast": true,
+      "eligible_ready_queue_at_prediction": 6.694809286036111,
+      "eligible_ready_queue_before_vehicle": 58.00878152491463,
+      "eligible_becoming_ready_before_vehicle": 53.0902578320393,
+      "eligible_exiting_before_vehicle": 1.776285593160783,
+      "flow_identity_residual": 7.105427357601002e-15,
+      "lineage_outcome": "target_vehicle_filled_before_this_lineage_boarded",
+      "is_measured_real_world_data": false
+    },
+    {
+      "decision_time": 51113.053527185744,
+      "target_time": 51342.85555490186,
+      "node": 71,
+      "vehicle": 843,
+      "route": "100100253",
+      "board_index": 7,
+      "predicted_known_entry_load": 2.370015542845046,
+      "reserved_capacity_proxy": 0.0,
+      "realized_simulated_event": [
+        51342.85555490186,
+        71,
+        843,
+        50,
+        0.7309289838922096,
+        0.7309289838922096,
+        50.00000000000001,
+        50.00000000000001,
+        20.339270280309645,
+        20.339270280309645,
+        21.22521366468269,
+        "100100253",
+        7
+      ],
+      "same_clock_as_forecast": true,
+      "eligible_ready_queue_at_prediction": 1.3700155428450431,
+      "eligible_ready_queue_before_vehicle": 72.27555891419732,
+      "eligible_becoming_ready_before_vehicle": 71.4261492776334,
+      "eligible_exiting_before_vehicle": 0.5206059062811164,
+      "flow_identity_residual": 0.0,
+      "lineage_outcome": "target_vehicle_filled_before_this_lineage_boarded",
+      "is_measured_real_world_data": false
+    },
+    {
+      "decision_time": 51964.09611145401,
+      "target_time": 52251.439841444604,
+      "node": 17,
+      "vehicle": 340,
+      "route": "shuttle-41914",
+      "board_index": 1,
+      "predicted_known_entry_load": 1.0,
+      "reserved_capacity_proxy": 0.0,
+      "realized_simulated_event": [
+        52251.439841444604,
+        17,
+        340,
+        25,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.609024107869118e-15,
+        "shuttle-41914",
+        1
+      ],
+      "same_clock_as_forecast": true,
+      "eligible_ready_queue_at_prediction": 0,
+      "eligible_ready_queue_before_vehicle": 2.319892985884273,
+      "eligible_becoming_ready_before_vehicle": 2.411227355407276,
+      "eligible_exiting_before_vehicle": 0.09133436952300288,
+      "flow_identity_residual": 0.0,
+      "lineage_outcome": "voluntary_decline",
+      "is_measured_real_world_data": false
+    },
+    {
+      "decision_time": 52251.439841444604,
+      "target_time": 52567.92843630822,
+      "node": 53,
+      "vehicle": 838,
+      "route": "100100253",
+      "board_index": 63,
+      "predicted_known_entry_load": 1.0,
+      "reserved_capacity_proxy": 15.72632271619203,
+      "realized_simulated_event": [
+        52567.92843630822,
+        53,
+        838,
+        50,
+        0.21121072952194414,
+        0.0,
+        0.0,
+        0.21121072952194414,
+        0.0,
+        0.0,
+        4.141131881851834e-14,
+        "100100253",
+        63
+      ],
+      "same_clock_as_forecast": true,
+      "eligible_ready_queue_at_prediction": 0,
+      "eligible_ready_queue_before_vehicle": 1.5709511557956495,
+      "eligible_becoming_ready_before_vehicle": 1.5709511557956495,
+      "eligible_exiting_before_vehicle": 0,
+      "flow_identity_residual": 0.0,
+      "lineage_outcome": "voluntary_decline",
+      "is_measured_real_world_data": false
+    }
+  ],
+  "visited_nodes": [
+    {
+      "node": 77,
+      "name": "관악사삼거리",
+      "ars": "21279",
+      "lat": 37.460787,
+      "lon": 126.956725,
+      "straight_line_to_destination_m": 1869.8999799585786
+    },
+    {
+      "node": 12,
+      "name": "기숙사삼거리",
+      "ars": null,
+      "lat": 37.4608353336368,
+      "lon": 126.956652761066,
+      "straight_line_to_destination_m": 1866.2878979516818
+    },
+    {
+      "node": 92,
+      "name": "대학원생활관",
+      "ars": "21564",
+      "lat": 37.4623361202,
+      "lon": 126.9573923129,
+      "straight_line_to_destination_m": 1688.4848772783528
+    },
+    {
+      "node": 88,
+      "name": "대학원생활관",
+      "ars": "21897",
+      "lat": 37.461972752,
+      "lon": 126.9567820806,
+      "straight_line_to_destination_m": 1741.1346626194786
+    },
+    {
+      "node": 71,
+      "name": "관악사삼거리",
+      "ars": "21286",
+      "lat": 37.460528,
+      "lon": 126.95666,
+      "straight_line_to_destination_m": 1899.223627682027
+    },
+    {
+      "node": 54,
+      "name": "유회진학술정보관.제1공학관",
+      "ars": "21276",
+      "lat": 37.451283,
+      "lon": 126.952595,
+      "straight_line_to_destination_m": 2985.4646241526534
+    },
+    {
+      "node": 17,
+      "name": "301동(제1공학관)",
+      "ars": null,
+      "lat": 37.4513145395911,
+      "lon": 126.952504907509,
+      "straight_line_to_destination_m": 2984.3124457840695
+    },
+    {
+      "node": 53,
+      "name": "제2공학관",
+      "ars": "21275",
+      "lat": 37.4487952024,
+      "lon": 126.9520772668,
+      "straight_line_to_destination_m": 3264.086471116817
+    }
+  ],
+  "nearby_different_node_pairs": [
+    {
+      "nodes": [
+        77,
+        12
+      ],
+      "names": [
+        "관악사삼거리",
+        "기숙사삼거리"
+      ],
+      "straight_line_m": 8.338980593314885
+    },
+    {
+      "nodes": [
+        92,
+        88
+      ],
+      "names": [
+        "대학원생활관",
+        "대학원생활관"
+      ],
+      "straight_line_m": 67.3308640997957
+    },
+    {
+      "nodes": [
+        77,
+        71
+      ],
+      "names": [
+        "관악사삼거리",
+        "관악사삼거리"
+      ],
+      "straight_line_m": 29.365368996972812
+    }
+  ],
+  "latest_peer_final_snapshot": {
+    "status": "RARE_TAIL_REGRESSION_EXPOSED_NOT_CAUSAL_ISOLATION",
+    "new_case": {
+      "case": "release1p125-combined-regular-tue",
+      "mode": "combined",
+      "day": "화",
+      "scenario": "regular",
+      "seed": 0,
+      "operations": "v12_empirical"
+    },
+    "new_worst": {
+      "id": 1205536,
+      "parent_id": 75346,
+      "weight": 0.19180217599830604,
+      "duration_min": 101.47449089305276,
+      "leg_time_minutes": {
+        "walk": 73.27218509828757,
+        "queue_wait": 20.206528028440516,
+        "ride": 7.995777766324681
+      },
+      "route_change_count": 7,
+      "history": [
+        [
+          50231.30231397559,
+          "walk_transfer",
+          "도보→기숙사삼거리 · 교내 순환 셔틀 / 관악02-2"
+        ],
+        [
+          50269.31117314806,
+          "walk_transfer",
+          "도보→대학원생활관 · 관악02-1"
+        ],
+        [
+          50822.119916592215,
+          "walk_transfer",
+          "도보→대학원생활관 · 관악02-2"
+        ],
+        [
+          51113.053527185744,
+          "walk_transfer",
+          "도보→관악사삼거리 · 5516 / 관악02-1"
+        ],
+        [
+          51964.09611145401,
+          "walk_transfer",
+          "도보→301동(제1공학관) · 교내 역순환 셔틀 / 관악02-1"
+        ],
+        [
+          52251.439841444604,
+          "walk_transfer",
+          "도보→제2공학관 · 5516 / 관악02-1"
+        ],
+        [
+          52567.92843630822,
+          "walk",
+          "목적지까지 도보"
+        ]
+      ],
+      "wait_stop_names": [
+        "관악사삼거리",
+        "기숙사삼거리",
+        "대학원생활관",
+        "대학원생활관",
+        "관악사삼거리",
+        "유회진학술정보관.제1공학관",
+        "301동(제1공학관)",
+        "제2공학관"
+      ]
+    },
+    "same_source_parent_before": [
+      {
+        "id": 1205536,
+        "parent_id": 75346,
+        "weight": 0.19180217599830604,
+        "duration_min": 27.460901413572962,
+        "leg_time_minutes": {
+          "walk": 9.656103859915795,
+          "queue_wait": 7.19535941152523,
+          "ride": 10.609438142131937
+        },
+        "route_change_count": 1,
+        "history": [
+          [
+            50086.039902144585,
+            "walk_transfer",
+            "도보→대학원생활관 · 관악02-1"
+          ]
+        ],
+        "wait_stop_names": [
+          "관악사삼거리",
+          "대학원생활관"
+        ]
+      }
+    ],
+    "case_scenario_weight": 17683.5,
+    "new_worst_weight_share": 1.0846392173399272e-05,
+    "over90_trip_weight": 3.078874880857962,
+    "source_audit_sha256": "87e8f0d7af254cdcc33bede6c4582e4cceb4f2ff2c7d7a75d0ab9a80617c7500",
+    "parent_audit_sha256": "dc7593f0557189f406f9dd8544f44645e5754e5be571f6c63e2b1fc5e25307a7",
+    "correction_note": "Earlier tail_regression_diagnosis.json omitted ride type3. The preserved label snapshot later called unused type2 preparation. Actual engine records0 walk/1 queue/3 ride; boarding preparation is included in queue time. The final numbers sum to endpoint duration. These diagnostic corrections do not change model outputs.",
+    "interpretation": "Same source parent, different individual timing, walking factor and endogenous random decision path. This is not alpha-only causal attribution. Unlimited changes allow rare long histories; first-boardable continuation remains approximate. Do not clip the trip or count its weight as a measured person.",
+    "schema_evidence": "engine.py:228 queue leg,239 walking leg,526 ride leg; no separate type2 emitted in current engine",
+    "preserved_label_snapshot_sha256": "6ebcca3a3bc23f7b41aa02a4e10539ec1870dcfc5d0b6337207d139e614e2133"
+  },
+  "latest_peer_final_sha256": "669aab36feaebcef9e7732ea8e5f98b2bcb0844886375e79ea0c83e6e1c590ce",
+  "latest_peer_final_changed_since_intake": true,
+  "change_scope": "peer diagnostic labels corrected; diagnosis is recomputed from immutable audit0/1/3 legs",
+  "source_files_unchanged": true,
+  "new_date_outcomes_read": false,
+  "simulator_rerun": false,
+  "production_writes": false
+}
